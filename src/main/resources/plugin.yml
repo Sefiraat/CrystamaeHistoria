@@ -1,0 +1,14 @@
+name: CrystamaeHistoria
+author: Sefiraat
+description: A magical addon with a Technical vibe allowing for automatic procudction of most things and adding cool new tools!
+main: io.github.sefiraat.crystamaehistoria.CrystamaeHistoria
+website: https://github.com/Sefiraat/CrystamaeHistoria
+version: ${project.version}
+api-version: 1.17
+depend:
+  - Slimefun
+commands:
+  slimetinker:
+    description: /historia
+    usage: /historia <sub>
+    aliases: [ch, hist]
