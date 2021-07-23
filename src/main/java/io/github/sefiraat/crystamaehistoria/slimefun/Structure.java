@@ -2,7 +2,6 @@ package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.categories.Categories;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.Machines;
 import lombok.Getter;
 
 public class Structure {

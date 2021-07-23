@@ -4,12 +4,12 @@ import io.github.mooy1.infinitylib.AbstractAddon;
 import io.github.mooy1.infinitylib.bstats.bukkit.Metrics;
 import io.github.sefiraat.crystamaehistoria.listeners.ListenerManager;
 import io.github.sefiraat.crystamaehistoria.slimefun.Structure;
+import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.theme.ThemeManager;
 import io.github.sefiraat.crystamaehistoria.utils.KeyHolder;
 import lombok.Getter;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.List;
+import org.jetbrains.annotations.Nullable;
 
 public class CrystamaeHistoria extends AbstractAddon {
 
@@ -26,9 +26,11 @@ public class CrystamaeHistoria extends AbstractAddon {
     private Structure structure;
     @Getter
     private ListenerManager listenerManager;
+    @Getter
+    private StoriesManager storiesManager;
 
     @Override
-    public void onAddonEnable() {
+    public void enable() {
 
         instance = this;
 
@@ -41,11 +43,12 @@ public class CrystamaeHistoria extends AbstractAddon {
         this.themeManager = new ThemeManager();
         this.structure = new Structure();
         this.listenerManager = new ListenerManager();
+        this.storiesManager = new StoriesManager();
 
     }
 
     @Override
-    protected void onAddonDisable() {
+    protected void disable() {
         saveConfig();
         instance = null;
     }
@@ -58,6 +61,16 @@ public class CrystamaeHistoria extends AbstractAddon {
     @Override
     protected @NotNull String getGithubPath() {
         return "Sefiraat/CrystamaeHistoria/master";
+    }
+
+    @Nullable
+    @Override
+    public String getAutoUpdatePath() {
+        return "auto-update";
+    }
+
+    public static StoriesManager getStoriesManager() {
+        return instance.storiesManager;
     }
 
 }

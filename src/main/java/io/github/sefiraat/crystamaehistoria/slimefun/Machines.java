@@ -1,7 +1,7 @@
-package io.github.sefiraat.crystamaehistoria.slimefun.machines;
+package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.slimefun.Structure;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.ChroniclerPanel;
 import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
 import io.github.sefiraat.crystamaehistoria.utils.ThemeUtils;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;

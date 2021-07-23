@@ -3,12 +3,13 @@ package io.github.sefiraat.crystamaehistoria.slimefun.machines;
 import io.github.mooy1.infinitylib.slimefun.AbstractTickingContainer;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.runnables.animation.FloatingHeadAnimation;
-import io.github.sefiraat.crystamaehistoria.stories.BlockTier;
 import io.github.sefiraat.crystamaehistoria.stories.StoriedBlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.theme.GUIElements;
 import io.github.sefiraat.crystamaehistoria.utils.AnimateUtils;
+import io.github.sefiraat.crystamaehistoria.utils.EntityUtils;
 import io.github.sefiraat.crystamaehistoria.utils.KeyHolder;
+import io.github.sefiraat.crystamaehistoria.utils.StackUtils;
 import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
 import me.mrCookieSlime.Slimefun.Lists.RecipeType;
 import me.mrCookieSlime.Slimefun.Objects.Category;
@@ -18,7 +19,6 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import me.mrCookieSlime.Slimefun.api.inventory.DirtyChestMenu;
 import me.mrCookieSlime.Slimefun.api.item_transport.ItemTransportFlow;
-import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -60,6 +60,7 @@ public class ChroniclerPanel extends AbstractTickingContainer {
     private StoriedBlockDefinition storiedBlockDefinition;
     private String armourStandName;
     private FloatingHeadAnimation animation;
+    private Location blockMiddle;
 
     public ChroniclerPanel(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
@@ -117,6 +118,7 @@ public class ChroniclerPanel extends AbstractTickingContainer {
     }
 
     private void setWorking(Block block, Material m) {
+        blockMiddle = block.getLocation().clone().add(0.5, 0.5, 0.5);
         workingOn = m;
         working = true;
         BlockStorage.addBlockInfo(block, KeyHolder.BS_CP_WORKING_ON, m.toString());
@@ -127,13 +129,13 @@ public class ChroniclerPanel extends AbstractTickingContainer {
         if (armourStand != null) {
             startAnimation();
         }
-        storiedBlockDefinition = StoriesManager.getSTORIED_BLOCK_MAP().get(m);
+        storiedBlockDefinition = CrystamaeHistoria.getStoriesManager().getStoriedBlockDefinitionMap().get(m);
     }
 
     private void startAnimation() {
         AnimateUtils.panelAnimationReset(armourStand, menu.getBlock());
         animation = new FloatingHeadAnimation(armourStand);
-        animation.runTaskTimer(CrystamaeHistoria.inst(), 0, 2);
+        animation.runTaskTimer(CrystamaeHistoria.inst(), 0, FloatingHeadAnimation.SPEED);
     }
 
     private void setNotWorking(Block block) {
@@ -153,14 +155,14 @@ public class ChroniclerPanel extends AbstractTickingContainer {
     private void processStack(ItemStack i) {
         summonParticles();
         // If this block isn't storied, make it storied then add the initial story set
-        if (StoryUtils.getRemainingStoryAmount(i) > 0) {
-            CrystamaeHistoria.inst().getLogger().info("has stories");
+        if (StoryUtils.hasRemainingStorySlots(i)) {
             int rnd = ThreadLocalRandom.current().nextInt(1, 1001);
             int req = storiedBlockDefinition.getTier().chroniclingChance;
             if (rnd <= req) {
                 // We can chronicle a story
-                menu.getBlock().getWorld().playEffect(menu.getLocation(), Effect.END_PORTAL_CREATED_IN_OVERWORLD, 1);
-                StoryUtils.incrementStoryAmount(i);
+                StoryUtils.requestNewStory(i);
+                StackUtils.rebuildStoriedStack(i);
+                menu.getBlock().getWorld().strikeLightningEffect(blockMiddle);
             }
         }
     }
@@ -222,25 +224,17 @@ public class ChroniclerPanel extends AbstractTickingContainer {
 
     private ArmorStand setupArmourStand(Block block) {
         // Check for an existing stand
-        for (ArmorStand e : block.getLocation().getNearbyEntitiesByType(ArmorStand.class, 2)) {
-            String name = e.getCustomName();
-            CrystamaeHistoria.inst().getLogger().info(name);
-            CrystamaeHistoria.inst().getLogger().info(armourStandName);
-            CrystamaeHistoria.inst().getLogger().info(String.valueOf(name != null && name.equals(armourStandName)));
+        for (ArmorStand a : block.getLocation().getNearbyEntitiesByType(ArmorStand.class, 2)) {
+            String name = EntityUtils.getArmourStandInternal(a);
             if (name != null && name.equals(armourStandName)) {
                 // Found the sucker!
-                return e;
+                return a;
             }
         }
         // None found, spawn in a new one
         ArmorStand a = (ArmorStand) block.getWorld().spawnEntity(block.getLocation().clone().add(0.5, -0.6, 0.5), EntityType.ARMOR_STAND);
-        a.setVisible(false);
-        a.setGravity(false);
-        a.setBasePlate(false);
-        a.setCustomNameVisible(false);
-        a.setRemoveWhenFarAway(false);
-        a.setCollidable(false);
-        a.setCustomName(generateStandName(block));
+        EntityUtils.setArmourStandInternal(a, generateStandName(block));
+        EntityUtils.setDisplayOnlyArmourStand(a);
         return a;
     }
 

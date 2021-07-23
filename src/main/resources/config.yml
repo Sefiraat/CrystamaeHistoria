@@ -1,1 +1,85 @@
 auto-update: true
+stories:
+  common:
+    1:
+      name: Quiet Days
+      type: Elemental
+      shardprofile: [1,0,1,1,0,0,0,0,0]
+      lore:
+        - Present during the beginning of the world.
+        - Everything was quiet and peaceful and serene.
+    2:
+      name: Everlasting
+      type: Historical
+      shardprofile: [1,0,1,1,0,0,0,0,0]
+      lore:
+        - Having seen the rise and fall over empires
+        - this block is proven everlasting and resolute.
+  uncommon:
+    1:
+      name: Quiet Days
+      type: Elemental
+      shardprofile: [1,0,1,1,0,0,0,0,0]
+      lore:
+        - Present during the beginning of the world.
+        - Everything was quiet and peaceful and serene.
+    2:
+      name: Everlasting
+      type: Historical
+      shardprofile: [1,0,1,1,0,0,0,0,0]
+      lore:
+        - Having seen the rise and fall over empires
+        - this block is proven everlasting and resolute.
+  rare:
+    1:
+      name: Quiet Days
+      type: Elemental
+      shardprofile: [1,0,1,1,0,0,0,0,0]
+      lore:
+        - Present during the beginning of the world.
+        - Everything was quiet and peaceful and serene.
+    2:
+      name: Everlasting
+      type: Historical
+      shardprofile: [1,0,1,1,0,0,0,0,0]
+      lore:
+        - Having seen the rise and fall over empires
+        - this block is proven everlasting and resolute.
+  epic:
+    1:
+      name: Quiet Days
+      type: Elemental
+      shardprofile: [1,0,1,1,0,0,0,0,0]
+      lore:
+        - Present during the beginning of the world.
+        - Everything was quiet and peaceful and serene.
+    2:
+      name: Everlasting
+      type: Historical
+      shardprofile: [1,0,1,1,0,0,0,0,0]
+      lore:
+        - Having seen the rise and fall over empires
+        - this block is proven everlasting and resolute.
+  mythical:
+    1:
+      name: Quiet Days
+      type: Elemental
+      shardprofile: [1,0,1,1,0,0,0,0,0]
+      lore:
+        - Present during the beginning of the world.
+        - Everything was quiet and peaceful and serene.
+    2:
+      name: Everlasting
+      type: Historical
+      shardprofile: [1,0,1,1,0,0,0,0,0]
+      lore:
+        - Having seen the rise and fall over empires
+        - this block is proven everlasting and resolute.
+  unique:
+    1:
+      name: Resolute
+      type: Elemental
+      shardprofile: [1,0,1,1,0,0,0,0,0]
+      lore:
+        - Stone is the resolute backbone of the world's
+        - makeup. Ever present and everlasting.

@@ -24,8 +24,14 @@ public class KeyHolder {
     private final NamespacedKey catMech1 = new NamespacedKey(CrystamaeHistoria.inst(), "crysta-mech-1");
 
     // PDC
-    private final NamespacedKey pdcIsStoried = new NamespacedKey(CrystamaeHistoria.inst(), "storied");
-    private final NamespacedKey pdcStories = new NamespacedKey(CrystamaeHistoria.inst(), "stories");
-    private final NamespacedKey pdcCurrentNumberOfStories = new NamespacedKey(CrystamaeHistoria.inst(), "s_current_num");
+    // Items
+    private final NamespacedKey pdcIsStoried = new NamespacedKey(CrystamaeHistoria.inst(), "is_storied");
+    private final NamespacedKey pdcStories = new NamespacedKey(CrystamaeHistoria.inst(), "story_potential");
+    private final NamespacedKey pdcCurrentNumberOfStories = new NamespacedKey(CrystamaeHistoria.inst(), "story_current_number");
+    private final NamespacedKey pdcAppliedStoryList = new NamespacedKey(CrystamaeHistoria.inst(), "story_list");
+
+    // Entities
+    private final NamespacedKey pdcArmourStandName = new NamespacedKey(CrystamaeHistoria.inst(), "a_name");
+    private final NamespacedKey pdcIsDisplayStand = new NamespacedKey(CrystamaeHistoria.inst(), "a_display");
 
 }

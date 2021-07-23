@@ -7,6 +7,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 public class FloatingHeadAnimation extends BukkitRunnable {
 
     public static final double Y_VARIATION = 0.2;
+    public static final long SPEED = 1;
 
     private final ArmorStand armorStand;
     private final double baseY;

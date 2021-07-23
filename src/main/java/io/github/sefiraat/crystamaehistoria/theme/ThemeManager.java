@@ -51,6 +51,11 @@ public class ThemeManager {
         themeMap.put(ThemeType.MOD, new ThemeElement(ChatColor.of("#bf307f"), "Modification"));
         themeMap.put(ThemeType.PROP, new ThemeElement(ChatColor.of("#bf307f"), "Material Trait"));
         themeMap.put(ThemeType.MULT, new ThemeElement(ChatColor.of("#ba12af"), "Mutliblock"));
+        themeMap.put(ThemeType.RTY_COMMON, new ThemeElement(ChatColor.of("#dbdbdb"), "Common"));
+        themeMap.put(ThemeType.RTY_UNCOMMON, new ThemeElement(ChatColor.of("#97d16b"), "Uncommon"));
+        themeMap.put(ThemeType.RTY_RARE, new ThemeElement(ChatColor.of("#d1db5c"), "Rare"));
+        themeMap.put(ThemeType.RTY_EPIC, new ThemeElement(ChatColor.of("#b355d9"), "Epic"));
+        themeMap.put(ThemeType.RTY_MYTHICAL, new ThemeElement(ChatColor.of("#c42336"), "Mythical"));
     }
 
 }

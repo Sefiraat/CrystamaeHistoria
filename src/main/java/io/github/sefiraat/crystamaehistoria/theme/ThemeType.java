@@ -23,5 +23,10 @@ public enum ThemeType {
     INFO,
     MOD,
     PROP,
-    MULT
+    MULT,
+    RTY_COMMON,
+    RTY_UNCOMMON,
+    RTY_RARE,
+    RTY_EPIC,
+    RTY_MYTHICAL
 }

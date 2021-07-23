@@ -1,25 +1,32 @@
 package io.github.sefiraat.crystamaehistoria.utils;
 
-import com.google.gson.JsonElement;
+import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
-import io.github.mooy1.infinitylib.persistence.PersistenceUtils;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.stories.BlockTier;
 import io.github.sefiraat.crystamaehistoria.stories.StoriedBlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
-import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
+import io.github.sefiraat.crystamaehistoria.stories.Story;
+import io.github.sefiraat.crystamaehistoria.stories.StoryChances;
+import io.github.sefiraat.crystamaehistoria.stories.StoryType;
+import io.github.sefiraat.crystamaehistoria.theme.ThemeElement;
+import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
 import me.mrCookieSlime.Slimefun.cscorelib2.data.PersistentDataAPI;
+import net.md_5.bungee.api.ChatColor;
 import org.apache.commons.lang.Validate;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import javax.annotation.Nonnull;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 public class StoryUtils {
 
@@ -47,7 +54,7 @@ public class StoryUtils {
      * @return true if in the stories map
      */
     public static boolean canBeStoried(@Nonnull Material material) {
-        return StoriesManager.getSTORIED_BLOCK_MAP().containsKey(material);
+        return CrystamaeHistoria.getStoriesManager().getStoriedBlockDefinitionMap().containsKey(material);
     }
 
     /**
@@ -67,7 +74,7 @@ public class StoryUtils {
     public static void makeStoried(@Nonnull ItemStack itemStack) {
         ItemMeta itemMeta = itemStack.getItemMeta();
         PersistentDataAPI.setBoolean(itemMeta, CrystamaeHistoria.inst().getKeyHolder().getPdcIsStoried(), true);
-        setStories(itemMeta, getStories(itemStack));
+        setStoryLimits(itemMeta, getStoryLimits(itemStack));
         itemStack.setItemMeta(itemMeta);
     }
 
@@ -78,8 +85,8 @@ public class StoryUtils {
      * @return true if has previously been chronicled at any point
      */
     @Nonnull
-    public static JsonObject getStories(@Nonnull ItemStack itemStack) {
-        return PersistentDataAPI.getJsonObject(itemStack.getItemMeta(), CrystamaeHistoria.inst().getKeyHolder().getPdcStories(), getInitialStoriesObject(itemStack));
+    public static JsonObject getStoryLimits(@Nonnull ItemStack itemStack) {
+        return PersistentDataAPI.getJsonObject(itemStack.getItemMeta(), CrystamaeHistoria.inst().getKeyHolder().getPdcStories(), getInitialStoryLimits(itemStack));
     }
 
     /**
@@ -87,7 +94,7 @@ public class StoryUtils {
      * @param itemMeta The {@link ItemMeta} to add the PDC element to
      * @param jsonObject The {@link JsonObject} to add to the PDC
      */
-    private static void setStories(@Nonnull ItemMeta itemMeta, @Nonnull JsonObject jsonObject) {
+    private static void setStoryLimits(@Nonnull ItemMeta itemMeta, @Nonnull JsonObject jsonObject) {
         PersistentDataAPI.setJsonObject(itemMeta, CrystamaeHistoria.inst().getKeyHolder().getPdcStories(), jsonObject);
     }
 
@@ -96,7 +103,7 @@ public class StoryUtils {
      * @param itemStack The {@link ItemStack} to add the PDC element to
      */
     public static int getMaxStoryAmount(@Nonnull ItemStack itemStack) {
-        return getStories(itemStack).get(KeyHolder.JS_S_AVAILABLE_STORIES).getAsInt();
+        return getStoryLimits(itemStack).get(KeyHolder.JS_S_AVAILABLE_STORIES).getAsInt();
     }
 
     /**
@@ -132,10 +139,18 @@ public class StoryUtils {
 
     /**
      * Gets the ItemStack's remaining possible stories
-     * @param itemStack The {@link ItemMeta} to add the PDC element to
+     * @param itemStack The {@link ItemStack} to check
      */
     public static int getRemainingStoryAmount(@Nonnull ItemStack itemStack) {
         return getMaxStoryAmount(itemStack) - getStoryAmount(itemStack.getItemMeta());
+    }
+
+    /**
+     * Returns boolean if there is room for more stories
+     * @param itemStack The {@link ItemStack} to check
+     */
+    public static boolean hasRemainingStorySlots(@Nonnull ItemStack itemStack) {
+        return getRemainingStoryAmount(itemStack) > 0;
     }
 
     /**
@@ -145,9 +160,9 @@ public class StoryUtils {
      * @return New {@link JsonObject} with content for story count and tier.
      */
     @Nonnull
-    public static JsonObject getInitialStoriesObject(@Nonnull ItemStack itemStack) {
+    public static JsonObject getInitialStoryLimits(@Nonnull ItemStack itemStack) {
         Material m = itemStack.getType();
-        StoriedBlockDefinition definition = StoriesManager.STORIED_BLOCK_MAP.get(m);
+        StoriedBlockDefinition definition = CrystamaeHistoria.getStoriesManager().getStoriedBlockDefinitionMap().get(m);
         Validate.notNull(definition, "The selected material does not have a story definition. This shouldn't happen, SefiDumb™");
         int availableStoryCount = ThreadLocalRandom.current().nextInt(definition.getTier().minStories, definition.getTier().maxStories + 1);
         int tier = definition.getTier().tier;
@@ -155,6 +170,48 @@ public class StoryUtils {
         jsonObject.add(KeyHolder.JS_S_AVAILABLE_STORIES, new JsonPrimitive(availableStoryCount));
         jsonObject.add(KeyHolder.JS_S_TIER, new JsonPrimitive(tier));
         return jsonObject;
+    }
+
+    public static void requestNewStory(ItemStack itemstack) {
+
+        StoriesManager m = CrystamaeHistoria.getStoriesManager();
+
+        StoriedBlockDefinition s = m.getStoriedBlockDefinitionMap().get(itemstack.getType());
+        BlockTier t = s.getTier();
+        StoryChances c = t.storyChances;
+        List<StoryType> p = s.getPools();
+        int rnd = ThreadLocalRandom.current().nextInt(1, 101);
+
+        if (rnd <= c.chanceMythical) addStory(itemstack, p, m.getStoryMapMythical());
+        else if (rnd <= c.chanceEpic) addStory(itemstack, p, m.getStoryMapEpic());
+        else if (rnd <= c.chanceRare) addStory(itemstack, p, m.getStoryMapRare());
+        else if (rnd <= c.chanceUncommon) addStory(itemstack, p, m.getStoryMapUncommon());
+        else addStory(itemstack, p, m.getStoryMapCommon());
+    }
+
+    public static void addStory(ItemStack itemStack, List<StoryType> p, Map<Integer, Story> storyList) {
+        StoryType st = p.get(ThreadLocalRandom.current().nextInt(0, p.size()));
+        List<Story> availableStories = storyList.values().stream().filter(t -> t.getType() == st).collect(Collectors.toList());
+        Story s = availableStories.get(ThreadLocalRandom.current().nextInt(0, availableStories.size()));
+        applyStory(itemStack, s);
+        incrementStoryAmount(itemStack);
+    }
+
+    public static JsonArray getAllStories(ItemStack itemStack) {
+        return PersistentDataAPI.getJsonArray(itemStack.getItemMeta(), CrystamaeHistoria.inst().getKeyHolder().getPdcAppliedStoryList(), new JsonArray());
+    }
+
+    public static void applyStory(ItemStack itemStack, Story story) {
+
+        final ItemMeta im = itemStack.getItemMeta();
+        final JsonArray jsonArray = getAllStories(itemStack);
+
+        final StringBuilder storyString = new StringBuilder();
+        storyString.append(story.getId()).append("|").append(story.getRarity().toString());
+
+        jsonArray.add(storyString.toString());
+        PersistentDataAPI.setJsonArray(im, CrystamaeHistoria.inst().getKeyHolder().getPdcAppliedStoryList(), jsonArray);
+        itemStack.setItemMeta(im);
     }
 
 

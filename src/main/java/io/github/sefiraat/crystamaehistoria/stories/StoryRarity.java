@@ -5,5 +5,6 @@ public enum StoryRarity {
     Uncommon,
     Rare,
     Epic,
-    Mythical
+    Mythical,
+    Unique
 }
