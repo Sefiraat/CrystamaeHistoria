@@ -6,6 +6,7 @@ import lombok.Getter;
 import org.apache.commons.lang.Validate;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
+
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -45,13 +46,13 @@ public class StoriesManager {
                 1,
                 new BlockTier(
                         1,
-                        25,
+                        900,
                         3,
                         1,
                         new StoryChances(
                                 90,
-                                8,
-                                2,
+                                10,
+                                0,
                                 0,
                                 0
                         )

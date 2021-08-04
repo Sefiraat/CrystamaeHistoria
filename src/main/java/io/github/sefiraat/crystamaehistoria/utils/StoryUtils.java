@@ -10,10 +10,7 @@ import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.stories.Story;
 import io.github.sefiraat.crystamaehistoria.stories.StoryChances;
 import io.github.sefiraat.crystamaehistoria.stories.StoryType;
-import io.github.sefiraat.crystamaehistoria.theme.ThemeElement;
-import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
 import me.mrCookieSlime.Slimefun.cscorelib2.data.PersistentDataAPI;
-import net.md_5.bungee.api.ChatColor;
 import org.apache.commons.lang.Validate;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -207,7 +204,7 @@ public class StoryUtils {
         final JsonArray jsonArray = getAllStories(itemStack);
 
         final StringBuilder storyString = new StringBuilder();
-        storyString.append(story.getId()).append("|").append(story.getRarity().toString());
+        storyString.append(story.getId()).append("|").append(story.getStoryRarity().toString());
 
         jsonArray.add(storyString.toString());
         PersistentDataAPI.setJsonArray(im, CrystamaeHistoria.inst().getKeyHolder().getPdcAppliedStoryList(), jsonArray);
