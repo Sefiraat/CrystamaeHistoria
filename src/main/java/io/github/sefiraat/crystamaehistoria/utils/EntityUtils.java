@@ -1,41 +1,37 @@
 package io.github.sefiraat.crystamaehistoria.utils;
 
-import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import me.mrCookieSlime.Slimefun.cscorelib2.data.PersistentDataAPI;
-import org.bukkit.block.Block;
-import org.bukkit.entity.ArmorStand;
+import lombok.experimental.UtilityClass;
+import org.bukkit.Location;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
+import org.bukkit.entity.LivingEntity;
+import org.bukkit.util.Vector;
 
+import javax.annotation.Nullable;
+
+@UtilityClass
 public class EntityUtils {
 
-    public static void setArmourStandInternal(ArmorStand a, String s) {
-        PersistentDataAPI.setString(a, CrystamaeHistoria.inst().getKeyHolder().getPdcArmourStandName(), s);
+    public static void push(Entity pushed, Location loc, double force) {
+        Vector v = loc.toVector().subtract(pushed.getLocation().toVector()).normalize().multiply(force);
+        v.add(new Vector(0, force, 0));
+        pushed.setVelocity(v);
     }
 
-    public static String getArmourStandInternal(ArmorStand a) {
-        return PersistentDataAPI.getString(a, CrystamaeHistoria.inst().getKeyHolder().getPdcArmourStandName());
+    public static void pull(Entity pushed, Location loc, double force) {
+        Vector v = pushed.getLocation().toVector().subtract(loc.toVector()).normalize().multiply(force);
+        v.add(new Vector(0, force, 0));
+        pushed.setVelocity(v);
     }
 
-    public static void setDisplayStand(ArmorStand a) {
-        PersistentDataAPI.setBoolean(a, CrystamaeHistoria.inst().getKeyHolder().getPdcIsDisplayStand(), true);
+    public static void damageEntity(LivingEntity livingEntity, LivingEntity caster, int damage) {
+        damageEntity(livingEntity, caster, damage, null, 0);
     }
 
-    public static Boolean isDisplayStand(ArmorStand a) {
-        return PersistentDataAPI.getBoolean(a, CrystamaeHistoria.inst().getKeyHolder().getPdcIsDisplayStand());
-    }
-
-
-    public static void setDisplayOnlyArmourStand(ArmorStand a) {
-        a.setVisible(false);
-        a.setGravity(false);
-        a.setBasePlate(false);
-        a.setCustomNameVisible(false);
-        a.setRemoveWhenFarAway(false);
-        a.setCollidable(false);
-        a.setInvulnerable(true);
-        a.setCustomName(ThemeUtils.getRandomEggName());
-        setDisplayStand(a);
+    public static void damageEntity(LivingEntity livingEntity, LivingEntity caster, int damage, @Nullable Location knockbackOrigin, double knockbackForce) {
+        livingEntity.damage(damage, caster);
+        if (knockbackOrigin != null && knockbackForce > 0) {
+            EntityUtils.push(livingEntity, knockbackOrigin, knockbackForce);
+        }
     }
 
 }

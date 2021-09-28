@@ -8,7 +8,7 @@ api-version: 1.17
 depend:
   - Slimefun
 commands:
-  slimetinker:
+  crystamaehistoria:
     description: /historia
     usage: /historia <sub>
     aliases: [ch, hist]

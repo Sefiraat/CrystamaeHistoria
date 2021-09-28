@@ -1,4 +1,7 @@
 auto-update: true
+messages:
+  spells:
+    teleport_no_suitable_location: "No suitable place to teleport to"
 stories:
   common:
     1:

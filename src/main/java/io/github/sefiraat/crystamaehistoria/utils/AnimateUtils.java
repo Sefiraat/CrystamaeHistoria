@@ -1,10 +1,12 @@
 package io.github.sefiraat.crystamaehistoria.utils;
 
+import lombok.experimental.UtilityClass;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.util.EulerAngle;
 
+@UtilityClass
 public class AnimateUtils {
 
     public static void panelAnimationStep(ArmorStand armorStand, boolean directionUp) {

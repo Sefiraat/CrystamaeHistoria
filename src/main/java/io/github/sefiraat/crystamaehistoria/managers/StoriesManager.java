@@ -1,7 +1,14 @@
-package io.github.sefiraat.crystamaehistoria.stories;
+package io.github.sefiraat.crystamaehistoria.managers;
 
-import io.github.mooy1.infinitylib.configuration.AddonConfig;
+import io.github.mooy1.infinitylib.core.AddonConfig;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.stories.BlockTier;
+import io.github.sefiraat.crystamaehistoria.stories.StoriedBlockDefinition;
+import io.github.sefiraat.crystamaehistoria.stories.Story;
+import io.github.sefiraat.crystamaehistoria.stories.StoryChances;
+import io.github.sefiraat.crystamaehistoria.stories.StoryRarity;
+import io.github.sefiraat.crystamaehistoria.stories.StoryShardProfile;
+import io.github.sefiraat.crystamaehistoria.stories.StoryType;
 import lombok.Getter;
 import org.apache.commons.lang.Validate;
 import org.bukkit.Material;
@@ -20,7 +27,6 @@ public class StoriesManager {
     private final Map<Material, StoriedBlockDefinition> storiedBlockDefinitionMap = new EnumMap<>(Material.class);
     @Getter
     private final Map<Integer, BlockTier> blockTierMap = new HashMap<>();
-
     @Getter
     private final Map<Integer, Story> storyMapCommon = new HashMap<>();
     @Getter
@@ -46,7 +52,7 @@ public class StoriesManager {
                 1,
                 new BlockTier(
                         1,
-                        900,
+                        300,
                         3,
                         1,
                         new StoryChances(

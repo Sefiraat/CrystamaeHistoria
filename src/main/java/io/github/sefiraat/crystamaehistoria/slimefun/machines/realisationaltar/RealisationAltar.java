@@ -1,25 +1,22 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar;
 
-import io.github.mooy1.infinitylib.slimefun.AbstractTickingContainer;
+import io.github.mooy1.infinitylib.machines.TickingMenuBlock;
 import io.github.sefiraat.crystamaehistoria.theme.GUIElements;
-import me.mrCookieSlime.Slimefun.Lists.RecipeType;
-import me.mrCookieSlime.Slimefun.Objects.Category;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
-import me.mrCookieSlime.Slimefun.api.inventory.DirtyChestMenu;
-import me.mrCookieSlime.Slimefun.api.item_transport.ItemTransportFlow;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import java.util.HashMap;
 import java.util.Map;
 
-public class RealisationAltar extends AbstractTickingContainer {
+public class RealisationAltar extends TickingMenuBlock {
 
     protected static final int[] BACKGROUND_SLOTS = {
             0 ,1 ,2 ,3 ,4 ,5 ,6 ,7 ,8 ,
@@ -37,12 +34,12 @@ public class RealisationAltar extends AbstractTickingContainer {
 
     private final Map<Location, RealisationAltarCache> caches = new HashMap<>();
 
-    public RealisationAltar(Category category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
-        super(category, item, recipeType, recipe);
+    public RealisationAltar(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
+        super(itemGroup, item, recipeType, recipe);
     }
 
     @Override
-    protected void tick(@NotNull BlockMenu blockMenu, @NotNull Block block) {
+    protected void tick(Block block, BlockMenu blockMenu) {
         RealisationAltarCache cache = RealisationAltar.this.caches.get(block.getLocation());
         if (cache != null) {
             cache.process();
@@ -50,19 +47,25 @@ public class RealisationAltar extends AbstractTickingContainer {
     }
 
     @Override
-    protected void setupMenu(BlockMenuPreset blockMenuPreset) {
+    protected void setup(BlockMenuPreset blockMenuPreset) {
         blockMenuPreset.drawBackground(GUIElements.menuBackground(), BACKGROUND_SLOTS);
         blockMenuPreset.drawBackground(GUIElements.menuBackgroundInput(), BACKGROUND_INPUT);
     }
 
     @Override
-    protected int @NotNull [] getTransportSlots(@NotNull DirtyChestMenu dirtyChestMenu, @NotNull ItemTransportFlow itemTransportFlow, ItemStack itemStack) {
+    protected int[] getInputSlots() {
         return new int[0];
     }
 
     @Override
-    protected void onBreak(@Nonnull BlockBreakEvent event, @Nonnull BlockMenu blockMenu, @Nonnull Location location) {
-        super.onBreak(event, blockMenu, location);
+    protected int[] getOutputSlots() {
+        return new int[0];
+    }
+
+    @Override
+    protected void onBreak(@Nonnull BlockBreakEvent event, @Nonnull BlockMenu blockMenu) {
+        super.onBreak(event, blockMenu);
+        Location location = blockMenu.getLocation();
         RealisationAltarCache realisationAltarCache = caches.remove(location);
         if (realisationAltarCache != null) {
             realisationAltarCache.kill(location);
@@ -78,7 +81,8 @@ public class RealisationAltar extends AbstractTickingContainer {
     }
 
     @Override
-    protected boolean synchronised() {
+    protected boolean synchronous() {
         return true;
     }
+
 }

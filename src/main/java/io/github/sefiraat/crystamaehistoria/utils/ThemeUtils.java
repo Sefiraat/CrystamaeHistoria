@@ -4,13 +4,15 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.stories.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.theme.ThemeElement;
 import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import lombok.NonNull;
 import lombok.experimental.UtilityClass;
-import me.mrCookieSlime.Slimefun.api.SlimefunItemStack;
 import net.md_5.bungee.api.ChatColor;
 import org.apache.commons.lang.WordUtils;
 import org.bukkit.Particle;
 import org.bukkit.inventory.ItemStack;
 
+import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -25,11 +27,13 @@ public final class ThemeUtils {
      * @param themeType The {@link ThemeType} to get from the ThemeMap
      * @return Returns the {@link ChatColor} from the {@link io.github.sefiraat.crystamaehistoria.theme.ThemeElement}
      */
-    public static ChatColor getThemeColor(ThemeType themeType) {
+    @Nonnull
+    public static ChatColor getThemeColor(@Nonnull ThemeType themeType) {
         return getThemeElement(themeType).getThemeColor();
     }
 
-    public static ThemeElement getRarityTheme(StoryRarity storyRarity) {
+    @Nonnull
+    public static ThemeElement getRarityTheme(@Nonnull StoryRarity storyRarity) {
         switch (storyRarity) {
             case Common:
                 return getThemeElement(ThemeType.RTY_COMMON);
@@ -46,8 +50,9 @@ public final class ThemeUtils {
         }
     }
 
-    public static ThemeElement getThemeElement(ThemeType themeType) {
-        return CrystamaeHistoria.inst().getThemeManager().getThemeMap().get(themeType);
+    @Nonnull
+    public static ThemeElement getThemeElement(@Nonnull ThemeType themeType) {
+        return CrystamaeHistoria.getThemeManager().getThemeMap().get(themeType);
     }
 
     /**
@@ -55,8 +60,14 @@ public final class ThemeUtils {
      * @param themeType The {@link ThemeType} to get from the ThemeMap
      * @return Returns the lore stringfrom the {@link io.github.sefiraat.crystamaehistoria.theme.ThemeElement}
      */
-    public static String getThemeLoreLine(ThemeType themeType) {
-        return CrystamaeHistoria.inst().getThemeManager().getThemeMap().get(themeType).getThemeItemLore();
+    @Nonnull
+    public static String getThemeLoreLine(@Nonnull ThemeType themeType) {
+        String lore = CrystamaeHistoria.getThemeManager().getThemeMap().get(themeType).getThemeItemLore();
+        if (lore != null) {
+            return lore;
+        } else {
+            throw new IllegalStateException("ThemeType not set up correctly");
+        }
     }
 
     /**
@@ -64,8 +75,14 @@ public final class ThemeUtils {
      * @param themeType The {@link ThemeType} to get from the ThemeMap
      * @return Returns the {@link org.bukkit.Particle.DustOptions} from the {@link io.github.sefiraat.crystamaehistoria.theme.ThemeElement}
      */
-    public static Particle.DustOptions getThemeDustOptions(ThemeType themeType) {
-        return CrystamaeHistoria.inst().getThemeManager().getThemeMap().get(themeType).getThemeParticles();
+    @Nonnull
+    public static Particle.DustOptions getThemeDustOptions(@Nonnull ThemeType themeType) {
+        Particle.DustOptions dustOptions = CrystamaeHistoria.getThemeManager().getThemeMap().get(themeType).getThemeParticles();
+        if (dustOptions != null) {
+            return dustOptions;
+        } else {
+            throw new IllegalStateException("ThemeType not set up correctly");
+        }
     }
 
     /**
@@ -74,7 +91,8 @@ public final class ThemeUtils {
      * @param s The string to apply the color to
      * @return Returns the string provides preceeded by the color
      */
-    public static String applyThemeToString(ThemeType t, String s) {
+    @Nonnull
+    public static String applyThemeToString(@NonNull ThemeType t, @Nonnull String s) {
         return getThemeColor(t) + s;
     }
 
@@ -87,7 +105,8 @@ public final class ThemeUtils {
      * @param lore The lore lines for the {@link SlimefunItemStack}. Lore is book-ended with empty strings.
      * @return Returns the new {@link SlimefunItemStack}
      */
-    public static SlimefunItemStack themedSlimefunItemStack(String id, ItemStack i, ThemeType t, String name, String... lore) {
+    @NonNull
+    public static SlimefunItemStack themedSlimefunItemStack(@NonNull String id, @NonNull ItemStack i, @NonNull ThemeType t, @NonNull String name, String... lore) {
         ChatColor passiveColor = getThemeColor(ThemeType.PASSIVE);
         List<String> finalLore = new ArrayList<>();
         finalLore.add("");
@@ -110,7 +129,8 @@ public final class ThemeUtils {
      * @param string The input string
      * @return A new {@link String} in Title Case
      */
-    public static String toTitleCase(String string) {
+    @NonNull
+    public static String toTitleCase(@NonNull String string) {
         final char[] delimiters = { ' ', '_' };
         return WordUtils.capitalizeFully(string, delimiters).replace("_"," ");
     }
@@ -118,6 +138,7 @@ public final class ThemeUtils {
     /**
      * List of names to be given to ArmourStands, invisible but mods and Minimaps can see them :)
      */
+    @NonNull
     public static List<String> EGG_NAMES = Arrays.asList(
             "TheBusyBiscuit",
             "Walshy",
@@ -138,6 +159,7 @@ public final class ThemeUtils {
             "Azak"
     );
 
+    @NonNull
     public static String getRandomEggName() {
         int rnd = ThreadLocalRandom.current().nextInt(0, EGG_NAMES.size());
         return EGG_NAMES.get(rnd);

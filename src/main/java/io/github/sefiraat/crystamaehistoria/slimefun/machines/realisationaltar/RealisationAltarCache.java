@@ -1,28 +1,22 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.animation.DisplayStand;
 import io.github.sefiraat.crystamaehistoria.runnables.animation.FloatingHeadAnimation;
 import io.github.sefiraat.crystamaehistoria.slimefun.AbstractCache;
 import io.github.sefiraat.crystamaehistoria.stories.StoriedBlockDefinition;
 import io.github.sefiraat.crystamaehistoria.utils.AnimateUtils;
-import io.github.sefiraat.crystamaehistoria.utils.EntityUtils;
 import io.github.sefiraat.crystamaehistoria.utils.KeyHolder;
 import io.github.sefiraat.crystamaehistoria.utils.StackUtils;
 import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
-import io.github.sefiraat.crystamaehistoria.utils.WorldUtils;
 import lombok.Getter;
 import lombok.Setter;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.Particle;
-import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
-import org.bukkit.entity.ArmorStand;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
@@ -31,7 +25,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class RealisationAltarCache extends AbstractCache {
 
-    @Getter @Setter private ArmorStand armourStand;
+    @Getter @Setter private DisplayStand displayStand;
     @Nullable @Getter @Setter private Material workingOn;
     @Getter @Setter private boolean working;
     @Getter @Setter private StoriedBlockDefinition storiedBlockDefinition;
@@ -46,7 +40,7 @@ public class RealisationAltarCache extends AbstractCache {
             setWorking(blockMenu.getBlock(), Material.valueOf(working));
         }
         armourStandName = generateStandName(blockMenu.getBlock());
-        armourStand = getArmourStand(blockMenu.getBlock());
+        displayStand = getDisplayStand(blockMenu.getBlock());
     }
 
     protected void process() {
@@ -54,8 +48,8 @@ public class RealisationAltarCache extends AbstractCache {
         Block b = blockMenu.getBlock();
 
         // Set up armor stand if empty (after restart)
-        if (armourStand == null) {
-            armourStand = getArmourStand(b);
+        if (displayStand == null) {
+            displayStand = getDisplayStand(b);
         }
 
         ItemStack i = blockMenu.getItemInSlot(RealisationAltar.INPUT_SLOT);
@@ -70,7 +64,7 @@ public class RealisationAltarCache extends AbstractCache {
             if (!working || workingOn != m) {
                 // Either not working or workingOn has changed
                 setWorking(b, m);
-                setDisplayItem(false);
+                displayStand.setDisplayItem(workingOn);
             } else {
                 // Working with an item in slot while workingOn matches means we can process the item
                 processStack(i);
@@ -83,7 +77,7 @@ public class RealisationAltarCache extends AbstractCache {
     protected void shutdown() {
         if (working) {
             setNotWorking(blockMenu.getBlock());
-            setDisplayItem(true);
+            displayStand.clearDisplayItem();
         }
     }
 
@@ -105,7 +99,7 @@ public class RealisationAltarCache extends AbstractCache {
         if (lightBlock.getType() == Material.AIR) {
             lightBlock.setType(Material.LIGHT);
         }
-        if (armourStand != null) {
+        if (displayStand != null) {
             startAnimation();
         }
         storiedBlockDefinition = CrystamaeHistoria.getStoriesManager().getStoriedBlockDefinitionMap().get(m);
@@ -125,7 +119,7 @@ public class RealisationAltarCache extends AbstractCache {
         if (animation != null) {
             animation.cancel();
         }
-        AnimateUtils.panelAnimationReset(armourStand, block);
+        AnimateUtils.panelAnimationReset(displayStand.getArmorStand(), block);
     }
 
     private void processStack(ItemStack i) {
@@ -149,37 +143,19 @@ public class RealisationAltarCache extends AbstractCache {
 
     protected void kill(@Nonnull Location location) {
         setNotWorking(blockMenu.getBlock());
-        armourStand.remove();
+        displayStand.kill();
     }
 
     String generateStandName(Block block) {
         return KeyHolder.PANEL_STAND_PREFIX + block.getX() + "|" + block.getY() + "|" + block.getZ();
     }
 
-    private ArmorStand getArmourStand(Block block) {
-        // Check for an existing stand
-        for (Entity e : WorldUtils.getNearbyEntities(block, 2, 2, 2)) {
-            if (!(e instanceof ArmorStand)) continue;
-            ArmorStand a = (ArmorStand) e;
-            String name = EntityUtils.getArmourStandInternal(a);
-            if (name != null && name.equals(armourStandName)) {
-                // Found the sucker!
-                return a;
-            }
+    private DisplayStand getDisplayStand(Block block) {
+        DisplayStand displayStand = DisplayStand.get(block);
+        if (displayStand == null) {
+            displayStand = new DisplayStand(block);
         }
-        // None found, spawn in a new one
-        ArmorStand a = (ArmorStand) block.getWorld().spawnEntity(block.getLocation().clone().add(0.5, -0.6, 0.5), EntityType.ARMOR_STAND);
-        EntityUtils.setArmourStandInternal(a, generateStandName(block));
-        EntityUtils.setDisplayOnlyArmourStand(a);
-        return a;
-    }
-
-    private void setDisplayItem(boolean clear) {
-        if (clear) {
-            armourStand.getEquipment().setHelmet(null);
-        } else {
-            armourStand.getEquipment().setHelmet(new ItemStack(workingOn));
-        }
+        return displayStand;
     }
 
 }

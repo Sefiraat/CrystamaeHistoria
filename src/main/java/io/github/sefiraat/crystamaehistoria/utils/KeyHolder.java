@@ -19,9 +19,10 @@ public class KeyHolder {
     // Misc
     public static final String PANEL_STAND_PREFIX = "CH_PANEL_";
 
-    // Categories
+    // ItemGroup
     private final NamespacedKey catMain = new NamespacedKey(CrystamaeHistoria.inst(), "crysta");
-    private final NamespacedKey catMech1 = new NamespacedKey(CrystamaeHistoria.inst(), "crysta-mech-1");
+    private final NamespacedKey catMechanical = new NamespacedKey(CrystamaeHistoria.inst(), "crysta-mech");
+    private final NamespacedKey catCrystal = new NamespacedKey(CrystamaeHistoria.inst(), "crysta-crystal");
 
     // PDC
     // Items
@@ -33,5 +34,14 @@ public class KeyHolder {
     // Entities
     private final NamespacedKey pdcArmourStandName = new NamespacedKey(CrystamaeHistoria.inst(), "a_name");
     private final NamespacedKey pdcIsDisplayStand = new NamespacedKey(CrystamaeHistoria.inst(), "a_display");
+
+    // CastableInstant Effects
+    private final NamespacedKey spellCaster = new NamespacedKey(CrystamaeHistoria.inst(), "caster");
+    private final NamespacedKey spellIsMagicProjectile = new NamespacedKey(CrystamaeHistoria.inst(), "is_mp");
+    private final NamespacedKey spellMagicProjectileDamage = new NamespacedKey(CrystamaeHistoria.inst(), "mp_dmg");
+    private final NamespacedKey spellMagicProjectileAoeRange = new NamespacedKey(CrystamaeHistoria.inst(), "mp_aoe");
+    private final NamespacedKey spellMagicProjectileKnockback = new NamespacedKey(CrystamaeHistoria.inst(), "mp_kb");
+    private final NamespacedKey spellMagicProjectileCooldownMulti = new NamespacedKey(CrystamaeHistoria.inst(), "mp_cm");
+    private final NamespacedKey spellMagicProjectileDurabilityMulti = new NamespacedKey(CrystamaeHistoria.inst(), "mp_dm");
 
 }

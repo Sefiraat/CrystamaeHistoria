@@ -1,5 +1,7 @@
-package io.github.sefiraat.crystamaehistoria.theme;
+package io.github.sefiraat.crystamaehistoria.managers;
 
+import io.github.sefiraat.crystamaehistoria.theme.ThemeElement;
+import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
 import lombok.Getter;
 import net.md_5.bungee.api.ChatColor;
 import org.jetbrains.annotations.Nullable;

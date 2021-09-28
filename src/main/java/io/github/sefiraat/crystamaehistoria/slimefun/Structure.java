@@ -1,29 +1,33 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.slimefun.categories.Categories;
+import io.github.sefiraat.crystamaehistoria.slimefun.categories.ItemGroup;
 import lombok.Getter;
 
 public class Structure {
 
-    private final CrystamaeHistoria plugin;
     @Getter
-    private final Categories categories;
+    private final ItemGroup itemGroup;
     @Getter
     private final Machines machines;
+    @Getter
+    private final Materials materials;
 
     public Structure() {
-        this.plugin = CrystamaeHistoria.inst();
-        this.categories = new Categories(plugin);
+
+        CrystamaeHistoria plugin = CrystamaeHistoria.inst();
+
+        this.itemGroup = new ItemGroup(plugin);
         this.machines = new Machines(this, plugin);
-
-
+        this.materials = new Materials(this, plugin);
 
         setup();
     }
 
     private void setup() {
-        this.categories.setup();
+        this.itemGroup.setup();
         this.machines.setup();
+        this.materials.setup();
     }
+
 }
