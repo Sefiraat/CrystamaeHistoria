@@ -1,8 +1,9 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.magic.SpellDefinition;
-import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.CastableInstant;
+import io.github.sefiraat.crystamaehistoria.magic.CastDefinition;
+import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.AbstractSpell;
+import lombok.NonNull;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -10,14 +11,15 @@ import org.bukkit.entity.Player;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public class Teleport implements CastableInstant {
+public class Teleport extends AbstractSpell {
 
     private static final int DISTANCE = 20;
 
     @Override
-    public void cast(@Nonnull SpellDefinition spellDefinition) {
+    public void cast(@NonNull CastDefinition castDefinition) {
+        super.cast(castDefinition);
 
-        Player caster = spellDefinition.getCaster();
+        Player caster = castDefinition.getCaster();
 
         Location teleportToLocation = getTeleportLocation(caster);
 
@@ -26,7 +28,6 @@ public class Teleport implements CastableInstant {
         } else {
             caster.sendMessage(CrystamaeHistoria.config().getString("messages.spells.teleport_no_suitable_location"));
         }
-
     }
 
     @Nullable

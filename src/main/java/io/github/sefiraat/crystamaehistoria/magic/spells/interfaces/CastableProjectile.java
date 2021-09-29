@@ -1,7 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells.interfaces;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.magic.SpellDefinition;
+import io.github.sefiraat.crystamaehistoria.magic.CastDefinition;
 import io.github.sefiraat.crystamaehistoria.magic.wrappers.MagicProjectile;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import lombok.NonNull;
@@ -12,7 +12,7 @@ import org.bukkit.entity.Entity;
  * a target, when applying damage and then after damage is applied.
  * LightningStrikes are covered by this class also.
  */
-public interface CastableProjectile extends Castable {
+public interface CastableProjectile {
 
     long DEFAULT_PROJECTILE_DURATION = 10000;
 
@@ -21,10 +21,10 @@ public interface CastableProjectile extends Castable {
      * the projectile/definition to the projectileMap. Used when detecting
      * the projectile hitting targets.
      * @param entity The {@link Entity} being stored (projectile or LightningStrike)
-     * @param spellDefinition The {@link SpellDefinition} with the stave information
+     * @param castDefinition The {@link CastDefinition} with the stave information
      */
-    default void registerProjectile(@NonNull Entity entity, @NonNull SpellDefinition spellDefinition) {
-        registerProjectile(entity, spellDefinition, DEFAULT_PROJECTILE_DURATION);
+    default void registerProjectile(@NonNull Entity entity, @NonNull CastDefinition castDefinition) {
+        registerProjectile(entity, castDefinition, DEFAULT_PROJECTILE_DURATION);
     }
 
     /**
@@ -32,14 +32,14 @@ public interface CastableProjectile extends Castable {
      * the projectile/definition to the projectileMap. Used when detecting
      * the projectile hitting targets.
      * @param entity The {@link Entity} being stored (projectile or lightningstrike)
-     * @param spellDefinition The {@link SpellDefinition} with the stave information
+     * @param castDefinition The {@link CastDefinition} with the stave information
      */
-    default void registerProjectile(@NonNull Entity entity, @NonNull SpellDefinition spellDefinition, long projectileDuration) {
-        spellDefinition.setBeforeAffectEvent(this::beforeAffect);
-        spellDefinition.setAffectEvent(this::affect);
-        spellDefinition.setAfterAffectEvent(this::afterAffect);
+    default void registerProjectile(@NonNull Entity entity, @NonNull CastDefinition castDefinition, long projectileDuration) {
+        castDefinition.setBeforeAffectEvent(this::beforeAffect);
+        castDefinition.setAffectEvent(this::affect);
+        castDefinition.setAfterAffectEvent(this::afterAffect);
         Long expiry = System.currentTimeMillis() + projectileDuration;
-        CrystamaeHistoria.getActiveStorage().getProjectileMap().put(entity, new Pair<>(spellDefinition, expiry));
+        CrystamaeHistoria.getActiveStorage().getProjectileMap().put(entity, new Pair<>(castDefinition, expiry));
     }
 
     /**
@@ -47,25 +47,25 @@ public interface CastableProjectile extends Castable {
      * (i.e. Entity is still alive at this point)
      * Called automatically when {@link io.github.sefiraat.crystamaehistoria.magic.wrappers.MagicProjectile}
      * hits, first, or call manually in #Cast
-     * @param spellDefinition The {@link SpellDefinition} with the stave information
+     * @param castDefinition The {@link CastDefinition} with the stave information
      */
-    default void beforeAffect(@NonNull SpellDefinition spellDefinition) { }
+    default void beforeAffect(@NonNull CastDefinition castDefinition) { }
 
     /**
      * The main affect and/or damage
      * Called automatically when {@link MagicProjectile}
      * hits after #beforeAffect or call manually in #Cast
      *
-     * @param spellDefinition The {@link SpellDefinition} with the stave information
+     * @param castDefinition The {@link CastDefinition} with the stave information
      */
-    void affect(@NonNull SpellDefinition spellDefinition);
+    void affect(@NonNull CastDefinition castDefinition);
 
     /**
      * Effects to apply after damage (i.e. Entity may be dead)
      * Called automatically when {@link io.github.sefiraat.crystamaehistoria.magic.wrappers.MagicProjectile}
      * hits after #affect or call manually in #Cast
-     * @param spellDefinition The {@link SpellDefinition} with the stave information
+     * @param castDefinition The {@link CastDefinition} with the stave information
      */
-    default void afterAffect(@NonNull SpellDefinition spellDefinition) { }
+    default void afterAffect(@NonNull CastDefinition castDefinition) { }
 
 }

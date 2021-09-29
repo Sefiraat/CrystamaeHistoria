@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
-import io.github.sefiraat.crystamaehistoria.magic.SpellDefinition;
+import io.github.sefiraat.crystamaehistoria.magic.CastDefinition;
+import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.AbstractSpell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.CastableProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.wrappers.MagicProjectile;
 import org.bukkit.Location;
@@ -13,7 +14,7 @@ import org.bukkit.potion.PotionEffectType;
 
 import javax.annotation.Nonnull;
 
-public class PoisonNova implements CastableProjectile {
+public class PoisonNova extends AbstractSpell implements CastableProjectile {
 
     private static final int DAMAGE = 2;
     private static final int COOLDOWN = 5;
@@ -22,11 +23,12 @@ public class PoisonNova implements CastableProjectile {
     private static final int EFFECT_DURATION = 40;
 
     @Override
-    public void cast(@Nonnull SpellDefinition spellDefinition) {
+    public void cast(@Nonnull CastDefinition castDefinition) {
+        super.cast(castDefinition);
 
-        spellDefinition.setCastInformation(DAMAGE, AOE_RANGE, KNOCK_BACK_FORCE, COOLDOWN);
+        castDefinition.setCastInformation(DAMAGE, AOE_RANGE, KNOCK_BACK_FORCE, COOLDOWN);
 
-        Player player = spellDefinition.getCaster();
+        Player player = castDefinition.getCaster();
         int sizeEnd = 20;
         int sizeCast = 1;
         int stepSize = 3;
@@ -42,25 +44,25 @@ public class PoisonNova implements CastableProjectile {
             MagicProjectile magicProjectile = new MagicProjectile(EntityType.ENDER_PEARL, spawn, player);
             magicProjectile.setVelocity(destination, 1);
 
-            registerProjectile(magicProjectile.getProjectile(), spellDefinition);
+            registerProjectile(magicProjectile.getProjectile(), castDefinition);
         }
 
     }
 
     @Override
-    public void affect(@Nonnull SpellDefinition spellDefinition) {
-        LivingEntity hit = spellDefinition.getMainTarget();
+    public void affect(@Nonnull CastDefinition castDefinition) {
+        LivingEntity hit = castDefinition.getMainTarget();
         if (hit.getHealth() == 1) {
-            hit.damage(1, spellDefinition.getCaster());
+            hit.damage(1, castDefinition.getCaster());
         } else {
-            PotionEffect potionEffect = new PotionEffect(PotionEffectType.POISON, spellDefinition.getPowerMulti() * EFFECT_DURATION, spellDefinition.getPowerMulti() + 1);
+            PotionEffect potionEffect = new PotionEffect(PotionEffectType.POISON, castDefinition.getPowerMulti() * EFFECT_DURATION, castDefinition.getPowerMulti() + 1);
             hit.addPotionEffect(potionEffect);
-            setLastDamageToCaster(hit, spellDefinition);
+            setLastDamageToCaster(hit, castDefinition);
         }
     }
 
     @Override
-    public void afterAffect(@Nonnull SpellDefinition spellDefinition) {
-        displayParticleEffect(spellDefinition.getMainTarget(), Particle.CRIMSON_SPORE, 1.0, 10);
+    public void afterAffect(@Nonnull CastDefinition castDefinition) {
+        displayParticleEffect(castDefinition.getMainTarget(), Particle.CRIMSON_SPORE, 1.0, 10);
     }
 }

@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
-import io.github.sefiraat.crystamaehistoria.magic.SpellDefinition;
+import io.github.sefiraat.crystamaehistoria.magic.CastDefinition;
+import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.AbstractSpell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.CastableProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.wrappers.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.utils.EntityUtils;
@@ -11,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 
-public class Fireball implements CastableProjectile {
+public class Fireball extends AbstractSpell implements CastableProjectile {
 
     private static final int DAMAGE = 2;
     private static final int COOLDOWN = 50;
@@ -19,30 +20,31 @@ public class Fireball implements CastableProjectile {
     private static final double AOE_RANGE = 1;
 
     @Override
-    public void cast(@Nonnull SpellDefinition spellDefinition) {
+    public void cast(@Nonnull CastDefinition castDefinition) {
+        super.cast(castDefinition);
 
-        spellDefinition.setCastInformation(DAMAGE, AOE_RANGE, KNOCK_BACK_FORCE, COOLDOWN);
+        castDefinition.setCastInformation(DAMAGE, AOE_RANGE, KNOCK_BACK_FORCE, COOLDOWN);
 
-        Location location = spellDefinition.getCaster().getLocation();
+        Location location = castDefinition.getCaster().getLocation();
         Location aimLocation = location.clone().add(0, 1.5, 0).add(location.getDirection().multiply(2));
-        MagicProjectile magicProjectile = new MagicProjectile(EntityType.SMALL_FIREBALL, aimLocation, spellDefinition.getCaster());
+        MagicProjectile magicProjectile = new MagicProjectile(EntityType.SMALL_FIREBALL, aimLocation, castDefinition.getCaster());
         magicProjectile.setVelocity(location.getDirection(), 2);
 
-        registerProjectile(magicProjectile.getProjectile(), spellDefinition);
+        registerProjectile(magicProjectile.getProjectile(), castDefinition);
 
     }
 
     @Override
-    public void beforeAffect(@Nonnull @NotNull SpellDefinition spellDefinition) {
-        for (LivingEntity livingEntity : spellDefinition.getAllTargets()) {
+    public void beforeAffect(@Nonnull @NotNull CastDefinition castDefinition) {
+        for (LivingEntity livingEntity : castDefinition.getAllTargets()) {
             livingEntity.setFireTicks(80);
         }
     }
 
     @Override
-    public void affect(@Nonnull SpellDefinition spellDefinition) {
-        for (LivingEntity livingEntity : spellDefinition.getAllTargets()) {
-            EntityUtils.damageEntity(livingEntity, spellDefinition.getCaster(), spellDefinition.getDamage(), spellDefinition.getDamageLocation(), spellDefinition.getKnockbackForce());
+    public void affect(@Nonnull CastDefinition castDefinition) {
+        for (LivingEntity livingEntity : castDefinition.getAllTargets()) {
+            EntityUtils.damageEntity(livingEntity, castDefinition.getCaster(), castDefinition.getDamage(), castDefinition.getDamageLocation(), castDefinition.getKnockbackForce());
         }
     }
 

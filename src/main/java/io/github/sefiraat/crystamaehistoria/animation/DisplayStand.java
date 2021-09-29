@@ -30,6 +30,7 @@ public class DisplayStand {
             ArmorStand a = (ArmorStand) e;
             if (isDisplayStand(a)) {
                 // Found the sucker!
+                // TODO Register for removal and tidy
                 return new DisplayStand(a);
             }
         }

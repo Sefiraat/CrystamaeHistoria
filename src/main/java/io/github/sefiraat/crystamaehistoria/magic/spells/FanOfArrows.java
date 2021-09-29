@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
-import io.github.sefiraat.crystamaehistoria.magic.SpellDefinition;
+import io.github.sefiraat.crystamaehistoria.magic.CastDefinition;
+import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.AbstractSpell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.CastableProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.wrappers.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.utils.EntityUtils;
@@ -10,7 +11,7 @@ import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
 
-public class FanOfArrows implements CastableProjectile {
+public class FanOfArrows extends AbstractSpell implements CastableProjectile {
 
     private static final int DAMAGE = 2;
     private static final int COOLDOWN = 5;
@@ -18,11 +19,12 @@ public class FanOfArrows implements CastableProjectile {
     private static final double AOE_RANGE = 0;
 
     @Override
-    public void cast(@Nonnull SpellDefinition spellDefinition) {
+    public void cast(@Nonnull CastDefinition castDefinition) {
+        super.cast(castDefinition);
 
-        spellDefinition.setCastInformation(DAMAGE, AOE_RANGE, KNOCK_BACK_FORCE, COOLDOWN);
+        castDefinition.setCastInformation(DAMAGE, AOE_RANGE, KNOCK_BACK_FORCE, COOLDOWN);
 
-        Player player = spellDefinition.getCaster();
+        Player player = castDefinition.getCaster();
         int sizeEnd = 30;
         int sizeCast = 3;
         int stepSize = 5;
@@ -38,14 +40,14 @@ public class FanOfArrows implements CastableProjectile {
             MagicProjectile magicProjectile = new MagicProjectile(EntityType.ARROW, spawn, player);
             magicProjectile.setVelocity(destination, 1);
 
-            registerProjectile(magicProjectile.getProjectile(), spellDefinition);
+            registerProjectile(magicProjectile.getProjectile(), castDefinition);
         }
 
     }
 
     @Override
-    public void affect(@Nonnull SpellDefinition spellDefinition) {
-        EntityUtils.damageEntity(spellDefinition.getMainTarget(), spellDefinition.getCaster(), spellDefinition.getDamage());
+    public void affect(@Nonnull CastDefinition castDefinition) {
+        EntityUtils.damageEntity(castDefinition.getMainTarget(), castDefinition.getCaster(), castDefinition.getDamage());
     }
 
 }

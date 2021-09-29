@@ -1,56 +1,70 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
-import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.magic.SpellDefinition;
-import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.CastableInstant;
+import io.github.sefiraat.crystamaehistoria.magic.CastDefinition;
+import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.AbstractSpell;
+import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.CastableTicking;
+import io.github.sefiraat.crystamaehistoria.utils.EntityUtils;
+import lombok.NonNull;
+import org.bukkit.Color;
 import org.bukkit.Location;
-import org.bukkit.Material;
-import org.bukkit.entity.Player;
+import org.bukkit.Particle;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.LivingEntity;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import java.util.concurrent.ThreadLocalRandom;
 
-public class Quake implements CastableInstant {
+public class Quake extends AbstractSpell implements CastableTicking {
 
-    private static final int DISTANCE = 20;
+    private static final int DAMAGE = 1;
+    private static final int COOLDOWN = 100;
+    private static final double KNOCK_BACK_FORCE = 0;
+    private static final double AOE_RANGE = 5;
+    private static final int WAVES = 5;
+    private static final long PERIOD = 20;
+    private static final int IMPACT_ZONES = 100;
+    private static final int RANGE = 30;
 
     @Override
-    public void cast(@Nonnull SpellDefinition spellDefinition) {
+    public void cast(@Nonnull CastDefinition castDefinition) {
+        super.cast(castDefinition);
 
-        Player caster = spellDefinition.getCaster();
-
-        Location teleportToLocation = getTeleportLocation(caster);
-
-        if (teleportToLocation != null) {
-            caster.teleport(teleportToLocation);
-        } else {
-            caster.sendMessage(CrystamaeHistoria.config().getString("messages.spells.teleport_no_suitable_location"));
-        }
+        castDefinition.setCastInformation(DAMAGE, AOE_RANGE, KNOCK_BACK_FORCE, COOLDOWN);
+        registerTicker(castDefinition, PERIOD, WAVES);
 
     }
 
-    @Nullable
-    private Location getTeleportLocation(@Nonnull Player player) {
-        Location location = player.getLocation().add(player.getLocation().getDirection().setY(0).multiply(DISTANCE));
-        if (location.getBlock().getType() == Material.AIR) {
-            return location.add(0, 1, 0);
-        } else {
-            return tryIncreaseY(location, 1);
-        }
-    }
+    @Override
+    public void onTick(@NonNull CastDefinition castDefinition) {
+        Location castLocation = castDefinition.getCastLocation().clone();
 
-    @Nullable
-    private Location tryIncreaseY(Location location, int attemptNumber) {
-        if (attemptNumber >= 10) {
-            return null;
-        } else {
-            Location newLocation = location.clone().add(0, 1, 0);
-            if (newLocation.getBlock().getType() == Material.AIR) {
-                return location;
-            } else {
-                return tryIncreaseY(newLocation, attemptNumber + 1);
+        for (int i = 0; i < IMPACT_ZONES; i++) {
+            double xOffset = ThreadLocalRandom.current().nextDouble(-RANGE, RANGE + 1);
+            double zOffset = ThreadLocalRandom.current().nextDouble(-RANGE, RANGE + 1);
+
+            double directionalXOffset = ThreadLocalRandom.current().nextDouble(-0.5, 0.6);
+            double directionalZOffset = ThreadLocalRandom.current().nextDouble(-0.5, 0.6);
+
+            Location spawnLocation = new Location(
+                    castLocation.getWorld(),
+                    castLocation.getX() + xOffset,
+                    castLocation.getY(),
+                    castLocation.getZ() + zOffset
+            );
+
+            Particle.DustOptions dustOptions = new Particle.DustOptions(Color.fromRGB(90,100,105), 2);
+            castLocation.getWorld().spawnParticle(Particle.REDSTONE, spawnLocation, 1, directionalXOffset, 2, directionalZOffset, dustOptions);
+        }
+        for (Entity entity : castLocation.getWorld().getNearbyEntities(castLocation, RANGE, 2, RANGE)) {
+            if (entity instanceof LivingEntity && entity != castDefinition.getCaster()) {
+                EntityUtils.damageEntity(((LivingEntity) entity), castDefinition.getCaster(), castDefinition.getDamage());
             }
         }
+    }
+
+    @Override
+    public void afterAllTicks(@NonNull CastDefinition castDefinition) {
+
     }
 
 }

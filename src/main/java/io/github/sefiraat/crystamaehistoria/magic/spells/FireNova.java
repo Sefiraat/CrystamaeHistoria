@@ -1,21 +1,19 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
-import io.github.sefiraat.crystamaehistoria.magic.SpellDefinition;
+import io.github.sefiraat.crystamaehistoria.magic.CastDefinition;
+import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.AbstractSpell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.CastableProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.wrappers.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.utils.EntityUtils;
 import org.bukkit.Location;
 import org.bukkit.Particle;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
 
 import javax.annotation.Nonnull;
 
-public class FireNova implements CastableProjectile {
+public class FireNova extends AbstractSpell implements CastableProjectile {
 
     private static final int DAMAGE = 3;
     private static final int COOLDOWN = 5;
@@ -23,11 +21,12 @@ public class FireNova implements CastableProjectile {
     private static final double AOE_RANGE = 2;
 
     @Override
-    public void cast(@Nonnull SpellDefinition spellDefinition) {
+    public void cast(@Nonnull CastDefinition castDefinition) {
+        super.cast(castDefinition);
 
-        spellDefinition.setCastInformation(DAMAGE, AOE_RANGE, KNOCK_BACK_FORCE, COOLDOWN);
+        castDefinition.setCastInformation(DAMAGE, AOE_RANGE, KNOCK_BACK_FORCE, COOLDOWN);
 
-        Player player = spellDefinition.getCaster();
+        Player player = castDefinition.getCaster();
         int sizeEnd = 10;
         int sizeCast = 2;
         int stepSize = 3;
@@ -43,21 +42,21 @@ public class FireNova implements CastableProjectile {
             MagicProjectile magicProjectile = new MagicProjectile(EntityType.SMALL_FIREBALL, spawn, player);
             magicProjectile.setVelocity(destination, 1);
 
-            registerProjectile(magicProjectile.getProjectile(), spellDefinition);
+            registerProjectile(magicProjectile.getProjectile(), castDefinition);
         }
 
     }
 
     @Override
-    public void affect(@Nonnull SpellDefinition spellDefinition) {
-        EntityUtils.damageEntity(spellDefinition.getMainTarget(), spellDefinition.getCaster(), spellDefinition.getDamage());
-        for (LivingEntity livingEntity : spellDefinition.getAdditionalTargets()) {
-            EntityUtils.damageEntity(livingEntity, spellDefinition.getCaster(), spellDefinition.getDamage());
+    public void affect(@Nonnull CastDefinition castDefinition) {
+        EntityUtils.damageEntity(castDefinition.getMainTarget(), castDefinition.getCaster(), castDefinition.getDamage());
+        for (LivingEntity livingEntity : castDefinition.getAdditionalTargets()) {
+            EntityUtils.damageEntity(livingEntity, castDefinition.getCaster(), castDefinition.getDamage());
         }
     }
 
     @Override
-    public void afterAffect(@Nonnull SpellDefinition spellDefinition) {
-        displayParticleEffect(spellDefinition.getMainTarget(), Particle.EXPLOSION_NORMAL, 1.0, 5);
+    public void afterAffect(@Nonnull CastDefinition castDefinition) {
+        displayParticleEffect(castDefinition.getMainTarget(), Particle.EXPLOSION_NORMAL, 1.0, 5);
     }
 }

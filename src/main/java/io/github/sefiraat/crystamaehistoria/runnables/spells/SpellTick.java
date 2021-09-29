@@ -1,28 +1,26 @@
 package io.github.sefiraat.crystamaehistoria.runnables.spells;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.magic.SpellDefinition;
+import io.github.sefiraat.crystamaehistoria.magic.CastDefinition;
 import org.bukkit.scheduler.BukkitRunnable;
-
-import java.util.function.Consumer;
 
 public class SpellTick extends BukkitRunnable {
 
-    private final SpellDefinition spellDefinition;
+    private final CastDefinition castDefinition;
     private int numberOfRuns;
 
-    public SpellTick(SpellDefinition spellDefinition, int numberOfRuns) {
-        this.spellDefinition = spellDefinition;
+    public SpellTick(CastDefinition castDefinition, int numberOfRuns) {
+        this.castDefinition = castDefinition;
         this.numberOfRuns = numberOfRuns;
     }
 
     @Override
     public void run() {
         if (numberOfRuns <= 0) {
-            spellDefinition.runAfterTicksEvent();
+            castDefinition.runAfterTicksEvent();
             this.cancel();
         } else {
-            spellDefinition.runTickEvent();
+            castDefinition.runTickEvent();
         }
         numberOfRuns--;
     }

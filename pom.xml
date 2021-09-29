@@ -140,10 +140,5 @@
             <version>1.18.20</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>xyz.xenondevs</groupId>
-            <artifactId>particle</artifactId>
-            <version>LATEST</version>
-        </dependency>
     </dependencies>
 </project>

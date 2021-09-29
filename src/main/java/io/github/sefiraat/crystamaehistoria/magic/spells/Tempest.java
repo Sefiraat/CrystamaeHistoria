@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
-import io.github.sefiraat.crystamaehistoria.magic.SpellDefinition;
+import io.github.sefiraat.crystamaehistoria.magic.CastDefinition;
+import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.AbstractSpell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.CastableProjectile;
 import io.github.sefiraat.crystamaehistoria.utils.EntityUtils;
 import lombok.NonNull;
@@ -11,7 +12,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Tempest implements CastableProjectile {
+public class Tempest extends AbstractSpell implements CastableProjectile {
 
     private static final int DAMAGE = 3;
     private static final int COOLDOWN = 200;
@@ -21,13 +22,14 @@ public class Tempest implements CastableProjectile {
     private static final int RADIUS = 10;
 
     @Override
-    public void cast(@NonNull SpellDefinition spellDefinition) {
+    public void cast(@NonNull CastDefinition castDefinition) {
+        super.cast(castDefinition);
 
-        spellDefinition.setCastInformation(DAMAGE, AOE_RANGE, KNOCK_BACK_FORCE, COOLDOWN);
+        castDefinition.setCastInformation(DAMAGE, AOE_RANGE, KNOCK_BACK_FORCE, COOLDOWN);
 
-        Location location = spellDefinition.getCaster().getLocation();
+        Location location = castDefinition.getCaster().getLocation();
 
-        for (int i = 0; i < (PROJECTILE_NUMBER * spellDefinition.getPowerMulti()); i++) {
+        for (int i = 0; i < (PROJECTILE_NUMBER * castDefinition.getPowerMulti()); i++) {
             int xOffset = ThreadLocalRandom.current().nextInt(-RADIUS, RADIUS + 1);
             int zOffset = ThreadLocalRandom.current().nextInt(-RADIUS, RADIUS + 1);
             int x = (int) location.getX() + xOffset;
@@ -40,22 +42,22 @@ public class Tempest implements CastableProjectile {
             );
 
             LightningStrike lightningStrike = spawnLocation.getWorld().strikeLightning(spawnLocation);
-            registerProjectile(lightningStrike, spellDefinition);
+            registerProjectile(lightningStrike, castDefinition);
         }
 
     }
 
     @Override
-    public void beforeAffect(@NonNull @NotNull SpellDefinition spellDefinition) {
-        for (LivingEntity livingEntity : spellDefinition.getAllTargets()) {
+    public void beforeAffect(@NonNull @NotNull CastDefinition castDefinition) {
+        for (LivingEntity livingEntity : castDefinition.getAllTargets()) {
             livingEntity.setFireTicks(40);
         }
     }
 
     @Override
-    public void affect(@NonNull SpellDefinition spellDefinition) {
-        for (LivingEntity livingEntity : spellDefinition.getAllTargets()) {
-            EntityUtils.damageEntity(livingEntity, spellDefinition.getCaster(), spellDefinition.getDamage(), spellDefinition.getDamageLocation(), spellDefinition.getKnockbackForce());
+    public void affect(@NonNull CastDefinition castDefinition) {
+        for (LivingEntity livingEntity : castDefinition.getAllTargets()) {
+            EntityUtils.damageEntity(livingEntity, castDefinition.getCaster(), castDefinition.getDamage(), castDefinition.getDamageLocation(), castDefinition.getKnockbackForce());
         }
     }
 

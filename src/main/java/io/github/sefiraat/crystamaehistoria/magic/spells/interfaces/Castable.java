@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells.interfaces;
 
-import io.github.sefiraat.crystamaehistoria.magic.SpellDefinition;
+import io.github.sefiraat.crystamaehistoria.magic.CastDefinition;
 import lombok.NonNull;
 import org.bukkit.Location;
 import org.bukkit.Particle;
@@ -11,19 +11,19 @@ import org.bukkit.event.entity.EntityDamageEvent;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public interface Castable {
+interface Castable {
 
     int DEFAULT_PARTICLE_NUMBER = 4;
 
-    void cast(@NonNull SpellDefinition spellDefinition);
+    void cast(@NonNull CastDefinition castDefinition);
 
     /**
      * Sets the last damage cause to Magic and Caster
      * @param damagedEntity The {@link LivingEntity} that was hit by the spell
-     * @param spellDefinition The {@link SpellDefinition} containing the caster
+     * @param castDefinition The {@link CastDefinition} containing the caster
      */
-    default void setLastDamageToCaster(@NonNull LivingEntity damagedEntity, @NonNull SpellDefinition spellDefinition) {
-        setLastDamageToCaster(damagedEntity, spellDefinition.getCaster());
+    default void setLastDamageToCaster(@NonNull LivingEntity damagedEntity, @NonNull CastDefinition castDefinition) {
+        setLastDamageToCaster(damagedEntity, castDefinition.getCaster());
     }
 
     /**

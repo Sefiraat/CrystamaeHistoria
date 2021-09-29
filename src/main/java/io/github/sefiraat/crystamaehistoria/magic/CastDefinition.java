@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Consumer;
 
-public class SpellDefinition {
+public class CastDefinition {
 
     @Getter
     private final Player caster;
@@ -35,6 +35,8 @@ public class SpellDefinition {
     private double cooldown;
 
     @Getter
+    private final Location castLocation;
+    @Getter
     @Setter
     private Location damageLocation;
     @Getter
@@ -44,21 +46,22 @@ public class SpellDefinition {
     private final Set<LivingEntity> additionalTargets = new HashSet<>();
 
     @Setter
-    private Consumer<SpellDefinition> beforeAffectEvent;
+    private Consumer<CastDefinition> beforeAffectEvent;
     @Setter
-    private Consumer<SpellDefinition> affectEvent;
+    private Consumer<CastDefinition> affectEvent;
     @Setter
-    private Consumer<SpellDefinition> afterAffectEvent;
+    private Consumer<CastDefinition> afterAffectEvent;
     @Setter
-    private Consumer<SpellDefinition> tickEvent;
+    private Consumer<CastDefinition> tickEvent;
     @Setter
-    private Consumer<SpellDefinition> afterTicksEvent;
+    private Consumer<CastDefinition> afterTicksEvent;
 
-    public SpellDefinition(Player caster, int powerMulti, int cooldownMulti, int durabilityMulti) {
+    public CastDefinition(Player caster, int powerMulti, int cooldownMulti, int durabilityMulti) {
         this.caster = caster;
         this.powerMulti = powerMulti;
         this.cooldownMulti = cooldownMulti;
         this.durabilityMulti = durabilityMulti;
+        this.castLocation = caster.getLocation().clone();
     }
 
     public void setCastInformation(int damage, double aoeRange, double knockbackForce, int cooldown) {
