@@ -32,7 +32,7 @@ public interface CastableProjectile extends Castable {
      * the projectile/definition to the projectileMap. Used when detecting
      * the projectile hitting targets.
      * @param entity The {@link Entity} being stored (projectile or lightningstrike)
-     * @param spellDefinition
+     * @param spellDefinition The {@link SpellDefinition} with the stave information
      */
     default void registerProjectile(@NonNull Entity entity, @NonNull SpellDefinition spellDefinition, long projectileDuration) {
         spellDefinition.setBeforeAffectEvent(this::beforeAffect);

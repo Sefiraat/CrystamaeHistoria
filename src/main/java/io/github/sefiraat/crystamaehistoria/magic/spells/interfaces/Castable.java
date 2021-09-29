@@ -13,6 +13,8 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public interface Castable {
 
+    int DEFAULT_PARTICLE_NUMBER = 4;
+
     void cast(@NonNull SpellDefinition spellDefinition);
 
     /**
@@ -35,7 +37,7 @@ public interface Castable {
     }
 
     default void displayParticleEffect(@NonNull Entity entity, Particle particle, double rangeRadius) {
-        displayParticleEffect(entity.getLocation(), particle, rangeRadius, 4);
+        displayParticleEffect(entity.getLocation(), particle, rangeRadius, DEFAULT_PARTICLE_NUMBER);
     }
 
     default void displayParticleEffect(@NonNull Entity entity, Particle particle, double rangeRadius, int numberOfParticles) {
@@ -43,7 +45,7 @@ public interface Castable {
     }
 
     default void displayParticleEffect(@NonNull Location location, Particle particle, double rangeRadius) {
-        displayParticleEffect(location, particle, rangeRadius, 4);
+        displayParticleEffect(location, particle, rangeRadius, DEFAULT_PARTICLE_NUMBER);
     }
 
     default void displayParticleEffect(@NonNull Location location, Particle particle,  double rangeRadius, int numberOfParticles) {

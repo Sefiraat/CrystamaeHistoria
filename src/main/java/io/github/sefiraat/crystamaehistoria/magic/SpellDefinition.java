@@ -51,6 +51,8 @@ public class SpellDefinition {
     private Consumer<SpellDefinition> afterAffectEvent;
     @Setter
     private Consumer<SpellDefinition> tickEvent;
+    @Setter
+    private Consumer<SpellDefinition> afterTicksEvent;
 
     public SpellDefinition(Player caster, int powerMulti, int cooldownMulti, int durabilityMulti) {
         this.caster = caster;
@@ -76,6 +78,14 @@ public class SpellDefinition {
 
     public void runPostAffectEvent() {
         if (afterAffectEvent != null) afterAffectEvent.accept(this);
+    }
+
+    public void runTickEvent() {
+        if (tickEvent != null) tickEvent.accept(this);
+    }
+
+    public void runAfterTicksEvent() {
+        if (afterTicksEvent != null) afterTicksEvent.accept(this);
     }
 
     public Set<LivingEntity> getAllTargets() {

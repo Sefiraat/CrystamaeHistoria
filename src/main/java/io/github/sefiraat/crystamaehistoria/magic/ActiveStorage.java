@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.magic;
 
-import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.CastableTicking;
+import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTick;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import lombok.Getter;
 import org.bukkit.entity.Entity;
@@ -13,13 +13,17 @@ public class ActiveStorage {
     @Getter
     private final Map<Entity, Pair<SpellDefinition, Long>> projectileMap = new HashMap<>();
     @Getter
-    private final Map<CastableTicking, Integer> tickingCastables = new HashMap<>();
+    private final Map<SpellTick, Integer> tickingCastables = new HashMap<>();
 
     public void clearAll() {
         for (Entity entity : projectileMap.keySet()) {
             entity.remove();
         }
         projectileMap.clear();
+        for (SpellTick spellTick : tickingCastables.keySet()) {
+            spellTick.cancel();
+        }
+        tickingCastables.clear();
     }
 
     public void clearExpired() {

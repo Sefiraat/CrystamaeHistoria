@@ -2,6 +2,7 @@ package io.github.sefiraat.crystamaehistoria.magic.spells;
 
 import io.github.sefiraat.crystamaehistoria.magic.SpellDefinition;
 import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.CastableProjectile;
+import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.CastableTicking;
 import io.github.sefiraat.crystamaehistoria.magic.wrappers.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.utils.EntityUtils;
 import lombok.NonNull;
@@ -12,7 +13,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class RainOfFire implements CastableProjectile {
+public class RainOfFire implements CastableProjectile, CastableTicking {
 
     private static final int DAMAGE = 5;
     private static final int COOLDOWN = 100;
@@ -24,7 +25,12 @@ public class RainOfFire implements CastableProjectile {
     public void cast(@NonNull SpellDefinition spellDefinition) {
 
         spellDefinition.setCastInformation(DAMAGE, AOE_RANGE, KNOCK_BACK_FORCE, COOLDOWN);
+        sendWave(spellDefinition);
+        registerTicker(spellDefinition, 4);
 
+    }
+
+    private void sendWave(SpellDefinition spellDefinition) {
         Location location = spellDefinition.getCaster().getLocation();
 
         for (int i = 0; i < (PROJECTILE_NUMBER * spellDefinition.getPowerMulti()); i++) {
@@ -60,5 +66,11 @@ public class RainOfFire implements CastableProjectile {
             EntityUtils.damageEntity(livingEntity, spellDefinition.getCaster(), spellDefinition.getDamage(), spellDefinition.getDamageLocation(), spellDefinition.getKnockbackForce());
         }
     }
+
+    @Override
+    public void onTick(@NonNull SpellDefinition spellDefinition) {
+        sendWave(spellDefinition);
+    }
+
 
 }

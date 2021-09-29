@@ -17,7 +17,7 @@ public class PlayerInteract implements Listener {
         SpellDefinition spellDefinition = new SpellDefinition(e.getPlayer(), 3,3,3);
         if (e.getPlayer().isSneaking()) {
             if (e.getAction() == Action.RIGHT_CLICK_AIR || e.getAction() == Action.RIGHT_CLICK_BLOCK) {
-                Spell.FIRE_NOVA.cast(spellDefinition);
+                Spell.RAIN_OF_FIRE.cast(spellDefinition);
             } else if (e.getAction() == Action.LEFT_CLICK_AIR || e.getAction() == Action.LEFT_CLICK_BLOCK) {
                 Spell.LIGHTNING_CALL.cast(spellDefinition);
             }

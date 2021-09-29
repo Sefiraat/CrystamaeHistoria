@@ -50,8 +50,9 @@ public class FireNova implements CastableProjectile {
 
     @Override
     public void affect(@Nonnull SpellDefinition spellDefinition) {
-        for (LivingEntity livingEntity : spellDefinition.getAllTargets()) {
-            EntityUtils.damageEntity(livingEntity, spellDefinition.getCaster(), spellDefinition.getDamage(), spellDefinition.getDamageLocation(), spellDefinition.getKnockbackForce());
+        EntityUtils.damageEntity(spellDefinition.getMainTarget(), spellDefinition.getCaster(), spellDefinition.getDamage());
+        for (LivingEntity livingEntity : spellDefinition.getAdditionalTargets()) {
+            EntityUtils.damageEntity(livingEntity, spellDefinition.getCaster(), spellDefinition.getDamage());
         }
     }
 
