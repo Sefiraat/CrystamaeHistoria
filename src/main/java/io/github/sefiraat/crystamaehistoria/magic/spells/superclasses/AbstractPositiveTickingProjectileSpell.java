@@ -5,12 +5,12 @@ import lombok.NonNull;
 
 import javax.annotation.OverridingMethodsMustInvokeSuper;
 
-public abstract class AbstractDamagingTickingProjectileSpell extends AbstractDamagingTickingSpell implements CastableProjectile {
+public abstract class AbstractPositiveTickingProjectileSpell extends AbstractPositiveTickingSpell implements CastableProjectile {
 
     private double projectileAoeRange;
     private double projectileKnockbackAmount;
 
-    public AbstractDamagingTickingProjectileSpell() {
+    public AbstractPositiveTickingProjectileSpell() {
         this.projectileAoeRange = getProjectileAoeRange();
         this.projectileKnockbackAmount = getProjectileKnockbackForce();
     }

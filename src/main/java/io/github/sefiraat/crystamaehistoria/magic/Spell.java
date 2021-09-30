@@ -1,15 +1,22 @@
 package io.github.sefiraat.crystamaehistoria.magic;
 
+import io.github.sefiraat.crystamaehistoria.magic.spells.Bright;
 import io.github.sefiraat.crystamaehistoria.magic.spells.CallLightning;
+import io.github.sefiraat.crystamaehistoria.magic.spells.EtherealFlow;
 import io.github.sefiraat.crystamaehistoria.magic.spells.FanOfArrows;
 import io.github.sefiraat.crystamaehistoria.magic.spells.FireNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Fireball;
+import io.github.sefiraat.crystamaehistoria.magic.spells.Heal;
+import io.github.sefiraat.crystamaehistoria.magic.spells.HealingMist;
+import io.github.sefiraat.crystamaehistoria.magic.spells.LovePotion;
 import io.github.sefiraat.crystamaehistoria.magic.spells.PoisonNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Quake;
 import io.github.sefiraat.crystamaehistoria.magic.spells.RainOfFire;
+import io.github.sefiraat.crystamaehistoria.magic.spells.Shroud;
+import io.github.sefiraat.crystamaehistoria.magic.spells.Squall;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Teleport;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Tempest;
-import io.github.sefiraat.crystamaehistoria.magic.spells.superclasses.AbstractDamagingSpell;
+import io.github.sefiraat.crystamaehistoria.magic.spells.superclasses.AbstractSpell;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -24,18 +31,25 @@ public enum Spell {
     TELEPORT("TELEPORT", new Teleport()),
     TEMPEST("TEMPEST", new Tempest()),
     FIRE_NOVA("FIRE_NOVA", new FireNova()),
-    QUAKE("QUAKE", new Quake());
+    QUAKE("QUAKE", new Quake()),
+    BRIGHT("BRIGHT", new Bright()),
+    SQUALL("SQUALL", new Squall()),
+    ETHEREAL_FLOW("ETHEREAL_FLOW", new EtherealFlow()),
+    HEAL("HEAL", new Heal()),
+    HEALING_MIST("HEALING_MIST", new HealingMist()),
+    LOVE_POTION("LOVE_POTION", new LovePotion()),
+    SHROUD("SHROUD", new Shroud());
 
     private final String id;
-    private final AbstractDamagingSpell spell;
+    private final AbstractSpell spell;
 
-    Spell(String id, AbstractDamagingSpell spell) {
+    Spell(String id, AbstractSpell spell) {
         this.id = id;
         this.spell = spell;
     }
 
     @Nonnull
-    public AbstractDamagingSpell get() {
+    public AbstractSpell get() {
         return spell;
     }
 
@@ -44,7 +58,7 @@ public enum Spell {
     }
 
     @Nullable
-    public static AbstractDamagingSpell getById(String id) {
+    public static AbstractSpell getById(String id) {
         for (Spell spell : values()) {
             if (spell.id.equals(id)) {
                 return spell.spell;

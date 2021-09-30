@@ -2,6 +2,7 @@ package io.github.sefiraat.crystamaehistoria.magic.spells.superclasses;
 
 import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
 import io.github.sefiraat.crystamaehistoria.utils.EntityUtils;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import lombok.NonNull;
 import org.bukkit.Location;
 import org.bukkit.Particle;
@@ -9,14 +10,20 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 
 import javax.annotation.Nullable;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
 interface Castable {
 
     int DEFAULT_PARTICLE_NUMBER = 4;
+    Map<PotionEffectType, Pair<Integer, Integer>> positiveEffectPairMap = new HashMap<>();
+    Map<PotionEffectType, Pair<Integer, Integer>> negativeEffectPairMap = new HashMap<>();
 
     void cast(@NonNull SpellCastInformation spellCastInformation);
 
@@ -83,6 +90,54 @@ interface Castable {
         livingEntity.damage(damage, caster);
         if (knockbackOrigin != null && knockbackForce > 0) {
             EntityUtils.push(livingEntity, knockbackOrigin, knockbackForce);
+        }
+    }
+
+    /**
+     *
+     * @param potionEffectType The {@link PotionEffectType} to apply.
+     * @param amplification The amplification of the effect. If multiple of the same effects are added, the values are combined.
+     * @param duration The duration of the effect. If multiple of the same effects are added, the highest is used.
+     */
+    default void addPositiveEffect(PotionEffectType potionEffectType, int amplification, int duration) {
+        if (positiveEffectPairMap.containsKey(potionEffectType)) {
+            Pair<Integer, Integer> integerPair = positiveEffectPairMap.get(potionEffectType);
+            amplification = amplification == 0 ? 1 : amplification;
+            integerPair.setFirstValue(integerPair.getFirstValue() + amplification);
+            integerPair.setSecondValue(Math.max(integerPair.getSecondValue(), duration));
+            positiveEffectPairMap.put(potionEffectType, integerPair);
+        } else {
+            positiveEffectPairMap.put(potionEffectType, new Pair<>(amplification, duration));
+        }
+    }
+
+    /**
+     *
+     * @param potionEffectType The {@link PotionEffectType} to apply.
+     * @param amplification The amplification of the effect. If multiple of the same effects are added, the values are combined.
+     * @param duration The duration of the effect. If multiple of the same effects are added, the highest is used.
+     */
+    default void addNegativeEffect(PotionEffectType potionEffectType, int amplification, int duration) {
+        if (negativeEffectPairMap.containsKey(potionEffectType)) {
+            Pair<Integer, Integer> integerPair = negativeEffectPairMap.get(potionEffectType);
+            amplification = amplification == 0 ? 1 : amplification;
+            integerPair.setFirstValue(integerPair.getFirstValue() + amplification);
+            integerPair.setSecondValue(Math.max(integerPair.getSecondValue(), duration));
+            negativeEffectPairMap.put(potionEffectType, integerPair);
+        } else {
+            negativeEffectPairMap.put(potionEffectType, new Pair<>(amplification, duration));
+        }
+    }
+
+    default void applyPositiveEffects(LivingEntity livingEntity) {
+        for (Map.Entry<PotionEffectType, Pair<Integer, Integer>> entry : positiveEffectPairMap.entrySet()) {
+            livingEntity.addPotionEffect(new PotionEffect(entry.getKey(), entry.getValue().getFirstValue(), entry.getValue().getSecondValue()));
+        }
+    }
+
+    default void applyNegativeEffects(LivingEntity livingEntity) {
+        for (Map.Entry<PotionEffectType, Pair<Integer, Integer>> entry : negativeEffectPairMap.entrySet()) {
+            livingEntity.addPotionEffect(new PotionEffect(entry.getKey(), entry.getValue().getFirstValue(), entry.getValue().getSecondValue()));
         }
     }
 

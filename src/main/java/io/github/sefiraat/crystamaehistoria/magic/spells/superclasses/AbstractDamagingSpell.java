@@ -5,15 +5,13 @@ import lombok.NonNull;
 
 import javax.annotation.OverridingMethodsMustInvokeSuper;
 
-public abstract class AbstractDamagingSpell implements Castable {
+public abstract class AbstractDamagingSpell extends AbstractSpell {
 
-    protected int cooldown;
     protected int damage;
     protected double range;
     protected double knockback;
 
     public AbstractDamagingSpell() {
-        this.cooldown = getBaseCooldown();
         this.damage = getBaseDamage();
         this.range = getRange();
         this.knockback = getKnockback();
@@ -21,14 +19,8 @@ public abstract class AbstractDamagingSpell implements Castable {
 
     @OverridingMethodsMustInvokeSuper
     public void cast(@NonNull SpellCastInformation spellCastInformation) {
-        triggerCooldown(spellCastInformation);
+        super.cast(spellCastInformation);
     }
-
-    private void triggerCooldown(@NonNull SpellCastInformation spellCastInformation) {
-        // TODO Attach cooldown to stave
-    }
-
-    protected abstract int getBaseCooldown();
 
     protected abstract int getBaseDamage();
 
