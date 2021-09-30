@@ -1,7 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.listeners;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.magic.CastDefinition;
+import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
 import org.bukkit.Location;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LightningStrike;
@@ -19,33 +19,33 @@ public class SpellEffectListener implements Listener {
     public void onProjectileHit(ProjectileHitEvent event) {
         Projectile projectile = event.getEntity();
         if (CrystamaeHistoria.getEffectMap().containsKey(projectile)) {
-            CastDefinition castDefinition = CrystamaeHistoria.getEffectMap().get(projectile).getFirstValue();
+            SpellCastInformation spellCastInformation = CrystamaeHistoria.getEffectMap().get(projectile).getFirstValue();
             event.setCancelled(true);
             if (event.getHitEntity() != null && event.getHitEntity() instanceof LivingEntity) {
 
                 // Magic projectile hit a valid entity - let the magic begin
-                double range = castDefinition.getAoeRange();
+                double range = spellCastInformation.getAoeRange();
 
                 LivingEntity hitEntity = (LivingEntity) event.getHitEntity();
                 Location location = hitEntity.getLocation();
 
-                castDefinition.setMainTarget(hitEntity);
-                castDefinition.setDamageLocation(location);
+                spellCastInformation.setMainTarget(hitEntity);
+                spellCastInformation.setDamageLocation(location);
 
                 if (range > 0) {
                     for (Entity entity : location.getWorld().getNearbyEntities(location, range, range, range)) {
-                        if (entity instanceof LivingEntity && entity != castDefinition.getCaster() && entity.getUniqueId() != hitEntity.getUniqueId()) {
-                            castDefinition.getAdditionalTargets().add((LivingEntity) entity);
+                        if (entity instanceof LivingEntity && entity != spellCastInformation.getCaster() && entity.getUniqueId() != hitEntity.getUniqueId()) {
+                            spellCastInformation.getAdditionalTargets().add((LivingEntity) entity);
                         }
                     }
                 }
 
                 // TODO Combine?
-                castDefinition.runPreAffectEvent();
+                spellCastInformation.runPreAffectEvent();
 
-                castDefinition.runAffectEvent();
+                spellCastInformation.runAffectEvent();
 
-                castDefinition.runPostAffectEvent();
+                spellCastInformation.runPostAffectEvent();
 
             }
 
@@ -60,28 +60,28 @@ public class SpellEffectListener implements Listener {
     public void onLightningStrikeHit(LightningStrikeEvent event) {
         LightningStrike lightningStrike = event.getLightning();
         if (CrystamaeHistoria.getEffectMap().containsKey(lightningStrike)) {
-            CastDefinition castDefinition = CrystamaeHistoria.getEffectMap().get(lightningStrike).getFirstValue();
+            SpellCastInformation spellCastInformation = CrystamaeHistoria.getEffectMap().get(lightningStrike).getFirstValue();
             event.setCancelled(true);
 
-            double range = castDefinition.getAoeRange();
+            double range = spellCastInformation.getAoeRange();
             Location location = event.getLightning().getLocation();
 
-            castDefinition.setDamageLocation(location);
+            spellCastInformation.setDamageLocation(location);
 
             if (range > 0) {
                 for (Entity entity : location.getWorld().getNearbyEntities(location, range, range, range)) {
-                    if (entity instanceof LivingEntity && entity != castDefinition.getCaster()) {
-                        castDefinition.getAdditionalTargets().add((LivingEntity) entity);
+                    if (entity instanceof LivingEntity && entity != spellCastInformation.getCaster()) {
+                        spellCastInformation.getAdditionalTargets().add((LivingEntity) entity);
                     }
                 }
             }
 
             // TODO Combine?
-            castDefinition.runPreAffectEvent();
+            spellCastInformation.runPreAffectEvent();
 
-            castDefinition.runAffectEvent();
+            spellCastInformation.runAffectEvent();
 
-            castDefinition.runPostAffectEvent();
+            spellCastInformation.runPostAffectEvent();
 
         }
 

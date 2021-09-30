@@ -1,8 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
-import io.github.sefiraat.crystamaehistoria.magic.CastDefinition;
-import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.AbstractSpell;
-import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.CastableTicking;
+import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.spells.superclasses.AbstractDamagingTickingSpell;
 import io.github.sefiraat.crystamaehistoria.utils.EntityUtils;
 import lombok.NonNull;
 import org.bukkit.Color;
@@ -14,33 +13,54 @@ import org.bukkit.entity.LivingEntity;
 import javax.annotation.Nonnull;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Quake extends AbstractSpell implements CastableTicking {
-
-    private static final int DAMAGE = 1;
-    private static final int COOLDOWN = 100;
-    private static final double KNOCK_BACK_FORCE = 0;
-    private static final double AOE_RANGE = 5;
-    private static final int WAVES = 5;
-    private static final long PERIOD = 20;
-    private static final int IMPACT_ZONES = 100;
-    private static final int RANGE = 30;
+public class Quake extends AbstractDamagingTickingSpell {
 
     @Override
-    public void cast(@Nonnull CastDefinition castDefinition) {
-        super.cast(castDefinition);
-
-        castDefinition.setCastInformation(DAMAGE, AOE_RANGE, KNOCK_BACK_FORCE, COOLDOWN);
-        registerTicker(castDefinition, PERIOD, WAVES);
-
+    public void cast(@Nonnull SpellCastInformation spellCastInformation) {
+        super.cast(spellCastInformation);
+        registerTicker(spellCastInformation, getTickInterval(), getNumberTicks());
     }
 
     @Override
-    public void onTick(@NonNull CastDefinition castDefinition) {
-        Location castLocation = castDefinition.getCastLocation().clone();
+    protected int getNumberTicks() {
+        return 5;
+    }
 
-        for (int i = 0; i < IMPACT_ZONES; i++) {
-            double xOffset = ThreadLocalRandom.current().nextDouble(-RANGE, RANGE + 1);
-            double zOffset = ThreadLocalRandom.current().nextDouble(-RANGE, RANGE + 1);
+    @Override
+    protected int getTickInterval() {
+        return 20;
+    }
+
+    @Override
+    protected int getBaseCooldown() {
+        return 100;
+    }
+
+    @Override
+    protected int getBaseDamage() {
+        return 1;
+    }
+
+    @Override
+    protected double getRange() {
+        return 30;
+    }
+
+    @Override
+    protected double getKnockback() {
+        return 0;
+    }
+
+    @Override
+    public void onTick(@NonNull SpellCastInformation spellCastInformation) {
+        Location castLocation = spellCastInformation.getCastLocation().clone();
+
+        for (int i = 0; i < 30; i++) {
+
+            int range = (int) getRange();
+
+            double xOffset = ThreadLocalRandom.current().nextDouble(-range, range + 1);
+            double zOffset = ThreadLocalRandom.current().nextDouble(-range, range + 1);
 
             double directionalXOffset = ThreadLocalRandom.current().nextDouble(-0.5, 0.6);
             double directionalZOffset = ThreadLocalRandom.current().nextDouble(-0.5, 0.6);
@@ -55,15 +75,15 @@ public class Quake extends AbstractSpell implements CastableTicking {
             Particle.DustOptions dustOptions = new Particle.DustOptions(Color.fromRGB(90,100,105), 2);
             castLocation.getWorld().spawnParticle(Particle.REDSTONE, spawnLocation, 1, directionalXOffset, 2, directionalZOffset, dustOptions);
         }
-        for (Entity entity : castLocation.getWorld().getNearbyEntities(castLocation, RANGE, 2, RANGE)) {
-            if (entity instanceof LivingEntity && entity != castDefinition.getCaster()) {
-                EntityUtils.damageEntity(((LivingEntity) entity), castDefinition.getCaster(), castDefinition.getDamage());
+        for (Entity entity : castLocation.getWorld().getNearbyEntities(castLocation, range, 2, range)) {
+            if (entity instanceof LivingEntity && entity != spellCastInformation.getCaster()) {
+                EntityUtils.damageEntity(((LivingEntity) entity), spellCastInformation.getCaster(), spellCastInformation.getDamage());
             }
         }
     }
 
     @Override
-    public void afterAllTicks(@NonNull CastDefinition castDefinition) {
+    public void afterAllTicks(@NonNull SpellCastInformation spellCastInformation) {
 
     }
 

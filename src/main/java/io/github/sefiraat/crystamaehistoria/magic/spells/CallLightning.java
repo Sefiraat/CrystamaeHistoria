@@ -1,8 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
-import io.github.sefiraat.crystamaehistoria.magic.CastDefinition;
-import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.AbstractSpell;
-import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.CastableProjectile;
+import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.spells.superclasses.AbstractDamagingProjectileSpell;
 import io.github.sefiraat.crystamaehistoria.utils.EntityUtils;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
@@ -11,40 +10,64 @@ import org.bukkit.entity.LivingEntity;
 
 import javax.annotation.Nonnull;
 
-public class CallLightning extends AbstractSpell implements CastableProjectile {
-
-    private static final int DAMAGE = 10;
-    private static final int COOLDOWN = 200;
-    private static final double KNOCK_BACK_FORCE = 5;
-    private static final double AOE_RANGE = 5;
+public class CallLightning extends AbstractDamagingProjectileSpell {
 
     @Override
-    public void cast(@Nonnull CastDefinition castDefinition) {
-        super.cast(castDefinition);
+    public void cast(@Nonnull SpellCastInformation spellCastInformation) {
 
-        castDefinition.setCastInformation(DAMAGE, AOE_RANGE, KNOCK_BACK_FORCE, COOLDOWN);
+        super.cast(spellCastInformation);
 
-        Block block = castDefinition.getCaster().getTargetBlockExact(100);
+        Block block = spellCastInformation.getCaster().getTargetBlockExact(100);
         if (block != null) {
             Location location = block.getLocation();
             LightningStrike lightningStrike = location.getWorld().strikeLightning(location);
 
-            registerProjectile(lightningStrike, castDefinition);
+            registerProjectile(lightningStrike, spellCastInformation);
         }
 
     }
 
     @Override
-    public void beforeAffect(@Nonnull CastDefinition castDefinition) {
-        for (LivingEntity livingEntity : castDefinition.getAllTargets()) {
+    protected int getBaseCooldown() {
+        return 50;
+    }
+
+    @Override
+    protected int getBaseDamage() {
+        return 2;
+    }
+
+    @Override
+    protected double getRange() {
+        return 100;
+    }
+
+    @Override
+    protected double getKnockback() {
+        return 0;
+    }
+
+    @Override
+    protected double getProjectileAoeRange() {
+        return 2;
+    }
+
+    @Override
+    protected double getProjectileKnockbackForce() {
+        return 0.5;
+    }
+
+    @Override
+    public void beforeAffect(@Nonnull SpellCastInformation spellCastInformation) {
+        for (LivingEntity livingEntity : spellCastInformation.getAllTargets()) {
             livingEntity.setFireTicks(40);
         }
     }
 
     @Override
-    public void affect(@Nonnull CastDefinition castDefinition) {
-        for (LivingEntity livingEntity : castDefinition.getAllTargets()) {
-            EntityUtils.damageEntity(livingEntity, castDefinition.getCaster(), castDefinition.getDamage(), castDefinition.getDamageLocation(), castDefinition.getKnockbackForce());
+    public void affect(@Nonnull SpellCastInformation spellCastInformation) {
+        for (LivingEntity livingEntity : spellCastInformation.getAllTargets()) {
+            EntityUtils.damageEntity(livingEntity, spellCastInformation.getCaster(), spellCastInformation.getDamage(), spellCastInformation.getDamageLocation(), spellCastInformation.getKnockbackForce());
         }
     }
 

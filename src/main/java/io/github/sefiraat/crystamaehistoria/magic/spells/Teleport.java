@@ -1,8 +1,8 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.magic.CastDefinition;
-import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.AbstractSpell;
+import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.spells.superclasses.AbstractSpell;
 import lombok.NonNull;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -16,10 +16,10 @@ public class Teleport extends AbstractSpell {
     private static final int DISTANCE = 20;
 
     @Override
-    public void cast(@NonNull CastDefinition castDefinition) {
-        super.cast(castDefinition);
+    public void cast(@NonNull SpellCastInformation spellCastInformation) {
+        super.cast(spellCastInformation);
 
-        Player caster = castDefinition.getCaster();
+        Player caster = spellCastInformation.getCaster();
 
         Location teleportToLocation = getTeleportLocation(caster);
 
@@ -28,6 +28,11 @@ public class Teleport extends AbstractSpell {
         } else {
             caster.sendMessage(CrystamaeHistoria.config().getString("messages.spells.teleport_no_suitable_location"));
         }
+    }
+
+    @Override
+    protected int getBaseCooldown() {
+        return 20;
     }
 
     @Nullable

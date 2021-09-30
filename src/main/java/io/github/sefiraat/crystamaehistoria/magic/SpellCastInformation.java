@@ -10,7 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.function.Consumer;
 
-public class CastDefinition {
+public class SpellCastInformation {
 
     @Getter
     private final Player caster;
@@ -46,17 +46,17 @@ public class CastDefinition {
     private final Set<LivingEntity> additionalTargets = new HashSet<>();
 
     @Setter
-    private Consumer<CastDefinition> beforeAffectEvent;
+    private Consumer<SpellCastInformation> beforeAffectEvent;
     @Setter
-    private Consumer<CastDefinition> affectEvent;
+    private Consumer<SpellCastInformation> affectEvent;
     @Setter
-    private Consumer<CastDefinition> afterAffectEvent;
+    private Consumer<SpellCastInformation> afterAffectEvent;
     @Setter
-    private Consumer<CastDefinition> tickEvent;
+    private Consumer<SpellCastInformation> tickEvent;
     @Setter
-    private Consumer<CastDefinition> afterTicksEvent;
+    private Consumer<SpellCastInformation> afterTicksEvent;
 
-    public CastDefinition(Player caster, int powerMulti, int cooldownMulti, int durabilityMulti) {
+    public SpellCastInformation(Player caster, int powerMulti, int cooldownMulti, int durabilityMulti) {
         this.caster = caster;
         this.powerMulti = powerMulti;
         this.cooldownMulti = cooldownMulti;
@@ -64,11 +64,10 @@ public class CastDefinition {
         this.castLocation = caster.getLocation().clone();
     }
 
-    public void setCastInformation(int damage, double aoeRange, double knockbackForce, int cooldown) {
+    public void setProjectileInformation(int damage, double aoeRange, double knockbackForce) {
         this.damage = damage * powerMulti;
         this.aoeRange = aoeRange;
         this.knockbackForce = knockbackForce;
-        this.cooldown = cooldown * cooldownMulti;
     }
 
     public void runPreAffectEvent() {

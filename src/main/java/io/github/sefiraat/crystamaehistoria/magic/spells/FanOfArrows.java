@@ -1,8 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
-import io.github.sefiraat.crystamaehistoria.magic.CastDefinition;
-import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.AbstractSpell;
-import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.CastableProjectile;
+import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.spells.superclasses.AbstractDamagingProjectileSpell;
 import io.github.sefiraat.crystamaehistoria.magic.wrappers.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.utils.EntityUtils;
 import org.bukkit.Location;
@@ -11,21 +10,15 @@ import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
 
-public class FanOfArrows extends AbstractSpell implements CastableProjectile {
-
-    private static final int DAMAGE = 2;
-    private static final int COOLDOWN = 5;
-    private static final double KNOCK_BACK_FORCE = 0;
-    private static final double AOE_RANGE = 0;
+public class FanOfArrows extends AbstractDamagingProjectileSpell {
 
     @Override
-    public void cast(@Nonnull CastDefinition castDefinition) {
-        super.cast(castDefinition);
+    public void cast(@Nonnull SpellCastInformation spellCastInformation) {
 
-        castDefinition.setCastInformation(DAMAGE, AOE_RANGE, KNOCK_BACK_FORCE, COOLDOWN);
+        super.cast(spellCastInformation);
 
-        Player player = castDefinition.getCaster();
-        int sizeEnd = 30;
+        Player player = spellCastInformation.getCaster();
+        int sizeEnd = (int) getRange();
         int sizeCast = 3;
         int stepSize = 5;
         Location middle = player.getLocation().clone().add(0, 1, 0);
@@ -40,14 +33,44 @@ public class FanOfArrows extends AbstractSpell implements CastableProjectile {
             MagicProjectile magicProjectile = new MagicProjectile(EntityType.ARROW, spawn, player);
             magicProjectile.setVelocity(destination, 1);
 
-            registerProjectile(magicProjectile.getProjectile(), castDefinition);
+            registerProjectile(magicProjectile.getProjectile(), spellCastInformation);
         }
 
     }
 
     @Override
-    public void affect(@Nonnull CastDefinition castDefinition) {
-        EntityUtils.damageEntity(castDefinition.getMainTarget(), castDefinition.getCaster(), castDefinition.getDamage());
+    protected int getBaseCooldown() {
+        return 10;
+    }
+
+    @Override
+    protected int getBaseDamage() {
+        return 1;
+    }
+
+    @Override
+    protected double getRange() {
+        return 30;
+    }
+
+    @Override
+    protected double getKnockback() {
+        return 0;
+    }
+
+    @Override
+    protected double getProjectileAoeRange() {
+        return 0;
+    }
+
+    @Override
+    protected double getProjectileKnockbackForce() {
+        return 0;
+    }
+
+    @Override
+    public void affect(@Nonnull SpellCastInformation spellCastInformation) {
+        EntityUtils.damageEntity(spellCastInformation.getMainTarget(), spellCastInformation.getCaster(), spellCastInformation.getDamage());
     }
 
 }

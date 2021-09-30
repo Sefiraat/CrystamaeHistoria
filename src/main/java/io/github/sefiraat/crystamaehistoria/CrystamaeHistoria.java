@@ -2,7 +2,7 @@ package io.github.sefiraat.crystamaehistoria;
 
 import io.github.mooy1.infinitylib.core.AbstractAddon;
 import io.github.sefiraat.crystamaehistoria.magic.ActiveStorage;
-import io.github.sefiraat.crystamaehistoria.magic.CastDefinition;
+import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
 import io.github.sefiraat.crystamaehistoria.managers.ListenerManager;
 import io.github.sefiraat.crystamaehistoria.managers.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.managers.ThemeManager;
@@ -95,7 +95,7 @@ public class CrystamaeHistoria extends AbstractAddon {
         return instance.getServer();
     }
 
-    public static Map<Entity, Pair<CastDefinition, Long>> getEffectMap() {
+    public static Map<Entity, Pair<SpellCastInformation, Long>> getEffectMap() {
         return instance.activeStorage.getProjectileMap();
     }
 

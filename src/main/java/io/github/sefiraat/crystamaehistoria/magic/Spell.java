@@ -9,7 +9,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.Quake;
 import io.github.sefiraat.crystamaehistoria.magic.spells.RainOfFire;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Teleport;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Tempest;
-import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.AbstractSpell;
+import io.github.sefiraat.crystamaehistoria.magic.spells.superclasses.AbstractDamagingSpell;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -27,24 +27,24 @@ public enum Spell {
     QUAKE("QUAKE", new Quake());
 
     private final String id;
-    private final AbstractSpell spell;
+    private final AbstractDamagingSpell spell;
 
-    Spell(String id, AbstractSpell spell) {
+    Spell(String id, AbstractDamagingSpell spell) {
         this.id = id;
         this.spell = spell;
     }
 
     @Nonnull
-    public AbstractSpell get() {
+    public AbstractDamagingSpell get() {
         return spell;
     }
 
-    public void cast(CastDefinition castDefinition) {
-        this.spell.cast(castDefinition);
+    public void cast(SpellCastInformation spellCastInformation) {
+        this.spell.cast(spellCastInformation);
     }
 
     @Nullable
-    public static AbstractSpell getById(String id) {
+    public static AbstractDamagingSpell getById(String id) {
         for (Spell spell : values()) {
             if (spell.id.equals(id)) {
                 return spell.spell;

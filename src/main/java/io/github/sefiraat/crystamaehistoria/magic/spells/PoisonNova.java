@@ -1,8 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
-import io.github.sefiraat.crystamaehistoria.magic.CastDefinition;
-import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.AbstractSpell;
-import io.github.sefiraat.crystamaehistoria.magic.spells.interfaces.CastableProjectile;
+import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.spells.superclasses.AbstractDamagingProjectileSpell;
 import io.github.sefiraat.crystamaehistoria.magic.wrappers.MagicProjectile;
 import org.bukkit.Location;
 import org.bukkit.Particle;
@@ -14,22 +13,15 @@ import org.bukkit.potion.PotionEffectType;
 
 import javax.annotation.Nonnull;
 
-public class PoisonNova extends AbstractSpell implements CastableProjectile {
-
-    private static final int DAMAGE = 2;
-    private static final int COOLDOWN = 5;
-    private static final double KNOCK_BACK_FORCE = 0;
-    private static final double AOE_RANGE = 1;
-    private static final int EFFECT_DURATION = 40;
+public class PoisonNova extends AbstractDamagingProjectileSpell {
 
     @Override
-    public void cast(@Nonnull CastDefinition castDefinition) {
-        super.cast(castDefinition);
+    public void cast(@Nonnull SpellCastInformation spellCastInformation) {
 
-        castDefinition.setCastInformation(DAMAGE, AOE_RANGE, KNOCK_BACK_FORCE, COOLDOWN);
+        super.cast(spellCastInformation);
 
-        Player player = castDefinition.getCaster();
-        int sizeEnd = 20;
+        Player player = spellCastInformation.getCaster();
+        int sizeEnd = (int) getRange();
         int sizeCast = 1;
         int stepSize = 3;
         Location middle = player.getLocation().clone().add(0, 1, 0);
@@ -44,25 +36,55 @@ public class PoisonNova extends AbstractSpell implements CastableProjectile {
             MagicProjectile magicProjectile = new MagicProjectile(EntityType.ENDER_PEARL, spawn, player);
             magicProjectile.setVelocity(destination, 1);
 
-            registerProjectile(magicProjectile.getProjectile(), castDefinition);
+            registerProjectile(magicProjectile.getProjectile(), spellCastInformation);
         }
 
     }
 
     @Override
-    public void affect(@Nonnull CastDefinition castDefinition) {
-        LivingEntity hit = castDefinition.getMainTarget();
+    protected int getBaseCooldown() {
+        return 20;
+    }
+
+    @Override
+    protected int getBaseDamage() {
+        return 0;
+    }
+
+    @Override
+    protected double getRange() {
+        return 20;
+    }
+
+    @Override
+    protected double getKnockback() {
+        return 0;
+    }
+
+    @Override
+    protected double getProjectileAoeRange() {
+        return 0;
+    }
+
+    @Override
+    protected double getProjectileKnockbackForce() {
+        return 0;
+    }
+
+    @Override
+    public void affect(@Nonnull SpellCastInformation spellCastInformation) {
+        LivingEntity hit = spellCastInformation.getMainTarget();
         if (hit.getHealth() == 1) {
-            hit.damage(1, castDefinition.getCaster());
+            hit.damage(1, spellCastInformation.getCaster());
         } else {
-            PotionEffect potionEffect = new PotionEffect(PotionEffectType.POISON, castDefinition.getPowerMulti() * EFFECT_DURATION, castDefinition.getPowerMulti() + 1);
+            PotionEffect potionEffect = new PotionEffect(PotionEffectType.POISON, spellCastInformation.getPowerMulti() * 40, spellCastInformation.getPowerMulti() + 1);
             hit.addPotionEffect(potionEffect);
-            setLastDamageToCaster(hit, castDefinition);
+            setLastDamageToCaster(hit, spellCastInformation);
         }
     }
 
     @Override
-    public void afterAffect(@Nonnull CastDefinition castDefinition) {
-        displayParticleEffect(castDefinition.getMainTarget(), Particle.CRIMSON_SPORE, 1.0, 10);
+    public void afterAffect(@Nonnull SpellCastInformation spellCastInformation) {
+        displayParticleEffect(spellCastInformation.getMainTarget(), Particle.CRIMSON_SPORE, 1.0, 10);
     }
 }

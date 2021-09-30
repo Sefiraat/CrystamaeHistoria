@@ -11,7 +11,7 @@ import java.util.Map;
 public class ActiveStorage {
 
     @Getter
-    private final Map<Entity, Pair<CastDefinition, Long>> projectileMap = new HashMap<>();
+    private final Map<Entity, Pair<SpellCastInformation, Long>> projectileMap = new HashMap<>();
     @Getter
     private final Map<SpellTick, Integer> tickingCastables = new HashMap<>();
 
@@ -27,7 +27,7 @@ public class ActiveStorage {
     }
 
     public void clearExpired() {
-        for (Map.Entry<Entity, Pair<CastDefinition, Long>> entry : projectileMap.entrySet()) {
+        for (Map.Entry<Entity, Pair<SpellCastInformation, Long>> entry : projectileMap.entrySet()) {
             long time = System.currentTimeMillis();
             long expiration = entry.getValue().getSecondValue();
             if (time > expiration) {
