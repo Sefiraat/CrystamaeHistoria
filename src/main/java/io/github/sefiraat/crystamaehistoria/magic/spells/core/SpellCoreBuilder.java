@@ -180,8 +180,8 @@ public class SpellCoreBuilder {
         if (positiveEffectPairMap.containsKey(potionEffectType)) {
             Pair<Integer, Integer> integerPair = positiveEffectPairMap.get(potionEffectType);
             amplification = amplification == 0 ? 1 : amplification;
-            integerPair.setFirstValue(integerPair.getFirstValue() + amplification);
-            integerPair.setSecondValue(Math.max(integerPair.getSecondValue(), duration));
+            integerPair.setFirstValue(integerPair.getFirstValue() + duration);
+            integerPair.setSecondValue(Math.max(integerPair.getSecondValue(), amplification));
             positiveEffectPairMap.put(potionEffectType, integerPair);
         } else {
             positiveEffectPairMap.put(potionEffectType, new Pair<>(amplification, duration));
@@ -198,8 +198,8 @@ public class SpellCoreBuilder {
         if (negativeEffectPairMap.containsKey(potionEffectType)) {
             Pair<Integer, Integer> integerPair = negativeEffectPairMap.get(potionEffectType);
             amplification = amplification == 0 ? 1 : amplification;
-            integerPair.setFirstValue(integerPair.getFirstValue() + amplification);
-            integerPair.setSecondValue(Math.max(integerPair.getSecondValue(), duration));
+            integerPair.setFirstValue(integerPair.getFirstValue() + duration);
+            integerPair.setSecondValue(Math.max(integerPair.getSecondValue(), amplification));
             negativeEffectPairMap.put(potionEffectType, integerPair);
         } else {
             negativeEffectPairMap.put(potionEffectType, new Pair<>(amplification, duration));
