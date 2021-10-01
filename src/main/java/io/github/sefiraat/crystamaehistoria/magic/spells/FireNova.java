@@ -1,7 +1,8 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
 import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
-import io.github.sefiraat.crystamaehistoria.magic.spells.superclasses.AbstractDamagingProjectileSpell;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.magic.wrappers.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.utils.EntityUtils;
 import org.bukkit.Location;
@@ -12,20 +13,19 @@ import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
 
-public class FireNova extends AbstractDamagingProjectileSpell {
+public class FireNova extends Spell {
 
-    private static final int DAMAGE = 3;
-    private static final int COOLDOWN = 5;
-    private static final double KNOCK_BACK_FORCE = 1;
-    private static final double AOE_RANGE = 2;
+    public FireNova() {
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(20, true, 10, false, 10, false)
+                .makeDamagingSpell(3, true, 1, false)
+                .makeProjectileSpell(this::fireProjectiles, this::projectileHit, 2, false, 1, false)
+                .addAfterProjectileHitEvent(this::afterProjectileHit);
+        setSpellCore(spellCoreBuilder.build());
+    }
 
-    @Override
-    public void cast(@Nonnull SpellCastInformation spellCastInformation) {
-
-        super.cast(spellCastInformation);
-
+    public void fireProjectiles(@Nonnull SpellCastInformation spellCastInformation) {
         Player player = spellCastInformation.getCaster();
-        int sizeEnd = (int) getRange();
+        double sizeEnd = getRange(spellCastInformation);
         int sizeCast = 2;
         int stepSize = 3;
         Location middle = player.getLocation().clone().add(0, 1, 0);
@@ -45,46 +45,13 @@ public class FireNova extends AbstractDamagingProjectileSpell {
 
     }
 
-    @Override
-    protected int getBaseCooldown() {
-        return 20;
-    }
-
-    @Override
-    protected int getBaseDamage() {
-        return 3;
-    }
-
-    @Override
-    protected double getRange() {
-        return 10;
-    }
-
-    @Override
-    protected double getKnockback() {
-        return 0;
-    }
-
-    @Override
-    protected double getProjectileAoeRange() {
-        return 2;
-    }
-
-    @Override
-    protected double getProjectileKnockbackForce() {
-        return 1;
-    }
-
-    @Override
-    public void affect(@Nonnull SpellCastInformation spellCastInformation) {
-        EntityUtils.damageEntity(spellCastInformation.getMainTarget(), spellCastInformation.getCaster(), spellCastInformation.getDamage());
-        for (LivingEntity livingEntity : spellCastInformation.getAdditionalTargets()) {
-            EntityUtils.damageEntity(livingEntity, spellCastInformation.getCaster(), spellCastInformation.getDamage());
+    public void projectileHit(@Nonnull SpellCastInformation spellCastInformation) {
+        for (LivingEntity livingEntity : getTargets(spellCastInformation, true)) {
+            EntityUtils.damageEntity(livingEntity, spellCastInformation.getCaster(), getDamage(spellCastInformation));
         }
     }
 
-    @Override
-    public void afterAffect(@Nonnull SpellCastInformation spellCastInformation) {
+    public void afterProjectileHit(@Nonnull SpellCastInformation spellCastInformation) {
         displayParticleEffect(spellCastInformation.getMainTarget(), Particle.EXPLOSION_NORMAL, 1.0, 5);
     }
 }

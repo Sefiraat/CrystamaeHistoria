@@ -1,7 +1,8 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
 import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
-import io.github.sefiraat.crystamaehistoria.magic.spells.superclasses.AbstractDamagingProjectileSpell;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.magic.wrappers.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.utils.EntityUtils;
 import org.bukkit.Location;
@@ -10,15 +11,18 @@ import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
 
-public class FanOfArrows extends AbstractDamagingProjectileSpell {
+public class FanOfArrows extends Spell {
 
-    @Override
-    public void cast(@Nonnull SpellCastInformation spellCastInformation) {
+    public FanOfArrows() {
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(10, true, 20, true, 1, false)
+                .makeProjectileSpell(this::fireProjectiles, this::projectileHit, 0, false, 0, false)
+                .makeDamagingSpell(1, true, 0, false);
+        setSpellCore(spellCoreBuilder.build());
+    }
 
-        super.cast(spellCastInformation);
-
+    public void fireProjectiles(@Nonnull SpellCastInformation spellCastInformation) {
         Player player = spellCastInformation.getCaster();
-        int sizeEnd = (int) getRange();
+        double sizeEnd = getRange(spellCastInformation);
         int sizeCast = 3;
         int stepSize = 5;
         Location middle = player.getLocation().clone().add(0, 1, 0);
@@ -35,42 +39,10 @@ public class FanOfArrows extends AbstractDamagingProjectileSpell {
 
             registerProjectile(magicProjectile.getProjectile(), spellCastInformation);
         }
-
     }
 
-    @Override
-    protected int getBaseCooldown() {
-        return 10;
-    }
-
-    @Override
-    protected int getBaseDamage() {
-        return 1;
-    }
-
-    @Override
-    protected double getRange() {
-        return 30;
-    }
-
-    @Override
-    protected double getKnockback() {
-        return 0;
-    }
-
-    @Override
-    protected double getProjectileAoeRange() {
-        return 0;
-    }
-
-    @Override
-    protected double getProjectileKnockbackForce() {
-        return 0;
-    }
-
-    @Override
-    public void affect(@Nonnull SpellCastInformation spellCastInformation) {
-        EntityUtils.damageEntity(spellCastInformation.getMainTarget(), spellCastInformation.getCaster(), spellCastInformation.getDamage());
+    public void projectileHit(@Nonnull SpellCastInformation spellCastInformation) {
+        EntityUtils.damageEntity(spellCastInformation.getMainTarget(), spellCastInformation.getCaster(), getDamage(spellCastInformation));
     }
 
 }

@@ -8,20 +8,23 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.FireNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Fireball;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Heal;
 import io.github.sefiraat.crystamaehistoria.magic.spells.HealingMist;
+import io.github.sefiraat.crystamaehistoria.magic.spells.KnowledgeShare;
 import io.github.sefiraat.crystamaehistoria.magic.spells.LovePotion;
 import io.github.sefiraat.crystamaehistoria.magic.spells.PoisonNova;
+import io.github.sefiraat.crystamaehistoria.magic.spells.Push;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Quake;
 import io.github.sefiraat.crystamaehistoria.magic.spells.RainOfFire;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Shroud;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Squall;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Teleport;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Tempest;
-import io.github.sefiraat.crystamaehistoria.magic.spells.superclasses.AbstractSpell;
+import io.github.sefiraat.crystamaehistoria.magic.spells.Vacuum;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public enum Spell {
+public enum Spells {
 
     LIGHTNING_CALL("LIGHTNING_CALL", new CallLightning()),
     FAN_OF_ARROWS("FAN_OF_ARROWS", new FanOfArrows()),
@@ -38,28 +41,31 @@ public enum Spell {
     HEAL("HEAL", new Heal()),
     HEALING_MIST("HEALING_MIST", new HealingMist()),
     LOVE_POTION("LOVE_POTION", new LovePotion()),
-    SHROUD("SHROUD", new Shroud());
+    SHROUD("SHROUD", new Shroud()),
+    PUSH("PUSH", new Push()),
+    VACUUM("VACUUM", new Vacuum()),
+    KNOWLEDGE_SHARE("KNOWLEDGE_SHARE", new KnowledgeShare());
 
     private final String id;
-    private final AbstractSpell spell;
+    private final Spell spell;
 
-    Spell(String id, AbstractSpell spell) {
+    Spells(String id, Spell spell) {
         this.id = id;
         this.spell = spell;
     }
 
     @Nonnull
-    public AbstractSpell get() {
+    public Spell get() {
         return spell;
     }
 
     public void cast(SpellCastInformation spellCastInformation) {
-        this.spell.cast(spellCastInformation);
+        this.spell.castSpell(spellCastInformation);
     }
 
     @Nullable
-    public static AbstractSpell getById(String id) {
-        for (Spell spell : values()) {
+    public static Spell getById(String id) {
+        for (Spells spell : values()) {
             if (spell.id.equals(id)) {
                 return spell.spell;
             }

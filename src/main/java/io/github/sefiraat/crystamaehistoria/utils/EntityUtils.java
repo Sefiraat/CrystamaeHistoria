@@ -23,11 +23,11 @@ public class EntityUtils {
         pushed.setVelocity(v);
     }
 
-    public static void damageEntity(LivingEntity livingEntity, LivingEntity caster, int damage) {
+    public static void damageEntity(LivingEntity livingEntity, LivingEntity caster, double damage) {
         damageEntity(livingEntity, caster, damage, null, 0);
     }
 
-    public static void damageEntity(LivingEntity livingEntity, LivingEntity caster, int damage, @Nullable Location knockbackOrigin, double knockbackForce) {
+    public static void damageEntity(LivingEntity livingEntity, LivingEntity caster, double damage, @Nullable Location knockbackOrigin, double knockbackForce) {
         livingEntity.damage(damage, caster);
         if (knockbackOrigin != null && knockbackForce > 0) {
             EntityUtils.push(livingEntity, knockbackOrigin, knockbackForce);

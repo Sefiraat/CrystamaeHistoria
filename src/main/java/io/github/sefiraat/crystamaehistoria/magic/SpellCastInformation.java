@@ -20,20 +20,6 @@ public class SpellCastInformation {
     private final int cooldownMulti;
     @Getter
     private final int durabilityMulti;
-
-    @Getter
-    @Setter
-    private int damage;
-    @Getter
-    @Setter
-    private double aoeRange;
-    @Getter
-    @Setter
-    private double knockbackForce;
-    @Getter
-    @Setter
-    private double cooldown;
-
     @Getter
     private final Location castLocation;
     @Getter
@@ -42,9 +28,6 @@ public class SpellCastInformation {
     @Getter
     @Setter
     private LivingEntity mainTarget;
-    @Getter
-    private final Set<LivingEntity> additionalTargets = new HashSet<>();
-
     @Setter
     private Consumer<SpellCastInformation> beforeAffectEvent;
     @Setter
@@ -62,12 +45,6 @@ public class SpellCastInformation {
         this.cooldownMulti = cooldownMulti;
         this.durabilityMulti = durabilityMulti;
         this.castLocation = caster.getLocation().clone();
-    }
-
-    public void setProjectileInformation(int damage, double aoeRange, double knockbackForce) {
-        this.damage = damage * powerMulti;
-        this.aoeRange = aoeRange;
-        this.knockbackForce = knockbackForce;
     }
 
     public void runPreAffectEvent() {
@@ -88,13 +65,6 @@ public class SpellCastInformation {
 
     public void runAfterTicksEvent() {
         if (afterTicksEvent != null) afterTicksEvent.accept(this);
-    }
-
-    public Set<LivingEntity> getAllTargets() {
-        Set<LivingEntity> livingEntities = new HashSet<>();
-        livingEntities.add(mainTarget);
-        livingEntities.addAll(additionalTargets);
-        return livingEntities;
     }
 
 }

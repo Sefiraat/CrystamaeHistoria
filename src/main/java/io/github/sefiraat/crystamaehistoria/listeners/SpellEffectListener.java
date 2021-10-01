@@ -23,22 +23,11 @@ public class SpellEffectListener implements Listener {
             event.setCancelled(true);
             if (event.getHitEntity() != null && event.getHitEntity() instanceof LivingEntity) {
 
-                // Magic projectile hit a valid entity - let the magic begin
-                double range = spellCastInformation.getAoeRange();
-
                 LivingEntity hitEntity = (LivingEntity) event.getHitEntity();
                 Location location = hitEntity.getLocation();
 
                 spellCastInformation.setMainTarget(hitEntity);
                 spellCastInformation.setDamageLocation(location);
-
-                if (range > 0) {
-                    for (Entity entity : location.getWorld().getNearbyEntities(location, range, range, range)) {
-                        if (entity instanceof LivingEntity && entity != spellCastInformation.getCaster() && entity.getUniqueId() != hitEntity.getUniqueId()) {
-                            spellCastInformation.getAdditionalTargets().add((LivingEntity) entity);
-                        }
-                    }
-                }
 
                 // TODO Combine?
                 spellCastInformation.runPreAffectEvent();
@@ -63,18 +52,9 @@ public class SpellEffectListener implements Listener {
             SpellCastInformation spellCastInformation = CrystamaeHistoria.getEffectMap().get(lightningStrike).getFirstValue();
             event.setCancelled(true);
 
-            double range = spellCastInformation.getAoeRange();
             Location location = event.getLightning().getLocation();
 
             spellCastInformation.setDamageLocation(location);
-
-            if (range > 0) {
-                for (Entity entity : location.getWorld().getNearbyEntities(location, range, range, range)) {
-                    if (entity instanceof LivingEntity && entity != spellCastInformation.getCaster()) {
-                        spellCastInformation.getAdditionalTargets().add((LivingEntity) entity);
-                    }
-                }
-            }
 
             // TODO Combine?
             spellCastInformation.runPreAffectEvent();

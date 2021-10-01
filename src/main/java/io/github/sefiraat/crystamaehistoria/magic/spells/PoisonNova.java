@@ -1,7 +1,8 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
 import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
-import io.github.sefiraat.crystamaehistoria.magic.spells.superclasses.AbstractDamagingProjectileSpell;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.magic.wrappers.MagicProjectile;
 import org.bukkit.Location;
 import org.bukkit.Particle;
@@ -13,15 +14,19 @@ import org.bukkit.potion.PotionEffectType;
 
 import javax.annotation.Nonnull;
 
-public class PoisonNova extends AbstractDamagingProjectileSpell {
+public class PoisonNova extends Spell {
 
-    @Override
-    public void cast(@Nonnull SpellCastInformation spellCastInformation) {
+    public PoisonNova() {
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(20, true, 20, true, 10, true)
+                .makeDamagingSpell(1, false, 0, false)
+                .makeProjectileSpell(this::fireProjectile, this::projectileHit, 0, false, 0 ,false)
+                .addAfterProjectileHitEvent(this::afterProjectileHit);
+        setSpellCore(spellCoreBuilder.build());
+    }
 
-        super.cast(spellCastInformation);
-
+    public void fireProjectile(@Nonnull SpellCastInformation spellCastInformation) {
         Player player = spellCastInformation.getCaster();
-        int sizeEnd = (int) getRange();
+        double sizeEnd = getRange(spellCastInformation);
         int sizeCast = 1;
         int stepSize = 3;
         Location middle = player.getLocation().clone().add(0, 1, 0);
@@ -38,44 +43,12 @@ public class PoisonNova extends AbstractDamagingProjectileSpell {
 
             registerProjectile(magicProjectile.getProjectile(), spellCastInformation);
         }
-
     }
 
-    @Override
-    protected int getBaseCooldown() {
-        return 20;
-    }
-
-    @Override
-    protected int getBaseDamage() {
-        return 0;
-    }
-
-    @Override
-    protected double getRange() {
-        return 20;
-    }
-
-    @Override
-    protected double getKnockback() {
-        return 0;
-    }
-
-    @Override
-    protected double getProjectileAoeRange() {
-        return 0;
-    }
-
-    @Override
-    protected double getProjectileKnockbackForce() {
-        return 0;
-    }
-
-    @Override
-    public void affect(@Nonnull SpellCastInformation spellCastInformation) {
+    public void projectileHit(@Nonnull SpellCastInformation spellCastInformation) {
         LivingEntity hit = spellCastInformation.getMainTarget();
         if (hit.getHealth() == 1) {
-            hit.damage(1, spellCastInformation.getCaster());
+            hit.damage(getDamage(spellCastInformation), spellCastInformation.getCaster());
         } else {
             PotionEffect potionEffect = new PotionEffect(PotionEffectType.POISON, spellCastInformation.getPowerMulti() * 40, spellCastInformation.getPowerMulti() + 1);
             hit.addPotionEffect(potionEffect);
@@ -83,8 +56,7 @@ public class PoisonNova extends AbstractDamagingProjectileSpell {
         }
     }
 
-    @Override
-    public void afterAffect(@Nonnull SpellCastInformation spellCastInformation) {
+    public void afterProjectileHit(@Nonnull SpellCastInformation spellCastInformation) {
         displayParticleEffect(spellCastInformation.getMainTarget(), Particle.CRIMSON_SPORE, 1.0, 10);
     }
 }

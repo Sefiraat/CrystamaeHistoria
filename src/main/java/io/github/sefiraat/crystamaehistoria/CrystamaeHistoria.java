@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria;
 
 import io.github.mooy1.infinitylib.core.AbstractAddon;
+import io.github.sefiraat.crystamaehistoria.commands.TestSpell;
 import io.github.sefiraat.crystamaehistoria.magic.ActiveStorage;
 import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
 import io.github.sefiraat.crystamaehistoria.managers.ListenerManager;
@@ -49,6 +50,8 @@ public class CrystamaeHistoria extends AbstractAddon {
         this.activeStorage = new ActiveStorage();
 
         new Metrics(this,12065);
+
+        getAddonCommand().addSub(new TestSpell());
 
     }
 

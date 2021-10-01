@@ -1,7 +1,8 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
 import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
-import io.github.sefiraat.crystamaehistoria.magic.spells.superclasses.AbstractDamagingTickingProjectileSpell;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.magic.wrappers.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.utils.EntityUtils;
 import lombok.NonNull;
@@ -12,76 +13,31 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class RainOfFire extends AbstractDamagingTickingProjectileSpell {
+public class RainOfFire extends Spell {
 
     private static final int PROJECTILES_PER_WAVE = 5;
 
-    @Override
-    public void cast(@NonNull SpellCastInformation spellCastInformation) {
-        super.cast(spellCastInformation);
+    public RainOfFire() {
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 30, false, 20, true)
+                .makeDamagingSpell(5, true, 0.5, false)
+                .makeProjectileSpell(this::fireProjectiles, this::projectileHits, 1, true, 0.5, true)
+                .addBeforeProjectileHitEvent(this::beforeProjectileHits)
+                .makeTickingSpell(this::fireProjectiles, 9, false, 10, false);
+        setSpellCore(spellCoreBuilder.build());
     }
 
-    @Override
-    protected int getNumberTicks() {
-        return 10;
-    }
-
-    @Override
-    protected int getTickInterval() {
-        return 10;
-    }
-
-    @Override
-    protected int getBaseCooldown() {
-        return 100;
-    }
-
-    @Override
-    protected int getBaseDamage() {
-        return 5;
-    }
-
-    @Override
-    protected double getRange() {
-        return 20;
-    }
-
-    @Override
-    protected double getKnockback() {
-        return 0;
-    }
-
-    @Override
-    protected double getProjectileAoeRange() {
-        return 3;
-    }
-
-    @Override
-    protected double getProjectileKnockbackForce() {
-        return 1;
-    }
-
-    @Override
-    public void beforeAffect(@NonNull @NotNull SpellCastInformation spellCastInformation) {
-        for (LivingEntity livingEntity : spellCastInformation.getAllTargets()) {
+    public void beforeProjectileHits(@NonNull @NotNull SpellCastInformation spellCastInformation) {
+        for (LivingEntity livingEntity : getTargets(spellCastInformation, true)) {
             livingEntity.setFireTicks(80);
         }
     }
 
-    @Override
-    public void affect(@NonNull SpellCastInformation spellCastInformation) {
-        for (LivingEntity livingEntity : spellCastInformation.getAllTargets()) {
-            EntityUtils.damageEntity(livingEntity, spellCastInformation.getCaster(), spellCastInformation.getDamage(), spellCastInformation.getDamageLocation(), spellCastInformation.getKnockbackForce());
-        }
-    }
-
-    @Override
-    public void onTick(@NonNull SpellCastInformation spellCastInformation) {
+    public void fireProjectiles(@NonNull SpellCastInformation spellCastInformation) {
         Location location = spellCastInformation.getCaster().getLocation();
 
         for (int i = 0; i < (PROJECTILES_PER_WAVE * spellCastInformation.getPowerMulti()); i++) {
 
-            int range = (int) getRange();
+            int range = (int) getRange(spellCastInformation);
 
             int xOffset = ThreadLocalRandom.current().nextInt(-range, range + 1);
             int zOffset = ThreadLocalRandom.current().nextInt(-range, range + 1);
@@ -100,5 +56,9 @@ public class RainOfFire extends AbstractDamagingTickingProjectileSpell {
         }
     }
 
-
+    public void projectileHits(@NonNull SpellCastInformation spellCastInformation) {
+        for (LivingEntity livingEntity : getTargets(spellCastInformation, true)) {
+            EntityUtils.damageEntity(livingEntity, spellCastInformation.getCaster(), getDamage(spellCastInformation), spellCastInformation.getDamageLocation(), getProjectileKnockback(spellCastInformation));
+        }
+    }
 }

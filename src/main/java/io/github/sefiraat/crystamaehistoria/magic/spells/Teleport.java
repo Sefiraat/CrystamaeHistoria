@@ -2,42 +2,40 @@ package io.github.sefiraat.crystamaehistoria.magic.spells;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
-import io.github.sefiraat.crystamaehistoria.magic.spells.superclasses.AbstractSpell;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import lombok.NonNull;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public class Teleport extends AbstractSpell {
+public class Teleport extends Spell {
 
-    private static final int DISTANCE = 20;
+    public Teleport() {
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(20, true, 20, false, 1, true)
+                .makeInstantSpell(this::cast);
+        setSpellCore(spellCoreBuilder.build());
+    }
 
-    @Override
     public void cast(@NonNull SpellCastInformation spellCastInformation) {
-        super.cast(spellCastInformation);
-
         Player caster = spellCastInformation.getCaster();
-
-        Location teleportToLocation = getTeleportLocation(caster);
+        Location teleportToLocation = getTeleportLocation(caster, getRange(spellCastInformation));
 
         if (teleportToLocation != null) {
             caster.teleport(teleportToLocation);
+            displayParticleEffect(caster, Particle.END_ROD, 1, 10);
         } else {
             caster.sendMessage(CrystamaeHistoria.config().getString("messages.spells.teleport_no_suitable_location"));
         }
     }
 
-    @Override
-    protected int getBaseCooldown() {
-        return 20;
-    }
-
     @Nullable
-    private Location getTeleportLocation(@Nonnull Player player) {
-        Location location = player.getLocation().add(player.getLocation().getDirection().setY(0).multiply(DISTANCE));
+    private Location getTeleportLocation(@Nonnull Player player, double range) {
+        Location location = player.getLocation().add(player.getLocation().getDirection().setY(0).multiply(range));
         if (location.getBlock().getType() == Material.AIR) {
             return location.add(0, 1, 0);
         } else {
