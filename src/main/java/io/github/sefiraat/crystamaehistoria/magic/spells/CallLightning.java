@@ -4,10 +4,12 @@ import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.utils.EntityUtils;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.LightningStrike;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
 
@@ -22,23 +24,26 @@ public class CallLightning extends Spell {
     }
 
     public void fireProjectiles(@Nonnull SpellCastInformation spellCastInformation) {
-        Block block = spellCastInformation.getCaster().getTargetBlockExact((int) getRange(spellCastInformation));
-        if (block != null) {
-            Location location = block.getLocation();
-            LightningStrike lightningStrike = location.getWorld().strikeLightning(location);
-            registerProjectile(lightningStrike, spellCastInformation);
+        Player player = Bukkit.getPlayer(spellCastInformation.getCaster());
+        if (player != null) {
+            Block block = player.getTargetBlockExact((int) getRange(spellCastInformation));
+            if (block != null) {
+                Location location = block.getLocation();
+                LightningStrike lightningStrike = location.getWorld().strikeLightning(location);
+                registerProjectile(lightningStrike, spellCastInformation);
+            }
         }
     }
 
     public void beforeProjectileHit(@Nonnull SpellCastInformation spellCastInformation) {
-        for (LivingEntity livingEntity : getTargets(spellCastInformation, true)) {
+        for (LivingEntity livingEntity : getTargets(spellCastInformation, getProjectileAoe(spellCastInformation), true)) {
             livingEntity.setFireTicks(40);
         }
     }
 
     public void projectileHit(@Nonnull SpellCastInformation spellCastInformation) {
-        for (LivingEntity livingEntity : getTargets(spellCastInformation, true)) {
-            EntityUtils.damageEntity(livingEntity, spellCastInformation.getCaster(), getDamage(spellCastInformation), spellCastInformation.getDamageLocation(), getKnockback(spellCastInformation));
+        for (LivingEntity livingEntity : getTargets(spellCastInformation, getProjectileAoe(spellCastInformation), true)) {
+            damageEntity(livingEntity, spellCastInformation.getCaster(), getDamage(spellCastInformation), spellCastInformation.getDamageLocation(), getKnockback(spellCastInformation));
         }
     }
 }

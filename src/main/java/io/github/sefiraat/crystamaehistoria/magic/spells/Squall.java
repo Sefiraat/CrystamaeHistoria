@@ -4,6 +4,7 @@ import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import lombok.NonNull;
+import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
@@ -17,10 +18,12 @@ public class Squall extends Spell {
     }
 
     public void cast(@NonNull SpellCastInformation spellCastInformation) {
-        Player caster = spellCastInformation.getCaster();
-        caster.getWorld().setThundering(true);
-        caster.getWorld().setStorm(true);
-        displayParticleEffect(caster, Particle.ELECTRIC_SPARK, 2, 30);
-        caster.getWorld().playEffect(caster.getLocation(), Effect.BONE_MEAL_USE, 1);
+        Player caster = Bukkit.getPlayer(spellCastInformation.getCaster());
+        if (caster != null) {
+            caster.getWorld().setThundering(true);
+            caster.getWorld().setStorm(true);
+            displayParticleEffect(caster, Particle.ELECTRIC_SPARK, 2, 30);
+            caster.getWorld().playEffect(caster.getLocation(), Effect.BONE_MEAL_USE, 1);
+        }
     }
 }

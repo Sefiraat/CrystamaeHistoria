@@ -26,6 +26,7 @@ public class ActiveStorage {
         tickingCastables.clear();
     }
 
+    // TODO Need a runnable to clear this down
     public void clearExpired() {
         for (Map.Entry<Entity, Pair<SpellCastInformation, Long>> entry : projectileMap.entrySet()) {
             long time = System.currentTimeMillis();

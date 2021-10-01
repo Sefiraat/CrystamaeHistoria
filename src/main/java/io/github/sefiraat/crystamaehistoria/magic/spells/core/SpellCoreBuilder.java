@@ -174,9 +174,10 @@ public class SpellCoreBuilder {
      *
      * @param potionEffectType The {@link PotionEffectType} to apply.
      * @param amplification The amplification of the effect. If multiple of the same effects are added, the values are combined.
-     * @param duration The duration of the effect. If multiple of the same effects are added, the highest is used.
+     * @param duration The duration of the effect in seconds. If multiple of the same effects are added, the highest is used.
      */
     public void addPositiveEffect(PotionEffectType potionEffectType, int amplification, int duration) {
+        duration = duration * 1000;
         if (positiveEffectPairMap.containsKey(potionEffectType)) {
             Pair<Integer, Integer> integerPair = positiveEffectPairMap.get(potionEffectType);
             amplification = amplification == 0 ? 1 : amplification;
@@ -195,6 +196,7 @@ public class SpellCoreBuilder {
      * @param duration The duration of the effect. If multiple of the same effects are added, the highest is used.
      */
     public void addNegativeEffect(PotionEffectType potionEffectType, int amplification, int duration) {
+        duration = duration * 1000;
         if (negativeEffectPairMap.containsKey(potionEffectType)) {
             Pair<Integer, Integer> integerPair = negativeEffectPairMap.get(potionEffectType);
             amplification = amplification == 0 ? 1 : amplification;

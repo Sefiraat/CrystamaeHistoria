@@ -18,10 +18,11 @@ public class TestSpell extends SubCommand {
     @Override
     protected void execute(@Nonnull CommandSender sender, @Nonnull  String[] args) {
         if (sender instanceof Player) {
-            if (args.length != 1) {
+            if (args.length != 2) {
                 return;
             }
-            Spells.getById(args[0]).castSpell(new SpellCastInformation((Player) sender, 3, 3, 3));
+            int power = Integer.parseInt(args[1]);
+            Spells.getById(args[0]).castSpell(new SpellCastInformation((Player) sender, power, power, power));
         }
     }
 

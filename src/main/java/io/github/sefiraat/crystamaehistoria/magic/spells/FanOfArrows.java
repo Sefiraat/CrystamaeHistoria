@@ -21,11 +21,10 @@ public class FanOfArrows extends Spell {
     }
 
     public void fireProjectiles(@Nonnull SpellCastInformation spellCastInformation) {
-        Player player = spellCastInformation.getCaster();
         double sizeEnd = getRange(spellCastInformation);
         int sizeCast = 3;
         int stepSize = 5;
-        Location middle = player.getLocation().clone().add(0, 1, 0);
+        Location middle = spellCastInformation.getCastLocation().clone().add(0, 1, 0);
         for(double i = 0; i < 360; i += stepSize) {
             double angle = (i * Math.PI / 180);
             int sx = (int) (sizeCast * Math.cos(angle));
@@ -34,7 +33,7 @@ public class FanOfArrows extends Spell {
             int dz = (int) (sizeEnd * Math.sin(angle));
             Location spawn = middle.clone().add(sx, 0, sz);
             Location destination = middle.clone().add(dx, 5, dz);
-            MagicProjectile magicProjectile = new MagicProjectile(EntityType.ARROW, spawn, player);
+            MagicProjectile magicProjectile = new MagicProjectile(EntityType.ARROW, spawn, spellCastInformation.getCaster());
             magicProjectile.setVelocity(destination, 1);
 
             registerProjectile(magicProjectile.getProjectile(), spellCastInformation);
@@ -42,7 +41,7 @@ public class FanOfArrows extends Spell {
     }
 
     public void projectileHit(@Nonnull SpellCastInformation spellCastInformation) {
-        EntityUtils.damageEntity(spellCastInformation.getMainTarget(), spellCastInformation.getCaster(), getDamage(spellCastInformation));
+        damageEntity(spellCastInformation.getMainTarget(), spellCastInformation.getCaster(), getDamage(spellCastInformation));
     }
 
 }

@@ -20,10 +20,9 @@ public class LovePotion extends Spell {
     }
 
     public void cast(@NonNull SpellCastInformation spellCastInformation) {
-        Player caster = spellCastInformation.getCaster();
-        Location casterLocation = caster.getLocation();
+        Location casterLocation = spellCastInformation.getCastLocation();
         double range = getRange(spellCastInformation);
-        for (Entity entity : caster.getWorld().getNearbyEntities(casterLocation, range, range, range, entity -> entity instanceof Breedable)) {
+        for (Entity entity : casterLocation.getWorld().getNearbyEntities(casterLocation, range, range, range, entity -> entity instanceof Breedable)) {
             Animals animals = (Animals) entity;
             if (animals.isAdult() && animals.canBreed()) {
                 animals.setLoveModeTicks(120);

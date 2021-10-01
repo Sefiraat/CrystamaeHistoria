@@ -4,14 +4,16 @@ import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import lombok.NonNull;
+import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffectType;
 
 public class HealingMist extends Spell {
 
-    private static final int REGEN_DURATION = 600;
+    private static final int REGEN_DURATION = 10;
     private static final int AMPLIFICATION = 0;
 
     public HealingMist() {
@@ -23,14 +25,12 @@ public class HealingMist extends Spell {
     }
 
     public void cast(@NonNull SpellCastInformation spellCastInformation) {
-        LivingEntity caster = spellCastInformation.getCaster();
+        Location location = spellCastInformation.getCastLocation();
         double range = getRange(spellCastInformation);
-        for (Entity entity : caster.getWorld().getNearbyEntities(caster.getLocation(), range, range, range)) {
-            if (entity instanceof LivingEntity) {
-                LivingEntity livingEntity = (LivingEntity) entity;
-                applyPositiveEffects(livingEntity);
-                displayParticleEffect(livingEntity, Particle.HEART, 2, 10);
-            }
+        for (Entity entity : location.getWorld().getNearbyEntities(location, range, range, range, entity -> entity instanceof Player)) {
+            Player player = (Player) entity;
+            applyPositiveEffects(player);
+            displayParticleEffect(player, Particle.HEART, 2, 10);
         }
     }
 

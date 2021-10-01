@@ -24,11 +24,10 @@ public class FireNova extends Spell {
     }
 
     public void fireProjectiles(@Nonnull SpellCastInformation spellCastInformation) {
-        Player player = spellCastInformation.getCaster();
         double sizeEnd = getRange(spellCastInformation);
         int sizeCast = 2;
         int stepSize = 3;
-        Location middle = player.getLocation().clone().add(0, 1, 0);
+        Location middle = spellCastInformation.getCastLocation().clone().add(0, 1, 0);
         for(double i = 0; i < 360; i += stepSize) {
             double angle = (i * Math.PI / 180);
             int sx = (int) (sizeCast * Math.cos(angle));
@@ -37,7 +36,7 @@ public class FireNova extends Spell {
             int dz = (int) (sizeEnd * Math.sin(angle));
             Location spawn = middle.clone().add(sx, 0, sz);
             Location destination = middle.clone().add(dx, 0, dz);
-            MagicProjectile magicProjectile = new MagicProjectile(EntityType.SMALL_FIREBALL, spawn, player);
+            MagicProjectile magicProjectile = new MagicProjectile(EntityType.SMALL_FIREBALL, spawn, spellCastInformation.getCaster());
             magicProjectile.setVelocity(destination, 1);
 
             registerProjectile(magicProjectile.getProjectile(), spellCastInformation);
@@ -46,8 +45,8 @@ public class FireNova extends Spell {
     }
 
     public void projectileHit(@Nonnull SpellCastInformation spellCastInformation) {
-        for (LivingEntity livingEntity : getTargets(spellCastInformation, true)) {
-            EntityUtils.damageEntity(livingEntity, spellCastInformation.getCaster(), getDamage(spellCastInformation));
+        for (LivingEntity livingEntity : getTargets(spellCastInformation, getProjectileAoe(spellCastInformation), true)) {
+            damageEntity(livingEntity, spellCastInformation.getCaster(), getDamage(spellCastInformation));
         }
     }
 

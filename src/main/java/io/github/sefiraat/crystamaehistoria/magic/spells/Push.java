@@ -28,10 +28,10 @@ public class Push extends Spell {
     }
 
     private void push(SpellCastInformation spellCastInformation, double amount) {
-        Location castLocation = spellCastInformation.getCaster().getLocation();
+        Location castLocation = spellCastInformation.getCastLocation();
         double range = getRange(spellCastInformation);
         for (Entity entity : castLocation.getWorld().getNearbyEntities(castLocation, range, 2, range)) {
-            if (entity instanceof LivingEntity && entity != spellCastInformation.getCaster()) {
+            if (entity instanceof LivingEntity && entity.getUniqueId() != spellCastInformation.getCaster()) {
                 pushEntity(castLocation, entity, amount);
                 displayParticleEffect(entity, Particle.CRIT, 1, 10);
             }

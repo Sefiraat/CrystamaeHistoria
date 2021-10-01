@@ -8,12 +8,13 @@ import org.bukkit.entity.Player;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.UUID;
 import java.util.function.Consumer;
 
 public class SpellCastInformation {
 
     @Getter
-    private final Player caster;
+    private final UUID caster;
     @Getter
     private final int powerMulti;
     @Getter
@@ -40,7 +41,7 @@ public class SpellCastInformation {
     private Consumer<SpellCastInformation> afterTicksEvent;
 
     public SpellCastInformation(Player caster, int powerMulti, int cooldownMulti, int durabilityMulti) {
-        this.caster = caster;
+        this.caster = caster.getUniqueId();
         this.powerMulti = powerMulti;
         this.cooldownMulti = cooldownMulti;
         this.durabilityMulti = durabilityMulti;

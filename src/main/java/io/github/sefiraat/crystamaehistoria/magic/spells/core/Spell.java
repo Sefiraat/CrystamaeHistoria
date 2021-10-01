@@ -8,12 +8,14 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.Setter;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.potion.PotionEffect;
@@ -24,6 +26,7 @@ import javax.annotation.Nullable;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class Spell {
@@ -101,11 +104,14 @@ public abstract class Spell {
     /**
      * Sets the last damage cause to Magic and Caster
      * @param damagedEntity The {@link LivingEntity} that was hit by the spell
-     * @param caster The {@link LivingEntity} that cast the spell
+     * @param casterUUID The {@link LivingEntity} that cast the spell
      */
-    protected void setLastDamageToCaster(@NonNull LivingEntity damagedEntity, @NonNull LivingEntity caster) {
-        EntityDamageByEntityEvent e = new EntityDamageByEntityEvent(caster, damagedEntity, EntityDamageEvent.DamageCause.MAGIC, 0);
-        damagedEntity.setLastDamageCause(e);
+    protected void setLastDamageToCaster(@NonNull LivingEntity damagedEntity, @NonNull UUID casterUUID) {
+        Player player = Bukkit.getPlayer(casterUUID);
+        if (player != null) {
+            EntityDamageByEntityEvent e = new EntityDamageByEntityEvent(player, damagedEntity, EntityDamageEvent.DamageCause.MAGIC, 0);
+            damagedEntity.setLastDamageCause(e);
+        }
     }
 
     protected void displayParticleEffect(@NonNull Entity entity, Particle particle, double rangeRadius) {
@@ -143,17 +149,23 @@ public abstract class Spell {
         pushed.setVelocity(vector);
     }
 
-    protected void damageEntity(LivingEntity livingEntity, LivingEntity caster, int damage) {
+    protected void damageEntity(LivingEntity livingEntity, UUID caster, double damage) {
         damageEntity(livingEntity, caster, damage, null, 0);
     }
 
-    protected void damageEntity(LivingEntity livingEntity, LivingEntity caster, int damage, @Nullable Location knockbackOrigin, double knockbackForce) {
-        livingEntity.damage(damage, caster);
+    protected void damageEntity(LivingEntity livingEntity, UUID caster, double damage, @Nullable Location knockbackOrigin, double knockbackForce) {
+        Player player = Bukkit.getPlayer(caster);
+        livingEntity.damage(damage, player);
         if (knockbackOrigin != null && knockbackForce > 0) {
             EntityUtils.push(livingEntity, knockbackOrigin, knockbackForce);
         }
     }
 
+    /**
+     * Heal the entity by the provided amount
+     * @param livingEntity The {@link LivingEntity} to heal
+     * @param healAmount The amount to heal by
+     */
     protected void healEntity(LivingEntity livingEntity, double healAmount) {
         AttributeInstance attribute = livingEntity.getAttribute(Attribute.GENERIC_MAX_HEALTH);
         if (attribute != null) {
@@ -202,12 +214,20 @@ public abstract class Spell {
         ticker.runTaskTimer(CrystamaeHistoria.inst(), 0, period);
     }
 
+    /**
+     * Applies all registered positive effects on the selected entity
+     * @param livingEntity The {@link LivingEntity} to apply the effects to
+     */
     protected void applyPositiveEffects(LivingEntity livingEntity) {
         for (Map.Entry<PotionEffectType, Pair<Integer, Integer>> entry : spellCore.getPositiveEffectPairMap().entrySet()) {
             livingEntity.addPotionEffect(new PotionEffect(entry.getKey(), entry.getValue().getFirstValue(), entry.getValue().getSecondValue()));
         }
     }
 
+    /**
+     * Applies all registered negative effects on the selected entity
+     * @param livingEntity The {@link LivingEntity} to apply the effects to
+     */
     protected void applyNegativeEffects(LivingEntity livingEntity) {
         for (Map.Entry<PotionEffectType, Pair<Integer, Integer>> entry : spellCore.getNegativeEffectPairMap().entrySet()) {
             livingEntity.addPotionEffect(new PotionEffect(entry.getKey(), entry.getValue().getFirstValue(), entry.getValue().getSecondValue()));
@@ -217,20 +237,27 @@ public abstract class Spell {
     /**
      * Gets all targets around the damageLocation.
      * Should only be used in response to projectile events.
+     * Does NOT include the main target hit
      * @param spellCastInformation The {@link SpellCastInformation} containing the DamageLocation
      * @return
      */
-    protected Set<LivingEntity> getTargets(SpellCastInformation spellCastInformation) {
-        return getTargets(spellCastInformation, false);
+    protected Set<LivingEntity> getTargets(SpellCastInformation spellCastInformation, double range) {
+        return getTargets(spellCastInformation, range,false);
     }
 
-    protected Set<LivingEntity> getTargets(SpellCastInformation spellCastInformation, boolean includeMain) {
+    /**
+     * Gets all targets around the damageLocation.
+     * Should only be used in response to projectile events.
+     * @param spellCastInformation The {@link SpellCastInformation} containing the DamageLocation
+     * @param includeMain If the main target should be included in the return set
+     * @return
+     */
+    protected Set<LivingEntity> getTargets(SpellCastInformation spellCastInformation, double range, boolean includeMain) {
         Set<LivingEntity> livingEntities = new HashSet<>();
-        double range = getRange(spellCastInformation);
         Location location = spellCastInformation.getDamageLocation();
         if (range > 0) {
             for (Entity entity : location.getWorld().getNearbyEntities(location, range, range, range)) {
-                if (entity instanceof LivingEntity && entity != spellCastInformation.getCaster() && (entity != spellCastInformation.getMainTarget() || includeMain)) {
+                if (entity instanceof LivingEntity && entity.getUniqueId() != spellCastInformation.getCaster() && (entity != spellCastInformation.getMainTarget() || includeMain)) {
                     livingEntities.add((LivingEntity) entity);
                 }
             }

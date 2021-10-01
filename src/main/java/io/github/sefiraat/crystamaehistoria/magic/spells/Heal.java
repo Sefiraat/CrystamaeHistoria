@@ -4,6 +4,7 @@ import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import lombok.NonNull;
+import org.bukkit.Bukkit;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 
@@ -17,7 +18,7 @@ public class Heal extends Spell {
     }
 
     public void cast(@NonNull SpellCastInformation spellCastInformation) {
-        Player caster = spellCastInformation.getCaster();
+        Player caster = Bukkit.getPlayer(spellCastInformation.getCaster());
         healEntity(caster, getHealAmount(spellCastInformation));
         displayParticleEffect(caster, Particle.HEART, 2, 10);
     }

@@ -15,10 +15,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class RainOfFire extends Spell {
 
-    private static final int PROJECTILES_PER_WAVE = 5;
+    private static final int PROJECTILES_PER_WAVE = 1;
 
     public RainOfFire() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 30, false, 20, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 1, false, 20, true)
                 .makeDamagingSpell(5, true, 0.5, false)
                 .makeProjectileSpell(this::fireProjectiles, this::projectileHits, 1, true, 0.5, true)
                 .addBeforeProjectileHitEvent(this::beforeProjectileHits)
@@ -26,14 +26,8 @@ public class RainOfFire extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void beforeProjectileHits(@NonNull @NotNull SpellCastInformation spellCastInformation) {
-        for (LivingEntity livingEntity : getTargets(spellCastInformation, true)) {
-            livingEntity.setFireTicks(80);
-        }
-    }
-
     public void fireProjectiles(@NonNull SpellCastInformation spellCastInformation) {
-        Location location = spellCastInformation.getCaster().getLocation();
+        Location location = spellCastInformation.getCastLocation();
 
         for (int i = 0; i < (PROJECTILES_PER_WAVE * spellCastInformation.getPowerMulti()); i++) {
 
@@ -44,21 +38,27 @@ public class RainOfFire extends Spell {
             Location spawnLocation = new Location(
                     location.getWorld(),
                     location.getX() + xOffset,
-                    location.getY() + range,
+                    location.getY() + 20,
                     location.getZ() + zOffset
             );
 
             MagicProjectile magicProjectile = new MagicProjectile(EntityType.FIREBALL, spawnLocation, spellCastInformation.getCaster());
-            Location destination = spawnLocation.clone().subtract(0, range, 0);
+            Location destination = spawnLocation.clone().subtract(0, 20, 0);
             magicProjectile.setVelocity(destination, 2);
 
             registerProjectile(magicProjectile.getProjectile(), spellCastInformation);
         }
     }
 
+    public void beforeProjectileHits(@NonNull @NotNull SpellCastInformation spellCastInformation) {
+        for (LivingEntity livingEntity : getTargets(spellCastInformation, getProjectileAoe(spellCastInformation), true)) {
+            livingEntity.setFireTicks(80);
+        }
+    }
+
     public void projectileHits(@NonNull SpellCastInformation spellCastInformation) {
-        for (LivingEntity livingEntity : getTargets(spellCastInformation, true)) {
-            EntityUtils.damageEntity(livingEntity, spellCastInformation.getCaster(), getDamage(spellCastInformation), spellCastInformation.getDamageLocation(), getProjectileKnockback(spellCastInformation));
+        for (LivingEntity livingEntity : getTargets(spellCastInformation, getProjectileAoe(spellCastInformation), true)) {
+            damageEntity(livingEntity, spellCastInformation.getCaster(), getDamage(spellCastInformation), spellCastInformation.getDamageLocation(), getProjectileKnockback(spellCastInformation));
         }
     }
 }

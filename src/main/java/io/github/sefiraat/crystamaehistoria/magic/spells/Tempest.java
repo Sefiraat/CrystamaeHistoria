@@ -25,7 +25,7 @@ public class Tempest extends Spell {
     }
 
     public void fireProjectiles(@NonNull SpellCastInformation spellCastInformation) {
-        Location location = spellCastInformation.getCaster().getLocation();
+        Location location = spellCastInformation.getCastLocation();
 
         for (int i = 0; i < (PROJECTILE_NUMBER * spellCastInformation.getPowerMulti()); i++) {
             double range = getRange(spellCastInformation);
@@ -46,14 +46,14 @@ public class Tempest extends Spell {
     }
 
     public void beforeProjectileHit(@NonNull @NotNull SpellCastInformation spellCastInformation) {
-        for (LivingEntity livingEntity : getTargets(spellCastInformation, true)){
+        for (LivingEntity livingEntity : getTargets(spellCastInformation, getProjectileAoe(spellCastInformation), true)){
             livingEntity.setFireTicks(40);
         }
     }
 
     public void onProjectileHit(@NonNull SpellCastInformation spellCastInformation) {
-        for (LivingEntity livingEntity : getTargets(spellCastInformation, true)) {
-            EntityUtils.damageEntity(livingEntity, spellCastInformation.getCaster(), getDamage(spellCastInformation), spellCastInformation.getDamageLocation(), getKnockback(spellCastInformation));
+        for (LivingEntity livingEntity : getTargets(spellCastInformation, getProjectileAoe(spellCastInformation), true)) {
+            damageEntity(livingEntity, spellCastInformation.getCaster(), getDamage(spellCastInformation), spellCastInformation.getDamageLocation(), getKnockback(spellCastInformation));
         }
     }
 

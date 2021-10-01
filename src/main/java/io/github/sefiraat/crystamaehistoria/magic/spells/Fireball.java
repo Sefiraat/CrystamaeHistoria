@@ -1,5 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
+import com.google.gson.JsonParser;
 import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
@@ -23,7 +24,7 @@ public class Fireball extends Spell {
     }
 
     public void fireProjectile(@Nonnull SpellCastInformation spellCastInformation) {
-        Location location = spellCastInformation.getCaster().getLocation();
+        Location location = spellCastInformation.getCastLocation();
         Location aimLocation = location.clone().add(0, 1.5, 0).add(location.getDirection().multiply(2));
         MagicProjectile magicProjectile = new MagicProjectile(EntityType.SMALL_FIREBALL, aimLocation, spellCastInformation.getCaster());
         magicProjectile.setVelocity(location.getDirection(), 2);
@@ -33,14 +34,14 @@ public class Fireball extends Spell {
     }
 
     public void beforeProjectileHit(@Nonnull @NotNull SpellCastInformation spellCastInformation) {
-        for (LivingEntity livingEntity : getTargets(spellCastInformation, true)) {
+        for (LivingEntity livingEntity : getTargets(spellCastInformation, getProjectileAoe(spellCastInformation), true)) {
             livingEntity.setFireTicks(80);
         }
     }
 
     public void projectileHit(@Nonnull SpellCastInformation spellCastInformation) {
-        for (LivingEntity livingEntity : getTargets(spellCastInformation, true)) {
-            EntityUtils.damageEntity(livingEntity, spellCastInformation.getCaster(), getDamage(spellCastInformation), spellCastInformation.getDamageLocation(), getKnockback(spellCastInformation));
+        for (LivingEntity livingEntity : getTargets(spellCastInformation, getProjectileAoe(spellCastInformation), true)) {
+            damageEntity(livingEntity, spellCastInformation.getCaster(), getDamage(spellCastInformation), spellCastInformation.getDamageLocation(), getKnockback(spellCastInformation));
         }
     }
 

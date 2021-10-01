@@ -4,6 +4,7 @@ import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.magic.wrappers.MagicProjectile;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.entity.EntityType;
@@ -25,11 +26,10 @@ public class PoisonNova extends Spell {
     }
 
     public void fireProjectile(@Nonnull SpellCastInformation spellCastInformation) {
-        Player player = spellCastInformation.getCaster();
         double sizeEnd = getRange(spellCastInformation);
         int sizeCast = 1;
         int stepSize = 3;
-        Location middle = player.getLocation().clone().add(0, 1, 0);
+        Location middle = spellCastInformation.getCastLocation().clone().add(0, 1, 0);
         for(double i = 0; i < 360; i += stepSize) {
             double angle = (i * Math.PI / 180);
             int sx = (int) (sizeCast * Math.cos(angle));
@@ -38,7 +38,7 @@ public class PoisonNova extends Spell {
             int dz = (int) (sizeEnd * Math.sin(angle));
             Location spawn = middle.clone().add(sx, 0, sz);
             Location destination = middle.clone().add(dx, 1, dz);
-            MagicProjectile magicProjectile = new MagicProjectile(EntityType.ENDER_PEARL, spawn, player);
+            MagicProjectile magicProjectile = new MagicProjectile(EntityType.ENDER_PEARL, spawn, spellCastInformation.getCaster());
             magicProjectile.setVelocity(destination, 1);
 
             registerProjectile(magicProjectile.getProjectile(), spellCastInformation);
@@ -48,7 +48,7 @@ public class PoisonNova extends Spell {
     public void projectileHit(@Nonnull SpellCastInformation spellCastInformation) {
         LivingEntity hit = spellCastInformation.getMainTarget();
         if (hit.getHealth() == 1) {
-            hit.damage(getDamage(spellCastInformation), spellCastInformation.getCaster());
+            damageEntity(hit, spellCastInformation.getCaster(), getDamage(spellCastInformation));
         } else {
             PotionEffect potionEffect = new PotionEffect(PotionEffectType.POISON, spellCastInformation.getPowerMulti() * 40, spellCastInformation.getPowerMulti() + 1);
             hit.addPotionEffect(potionEffect);

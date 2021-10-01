@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.magic.wrappers;
 
 import lombok.Getter;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Fireball;
@@ -8,14 +9,16 @@ import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 import org.bukkit.util.Vector;
 
+import java.util.UUID;
+
 public class MagicProjectile {
 
     @Getter
     private final Projectile projectile;
 
-    public MagicProjectile(EntityType entityType, Location location, Player caster) {
+    public MagicProjectile(EntityType entityType, Location location, UUID caster) {
         projectile = (Projectile) location.getWorld().spawnEntity(location, entityType);
-        projectile.setShooter(caster);
+        projectile.setShooter(Bukkit.getPlayer(caster));
     }
 
     /**

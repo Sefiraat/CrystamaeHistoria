@@ -5,6 +5,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import lombok.NonNull;
 import org.bukkit.Effect;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 public class EtherealFlow extends Spell {
@@ -17,9 +18,9 @@ public class EtherealFlow extends Spell {
     }
 
     public void onTick(@NonNull SpellCastInformation spellCastInformation) {
-        Player caster = spellCastInformation.getCaster();
-        caster.getWorld().setTime(caster.getWorld().getTime() + (50L * spellCastInformation.getPowerMulti()));
-        caster.getWorld().playEffect(caster.getLocation(), Effect.ENDER_SIGNAL, 1);
+        Location location = spellCastInformation.getCastLocation();
+        location.getWorld().setTime(location.getWorld().getTime() + (50L * spellCastInformation.getPowerMulti()));
+        location.getWorld().playEffect(location, Effect.ENDER_SIGNAL, 1);
     }
 
 }

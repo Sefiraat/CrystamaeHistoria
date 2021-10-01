@@ -4,6 +4,7 @@ import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import lombok.NonNull;
+import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
@@ -24,7 +25,7 @@ public class KnowledgeShare extends Spell {
 
     public void onTick(@NonNull SpellCastInformation spellCastInformation) {
         // TODO SHIT SHIT SHIT
-        Player caster = spellCastInformation.getCaster();
+        Player caster = Bukkit.getPlayer(spellCastInformation.getCaster());
 
         float exp = Math.max(caster.getExp(), BASE_EXP * spellCastInformation.getPowerMulti());
         exp = exp - (exp % 10);

@@ -42,8 +42,8 @@ public class Quake extends Spell {
             castLocation.getWorld().spawnParticle(Particle.REDSTONE, spawnLocation, 1, directionalXOffset, 2, directionalZOffset, dustOptions);
         }
         for (Entity entity : castLocation.getWorld().getNearbyEntities(castLocation, range, 2, range)) {
-            if (entity instanceof LivingEntity && entity != spellCastInformation.getCaster()) {
-                EntityUtils.damageEntity(((LivingEntity) entity), spellCastInformation.getCaster(), getDamage(spellCastInformation));
+            if (entity instanceof LivingEntity && entity.getUniqueId() != spellCastInformation.getCaster()) {
+                damageEntity(((LivingEntity) entity), spellCastInformation.getCaster(), getDamage(spellCastInformation));
             }
         }
     }

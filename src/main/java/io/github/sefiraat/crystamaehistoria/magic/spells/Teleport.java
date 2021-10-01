@@ -5,6 +5,7 @@ import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import lombok.NonNull;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -22,14 +23,16 @@ public class Teleport extends Spell {
     }
 
     public void cast(@NonNull SpellCastInformation spellCastInformation) {
-        Player caster = spellCastInformation.getCaster();
-        Location teleportToLocation = getTeleportLocation(caster, getRange(spellCastInformation));
+        Player caster = Bukkit.getPlayer(spellCastInformation.getCaster());
+        if (caster != null) {
+            Location teleportToLocation = getTeleportLocation(caster, getRange(spellCastInformation));
 
-        if (teleportToLocation != null) {
-            caster.teleport(teleportToLocation);
-            displayParticleEffect(caster, Particle.END_ROD, 1, 10);
-        } else {
-            caster.sendMessage(CrystamaeHistoria.config().getString("messages.spells.teleport_no_suitable_location"));
+            if (teleportToLocation != null) {
+                caster.teleport(teleportToLocation);
+                displayParticleEffect(caster, Particle.END_ROD, 1, 10);
+            } else {
+                caster.sendMessage(CrystamaeHistoria.config().getString("messages.spells.teleport_no_suitable_location"));
+            }
         }
     }
 
