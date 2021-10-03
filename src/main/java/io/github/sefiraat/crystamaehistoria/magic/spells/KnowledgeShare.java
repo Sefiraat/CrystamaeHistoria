@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
-import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import lombok.NonNull;
@@ -23,11 +23,11 @@ public class KnowledgeShare extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void onTick(@NonNull SpellCastInformation spellCastInformation) {
+    public void onTick(@NonNull CastInformation castInformation) {
         // TODO SHIT SHIT SHIT
-        Player caster = Bukkit.getPlayer(spellCastInformation.getCaster());
+        Player caster = Bukkit.getPlayer(castInformation.getCaster());
 
-        float exp = Math.max(caster.getExp(), BASE_EXP * spellCastInformation.getPowerMulti());
+        float exp = Math.max(caster.getExp(), BASE_EXP * castInformation.getPowerMulti());
         exp = exp - (exp % 10);
         int waves = (int) (exp / 10);
 

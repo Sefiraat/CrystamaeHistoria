@@ -19,6 +19,12 @@ public class MagicProjectile {
     public MagicProjectile(EntityType entityType, Location location, UUID caster) {
         projectile = (Projectile) location.getWorld().spawnEntity(location, entityType);
         projectile.setShooter(Bukkit.getPlayer(caster));
+        projectile.setBounce(false);
+        if (projectile instanceof Fireball) {
+            Fireball fireball = (Fireball) projectile;
+            fireball.setIsIncendiary(false);
+            fireball.setYield(0f);
+        }
     }
 
     /**

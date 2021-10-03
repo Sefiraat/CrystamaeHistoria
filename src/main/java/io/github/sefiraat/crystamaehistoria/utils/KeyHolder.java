@@ -20,20 +20,22 @@ public class KeyHolder {
     public static final String PANEL_STAND_PREFIX = "CH_PANEL_";
 
     // ItemGroup
-    private final NamespacedKey catMain = new NamespacedKey(CrystamaeHistoria.inst(), "crysta");
-    private final NamespacedKey catMechanical = new NamespacedKey(CrystamaeHistoria.inst(), "crysta-mech");
-    private final NamespacedKey catCrystal = new NamespacedKey(CrystamaeHistoria.inst(), "crysta-crystal");
+    private final NamespacedKey catMain = new NamespacedKey(CrystamaeHistoria.inst(), "main");
+    private final NamespacedKey catMechanical = new NamespacedKey(CrystamaeHistoria.inst(), "mech");
+    private final NamespacedKey catCrystal = new NamespacedKey(CrystamaeHistoria.inst(), "crystal");
+    private final NamespacedKey catTools = new NamespacedKey(CrystamaeHistoria.inst(), "tools");
 
     // PDC
     // Items
-    private final NamespacedKey pdcIsStoried = new NamespacedKey(CrystamaeHistoria.inst(), "is_storied");
-    private final NamespacedKey pdcStories = new NamespacedKey(CrystamaeHistoria.inst(), "story_potential");
-    private final NamespacedKey pdcCurrentNumberOfStories = new NamespacedKey(CrystamaeHistoria.inst(), "story_current_number");
-    private final NamespacedKey pdcAppliedStoryList = new NamespacedKey(CrystamaeHistoria.inst(), "story_list");
+    private final NamespacedKey pdcIsStoried = new NamespacedKey(CrystamaeHistoria.inst(), "is_s");
+    private final NamespacedKey pdcStories = new NamespacedKey(CrystamaeHistoria.inst(), "s_pot");
+    private final NamespacedKey pdcCurrentNumberOfStories = new NamespacedKey(CrystamaeHistoria.inst(), "s_cur_n");
+    private final NamespacedKey pdcAppliedStoryList = new NamespacedKey(CrystamaeHistoria.inst(), "s_list");
+    private final NamespacedKey pdcStaveInstance = new NamespacedKey(CrystamaeHistoria.inst(), "stv");
 
     // Entities
-    private final NamespacedKey pdcArmourStandName = new NamespacedKey(CrystamaeHistoria.inst(), "a_name");
-    private final NamespacedKey pdcIsDisplayStand = new NamespacedKey(CrystamaeHistoria.inst(), "a_display");
+    private final NamespacedKey pdcArmourStandName = new NamespacedKey(CrystamaeHistoria.inst(), "a_nm");
+    private final NamespacedKey pdcIsDisplayStand = new NamespacedKey(CrystamaeHistoria.inst(), "a_dpy");
 
     // CastableInstant Effects
     private final NamespacedKey spellCaster = new NamespacedKey(CrystamaeHistoria.inst(), "caster");

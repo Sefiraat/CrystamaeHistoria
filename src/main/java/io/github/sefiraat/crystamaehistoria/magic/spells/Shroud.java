@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
-import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import lombok.NonNull;
@@ -24,11 +24,11 @@ public class Shroud extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void cast(@NonNull SpellCastInformation spellCastInformation) {
-        Location location = spellCastInformation.getCastLocation();
-        double range = getRange(spellCastInformation);
+    public void cast(@NonNull CastInformation castInformation) {
+        Location location = castInformation.getCastLocation();
+        double range = getRange(castInformation);
         for (Entity entity : location.getWorld().getNearbyEntities(location, range, range, range)) {
-            if (entity instanceof LivingEntity && entity.getUniqueId() != spellCastInformation.getCaster()) {
+            if (entity instanceof LivingEntity && entity.getUniqueId() != castInformation.getCaster()) {
                 LivingEntity livingEntity = (LivingEntity) entity;
                 applyNegativeEffects(livingEntity);
                 displayParticleEffect(livingEntity, Particle.SLIME, 2, 2);

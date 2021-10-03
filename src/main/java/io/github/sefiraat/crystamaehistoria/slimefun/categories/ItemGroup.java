@@ -25,6 +25,10 @@ public class ItemGroup {
             new ItemStack(Material.AMETHYST_CLUSTER),
             ThemeUtils.getThemeColor(ThemeType.MAIN) + "Historia Crystals"
     ));
+    public final SubItemGroup TOOLS = new SubItemGroup(CrystamaeHistoria.inst().getKeyHolder().getCatTools(), MAIN, new CustomItemStack(
+            new ItemStack(Material.STICK),
+            ThemeUtils.getThemeColor(ThemeType.MAIN) + "Historia Staves and Tools"
+    ));
 
     public ItemGroup(CrystamaeHistoria plugin) {
         this.plugin = plugin;
@@ -33,6 +37,7 @@ public class ItemGroup {
     public void setup() {
         MAIN.register(plugin);
         MECHANISMS.register(plugin);
+        CRYSTALS.register(plugin);
     }
 
 }

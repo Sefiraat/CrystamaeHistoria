@@ -1,15 +1,13 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
-import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.magic.wrappers.MagicProjectile;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
@@ -25,38 +23,38 @@ public class PoisonNova extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void fireProjectile(@Nonnull SpellCastInformation spellCastInformation) {
-        double sizeEnd = getRange(spellCastInformation);
+    public void fireProjectile(@Nonnull CastInformation castInformation) {
+        double sizeEnd = getRange(castInformation);
         int sizeCast = 1;
         int stepSize = 3;
-        Location middle = spellCastInformation.getCastLocation().clone().add(0, 1, 0);
+        Location middle = castInformation.getCastLocation().clone().add(0, 1, 0);
         for(double i = 0; i < 360; i += stepSize) {
             double angle = (i * Math.PI / 180);
-            int sx = (int) (sizeCast * Math.cos(angle));
-            int sz = (int) (sizeCast * Math.sin(angle));
-            int dx = (int) (sizeEnd * Math.cos(angle));
-            int dz = (int) (sizeEnd * Math.sin(angle));
+            double sx = sizeCast * Math.cos(angle);
+            double sz = sizeCast * Math.sin(angle);
+            double dx = sizeEnd * Math.cos(angle);
+            double dz = sizeEnd * Math.sin(angle);
             Location spawn = middle.clone().add(sx, 0, sz);
             Location destination = middle.clone().add(dx, 1, dz);
-            MagicProjectile magicProjectile = new MagicProjectile(EntityType.ENDER_PEARL, spawn, spellCastInformation.getCaster());
+            MagicProjectile magicProjectile = new MagicProjectile(EntityType.ENDER_PEARL, spawn, castInformation.getCaster());
             magicProjectile.setVelocity(destination, 1);
 
-            registerProjectile(magicProjectile.getProjectile(), spellCastInformation);
+            registerProjectile(magicProjectile.getProjectile(), castInformation);
         }
     }
 
-    public void projectileHit(@Nonnull SpellCastInformation spellCastInformation) {
-        LivingEntity hit = spellCastInformation.getMainTarget();
+    public void projectileHit(@Nonnull CastInformation castInformation) {
+        LivingEntity hit = castInformation.getMainTarget();
         if (hit.getHealth() == 1) {
-            damageEntity(hit, spellCastInformation.getCaster(), getDamage(spellCastInformation));
+            damageEntity(hit, castInformation.getCaster(), getDamage(castInformation));
         } else {
-            PotionEffect potionEffect = new PotionEffect(PotionEffectType.POISON, spellCastInformation.getPowerMulti() * 40, spellCastInformation.getPowerMulti() + 1);
+            PotionEffect potionEffect = new PotionEffect(PotionEffectType.POISON, castInformation.getPowerMulti() * 40, castInformation.getPowerMulti() + 1);
             hit.addPotionEffect(potionEffect);
-            setLastDamageToCaster(hit, spellCastInformation);
+            setLastDamageToCaster(hit, castInformation);
         }
     }
 
-    public void afterProjectileHit(@Nonnull SpellCastInformation spellCastInformation) {
-        displayParticleEffect(spellCastInformation.getMainTarget(), Particle.CRIMSON_SPORE, 1.0, 10);
+    public void afterProjectileHit(@Nonnull CastInformation castInformation) {
+        displayParticleEffect(castInformation.getMainTarget(), Particle.CRIMSON_SPORE, 1.0, 10);
     }
 }

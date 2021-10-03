@@ -1,8 +1,8 @@
 package io.github.sefiraat.crystamaehistoria.commands;
 
 import io.github.mooy1.infinitylib.commands.SubCommand;
-import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
-import io.github.sefiraat.crystamaehistoria.magic.Spells;
+import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -22,14 +22,14 @@ public class TestSpell extends SubCommand {
                 return;
             }
             int power = Integer.parseInt(args[1]);
-            Spells.getById(args[0]).castSpell(new SpellCastInformation((Player) sender, power, power, power));
+            SpellType.getById(args[0]).castSpell(new CastInformation((Player) sender, power, power, power));
         }
     }
 
     @Override
     protected void complete(@Nonnull CommandSender commandSender, @Nonnull String[] strings, @Nonnull List<String> list) {
         if (strings.length == 1) {
-            for (Spells spell : Spells.values()) {
+            for (SpellType spell : SpellType.values()) {
                 list.add(spell.name());
             }
         }

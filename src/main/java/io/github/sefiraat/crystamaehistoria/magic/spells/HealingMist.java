@@ -1,13 +1,12 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
-import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import lombok.NonNull;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffectType;
 
@@ -24,9 +23,9 @@ public class HealingMist extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void cast(@NonNull SpellCastInformation spellCastInformation) {
-        Location location = spellCastInformation.getCastLocation();
-        double range = getRange(spellCastInformation);
+    public void cast(@NonNull CastInformation castInformation) {
+        Location location = castInformation.getCastLocation();
+        double range = getRange(castInformation);
         for (Entity entity : location.getWorld().getNearbyEntities(location, range, range, range, entity -> entity instanceof Player)) {
             Player player = (Player) entity;
             applyPositiveEffects(player);

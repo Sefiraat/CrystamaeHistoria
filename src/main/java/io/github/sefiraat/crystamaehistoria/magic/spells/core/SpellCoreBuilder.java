@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells.core;
 
-import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import lombok.Getter;
 import org.bukkit.potion.PotionEffectType;
@@ -57,25 +57,25 @@ public class SpellCoreBuilder {
     @Getter
     private boolean isInstantCast;
     @Getter
-    private Consumer<SpellCastInformation> instantCastEvent;
+    private Consumer<CastInformation> instantCastEvent;
 
     @Getter
     private boolean isProjectileSpell;
     @Getter
-    private Consumer<SpellCastInformation> fireProjectileEvent;
+    private Consumer<CastInformation> fireProjectileEvent;
     @Getter
-    private Consumer<SpellCastInformation> beforeProjectileHitEvent;
+    private Consumer<CastInformation> beforeProjectileHitEvent;
     @Getter
-    private Consumer<SpellCastInformation> projectileHitEvent;
+    private Consumer<CastInformation> projectileHitEvent;
     @Getter
-    private Consumer<SpellCastInformation> afterProjectileHitEvent;
+    private Consumer<CastInformation> afterProjectileHitEvent;
 
     @Getter
     private boolean isTickingSpell;
     @Getter
-    private Consumer<SpellCastInformation> tickEvent;
+    private Consumer<CastInformation> tickEvent;
     @Getter
-    private Consumer<SpellCastInformation> afterAllTicksEvent;
+    private Consumer<CastInformation> afterAllTicksEvent;
 
     @Getter
     private boolean isDamagingSpell;
@@ -112,15 +112,15 @@ public class SpellCoreBuilder {
         return this;
     }
 
-    public SpellCoreBuilder makeInstantSpell(Consumer<SpellCastInformation> instantCastMethod) {
+    public SpellCoreBuilder makeInstantSpell(Consumer<CastInformation> instantCastMethod) {
         this.isInstantCast = true;
         this.instantCastEvent = instantCastMethod;
         return this;
     }
 
     public SpellCoreBuilder makeProjectileSpell(
-            Consumer<SpellCastInformation> fireProjectileConsumer,
-            Consumer<SpellCastInformation> projectileHitConsumer,
+            Consumer<CastInformation> fireProjectileConsumer,
+            Consumer<CastInformation> projectileHitConsumer,
             double projectileAoeRange,
             boolean projectileAoeMultiplied,
             double projectileKnockbackAmount,
@@ -136,17 +136,17 @@ public class SpellCoreBuilder {
         return this;
     }
 
-    public SpellCoreBuilder addBeforeProjectileHitEvent(Consumer<SpellCastInformation> spellCastInformationConsumer) {
+    public SpellCoreBuilder addBeforeProjectileHitEvent(Consumer<CastInformation> spellCastInformationConsumer) {
         this.beforeProjectileHitEvent = spellCastInformationConsumer;
         return this;
     }
 
-    public SpellCoreBuilder addAfterProjectileHitEvent(Consumer<SpellCastInformation> spellCastInformationConsumer) {
+    public SpellCoreBuilder addAfterProjectileHitEvent(Consumer<CastInformation> spellCastInformationConsumer) {
         this.afterProjectileHitEvent = spellCastInformationConsumer;
         return this;
     }
 
-    public SpellCoreBuilder makeTickingSpell(Consumer<SpellCastInformation> spellCastInformationConsumer, int numberOfTicks, boolean ticksMultiplied, int tickInterval, boolean tickIntervalMultiplied) {
+    public SpellCoreBuilder makeTickingSpell(Consumer<CastInformation> spellCastInformationConsumer, int numberOfTicks, boolean ticksMultiplied, int tickInterval, boolean tickIntervalMultiplied) {
         this.tickEvent = spellCastInformationConsumer;
         this.isTickingSpell = true;
         this.numberOfTicks = numberOfTicks;
@@ -156,7 +156,7 @@ public class SpellCoreBuilder {
         return this;
     }
 
-    public SpellCoreBuilder addAfterTicksEvent(Consumer<SpellCastInformation> spellCastInformationConsumer) {
+    public SpellCoreBuilder addAfterTicksEvent(Consumer<CastInformation> spellCastInformationConsumer) {
         this.afterAllTicksEvent = spellCastInformationConsumer;
         return this;
     }

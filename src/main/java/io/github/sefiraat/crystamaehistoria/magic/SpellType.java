@@ -20,11 +20,12 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.Teleport;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Tempest;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Vacuum;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
+import lombok.Getter;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
-public enum Spells {
+public enum SpellType {
 
     LIGHTNING_CALL("LIGHTNING_CALL", new CallLightning()),
     FAN_OF_ARROWS("FAN_OF_ARROWS", new FanOfArrows()),
@@ -46,10 +47,12 @@ public enum Spells {
     VACUUM("VACUUM", new Vacuum()),
     KNOWLEDGE_SHARE("KNOWLEDGE_SHARE", new KnowledgeShare());
 
+    @Getter
     private final String id;
+    @Getter
     private final Spell spell;
 
-    Spells(String id, Spell spell) {
+    SpellType(String id, Spell spell) {
         this.id = id;
         this.spell = spell;
     }
@@ -59,13 +62,13 @@ public enum Spells {
         return spell;
     }
 
-    public void cast(SpellCastInformation spellCastInformation) {
-        this.spell.castSpell(spellCastInformation);
+    public void cast(CastInformation castInformation) {
+        this.spell.castSpell(castInformation);
     }
 
     @Nullable
     public static Spell getById(String id) {
-        for (Spells spell : values()) {
+        for (SpellType spell : values()) {
             if (spell.id.equals(id)) {
                 return spell.spell;
             }

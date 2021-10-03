@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
-import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import lombok.NonNull;
@@ -21,20 +21,20 @@ public class Vacuum extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void onTick(@NonNull SpellCastInformation spellCastInformation) {
-        pull(spellCastInformation, getKnockback(spellCastInformation));
+    public void onTick(@NonNull CastInformation castInformation) {
+        pull(castInformation, getKnockback(castInformation));
     }
 
-    public void afterAllTicks(@NonNull SpellCastInformation spellCastInformation) {
-        pull(spellCastInformation, getKnockback(spellCastInformation) * 3);
+    public void afterAllTicks(@NonNull CastInformation castInformation) {
+        pull(castInformation, getKnockback(castInformation) * 3);
     }
 
-    private void pull(SpellCastInformation spellCastInformation, double amount) {
-        Player caster = Bukkit.getPlayer(spellCastInformation.getCaster());
+    private void pull(CastInformation castInformation, double amount) {
+        Player caster = Bukkit.getPlayer(castInformation.getCaster());
         Location castLocation = caster.getLocation();
-        double range = getRange(spellCastInformation);
+        double range = getRange(castInformation);
         for (Entity entity : castLocation.getWorld().getNearbyEntities(castLocation, range, 2, range)) {
-            if (entity instanceof LivingEntity && entity.getUniqueId() != spellCastInformation.getCaster()) {
+            if (entity instanceof LivingEntity && entity.getUniqueId() != castInformation.getCaster()) {
                 pullEntity(castLocation, entity, amount);
                 displayParticleEffect(entity, Particle.CRIT, 1, 10);
             }

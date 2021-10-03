@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
-import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import lombok.NonNull;
@@ -19,19 +19,19 @@ public class Push extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void onTick(@NonNull SpellCastInformation spellCastInformation) {
-        push(spellCastInformation, getKnockback(spellCastInformation));
+    public void onTick(@NonNull CastInformation castInformation) {
+        push(castInformation, getKnockback(castInformation));
     }
 
-    public void afterAllTicks(@NonNull SpellCastInformation spellCastInformation) {
-        push(spellCastInformation, getKnockback(spellCastInformation) * 3);
+    public void afterAllTicks(@NonNull CastInformation castInformation) {
+        push(castInformation, getKnockback(castInformation) * 3);
     }
 
-    private void push(SpellCastInformation spellCastInformation, double amount) {
-        Location castLocation = spellCastInformation.getCastLocation();
-        double range = getRange(spellCastInformation);
+    private void push(CastInformation castInformation, double amount) {
+        Location castLocation = castInformation.getCastLocation();
+        double range = getRange(castInformation);
         for (Entity entity : castLocation.getWorld().getNearbyEntities(castLocation, range, 2, range)) {
-            if (entity instanceof LivingEntity && entity.getUniqueId() != spellCastInformation.getCaster()) {
+            if (entity instanceof LivingEntity && entity.getUniqueId() != castInformation.getCaster()) {
                 pushEntity(castLocation, entity, amount);
                 displayParticleEffect(entity, Particle.CRIT, 1, 10);
             }

@@ -3,19 +3,20 @@ package io.github.sefiraat.crystamaehistoria;
 import io.github.mooy1.infinitylib.core.AbstractAddon;
 import io.github.sefiraat.crystamaehistoria.commands.TestSpell;
 import io.github.sefiraat.crystamaehistoria.magic.ActiveStorage;
-import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.managers.ListenerManager;
 import io.github.sefiraat.crystamaehistoria.managers.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.managers.ThemeManager;
+import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTick;
 import io.github.sefiraat.crystamaehistoria.slimefun.Structure;
 import io.github.sefiraat.crystamaehistoria.utils.KeyHolder;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Server;
-import org.bukkit.entity.Entity;
 import org.bukkit.plugin.PluginManager;
 
 import java.util.Map;
+import java.util.UUID;
 
 public class CrystamaeHistoria extends AbstractAddon {
 
@@ -98,8 +99,16 @@ public class CrystamaeHistoria extends AbstractAddon {
         return instance.getServer();
     }
 
-    public static Map<Entity, Pair<SpellCastInformation, Long>> getEffectMap() {
+    public static Map<UUID, Pair<CastInformation, Long>> getProjectileMap() {
         return instance.activeStorage.getProjectileMap();
+    }
+
+    public static CastInformation getSpellCastInfo(UUID uuid) {
+        return getProjectileMap().get(uuid).getFirstValue();
+    }
+
+    public static Map<SpellTick, Integer> getTickingMap() {
+        return instance.activeStorage.getTickingCastables();
     }
 
     public static void logInfo(String... message) {

@@ -1,9 +1,8 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
-import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import io.github.sefiraat.crystamaehistoria.utils.EntityUtils;
 import lombok.NonNull;
 import org.bukkit.Color;
 import org.bukkit.Location;
@@ -22,9 +21,9 @@ public class Quake extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void onTick(@NonNull SpellCastInformation spellCastInformation) {
-        Location castLocation = spellCastInformation.getCastLocation().clone();
-        double range = getRange(spellCastInformation);
+    public void onTick(@NonNull CastInformation castInformation) {
+        Location castLocation = castInformation.getCastLocation().clone();
+        double range = getRange(castInformation);
 
         for (int i = 0; i < range; i++) {
             double xOffset = ThreadLocalRandom.current().nextDouble(-range, range + 1);
@@ -42,8 +41,8 @@ public class Quake extends Spell {
             castLocation.getWorld().spawnParticle(Particle.REDSTONE, spawnLocation, 1, directionalXOffset, 2, directionalZOffset, dustOptions);
         }
         for (Entity entity : castLocation.getWorld().getNearbyEntities(castLocation, range, 2, range)) {
-            if (entity instanceof LivingEntity && entity.getUniqueId() != spellCastInformation.getCaster()) {
-                damageEntity(((LivingEntity) entity), spellCastInformation.getCaster(), getDamage(spellCastInformation));
+            if (entity instanceof LivingEntity && entity.getUniqueId() != castInformation.getCaster()) {
+                damageEntity(((LivingEntity) entity), castInformation.getCaster(), getDamage(castInformation));
             }
         }
     }

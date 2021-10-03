@@ -23,6 +23,14 @@ public class GUIElements {
         );
     }
 
+    public static CustomItemStack menuBackgroundSpells() {
+        return new CustomItemStack(
+                Material.ORANGE_STAINED_GLASS_PANE,
+                ChatColor.BLUE + "Spell Selection",
+                " "
+        );
+    }
+
     public static CustomItemStack menuWaiting() {
         return new CustomItemStack(
                 Material.RED_STAINED_GLASS_PANE,

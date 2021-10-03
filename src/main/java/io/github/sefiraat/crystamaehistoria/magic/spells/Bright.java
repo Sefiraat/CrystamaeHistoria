@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
-import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import lombok.NonNull;
@@ -17,8 +17,8 @@ public class Bright extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void castSpell(@NonNull SpellCastInformation spellCastInformation) {
-        Player caster = Bukkit.getPlayer(spellCastInformation.getCaster());
+    public void castSpell(@NonNull CastInformation castInformation) {
+        Player caster = Bukkit.getPlayer(castInformation.getCaster());
         if (caster != null){
             caster.getWorld().setThundering(false);
             caster.getWorld().setStorm(false);

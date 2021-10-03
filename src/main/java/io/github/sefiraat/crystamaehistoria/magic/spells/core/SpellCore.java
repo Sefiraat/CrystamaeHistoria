@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells.core;
 
-import io.github.sefiraat.crystamaehistoria.magic.SpellCastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import lombok.Getter;
 import org.bukkit.potion.PotionEffectType;
@@ -57,25 +57,25 @@ public class SpellCore {
     @Getter
     private final boolean isInstantCast;
     @Getter
-    private final Consumer<SpellCastInformation> instantCastEvent;
+    private final Consumer<CastInformation> instantCastEvent;
 
     @Getter
     private final boolean isProjectileSpell;
     @Getter
-    private final Consumer<SpellCastInformation> fireProjectileEvent;
+    private final Consumer<CastInformation> fireProjectileEvent;
     @Getter
-    private final Consumer<SpellCastInformation> beforeProjectileHitEvent;
+    private final Consumer<CastInformation> beforeProjectileHitEvent;
     @Getter
-    private final Consumer<SpellCastInformation> projectileHitEvent;
+    private final Consumer<CastInformation> projectileHitEvent;
     @Getter
-    private final Consumer<SpellCastInformation> afterProjectileHitEvent;
+    private final Consumer<CastInformation> afterProjectileHitEvent;
 
     @Getter
     private final boolean isTickingSpell;
     @Getter
-    private final Consumer<SpellCastInformation> tickEvent;
+    private final Consumer<CastInformation> tickEvent;
     @Getter
-    private final Consumer<SpellCastInformation> afterAllTicksEvent;
+    private final Consumer<CastInformation> afterAllTicksEvent;
 
     @Getter
     private final boolean isDamagingSpell;

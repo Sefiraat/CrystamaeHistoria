@@ -6,12 +6,10 @@ import org.bukkit.Location;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
-import java.util.HashSet;
-import java.util.Set;
 import java.util.UUID;
 import java.util.function.Consumer;
 
-public class SpellCastInformation {
+public class CastInformation {
 
     @Getter
     private final UUID caster;
@@ -30,17 +28,17 @@ public class SpellCastInformation {
     @Setter
     private LivingEntity mainTarget;
     @Setter
-    private Consumer<SpellCastInformation> beforeAffectEvent;
+    private Consumer<CastInformation> beforeAffectEvent;
     @Setter
-    private Consumer<SpellCastInformation> affectEvent;
+    private Consumer<CastInformation> affectEvent;
     @Setter
-    private Consumer<SpellCastInformation> afterAffectEvent;
+    private Consumer<CastInformation> afterAffectEvent;
     @Setter
-    private Consumer<SpellCastInformation> tickEvent;
+    private Consumer<CastInformation> tickEvent;
     @Setter
-    private Consumer<SpellCastInformation> afterTicksEvent;
+    private Consumer<CastInformation> afterTicksEvent;
 
-    public SpellCastInformation(Player caster, int powerMulti, int cooldownMulti, int durabilityMulti) {
+    public CastInformation(Player caster, int powerMulti, int cooldownMulti, int durabilityMulti) {
         this.caster = caster.getUniqueId();
         this.powerMulti = powerMulti;
         this.cooldownMulti = cooldownMulti;
