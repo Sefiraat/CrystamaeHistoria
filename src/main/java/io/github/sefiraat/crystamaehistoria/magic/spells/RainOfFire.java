@@ -10,6 +10,8 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RainOfFire extends Spell {
@@ -25,7 +27,8 @@ public class RainOfFire extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void fireProjectiles(@NonNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void fireProjectiles(CastInformation castInformation) {
         Location location = castInformation.getCastLocation();
 
         for (int i = 0; i < (PROJECTILES_PER_WAVE * castInformation.getPowerMulti()); i++) {
@@ -49,13 +52,15 @@ public class RainOfFire extends Spell {
         }
     }
 
-    public void beforeProjectileHits(@NonNull @NotNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void beforeProjectileHits(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
             livingEntity.setFireTicks(80);
         }
     }
 
-    public void projectileHits(@NonNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void projectileHits(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
             damageEntity(livingEntity, castInformation.getCaster(), getDamage(castInformation), castInformation.getDamageLocation(), getProjectileKnockback(castInformation));
         }

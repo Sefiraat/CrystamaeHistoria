@@ -9,6 +9,8 @@ import org.bukkit.entity.LightningStrike;
 import org.bukkit.entity.LivingEntity;
 import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Tempest extends Spell {
@@ -23,7 +25,8 @@ public class Tempest extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void fireProjectiles(@NonNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void fireProjectiles(CastInformation castInformation) {
         Location location = castInformation.getCastLocation();
 
         for (int i = 0; i < (PROJECTILE_NUMBER * castInformation.getPowerMulti()); i++) {
@@ -44,13 +47,15 @@ public class Tempest extends Spell {
         }
     }
 
-    public void beforeProjectileHit(@NonNull @NotNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void beforeProjectileHit(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)){
             livingEntity.setFireTicks(40);
         }
     }
 
-    public void onProjectileHit(@NonNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void onProjectileHit(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
             damageEntity(livingEntity, castInformation.getCaster(), getDamage(castInformation), castInformation.getDamageLocation(), getKnockback(castInformation));
         }

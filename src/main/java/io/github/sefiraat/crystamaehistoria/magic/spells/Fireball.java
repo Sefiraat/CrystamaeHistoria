@@ -10,6 +10,7 @@ import org.bukkit.entity.LivingEntity;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class Fireball extends Spell {
 
@@ -21,7 +22,8 @@ public class Fireball extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void fireProjectile(@Nonnull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void fireProjectile(CastInformation castInformation) {
         Location location = castInformation.getCastLocation();
         Location aimLocation = location.clone().add(0, 1.5, 0).add(location.getDirection().multiply(2));
         MagicProjectile magicProjectile = new MagicProjectile(EntityType.SMALL_FIREBALL, aimLocation, castInformation.getCaster());
@@ -31,13 +33,15 @@ public class Fireball extends Spell {
 
     }
 
-    public void beforeProjectileHit(@Nonnull @NotNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void beforeProjectileHit(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
             livingEntity.setFireTicks(80);
         }
     }
 
-    public void projectileHit(@Nonnull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void projectileHit(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
             damageEntity(livingEntity, castInformation.getCaster(), getDamage(castInformation), castInformation.getDamageLocation(), getKnockback(castInformation));
         }

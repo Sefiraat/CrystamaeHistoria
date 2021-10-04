@@ -22,7 +22,9 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -35,6 +37,7 @@ public abstract class Spell {
     @Setter
     private SpellCore spellCore;
 
+    @ParametersAreNonnullByDefault
     public void castSpell(CastInformation castInformation) {
 
         if (spellCore.isInstantCast()) {
@@ -54,34 +57,42 @@ public abstract class Spell {
 
     }
 
+    @ParametersAreNonnullByDefault
     protected double getCooldown(CastInformation castInformation) {
         return spellCore.isCooldownMultiplied() ? spellCore.getCooldown() * (3 - castInformation.getCooldownMulti()) : spellCore.getCooldown();
     }
 
+    @ParametersAreNonnullByDefault
     protected double getRange(CastInformation castInformation) {
         return spellCore.isRangeMultiplied() ? spellCore.getRange() * castInformation.getPowerMulti() : spellCore.getRange();
     }
 
+    @ParametersAreNonnullByDefault
     protected double getDurabilityCost(CastInformation castInformation) {
         return spellCore.isDurabilityMultiplied() ? spellCore.getDurabilityCost() * (3 - castInformation.getDurabilityMulti()) : spellCore.getDurabilityCost();
     }
 
+    @ParametersAreNonnullByDefault
     protected double getDamage(CastInformation castInformation) {
         return spellCore.isDamageMultiplied() ? spellCore.getDamageAmount() * castInformation.getPowerMulti() : spellCore.getDamageAmount();
     }
 
+    @ParametersAreNonnullByDefault
     protected double getHealAmount(CastInformation castInformation) {
         return spellCore.isHealMultiplied() ? spellCore.getHealAmount() * castInformation.getPowerMulti() : spellCore.getHealAmount();
     }
 
+    @ParametersAreNonnullByDefault
     protected double getKnockback(CastInformation castInformation) {
         return spellCore.isKnockbackMultiplied() ? spellCore.getKnockbackAmount() * castInformation.getPowerMulti() : spellCore.getKnockbackAmount();
     }
 
+    @ParametersAreNonnullByDefault
     protected double getProjectileKnockback(CastInformation castInformation) {
         return spellCore.isProjectileKnockbackMultiplied() ? spellCore.getProjectileKnockbackAmount() * castInformation.getPowerMulti() : spellCore.getProjectileKnockbackAmount();
     }
 
+    @ParametersAreNonnullByDefault
     protected double getProjectileAoe(CastInformation castInformation) {
         return spellCore.isProjectileAoeMultiplied() ? spellCore.getProjectileAoeRange() * castInformation.getPowerMulti() : spellCore.getProjectileAoeRange();
     }
@@ -91,7 +102,8 @@ public abstract class Spell {
      * @param damagedEntity The {@link LivingEntity} that was hit by the spell
      * @param castInformation The {@link CastInformation} containing the caster
      */
-    protected void setLastDamageToCaster(@NonNull LivingEntity damagedEntity, @NonNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    protected void setLastDamageToCaster(LivingEntity damagedEntity, CastInformation castInformation) {
         setLastDamageToCaster(damagedEntity, castInformation.getCaster());
     }
 
@@ -100,7 +112,8 @@ public abstract class Spell {
      * @param damagedEntity The {@link LivingEntity} that was hit by the spell
      * @param casterUUID The {@link LivingEntity} that cast the spell
      */
-    protected void setLastDamageToCaster(@NonNull LivingEntity damagedEntity, @NonNull UUID casterUUID) {
+    @ParametersAreNonnullByDefault
+    protected void setLastDamageToCaster(@Nonnull LivingEntity damagedEntity, @Nonnull UUID casterUUID) {
         Player player = Bukkit.getPlayer(casterUUID);
         if (player != null) {
             EntityDamageByEntityEvent e = new EntityDamageByEntityEvent(player, damagedEntity, EntityDamageEvent.DamageCause.MAGIC, 0);
@@ -108,19 +121,23 @@ public abstract class Spell {
         }
     }
 
-    protected void displayParticleEffect(@NonNull Entity entity, Particle particle, double rangeRadius) {
+    @ParametersAreNonnullByDefault
+    protected void displayParticleEffect(Entity entity, Particle particle, double rangeRadius) {
         displayParticleEffect(entity.getLocation(), particle, rangeRadius, spellCore.getParticleNumber());
     }
 
-    protected void displayParticleEffect(@NonNull Entity entity, Particle particle, double rangeRadius, int numberOfParticles) {
+    @ParametersAreNonnullByDefault
+    protected void displayParticleEffect(Entity entity, Particle particle, double rangeRadius, int numberOfParticles) {
         displayParticleEffect(entity.getLocation(), particle, rangeRadius, numberOfParticles);
     }
 
-    protected void displayParticleEffect(@NonNull Location location, Particle particle, double rangeRadius) {
+    @ParametersAreNonnullByDefault
+    protected void displayParticleEffect(Location location, Particle particle, double rangeRadius) {
         displayParticleEffect(location, particle, rangeRadius, spellCore.getParticleNumber());
     }
 
-    protected void displayParticleEffect(@NonNull Location location, Particle particle,  double rangeRadius, int numberOfParticles) {
+    @ParametersAreNonnullByDefault
+    protected void displayParticleEffect(Location location, Particle particle,  double rangeRadius, int numberOfParticles) {
         for (int i = 0; i < numberOfParticles; i++) {
             double x = ThreadLocalRandom.current().nextDouble(-rangeRadius, rangeRadius + 0.1);
             double y = ThreadLocalRandom.current().nextDouble(-rangeRadius, rangeRadius + 0.1);
@@ -129,29 +146,34 @@ public abstract class Spell {
         }
     }
 
+    @ParametersAreNonnullByDefault
     protected void pullEntity(Location loc, Entity pushed, double force) {
         Vector vector = pushed.getLocation().toVector().subtract(loc.toVector()).normalize().multiply(-force);
         pushEntity(vector, pushed);
     }
 
+    @ParametersAreNonnullByDefault
     protected void pushEntity(Location loc, Entity pushed, double force) {
         Vector vector = pushed.getLocation().toVector().subtract(loc.toVector()).normalize().multiply(force);
         pushEntity(vector, pushed);
     }
 
+    @ParametersAreNonnullByDefault
     protected void pushEntity(Vector vector, Entity pushed) {
         pushed.setVelocity(vector);
     }
 
+    @ParametersAreNonnullByDefault
     protected void damageEntity(LivingEntity livingEntity, UUID caster, double damage) {
         damageEntity(livingEntity, caster, damage, null, 0);
     }
 
+    @ParametersAreNonnullByDefault
     protected void damageEntity(LivingEntity livingEntity, UUID caster, double damage, @Nullable Location knockbackOrigin, double knockbackForce) {
         Player player = Bukkit.getPlayer(caster);
         livingEntity.damage(damage, player);
         if (knockbackOrigin != null && knockbackForce > 0) {
-            EntityUtils.push(livingEntity, knockbackOrigin, knockbackForce);
+            pushEntity(knockbackOrigin, livingEntity, knockbackForce);
         }
     }
 
@@ -160,6 +182,7 @@ public abstract class Spell {
      * @param livingEntity The {@link LivingEntity} to heal
      * @param healAmount The amount to heal by
      */
+    @ParametersAreNonnullByDefault
     protected void healEntity(LivingEntity livingEntity, double healAmount) {
         AttributeInstance attribute = livingEntity.getAttribute(Attribute.GENERIC_MAX_HEALTH);
         if (attribute != null) {
@@ -174,7 +197,8 @@ public abstract class Spell {
      * @param entity The {@link Entity} being stored (projectile or LightningStrike)
      * @param castInformation The {@link CastInformation} with the stave information
      */
-    protected void registerProjectile(@NonNull Entity entity, @NonNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    protected void registerProjectile(Entity entity, CastInformation castInformation) {
         registerProjectile(entity, castInformation, spellCore.getParticleNumber());
     }
 
@@ -185,7 +209,8 @@ public abstract class Spell {
      * @param entity The {@link Entity} being stored (projectile or lightningstrike)
      * @param castInformation The {@link CastInformation} with the stave information
      */
-    protected void registerProjectile(@NonNull Entity entity, @NonNull CastInformation castInformation, long projectileDuration) {
+    @ParametersAreNonnullByDefault
+    protected void registerProjectile(Entity entity, CastInformation castInformation, long projectileDuration) {
         castInformation.setBeforeAffectEvent(spellCore.getBeforeProjectileHitEvent());
         castInformation.setAffectEvent(spellCore.getProjectileHitEvent());
         castInformation.setAfterAffectEvent(spellCore.getAfterProjectileHitEvent());
@@ -200,7 +225,8 @@ public abstract class Spell {
      * @param castInformation The {@link CastInformation} with the stave information
      * @param tickAmount The number of times this event should tick before stopping.
      */
-    protected void registerTicker(@NonNull CastInformation castInformation, long period, int tickAmount) {
+    @ParametersAreNonnullByDefault
+    protected void registerTicker(CastInformation castInformation, long period, int tickAmount) {
         castInformation.setTickEvent(spellCore.getTickEvent());
         castInformation.setAfterTicksEvent(spellCore.getAfterAllTicksEvent());
         SpellTick ticker = new SpellTick(castInformation, tickAmount);
@@ -212,6 +238,7 @@ public abstract class Spell {
      * Applies all registered positive effects on the selected entity
      * @param livingEntity The {@link LivingEntity} to apply the effects to
      */
+    @ParametersAreNonnullByDefault
     protected void applyPositiveEffects(LivingEntity livingEntity) {
         for (Map.Entry<PotionEffectType, Pair<Integer, Integer>> entry : spellCore.getPositiveEffectPairMap().entrySet()) {
             livingEntity.addPotionEffect(new PotionEffect(entry.getKey(), entry.getValue().getFirstValue(), entry.getValue().getSecondValue()));
@@ -222,6 +249,7 @@ public abstract class Spell {
      * Applies all registered negative effects on the selected entity
      * @param livingEntity The {@link LivingEntity} to apply the effects to
      */
+    @ParametersAreNonnullByDefault
     protected void applyNegativeEffects(LivingEntity livingEntity) {
         for (Map.Entry<PotionEffectType, Pair<Integer, Integer>> entry : spellCore.getNegativeEffectPairMap().entrySet()) {
             livingEntity.addPotionEffect(new PotionEffect(entry.getKey(), entry.getValue().getFirstValue(), entry.getValue().getSecondValue()));
@@ -235,6 +263,7 @@ public abstract class Spell {
      * @param castInformation The {@link CastInformation} containing the DamageLocation
      * @return
      */
+    @ParametersAreNonnullByDefault
     protected Set<LivingEntity> getTargets(CastInformation castInformation, double range) {
         return getTargets(castInformation, range,false);
     }
@@ -246,6 +275,7 @@ public abstract class Spell {
      * @param includeMain If the main target should be included in the return set
      * @return
      */
+    @ParametersAreNonnullByDefault
     protected Set<LivingEntity> getTargets(CastInformation castInformation, double range, boolean includeMain) {
         Set<LivingEntity> livingEntities = new HashSet<>();
         Location location = castInformation.getDamageLocation();

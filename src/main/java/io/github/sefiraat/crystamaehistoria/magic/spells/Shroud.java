@@ -10,6 +10,9 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.potion.PotionEffectType;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class Shroud extends Spell {
 
     private static final int BLIND_DURATION = 15;
@@ -24,7 +27,8 @@ public class Shroud extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void cast(@NonNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void cast(CastInformation castInformation) {
         Location location = castInformation.getCastLocation();
         double range = getRange(castInformation);
         for (Entity entity : location.getWorld().getNearbyEntities(location, range, range, range)) {

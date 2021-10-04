@@ -21,6 +21,7 @@ import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RealisationAltarCache extends AbstractCache {
@@ -33,6 +34,7 @@ public class RealisationAltarCache extends AbstractCache {
     @Getter @Setter private FloatingHeadAnimation animation;
     @Getter @Setter private Location blockMiddle;
 
+    @ParametersAreNonnullByDefault
     public RealisationAltarCache(BlockMenu blockMenu) {
         super(blockMenu);
         String working = BlockStorage.getLocationInfo(blockMenu.getLocation(), KeyHolder.BS_CP_WORKING_ON);
@@ -44,7 +46,6 @@ public class RealisationAltarCache extends AbstractCache {
     }
 
     protected void process() {
-
         Block b = blockMenu.getBlock();
 
         // Set up armor stand if empty (after restart)
@@ -81,6 +82,7 @@ public class RealisationAltarCache extends AbstractCache {
         }
     }
 
+    @ParametersAreNonnullByDefault
     protected void rejectOverage(ItemStack i) {
         if (i.getAmount() > 1) {
             ItemStack i2 = i.clone();
@@ -90,6 +92,7 @@ public class RealisationAltarCache extends AbstractCache {
         }
     }
 
+    @ParametersAreNonnullByDefault
     protected void setWorking(Block block, Material m) {
         blockMiddle = block.getLocation().clone().add(0.5, 0.5, 0.5);
         workingOn = m;
@@ -108,6 +111,7 @@ public class RealisationAltarCache extends AbstractCache {
     private void startAnimation() {
     }
 
+    @ParametersAreNonnullByDefault
     private void setNotWorking(Block block) {
         workingOn = null;
         working = false;
@@ -122,6 +126,7 @@ public class RealisationAltarCache extends AbstractCache {
         AnimateUtils.panelAnimationReset(displayStand.getArmorStand(), block);
     }
 
+    @ParametersAreNonnullByDefault
     private void processStack(ItemStack i) {
         summonParticles();
         // If this block isn't storied, make it storied then add the initial story set
@@ -141,15 +146,17 @@ public class RealisationAltarCache extends AbstractCache {
 
     }
 
-    protected void kill(@Nonnull Location location) {
+    protected void kill() {
         setNotWorking(blockMenu.getBlock());
         displayStand.kill();
     }
 
+    @ParametersAreNonnullByDefault
     String generateStandName(Block block) {
         return KeyHolder.PANEL_STAND_PREFIX + block.getX() + "|" + block.getY() + "|" + block.getZ();
     }
 
+    @ParametersAreNonnullByDefault
     private DisplayStand getDisplayStand(Block block) {
         DisplayStand displayStand = DisplayStand.get(block);
         if (displayStand == null) {

@@ -1,8 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.machines.imbuer;
 
 import io.github.mooy1.infinitylib.machines.MenuBlock;
-import io.github.mooy1.infinitylib.machines.TickingMenuBlock;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.chroniclerpanel.ChroniclerPanelCache;
 import io.github.sefiraat.crystamaehistoria.theme.GUIElements;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -10,13 +8,11 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import org.bukkit.Location;
-import org.bukkit.block.Block;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
-import java.util.HashMap;
-import java.util.Map;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class StaveConfigurator extends MenuBlock {
 
@@ -36,11 +32,13 @@ public class StaveConfigurator extends MenuBlock {
     protected static final int PROCESS_BUTTON = 43;
     protected static final int STAVE_INPUT = 16;
 
+    @ParametersAreNonnullByDefault
     public StaveConfigurator(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     protected void setup(BlockMenuPreset blockMenuPreset) {
         blockMenuPreset.drawBackground(GUIElements.menuBackground(), BACKGROUND_PROCESS);
         blockMenuPreset.drawBackground(GUIElements.menuBackgroundInput(), BACKGROUND_INPUT);
@@ -58,7 +56,8 @@ public class StaveConfigurator extends MenuBlock {
     }
 
     @Override
-    protected void onBreak(@Nonnull BlockBreakEvent event, @Nonnull BlockMenu blockMenu) {
+    @ParametersAreNonnullByDefault
+    protected void onBreak(BlockBreakEvent event, BlockMenu blockMenu) {
         super.onBreak(event, blockMenu);
         Location location = blockMenu.getLocation();
         blockMenu.dropItems(location, STAVE_INPUT);

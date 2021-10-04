@@ -9,6 +9,9 @@ import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class Push extends Spell {
 
     public Push() {
@@ -19,14 +22,17 @@ public class Push extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void onTick(@NonNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void onTick(CastInformation castInformation) {
         push(castInformation, getKnockback(castInformation));
     }
 
-    public void afterAllTicks(@NonNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void afterAllTicks(CastInformation castInformation) {
         push(castInformation, getKnockback(castInformation) * 3);
     }
 
+    @ParametersAreNonnullByDefault
     private void push(CastInformation castInformation, double amount) {
         Location castLocation = castInformation.getCastLocation();
         double range = getRange(castInformation);

@@ -4,6 +4,8 @@ import io.github.sefiraat.crystamaehistoria.utils.AnimateUtils;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class FloatingHeadAnimation extends BukkitRunnable {
 
     public static final double Y_VARIATION = 0.2;
@@ -13,6 +15,7 @@ public class FloatingHeadAnimation extends BukkitRunnable {
     private final double baseY;
     private boolean directionUp = true;
 
+    @ParametersAreNonnullByDefault
     public FloatingHeadAnimation(ArmorStand armorStand) {
         this.armorStand = armorStand;
         baseY = armorStand.getLocation().getY();

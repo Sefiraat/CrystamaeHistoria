@@ -4,11 +4,14 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class SpellTick extends BukkitRunnable {
 
     private final CastInformation castInformation;
     private int numberOfRuns;
 
+    @ParametersAreNonnullByDefault
     public SpellTick(CastInformation castInformation, int numberOfRuns) {
         this.castInformation = castInformation;
         this.numberOfRuns = numberOfRuns;

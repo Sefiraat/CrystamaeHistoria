@@ -24,6 +24,7 @@ import lombok.Getter;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public enum SpellType {
 
@@ -52,6 +53,7 @@ public enum SpellType {
     @Getter
     private final Spell spell;
 
+    @ParametersAreNonnullByDefault
     SpellType(String id, Spell spell) {
         this.id = id;
         this.spell = spell;
@@ -62,11 +64,13 @@ public enum SpellType {
         return spell;
     }
 
+    @ParametersAreNonnullByDefault
     public void cast(CastInformation castInformation) {
         this.spell.castSpell(castInformation);
     }
 
     @Nullable
+    @ParametersAreNonnullByDefault
     public static Spell getById(String id) {
         for (SpellType spell : values()) {
             if (spell.id.equals(id)) {

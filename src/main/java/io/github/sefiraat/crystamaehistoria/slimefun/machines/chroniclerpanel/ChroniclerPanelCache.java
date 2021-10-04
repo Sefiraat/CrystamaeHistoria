@@ -22,6 +22,7 @@ import org.bukkit.block.BlockFace;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ChroniclerPanelCache extends AbstractCache {
@@ -33,6 +34,7 @@ public class ChroniclerPanelCache extends AbstractCache {
     @Getter @Setter private FloatingHeadAnimation animation;
     @Getter @Setter private Location blockMiddle;
 
+    @ParametersAreNonnullByDefault
     public ChroniclerPanelCache(BlockMenu blockMenu) {
         super(blockMenu);
         String working = BlockStorage.getLocationInfo(blockMenu.getLocation(), KeyHolder.BS_CP_WORKING_ON);
@@ -43,7 +45,6 @@ public class ChroniclerPanelCache extends AbstractCache {
     }
 
     protected void process() {
-
         Block b = blockMenu.getBlock();
 
         // Set up DisplayStand if empty (after restart)
@@ -84,6 +85,7 @@ public class ChroniclerPanelCache extends AbstractCache {
         }
     }
 
+    @ParametersAreNonnullByDefault
     protected void rejectOverage(ItemStack i) {
         if (i.getAmount() > 1) {
             ItemStack i2 = i.clone();
@@ -93,6 +95,7 @@ public class ChroniclerPanelCache extends AbstractCache {
         }
     }
 
+    @ParametersAreNonnullByDefault
     protected void setWorking(Block block, Material m) {
         blockMiddle = block.getLocation().clone().add(0.5, 0.5, 0.5);
         workingOn = m;
@@ -114,6 +117,7 @@ public class ChroniclerPanelCache extends AbstractCache {
         animation.runTaskTimer(CrystamaeHistoria.inst(), 0, FloatingHeadAnimation.SPEED);
     }
 
+    @ParametersAreNonnullByDefault
     private void setNotWorking(Block block) {
         workingOn = null;
         working = false;
@@ -128,6 +132,7 @@ public class ChroniclerPanelCache extends AbstractCache {
         AnimateUtils.panelAnimationReset(displayStand.getArmorStand(), block);
     }
 
+    @ParametersAreNonnullByDefault
     private void processStack(ItemStack i) {
         summonParticles();
         // If this block isn't storied, make it storied then add the initial story set
@@ -161,8 +166,7 @@ public class ChroniclerPanelCache extends AbstractCache {
         displayStand.kill();
     }
 
-
-
+    @ParametersAreNonnullByDefault
     private DisplayStand getDisplayStand(Block block) {
         DisplayStand displayStand = DisplayStand.get(block);
         if (displayStand == null) {

@@ -5,6 +5,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import lombok.Getter;
 import org.bukkit.potion.PotionEffectType;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
@@ -112,12 +113,14 @@ public class SpellCoreBuilder {
         return this;
     }
 
+    @ParametersAreNonnullByDefault
     public SpellCoreBuilder makeInstantSpell(Consumer<CastInformation> instantCastMethod) {
         this.isInstantCast = true;
         this.instantCastEvent = instantCastMethod;
         return this;
     }
 
+    @ParametersAreNonnullByDefault
     public SpellCoreBuilder makeProjectileSpell(
             Consumer<CastInformation> fireProjectileConsumer,
             Consumer<CastInformation> projectileHitConsumer,
@@ -136,16 +139,19 @@ public class SpellCoreBuilder {
         return this;
     }
 
+    @ParametersAreNonnullByDefault
     public SpellCoreBuilder addBeforeProjectileHitEvent(Consumer<CastInformation> spellCastInformationConsumer) {
         this.beforeProjectileHitEvent = spellCastInformationConsumer;
         return this;
     }
 
+    @ParametersAreNonnullByDefault
     public SpellCoreBuilder addAfterProjectileHitEvent(Consumer<CastInformation> spellCastInformationConsumer) {
         this.afterProjectileHitEvent = spellCastInformationConsumer;
         return this;
     }
 
+    @ParametersAreNonnullByDefault
     public SpellCoreBuilder makeTickingSpell(Consumer<CastInformation> spellCastInformationConsumer, int numberOfTicks, boolean ticksMultiplied, int tickInterval, boolean tickIntervalMultiplied) {
         this.tickEvent = spellCastInformationConsumer;
         this.isTickingSpell = true;
@@ -156,6 +162,7 @@ public class SpellCoreBuilder {
         return this;
     }
 
+    @ParametersAreNonnullByDefault
     public SpellCoreBuilder addAfterTicksEvent(Consumer<CastInformation> spellCastInformationConsumer) {
         this.afterAllTicksEvent = spellCastInformationConsumer;
         return this;
@@ -176,6 +183,7 @@ public class SpellCoreBuilder {
      * @param amplification The amplification of the effect. If multiple of the same effects are added, the values are combined.
      * @param duration The duration of the effect in seconds. If multiple of the same effects are added, the highest is used.
      */
+    @ParametersAreNonnullByDefault
     public void addPositiveEffect(PotionEffectType potionEffectType, int amplification, int duration) {
         duration = duration * 1000;
         if (positiveEffectPairMap.containsKey(potionEffectType)) {
@@ -195,6 +203,7 @@ public class SpellCoreBuilder {
      * @param amplification The amplification of the effect. If multiple of the same effects are added, the values are combined.
      * @param duration The duration of the effect. If multiple of the same effects are added, the highest is used.
      */
+    @ParametersAreNonnullByDefault
     public void addNegativeEffect(PotionEffectType potionEffectType, int amplification, int duration) {
         duration = duration * 1000;
         if (negativeEffectPairMap.containsKey(potionEffectType)) {
@@ -207,7 +216,5 @@ public class SpellCoreBuilder {
             negativeEffectPairMap.put(potionEffectType, new Pair<>(amplification, duration));
         }
     }
-
-
 
 }

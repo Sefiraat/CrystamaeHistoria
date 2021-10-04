@@ -9,6 +9,9 @@ import org.bukkit.Effect;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class Bright extends Spell {
 
     public Bright() {
@@ -17,7 +20,8 @@ public class Bright extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void castSpell(@NonNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void castSpell(CastInformation castInformation) {
         Player caster = Bukkit.getPlayer(castInformation.getCaster());
         if (caster != null){
             caster.getWorld().setThundering(false);

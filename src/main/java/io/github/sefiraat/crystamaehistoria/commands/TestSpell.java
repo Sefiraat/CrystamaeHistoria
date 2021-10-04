@@ -7,6 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
 public class TestSpell extends SubCommand {
@@ -16,7 +17,8 @@ public class TestSpell extends SubCommand {
     }
 
     @Override
-    protected void execute(@Nonnull CommandSender sender, @Nonnull  String[] args) {
+    @ParametersAreNonnullByDefault
+    protected void execute(CommandSender sender, String[] args) {
         if (sender instanceof Player) {
             if (args.length != 2) {
                 return;
@@ -27,7 +29,8 @@ public class TestSpell extends SubCommand {
     }
 
     @Override
-    protected void complete(@Nonnull CommandSender commandSender, @Nonnull String[] strings, @Nonnull List<String> list) {
+    @ParametersAreNonnullByDefault
+    protected void complete(CommandSender commandSender, String[] strings, List<String> list) {
         if (strings.length == 1) {
             for (SpellType spell : SpellType.values()) {
                 list.add(spell.name());

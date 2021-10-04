@@ -6,9 +6,12 @@ import net.md_5.bungee.api.ChatColor;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.WordUtils;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 @UtilityClass
 public class TextUtils {
 
+    @ParametersAreNonnullByDefault
     public static String getTitleCase(String string) {
         final char[] delimiters = { ' ', '_' };
         return WordUtils.capitalizeFully(string, delimiters).replace("_"," ");

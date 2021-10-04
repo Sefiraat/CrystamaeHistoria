@@ -13,12 +13,14 @@ import org.apache.commons.lang.Validate;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 
 @UtilityClass
 public class StackUtils {
 
+    @ParametersAreNonnullByDefault
     public static void rebuildStoriedStack(ItemStack itemStack) {
         ItemMeta im = itemStack.getItemMeta();
         Validate.notNull(im, "Meta is null for stack, this should not be possible!");
@@ -40,6 +42,7 @@ public class StackUtils {
         itemStack.setItemMeta(im);
     }
 
+    @ParametersAreNonnullByDefault
     private static void setName(ItemStack itemStack, ItemMeta im) {
         TextComponent name = new TextComponent("Storied " + ThemeUtils.toTitleCase(itemStack.getType().toString()));
         name.setColor(ThemeUtils.getThemeColor(ThemeType.MAIN));

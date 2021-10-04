@@ -8,6 +8,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class FanOfArrows extends Spell {
 
@@ -18,7 +19,8 @@ public class FanOfArrows extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void fireProjectiles(@Nonnull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void fireProjectiles(CastInformation castInformation) {
         double sizeEnd = getRange(castInformation);
         int sizeCast = 3;
         int stepSize = 5;
@@ -38,7 +40,8 @@ public class FanOfArrows extends Spell {
         }
     }
 
-    public void projectileHit(@Nonnull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void projectileHit(CastInformation castInformation) {
         damageEntity(castInformation.getMainTarget(), castInformation.getCaster(), getDamage(castInformation));
     }
 

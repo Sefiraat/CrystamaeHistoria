@@ -1,6 +1,5 @@
 package io.github.sefiraat.crystamaehistoria.listeners;
 
-import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.Stave;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.StaveInstance;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
@@ -15,7 +14,7 @@ import javax.annotation.Nonnull;
 public class PlayerInteract implements Listener {
 
     @EventHandler
-    public void onInteract(@Nonnull PlayerInteractEvent e) {
+    public void onInteract(PlayerInteractEvent e) {
         Player player = e.getPlayer();
         ItemStack itemStack = player.getInventory().getItemInMainHand();
         SlimefunItem slimefunItem = SlimefunItem.getByItem(itemStack);

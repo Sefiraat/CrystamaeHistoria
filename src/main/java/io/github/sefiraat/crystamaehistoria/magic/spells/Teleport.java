@@ -13,6 +13,7 @@ import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class Teleport extends Spell {
 
@@ -22,7 +23,8 @@ public class Teleport extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void cast(@NonNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void cast(CastInformation castInformation) {
         Player caster = Bukkit.getPlayer(castInformation.getCaster());
         if (caster != null) {
             Location teleportToLocation = getTeleportLocation(caster, getRange(castInformation));
@@ -37,7 +39,8 @@ public class Teleport extends Spell {
     }
 
     @Nullable
-    private Location getTeleportLocation(@Nonnull Player player, double range) {
+    @ParametersAreNonnullByDefault
+    private Location getTeleportLocation(Player player, double range) {
         Location location = player.getLocation().add(player.getLocation().getDirection().setY(0).multiply(range));
         if (location.getBlock().getType() == Material.AIR) {
             return location.add(0, 1, 0);
@@ -47,6 +50,7 @@ public class Teleport extends Spell {
     }
 
     @Nullable
+    @ParametersAreNonnullByDefault
     private Location tryIncreaseY(Location location, int attemptNumber) {
         if (attemptNumber >= 10) {
             return null;

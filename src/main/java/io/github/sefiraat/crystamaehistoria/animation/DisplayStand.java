@@ -14,6 +14,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class DisplayStand {
 
@@ -23,6 +24,7 @@ public class DisplayStand {
     private final String name;
 
     @Nullable
+    @ParametersAreNonnullByDefault
     public static DisplayStand get(Block block) {
         // Check for an existing stand
         for (Entity e : WorldUtils.getNearbyEntities(block, 2, 2, 2)) {
@@ -37,28 +39,34 @@ public class DisplayStand {
         return null;
     }
 
+    @ParametersAreNonnullByDefault
     public static void setDisplayStandName(ArmorStand a, String s) {
         PersistentDataAPI.setString(a, CrystamaeHistoria.inst().getKeyHolder().getPdcArmourStandName(), s);
     }
 
     @Nullable
+    @ParametersAreNonnullByDefault
     public static String getDisplayStandName(ArmorStand a) {
         return PersistentDataAPI.getString(a, CrystamaeHistoria.inst().getKeyHolder().getPdcArmourStandName());
     }
 
+    @ParametersAreNonnullByDefault
     public static void setDisplayStand(ArmorStand a) {
         PersistentDataAPI.setBoolean(a, CrystamaeHistoria.inst().getKeyHolder().getPdcIsDisplayStand(), true);
     }
 
+    @ParametersAreNonnullByDefault
     public static boolean isDisplayStand(ArmorStand a) {
         return PersistentDataAPI.getBoolean(a, CrystamaeHistoria.inst().getKeyHolder().getPdcIsDisplayStand());
     }
 
+    @ParametersAreNonnullByDefault
     public DisplayStand(ArmorStand armorStand) {
         this.armorStand = armorStand;
         this.name = getDisplayStandName(armorStand);
     }
 
+    @ParametersAreNonnullByDefault
     public DisplayStand(Block block) {
         String identifier = generateStandName(block);
         ArmorStand armorStand = (ArmorStand) block.getWorld().spawnEntity(block.getLocation().clone().add(0.5, -0.6, 0.5), EntityType.ARMOR_STAND);
@@ -68,6 +76,7 @@ public class DisplayStand {
         this.name = identifier;
     }
 
+    @ParametersAreNonnullByDefault
     public void setDisplayOnly(ArmorStand a) {
         a.setVisible(false);
         a.setGravity(false);
@@ -84,6 +93,7 @@ public class DisplayStand {
         this.armorStand.remove();
     }
 
+    @ParametersAreNonnullByDefault
     public void setDisplayItem(Material material) {
         this.armorStand.getEquipment().setHelmet(new ItemStack(material));
     }
@@ -92,8 +102,8 @@ public class DisplayStand {
         this.armorStand.getEquipment().setHelmet(null);
     }
 
+    @ParametersAreNonnullByDefault
     private String generateStandName(Block block) {
-        // TODO WALSHY SPREEM
         return KeyHolder.PANEL_STAND_PREFIX + block.getX() + "|" + block.getY() + "|" + block.getZ();
     }
 

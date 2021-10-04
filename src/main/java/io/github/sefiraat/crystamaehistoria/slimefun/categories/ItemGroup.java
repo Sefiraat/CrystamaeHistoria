@@ -9,6 +9,8 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class ItemGroup {
 
     private final CrystamaeHistoria plugin;
@@ -30,6 +32,7 @@ public class ItemGroup {
             ThemeUtils.getThemeColor(ThemeType.MAIN) + "Historia Staves and Tools"
     ));
 
+    @ParametersAreNonnullByDefault
     public ItemGroup(CrystamaeHistoria plugin) {
         this.plugin = plugin;
     }

@@ -12,6 +12,7 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class PoisonNova extends Spell {
 
@@ -23,7 +24,8 @@ public class PoisonNova extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void fireProjectile(@Nonnull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void fireProjectile(CastInformation castInformation) {
         double sizeEnd = getRange(castInformation);
         int sizeCast = 1;
         int stepSize = 3;
@@ -43,7 +45,8 @@ public class PoisonNova extends Spell {
         }
     }
 
-    public void projectileHit(@Nonnull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void projectileHit(CastInformation castInformation) {
         LivingEntity hit = castInformation.getMainTarget();
         if (hit.getHealth() == 1) {
             damageEntity(hit, castInformation.getCaster(), getDamage(castInformation));
@@ -54,7 +57,8 @@ public class PoisonNova extends Spell {
         }
     }
 
-    public void afterProjectileHit(@Nonnull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void afterProjectileHit(CastInformation castInformation) {
         displayParticleEffect(castInformation.getMainTarget(), Particle.CRIMSON_SPORE, 1.0, 10);
     }
 }

@@ -2,6 +2,7 @@ package io.github.sefiraat.crystamaehistoria.stories;
 
 import lombok.Getter;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,7 @@ public class StoryPool {
     private final List<Story> listEpic = new ArrayList<>();
     private final List<Story> listMythical = new ArrayList<>();
 
+    @ParametersAreNonnullByDefault
     public StoryPool(StoryType storyType) {
         this.storyType = storyType;
     }

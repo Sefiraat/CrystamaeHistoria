@@ -10,6 +10,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class FireNova extends Spell {
 
@@ -21,7 +22,8 @@ public class FireNova extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void fireProjectiles(@Nonnull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void fireProjectiles(CastInformation castInformation) {
         double sizeEnd = getRange(castInformation);
         int sizeCast = 2;
         int stepSize = 3;
@@ -42,13 +44,15 @@ public class FireNova extends Spell {
 
     }
 
-    public void projectileHit(@Nonnull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void projectileHit(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
             damageEntity(livingEntity, castInformation.getCaster(), getDamage(castInformation));
         }
     }
 
-    public void afterProjectileHit(@Nonnull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void afterProjectileHit(CastInformation castInformation) {
         displayParticleEffect(castInformation.getMainTarget(), Particle.EXPLOSION_NORMAL, 1.0, 5);
     }
 }

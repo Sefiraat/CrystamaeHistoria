@@ -5,6 +5,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import lombok.Getter;
 import org.bukkit.potion.PotionEffectType;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
@@ -87,6 +88,8 @@ public class SpellCore {
     @Getter
     private final Map<PotionEffectType, Pair<Integer, Integer>> negativeEffectPairMap = new HashMap<>();
 
+
+    @ParametersAreNonnullByDefault
     public SpellCore(SpellCoreBuilder spellCoreBuilder) {
         this.cooldown = spellCoreBuilder.getCooldown();
         this.range = spellCoreBuilder.getRange();

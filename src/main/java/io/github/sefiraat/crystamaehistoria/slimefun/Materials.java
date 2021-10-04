@@ -7,11 +7,14 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import org.bukkit.inventory.ItemStack;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class Materials {
 
     private final Structure parent;
     private final CrystamaeHistoria plugin;
 
+    @ParametersAreNonnullByDefault
     public Materials(Structure s, CrystamaeHistoria p) {
         this.parent = s;
         this.plugin = p;

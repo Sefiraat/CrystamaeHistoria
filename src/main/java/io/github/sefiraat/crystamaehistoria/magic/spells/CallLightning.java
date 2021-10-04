@@ -11,6 +11,7 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public class CallLightning extends Spell {
 
@@ -22,7 +23,8 @@ public class CallLightning extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void fireProjectiles(@Nonnull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void fireProjectiles(CastInformation castInformation) {
         Player player = Bukkit.getPlayer(castInformation.getCaster());
         if (player != null) {
             Block block = player.getTargetBlockExact((int) getRange(castInformation));
@@ -34,13 +36,15 @@ public class CallLightning extends Spell {
         }
     }
 
-    public void beforeProjectileHit(@Nonnull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void beforeProjectileHit(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
             livingEntity.setFireTicks(40);
         }
     }
 
-    public void projectileHit(@Nonnull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void projectileHit(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
             damageEntity(livingEntity, castInformation.getCaster(), getDamage(castInformation), castInformation.getDamageLocation(), getKnockback(castInformation));
         }

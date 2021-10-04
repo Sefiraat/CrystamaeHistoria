@@ -6,6 +6,7 @@ import org.bukkit.Particle;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 @Getter
 public class ThemeElement {
@@ -17,18 +18,21 @@ public class ThemeElement {
     @Nullable
     private final Particle.DustOptions themeParticles;
 
+    @ParametersAreNonnullByDefault
     public ThemeElement(ChatColor themeColor) {
         this.themeColor = themeColor;
         this.themeItemLore = null;
         this.themeParticles = null;
     }
 
+    @ParametersAreNonnullByDefault
     public ThemeElement(ChatColor themeColor, String themeItemLore) {
         this.themeColor = themeColor;
         this.themeItemLore = themeItemLore;
         this.themeParticles = null;
     }
 
+    @ParametersAreNonnullByDefault
     public ThemeElement(ChatColor themeColor, String themeItemLore, Particle.DustOptions dustOptions) {
         this.themeColor = themeColor;
         this.themeItemLore = themeItemLore;

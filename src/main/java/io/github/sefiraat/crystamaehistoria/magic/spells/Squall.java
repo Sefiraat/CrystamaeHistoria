@@ -9,6 +9,9 @@ import org.bukkit.Effect;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class Squall extends Spell {
 
     public Squall() {
@@ -17,7 +20,8 @@ public class Squall extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void cast(@NonNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void cast(CastInformation castInformation) {
         Player caster = Bukkit.getPlayer(castInformation.getCaster());
         if (caster != null) {
             caster.getWorld().setThundering(true);

@@ -13,6 +13,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -34,11 +35,13 @@ public class RealisationAltar extends TickingMenuBlock {
 
     private final Map<Location, RealisationAltarCache> caches = new HashMap<>();
 
+    @ParametersAreNonnullByDefault
     public RealisationAltar(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     protected void tick(Block block, BlockMenu blockMenu) {
         RealisationAltarCache cache = RealisationAltar.this.caches.get(block.getLocation());
         if (cache != null) {
@@ -47,6 +50,7 @@ public class RealisationAltar extends TickingMenuBlock {
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     protected void setup(BlockMenuPreset blockMenuPreset) {
         blockMenuPreset.drawBackground(GUIElements.menuBackground(), BACKGROUND_SLOTS);
         blockMenuPreset.drawBackground(GUIElements.menuBackgroundInput(), BACKGROUND_INPUT);
@@ -63,18 +67,20 @@ public class RealisationAltar extends TickingMenuBlock {
     }
 
     @Override
-    protected void onBreak(@Nonnull BlockBreakEvent event, @Nonnull BlockMenu blockMenu) {
+    @ParametersAreNonnullByDefault
+    protected void onBreak(BlockBreakEvent event, BlockMenu blockMenu) {
         super.onBreak(event, blockMenu);
         Location location = blockMenu.getLocation();
         RealisationAltarCache realisationAltarCache = caches.remove(location);
         if (realisationAltarCache != null) {
-            realisationAltarCache.kill(location);
+            realisationAltarCache.kill();
         }
         blockMenu.dropItems(location, INPUT_SLOT);
     }
 
     @Override
-    protected void onNewInstance(@Nonnull BlockMenu blockMenu, @Nonnull Block b) {
+    @ParametersAreNonnullByDefault
+    protected void onNewInstance(BlockMenu blockMenu, Block b) {
         super.onNewInstance(blockMenu, b);
         RealisationAltarCache cache = new RealisationAltarCache(blockMenu);
         caches.put(blockMenu.getLocation(), cache);

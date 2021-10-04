@@ -6,6 +6,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.UUID;
 import java.util.function.Consumer;
 
@@ -38,6 +39,7 @@ public class CastInformation {
     @Setter
     private Consumer<CastInformation> afterTicksEvent;
 
+    @ParametersAreNonnullByDefault
     public CastInformation(Player caster, int powerMulti, int cooldownMulti, int durabilityMulti) {
         this.caster = caster.getUniqueId();
         this.powerMulti = powerMulti;

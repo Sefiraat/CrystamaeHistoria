@@ -8,6 +8,9 @@ import org.bukkit.Bukkit;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class Heal extends Spell {
 
     public Heal() {
@@ -17,7 +20,8 @@ public class Heal extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void cast(@NonNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void cast(CastInformation castInformation) {
         Player caster = Bukkit.getPlayer(castInformation.getCaster());
         healEntity(caster, getHealAmount(castInformation));
         displayParticleEffect(caster, Particle.HEART, 2, 10);

@@ -5,10 +5,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Fireball;
-import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
 import org.bukkit.util.Vector;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.UUID;
 
 public class MagicProjectile {
@@ -16,6 +16,7 @@ public class MagicProjectile {
     @Getter
     private final Projectile projectile;
 
+    @ParametersAreNonnullByDefault
     public MagicProjectile(EntityType entityType, Location location, UUID caster) {
         projectile = (Projectile) location.getWorld().spawnEntity(location, entityType);
         projectile.setShooter(Bukkit.getPlayer(caster));
@@ -32,6 +33,7 @@ public class MagicProjectile {
      * @param targetLocation The target location
      * @param speed The speed to push the projectile
      */
+    @ParametersAreNonnullByDefault
     public void setVelocity(Location targetLocation, double speed) {
         Vector velocity = targetLocation.toVector().subtract(projectile.getLocation().toVector()).normalize();
         setVelocity(velocity, speed);
@@ -42,6 +44,7 @@ public class MagicProjectile {
      * @param vector The vector to use
      * @param speed The speed to push the projectile
      */
+    @ParametersAreNonnullByDefault
     public void setVelocity(Vector vector, double speed) {
         // Fireball projectiles want to move wrongly :)
         if (projectile instanceof Fireball) {

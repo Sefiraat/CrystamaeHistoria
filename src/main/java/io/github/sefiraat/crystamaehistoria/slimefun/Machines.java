@@ -10,11 +10,14 @@ import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class Machines {
 
     private final Structure parent;
     private final CrystamaeHistoria plugin;
 
+    @ParametersAreNonnullByDefault
     public Machines(Structure s, CrystamaeHistoria p) {
         this.parent = s;
         this.plugin = p;

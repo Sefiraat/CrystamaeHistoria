@@ -10,6 +10,9 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffectType;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class HealingMist extends Spell {
 
     private static final int REGEN_DURATION = 10;
@@ -23,7 +26,8 @@ public class HealingMist extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void cast(@NonNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void cast(CastInformation castInformation) {
         Location location = castInformation.getCastLocation();
         double range = getRange(castInformation);
         for (Entity entity : location.getWorld().getNearbyEntities(location, range, range, range, entity -> entity instanceof Player)) {

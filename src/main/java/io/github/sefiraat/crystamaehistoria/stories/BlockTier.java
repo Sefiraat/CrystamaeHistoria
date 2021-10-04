@@ -1,5 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.stories;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class BlockTier {
 
     public final int tier;
@@ -14,6 +16,7 @@ public class BlockTier {
     public final StoryChances storyChances;
 
 
+    @ParametersAreNonnullByDefault
     public BlockTier(int tier, int chroniclingChance, int maxStories, int minStories, StoryChances storyChances) {
         this.tier = tier;
         this.chroniclingChance = chroniclingChance;

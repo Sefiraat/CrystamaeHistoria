@@ -14,6 +14,7 @@ import org.apache.commons.lang.Validate;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -93,6 +94,7 @@ public class StoriesManager {
 
     }
 
+    @ParametersAreNonnullByDefault
     private void fillMap(Map<Integer, Story> map, ConfigurationSection section, StoryRarity rarity) {
         for (String s : section.getKeys(false)) {
             Story story = parseStory(section.getConfigurationSection(s), rarity);
@@ -101,6 +103,7 @@ public class StoriesManager {
         }
     }
 
+    @ParametersAreNonnullByDefault
     private static Story parseStory(ConfigurationSection sConf, StoryRarity rarity) {
         String name = sConf.getString("name");
         String type = sConf.getString("type");
@@ -143,6 +146,7 @@ public class StoriesManager {
         );
     }
 
+    @ParametersAreNonnullByDefault
     public Story getStory(int id, StoryRarity storyRarity) {
         switch (storyRarity) {
             case Common:

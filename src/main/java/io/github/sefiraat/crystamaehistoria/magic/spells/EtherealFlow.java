@@ -7,6 +7,9 @@ import lombok.NonNull;
 import org.bukkit.Effect;
 import org.bukkit.Location;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class EtherealFlow extends Spell {
 
     public EtherealFlow() {
@@ -16,7 +19,8 @@ public class EtherealFlow extends Spell {
 
     }
 
-    public void onTick(@NonNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void onTick(CastInformation castInformation) {
         Location location = castInformation.getCastLocation();
         location.getWorld().setTime(location.getWorld().getTime() + (50L * castInformation.getPowerMulti()));
         location.getWorld().playEffect(location, Effect.ENDER_SIGNAL, 1);

@@ -6,6 +6,7 @@ import lombok.Getter;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.TextComponent;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class Story {
     private final StoryShardProfile storyShardProfile;
     private final String[] story;
 
+    @ParametersAreNonnullByDefault
     public Story(int id, String storyName, StoryRarity rarity, StoryType type, StoryShardProfile storyShardProfile, String... story) {
         this.id = id;
         this.storyName = storyName;

@@ -10,6 +10,8 @@ import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Quake extends Spell {
@@ -21,7 +23,8 @@ public class Quake extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void onTick(@NonNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void onTick(CastInformation castInformation) {
         Location castLocation = castInformation.getCastLocation().clone();
         double range = getRange(castInformation);
 

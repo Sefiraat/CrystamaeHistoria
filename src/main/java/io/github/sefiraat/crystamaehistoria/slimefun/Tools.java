@@ -7,11 +7,14 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class Tools {
 
     private final Structure parent;
     private final CrystamaeHistoria plugin;
 
+    @ParametersAreNonnullByDefault
     public Tools(Structure s, CrystamaeHistoria p) {
         this.parent = s;
         this.plugin = p;

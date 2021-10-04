@@ -11,6 +11,8 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.ExperienceOrb;
 import org.bukkit.entity.Player;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class KnowledgeShare extends Spell {
@@ -23,7 +25,8 @@ public class KnowledgeShare extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void onTick(@NonNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void onTick(CastInformation castInformation) {
         // TODO SHIT SHIT SHIT
         Player caster = Bukkit.getPlayer(castInformation.getCaster());
 

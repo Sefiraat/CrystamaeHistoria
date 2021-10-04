@@ -10,6 +10,9 @@ import org.bukkit.entity.Animals;
 import org.bukkit.entity.Breedable;
 import org.bukkit.entity.Entity;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class LovePotion extends Spell {
 
     public LovePotion() {
@@ -18,7 +21,8 @@ public class LovePotion extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void cast(@NonNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void cast(CastInformation castInformation) {
         Location casterLocation = castInformation.getCastLocation();
         double range = getRange(castInformation);
         for (Entity entity : casterLocation.getWorld().getNearbyEntities(casterLocation, range, range, range, entity -> entity instanceof Breedable)) {

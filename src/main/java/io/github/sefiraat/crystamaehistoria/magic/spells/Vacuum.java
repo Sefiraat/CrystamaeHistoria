@@ -11,6 +11,9 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class Vacuum extends Spell {
 
     public Vacuum() {
@@ -21,14 +24,17 @@ public class Vacuum extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
-    public void onTick(@NonNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void onTick(CastInformation castInformation) {
         pull(castInformation, getKnockback(castInformation));
     }
 
-    public void afterAllTicks(@NonNull CastInformation castInformation) {
+    @ParametersAreNonnullByDefault
+    public void afterAllTicks(CastInformation castInformation) {
         pull(castInformation, getKnockback(castInformation) * 3);
     }
 
+    @ParametersAreNonnullByDefault
     private void pull(CastInformation castInformation, double amount) {
         Player caster = Bukkit.getPlayer(castInformation.getCaster());
         Location castLocation = caster.getLocation();

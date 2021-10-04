@@ -13,6 +13,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,17 +31,20 @@ public class ChroniclerPanel extends TickingMenuBlock {
 
     private final Map<Location, ChroniclerPanelCache> caches = new HashMap<>();
 
+    @ParametersAreNonnullByDefault
     public ChroniclerPanel(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     protected void setup(BlockMenuPreset blockMenuPreset) {
         blockMenuPreset.drawBackground(GUIElements.menuBackground(), BACKGROUND_SLOTS);
         blockMenuPreset.drawBackground(GUIElements.menuBackgroundInput(), BACKGROUND_INPUT);
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     protected void tick(Block block, BlockMenu blockMenu) {
         ChroniclerPanelCache cache = ChroniclerPanel.this.caches.get(block.getLocation());
         if (cache != null) {
@@ -59,7 +63,8 @@ public class ChroniclerPanel extends TickingMenuBlock {
     }
 
     @Override
-    protected void onBreak(@Nonnull BlockBreakEvent event, @Nonnull BlockMenu blockMenu) {
+    @ParametersAreNonnullByDefault
+    protected void onBreak(BlockBreakEvent event, BlockMenu blockMenu) {
         super.onBreak(event, blockMenu);
         Location location = blockMenu.getLocation();
         ChroniclerPanelCache chroniclerPanelCache = caches.remove(location);
@@ -68,7 +73,8 @@ public class ChroniclerPanel extends TickingMenuBlock {
     }
 
     @Override
-    protected void onNewInstance(@Nonnull BlockMenu blockMenu, @Nonnull Block b) {
+    @ParametersAreNonnullByDefault
+    protected void onNewInstance(BlockMenu blockMenu, Block b) {
         super.onNewInstance(blockMenu, b);
         ChroniclerPanelCache cache = new ChroniclerPanelCache(blockMenu);
         caches.put(blockMenu.getLocation(), cache);

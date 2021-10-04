@@ -5,6 +5,8 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class GUIElements {
 
     public static CustomItemStack menuBackground() {
@@ -47,6 +49,7 @@ public class GUIElements {
         );
     }
 
+    @ParametersAreNonnullByDefault
     public static CustomItemStack menuChroniclerBlockDisplay(Material material) {
         ChatColor colorPassive = ThemeUtils.getThemeColor(ThemeType.PASSIVE);
         return new CustomItemStack(
