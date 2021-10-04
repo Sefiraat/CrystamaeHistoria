@@ -13,7 +13,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class RainOfFire extends Spell {
 
-    private static final int PROJECTILES_PER_WAVE = 10;
+    private static final int PROJECTILES_PER_WAVE = 5;
 
     public RainOfFire() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 20, false, 20, true)
@@ -28,7 +28,7 @@ public class RainOfFire extends Spell {
     public void fireProjectiles(CastInformation castInformation) {
         Location location = castInformation.getCastLocation();
 
-        for (int i = 0; i < (PROJECTILES_PER_WAVE * castInformation.getPowerMulti()); i++) {
+        for (int i = 0; i < (PROJECTILES_PER_WAVE * castInformation.getStaveLevel()); i++) {
 
             double range = getRange(castInformation);
 

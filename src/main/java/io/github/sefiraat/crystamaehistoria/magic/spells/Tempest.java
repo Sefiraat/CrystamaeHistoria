@@ -12,7 +12,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Tempest extends Spell {
 
-    private static final double PROJECTILE_NUMBER = 10;
+    private static final double PROJECTILE_NUMBER = 5;
 
     public Tempest() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(200, true, 20, false, 10, true)
@@ -26,7 +26,7 @@ public class Tempest extends Spell {
     public void fireProjectiles(CastInformation castInformation) {
         Location location = castInformation.getCastLocation();
 
-        for (int i = 0; i < (PROJECTILE_NUMBER * castInformation.getPowerMulti()); i++) {
+        for (int i = 0; i < (PROJECTILE_NUMBER * castInformation.getStaveLevel()); i++) {
             double range = getRange(castInformation);
             double xOffset = ThreadLocalRandom.current().nextDouble(-range, range + 1);
             double zOffset = ThreadLocalRandom.current().nextDouble(-range, range + 1);

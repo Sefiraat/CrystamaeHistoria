@@ -15,11 +15,7 @@ public class CastInformation {
     @Getter
     private final UUID caster;
     @Getter
-    private final int powerMulti;
-    @Getter
-    private final int cooldownMulti;
-    @Getter
-    private final int durabilityMulti;
+    private final int staveLevel;
     @Getter
     private final Location castLocation;
     @Getter
@@ -40,11 +36,9 @@ public class CastInformation {
     private Consumer<CastInformation> afterTicksEvent;
 
     @ParametersAreNonnullByDefault
-    public CastInformation(Player caster, int powerMulti, int cooldownMulti, int durabilityMulti) {
+    public CastInformation(Player caster, int staveLevel) {
         this.caster = caster.getUniqueId();
-        this.powerMulti = powerMulti;
-        this.cooldownMulti = cooldownMulti;
-        this.durabilityMulti = durabilityMulti;
+        this.staveLevel = staveLevel;
         this.castLocation = caster.getLocation().clone();
     }
 

@@ -56,43 +56,43 @@ public abstract class Spell {
     }
 
     @ParametersAreNonnullByDefault
-    protected double getCooldown(CastInformation castInformation) {
-        return spellCore.isCooldownMultiplied() ? spellCore.getCooldown() * (3 - castInformation.getCooldownMulti()) : spellCore.getCooldown();
+    public long getCooldown(CastInformation castInformation) {
+        return spellCore.isCooldownMultiplied() ? spellCore.getCooldown() * (3 - castInformation.getStaveLevel()) : spellCore.getCooldown();
     }
 
     @ParametersAreNonnullByDefault
-    protected double getRange(CastInformation castInformation) {
-        return spellCore.isRangeMultiplied() ? spellCore.getRange() * castInformation.getPowerMulti() : spellCore.getRange();
+    public double getRange(CastInformation castInformation) {
+        return spellCore.isRangeMultiplied() ? spellCore.getRange() * castInformation.getStaveLevel() : spellCore.getRange();
     }
 
     @ParametersAreNonnullByDefault
-    protected double getDurabilityCost(CastInformation castInformation) {
-        return spellCore.isDurabilityMultiplied() ? spellCore.getDurabilityCost() * (3 - castInformation.getDurabilityMulti()) : spellCore.getDurabilityCost();
+    public double getDurabilityCost(CastInformation castInformation) {
+        return spellCore.isDurabilityMultiplied() ? spellCore.getDurabilityCost() * (3 - castInformation.getStaveLevel()) : spellCore.getDurabilityCost();
     }
 
     @ParametersAreNonnullByDefault
-    protected double getDamage(CastInformation castInformation) {
-        return spellCore.isDamageMultiplied() ? spellCore.getDamageAmount() * castInformation.getPowerMulti() : spellCore.getDamageAmount();
+    public double getDamage(CastInformation castInformation) {
+        return spellCore.isDamageMultiplied() ? spellCore.getDamageAmount() * castInformation.getStaveLevel() : spellCore.getDamageAmount();
     }
 
     @ParametersAreNonnullByDefault
-    protected double getHealAmount(CastInformation castInformation) {
-        return spellCore.isHealMultiplied() ? spellCore.getHealAmount() * castInformation.getPowerMulti() : spellCore.getHealAmount();
+    public double getHealAmount(CastInformation castInformation) {
+        return spellCore.isHealMultiplied() ? spellCore.getHealAmount() * castInformation.getStaveLevel() : spellCore.getHealAmount();
     }
 
     @ParametersAreNonnullByDefault
-    protected double getKnockback(CastInformation castInformation) {
-        return spellCore.isKnockbackMultiplied() ? spellCore.getKnockbackAmount() * castInformation.getPowerMulti() : spellCore.getKnockbackAmount();
+    public double getKnockback(CastInformation castInformation) {
+        return spellCore.isKnockbackMultiplied() ? spellCore.getKnockbackAmount() * castInformation.getStaveLevel() : spellCore.getKnockbackAmount();
     }
 
     @ParametersAreNonnullByDefault
-    protected double getProjectileKnockback(CastInformation castInformation) {
-        return spellCore.isProjectileKnockbackMultiplied() ? spellCore.getProjectileKnockbackAmount() * castInformation.getPowerMulti() : spellCore.getProjectileKnockbackAmount();
+    public double getProjectileKnockback(CastInformation castInformation) {
+        return spellCore.isProjectileKnockbackMultiplied() ? spellCore.getProjectileKnockbackAmount() * castInformation.getStaveLevel() : spellCore.getProjectileKnockbackAmount();
     }
 
     @ParametersAreNonnullByDefault
-    protected double getProjectileAoe(CastInformation castInformation) {
-        return spellCore.isProjectileAoeMultiplied() ? spellCore.getProjectileAoeRange() * castInformation.getPowerMulti() : spellCore.getProjectileAoeRange();
+    public double getProjectileAoe(CastInformation castInformation) {
+        return spellCore.isProjectileAoeMultiplied() ? spellCore.getProjectileAoeRange() * castInformation.getStaveLevel() : spellCore.getProjectileAoeRange();
     }
 
     /**

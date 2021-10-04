@@ -50,7 +50,7 @@ public class PoisonNova extends Spell {
         if (hit.getHealth() == 1) {
             damageEntity(hit, castInformation.getCaster(), getDamage(castInformation));
         } else {
-            PotionEffect potionEffect = new PotionEffect(PotionEffectType.POISON, castInformation.getPowerMulti() * 40, castInformation.getPowerMulti() + 1);
+            PotionEffect potionEffect = new PotionEffect(PotionEffectType.POISON, castInformation.getStaveLevel() * 40, castInformation.getStaveLevel());
             hit.addPotionEffect(potionEffect);
             setLastDamageToCaster(hit, castInformation);
         }

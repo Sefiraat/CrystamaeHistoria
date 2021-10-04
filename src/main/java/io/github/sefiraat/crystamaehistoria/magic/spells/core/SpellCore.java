@@ -13,7 +13,7 @@ import java.util.function.Consumer;
 public class SpellCore {
 
     @Getter
-    private final int cooldown;
+    private final long cooldown;
     @Getter
     private final double range;
     @Getter

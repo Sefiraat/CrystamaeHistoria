@@ -12,7 +12,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class TextUtils {
 
     @ParametersAreNonnullByDefault
-    public static String getTitleCase(String string) {
+    public static String toTitleCase(String string) {
         final char[] delimiters = { ' ', '_' };
         return WordUtils.capitalizeFully(string, delimiters).replace("_"," ");
     }

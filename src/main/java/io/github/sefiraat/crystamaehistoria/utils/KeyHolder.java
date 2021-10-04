@@ -32,6 +32,7 @@ public class KeyHolder {
     private final NamespacedKey pdcCurrentNumberOfStories = new NamespacedKey(CrystamaeHistoria.inst(), "s_cur_n");
     private final NamespacedKey pdcAppliedStoryList = new NamespacedKey(CrystamaeHistoria.inst(), "s_list");
     private final NamespacedKey pdcStaveInstance = new NamespacedKey(CrystamaeHistoria.inst(), "stv");
+    private final NamespacedKey pdcStaveLevel = new NamespacedKey(CrystamaeHistoria.inst(), "stv_lvl");
 
     // Entities
     private final NamespacedKey pdcArmourStandName = new NamespacedKey(CrystamaeHistoria.inst(), "a_nm");

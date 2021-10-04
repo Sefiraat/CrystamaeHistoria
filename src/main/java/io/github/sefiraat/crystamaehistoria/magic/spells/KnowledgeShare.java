@@ -28,7 +28,7 @@ public class KnowledgeShare extends Spell {
         // TODO SHIT SHIT SHIT
         Player caster = Bukkit.getPlayer(castInformation.getCaster());
 
-        float exp = Math.max(caster.getExp(), BASE_EXP * castInformation.getPowerMulti());
+        float exp = Math.max(caster.getExp(), BASE_EXP * castInformation.getStaveLevel());
         exp = exp - (exp % 10);
         int waves = (int) (exp / 10);
 

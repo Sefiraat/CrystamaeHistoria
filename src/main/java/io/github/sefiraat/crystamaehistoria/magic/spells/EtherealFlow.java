@@ -20,7 +20,7 @@ public class EtherealFlow extends Spell {
     @ParametersAreNonnullByDefault
     public void onTick(CastInformation castInformation) {
         Location location = castInformation.getCastLocation();
-        location.getWorld().setTime(location.getWorld().getTime() + (50L * castInformation.getPowerMulti()));
+        location.getWorld().setTime(location.getWorld().getTime() + (50L * castInformation.getStaveLevel()));
         location.getWorld().playEffect(location, Effect.ENDER_SIGNAL, 1);
     }
 
