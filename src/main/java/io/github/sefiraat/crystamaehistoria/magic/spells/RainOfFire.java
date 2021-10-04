@@ -13,10 +13,10 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class RainOfFire extends Spell {
 
-    private static final int PROJECTILES_PER_WAVE = 1;
+    private static final int PROJECTILES_PER_WAVE = 10;
 
     public RainOfFire() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 1, false, 20, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 20, false, 20, true)
                 .makeDamagingSpell(5, true, 0.5, false)
                 .makeProjectileSpell(this::fireProjectiles, this::projectileHits, 1, true, 0.5, true)
                 .addBeforeProjectileHitEvent(this::beforeProjectileHits)
