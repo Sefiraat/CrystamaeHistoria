@@ -1,6 +1,6 @@
 ![](https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/logo/logo_large.png?raw=true)
 
-Crystamae Historia is a Slimefun4 addon that adds a suite of magical spells and a progression system for crafting and unlocking new spells.
+Crystamae Historia is a Slimefun4 addon (currently a work in progress with much work left to do!) that adds a suite of magical spells and a progression system for crafting and unlocking new spells.
 
 Any major event or experience leaves its mark on the surrounding area. Historia allows you to harness this by drawing out the raw essence of these experiences from blocks.
 
@@ -25,3 +25,12 @@ Plates hold the potential for a magical spell but will need refilling with Cryst
 
 ## Stave Configurator
 A Stave is, surprisingly, very easy to craft and source. The downside being is that the Stave does nothing by itself. Just like some sorcerers use runes to imbue a staff with magic, the Stave requires a filled Magical Plate to channel magic. The configurator allows you to add/remove 4 plates to the Stave at any given time. Each plate binds it's spell to a specific player action (Left, Right, Shift-Left and Shift-Right click). Plates can be added and removed freely to customise your load-out whenever. 
+
+## Spells
+The end result of all your hard work? Spells!
+
+<p align="center"><img width="900" height="486" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_spell_rof.gif?raw=true"></p>
+
+<p align="center"><img width="900" height="486" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_spell_ethereal.gif?raw=true"></p>
+
+<p align="center"><img width="900" height="486" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_spell_push.gif?raw=true"></p>
