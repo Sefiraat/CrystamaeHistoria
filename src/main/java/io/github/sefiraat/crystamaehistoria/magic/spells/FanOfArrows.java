@@ -7,7 +7,6 @@ import io.github.sefiraat.crystamaehistoria.magic.wrappers.MagicProjectile;
 import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
 
-import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 public class FanOfArrows extends Spell {

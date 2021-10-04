@@ -9,9 +9,9 @@ import org.apache.commons.lang.Validate;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -23,7 +23,7 @@ public class StaveInstance {
     private static final String NEXT_CAST = "next_cast";
 
     private final ItemStack stave;
-    private final Map<SpellSlot, SpellInstance> spellInstanceMap = new HashMap<>();
+    private final EnumMap<SpellSlot, SpellInstance> spellInstanceMap = new EnumMap<>(SpellSlot.class);
 
     @ParametersAreNonnullByDefault
     public StaveInstance(ItemStack stave) {

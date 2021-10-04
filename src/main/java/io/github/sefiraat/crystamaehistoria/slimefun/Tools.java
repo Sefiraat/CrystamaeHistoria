@@ -22,7 +22,7 @@ public class Tools {
 
     public void setup() {
         SlimefunItemStack stave1 = new SlimefunItemStack("CH_STAVE_1", Material.STICK, "Stave 1", "DUMMY");
-        new Stave(parent.getItemGroup().TOOLS,
+        new Stave(parent.getItemGroup().tools,
                 stave1,
                 RecipeType.SMELTERY,
                 new ItemStack[]{}

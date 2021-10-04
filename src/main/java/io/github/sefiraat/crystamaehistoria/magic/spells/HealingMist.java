@@ -3,14 +3,12 @@ package io.github.sefiraat.crystamaehistoria.magic.spells;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import lombok.NonNull;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffectType;
 
-import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 public class HealingMist extends Spell {
@@ -30,7 +28,7 @@ public class HealingMist extends Spell {
     public void cast(CastInformation castInformation) {
         Location location = castInformation.getCastLocation();
         double range = getRange(castInformation);
-        for (Entity entity : location.getWorld().getNearbyEntities(location, range, range, range, entity -> entity instanceof Player)) {
+        for (Entity entity : location.getWorld().getNearbyEntities(location, range, range, range, Player.class::isInstance)) {
             Player player = (Player) entity;
             applyPositiveEffects(player);
             displayParticleEffect(player, Particle.HEART, 2, 10);

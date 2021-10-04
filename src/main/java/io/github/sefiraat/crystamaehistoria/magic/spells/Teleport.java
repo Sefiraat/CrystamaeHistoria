@@ -4,14 +4,12 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import lombok.NonNull;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -33,7 +31,7 @@ public class Teleport extends Spell {
                 caster.teleport(teleportToLocation);
                 displayParticleEffect(caster, Particle.END_ROD, 1, 10);
             } else {
-                caster.sendMessage(CrystamaeHistoria.config().getString("messages.spells.teleport_no_suitable_location"));
+                caster.sendMessage(CrystamaeHistoria.inst().getConfig().getString("messages.spells.teleport_no_suitable_location"));
             }
         }
     }

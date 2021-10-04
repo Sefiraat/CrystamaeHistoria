@@ -22,7 +22,7 @@ public class Materials {
 
     public void setup() {
         new UnplaceableBlock(
-                parent.getItemGroup().CRYSTALS,
+                parent.getItemGroup().crystals,
                 new SlimefunItemStack("CRYSTAL_COMMON_MECHANICAL", Skulls.CRYSTAL_COMMON_MECHANICAL.getPlayerHead(), "Historia Crystal", "LORE"),
                 RecipeType.SMELTERY,
                 new ItemStack[]{}

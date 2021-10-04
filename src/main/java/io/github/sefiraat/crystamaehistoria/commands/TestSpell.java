@@ -6,7 +6,6 @@ import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 

@@ -17,7 +17,6 @@ import org.bukkit.Server;
 import org.bukkit.plugin.PluginManager;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Map;
 import java.util.UUID;
@@ -65,7 +64,7 @@ public class CrystamaeHistoria extends AbstractAddon {
         activeStorage.clearAll();
         saveConfig();
         instance = null;
-    };
+    }
 
     public static CrystamaeHistoria inst() {
         return instance;

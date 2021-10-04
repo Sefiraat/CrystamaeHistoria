@@ -18,16 +18,16 @@ public class Story {
     private final StoryRarity storyRarity;
     private final StoryType type;
     private final StoryShardProfile storyShardProfile;
-    private final String[] story;
+    private final String[] storyStrings;
 
     @ParametersAreNonnullByDefault
-    public Story(int id, String storyName, StoryRarity rarity, StoryType type, StoryShardProfile storyShardProfile, String... story) {
+    public Story(int id, String storyName, StoryRarity rarity, StoryType type, StoryShardProfile storyShardProfile, String... storyStrings) {
         this.id = id;
         this.storyName = storyName;
         this.storyRarity = rarity;
         this.type = type;
         this.storyShardProfile = storyShardProfile;
-        this.story = story;
+        this.storyStrings = storyStrings;
     }
 
     public String getDisplayRarity() {
@@ -49,7 +49,7 @@ public class Story {
     public List<String> getStoryLore() {
         ChatColor passive = ThemeUtils.getThemeColor(ThemeType.PASSIVE);
         List<String> l = new ArrayList<>();
-        for (String s : story) {
+        for (String s : storyStrings) {
             TextComponent line = new TextComponent(s);
             line.setColor(passive);
             line.setItalic(false);

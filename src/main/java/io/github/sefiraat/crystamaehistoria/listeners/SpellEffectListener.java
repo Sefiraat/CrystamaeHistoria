@@ -53,8 +53,9 @@ public class SpellEffectListener implements Listener {
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onLightningStrikeHit(LightningStrikeEvent event) {
         LightningStrike lightningStrike = event.getLightning();
-        if (CrystamaeHistoria.getProjectileMap().containsKey(lightningStrike)) {
-            CastInformation castInformation = CrystamaeHistoria.getProjectileMap().get(lightningStrike).getFirstValue();
+        UUID uuid = lightningStrike.getUniqueId();
+        if (CrystamaeHistoria.getProjectileMap().containsKey(uuid)) {
+            CastInformation castInformation = CrystamaeHistoria.getProjectileMap().get(uuid).getFirstValue();
 
             if (castInformation != null) {
                 Location location = event.getLightning().getLocation();
@@ -66,7 +67,7 @@ public class SpellEffectListener implements Listener {
                 castInformation.runPostAffectEvent();
 
                 event.setCancelled(true);
-                CrystamaeHistoria.getProjectileMap().remove(lightningStrike);
+                CrystamaeHistoria.getProjectileMap().remove(uuid);
 
             }
         }

@@ -2,11 +2,13 @@ package io.github.sefiraat.crystamaehistoria.theme;
 
 import io.github.sefiraat.crystamaehistoria.utils.ThemeUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
+import lombok.experimental.UtilityClass;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
+@UtilityClass
 public class GUIElements {
 
     public static CustomItemStack menuBackground() {

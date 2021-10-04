@@ -37,9 +37,9 @@ public class ChroniclerPanelCache extends AbstractCache {
     @ParametersAreNonnullByDefault
     public ChroniclerPanelCache(BlockMenu blockMenu) {
         super(blockMenu);
-        String working = BlockStorage.getLocationInfo(blockMenu.getLocation(), KeyHolder.BS_CP_WORKING_ON);
-        if (working != null) {
-            setWorking(blockMenu.getBlock(), Material.valueOf(working));
+        String workingOn = BlockStorage.getLocationInfo(blockMenu.getLocation(), KeyHolder.BS_CP_WORKING_ON);
+        if (workingOn != null) {
+            setWorking(blockMenu.getBlock(), Material.valueOf(workingOn));
         }
         displayStand = getDisplayStand(blockMenu.getBlock());
     }
@@ -152,9 +152,6 @@ public class ChroniclerPanelCache extends AbstractCache {
         Location l1 = blockMenu.getLocation().clone().add(ThreadLocalRandom.current().nextDouble(0, 1.1),2,ThreadLocalRandom.current().nextDouble(0, 1.1));
         Location l2 = blockMenu.getLocation().clone().add(ThreadLocalRandom.current().nextDouble(0, 1.1),2,ThreadLocalRandom.current().nextDouble(0, 1.1));
         Location l3 = blockMenu.getLocation().clone().add(ThreadLocalRandom.current().nextDouble(0, 1.1),2,ThreadLocalRandom.current().nextDouble(0, 1.1));
-        int r1 = ThreadLocalRandom.current().nextInt(150,250);
-        int r2 = ThreadLocalRandom.current().nextInt(150,250);
-        int r3 = ThreadLocalRandom.current().nextInt(150,250);
         World w = l1.getWorld();
         w.spawnParticle(Particle.ENCHANTMENT_TABLE, l1, 0,0.2,0,-0.2, 0);
         w.spawnParticle(Particle.ENCHANTMENT_TABLE, l2, 0,0.2,0,-0.2, 0);
@@ -168,11 +165,11 @@ public class ChroniclerPanelCache extends AbstractCache {
 
     @ParametersAreNonnullByDefault
     private DisplayStand getDisplayStand(Block block) {
-        DisplayStand displayStand = DisplayStand.get(block);
-        if (displayStand == null) {
-            displayStand = new DisplayStand(block);
+        DisplayStand stand = DisplayStand.get(block);
+        if (stand == null) {
+            stand = new DisplayStand(block);
         }
-        return displayStand;
+        return stand;
     }
 
 }

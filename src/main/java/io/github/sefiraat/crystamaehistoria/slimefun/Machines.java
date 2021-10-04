@@ -25,7 +25,7 @@ public class Machines {
 
     public void setup() {
         new ChroniclerPanel(
-                parent.getItemGroup().MECHANISMS,
+                parent.getItemGroup().mechanisms,
                 ThemeUtils.themedSlimefunItemStack(
                         "CHRONICLER_PANEL_1",
                         new ItemStack(Material.DEEPSLATE_TILE_SLAB),
@@ -43,7 +43,7 @@ public class Machines {
                 }
         ).register(plugin);
         new RealisationAltar(
-                parent.getItemGroup().MECHANISMS,
+                parent.getItemGroup().mechanisms,
                 ThemeUtils.themedSlimefunItemStack(
                         "REALISATION_ALTAR_1",
                         new ItemStack(Material.CHISELED_DEEPSLATE),

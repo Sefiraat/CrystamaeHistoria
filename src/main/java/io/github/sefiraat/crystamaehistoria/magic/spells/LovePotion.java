@@ -3,14 +3,12 @@ package io.github.sefiraat.crystamaehistoria.magic.spells;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import lombok.NonNull;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.entity.Animals;
 import org.bukkit.entity.Breedable;
 import org.bukkit.entity.Entity;
 
-import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 public class LovePotion extends Spell {
@@ -25,7 +23,7 @@ public class LovePotion extends Spell {
     public void cast(CastInformation castInformation) {
         Location casterLocation = castInformation.getCastLocation();
         double range = getRange(castInformation);
-        for (Entity entity : casterLocation.getWorld().getNearbyEntities(casterLocation, range, range, range, entity -> entity instanceof Breedable)) {
+        for (Entity entity : casterLocation.getWorld().getNearbyEntities(casterLocation, range, range, range, Breedable.class::isInstance)) {
             Animals animals = (Animals) entity;
             if (animals.isAdult() && animals.canBreed()) {
                 animals.setLoveModeTicks(120);

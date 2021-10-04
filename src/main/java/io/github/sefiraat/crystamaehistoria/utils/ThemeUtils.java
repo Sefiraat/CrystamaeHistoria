@@ -5,7 +5,6 @@ import io.github.sefiraat.crystamaehistoria.stories.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.theme.ThemeElement;
 import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import lombok.NonNull;
 import lombok.experimental.UtilityClass;
 import net.md_5.bungee.api.ChatColor;
 import org.apache.commons.lang.WordUtils;
@@ -38,15 +37,15 @@ public final class ThemeUtils {
     @ParametersAreNonnullByDefault
     public static ThemeElement getRarityTheme(StoryRarity storyRarity) {
         switch (storyRarity) {
-            case Common:
+            case COMMON:
                 return getThemeElement(ThemeType.RTY_COMMON);
-            case Uncommon:
+            case UNCOMMON:
                 return getThemeElement(ThemeType.RTY_UNCOMMON);
-            case Rare:
+            case RARE:
                 return getThemeElement(ThemeType.RTY_RARE);
-            case Epic:
+            case EPIC:
                 return getThemeElement(ThemeType.RTY_EPIC);
-            case Mythical:
+            case MYTHICAL:
                 return getThemeElement(ThemeType.RTY_MYTHICAL);
             default:
                 throw new IllegalStateException("Unexpected value: " + storyRarity);
@@ -123,7 +122,6 @@ public final class ThemeUtils {
         }
         finalLore.add("");
         finalLore.add(applyThemeToString(ThemeType.CLICK_INFO, getThemeLoreLine(t)));
-        CrystamaeHistoria.inst().getLogger().info(applyThemeToString(t, name));
         return new SlimefunItemStack(
                 id,
                 i,
@@ -148,7 +146,7 @@ public final class ThemeUtils {
      * List of names to be given to ArmourStands, invisible but mods and Minimaps can see them :)
      */
     @Nonnull
-    public static List<String> EGG_NAMES = Arrays.asList(
+    public static final List<String> EGG_NAMES = Arrays.asList(
             "TheBusyBiscuit",
             "Walshy",
             "Jeff",

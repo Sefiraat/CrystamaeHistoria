@@ -19,7 +19,6 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.inventory.ItemStack;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.concurrent.ThreadLocalRandom;
@@ -37,9 +36,9 @@ public class RealisationAltarCache extends AbstractCache {
     @ParametersAreNonnullByDefault
     public RealisationAltarCache(BlockMenu blockMenu) {
         super(blockMenu);
-        String working = BlockStorage.getLocationInfo(blockMenu.getLocation(), KeyHolder.BS_CP_WORKING_ON);
-        if (working != null) {
-            setWorking(blockMenu.getBlock(), Material.valueOf(working));
+        String workingOn = BlockStorage.getLocationInfo(blockMenu.getLocation(), KeyHolder.BS_CP_WORKING_ON);
+        if (workingOn != null) {
+            setWorking(blockMenu.getBlock(), Material.valueOf(workingOn));
         }
         armourStandName = generateStandName(blockMenu.getBlock());
         displayStand = getDisplayStand(blockMenu.getBlock());
@@ -158,11 +157,11 @@ public class RealisationAltarCache extends AbstractCache {
 
     @ParametersAreNonnullByDefault
     private DisplayStand getDisplayStand(Block block) {
-        DisplayStand displayStand = DisplayStand.get(block);
-        if (displayStand == null) {
-            displayStand = new DisplayStand(block);
+        DisplayStand stand = DisplayStand.get(block);
+        if (stand == null) {
+            stand = new DisplayStand(block);
         }
-        return displayStand;
+        return stand;
     }
 
 }

@@ -25,7 +25,7 @@ public class StackUtils {
         ItemMeta im = itemStack.getItemMeta();
         Validate.notNull(im, "Meta is null for stack, this should not be possible!");
         setName(itemStack, im);
-        Validate.isTrue(PersistentDataAPI.hasBoolean(im, CrystamaeHistoria.inst().getKeyHolder().getPdcIsStoried()), "ItemStack is not storied and should not be having it's lore rebuilt");
+        Validate.isTrue(PersistentDataAPI.hasBoolean(im, CrystamaeHistoria.getKeyHolder().getPdcIsStoried()), "ItemStack is not storied and should not be having it's lore rebuilt");
         List<String> lore = new ArrayList<>();
         JsonArray stories = StoryUtils.getAllStories(itemStack);
         for (JsonElement jsonElement : stories) {

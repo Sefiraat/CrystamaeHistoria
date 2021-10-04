@@ -41,23 +41,23 @@ public class DisplayStand {
 
     @ParametersAreNonnullByDefault
     public static void setDisplayStandName(ArmorStand a, String s) {
-        PersistentDataAPI.setString(a, CrystamaeHistoria.inst().getKeyHolder().getPdcArmourStandName(), s);
+        PersistentDataAPI.setString(a, CrystamaeHistoria.getKeyHolder().getPdcArmourStandName(), s);
     }
 
     @Nullable
     @ParametersAreNonnullByDefault
     public static String getDisplayStandName(ArmorStand a) {
-        return PersistentDataAPI.getString(a, CrystamaeHistoria.inst().getKeyHolder().getPdcArmourStandName());
+        return PersistentDataAPI.getString(a, CrystamaeHistoria.getKeyHolder().getPdcArmourStandName());
     }
 
     @ParametersAreNonnullByDefault
     public static void setDisplayStand(ArmorStand a) {
-        PersistentDataAPI.setBoolean(a, CrystamaeHistoria.inst().getKeyHolder().getPdcIsDisplayStand(), true);
+        PersistentDataAPI.setBoolean(a, CrystamaeHistoria.getKeyHolder().getPdcIsDisplayStand(), true);
     }
 
     @ParametersAreNonnullByDefault
     public static boolean isDisplayStand(ArmorStand a) {
-        return PersistentDataAPI.getBoolean(a, CrystamaeHistoria.inst().getKeyHolder().getPdcIsDisplayStand());
+        return PersistentDataAPI.getBoolean(a, CrystamaeHistoria.getKeyHolder().getPdcIsDisplayStand());
     }
 
     @ParametersAreNonnullByDefault
@@ -69,10 +69,10 @@ public class DisplayStand {
     @ParametersAreNonnullByDefault
     public DisplayStand(Block block) {
         String identifier = generateStandName(block);
-        ArmorStand armorStand = (ArmorStand) block.getWorld().spawnEntity(block.getLocation().clone().add(0.5, -0.6, 0.5), EntityType.ARMOR_STAND);
-        DisplayStand.setDisplayStandName(armorStand, identifier);
-        setDisplayOnly(armorStand);
-        this.armorStand = armorStand;
+        ArmorStand stand = (ArmorStand) block.getWorld().spawnEntity(block.getLocation().clone().add(0.5, -0.6, 0.5), EntityType.ARMOR_STAND);
+        DisplayStand.setDisplayStandName(stand, identifier);
+        setDisplayOnly(stand);
+        this.armorStand = stand;
         this.name = identifier;
     }
 

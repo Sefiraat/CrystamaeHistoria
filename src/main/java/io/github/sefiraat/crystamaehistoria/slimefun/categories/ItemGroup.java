@@ -15,19 +15,19 @@ public class ItemGroup {
 
     private final CrystamaeHistoria plugin;
 
-    public final NestedItemGroup MAIN = new NestedItemGroup(CrystamaeHistoria.inst().getKeyHolder().getCatMain(), new CustomItemStack(
+    public final NestedItemGroup main = new NestedItemGroup(CrystamaeHistoria.getKeyHolder().getCatMain(), new CustomItemStack(
             new ItemStack(Material.AMETHYST_CLUSTER),
             ThemeUtils.getThemeColor(ThemeType.MAIN) + "Crystamae Historia"
     ));
-    public final SubItemGroup MECHANISMS = new SubItemGroup(CrystamaeHistoria.inst().getKeyHolder().getCatMechanical(), MAIN, new CustomItemStack(
+    public final SubItemGroup mechanisms = new SubItemGroup(CrystamaeHistoria.getKeyHolder().getCatMechanical(), main, new CustomItemStack(
             new ItemStack(Material.DEEPSLATE_TILE_SLAB),
             ThemeUtils.getThemeColor(ThemeType.MAIN) + "Historia Mechanisms"
     ));
-    public final SubItemGroup CRYSTALS = new SubItemGroup(CrystamaeHistoria.inst().getKeyHolder().getCatCrystal(), MAIN, new CustomItemStack(
+    public final SubItemGroup crystals = new SubItemGroup(CrystamaeHistoria.getKeyHolder().getCatCrystal(), main, new CustomItemStack(
             new ItemStack(Material.AMETHYST_CLUSTER),
             ThemeUtils.getThemeColor(ThemeType.MAIN) + "Historia Crystals"
     ));
-    public final SubItemGroup TOOLS = new SubItemGroup(CrystamaeHistoria.inst().getKeyHolder().getCatTools(), MAIN, new CustomItemStack(
+    public final SubItemGroup tools = new SubItemGroup(CrystamaeHistoria.getKeyHolder().getCatTools(), main, new CustomItemStack(
             new ItemStack(Material.STICK),
             ThemeUtils.getThemeColor(ThemeType.MAIN) + "Historia Staves and Tools"
     ));
@@ -38,9 +38,9 @@ public class ItemGroup {
     }
 
     public void setup() {
-        MAIN.register(plugin);
-        MECHANISMS.register(plugin);
-        CRYSTALS.register(plugin);
+        main.register(plugin);
+        mechanisms.register(plugin);
+        crystals.register(plugin);
     }
 
 }

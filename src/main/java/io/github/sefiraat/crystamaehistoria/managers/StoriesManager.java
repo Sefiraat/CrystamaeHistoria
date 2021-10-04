@@ -78,19 +78,19 @@ public class StoriesManager {
         ConfigurationSection mythical = c.getConfigurationSection("stories.mythical");
         ConfigurationSection unique = c.getConfigurationSection("stories.unique");
 
-        Validate.notNull(common, "Common story configuration is not found, changed or deleted.");
-        Validate.notNull(uncommon, "Uncommon story configuration is not found, changed or deleted.");
-        Validate.notNull(rare, "Rare story configuration is not found, changed or deleted.");
-        Validate.notNull(epic, "Epic story configuration is not found, changed or deleted.");
-        Validate.notNull(mythical, "Mythical story configuration is not found, changed or deleted.");
-        Validate.notNull(unique, "Unique story configuration is not found, changed or deleted.");
+        Validate.notNull(common, "COMMON story configuration is not found, changed or deleted.");
+        Validate.notNull(uncommon, "UNCOMMON story configuration is not found, changed or deleted.");
+        Validate.notNull(rare, "RARE story configuration is not found, changed or deleted.");
+        Validate.notNull(epic, "EPIC story configuration is not found, changed or deleted.");
+        Validate.notNull(mythical, "MYTHICAL story configuration is not found, changed or deleted.");
+        Validate.notNull(unique, "UNIQUE story configuration is not found, changed or deleted.");
 
-        fillMap(storyMapCommon, common, StoryRarity.Common);
-        fillMap(storyMapUncommon, uncommon, StoryRarity.Uncommon);
-        fillMap(storyMapRare, rare, StoryRarity.Rare);
-        fillMap(storyMapEpic, epic, StoryRarity.Epic);
-        fillMap(storyMapMythical, mythical, StoryRarity.Mythical);
-        fillMap(storyMapUnique, unique, StoryRarity.Unique);
+        fillMap(storyMapCommon, common, StoryRarity.COMMON);
+        fillMap(storyMapUncommon, uncommon, StoryRarity.UNCOMMON);
+        fillMap(storyMapRare, rare, StoryRarity.RARE);
+        fillMap(storyMapEpic, epic, StoryRarity.EPIC);
+        fillMap(storyMapMythical, mythical, StoryRarity.MYTHICAL);
+        fillMap(storyMapUnique, unique, StoryRarity.UNIQUE);
 
     }
 
@@ -149,17 +149,17 @@ public class StoriesManager {
     @ParametersAreNonnullByDefault
     public Story getStory(int id, StoryRarity storyRarity) {
         switch (storyRarity) {
-            case Common:
+            case COMMON:
                 return storyMapCommon.get(id);
-            case Uncommon:
+            case UNCOMMON:
                 return storyMapUncommon.get(id);
-            case Rare:
+            case RARE:
                 return storyMapRare.get(id);
-            case Epic:
+            case EPIC:
                 return storyMapEpic.get(id);
-            case Mythical:
+            case MYTHICAL:
                 return storyMapMythical.get(id);
-            case Unique:
+            case UNIQUE:
                 return storyMapUnique.get(id);
             default:
                 throw new IllegalStateException("Unexpected value: " + storyRarity);
