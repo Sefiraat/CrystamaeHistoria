@@ -11,4 +11,4 @@ commands:
   crystamaehistoria:
     description: /historia
     usage: /historia <sub>
-    aliases: [ch, hist]
+    aliases: [ ch, hist ]

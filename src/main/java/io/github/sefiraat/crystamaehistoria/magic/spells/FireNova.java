@@ -27,7 +27,7 @@ public class FireNova extends Spell {
         int sizeCast = 2;
         int stepSize = 3;
         Location middle = castInformation.getCastLocation().clone().add(0, 1, 0);
-        for(double i = 0; i < 360; i += stepSize) {
+        for (double i = 0; i < 360; i += stepSize) {
             double angle = (i * Math.PI / 180);
             int sx = (int) (sizeCast * Math.cos(angle));
             int sz = (int) (sizeCast * Math.sin(angle));

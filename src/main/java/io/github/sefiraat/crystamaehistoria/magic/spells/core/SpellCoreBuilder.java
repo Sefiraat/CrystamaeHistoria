@@ -5,6 +5,8 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import lombok.Getter;
 import org.bukkit.potion.PotionEffectType;
 
+import javax.annotation.CheckReturnValue;
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,6 +20,10 @@ public class SpellCoreBuilder {
     private final double range;
     @Getter
     private final int durabilityCost;
+    @Getter
+    private final Map<PotionEffectType, Pair<Integer, Integer>> positiveEffectPairMap = new HashMap<>();
+    @Getter
+    private final Map<PotionEffectType, Pair<Integer, Integer>> negativeEffectPairMap = new HashMap<>();
     @Getter
     private double damageAmount;
     @Getter
@@ -54,12 +60,10 @@ public class SpellCoreBuilder {
     private boolean tickIntervalMultiplied;
     @Getter
     private int particleNumber = 1;
-
     @Getter
     private boolean isInstantCast;
     @Getter
     private Consumer<CastInformation> instantCastEvent;
-
     @Getter
     private boolean isProjectileSpell;
     @Getter
@@ -70,23 +74,16 @@ public class SpellCoreBuilder {
     private Consumer<CastInformation> projectileHitEvent;
     @Getter
     private Consumer<CastInformation> afterProjectileHitEvent;
-
     @Getter
     private boolean isTickingSpell;
     @Getter
     private Consumer<CastInformation> tickEvent;
     @Getter
     private Consumer<CastInformation> afterAllTicksEvent;
-
     @Getter
     private boolean isDamagingSpell;
     @Getter
     private boolean isHealingSpell;
-
-    @Getter
-    private final Map<PotionEffectType, Pair<Integer, Integer>> positiveEffectPairMap = new HashMap<>();
-    @Getter
-    private final Map<PotionEffectType, Pair<Integer, Integer>> negativeEffectPairMap = new HashMap<>();
 
     public SpellCoreBuilder(int cooldown, boolean cooldownMultiplied, double range, boolean rangeMultiplied, int durabilityCost, boolean durabilityMultiplied) {
         this.cooldown = cooldown;
@@ -97,6 +94,8 @@ public class SpellCoreBuilder {
         this.durabilityMultiplied = durabilityMultiplied;
     }
 
+    @Nonnull
+    @CheckReturnValue
     public SpellCoreBuilder makeHealingSpell(double healAmount, boolean healMultiplied) {
         this.isHealingSpell = true;
         this.healAmount = healAmount;
@@ -104,6 +103,8 @@ public class SpellCoreBuilder {
         return this;
     }
 
+    @Nonnull
+    @CheckReturnValue
     public SpellCoreBuilder makeDamagingSpell(double damageAmount, boolean damagePowerMultiplied, double knockbackAmount, boolean knockbackMultiplied) {
         this.isDamagingSpell = true;
         this.damageAmount = damageAmount;
@@ -113,6 +114,8 @@ public class SpellCoreBuilder {
         return this;
     }
 
+    @Nonnull
+    @CheckReturnValue
     @ParametersAreNonnullByDefault
     public SpellCoreBuilder makeInstantSpell(Consumer<CastInformation> instantCastMethod) {
         this.isInstantCast = true;
@@ -120,6 +123,8 @@ public class SpellCoreBuilder {
         return this;
     }
 
+    @Nonnull
+    @CheckReturnValue
     @ParametersAreNonnullByDefault
     public SpellCoreBuilder makeProjectileSpell(
             Consumer<CastInformation> fireProjectileConsumer,
@@ -139,18 +144,24 @@ public class SpellCoreBuilder {
         return this;
     }
 
+    @Nonnull
+    @CheckReturnValue
     @ParametersAreNonnullByDefault
     public SpellCoreBuilder addBeforeProjectileHitEvent(Consumer<CastInformation> spellCastInformationConsumer) {
         this.beforeProjectileHitEvent = spellCastInformationConsumer;
         return this;
     }
 
+    @Nonnull
+    @CheckReturnValue
     @ParametersAreNonnullByDefault
     public SpellCoreBuilder addAfterProjectileHitEvent(Consumer<CastInformation> spellCastInformationConsumer) {
         this.afterProjectileHitEvent = spellCastInformationConsumer;
         return this;
     }
 
+    @Nonnull
+    @CheckReturnValue
     @ParametersAreNonnullByDefault
     public SpellCoreBuilder makeTickingSpell(Consumer<CastInformation> spellCastInformationConsumer, int numberOfTicks, boolean ticksMultiplied, int tickInterval, boolean tickIntervalMultiplied) {
         this.tickEvent = spellCastInformationConsumer;
@@ -162,26 +173,30 @@ public class SpellCoreBuilder {
         return this;
     }
 
+    @Nonnull
+    @CheckReturnValue
     @ParametersAreNonnullByDefault
     public SpellCoreBuilder addAfterTicksEvent(Consumer<CastInformation> spellCastInformationConsumer) {
         this.afterAllTicksEvent = spellCastInformationConsumer;
         return this;
     }
 
+    @Nonnull
+    @CheckReturnValue
     public SpellCoreBuilder setNumberOfParticles(int particleNumber) {
         this.particleNumber = particleNumber;
         return this;
     }
 
+    @Nonnull
     public SpellCore build() {
         return new SpellCore(this);
     }
 
     /**
-     *
      * @param potionEffectType The {@link PotionEffectType} to apply.
-     * @param amplification The amplification of the effect. If multiple of the same effects are added, the values are combined.
-     * @param duration The duration of the effect in seconds. If multiple of the same effects are added, the highest is used.
+     * @param amplification    The amplification of the effect. If multiple of the same effects are added, the values are combined.
+     * @param duration         The duration of the effect in seconds. If multiple of the same effects are added, the highest is used.
      */
     @ParametersAreNonnullByDefault
     public void addPositiveEffect(PotionEffectType potionEffectType, int amplification, int duration) {
@@ -198,10 +213,9 @@ public class SpellCoreBuilder {
     }
 
     /**
-     *
      * @param potionEffectType The {@link PotionEffectType} to apply.
-     * @param amplification The amplification of the effect. If multiple of the same effects are added, the values are combined.
-     * @param duration The duration of the effect. If multiple of the same effects are added, the highest is used.
+     * @param amplification    The amplification of the effect. If multiple of the same effects are added, the values are combined.
+     * @param duration         The duration of the effect. If multiple of the same effects are added, the highest is used.
      */
     @ParametersAreNonnullByDefault
     public void addNegativeEffect(PotionEffectType potionEffectType, int amplification, int duration) {

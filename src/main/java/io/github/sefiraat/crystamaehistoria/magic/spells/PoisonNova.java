@@ -18,7 +18,7 @@ public class PoisonNova extends Spell {
     public PoisonNova() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(20, true, 20, true, 10, true)
                 .makeDamagingSpell(1, false, 0, false)
-                .makeProjectileSpell(this::fireProjectile, this::projectileHit, 0, false, 0 ,false)
+                .makeProjectileSpell(this::fireProjectile, this::projectileHit, 0, false, 0, false)
                 .addAfterProjectileHitEvent(this::afterProjectileHit);
         setSpellCore(spellCoreBuilder.build());
     }
@@ -29,7 +29,7 @@ public class PoisonNova extends Spell {
         int sizeCast = 1;
         int stepSize = 3;
         Location middle = castInformation.getCastLocation().clone().add(0, 1, 0);
-        for(double i = 0; i < 360; i += stepSize) {
+        for (double i = 0; i < 360; i += stepSize) {
             double angle = (i * Math.PI / 180);
             double sx = sizeCast * Math.cos(angle);
             double sz = sizeCast * Math.sin(angle);
@@ -50,7 +50,7 @@ public class PoisonNova extends Spell {
         if (hit.getHealth() == 1) {
             damageEntity(hit, castInformation.getCaster(), getDamage(castInformation));
         } else {
-            PotionEffect potionEffect = new PotionEffect(PotionEffectType.POISON, castInformation.getStaveLevel() * 40, castInformation.getStaveLevel());
+            PotionEffect potionEffect = new PotionEffect(PotionEffectType.POISON, castInformation.getStaveLevel() * 100, castInformation.getStaveLevel());
             hit.addPotionEffect(potionEffect);
             setLastDamageToCaster(hit, castInformation);
         }

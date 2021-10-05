@@ -47,4 +47,8 @@ public class KeyHolder {
     private final NamespacedKey spellMagicProjectileCooldownMulti = new NamespacedKey(CrystamaeHistoria.inst(), "mp_cm");
     private final NamespacedKey spellMagicProjectileDurabilityMulti = new NamespacedKey(CrystamaeHistoria.inst(), "mp_dm");
 
+    // Chunk Storage
+    private final NamespacedKey resolutionCrystalMap = new NamespacedKey(CrystamaeHistoria.inst(), "c_r_c");
+
+
 }

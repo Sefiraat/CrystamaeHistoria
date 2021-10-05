@@ -46,7 +46,7 @@ public class Tempest extends Spell {
 
     @ParametersAreNonnullByDefault
     public void beforeProjectileHit(CastInformation castInformation) {
-        for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)){
+        for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
             livingEntity.setFireTicks(40);
         }
     }

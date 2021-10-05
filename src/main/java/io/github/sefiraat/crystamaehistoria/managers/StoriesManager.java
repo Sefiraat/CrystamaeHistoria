@@ -47,6 +47,34 @@ public class StoriesManager {
         fillBlockDefinitions();
     }
 
+    @ParametersAreNonnullByDefault
+    private static Story parseStory(ConfigurationSection sConf, StoryRarity rarity) {
+        String name = sConf.getString("name");
+        String type = sConf.getString("type");
+        StoryType storyType = StoryType.valueOf(type.toUpperCase(Locale.ROOT));
+        List<Integer> spList = sConf.getIntegerList("shardprofile");
+        StoryShardProfile shardProfile = new StoryShardProfile(
+                spList.get(0),
+                spList.get(1),
+                spList.get(2),
+                spList.get(3),
+                spList.get(4),
+                spList.get(5),
+                spList.get(6),
+                spList.get(7),
+                spList.get(8)
+        );
+        List<String> lore = sConf.getStringList("lore");
+
+        return new Story(
+                Integer.parseInt(sConf.getName()),
+                name,
+                rarity,
+                storyType,
+                shardProfile,
+                lore.toArray(new String[0])
+        );
+    }
 
     private void fillBlockTierMap() {
         blockTierMap.put(
@@ -103,43 +131,14 @@ public class StoriesManager {
         }
     }
 
-    @ParametersAreNonnullByDefault
-    private static Story parseStory(ConfigurationSection sConf, StoryRarity rarity) {
-        String name = sConf.getString("name");
-        String type = sConf.getString("type");
-        StoryType storyType = StoryType.valueOf(type.toUpperCase(Locale.ROOT));
-        List<Integer> spList = sConf.getIntegerList("shardprofile");
-        StoryShardProfile shardProfile = new StoryShardProfile(
-                spList.get(0),
-                spList.get(1),
-                spList.get(2),
-                spList.get(3),
-                spList.get(4),
-                spList.get(5),
-                spList.get(6),
-                spList.get(7),
-                spList.get(8)
-        );
-        List<String> lore = sConf.getStringList("lore");
-
-        return new Story(
-                Integer.parseInt(sConf.getName()),
-                name,
-                rarity,
-                storyType,
-                shardProfile,
-                lore.toArray(new String[0])
-        );
-    }
-
     private void fillBlockDefinitions() {
         storiedBlockDefinitionMap.put(
                 Material.STONE,
                 new StoriedBlockDefinition(
                         blockTierMap.get(1),
                         Arrays.asList(
-                             StoryType.ELEMENTAL,
-                             StoryType.HISTORICAL
+                                StoryType.ELEMENTAL,
+                                StoryType.HISTORICAL
                         ),
                         storyMapUnique.get(1)
                 )

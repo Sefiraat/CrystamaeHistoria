@@ -10,12 +10,10 @@ import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
 import io.github.sefiraat.crystamaehistoria.utils.TextUtils;
 import io.github.sefiraat.crystamaehistoria.utils.ThemeUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
-import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.apache.commons.lang.Validate;
 import org.bukkit.entity.Player;
-import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 

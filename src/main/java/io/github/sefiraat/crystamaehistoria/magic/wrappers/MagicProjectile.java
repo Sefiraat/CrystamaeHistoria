@@ -29,9 +29,8 @@ public class MagicProjectile {
     }
 
     /**
-     *
      * @param targetLocation The target location
-     * @param speed The speed to push the projectile
+     * @param speed          The speed to push the projectile
      */
     @ParametersAreNonnullByDefault
     public void setVelocity(Location targetLocation, double speed) {
@@ -40,9 +39,8 @@ public class MagicProjectile {
     }
 
     /**
-     *
      * @param vector The vector to use
-     * @param speed The speed to push the projectile
+     * @param speed  The speed to push the projectile
      */
     @ParametersAreNonnullByDefault
     public void setVelocity(Vector vector, double speed) {

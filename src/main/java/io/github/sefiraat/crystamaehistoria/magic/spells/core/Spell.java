@@ -97,7 +97,8 @@ public abstract class Spell {
 
     /**
      * Sets the last damage cause to Magic and Caster
-     * @param damagedEntity The {@link LivingEntity} that was hit by the spell
+     *
+     * @param damagedEntity   The {@link LivingEntity} that was hit by the spell
      * @param castInformation The {@link CastInformation} containing the caster
      */
     @ParametersAreNonnullByDefault
@@ -107,8 +108,9 @@ public abstract class Spell {
 
     /**
      * Sets the last damage cause to Magic and Caster
+     *
      * @param damagedEntity The {@link LivingEntity} that was hit by the spell
-     * @param casterUUID The {@link LivingEntity} that cast the spell
+     * @param casterUUID    The {@link LivingEntity} that cast the spell
      */
     @ParametersAreNonnullByDefault
     protected void setLastDamageToCaster(@Nonnull LivingEntity damagedEntity, @Nonnull UUID casterUUID) {
@@ -135,12 +137,12 @@ public abstract class Spell {
     }
 
     @ParametersAreNonnullByDefault
-    protected void displayParticleEffect(Location location, Particle particle,  double rangeRadius, int numberOfParticles) {
+    protected void displayParticleEffect(Location location, Particle particle, double rangeRadius, int numberOfParticles) {
         for (int i = 0; i < numberOfParticles; i++) {
             double x = ThreadLocalRandom.current().nextDouble(-rangeRadius, rangeRadius + 0.1);
             double y = ThreadLocalRandom.current().nextDouble(-rangeRadius, rangeRadius + 0.1);
             double z = ThreadLocalRandom.current().nextDouble(-rangeRadius, rangeRadius + 0.1);
-            location.getWorld().spawnParticle(particle, location.clone().add(x, y ,z), 1);
+            location.getWorld().spawnParticle(particle, location.clone().add(x, y, z), 1);
         }
     }
 
@@ -177,8 +179,9 @@ public abstract class Spell {
 
     /**
      * Heal the entity by the provided amount
+     *
      * @param livingEntity The {@link LivingEntity} to heal
-     * @param healAmount The amount to heal by
+     * @param healAmount   The amount to heal by
      */
     @ParametersAreNonnullByDefault
     protected void healEntity(LivingEntity livingEntity, double healAmount) {
@@ -192,7 +195,8 @@ public abstract class Spell {
      * Used to register the projectile's events to the definition and then
      * the projectile/definition to the projectileMap. Used when detecting
      * the projectile hitting targets.
-     * @param entity The {@link Entity} being stored (projectile or LightningStrike)
+     *
+     * @param entity          The {@link Entity} being stored (projectile or LightningStrike)
      * @param castInformation The {@link CastInformation} with the stave information
      */
     @ParametersAreNonnullByDefault
@@ -204,7 +208,8 @@ public abstract class Spell {
      * Used to register the projectile's events to the definition and then
      * the projectile/definition to the projectileMap. Used when detecting
      * the projectile hitting targets.
-     * @param entity The {@link Entity} being stored (projectile or lightningstrike)
+     *
+     * @param entity          The {@link Entity} being stored (projectile or lightningstrike)
      * @param castInformation The {@link CastInformation} with the stave information
      */
     @ParametersAreNonnullByDefault
@@ -220,8 +225,9 @@ public abstract class Spell {
      * Used to register the projectile's events to the definition and then
      * the projectile/definition to the projectileMap. Used when detecting
      * the projectile hitting targets.
+     *
      * @param castInformation The {@link CastInformation} with the stave information
-     * @param tickAmount The number of times this event should tick before stopping.
+     * @param tickAmount      The number of times this event should tick before stopping.
      */
     @ParametersAreNonnullByDefault
     protected void registerTicker(CastInformation castInformation, long period, int tickAmount) {
@@ -234,6 +240,7 @@ public abstract class Spell {
 
     /**
      * Applies all registered positive effects on the selected entity
+     *
      * @param livingEntity The {@link LivingEntity} to apply the effects to
      */
     @ParametersAreNonnullByDefault
@@ -245,6 +252,7 @@ public abstract class Spell {
 
     /**
      * Applies all registered negative effects on the selected entity
+     *
      * @param livingEntity The {@link LivingEntity} to apply the effects to
      */
     @ParametersAreNonnullByDefault
@@ -258,19 +266,21 @@ public abstract class Spell {
      * Gets all targets around the damageLocation.
      * Should only be used in response to projectile events.
      * Does NOT include the main target hit
+     *
      * @param castInformation The {@link CastInformation} containing the DamageLocation
      * @return
      */
     @ParametersAreNonnullByDefault
     protected Set<LivingEntity> getTargets(CastInformation castInformation, double range) {
-        return getTargets(castInformation, range,false);
+        return getTargets(castInformation, range, false);
     }
 
     /**
      * Gets all targets around the damageLocation.
      * Should only be used in response to projectile events.
+     *
      * @param castInformation The {@link CastInformation} containing the DamageLocation
-     * @param includeMain If the main target should be included in the return set
+     * @param includeMain     If the main target should be included in the return set
      * @return
      */
     @ParametersAreNonnullByDefault

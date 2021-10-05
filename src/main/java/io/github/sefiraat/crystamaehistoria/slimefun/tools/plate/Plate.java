@@ -16,6 +16,5 @@ public class Plate extends SlimefunItem implements ItemAttribute {
         super(itemGroup, item, recipeType, recipe);
     }
 
-    
 
 }

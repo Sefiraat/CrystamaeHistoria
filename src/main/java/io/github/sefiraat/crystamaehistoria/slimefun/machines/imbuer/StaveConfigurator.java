@@ -16,7 +16,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class StaveConfigurator extends MenuBlock {
 
     protected static final int[] BACKGROUND_SPELLS = {
-            0,1,2,3,4,5,9,11,12,14,18,19,20,21,22,23,27,28,29,30,31,32,36,38,39,41,45,46,47,48,49,50
+            0, 1, 2, 3, 4, 5, 9, 11, 12, 14, 18, 19, 20, 21, 22, 23, 27, 28, 29, 30, 31, 32, 36, 38, 39, 41, 45, 46, 47, 48, 49, 50
     };
     protected static final int[] BACKGROUND_INPUT = {
             12, 13, 14, 21, 23, 30, 31, 32

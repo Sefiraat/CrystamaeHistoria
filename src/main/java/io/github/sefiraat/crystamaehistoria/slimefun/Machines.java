@@ -36,10 +36,10 @@ public class Machines {
                         "block over time."
                 ),
                 RecipeType.ENHANCED_CRAFTING_TABLE,
-                new ItemStack[] {
-                        new ItemStack(Material.DEEPSLATE_BRICKS),   new ItemStack(Material.DEEPSLATE_BRICKS),   new ItemStack(Material.DEEPSLATE_BRICKS),
-                        SlimefunItems.CORINTHIAN_BRONZE_INGOT,      new ItemStack(Material.AMETHYST_CLUSTER),   SlimefunItems.CORINTHIAN_BRONZE_INGOT,
-                        SlimefunItems.MAGIC_LUMP_2,                 SlimefunItems.MAGIC_LUMP_2,                 SlimefunItems.MAGIC_LUMP_2,
+                new ItemStack[]{
+                        new ItemStack(Material.DEEPSLATE_BRICKS), new ItemStack(Material.DEEPSLATE_BRICKS), new ItemStack(Material.DEEPSLATE_BRICKS),
+                        SlimefunItems.CORINTHIAN_BRONZE_INGOT, new ItemStack(Material.AMETHYST_CLUSTER), SlimefunItems.CORINTHIAN_BRONZE_INGOT,
+                        SlimefunItems.MAGIC_LUMP_2, SlimefunItems.MAGIC_LUMP_2, SlimefunItems.MAGIC_LUMP_2,
                 }
         ).register(plugin);
         new RealisationAltar(
@@ -54,10 +54,10 @@ public class Machines {
                         "a physical form."
                 ),
                 RecipeType.ENHANCED_CRAFTING_TABLE,
-                new ItemStack[] {
-                        null,                                       new ItemStack(Material.BOOK),               null,
-                        SlimefunItems.CORINTHIAN_BRONZE_INGOT,      new ItemStack(Material.AMETHYST_CLUSTER),   SlimefunItems.CORINTHIAN_BRONZE_INGOT,
-                        SlimefunItems.MAGIC_LUMP_2,                 SlimefunItems.TALISMAN_MAGICIAN,            SlimefunItems.MAGIC_LUMP_2,
+                new ItemStack[]{
+                        null, new ItemStack(Material.BOOK), null,
+                        SlimefunItems.CORINTHIAN_BRONZE_INGOT, new ItemStack(Material.AMETHYST_CLUSTER), SlimefunItems.CORINTHIAN_BRONZE_INGOT,
+                        SlimefunItems.MAGIC_LUMP_2, SlimefunItems.TALISMAN_MAGICIAN, SlimefunItems.MAGIC_LUMP_2,
                 }
         ).register(plugin);
     }

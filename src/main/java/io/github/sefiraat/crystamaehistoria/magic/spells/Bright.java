@@ -21,7 +21,7 @@ public class Bright extends Spell {
     @ParametersAreNonnullByDefault
     public void cast(CastInformation castInformation) {
         Player caster = Bukkit.getPlayer(castInformation.getCaster());
-        if (caster != null){
+        if (caster != null) {
             caster.getWorld().setThundering(false);
             caster.getWorld().setStorm(false);
             displayParticleEffect(caster, Particle.FALLING_NECTAR, 2, 30);

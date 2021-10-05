@@ -53,13 +53,9 @@ public class SpellCore {
     @Getter
     private final boolean tickIntervalMultiplied;
     @Getter
-    private int particleNumber = 1;
-
-    @Getter
     private final boolean isInstantCast;
     @Getter
     private final Consumer<CastInformation> instantCastEvent;
-
     @Getter
     private final boolean isProjectileSpell;
     @Getter
@@ -70,23 +66,22 @@ public class SpellCore {
     private final Consumer<CastInformation> projectileHitEvent;
     @Getter
     private final Consumer<CastInformation> afterProjectileHitEvent;
-
     @Getter
     private final boolean isTickingSpell;
     @Getter
     private final Consumer<CastInformation> tickEvent;
     @Getter
     private final Consumer<CastInformation> afterAllTicksEvent;
-
     @Getter
     private final boolean isDamagingSpell;
     @Getter
     private final boolean isHealingSpell;
-
     @Getter
     private final Map<PotionEffectType, Pair<Integer, Integer>> positiveEffectPairMap = new HashMap<>();
     @Getter
     private final Map<PotionEffectType, Pair<Integer, Integer>> negativeEffectPairMap = new HashMap<>();
+    @Getter
+    private int particleNumber = 1;
 
 
     @ParametersAreNonnullByDefault

@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.utils;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
@@ -30,8 +31,11 @@ import java.util.stream.Collectors;
 @UtilityClass
 public class StoryUtils {
 
+    // TODO Garbage - move to methods within Story
+
     /**
      * Returns true if the block is able to have stories (is in the map)
+     *
      * @param block The {@link Block}  to check
      * @return true if in the stories map
      */
@@ -42,6 +46,7 @@ public class StoryUtils {
 
     /**
      * Returns true if the block is able to have stories (is in the map)
+     *
      * @param itemStack The {@link ItemStack} to check
      * @return true if in the stories map
      */
@@ -52,6 +57,7 @@ public class StoryUtils {
 
     /**
      * Returns true if the block is able to have stories (is in the map)
+     *
      * @param material The {@link Material} to check
      * @return true if in the stories map
      */
@@ -63,6 +69,7 @@ public class StoryUtils {
     /**
      * Returns true if the has been storied. This does not mean that is HAS
      * stories, only that it has started to be processed byu a chronicler
+     *
      * @param itemStack The {@link ItemStack} to check
      * @return true if has previously been chronicled at any point
      */
@@ -73,6 +80,7 @@ public class StoryUtils {
 
     /**
      * Sets the ItemStack's PDC Storied to True. Also sets an initial story object
+     *
      * @param itemStack The {@link ItemStack} whos meta will have the PDC element added to
      */
     @ParametersAreNonnullByDefault
@@ -86,6 +94,7 @@ public class StoryUtils {
     /**
      * Returns true if the has been storied. This does not mean that is HAS
      * sotries, only that it has started to be processed byu a chronicler
+     *
      * @param itemStack The {@link ItemStack} to check
      * @return true if has previously been chronicled at any point
      */
@@ -97,7 +106,8 @@ public class StoryUtils {
 
     /**
      * Sets the ItemStack's PDC Stories
-     * @param itemMeta The {@link ItemMeta} to add the PDC element to
+     *
+     * @param itemMeta   The {@link ItemMeta} to add the PDC element to
      * @param jsonObject The {@link JsonObject} to add to the PDC
      */
     @ParametersAreNonnullByDefault
@@ -107,6 +117,7 @@ public class StoryUtils {
 
     /**
      * Gets the Item's max number of Stories
+     *
      * @param itemStack The {@link ItemStack} to add the PDC element to
      */
     @ParametersAreNonnullByDefault
@@ -116,6 +127,7 @@ public class StoryUtils {
 
     /**
      * Gets the ItemStack's current number of Stories
+     *
      * @param itemMeta The {@link ItemMeta} to get the count from
      */
     @ParametersAreNonnullByDefault
@@ -125,8 +137,9 @@ public class StoryUtils {
 
     /**
      * Sets the ItemStack's current number of Stories
+     *
      * @param itemStack The {@link ItemStack} to add the PDC element to
-     * @param amount The amount of stories to set
+     * @param amount    The amount of stories to set
      */
     @ParametersAreNonnullByDefault
     public static void setStoryAmount(ItemStack itemStack, int amount) {
@@ -141,6 +154,7 @@ public class StoryUtils {
 
     /**
      * Sets the ItemStack's current number of Stories
+     *
      * @param itemStack The {@link ItemStack} to increment the story amount
      */
     @ParametersAreNonnullByDefault
@@ -150,6 +164,7 @@ public class StoryUtils {
 
     /**
      * Gets the ItemStack's remaining possible stories
+     *
      * @param itemStack The {@link ItemStack} to check
      */
     @ParametersAreNonnullByDefault
@@ -158,7 +173,8 @@ public class StoryUtils {
     }
 
     /**
-     * Returns boolean if there is room for more stories
+     * Returns true if there is room for more stories
+     *
      * @param itemStack The {@link ItemStack} to check
      */
     @ParametersAreNonnullByDefault
@@ -169,6 +185,7 @@ public class StoryUtils {
     /**
      * Creates a new jsonobject for a newly storied item.
      * We do this now to 'lock in' the story potential
+     *
      * @param itemStack The {@link ItemStack} to compare against the storied map
      * @return New {@link JsonObject} with content for story count and tier.
      */
@@ -188,28 +205,31 @@ public class StoryUtils {
 
     @ParametersAreNonnullByDefault
     public static void requestNewStory(ItemStack itemstack) {
-
-        StoriesManager m = CrystamaeHistoria.getStoriesManager();
-
-        StoriedBlockDefinition s = m.getStoriedBlockDefinitionMap().get(itemstack.getType());
-        BlockTier t = s.getTier();
-        StoryChances c = t.storyChances;
-        List<StoryType> p = s.getPools();
+        final StoriesManager m = CrystamaeHistoria.getStoriesManager();
+        final StoriedBlockDefinition s = m.getStoriedBlockDefinitionMap().get(itemstack.getType());
+        final BlockTier t = s.getTier();
+        final StoryChances c = t.storyChances;
+        final List<StoryType> p = s.getPools();
         int rnd = ThreadLocalRandom.current().nextInt(1, 101);
 
-        if (rnd <= c.chanceMythical) addStory(itemstack, p, m.getStoryMapMythical());
-        else if (rnd <= c.chanceEpic) addStory(itemstack, p, m.getStoryMapEpic());
-        else if (rnd <= c.chanceRare) addStory(itemstack, p, m.getStoryMapRare());
-        else if (rnd <= c.chanceUncommon) addStory(itemstack, p, m.getStoryMapUncommon());
-        else addStory(itemstack, p, m.getStoryMapCommon());
+        if (rnd > c.chanceMythical) {
+            if (rnd <= c.chanceEpic) addStory(itemstack, p, m.getStoryMapEpic());
+            else if (rnd <= c.chanceRare) {
+                addStory(itemstack, p, m.getStoryMapRare());
+            } else if (rnd <= c.chanceUncommon) {
+                addStory(itemstack, p, m.getStoryMapUncommon());
+            } else addStory(itemstack, p, m.getStoryMapCommon());
+        } else {
+            addStory(itemstack, p, m.getStoryMapMythical());
+        }
     }
 
     @ParametersAreNonnullByDefault
     public static void addStory(ItemStack itemStack, List<StoryType> p, Map<Integer, Story> storyList) {
-        StoryType st = p.get(ThreadLocalRandom.current().nextInt(0, p.size()));
-        List<Story> availableStories = storyList.values().stream().filter(t -> t.getType() == st).collect(Collectors.toList());
-        Story s = availableStories.get(ThreadLocalRandom.current().nextInt(0, availableStories.size()));
-        applyStory(itemStack, s);
+        final StoryType st = p.get(ThreadLocalRandom.current().nextInt(0, p.size()));
+        final List<Story> availableStories = storyList.values().stream().filter(t -> t.getType() == st).collect(Collectors.toList());
+        final Story story = availableStories.get(ThreadLocalRandom.current().nextInt(0, availableStories.size()));
+        applyStory(itemStack, story);
         incrementStoryAmount(itemStack);
     }
 
@@ -220,16 +240,22 @@ public class StoryUtils {
 
     @ParametersAreNonnullByDefault
     public static void applyStory(ItemStack itemStack, Story story) {
-
         final ItemMeta im = itemStack.getItemMeta();
         final JsonArray jsonArray = getAllStories(itemStack);
 
-        final StringBuilder storyString = new StringBuilder();
-        storyString.append(story.getId()).append("|").append(story.getStoryRarity().toString());
-
-        jsonArray.add(storyString.toString());
+        jsonArray.add(story.getId() + "|" + story.getStoryRarity().toString());
         PersistentDataAPI.setJsonArray(im, CrystamaeHistoria.getKeyHolder().getPdcAppliedStoryList(), jsonArray);
         itemStack.setItemMeta(im);
+    }
+
+    @ParametersAreNonnullByDefault
+    public static int removeStory(ItemStack itemStack, JsonElement jsonElement) {
+        final ItemMeta im = itemStack.getItemMeta();
+        final JsonArray jsonArray = getAllStories(itemStack);
+        jsonArray.remove(jsonElement);
+        PersistentDataAPI.setJsonArray(im, CrystamaeHistoria.getKeyHolder().getPdcAppliedStoryList(), jsonArray);
+        itemStack.setItemMeta(im);
+        return jsonArray.size();
     }
 
 

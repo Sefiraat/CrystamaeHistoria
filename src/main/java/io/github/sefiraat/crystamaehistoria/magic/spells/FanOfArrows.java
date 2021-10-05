@@ -24,7 +24,7 @@ public class FanOfArrows extends Spell {
         int sizeCast = 3;
         int stepSize = 5;
         Location middle = castInformation.getCastLocation().clone().add(0, 1, 0);
-        for(double i = 0; i < 360; i += stepSize) {
+        for (double i = 0; i < 360; i += stepSize) {
             double angle = (i * Math.PI / 180);
             int sx = (int) (sizeCast * Math.cos(angle));
             int sz = (int) (sizeCast * Math.sin(angle));

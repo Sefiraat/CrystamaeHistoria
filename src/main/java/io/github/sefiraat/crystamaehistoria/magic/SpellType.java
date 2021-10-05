@@ -59,16 +59,6 @@ public enum SpellType {
         this.spell = spell;
     }
 
-    @Nonnull
-    public Spell get() {
-        return spell;
-    }
-
-    @ParametersAreNonnullByDefault
-    public void cast(CastInformation castInformation) {
-        this.spell.castSpell(castInformation);
-    }
-
     @Nullable
     @ParametersAreNonnullByDefault
     public static Spell getById(String id) {
@@ -78,6 +68,16 @@ public enum SpellType {
             }
         }
         return null;
+    }
+
+    @Nonnull
+    public Spell get() {
+        return spell;
+    }
+
+    @ParametersAreNonnullByDefault
+    public void cast(CastInformation castInformation) {
+        this.spell.castSpell(castInformation);
     }
 
 }

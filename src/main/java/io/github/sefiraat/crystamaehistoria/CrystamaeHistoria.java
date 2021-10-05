@@ -37,35 +37,6 @@ public class CrystamaeHistoria extends AbstractAddon {
         super("Sefiraat", "CrystamaeHistoria", "master", "auto-update");
     }
 
-    @Override
-    public void enable() {
-
-        instance = this;
-
-        getLogger().info("########################################");
-        getLogger().info("    Crystamae Historia - By Sefiraat    ");
-        getLogger().info("########################################");
-
-        this.keyHolder = new KeyHolder();
-        this.themeManager = new ThemeManager();
-        this.structure = new Structure();
-        this.listenerManager = new ListenerManager();
-        this.storiesManager = new StoriesManager();
-        this.activeStorage = new ActiveStorage();
-
-        new Metrics(this,12065);
-
-        getAddonCommand().addSub(new TestSpell());
-
-    }
-
-    @Override
-    protected void disable() {
-        activeStorage.clearAll();
-        saveConfig();
-        instance = null;
-    }
-
     public static CrystamaeHistoria inst() {
         return instance;
     }
@@ -134,6 +105,35 @@ public class CrystamaeHistoria extends AbstractAddon {
         for (String string : message) {
             instance.getServer().getLogger().warning(string);
         }
+    }
+
+    @Override
+    public void enable() {
+
+        instance = this;
+
+        getLogger().info("########################################");
+        getLogger().info("    Crystamae Historia - By Sefiraat    ");
+        getLogger().info("########################################");
+
+        this.keyHolder = new KeyHolder();
+        this.themeManager = new ThemeManager();
+        this.structure = new Structure();
+        this.listenerManager = new ListenerManager();
+        this.storiesManager = new StoriesManager();
+        this.activeStorage = new ActiveStorage();
+
+        new Metrics(this, 12065);
+
+        getAddonCommand().addSub(new TestSpell());
+
+    }
+
+    @Override
+    protected void disable() {
+        activeStorage.clearAll();
+        saveConfig();
+        instance = null;
     }
 
 }

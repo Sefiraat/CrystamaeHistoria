@@ -23,6 +23,22 @@ public class DisplayStand {
     @Getter
     private final String name;
 
+    @ParametersAreNonnullByDefault
+    public DisplayStand(ArmorStand armorStand) {
+        this.armorStand = armorStand;
+        this.name = getDisplayStandName(armorStand);
+    }
+
+    @ParametersAreNonnullByDefault
+    public DisplayStand(Block block) {
+        String identifier = generateStandName(block);
+        ArmorStand stand = (ArmorStand) block.getWorld().spawnEntity(block.getLocation().clone().add(0.5, -0.6, 0.5), EntityType.ARMOR_STAND);
+        DisplayStand.setDisplayStandName(stand, identifier);
+        setDisplayOnly(stand);
+        this.armorStand = stand;
+        this.name = identifier;
+    }
+
     @Nullable
     @ParametersAreNonnullByDefault
     public static DisplayStand get(Block block) {
@@ -58,22 +74,6 @@ public class DisplayStand {
     @ParametersAreNonnullByDefault
     public static boolean isDisplayStand(ArmorStand a) {
         return PersistentDataAPI.getBoolean(a, CrystamaeHistoria.getKeyHolder().getPdcIsDisplayStand());
-    }
-
-    @ParametersAreNonnullByDefault
-    public DisplayStand(ArmorStand armorStand) {
-        this.armorStand = armorStand;
-        this.name = getDisplayStandName(armorStand);
-    }
-
-    @ParametersAreNonnullByDefault
-    public DisplayStand(Block block) {
-        String identifier = generateStandName(block);
-        ArmorStand stand = (ArmorStand) block.getWorld().spawnEntity(block.getLocation().clone().add(0.5, -0.6, 0.5), EntityType.ARMOR_STAND);
-        DisplayStand.setDisplayStandName(stand, identifier);
-        setDisplayOnly(stand);
-        this.armorStand = stand;
-        this.name = identifier;
     }
 
     @ParametersAreNonnullByDefault

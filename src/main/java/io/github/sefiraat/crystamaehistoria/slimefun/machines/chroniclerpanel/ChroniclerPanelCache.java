@@ -27,12 +27,25 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class ChroniclerPanelCache extends AbstractCache {
 
-    @Getter @Setter private DisplayStand displayStand;
-    @Nullable @Getter @Setter private Material workingOn;
-    @Getter @Setter private boolean working;
-    @Getter @Setter private StoriedBlockDefinition storiedBlockDefinition;
-    @Getter @Setter private FloatingHeadAnimation animation;
-    @Getter @Setter private Location blockMiddle;
+    @Getter
+    @Setter
+    private DisplayStand displayStand;
+    @Nullable
+    @Getter
+    @Setter
+    private Material workingOn;
+    @Getter
+    @Setter
+    private boolean working;
+    @Getter
+    @Setter
+    private StoriedBlockDefinition storiedBlockDefinition;
+    @Getter
+    @Setter
+    private FloatingHeadAnimation animation;
+    @Getter
+    @Setter
+    private Location blockMiddle;
 
     @ParametersAreNonnullByDefault
     public ChroniclerPanelCache(BlockMenu blockMenu) {
@@ -149,13 +162,13 @@ public class ChroniclerPanelCache extends AbstractCache {
     }
 
     private void summonParticles() {
-        Location l1 = blockMenu.getLocation().clone().add(ThreadLocalRandom.current().nextDouble(0, 1.1),2,ThreadLocalRandom.current().nextDouble(0, 1.1));
-        Location l2 = blockMenu.getLocation().clone().add(ThreadLocalRandom.current().nextDouble(0, 1.1),2,ThreadLocalRandom.current().nextDouble(0, 1.1));
-        Location l3 = blockMenu.getLocation().clone().add(ThreadLocalRandom.current().nextDouble(0, 1.1),2,ThreadLocalRandom.current().nextDouble(0, 1.1));
+        Location l1 = blockMenu.getLocation().clone().add(ThreadLocalRandom.current().nextDouble(0, 1.1), 2, ThreadLocalRandom.current().nextDouble(0, 1.1));
+        Location l2 = blockMenu.getLocation().clone().add(ThreadLocalRandom.current().nextDouble(0, 1.1), 2, ThreadLocalRandom.current().nextDouble(0, 1.1));
+        Location l3 = blockMenu.getLocation().clone().add(ThreadLocalRandom.current().nextDouble(0, 1.1), 2, ThreadLocalRandom.current().nextDouble(0, 1.1));
         World w = l1.getWorld();
-        w.spawnParticle(Particle.ENCHANTMENT_TABLE, l1, 0,0.2,0,-0.2, 0);
-        w.spawnParticle(Particle.ENCHANTMENT_TABLE, l2, 0,0.2,0,-0.2, 0);
-        w.spawnParticle(Particle.ENCHANTMENT_TABLE, l3, 0,0.2,0,-0.2, 0);
+        w.spawnParticle(Particle.ENCHANTMENT_TABLE, l1, 0, 0.2, 0, -0.2, 0);
+        w.spawnParticle(Particle.ENCHANTMENT_TABLE, l2, 0, 0.2, 0, -0.2, 0);
+        w.spawnParticle(Particle.ENCHANTMENT_TABLE, l3, 0, 0.2, 0, -0.2, 0);
     }
 
     protected void kill() {

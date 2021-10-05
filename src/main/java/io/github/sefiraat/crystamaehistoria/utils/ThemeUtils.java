@@ -23,7 +23,32 @@ import java.util.concurrent.ThreadLocalRandom;
 public final class ThemeUtils {
 
     /**
+     * List of names to be given to ArmourStands, invisible but mods and Minimaps can see them :)
+     */
+    @Nonnull
+    public static final List<String> EGG_NAMES = Arrays.asList(
+            "TheBusyBiscuit",
+            "Walshy",
+            "Jeff",
+            "Seggan",
+            "BOOMER_1",
+            "svr333",
+            "variananora",
+            "ProfElements",
+            "Riley",
+            "FluffyBear",
+            "GallowsDove",
+            "Apeiros",
+            "Martin",
+            "Bunnky",
+            "ReasonFoundDecoy",
+            "Oah",
+            "Azak"
+    );
+
+    /**
      * Gets the Color for the provided theme
+     *
      * @param themeType The {@link ThemeType} to get from the ThemeMap
      * @return Returns the {@link ChatColor} from the {@link io.github.sefiraat.crystamaehistoria.theme.ThemeElement}
      */
@@ -60,6 +85,7 @@ public final class ThemeUtils {
 
     /**
      * Gets the Lore String for the provided theme
+     *
      * @param themeType The {@link ThemeType} to get from the ThemeMap
      * @return Returns the lore stringfrom the {@link io.github.sefiraat.crystamaehistoria.theme.ThemeElement}
      */
@@ -76,6 +102,7 @@ public final class ThemeUtils {
 
     /**
      * Gets the Color for the provided theme
+     *
      * @param themeType The {@link ThemeType} to get from the ThemeMap
      * @return Returns the {@link org.bukkit.Particle.DustOptions} from the {@link io.github.sefiraat.crystamaehistoria.theme.ThemeElement}
      */
@@ -92,6 +119,7 @@ public final class ThemeUtils {
 
     /**
      * Applies the theme color to a given string
+     *
      * @param t The {@link ThemeType} to apply the color from
      * @param s The string to apply the color to
      * @return Returns the string provides preceeded by the color
@@ -104,9 +132,10 @@ public final class ThemeUtils {
 
     /**
      * Gets a SlimefunItemStack with a pre-populated lore and name with themed colors.
-     * @param id The ID for the new {@link SlimefunItemStack}
-     * @param i The vanilla {@link ItemStack} used to base the {@link SlimefunItemStack} on
-     * @param t The {@link ThemeType} {@link ChatColor} to apply to the {@link SlimefunItemStack} name
+     *
+     * @param id   The ID for the new {@link SlimefunItemStack}
+     * @param i    The vanilla {@link ItemStack} used to base the {@link SlimefunItemStack} on
+     * @param t    The {@link ThemeType} {@link ChatColor} to apply to the {@link SlimefunItemStack} name
      * @param name The name to apply to the {@link SlimefunItemStack}
      * @param lore The lore lines for the {@link SlimefunItemStack}. Lore is book-ended with empty strings.
      * @return Returns the new {@link SlimefunItemStack}
@@ -132,39 +161,16 @@ public final class ThemeUtils {
 
     /**
      * converts given string to Title Case
+     *
      * @param string The input string
      * @return A new {@link String} in Title Case
      */
     @Nonnull
     @ParametersAreNonnullByDefault
     public static String toTitleCase(String string) {
-        final char[] delimiters = { ' ', '_' };
-        return WordUtils.capitalizeFully(string, delimiters).replace("_"," ");
+        final char[] delimiters = {' ', '_'};
+        return WordUtils.capitalizeFully(string, delimiters).replace("_", " ");
     }
-
-    /**
-     * List of names to be given to ArmourStands, invisible but mods and Minimaps can see them :)
-     */
-    @Nonnull
-    public static final List<String> EGG_NAMES = Arrays.asList(
-            "TheBusyBiscuit",
-            "Walshy",
-            "Jeff",
-            "Seggan",
-            "BOOMER_1",
-            "svr333",
-            "variananora",
-            "ProfElements",
-            "Riley",
-            "FluffyBear",
-            "GallowsDove",
-            "Apeiros",
-            "Martin",
-            "Bunnky",
-            "ReasonFoundDecoy",
-            "Oah",
-            "Azak"
-    );
 
     @Nonnull
     public static String getRandomEggName() {

@@ -13,8 +13,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class ItemGroup {
 
-    private final CrystamaeHistoria plugin;
-
     public final NestedItemGroup main = new NestedItemGroup(CrystamaeHistoria.getKeyHolder().getCatMain(), new CustomItemStack(
             new ItemStack(Material.AMETHYST_CLUSTER),
             ThemeUtils.getThemeColor(ThemeType.MAIN) + "Crystamae Historia"
@@ -31,6 +29,7 @@ public class ItemGroup {
             new ItemStack(Material.STICK),
             ThemeUtils.getThemeColor(ThemeType.MAIN) + "Historia Staves and Tools"
     ));
+    private final CrystamaeHistoria plugin;
 
     @ParametersAreNonnullByDefault
     public ItemGroup(CrystamaeHistoria plugin) {
