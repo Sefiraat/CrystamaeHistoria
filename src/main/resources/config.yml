@@ -7,7 +7,7 @@ stories:
     1:
       name: Quiet Days
       type: Elemental
-      shardprofile: [ 1,0,1,1,0,0,0,0,0 ]
+      shardprofile: [ 1,1,1,1,1,1,1,1,1 ]
       lore:
         - Present during the beginning of the world.
         - Everything was quiet and peaceful and serene.

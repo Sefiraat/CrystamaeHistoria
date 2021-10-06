@@ -72,6 +72,8 @@ public final class ThemeUtils {
                 return getThemeElement(ThemeType.RTY_EPIC);
             case MYTHICAL:
                 return getThemeElement(ThemeType.RTY_MYTHICAL);
+            case UNIQUE:
+                return getThemeElement(ThemeType.RTY_UNIQUE);
             default:
                 throw new IllegalStateException("Unexpected value: " + storyRarity);
         }

@@ -9,6 +9,7 @@ public enum ThemeType {
     MAIN,
     CLICK_INFO,
     CRAFTING,
+    CRYSTAL,
     MACHINE,
     MECHANISM,
     CHEST,
@@ -28,5 +29,6 @@ public enum ThemeType {
     RTY_UNCOMMON,
     RTY_RARE,
     RTY_EPIC,
-    RTY_MYTHICAL
+    RTY_MYTHICAL,
+    RTY_UNIQUE
 }

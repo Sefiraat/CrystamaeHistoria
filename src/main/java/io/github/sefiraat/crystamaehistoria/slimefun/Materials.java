@@ -2,17 +2,28 @@ package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.resource.Skulls;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar.DummyRealisationAltar;
+import io.github.sefiraat.crystamaehistoria.stories.StoryRarity;
+import io.github.sefiraat.crystamaehistoria.stories.StoryType;
+import io.github.sefiraat.crystamaehistoria.theme.ThemeElement;
+import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
+import io.github.sefiraat.crystamaehistoria.utils.TextUtils;
+import io.github.sefiraat.crystamaehistoria.utils.ThemeUtils;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
+import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Materials {
 
     private final Structure parent;
     private final CrystamaeHistoria plugin;
+
+    public static final Map<StoryRarity, Map<StoryType, SlimefunItem>> CRYSTAL_MAP = new HashMap<>();
 
     @ParametersAreNonnullByDefault
     public Materials(Structure s, CrystamaeHistoria p) {
@@ -21,12 +32,32 @@ public class Materials {
     }
 
     public void setup() {
-        new UnplaceableBlock(
-                parent.getItemGroup().crystals,
-                new SlimefunItemStack("CRYSTAL_COMMON_MECHANICAL", Skulls.CRYSTAL_COMMON_MECHANICAL.getPlayerHead(), "Historia Crystal", "LORE"),
-                RecipeType.SMELTERY,
-                new ItemStack[]{}
-        ).register(plugin);
+        setUpCrystals();
     }
+
+    private void setUpCrystals() {
+        for (StoryRarity rarity : StoryRarity.values()) {
+            Map<StoryType, SlimefunItem> storyTypeSlimefunItemMap = new HashMap<>();
+            for (StoryType type : StoryType.values()) {
+                ThemeElement theme = ThemeUtils.getRarityTheme(rarity);
+                SlimefunItem sfItem = new UnplaceableBlock(
+                        parent.getItemGroup().crystals,
+                        ThemeUtils.themedSlimefunItemStack(
+                                "CRY_CRYSTAL_" + rarity.toString() + "_" + type.toString(),
+                                Skulls.getByTypeAndRarity(rarity, type).getPlayerHead(),
+                                ThemeType.CRYSTAL,
+                                theme.getThemeColor() + TextUtils.toTitleCase(rarity.toString() + " " + type.toString()) + " Crystal",
+                                "Magical Crystamae in it's physical form"
+                        ),
+                        DummyRealisationAltar.TYPE,
+                        new ItemStack[]{null, null, null, null, new ItemStack(Material.AMETHYST_CLUSTER), null, null, null, null}
+                );
+                sfItem.register(plugin);
+                storyTypeSlimefunItemMap.put(type, sfItem);
+            }
+            CRYSTAL_MAP.put(rarity, storyTypeSlimefunItemMap);
+        }
+    }
+
 
 }

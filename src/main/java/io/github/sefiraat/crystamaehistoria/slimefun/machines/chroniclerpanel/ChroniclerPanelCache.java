@@ -16,7 +16,6 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
-import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.inventory.ItemStack;
@@ -162,13 +161,11 @@ public class ChroniclerPanelCache extends AbstractCache {
     }
 
     private void summonParticles() {
-        Location l1 = blockMenu.getLocation().clone().add(ThreadLocalRandom.current().nextDouble(0, 1.1), 2, ThreadLocalRandom.current().nextDouble(0, 1.1));
-        Location l2 = blockMenu.getLocation().clone().add(ThreadLocalRandom.current().nextDouble(0, 1.1), 2, ThreadLocalRandom.current().nextDouble(0, 1.1));
-        Location l3 = blockMenu.getLocation().clone().add(ThreadLocalRandom.current().nextDouble(0, 1.1), 2, ThreadLocalRandom.current().nextDouble(0, 1.1));
-        World w = l1.getWorld();
-        w.spawnParticle(Particle.ENCHANTMENT_TABLE, l1, 0, 0.2, 0, -0.2, 0);
-        w.spawnParticle(Particle.ENCHANTMENT_TABLE, l2, 0, 0.2, 0, -0.2, 0);
-        w.spawnParticle(Particle.ENCHANTMENT_TABLE, l3, 0, 0.2, 0, -0.2, 0);
+        final Location location = blockMenu.getLocation();
+        for (int i = 0; i < 2; i++) {
+            final Location l = location.clone().add(ThreadLocalRandom.current().nextDouble(0, 1.1), 1, ThreadLocalRandom.current().nextDouble(0, 1.1));
+            location.getWorld().spawnParticle(Particle.ENCHANTMENT_TABLE, l, 0, 0.2, 0, -0.2, 0);
+        }
     }
 
     protected void kill() {

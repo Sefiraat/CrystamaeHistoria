@@ -38,6 +38,7 @@ public class ThemeManager {
         themeMap.put(ThemeType.MAIN, new ThemeElement(ChatColor.of("#21588f"), "Crystamae Historia"));
         themeMap.put(ThemeType.CLICK_INFO, new ThemeElement(ChatColor.of("#e4ed32")));
         themeMap.put(ThemeType.CRAFTING, new ThemeElement(ChatColor.of("#dbcea9"), "Crafting Material"));
+        themeMap.put(ThemeType.CRYSTAL, new ThemeElement(ChatColor.of("#dbcea9"), "Crystal"));
         themeMap.put(ThemeType.MACHINE, new ThemeElement(ChatColor.of("#3295a8"), "Machine"));
         themeMap.put(ThemeType.MECHANISM, new ThemeElement(ChatColor.of("#3295a8"), "Mechanism"));
         themeMap.put(ThemeType.DROP, new ThemeElement(ChatColor.of("#bf307f"), "Drop"));
@@ -53,11 +54,12 @@ public class ThemeManager {
         themeMap.put(ThemeType.MOD, new ThemeElement(ChatColor.of("#bf307f"), "Modification"));
         themeMap.put(ThemeType.PROP, new ThemeElement(ChatColor.of("#bf307f"), "Material Trait"));
         themeMap.put(ThemeType.MULT, new ThemeElement(ChatColor.of("#ba12af"), "Mutliblock"));
-        themeMap.put(ThemeType.RTY_COMMON, new ThemeElement(ChatColor.of("#dbdbdb"), "COMMON"));
-        themeMap.put(ThemeType.RTY_UNCOMMON, new ThemeElement(ChatColor.of("#97d16b"), "UNCOMMON"));
-        themeMap.put(ThemeType.RTY_RARE, new ThemeElement(ChatColor.of("#d1db5c"), "RARE"));
-        themeMap.put(ThemeType.RTY_EPIC, new ThemeElement(ChatColor.of("#b355d9"), "EPIC"));
-        themeMap.put(ThemeType.RTY_MYTHICAL, new ThemeElement(ChatColor.of("#c42336"), "MYTHICAL"));
+        themeMap.put(ThemeType.RTY_COMMON, new ThemeElement(ChatColor.of("#dbdbdb"), "Common"));
+        themeMap.put(ThemeType.RTY_UNCOMMON, new ThemeElement(ChatColor.of("#97d16b"), "Uncommon"));
+        themeMap.put(ThemeType.RTY_RARE, new ThemeElement(ChatColor.of("#d1db5c"), "Rare"));
+        themeMap.put(ThemeType.RTY_EPIC, new ThemeElement(ChatColor.of("#b355d9"), "Epic"));
+        themeMap.put(ThemeType.RTY_MYTHICAL, new ThemeElement(ChatColor.of("#c42336"), "Mythical"));
+        themeMap.put(ThemeType.RTY_UNIQUE, new ThemeElement(ChatColor.of("#b35f12"), "Unique"));
     }
 
 }

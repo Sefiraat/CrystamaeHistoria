@@ -32,7 +32,7 @@ public class RealisationAltar extends TickingMenuBlock {
     };
     protected static final int INPUT_SLOT = 22;
 
-    private final Map<Location, RealisationAltarCache> caches = new HashMap<>();
+    protected static final Map<Location, RealisationAltarCache> CACHE_MAP = new HashMap<>();
 
     @ParametersAreNonnullByDefault
     public RealisationAltar(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
@@ -42,7 +42,7 @@ public class RealisationAltar extends TickingMenuBlock {
     @Override
     @ParametersAreNonnullByDefault
     protected void tick(Block block, BlockMenu blockMenu) {
-        RealisationAltarCache cache = RealisationAltar.this.caches.get(block.getLocation());
+        RealisationAltarCache cache = RealisationAltar.CACHE_MAP.get(block.getLocation());
         if (cache != null) {
             cache.process();
         }
@@ -70,7 +70,7 @@ public class RealisationAltar extends TickingMenuBlock {
     protected void onBreak(BlockBreakEvent event, BlockMenu blockMenu) {
         super.onBreak(event, blockMenu);
         Location location = blockMenu.getLocation();
-        RealisationAltarCache realisationAltarCache = caches.remove(location);
+        RealisationAltarCache realisationAltarCache = CACHE_MAP.remove(location);
         if (realisationAltarCache != null) {
             realisationAltarCache.kill();
         }
@@ -83,7 +83,7 @@ public class RealisationAltar extends TickingMenuBlock {
         super.onNewInstance(blockMenu, b);
         RealisationAltarCache cache = new RealisationAltarCache(blockMenu);
         cache.loadMap();
-        caches.put(blockMenu.getLocation(), cache);
+        CACHE_MAP.put(blockMenu.getLocation(), cache);
     }
 
     @Override

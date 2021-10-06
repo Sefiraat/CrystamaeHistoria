@@ -25,6 +25,9 @@ public class KeyHolder {
     private final NamespacedKey catCrystal = new NamespacedKey(CrystamaeHistoria.inst(), "crystal");
     private final NamespacedKey catTools = new NamespacedKey(CrystamaeHistoria.inst(), "tools");
 
+    // Recipe Types
+    private final NamespacedKey realisationDummyCrystal = new NamespacedKey(CrystamaeHistoria.inst(), "r_d_c");
+
     // PDC
     // Items
     private final NamespacedKey pdcIsStoried = new NamespacedKey(CrystamaeHistoria.inst(), "is_s");
@@ -49,6 +52,8 @@ public class KeyHolder {
 
     // Chunk Storage
     private final NamespacedKey resolutionCrystalMap = new NamespacedKey(CrystamaeHistoria.inst(), "c_r_c");
+    private final NamespacedKey resolutionRarityMap = new NamespacedKey(CrystamaeHistoria.inst(), "c_r_r");
+    private final NamespacedKey resolutionStoryMap = new NamespacedKey(CrystamaeHistoria.inst(), "c_r_s");
 
 
 }
