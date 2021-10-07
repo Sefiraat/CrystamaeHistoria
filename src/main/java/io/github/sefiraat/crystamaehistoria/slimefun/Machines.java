@@ -2,6 +2,7 @@ package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.chroniclerpanel.ChroniclerPanel;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.LiquefactionBasin;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar.RealisationAltar;
 import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
 import io.github.sefiraat.crystamaehistoria.utils.ThemeUtils;
@@ -52,6 +53,24 @@ public class Machines {
                         "The realisation altar takes storied",
                         "blocks and converts their stories into",
                         "a physical form."
+                ),
+                RecipeType.ENHANCED_CRAFTING_TABLE,
+                new ItemStack[]{
+                        null, new ItemStack(Material.BOOK), null,
+                        SlimefunItems.CORINTHIAN_BRONZE_INGOT, new ItemStack(Material.AMETHYST_CLUSTER), SlimefunItems.CORINTHIAN_BRONZE_INGOT,
+                        SlimefunItems.MAGIC_LUMP_2, SlimefunItems.TALISMAN_MAGICIAN, SlimefunItems.MAGIC_LUMP_2,
+                }
+        ).register(plugin);
+        new LiquefactionBasin(
+                parent.getItemGroup().mechanisms,
+                ThemeUtils.themedSlimefunItemStack(
+                        "CRY_LIQUEFACTION_BASIN_1",
+                        new ItemStack(Material.CAULDRON),
+                        ThemeType.MECHANISM,
+                        "Liquefaction Basin",
+                        "The liquefaction basin can take",
+                        "Crystals and convert them into their liquid",
+                        "Crystamae form. Used for magical crafting"
                 ),
                 RecipeType.ENHANCED_CRAFTING_TABLE,
                 new ItemStack[]{

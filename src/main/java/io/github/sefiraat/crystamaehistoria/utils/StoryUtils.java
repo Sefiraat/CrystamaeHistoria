@@ -5,9 +5,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.managers.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.stories.BlockTier;
 import io.github.sefiraat.crystamaehistoria.stories.StoriedBlockDefinition;
+import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.stories.Story;
 import io.github.sefiraat.crystamaehistoria.stories.StoryChances;
 import io.github.sefiraat.crystamaehistoria.stories.StoryType;
@@ -75,7 +75,7 @@ public class StoryUtils {
      */
     @ParametersAreNonnullByDefault
     public static boolean isStoried(ItemStack itemStack) {
-        return PersistentDataAPI.hasBoolean(itemStack.getItemMeta(), CrystamaeHistoria.getKeyHolder().getPdcIsStoried());
+        return PersistentDataAPI.hasBoolean(itemStack.getItemMeta(), CrystamaeHistoria.getKeys().getPdcIsStoried());
     }
 
     /**
@@ -86,7 +86,7 @@ public class StoryUtils {
     @ParametersAreNonnullByDefault
     public static void makeStoried(ItemStack itemStack) {
         ItemMeta itemMeta = itemStack.getItemMeta();
-        PersistentDataAPI.setBoolean(itemMeta, CrystamaeHistoria.getKeyHolder().getPdcIsStoried(), true);
+        PersistentDataAPI.setBoolean(itemMeta, CrystamaeHistoria.getKeys().getPdcIsStoried(), true);
         setStoryLimits(itemMeta, getStoryLimits(itemStack));
         itemStack.setItemMeta(itemMeta);
     }
@@ -101,7 +101,7 @@ public class StoryUtils {
     @Nonnull
     @ParametersAreNonnullByDefault
     public static JsonObject getStoryLimits(ItemStack itemStack) {
-        return PersistentDataAPI.getJsonObject(itemStack.getItemMeta(), CrystamaeHistoria.getKeyHolder().getPdcStories(), getInitialStoryLimits(itemStack));
+        return PersistentDataAPI.getJsonObject(itemStack.getItemMeta(), CrystamaeHistoria.getKeys().getPdcStories(), getInitialStoryLimits(itemStack));
     }
 
     /**
@@ -112,7 +112,7 @@ public class StoryUtils {
      */
     @ParametersAreNonnullByDefault
     private static void setStoryLimits(ItemMeta itemMeta, JsonObject jsonObject) {
-        PersistentDataAPI.setJsonObject(itemMeta, CrystamaeHistoria.getKeyHolder().getPdcStories(), jsonObject);
+        PersistentDataAPI.setJsonObject(itemMeta, CrystamaeHistoria.getKeys().getPdcStories(), jsonObject);
     }
 
     /**
@@ -122,7 +122,7 @@ public class StoryUtils {
      */
     @ParametersAreNonnullByDefault
     public static int getMaxStoryAmount(ItemStack itemStack) {
-        return getStoryLimits(itemStack).get(KeyHolder.JS_S_AVAILABLE_STORIES).getAsInt();
+        return getStoryLimits(itemStack).get(Keys.JS_S_AVAILABLE_STORIES).getAsInt();
     }
 
     /**
@@ -132,7 +132,7 @@ public class StoryUtils {
      */
     @ParametersAreNonnullByDefault
     public static int getStoryAmount(ItemMeta itemMeta) {
-        return PersistentDataAPI.getInt(itemMeta, CrystamaeHistoria.getKeyHolder().getPdcCurrentNumberOfStories(), 0);
+        return PersistentDataAPI.getInt(itemMeta, CrystamaeHistoria.getKeys().getPdcCurrentNumberOfStories(), 0);
     }
 
     /**
@@ -144,7 +144,7 @@ public class StoryUtils {
     @ParametersAreNonnullByDefault
     public static void setStoryAmount(ItemStack itemStack, int amount) {
         ItemMeta itemMeta = itemStack.getItemMeta();
-        PersistentDataAPI.setInt(itemMeta, CrystamaeHistoria.getKeyHolder().getPdcCurrentNumberOfStories(), amount);
+        PersistentDataAPI.setInt(itemMeta, CrystamaeHistoria.getKeys().getPdcCurrentNumberOfStories(), amount);
         if (amount >= getMaxStoryAmount(itemStack)) {
             itemMeta.addEnchant(Enchantment.LUCK, 1, true);
             itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
@@ -198,8 +198,8 @@ public class StoryUtils {
         int availableStoryCount = ThreadLocalRandom.current().nextInt(definition.getTier().minStories, definition.getTier().maxStories + 1);
         int tier = definition.getTier().tier;
         JsonObject jsonObject = new JsonObject();
-        jsonObject.add(KeyHolder.JS_S_AVAILABLE_STORIES, new JsonPrimitive(availableStoryCount));
-        jsonObject.add(KeyHolder.JS_S_TIER, new JsonPrimitive(tier));
+        jsonObject.add(Keys.JS_S_AVAILABLE_STORIES, new JsonPrimitive(availableStoryCount));
+        jsonObject.add(Keys.JS_S_TIER, new JsonPrimitive(tier));
         return jsonObject;
     }
 
@@ -212,16 +212,24 @@ public class StoryUtils {
         final List<StoryType> p = s.getPools();
         int rnd = ThreadLocalRandom.current().nextInt(1, 101);
 
-        if (rnd > c.chanceMythical) {
-            if (rnd <= c.chanceEpic) addStory(itemstack, p, m.getStoryMapEpic());
-            else if (rnd <= c.chanceRare) {
+        if (rnd > c.mythical) {
+            if (rnd <= c.epic) addStory(itemstack, p, m.getStoryMapEpic());
+            else if (rnd <= c.rare) {
                 addStory(itemstack, p, m.getStoryMapRare());
-            } else if (rnd <= c.chanceUncommon) {
+            } else if (rnd <= c.uncommon) {
                 addStory(itemstack, p, m.getStoryMapUncommon());
             } else addStory(itemstack, p, m.getStoryMapCommon());
         } else {
             addStory(itemstack, p, m.getStoryMapMythical());
         }
+    }
+
+    @ParametersAreNonnullByDefault
+    public static void requestUniqueStory(ItemStack itemstack) {
+        final StoriesManager m = CrystamaeHistoria.getStoriesManager();
+        final StoriedBlockDefinition s = m.getStoriedBlockDefinitionMap().get(itemstack.getType());
+        Story unique = s.getArchetypeHistoria();
+        applyStory(itemstack, unique);
     }
 
     @ParametersAreNonnullByDefault
@@ -235,7 +243,7 @@ public class StoryUtils {
 
     @ParametersAreNonnullByDefault
     public static JsonArray getAllStories(ItemStack itemStack) {
-        return PersistentDataAPI.getJsonArray(itemStack.getItemMeta(), CrystamaeHistoria.getKeyHolder().getPdcAppliedStoryList(), new JsonArray());
+        return PersistentDataAPI.getJsonArray(itemStack.getItemMeta(), CrystamaeHistoria.getKeys().getPdcAppliedStoryList(), new JsonArray());
     }
 
     @ParametersAreNonnullByDefault
@@ -244,7 +252,7 @@ public class StoryUtils {
         final JsonArray jsonArray = getAllStories(itemStack);
 
         jsonArray.add(story.getId() + "|" + story.getStoryRarity().toString());
-        PersistentDataAPI.setJsonArray(im, CrystamaeHistoria.getKeyHolder().getPdcAppliedStoryList(), jsonArray);
+        PersistentDataAPI.setJsonArray(im, CrystamaeHistoria.getKeys().getPdcAppliedStoryList(), jsonArray);
         itemStack.setItemMeta(im);
     }
 
@@ -253,7 +261,7 @@ public class StoryUtils {
         final ItemMeta im = itemStack.getItemMeta();
         final JsonArray jsonArray = getAllStories(itemStack);
         jsonArray.remove(jsonElement);
-        PersistentDataAPI.setJsonArray(im, CrystamaeHistoria.getKeyHolder().getPdcAppliedStoryList(), jsonArray);
+        PersistentDataAPI.setJsonArray(im, CrystamaeHistoria.getKeys().getPdcAppliedStoryList(), jsonArray);
         itemStack.setItemMeta(im);
         return jsonArray.size();
     }

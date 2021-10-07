@@ -25,12 +25,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RealisationAltarCache extends AbstractCache {
 
     @Getter
-    private HashMap<Long, Pair<StoryRarity, Integer>> crystalStoryMap = new HashMap<>();
+    private Map<Long, Pair<StoryRarity, Integer>> crystalStoryMap = new HashMap<>();
 
     @ParametersAreNonnullByDefault
     public RealisationAltarCache(BlockMenu blockMenu) {
@@ -94,15 +95,15 @@ public class RealisationAltarCache extends AbstractCache {
         final long[] locations = crystalStoryMap.keySet().stream().mapToLong(l -> l).toArray();
         final int[] rarities = storyRarityIds.stream().mapToInt(i -> i).toArray();
         final int[] ids = storyIds.stream().mapToInt(i -> i).toArray();
-        PersistentDataAPI.setLongArray(blockMenu.getBlock().getChunk(), CrystamaeHistoria.getKeyHolder().getResolutionCrystalMap(), locations);
-        PersistentDataAPI.setIntArray(blockMenu.getBlock().getChunk(), CrystamaeHistoria.getKeyHolder().getResolutionRarityMap(), rarities);
-        PersistentDataAPI.setIntArray(blockMenu.getBlock().getChunk(), CrystamaeHistoria.getKeyHolder().getResolutionStoryMap(), ids);
+        PersistentDataAPI.setLongArray(blockMenu.getBlock().getChunk(), CrystamaeHistoria.getKeys().getResolutionCrystalMap(), locations);
+        PersistentDataAPI.setIntArray(blockMenu.getBlock().getChunk(), CrystamaeHistoria.getKeys().getResolutionRarityMap(), rarities);
+        PersistentDataAPI.setIntArray(blockMenu.getBlock().getChunk(), CrystamaeHistoria.getKeys().getResolutionStoryMap(), ids);
     }
 
     protected void loadMap() {
-        final long[] locations = PersistentDataAPI.getLongArray(blockMenu.getBlock().getChunk(), CrystamaeHistoria.getKeyHolder().getResolutionCrystalMap(), new long[0]);
-        final int[] rarities = PersistentDataAPI.getIntArray(blockMenu.getBlock().getChunk(), CrystamaeHistoria.getKeyHolder().getResolutionRarityMap(), new int[0]);
-        final int[] ids = PersistentDataAPI.getIntArray(blockMenu.getBlock().getChunk(), CrystamaeHistoria.getKeyHolder().getResolutionStoryMap(), new int[0]);
+        final long[] locations = PersistentDataAPI.getLongArray(blockMenu.getBlock().getChunk(), CrystamaeHistoria.getKeys().getResolutionCrystalMap(), new long[0]);
+        final int[] rarities = PersistentDataAPI.getIntArray(blockMenu.getBlock().getChunk(), CrystamaeHistoria.getKeys().getResolutionRarityMap(), new int[0]);
+        final int[] ids = PersistentDataAPI.getIntArray(blockMenu.getBlock().getChunk(), CrystamaeHistoria.getKeys().getResolutionStoryMap(), new int[0]);
         if (locations.length > 0) {
             for (int i = 0; i < locations.length - 1; i++) {
                 crystalStoryMap.put(locations[i], new Pair<>(StoryRarity.getById(rarities[i]), ids[i]));
@@ -111,7 +112,7 @@ public class RealisationAltarCache extends AbstractCache {
     }
 
     private void clearMap() {
-        PersistentDataAPI.remove(blockMenu.getBlock().getChunk(), CrystamaeHistoria.getKeyHolder().getResolutionCrystalMap());
+        PersistentDataAPI.remove(blockMenu.getBlock().getChunk(), CrystamaeHistoria.getKeys().getResolutionCrystalMap());
     }
 
     private void tryGrow() {

@@ -1,10 +1,13 @@
-package io.github.sefiraat.crystamaehistoria.slimefun.machines.chroniclerpanel;
+package io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin;
 
 import io.github.mooy1.infinitylib.machines.TickingMenuBlock;
+import io.github.sefiraat.crystamaehistoria.stories.StoryType;
 import io.github.sefiraat.crystamaehistoria.theme.GUIElements;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
+import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import org.bukkit.Location;
@@ -16,7 +19,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ChroniclerPanel extends TickingMenuBlock {
+public class LiquefactionBasin extends TickingMenuBlock {
 
     protected static final int[] BACKGROUND_SLOTS = {
             0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 15, 16, 17, 18, 19, 20, 24, 25, 26, 27, 28, 29, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44
@@ -26,11 +29,21 @@ public class ChroniclerPanel extends TickingMenuBlock {
     };
     protected static final int INPUT_SLOT = 22;
 
-    private final Map<Location, ChroniclerPanelCache> caches = new HashMap<>();
+    protected static final Map<Location, LiquefactionBasinCache> CACHE_MAP = new HashMap<>();
 
     @ParametersAreNonnullByDefault
-    public ChroniclerPanel(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
+    public LiquefactionBasin(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
+    }
+
+    @Override
+    @ParametersAreNonnullByDefault
+    protected void tick(Block block, BlockMenu blockMenu) {
+        LiquefactionBasinCache cache = LiquefactionBasin.CACHE_MAP.get(block.getLocation());
+        if (cache != null) {
+            cache.consumeItems();
+            cache.syncBlock();
+        }
     }
 
     @Override
@@ -38,15 +51,6 @@ public class ChroniclerPanel extends TickingMenuBlock {
     protected void setup(BlockMenuPreset blockMenuPreset) {
         blockMenuPreset.drawBackground(GUIElements.menuBackground(), BACKGROUND_SLOTS);
         blockMenuPreset.drawBackground(GUIElements.menuBackgroundInput(), BACKGROUND_INPUT);
-    }
-
-    @Override
-    @ParametersAreNonnullByDefault
-    protected void tick(Block block, BlockMenu blockMenu) {
-        ChroniclerPanelCache cache = ChroniclerPanel.this.caches.get(block.getLocation());
-        if (cache != null) {
-            cache.process();
-        }
     }
 
     @Override
@@ -64,8 +68,10 @@ public class ChroniclerPanel extends TickingMenuBlock {
     protected void onBreak(BlockBreakEvent event, BlockMenu blockMenu) {
         super.onBreak(event, blockMenu);
         Location location = blockMenu.getLocation();
-        ChroniclerPanelCache chroniclerPanelCache = caches.remove(location);
-        chroniclerPanelCache.kill();
+        LiquefactionBasinCache liquefactionBasinCache = CACHE_MAP.remove(location);
+        if (liquefactionBasinCache != null) {
+            liquefactionBasinCache.kill(location);
+        }
         blockMenu.dropItems(location, INPUT_SLOT);
     }
 
@@ -73,12 +79,23 @@ public class ChroniclerPanel extends TickingMenuBlock {
     @ParametersAreNonnullByDefault
     protected void onNewInstance(BlockMenu blockMenu, Block b) {
         super.onNewInstance(blockMenu, b);
-        ChroniclerPanelCache cache = new ChroniclerPanelCache(blockMenu);
-        caches.put(blockMenu.getLocation(), cache);
+        LiquefactionBasinCache cache = new LiquefactionBasinCache(blockMenu);
+        Config c = BlockStorage.getLocationInfo(blockMenu.getLocation());
+
+        for (String key : c.getKeys()) {
+            if (key.startsWith(LiquefactionBasinCache.CH_LEVEL_PREFIX)) {
+                String id = key.replace(LiquefactionBasinCache.CH_LEVEL_PREFIX, "");
+                long amount = Long.parseLong(c.getString(key));
+                cache.getContentMap().put(StoryType.valueOf(id), amount);
+            }
+        }
+
+        CACHE_MAP.put(blockMenu.getLocation(), cache);
     }
 
     @Override
     protected boolean synchronous() {
         return true;
     }
+
 }

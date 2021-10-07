@@ -6,20 +6,20 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class StoryChances {
 
-    public final int chanceBasic;
-    public final int chanceUncommon;
-    public final int chanceRare;
-    public final int chanceEpic;
-    public final int chanceMythical;
+    public final int basic;
+    public final int uncommon;
+    public final int rare;
+    public final int epic;
+    public final int mythical;
 
     @ParametersAreNonnullByDefault
-    public StoryChances(int chanceBasic, int chanceUncommon, int chanceRare, int chanceEpic, int chanceMythical) {
-        boolean validTotal = chanceBasic + chanceUncommon + chanceRare + chanceEpic + chanceMythical == 100;
+    public StoryChances(int basic, int uncommon, int rare, int epic, int mythical) {
+        boolean validTotal = basic + uncommon + rare + epic + mythical == 100;
         Validate.isTrue(validTotal, "Chances must add up to 100 for a StoryChance");
-        this.chanceBasic = chanceBasic;
-        this.chanceUncommon = chanceUncommon;
-        this.chanceRare = chanceRare;
-        this.chanceEpic = chanceEpic;
-        this.chanceMythical = chanceMythical;
+        this.basic = basic;
+        this.uncommon = uncommon;
+        this.rare = rare;
+        this.epic = epic;
+        this.mythical = mythical;
     }
 }

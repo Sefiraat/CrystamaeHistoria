@@ -25,7 +25,8 @@ public class Tools {
         new Stave(parent.getItemGroup().tools,
                 stave1,
                 RecipeType.SMELTERY,
-                new ItemStack[]{}
+                new ItemStack[]{},
+                1
         ).register(plugin);
     }
 

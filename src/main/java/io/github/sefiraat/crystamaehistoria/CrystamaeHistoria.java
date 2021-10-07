@@ -5,11 +5,11 @@ import io.github.sefiraat.crystamaehistoria.commands.TestSpell;
 import io.github.sefiraat.crystamaehistoria.magic.ActiveStorage;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.managers.ListenerManager;
-import io.github.sefiraat.crystamaehistoria.managers.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.managers.ThemeManager;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTick;
 import io.github.sefiraat.crystamaehistoria.slimefun.Structure;
-import io.github.sefiraat.crystamaehistoria.utils.KeyHolder;
+import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
+import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import org.apache.commons.lang.Validate;
 import org.bstats.bukkit.Metrics;
@@ -25,7 +25,7 @@ public class CrystamaeHistoria extends AbstractAddon {
 
     private static CrystamaeHistoria instance;
 
-    private KeyHolder keyHolder;
+    private Keys keys;
     private ThemeManager themeManager;
     private Structure structure;
     private ListenerManager listenerManager;
@@ -41,8 +41,8 @@ public class CrystamaeHistoria extends AbstractAddon {
         return instance;
     }
 
-    public static KeyHolder getKeyHolder() {
-        return instance.keyHolder;
+    public static Keys getKeys() {
+        return instance.keys;
     }
 
     public static ThemeManager getThemeManager() {
@@ -116,7 +116,7 @@ public class CrystamaeHistoria extends AbstractAddon {
         getLogger().info("    Crystamae Historia - By Sefiraat    ");
         getLogger().info("########################################");
 
-        this.keyHolder = new KeyHolder();
+        this.keys = new Keys();
         this.themeManager = new ThemeManager();
         this.structure = new Structure();
         this.listenerManager = new ListenerManager();

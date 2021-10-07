@@ -1,14 +1,7 @@
-package io.github.sefiraat.crystamaehistoria.managers;
+package io.github.sefiraat.crystamaehistoria.stories;
 
 import io.github.mooy1.infinitylib.core.AddonConfig;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.stories.BlockTier;
-import io.github.sefiraat.crystamaehistoria.stories.StoriedBlockDefinition;
-import io.github.sefiraat.crystamaehistoria.stories.Story;
-import io.github.sefiraat.crystamaehistoria.stories.StoryChances;
-import io.github.sefiraat.crystamaehistoria.stories.StoryRarity;
-import io.github.sefiraat.crystamaehistoria.stories.StoryShardProfile;
-import io.github.sefiraat.crystamaehistoria.stories.StoryType;
 import lombok.Getter;
 import org.apache.commons.lang.Validate;
 import org.bukkit.Material;
@@ -51,6 +44,7 @@ public class StoriesManager {
     private static Story parseStory(ConfigurationSection sConf, StoryRarity rarity) {
         String name = sConf.getString("name");
         String type = sConf.getString("type");
+        String author = sConf.getString("author");
         StoryType storyType = StoryType.valueOf(type.toUpperCase(Locale.ROOT));
         List<Integer> spList = sConf.getIntegerList("shardprofile");
         StoryShardProfile shardProfile = new StoryShardProfile(
@@ -72,6 +66,7 @@ public class StoriesManager {
                 rarity,
                 storyType,
                 shardProfile,
+                author,
                 lore.toArray(new String[0])
         );
     }
@@ -141,6 +136,17 @@ public class StoriesManager {
                                 StoryType.HISTORICAL
                         ),
                         storyMapUnique.get(1)
+                )
+        );
+        storiedBlockDefinitionMap.put(
+                Material.CRAFTING_TABLE,
+                new StoriedBlockDefinition(
+                        blockTierMap.get(1),
+                        Arrays.asList(
+                                StoryType.HUMAN,
+                                StoryType.PHILOSOPHICAL
+                        ),
+                        storyMapUnique.get(2)
                 )
         );
     }

@@ -6,7 +6,7 @@ import io.github.sefiraat.crystamaehistoria.runnables.animation.FloatingHeadAnim
 import io.github.sefiraat.crystamaehistoria.slimefun.AbstractCache;
 import io.github.sefiraat.crystamaehistoria.stories.StoriedBlockDefinition;
 import io.github.sefiraat.crystamaehistoria.utils.AnimateUtils;
-import io.github.sefiraat.crystamaehistoria.utils.KeyHolder;
+import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.StackUtils;
 import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
 import lombok.Getter;
@@ -49,7 +49,7 @@ public class ChroniclerPanelCache extends AbstractCache {
     @ParametersAreNonnullByDefault
     public ChroniclerPanelCache(BlockMenu blockMenu) {
         super(blockMenu);
-        String workingOn = BlockStorage.getLocationInfo(blockMenu.getLocation(), KeyHolder.BS_CP_WORKING_ON);
+        String workingOn = BlockStorage.getLocationInfo(blockMenu.getLocation(), Keys.BS_CP_WORKING_ON);
         if (workingOn != null) {
             setWorking(blockMenu.getBlock(), Material.valueOf(workingOn));
         }
@@ -112,7 +112,7 @@ public class ChroniclerPanelCache extends AbstractCache {
         blockMiddle = block.getLocation().clone().add(0.5, 0.5, 0.5);
         workingOn = m;
         working = true;
-        BlockStorage.addBlockInfo(block, KeyHolder.BS_CP_WORKING_ON, m.toString());
+        BlockStorage.addBlockInfo(block, Keys.BS_CP_WORKING_ON, m.toString());
         Block lightBlock = block.getRelative(BlockFace.UP);
         if (lightBlock.getType() == Material.AIR) {
             lightBlock.setType(Material.LIGHT);
@@ -133,7 +133,7 @@ public class ChroniclerPanelCache extends AbstractCache {
     private void setNotWorking(Block block) {
         workingOn = null;
         working = false;
-        BlockStorage.addBlockInfo(block, KeyHolder.BS_CP_WORKING_ON, null);
+        BlockStorage.addBlockInfo(block, Keys.BS_CP_WORKING_ON, null);
         Block lightBlock = block.getRelative(BlockFace.UP);
         if (lightBlock.getType() == Material.LIGHT) {
             lightBlock.setType(Material.AIR);
@@ -149,11 +149,16 @@ public class ChroniclerPanelCache extends AbstractCache {
         summonParticles();
         // If this block isn't storied, make it storied then add the initial story set
         if (StoryUtils.hasRemainingStorySlots(i)) {
+            int remaining = StoryUtils.getRemainingStoryAmount(i);
             int rnd = ThreadLocalRandom.current().nextInt(1, 1001);
             int req = storiedBlockDefinition.getTier().chroniclingChance;
             if (rnd <= req) {
                 // We can chronicle a story
                 StoryUtils.requestNewStory(i);
+                if (remaining == 1) {
+                    // That was the last story, unlock unique
+                    StoryUtils.requestUniqueStory(i);
+                }
                 StackUtils.rebuildStoriedStack(i);
                 blockMenu.getBlock().getWorld().strikeLightningEffect(blockMiddle);
             }

@@ -3,6 +3,7 @@ package io.github.sefiraat.crystamaehistoria.slimefun;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.resource.Skulls;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar.DummyRealisationAltar;
+import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
 import io.github.sefiraat.crystamaehistoria.stories.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.StoryType;
 import io.github.sefiraat.crystamaehistoria.theme.ThemeElement;
@@ -10,7 +11,6 @@ import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
 import io.github.sefiraat.crystamaehistoria.utils.TextUtils;
 import io.github.sefiraat.crystamaehistoria.utils.ThemeUtils;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
@@ -20,10 +20,9 @@ import java.util.Map;
 
 public class Materials {
 
+    public static final Map<StoryRarity, Map<StoryType, SlimefunItem>> CRYSTAL_MAP = new HashMap<>();
     private final Structure parent;
     private final CrystamaeHistoria plugin;
-
-    public static final Map<StoryRarity, Map<StoryType, SlimefunItem>> CRYSTAL_MAP = new HashMap<>();
 
     @ParametersAreNonnullByDefault
     public Materials(Structure s, CrystamaeHistoria p) {
@@ -40,7 +39,7 @@ public class Materials {
             Map<StoryType, SlimefunItem> storyTypeSlimefunItemMap = new HashMap<>();
             for (StoryType type : StoryType.values()) {
                 ThemeElement theme = ThemeUtils.getRarityTheme(rarity);
-                SlimefunItem sfItem = new UnplaceableBlock(
+                SlimefunItem sfItem = new Crystal(
                         parent.getItemGroup().crystals,
                         ThemeUtils.themedSlimefunItemStack(
                                 "CRY_CRYSTAL_" + rarity.toString() + "_" + type.toString(),
@@ -50,7 +49,9 @@ public class Materials {
                                 "Magical Crystamae in it's physical form"
                         ),
                         DummyRealisationAltar.TYPE,
-                        new ItemStack[]{null, null, null, null, new ItemStack(Material.AMETHYST_CLUSTER), null, null, null, null}
+                        new ItemStack[]{null, null, null, null, new ItemStack(Material.AMETHYST_CLUSTER), null, null, null, null},
+                        rarity,
+                        type
                 );
                 sfItem.register(plugin);
                 storyTypeSlimefunItemMap.put(type, sfItem);

@@ -1,7 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.animation;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.utils.KeyHolder;
+import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.ThemeUtils;
 import io.github.sefiraat.crystamaehistoria.utils.WorldUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
@@ -57,23 +57,23 @@ public class DisplayStand {
 
     @ParametersAreNonnullByDefault
     public static void setDisplayStandName(ArmorStand a, String s) {
-        PersistentDataAPI.setString(a, CrystamaeHistoria.getKeyHolder().getPdcArmourStandName(), s);
+        PersistentDataAPI.setString(a, CrystamaeHistoria.getKeys().getPdcArmourStandName(), s);
     }
 
     @Nullable
     @ParametersAreNonnullByDefault
     public static String getDisplayStandName(ArmorStand a) {
-        return PersistentDataAPI.getString(a, CrystamaeHistoria.getKeyHolder().getPdcArmourStandName());
+        return PersistentDataAPI.getString(a, CrystamaeHistoria.getKeys().getPdcArmourStandName());
     }
 
     @ParametersAreNonnullByDefault
     public static void setDisplayStand(ArmorStand a) {
-        PersistentDataAPI.setBoolean(a, CrystamaeHistoria.getKeyHolder().getPdcIsDisplayStand(), true);
+        PersistentDataAPI.setBoolean(a, CrystamaeHistoria.getKeys().getPdcIsDisplayStand(), true);
     }
 
     @ParametersAreNonnullByDefault
     public static boolean isDisplayStand(ArmorStand a) {
-        return PersistentDataAPI.getBoolean(a, CrystamaeHistoria.getKeyHolder().getPdcIsDisplayStand());
+        return PersistentDataAPI.getBoolean(a, CrystamaeHistoria.getKeys().getPdcIsDisplayStand());
     }
 
     @ParametersAreNonnullByDefault
@@ -104,7 +104,7 @@ public class DisplayStand {
 
     @ParametersAreNonnullByDefault
     private String generateStandName(Block block) {
-        return KeyHolder.PANEL_STAND_PREFIX + block.getX() + "|" + block.getY() + "|" + block.getZ();
+        return Keys.PANEL_STAND_PREFIX + block.getX() + "|" + block.getY() + "|" + block.getZ();
     }
 
 }

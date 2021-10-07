@@ -5,7 +5,7 @@ import lombok.Data;
 import org.bukkit.NamespacedKey;
 
 @Data
-public class KeyHolder {
+public class Keys {
 
     // BlockStorage
     public static final String BS_CP_WORKING_ON = "BS_CP_WORKING_ON";

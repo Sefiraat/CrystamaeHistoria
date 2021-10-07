@@ -10,10 +10,6 @@ import org.bukkit.inventory.ItemStack;
 
 public class DummyRealisationAltar {
 
-    private DummyRealisationAltar() {
-        throw new IllegalStateException("Utility class");
-    }
-
     public static final SlimefunItemStack STACK = ThemeUtils.themedSlimefunItemStack(
             "CRY_CHRONICLER_PANEL_DUMMY_CRYSTAL",
             new ItemStack(Material.CHISELED_DEEPSLATE),
@@ -24,8 +20,11 @@ public class DummyRealisationAltar {
             "Altar. Giving the Altar storied blocks will",
             "produce crystals."
     );
+    public static final RecipeType TYPE = new RecipeType(CrystamaeHistoria.getKeys().getRealisationDummyCrystal(), STACK);
 
-    public static final RecipeType TYPE = new RecipeType(CrystamaeHistoria.getKeyHolder().getRealisationDummyCrystal(), STACK);
+    private DummyRealisationAltar() {
+        throw new IllegalStateException("Utility class");
+    }
 
 
 }

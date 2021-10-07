@@ -19,19 +19,25 @@ public class PlayerInteract implements Listener {
         ItemStack itemStack = player.getInventory().getItemInMainHand();
         SlimefunItem slimefunItem = SlimefunItem.getByItem(itemStack);
         if (slimefunItem instanceof Stave) {
-            StaveInstance staveInstance = new StaveInstance(itemStack);
+            Stave stave = (Stave) slimefunItem;
+            StaveInstance staveInstance = new StaveInstance(stave, itemStack);
             SpellSlot slot = null;
             Action action = e.getAction();
-            if (action == Action.LEFT_CLICK_AIR || action == Action.LEFT_CLICK_BLOCK) {
-                slot = player.isSneaking() ? SpellSlot.SHIFT_LEFT_CLICK : SpellSlot.LEFT_CLICK;
-            } else if (action == Action.RIGHT_CLICK_AIR || action == Action.RIGHT_CLICK_BLOCK) {
-                slot = player.isSneaking() ? SpellSlot.SHIFT_RIGHT_CLICK : SpellSlot.RIGHT_CLICK;
+            switch (action) {
+                case LEFT_CLICK_AIR:
+                case LEFT_CLICK_BLOCK:
+                    slot = player.isSneaking() ? SpellSlot.SHIFT_LEFT_CLICK : SpellSlot.LEFT_CLICK;
+                    break;
+                case RIGHT_CLICK_AIR:
+                case RIGHT_CLICK_BLOCK:
+                    slot = player.isSneaking() ? SpellSlot.SHIFT_RIGHT_CLICK : SpellSlot.RIGHT_CLICK;
+                    break;
+                default:
+                    break;
             }
             if (slot != null) {
                 staveInstance.tryCastSpell(slot, player);
             }
         }
-
     }
-
 }
