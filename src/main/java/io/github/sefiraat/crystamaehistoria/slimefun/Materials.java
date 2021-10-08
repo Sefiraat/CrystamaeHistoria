@@ -35,7 +35,7 @@ public class Materials {
     }
 
     private void setUpCrystals() {
-        for (StoryRarity rarity : StoryRarity.values()) {
+        for (StoryRarity rarity : StoryRarity.getValues()) {
             Map<StoryType, SlimefunItem> storyTypeSlimefunItemMap = new HashMap<>();
             for (StoryType type : StoryType.values()) {
                 ThemeElement theme = ThemeUtils.getRarityTheme(rarity);

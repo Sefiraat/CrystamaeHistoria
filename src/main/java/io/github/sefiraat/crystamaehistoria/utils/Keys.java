@@ -31,9 +31,9 @@ public class Keys {
     // PDC
     // Items
     private final NamespacedKey pdcIsStoried = new NamespacedKey(CrystamaeHistoria.inst(), "is_s");
-    private final NamespacedKey pdcStories = new NamespacedKey(CrystamaeHistoria.inst(), "s_pot");
+    private final NamespacedKey pdcPotentialStories = new NamespacedKey(CrystamaeHistoria.inst(), "s_pot");
     private final NamespacedKey pdcCurrentNumberOfStories = new NamespacedKey(CrystamaeHistoria.inst(), "s_cur_n");
-    private final NamespacedKey pdcAppliedStoryList = new NamespacedKey(CrystamaeHistoria.inst(), "s_list");
+    private final NamespacedKey pdcStories = new NamespacedKey(CrystamaeHistoria.inst(), "s_list");
     private final NamespacedKey pdcStaveInstance = new NamespacedKey(CrystamaeHistoria.inst(), "stv");
     private final NamespacedKey pdcStaveLevel = new NamespacedKey(CrystamaeHistoria.inst(), "stv_lvl");
 

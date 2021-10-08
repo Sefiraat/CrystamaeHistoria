@@ -54,7 +54,7 @@ public class LiquefactionBasinCache extends AbstractCache {
             SlimefunItem slimefunItem = SlimefunItem.getByItem(item.getItemStack());
             if (slimefunItem instanceof Crystal) {
                 Crystal crystal = (Crystal) slimefunItem;
-                addCrystamae(crystal.getType(), crystal.getRarity());
+                addCrystamae(crystal.getType(), crystal.getRarity(), crystal.getAmount());
                 item.remove();
                 summonConsumeParticles();
             } else if (slimefunItem instanceof Plate) {
@@ -68,8 +68,8 @@ public class LiquefactionBasinCache extends AbstractCache {
     }
 
     @ParametersAreNonnullByDefault
-    private void addCrystamae(StoryType type, StoryRarity rarity) {
-        long amount = (long) LiquefactionBasinCache.RARITY_VALUE_MAP.get(rarity);
+    private void addCrystamae(StoryType type, StoryRarity rarity, int numberInStack) {
+        long amount = ((long) LiquefactionBasinCache.RARITY_VALUE_MAP.get(rarity) * numberInStack);
         if (contentMap.containsKey(type)) {
             contentMap.put(type, contentMap.get(type) + amount);
         } else {

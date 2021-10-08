@@ -13,6 +13,9 @@ public enum StoryRarity {
     UNIQUE(6);
 
     @Getter
+    public static final StoryRarity[] values = values();
+
+    @Getter
     private final int id;
 
     StoryRarity(int id) {
@@ -21,7 +24,7 @@ public enum StoryRarity {
 
     @Nullable
     public static StoryRarity getById(int id) {
-        for (StoryRarity storyRarity : values()) {
+        for (StoryRarity storyRarity : getValues()) {
             if (storyRarity.id == id) {
                 return storyRarity;
             }

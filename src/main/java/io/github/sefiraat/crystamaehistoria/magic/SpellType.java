@@ -49,6 +49,9 @@ public enum SpellType {
     KNOWLEDGE_SHARE("KNOWLEDGE_SHARE", new KnowledgeShare());
 
     @Getter
+    public static final SpellType[] values = values();
+
+    @Getter
     private final String id;
     @Getter
     private final Spell spell;

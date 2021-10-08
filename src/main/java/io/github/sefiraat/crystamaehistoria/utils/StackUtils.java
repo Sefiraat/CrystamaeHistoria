@@ -1,10 +1,8 @@
 package io.github.sefiraat.crystamaehistoria.utils;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.stories.Stories;
 import io.github.sefiraat.crystamaehistoria.stories.Story;
-import io.github.sefiraat.crystamaehistoria.stories.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import lombok.experimental.UtilityClass;
@@ -27,14 +25,9 @@ public class StackUtils {
         setName(itemStack, im);
         Validate.isTrue(PersistentDataAPI.hasBoolean(im, CrystamaeHistoria.getKeys().getPdcIsStoried()), "ItemStack is not storied and should not be having it's lore rebuilt");
         List<String> lore = new ArrayList<>();
-        JsonArray stories = StoryUtils.getAllStories(itemStack);
-        for (JsonElement jsonElement : stories) {
+        Stories stories = StoryUtils.getAllStories(itemStack);
+        for (Story story : stories.getStoryList()) {
             lore.add("");
-            String s = jsonElement.toString().replace("\"", "");
-            String[] storyProfile = s.split("\\|");
-            int storyId = Integer.parseInt(storyProfile[0]);
-            StoryRarity storyRarity = StoryRarity.valueOf(storyProfile[1]);
-            Story story = CrystamaeHistoria.getStoriesManager().getStory(storyId, storyRarity);
             lore.add(story.getDisplayName());
             lore.addAll(story.getStoryLore());
         }

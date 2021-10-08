@@ -1,9 +1,9 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar;
 
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.AbstractCache;
+import io.github.sefiraat.crystamaehistoria.stories.Stories;
+import io.github.sefiraat.crystamaehistoria.stories.Story;
 import io.github.sefiraat.crystamaehistoria.stories.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.StackUtils;
@@ -61,19 +61,15 @@ public class RealisationAltarCache extends AbstractCache {
     @ParametersAreNonnullByDefault
     private void processItem(ItemStack itemStack) {
         if (GeneralUtils.testChance(1, 5)) {
-            final JsonArray jsonArray = StoryUtils.getAllStories(itemStack);
+            final Stories stories = StoryUtils.getAllStories(itemStack);
             final int x = ThreadLocalRandom.current().nextInt(-3, 4);
             final int z = ThreadLocalRandom.current().nextInt(-3, 4);
             final Block potentialBlock = blockMenu.getBlock().getRelative(x, 0, z);
             if (potentialBlock.getType() == Material.AIR) {
-                JsonElement jsonElement = jsonArray.get(0);
-                String s = jsonElement.toString().replace("\"", "");
-                String[] storyProfile = s.split("\\|");
-                int storyId = Integer.parseInt(storyProfile[0]);
-                StoryRarity storyRarity = StoryRarity.valueOf(storyProfile[1]);
+                Story story = stories.getStoryList().get(0);
                 potentialBlock.setType(Material.SMALL_AMETHYST_BUD);
-                crystalStoryMap.put(new BlockPosition(potentialBlock.getLocation()).getPosition(), new Pair<>(storyRarity, storyId));
-                if (StoryUtils.removeStory(itemStack, jsonElement) == 0) {
+                crystalStoryMap.put(new BlockPosition(potentialBlock.getLocation()).getPosition(), new Pair<>(story.getRarity(), story.getId()));
+                if (StoryUtils.removeStory(itemStack, story) == 0) {
                     itemStack.setAmount(0);
                 } else {
                     StackUtils.rebuildStoriedStack(itemStack);

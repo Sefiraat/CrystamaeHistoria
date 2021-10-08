@@ -11,7 +11,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Arrays;
 import java.util.EnumMap;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
@@ -42,32 +41,12 @@ public class StoriesManager {
 
     @ParametersAreNonnullByDefault
     private static Story parseStory(ConfigurationSection sConf, StoryRarity rarity) {
-        String name = sConf.getString("name");
         String type = sConf.getString("type");
-        String author = sConf.getString("author");
         StoryType storyType = StoryType.valueOf(type.toUpperCase(Locale.ROOT));
-        List<Integer> spList = sConf.getIntegerList("shardprofile");
-        StoryShardProfile shardProfile = new StoryShardProfile(
-                spList.get(0),
-                spList.get(1),
-                spList.get(2),
-                spList.get(3),
-                spList.get(4),
-                spList.get(5),
-                spList.get(6),
-                spList.get(7),
-                spList.get(8)
-        );
-        List<String> lore = sConf.getStringList("lore");
-
         return new Story(
                 Integer.parseInt(sConf.getName()),
-                name,
-                rarity,
-                storyType,
-                shardProfile,
-                author,
-                lore.toArray(new String[0])
+                rarity.getId(),
+                storyType.getId()
         );
     }
 

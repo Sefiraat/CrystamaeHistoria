@@ -7,28 +7,28 @@ stories:
     1:
       name: Quiet Days
       type: Elemental
-      shardprofile: [ 1,0,1,1,0,0,0,0,0 ]
+      shards: [ 1,0,1,1,0,0,0,0,0 ]
       lore:
         - Present during the beginning of the world.
         - Everything was quiet and peaceful and serene.
     2:
       name: Everlasting
       type: Historical
-      shardprofile: [ 1,0,1,1,0,0,0,0,0 ]
+      shards: [ 1,0,1,1,0,0,0,0,0 ]
       lore:
         - Having seen the rise and fall over empires
         - this block is proven everlasting and resolute.
     3:
       name: Toil
       type: Human
-      shardprofile: [ 0,0,0,0,1,0,1,0,1 ]
+      shards: [ 0,0,0,0,1,0,1,0,1 ]
       lore:
         - Witness to the toil of poeple through the
         - ages, aiding where possible; a fruitless task.
     4:
       name: Good Life
       type: Philosophical
-      shardprofile: [ 0,0,0,0,1,0,0,0,2 ]
+      shards: [ 0,0,0,0,1,0,0,0,2 ]
       lore:
         - Unknowing of the meaning of a good life, this
         - block has questions in questions remaining unanswered.
@@ -36,14 +36,14 @@ stories:
     1:
       name: Quiet Days
       type: Elemental
-      shardprofile: [ 1,0,1,1,0,0,0,0,0 ]
+      shards: [ 1,0,1,1,0,0,0,0,0 ]
       lore:
         - Present during the beginning of the world.
         - Everything was quiet and peaceful and serene.
     2:
       name: Everlasting
       type: Historical
-      shardprofile: [ 1,0,1,1,0,0,0,0,0 ]
+      shards: [ 1,0,1,1,0,0,0,0,0 ]
       lore:
         - Having seen the rise and fall over empires
         - this block is proven everlasting and resolute.
@@ -51,14 +51,14 @@ stories:
     1:
       name: Quiet Days
       type: Elemental
-      shardprofile: [ 1,0,1,1,0,0,0,0,0 ]
+      shards: [ 1,0,1,1,0,0,0,0,0 ]
       lore:
         - Present during the beginning of the world.
         - Everything was quiet and peaceful and serene.
     2:
       name: Everlasting
       type: Historical
-      shardprofile: [ 1,0,1,1,0,0,0,0,0 ]
+      shards: [ 1,0,1,1,0,0,0,0,0 ]
       lore:
         - Having seen the rise and fall over empires
         - this block is proven everlasting and resolute.
@@ -66,14 +66,14 @@ stories:
     1:
       name: Quiet Days
       type: Elemental
-      shardprofile: [ 1,0,1,1,0,0,0,0,0 ]
+      shards: [ 1,0,1,1,0,0,0,0,0 ]
       lore:
         - Present during the beginning of the world.
         - Everything was quiet and peaceful and serene.
     2:
       name: Everlasting
       type: Historical
-      shardprofile: [ 1,0,1,1,0,0,0,0,0 ]
+      shards: [ 1,0,1,1,0,0,0,0,0 ]
       lore:
         - Having seen the rise and fall over empires
         - this block is proven everlasting and resolute.
@@ -81,14 +81,14 @@ stories:
     1:
       name: Quiet Days
       type: Elemental
-      shardprofile: [ 1,0,1,1,0,0,0,0,0 ]
+      shards: [ 1,0,1,1,0,0,0,0,0 ]
       lore:
         - Present during the beginning of the world.
         - Everything was quiet and peaceful and serene.
     2:
       name: Everlasting
       type: Historical
-      shardprofile: [ 1,0,1,1,0,0,0,0,0 ]
+      shards: [ 1,0,1,1,0,0,0,0,0 ]
       lore:
         - Having seen the rise and fall over empires
         - this block is proven everlasting and resolute.
@@ -96,14 +96,14 @@ stories:
     1:
       name: Resolute
       type: Elemental
-      shardprofile: [ 2,0,1,1,0,0,0,0,0 ]
+      shards: [ 2,0,1,1,0,0,0,0,0 ]
       lore:
         - Stone is the resolute backbone of the world's
         - makeup. Ever present and everlasting.
     2:
       name: Endless Potential
       type: Human
-      shardprofile: [ 0,1,0,0,2,0,1,0,1 ]
+      shards: [ 0,1,0,0,2,0,1,0,1 ]
       lore:
         - This table magically creates items with a
         - minimal amount of materials. How it works
