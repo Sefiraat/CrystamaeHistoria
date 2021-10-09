@@ -21,6 +21,8 @@ The Realisation Altar will take the stories that have been discovered on blocks 
 from them. This energy slowly begins to crystalize around the altar and, when fully matured, can be broken giving you
 magic in its physical form. The type of crystal you get is dependent on the type of story that was used to form it.
 
+<p align="center"><img width="900" height="486" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_realisation_altar.gif?raw=true"></p>
+
 ## The Liquefaction Basin
 
 One of the primary uses for magical crystals is the Liquefaction Basin. The Basin will take any crystals thrown into it
@@ -29,6 +31,8 @@ absorbed to create a magical artefact, the result being based on the types of Cr
 
 Be careful when using the basin though, a wrong recipe will ruin all your materials and, sometimes, have devastating
 effects.
+
+<p align="center"><img width="900" height="486" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_liquefaction_basin.gif?raw=true"></p>
 
 ## Magical Plates
 
