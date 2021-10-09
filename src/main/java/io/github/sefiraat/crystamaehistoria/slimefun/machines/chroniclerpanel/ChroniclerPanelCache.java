@@ -1,11 +1,11 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.machines.chroniclerpanel;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.animation.DisplayStand;
 import io.github.sefiraat.crystamaehistoria.runnables.animation.FloatingHeadAnimation;
 import io.github.sefiraat.crystamaehistoria.slimefun.AbstractCache;
 import io.github.sefiraat.crystamaehistoria.stories.StoriedBlockDefinition;
 import io.github.sefiraat.crystamaehistoria.utils.AnimateUtils;
+import io.github.sefiraat.crystamaehistoria.utils.ArmourStandUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.StackUtils;
 import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
@@ -13,22 +13,26 @@ import lombok.Getter;
 import lombok.Setter;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
+import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.entity.ArmorStand;
+import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Getter
 @Setter
 public class ChroniclerPanelCache extends AbstractCache {
 
-    private DisplayStand displayStand;
     @Nullable
     private Material workingOn;
     private boolean working;
@@ -43,16 +47,10 @@ public class ChroniclerPanelCache extends AbstractCache {
         if (workingOn != null) {
             setWorking(blockMenu.getBlock(), Material.valueOf(workingOn));
         }
-        displayStand = getDisplayStand(blockMenu.getBlock());
     }
 
     protected void process() {
         Block b = blockMenu.getBlock();
-
-        // Set up DisplayStand if empty (after restart)
-        if (displayStand == null) {
-            displayStand = getDisplayStand(b);
-        }
 
         ItemStack i = blockMenu.getItemInSlot(ChroniclerPanel.INPUT_SLOT);
 
@@ -67,7 +65,7 @@ public class ChroniclerPanelCache extends AbstractCache {
                 if (!working || workingOn != m) {
                     // Either not working or workingOn has changed
                     setWorking(b, m);
-                    displayStand.setDisplayItem(workingOn);
+                    ArmourStandUtils.setDisplayItem(getDisplayStand(), workingOn);
                 } else {
                     // Working with an item in slot while workingOn matches means we can process the item
                     processStack(i);
@@ -83,7 +81,7 @@ public class ChroniclerPanelCache extends AbstractCache {
     protected void shutdown() {
         if (working) {
             setNotWorking(blockMenu.getBlock());
-            displayStand.clearDisplayItem();
+            ArmourStandUtils.clearDisplayItem(getDisplayStand());
         }
     }
 
@@ -107,15 +105,14 @@ public class ChroniclerPanelCache extends AbstractCache {
         if (lightBlock.getType() == Material.AIR) {
             lightBlock.setType(Material.LIGHT);
         }
-        if (displayStand != null) {
-            startAnimation();
-        }
+        startAnimation();
         storiedBlockDefinition = CrystamaeHistoria.getStoriesManager().getStoriedBlockDefinitionMap().get(m);
     }
 
     private void startAnimation() {
-        AnimateUtils.panelAnimationReset(displayStand.getArmorStand(), blockMenu.getBlock());
-        animation = new FloatingHeadAnimation(displayStand.getArmorStand());
+        ArmorStand armourStand = getDisplayStand();
+        AnimateUtils.panelAnimationReset(armourStand, blockMenu.getBlock());
+        animation = new FloatingHeadAnimation(armourStand);
         animation.runTaskTimer(CrystamaeHistoria.inst(), 0, FloatingHeadAnimation.SPEED);
     }
 
@@ -131,7 +128,7 @@ public class ChroniclerPanelCache extends AbstractCache {
         if (animation != null) {
             animation.cancel();
         }
-        AnimateUtils.panelAnimationReset(displayStand.getArmorStand(), block);
+        AnimateUtils.panelAnimationReset(getDisplayStand(), block);
     }
 
     @ParametersAreNonnullByDefault
@@ -165,16 +162,38 @@ public class ChroniclerPanelCache extends AbstractCache {
 
     protected void kill() {
         setNotWorking(blockMenu.getBlock());
-        displayStand.kill();
+        getDisplayStand().remove();
+    }
+
+    protected World getWorld() {
+        return blockMenu.getLocation().getWorld();
+    }
+
+    protected Location getLocation() {
+        return blockMenu.getLocation().clone();
+    }
+
+    protected Location getLocation(boolean centered) {
+        if (centered) {
+            return getLocation().add(0.5, 0.5, 0.5);
+        } else {
+            return getLocation();
+        }
     }
 
     @ParametersAreNonnullByDefault
-    private DisplayStand getDisplayStand(Block block) {
-        DisplayStand stand = DisplayStand.get(block);
-        if (stand == null) {
-            stand = new DisplayStand(block);
+    private ArmorStand getDisplayStand() {
+        Block block = blockMenu.getBlock();
+        String uuidString = BlockStorage.getLocationInfo(getLocation(), "ch_display_stand");
+        if (uuidString != null) {
+            UUID uuid = UUID.fromString(uuidString);
+            return (ArmorStand) Bukkit.getEntity(uuid);
+        } else {
+            final ArmorStand armorStand = (ArmorStand) block.getWorld().spawnEntity(getLocation(true).add(0.5, -0.6, 0.5), EntityType.ARMOR_STAND);
+            ArmourStandUtils.setDisplay(armorStand);
+            BlockStorage.addBlockInfo(block.getLocation(), "ch_display_stand", armorStand.getUniqueId().toString());
+            return armorStand;
         }
-        return stand;
     }
 
 }

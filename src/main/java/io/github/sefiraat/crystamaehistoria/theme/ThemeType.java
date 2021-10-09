@@ -64,6 +64,33 @@ public enum ThemeType {
     private final String loreLine;
     private final Particle.DustOptions dustOptions;
 
+    /**
+     * List of names to be given to ArmourStands, invisible but mods and Minimaps can see them :)
+     */
+    @Nonnull
+    public static final List<String> EGG_NAMES = Arrays.asList(
+            "TheBusyBiscuit",
+            "Alessio",
+            "Walshy",
+            "Jeff",
+            "Seggan",
+            "BOOMER_1",
+            "svr333",
+            "variananora",
+            "ProfElements",
+            "Riley",
+            "FluffyBear",
+            "GallowsDove",
+            "Apeiros",
+            "Martin",
+            "Bunnky",
+            "ReasonFoundDecoy",
+            "Oah",
+            "Azak",
+            "andrewandy",
+            "EpicPlayer10"
+    );
+
     ThemeType(ChatColor chatColor, String loreLine, @Nullable Particle.DustOptions dustOptions) {
         this.chatColor = chatColor;
         this.loreLine = loreLine;
@@ -160,31 +187,6 @@ public enum ThemeType {
                 throw new IllegalStateException("Unexpected value: " + storyType);
         }
     }
-
-    /**
-     * List of names to be given to ArmourStands, invisible but mods and Minimaps can see them :)
-     */
-    @Nonnull
-    public static final List<String> EGG_NAMES = Arrays.asList(
-            "TheBusyBiscuit",
-            "Alessio",
-            "Walshy",
-            "Jeff",
-            "Seggan",
-            "BOOMER_1",
-            "svr333",
-            "variananora",
-            "ProfElements",
-            "Riley",
-            "FluffyBear",
-            "GallowsDove",
-            "Apeiros",
-            "Martin",
-            "Bunnky",
-            "ReasonFoundDecoy",
-            "Oah",
-            "Azak"
-    );
 
     /**
      * converts given string to Title Case

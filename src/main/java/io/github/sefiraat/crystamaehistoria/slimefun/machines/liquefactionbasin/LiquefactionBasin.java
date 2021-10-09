@@ -48,6 +48,7 @@ public class LiquefactionBasin extends TickingMenuBlock {
     @Override
     @ParametersAreNonnullByDefault
     protected void setup(BlockMenuPreset blockMenuPreset) {
+        // TODO Replace handler with method closing inv and displaying contents (if holding item)
         blockMenuPreset.addMenuOpeningHandler(HumanEntity::closeInventory);
         blockMenuPreset.drawBackground(BACKGROUND_SLOTS);
     }
@@ -84,7 +85,7 @@ public class LiquefactionBasin extends TickingMenuBlock {
         for (String key : c.getKeys()) {
             if (key.startsWith(LiquefactionBasinCache.CH_LEVEL_PREFIX)) {
                 String id = key.replace(LiquefactionBasinCache.CH_LEVEL_PREFIX, "");
-                long amount = Long.parseLong(c.getString(key));
+                int amount = Integer.parseInt(c.getString(key));
                 cache.getContentMap().put(StoryType.valueOf(id), amount);
             }
         }

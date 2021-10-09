@@ -25,7 +25,4 @@ public class Crystal extends UnplaceableBlock {
         this.rarity = rarity;
     }
 
-    public int getAmount() {
-        return this.getItem().getAmount();
-    }
 }
