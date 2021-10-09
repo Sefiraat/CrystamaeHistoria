@@ -2,7 +2,6 @@ package io.github.sefiraat.crystamaehistoria.slimefun.categories;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
-import io.github.sefiraat.crystamaehistoria.utils.ThemeUtils;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.NestedItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.SubItemGroup;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
@@ -15,19 +14,19 @@ public class ItemGroup {
 
     public final NestedItemGroup main = new NestedItemGroup(CrystamaeHistoria.getKeys().getCatMain(), new CustomItemStack(
             new ItemStack(Material.AMETHYST_CLUSTER),
-            ThemeUtils.getThemeColor(ThemeType.MAIN) + "Crystamae Historia"
+            ThemeType.MAIN.getChatColor() + "Crystamae Historia"
     ));
     public final SubItemGroup mechanisms = new SubItemGroup(CrystamaeHistoria.getKeys().getCatMechanical(), main, new CustomItemStack(
             new ItemStack(Material.DEEPSLATE_TILE_SLAB),
-            ThemeUtils.getThemeColor(ThemeType.MAIN) + "Historia Mechanisms"
+            ThemeType.MAIN.getChatColor() + "Historia Mechanisms"
     ));
     public final SubItemGroup crystals = new SubItemGroup(CrystamaeHistoria.getKeys().getCatCrystal(), main, new CustomItemStack(
             new ItemStack(Material.AMETHYST_CLUSTER),
-            ThemeUtils.getThemeColor(ThemeType.MAIN) + "Historia Crystals"
+            ThemeType.MAIN.getChatColor() + "Historia Crystals"
     ));
     public final SubItemGroup tools = new SubItemGroup(CrystamaeHistoria.getKeys().getCatTools(), main, new CustomItemStack(
             new ItemStack(Material.STICK),
-            ThemeUtils.getThemeColor(ThemeType.MAIN) + "Historia Staves and Tools"
+            ThemeType.MAIN.getChatColor() + "Historia Staves and Tools"
     ));
     private final CrystamaeHistoria plugin;
 

@@ -1,16 +1,16 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin;
 
+import io.github.sefiraat.crystamaehistoria.animation.DisplayStand;
 import io.github.sefiraat.crystamaehistoria.slimefun.AbstractCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plate.Plate;
-import io.github.sefiraat.crystamaehistoria.stories.StoryRarity;
-import io.github.sefiraat.crystamaehistoria.stories.StoryType;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import lombok.Getter;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import org.bukkit.Location;
-import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -24,6 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
 
+@Getter
 public class LiquefactionBasinCache extends AbstractCache {
 
     public static final Map<StoryRarity, Integer> RARITY_VALUE_MAP = new HashMap<>();
@@ -38,12 +39,13 @@ public class LiquefactionBasinCache extends AbstractCache {
         RARITY_VALUE_MAP.put(StoryRarity.UNIQUE, 2);
     }
 
-    @Getter
     private final Map<StoryType, Long> contentMap = new HashMap<>();
+    private final DisplayStand displayStand;
 
     @ParametersAreNonnullByDefault
     public LiquefactionBasinCache(BlockMenu blockMenu) {
         super(blockMenu);
+        this.displayStand = getDisplayStand(blockMenu.getBlock());
     }
 
     @ParametersAreNonnullByDefault
@@ -69,12 +71,13 @@ public class LiquefactionBasinCache extends AbstractCache {
 
     @ParametersAreNonnullByDefault
     private void addCrystamae(StoryType type, StoryRarity rarity, int numberInStack) {
-        long amount = ((long) LiquefactionBasinCache.RARITY_VALUE_MAP.get(rarity) * numberInStack);
+        long amount = (long) LiquefactionBasinCache.RARITY_VALUE_MAP.get(rarity) * numberInStack;
         if (contentMap.containsKey(type)) {
             contentMap.put(type, contentMap.get(type) + amount);
         } else {
             contentMap.put(type, amount);
         }
+        setHelmet();
     }
 
     @ParametersAreNonnullByDefault
@@ -86,8 +89,18 @@ public class LiquefactionBasinCache extends AbstractCache {
         } else {
             contentMap.put(type, contentMap.get(type) - amount);
         }
+        setHelmet();
     }
 
+    public void setHelmet() {
+        int amount;
+        long red;
+        long green;
+        long blue;
+        for (Map.Entry<StoryType, Long> entry : contentMap.entrySet()) {
+            //TODO
+        }
+    }
 
     public void syncBlock() {
         for (Map.Entry<StoryType, Long> e : contentMap.entrySet()) {
@@ -100,24 +113,8 @@ public class LiquefactionBasinCache extends AbstractCache {
     }
 
     private void summonConsumeParticles() {
-        final Location location = blockMenu.getLocation().clone().add(0.5, 1, 0.5);
+        final Location location = getLocation(true).add(0, 0.8, 0);
         location.getWorld().spawnParticle(Particle.CAMPFIRE_COSY_SMOKE, location, 0, 0.2, 0, 0.2, 0);
-    }
-
-    private void summonGrowParticles(Block block) {
-        final Location location = block.getLocation();
-        for (int i = 0; i < 5; i++) {
-            final Location l = location.clone().add(ThreadLocalRandom.current().nextDouble(0, 1.1), 0, ThreadLocalRandom.current().nextDouble(0, 1.1));
-            location.getWorld().spawnParticle(Particle.CRIMSON_SPORE, l, 0, 0.5, 0, 0.5, 0);
-        }
-    }
-
-    private void summonFullyGrownParticles(Block block) {
-        final Location location = block.getLocation();
-        for (int i = 0; i < 2; i++) {
-            final Location l = location.clone().add(ThreadLocalRandom.current().nextDouble(0, 1.1), 0, ThreadLocalRandom.current().nextDouble(0, 1.1));
-            location.getWorld().spawnParticle(Particle.BLOCK_CRACK, l, 0, 0.5, 0, 0.5, 0, Material.BUDDING_AMETHYST.createBlockData());
-        }
     }
 
     protected void kill(Location location) {
@@ -128,8 +125,25 @@ public class LiquefactionBasinCache extends AbstractCache {
         return blockMenu.getLocation().getWorld();
     }
 
+    protected Location getLocation(boolean centered) {
+        if (centered) {
+            return getLocation().add(0.5, 0.5, 0.5);
+        } else {
+            return getLocation();
+        }
+    }
+
     protected Location getLocation() {
-        return blockMenu.getLocation();
+        return blockMenu.getLocation().clone();
+    }
+
+    @ParametersAreNonnullByDefault
+    private DisplayStand getDisplayStand(Block block) {
+        DisplayStand stand = DisplayStand.get(block);
+        if (stand == null) {
+            stand = new DisplayStand(block);
+        }
+        return stand;
     }
 
 }

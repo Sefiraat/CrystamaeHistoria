@@ -21,7 +21,7 @@ public class TextUtils {
 
     @Nonnull
     public static String getLoreDivider() {
-        ChatColor c = ThemeUtils.getThemeColor(ThemeType.PASSIVE);
+        ChatColor c = ThemeType.PASSIVE.getChatColor();
         return c + StringUtils.repeat("-", 25);
     }
 

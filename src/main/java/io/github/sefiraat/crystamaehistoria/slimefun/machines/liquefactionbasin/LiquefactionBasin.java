@@ -1,8 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin;
 
 import io.github.mooy1.infinitylib.machines.TickingMenuBlock;
-import io.github.sefiraat.crystamaehistoria.stories.StoryType;
-import io.github.sefiraat.crystamaehistoria.theme.GUIElements;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
@@ -12,6 +11,7 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
+import org.bukkit.entity.HumanEntity;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -28,7 +28,6 @@ public class LiquefactionBasin extends TickingMenuBlock {
             12, 13, 14, 21, 23, 30, 31, 32
     };
     protected static final int INPUT_SLOT = 22;
-
     protected static final Map<Location, LiquefactionBasinCache> CACHE_MAP = new HashMap<>();
 
     @ParametersAreNonnullByDefault
@@ -49,8 +48,8 @@ public class LiquefactionBasin extends TickingMenuBlock {
     @Override
     @ParametersAreNonnullByDefault
     protected void setup(BlockMenuPreset blockMenuPreset) {
-        blockMenuPreset.drawBackground(GUIElements.menuBackground(), BACKGROUND_SLOTS);
-        blockMenuPreset.drawBackground(GUIElements.menuBackgroundInput(), BACKGROUND_INPUT);
+        blockMenuPreset.addMenuOpeningHandler(HumanEntity::closeInventory);
+        blockMenuPreset.drawBackground(BACKGROUND_SLOTS);
     }
 
     @Override

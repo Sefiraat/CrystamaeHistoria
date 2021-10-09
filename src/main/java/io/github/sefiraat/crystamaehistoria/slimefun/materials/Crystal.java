@@ -1,7 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.materials;
 
-import io.github.sefiraat.crystamaehistoria.stories.StoryRarity;
-import io.github.sefiraat.crystamaehistoria.stories.StoryType;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;

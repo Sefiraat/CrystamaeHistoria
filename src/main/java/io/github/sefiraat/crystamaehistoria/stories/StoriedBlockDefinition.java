@@ -1,5 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.stories;
 
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import lombok.Getter;
 
 import javax.annotation.ParametersAreNonnullByDefault;

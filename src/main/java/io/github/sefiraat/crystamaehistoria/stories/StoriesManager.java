@@ -2,6 +2,9 @@ package io.github.sefiraat.crystamaehistoria.stories;
 
 import io.github.mooy1.infinitylib.core.AddonConfig;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryChances;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import lombok.Getter;
 import org.apache.commons.lang.Validate;
 import org.bukkit.Material;
@@ -70,28 +73,30 @@ public class StoriesManager {
     }
 
     private void fillStories() {
-
         AddonConfig c = CrystamaeHistoria.inst().getConfig();
 
         ConfigurationSection common = c.getConfigurationSection("stories.common");
-        ConfigurationSection uncommon = c.getConfigurationSection("stories.uncommon");
-        ConfigurationSection rare = c.getConfigurationSection("stories.rare");
-        ConfigurationSection epic = c.getConfigurationSection("stories.epic");
-        ConfigurationSection mythical = c.getConfigurationSection("stories.mythical");
-        ConfigurationSection unique = c.getConfigurationSection("stories.unique");
-
         Validate.notNull(common, "COMMON story configuration is not found, changed or deleted.");
-        Validate.notNull(uncommon, "UNCOMMON story configuration is not found, changed or deleted.");
-        Validate.notNull(rare, "RARE story configuration is not found, changed or deleted.");
-        Validate.notNull(epic, "EPIC story configuration is not found, changed or deleted.");
-        Validate.notNull(mythical, "MYTHICAL story configuration is not found, changed or deleted.");
-        Validate.notNull(unique, "UNIQUE story configuration is not found, changed or deleted.");
-
         fillMap(storyMapCommon, common, StoryRarity.COMMON);
+
+        ConfigurationSection uncommon = c.getConfigurationSection("stories.uncommon");
+        Validate.notNull(uncommon, "UNCOMMON story configuration is not found, changed or deleted.");
         fillMap(storyMapUncommon, uncommon, StoryRarity.UNCOMMON);
+
+        ConfigurationSection rare = c.getConfigurationSection("stories.rare");
+        Validate.notNull(rare, "RARE story configuration is not found, changed or deleted.");
         fillMap(storyMapRare, rare, StoryRarity.RARE);
+
+        ConfigurationSection epic = c.getConfigurationSection("stories.epic");
+        Validate.notNull(epic, "EPIC story configuration is not found, changed or deleted.");
         fillMap(storyMapEpic, epic, StoryRarity.EPIC);
+
+        ConfigurationSection mythical = c.getConfigurationSection("stories.mythical");
+        Validate.notNull(mythical, "MYTHICAL story configuration is not found, changed or deleted.");
         fillMap(storyMapMythical, mythical, StoryRarity.MYTHICAL);
+
+        ConfigurationSection unique = c.getConfigurationSection("stories.unique");
+        Validate.notNull(unique, "UNIQUE story configuration is not found, changed or deleted.");
         fillMap(storyMapUnique, unique, StoryRarity.UNIQUE);
 
     }
@@ -100,7 +105,6 @@ public class StoriesManager {
     private void fillMap(Map<Integer, Story> map, ConfigurationSection section, StoryRarity rarity) {
         for (String s : section.getKeys(false)) {
             Story story = parseStory(section.getConfigurationSection(s), rarity);
-            Validate.notNull(story, "wut ._.");
             map.put(Integer.parseInt(s), story);
         }
     }

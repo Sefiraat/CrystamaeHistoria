@@ -1,5 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.stories;
 
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryChances;
+
 import javax.annotation.ParametersAreNonnullByDefault;
 
 public class BlockTier {

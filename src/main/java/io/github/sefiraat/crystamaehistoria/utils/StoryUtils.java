@@ -6,11 +6,11 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.stories.BlockTier;
 import io.github.sefiraat.crystamaehistoria.stories.PersistentStoryDataType;
 import io.github.sefiraat.crystamaehistoria.stories.StoriedBlockDefinition;
-import io.github.sefiraat.crystamaehistoria.stories.Stories;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.stories.Story;
-import io.github.sefiraat.crystamaehistoria.stories.StoryChances;
-import io.github.sefiraat.crystamaehistoria.stories.StoryType;
+import io.github.sefiraat.crystamaehistoria.stories.StoryList;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryChances;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import lombok.experimental.UtilityClass;
 import org.apache.commons.lang.Validate;
@@ -106,7 +106,7 @@ public class StoryUtils {
     }
 
     /**
-     * Sets the ItemStack's PDC Stories
+     * Sets the ItemStack's PDC StoryList
      *
      * @param itemMeta   The {@link ItemMeta} to add the PDC element to
      * @param jsonObject The {@link JsonObject} to add to the PDC
@@ -117,7 +117,7 @@ public class StoryUtils {
     }
 
     /**
-     * Gets the Item's max number of Stories
+     * Gets the Item's max number of StoryList
      *
      * @param itemStack The {@link ItemStack} to add the PDC element to
      */
@@ -127,7 +127,7 @@ public class StoryUtils {
     }
 
     /**
-     * Gets the ItemStack's current number of Stories
+     * Gets the ItemStack's current number of StoryList
      *
      * @param itemMeta The {@link ItemMeta} to get the count from
      */
@@ -137,7 +137,7 @@ public class StoryUtils {
     }
 
     /**
-     * Sets the ItemStack's current number of Stories
+     * Sets the ItemStack's current number of StoryList
      *
      * @param itemStack The {@link ItemStack} to add the PDC element to
      * @param amount    The amount of stories to set
@@ -154,7 +154,7 @@ public class StoryUtils {
     }
 
     /**
-     * Sets the ItemStack's current number of Stories
+     * Sets the ItemStack's current number of StoryList
      *
      * @param itemStack The {@link ItemStack} to increment the story amount
      */
@@ -245,31 +245,31 @@ public class StoryUtils {
 
     @ParametersAreNonnullByDefault
     public static @Nullable
-    Stories getAllStories(ItemStack itemStack) {
+    StoryList getAllStories(ItemStack itemStack) {
         return itemStack.getItemMeta().getPersistentDataContainer().get(CrystamaeHistoria.getKeys().getPdcStories(), PersistentStoryDataType.TYPE);
     }
 
     @ParametersAreNonnullByDefault
     public static void applyStory(ItemStack itemStack, Story story) {
         final ItemMeta im = itemStack.getItemMeta();
-        Stories stories = getAllStories(itemStack);
-        if (stories == null) {
-            stories = new Stories();
+        StoryList storyList = getAllStories(itemStack);
+        if (storyList == null) {
+            storyList = new StoryList();
         }
-        stories.getStoryList().add(story);
-        im.getPersistentDataContainer().set(CrystamaeHistoria.getKeys().getPdcStories(), PersistentStoryDataType.TYPE, stories);
+        storyList.getStoryList().add(story);
+        im.getPersistentDataContainer().set(CrystamaeHistoria.getKeys().getPdcStories(), PersistentStoryDataType.TYPE, storyList);
         itemStack.setItemMeta(im);
     }
 
     @ParametersAreNonnullByDefault
     public static int removeStory(ItemStack itemStack, Story story) {
         final ItemMeta im = itemStack.getItemMeta();
-        final Stories stories = getAllStories(itemStack);
-        Validate.notNull(stories, "No stories found when trying to remove.");
-        stories.getStoryList().remove(story);
-        im.getPersistentDataContainer().set(CrystamaeHistoria.getKeys().getPdcStories(), PersistentStoryDataType.TYPE, stories);
+        final StoryList storyList = getAllStories(itemStack);
+        Validate.notNull(storyList, "No storyList found when trying to remove.");
+        storyList.getStoryList().remove(story);
+        im.getPersistentDataContainer().set(CrystamaeHistoria.getKeys().getPdcStories(), PersistentStoryDataType.TYPE, storyList);
         itemStack.setItemMeta(im);
-        return stories.getStoryList().size();
+        return storyList.getStoryList().size();
     }
 
 

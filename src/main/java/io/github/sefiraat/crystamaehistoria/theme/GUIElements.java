@@ -1,6 +1,5 @@
 package io.github.sefiraat.crystamaehistoria.theme;
 
-import io.github.sefiraat.crystamaehistoria.utils.ThemeUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import lombok.experimental.UtilityClass;
 import net.md_5.bungee.api.ChatColor;
@@ -47,19 +46,19 @@ public class GUIElements {
         return new CustomItemStack(
                 Material.RED_STAINED_GLASS_PANE,
                 ChatColor.BLUE + "No block being chronicled.",
-                ThemeUtils.getThemeColor(ThemeType.PASSIVE) + "Place a block above the Chronicler to start."
+                ThemeType.PASSIVE.getChatColor() + "Place a block above the Chronicler to start."
         );
     }
 
     @ParametersAreNonnullByDefault
     public static CustomItemStack menuChroniclerBlockDisplay(Material material) {
-        ChatColor colorPassive = ThemeUtils.getThemeColor(ThemeType.PASSIVE);
+        ChatColor colorPassive = ThemeType.PASSIVE.getChatColor();
         return new CustomItemStack(
                 material,
                 ChatColor.BLUE + "Chronicling Block",
                 colorPassive + "This block is being chronicled.",
                 colorPassive + "",
-                colorPassive + "Stories discovered:"
+                colorPassive + "StoryList discovered:"
         );
     }
 

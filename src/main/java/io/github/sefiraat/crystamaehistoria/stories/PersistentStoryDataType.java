@@ -17,9 +17,9 @@ import javax.annotation.Nonnull;
  *
  */
 
-public class PersistentStoryDataType implements PersistentDataType<int[], Stories> {
+public class PersistentStoryDataType implements PersistentDataType<int[], StoryList> {
 
-    public static final PersistentDataType<int[], Stories> TYPE = new PersistentStoryDataType();
+    public static final PersistentDataType<int[], StoryList> TYPE = new PersistentStoryDataType();
 
     @Override
     public @Nonnull
@@ -29,37 +29,37 @@ public class PersistentStoryDataType implements PersistentDataType<int[], Storie
 
     @Override
     public @Nonnull
-    Class<Stories> getComplexType() {
-        return Stories.class;
+    Class<StoryList> getComplexType() {
+        return StoryList.class;
     }
 
     @Override
     public @Nonnull
-    int[] toPrimitive(@Nonnull Stories complex, @Nonnull PersistentDataAdapterContext context) {
+    int[] toPrimitive(@Nonnull StoryList complex, @Nonnull PersistentDataAdapterContext context) {
         return toIntArray(complex);
     }
 
     @Override
     public @Nonnull
-    Stories fromPrimitive(@Nonnull int[] primitive, @Nonnull PersistentDataAdapterContext context) {
+    StoryList fromPrimitive(@Nonnull int[] primitive, @Nonnull PersistentDataAdapterContext context) {
         return fromIntArray(primitive);
     }
 
     public static @Nonnull
-    Stories fromIntArray(@Nonnull int[] ints) {
+    StoryList fromIntArray(@Nonnull int[] ints) {
         Validate.notNull(ints, "The provided integer array cannot be null!");
-        Stories stories = new Stories();
+        StoryList storyList = new StoryList();
         for (int i = 0; i < ints.length - 1; i = i + 3) {
             int[] subInts = ArrayUtils.subarray(ints, i, i + 3);
-            stories.getStoryList().add(new Story(subInts));
+            storyList.getStoryList().add(new Story(subInts));
         }
-        return stories;
+        return storyList;
     }
 
     public static @Nonnull
-    int[] toIntArray(@Nonnull Stories stories) {
-        Validate.notNull(stories, "The provided story cannot be null!");
-        return stories.toPrimitive();
+    int[] toIntArray(@Nonnull StoryList storyList) {
+        Validate.notNull(storyList, "The provided story cannot be null!");
+        return storyList.toPrimitive();
     }
 
 }

@@ -1,9 +1,9 @@
 package io.github.sefiraat.crystamaehistoria.animation;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.utils.Keys;
-import io.github.sefiraat.crystamaehistoria.utils.ThemeUtils;
+import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
 import io.github.sefiraat.crystamaehistoria.utils.WorldUtils;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import lombok.Getter;
 import org.bukkit.Material;
@@ -21,22 +21,22 @@ public class DisplayStand {
     @Getter
     private final ArmorStand armorStand;
     @Getter
-    private final String name;
+    private final long identifier;
 
     @ParametersAreNonnullByDefault
     public DisplayStand(ArmorStand armorStand) {
         this.armorStand = armorStand;
-        this.name = getDisplayStandName(armorStand);
+        this.identifier = getDisplayStandName(armorStand);
     }
 
     @ParametersAreNonnullByDefault
     public DisplayStand(Block block) {
-        String identifier = generateStandName(block);
+        long identifier = BlockPosition.getAsLong(block.getLocation());
         ArmorStand stand = (ArmorStand) block.getWorld().spawnEntity(block.getLocation().clone().add(0.5, -0.6, 0.5), EntityType.ARMOR_STAND);
         DisplayStand.setDisplayStandName(stand, identifier);
         setDisplayOnly(stand);
         this.armorStand = stand;
-        this.name = identifier;
+        this.identifier = identifier;
     }
 
     @Nullable
@@ -56,14 +56,13 @@ public class DisplayStand {
     }
 
     @ParametersAreNonnullByDefault
-    public static void setDisplayStandName(ArmorStand a, String s) {
-        PersistentDataAPI.setString(a, CrystamaeHistoria.getKeys().getPdcArmourStandName(), s);
+    public static void setDisplayStandName(ArmorStand a, long n) {
+        PersistentDataAPI.setLong(a, CrystamaeHistoria.getKeys().getPdcArmourStandName(), n);
     }
 
-    @Nullable
     @ParametersAreNonnullByDefault
-    public static String getDisplayStandName(ArmorStand a) {
-        return PersistentDataAPI.getString(a, CrystamaeHistoria.getKeys().getPdcArmourStandName());
+    public static long getDisplayStandName(ArmorStand a) {
+        return PersistentDataAPI.getLong(a, CrystamaeHistoria.getKeys().getPdcArmourStandName());
     }
 
     @ParametersAreNonnullByDefault
@@ -85,7 +84,7 @@ public class DisplayStand {
         a.setRemoveWhenFarAway(false);
         a.setCollidable(false);
         a.setInvulnerable(true);
-        a.setCustomName(ThemeUtils.getRandomEggName());
+        a.setCustomName(ThemeType.getRandomEggName());
         setDisplayStand(a);
     }
 
@@ -100,11 +99,6 @@ public class DisplayStand {
 
     public void clearDisplayItem() {
         this.armorStand.getEquipment().setHelmet(null);
-    }
-
-    @ParametersAreNonnullByDefault
-    private String generateStandName(Block block) {
-        return Keys.PANEL_STAND_PREFIX + block.getX() + "|" + block.getY() + "|" + block.getZ();
     }
 
 }

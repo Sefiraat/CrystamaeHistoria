@@ -24,26 +24,16 @@ import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.concurrent.ThreadLocalRandom;
 
+@Getter
+@Setter
 public class ChroniclerPanelCache extends AbstractCache {
 
-    @Getter
-    @Setter
     private DisplayStand displayStand;
     @Nullable
-    @Getter
-    @Setter
     private Material workingOn;
-    @Getter
-    @Setter
     private boolean working;
-    @Getter
-    @Setter
     private StoriedBlockDefinition storiedBlockDefinition;
-    @Getter
-    @Setter
     private FloatingHeadAnimation animation;
-    @Getter
-    @Setter
     private Location blockMiddle;
 
     @ParametersAreNonnullByDefault

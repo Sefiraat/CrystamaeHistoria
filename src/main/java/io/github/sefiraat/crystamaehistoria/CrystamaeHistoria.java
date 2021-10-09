@@ -5,7 +5,6 @@ import io.github.sefiraat.crystamaehistoria.commands.TestSpell;
 import io.github.sefiraat.crystamaehistoria.magic.ActiveStorage;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.managers.ListenerManager;
-import io.github.sefiraat.crystamaehistoria.managers.ThemeManager;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTick;
 import io.github.sefiraat.crystamaehistoria.slimefun.Structure;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
@@ -26,7 +25,6 @@ public class CrystamaeHistoria extends AbstractAddon {
     private static CrystamaeHistoria instance;
 
     private Keys keys;
-    private ThemeManager themeManager;
     private Structure structure;
     private ListenerManager listenerManager;
     private StoriesManager storiesManager;
@@ -43,10 +41,6 @@ public class CrystamaeHistoria extends AbstractAddon {
 
     public static Keys getKeys() {
         return instance.keys;
-    }
-
-    public static ThemeManager getThemeManager() {
-        return instance.themeManager;
     }
 
     public static Structure getStructure() {
@@ -117,7 +111,6 @@ public class CrystamaeHistoria extends AbstractAddon {
         getLogger().info("########################################");
 
         this.keys = new Keys();
-        this.themeManager = new ThemeManager();
         this.structure = new Structure();
         this.listenerManager = new ListenerManager();
         this.storiesManager = new StoriesManager();

@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.stories;
+package io.github.sefiraat.crystamaehistoria.stories.definition;
 
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import org.bukkit.Location;

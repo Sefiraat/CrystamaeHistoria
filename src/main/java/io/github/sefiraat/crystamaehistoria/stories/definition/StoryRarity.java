@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.stories;
+package io.github.sefiraat.crystamaehistoria.stories.definition;
 
 import lombok.Getter;
 

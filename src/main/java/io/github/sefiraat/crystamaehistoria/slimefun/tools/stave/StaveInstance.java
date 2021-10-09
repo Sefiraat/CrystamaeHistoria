@@ -8,7 +8,6 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
 import io.github.sefiraat.crystamaehistoria.utils.TextUtils;
-import io.github.sefiraat.crystamaehistoria.utils.ThemeUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -99,7 +98,7 @@ public class StaveInstance {
                 if (timeNow > nextCast) {
                     CastInformation castInformation = new CastInformation(player, stave.getLevel());
                     spellType.getSpell().castSpell(castInformation);
-                    player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ThemeUtils.getThemeColor(ThemeType.CAST) + "Casting Spell : " + ThemeUtils.getThemeColor(ThemeType.PASSIVE) + TextUtils.toTitleCase(spellType.getId())));
+                    player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ThemeType.CAST.getChatColor() + "Casting Spell : " + ThemeType.PASSIVE.getChatColor() + TextUtils.toTitleCase(spellType.getId())));
                     long cooldown = spellType.getSpell().getCooldown(castInformation);
                     CrystamaeHistoria.logWarning("CD: " + cooldown);
                     long nextCastTime = System.currentTimeMillis() + (cooldown * 1000L);
@@ -108,10 +107,10 @@ public class StaveInstance {
                     save();
                 } else {
                     double timeLeftSec = (double) ((nextCast - timeNow) / 1000L);
-                    player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ThemeUtils.getThemeColor(ThemeType.WARNING) + "Spell on cooldown : " + timeLeftSec + "s remaining."));
+                    player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ThemeType.WARNING.getChatColor() + "Spell on cooldown : " + timeLeftSec + "s remaining."));
                 }
             } else {
-                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ThemeUtils.getThemeColor(ThemeType.WARNING) + "No spell in slot : " + spellSlot.name()));
+                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ThemeType.WARNING.getChatColor() + "No spell in slot : " + spellSlot.name()));
             }
         }
     }

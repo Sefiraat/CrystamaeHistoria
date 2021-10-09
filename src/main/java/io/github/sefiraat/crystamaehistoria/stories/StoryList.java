@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Getter
-public class Stories {
+public class StoryList {
 
     @Getter
     private final List<Story> storyList = new ArrayList<>();

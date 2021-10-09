@@ -2,8 +2,8 @@ package io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.stories.Story;
-import io.github.sefiraat.crystamaehistoria.stories.StoryRarity;
-import io.github.sefiraat.crystamaehistoria.stories.StoryShardProfile;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryShardProfile;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import org.bukkit.Material;

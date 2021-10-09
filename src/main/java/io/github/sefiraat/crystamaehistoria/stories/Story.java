@@ -2,8 +2,10 @@ package io.github.sefiraat.crystamaehistoria.stories;
 
 import io.github.mooy1.infinitylib.core.AddonConfig;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryShardProfile;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
-import io.github.sefiraat.crystamaehistoria.utils.ThemeUtils;
 import lombok.Getter;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -19,17 +21,24 @@ import java.util.Locale;
 public class Story {
 
     private final int id;
-    private @Nonnull final String name;
-    private @Nullable final String author;
-    private @Nonnull final StoryRarity rarity;
-    private @Nonnull final StoryType type;
-    private @Nonnull final StoryShardProfile storyShardProfile;
-    private @Nonnull final List<String> storyStrings;
+    @Nonnull
+    private final String name;
+    @Nullable
+    private final String author;
+    @Nonnull
+    private final StoryRarity rarity;
+    @Nonnull
+    private final StoryType type;
+    @Nonnull
+    private final StoryShardProfile storyShardProfile;
+    @Nonnull
+    private final List<String> storyStrings;
 
     @ParametersAreNonnullByDefault
     public Story(int[] ints) {
         this(ints[0], ints[1], ints[2]);
     }
+
     @ParametersAreNonnullByDefault
     public Story(int id, int rarity, int type) {
         this.id = id;
@@ -51,14 +60,14 @@ public class Story {
         final TextComponent rarity = new TextComponent(getDisplayRarity());
         final TextComponent name = new TextComponent(this.name);
 
-        rarity.setColor(ThemeUtils.getRarityTheme(this.rarity).getThemeColor());
+        rarity.setColor(ThemeType.getByRarity(this.rarity).getChatColor());
         rarity.setBold(true);
-        name.setColor(ThemeUtils.getThemeColor(ThemeType.CLICK_INFO));
+        name.setColor(ThemeType.CLICK_INFO.getChatColor());
         return TextComponent.toLegacyText(rarity, name);
     }
 
     public List<String> getStoryLore() {
-        final ChatColor passive = ThemeUtils.getThemeColor(ThemeType.PASSIVE);
+        final ChatColor passive = ThemeType.PASSIVE.getChatColor();
         final List<String> l = new ArrayList<>();
 
         for (String s : storyStrings) {
@@ -69,7 +78,7 @@ public class Story {
             l.add(TextComponent.toLegacyText(line));
         }
         if (author != null) {
-            l.add(ThemeUtils.getThemeColor(ThemeType.NOTICE) + "Author : " + author);
+            l.add(ThemeType.NOTICE.getChatColor() + "Author : " + author);
         }
         return l;
     }

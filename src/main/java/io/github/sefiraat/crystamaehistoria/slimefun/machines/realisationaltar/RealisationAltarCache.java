@@ -2,9 +2,9 @@ package io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.AbstractCache;
-import io.github.sefiraat.crystamaehistoria.stories.Stories;
 import io.github.sefiraat.crystamaehistoria.stories.Story;
-import io.github.sefiraat.crystamaehistoria.stories.StoryRarity;
+import io.github.sefiraat.crystamaehistoria.stories.StoryList;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.StackUtils;
 import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
@@ -61,12 +61,12 @@ public class RealisationAltarCache extends AbstractCache {
     @ParametersAreNonnullByDefault
     private void processItem(ItemStack itemStack) {
         if (GeneralUtils.testChance(1, 5)) {
-            final Stories stories = StoryUtils.getAllStories(itemStack);
+            final StoryList storyList = StoryUtils.getAllStories(itemStack);
             final int x = ThreadLocalRandom.current().nextInt(-3, 4);
             final int z = ThreadLocalRandom.current().nextInt(-3, 4);
             final Block potentialBlock = blockMenu.getBlock().getRelative(x, 0, z);
             if (potentialBlock.getType() == Material.AIR) {
-                Story story = stories.getStoryList().get(0);
+                Story story = storyList.getStoryList().get(0);
                 potentialBlock.setType(Material.SMALL_AMETHYST_BUD);
                 crystalStoryMap.put(new BlockPosition(potentialBlock.getLocation()).getPosition(), new Pair<>(story.getRarity(), story.getId()));
                 if (StoryUtils.removeStory(itemStack, story) == 0) {
@@ -143,25 +143,22 @@ public class RealisationAltarCache extends AbstractCache {
     private void summonConsumeParticles(Block block) {
         final Location location = block.getLocation();
         for (int i = 0; i < 2; i++) {
-            final Location l = location.clone().add(ThreadLocalRandom.current().nextDouble(0, 1.1), 1, ThreadLocalRandom.current().nextDouble(0, 1.1));
+            final Location l = location.clone().add(0.5, 1, 0.5);
             location.getWorld().spawnParticle(Particle.FLASH, l, 0, 0.2, 0, 0.2, 0);
         }
     }
 
     private void summonGrowParticles(Block block) {
         final Location location = block.getLocation();
-        for (int i = 0; i < 5; i++) {
-            final Location l = location.clone().add(ThreadLocalRandom.current().nextDouble(0, 1.1), 0, ThreadLocalRandom.current().nextDouble(0, 1.1));
-            location.getWorld().spawnParticle(Particle.CRIMSON_SPORE, l, 0, 0.5, 0, 0.5, 0);
-        }
+        final Location l = location.clone().add(0.5, 0.22, 0.5);
+        location.getWorld().spawnParticle(Particle.CRIMSON_SPORE, l, 0, 0.5, 0, 0.5, 0);
+        location.getWorld().spawnParticle(Particle.SPORE_BLOSSOM_AIR, l, 0, 0.5, 0, 0.5, 0);
     }
 
     private void summonFullyGrownParticles(Block block) {
         final Location location = block.getLocation();
-        for (int i = 0; i < 2; i++) {
-            final Location l = location.clone().add(ThreadLocalRandom.current().nextDouble(0, 1.1), 0, ThreadLocalRandom.current().nextDouble(0, 1.1));
-            location.getWorld().spawnParticle(Particle.BLOCK_CRACK, l, 0, 0.5, 0, 0.5, 0, Material.BUDDING_AMETHYST.createBlockData());
-        }
+        final Location l = location.clone().add(0.5, 0, 0.5);
+        location.getWorld().spawnParticle(Particle.BLOCK_CRACK, l, 0, 0.5, 0, 0.5, 0, Material.BUDDING_AMETHYST.createBlockData());
     }
 
     protected void kill() {

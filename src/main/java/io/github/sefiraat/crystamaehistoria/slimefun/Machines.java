@@ -5,7 +5,6 @@ import io.github.sefiraat.crystamaehistoria.slimefun.machines.chroniclerpanel.Ch
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.LiquefactionBasin;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar.RealisationAltar;
 import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
-import io.github.sefiraat.crystamaehistoria.utils.ThemeUtils;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import org.bukkit.Material;
@@ -27,7 +26,7 @@ public class Machines {
     public void setup() {
         new ChroniclerPanel(
                 parent.getItemGroup().mechanisms,
-                ThemeUtils.themedSlimefunItemStack(
+                ThemeType.themeStack(
                         "CRY_CHRONICLER_PANEL_1",
                         new ItemStack(Material.DEEPSLATE_TILE_SLAB),
                         ThemeType.MECHANISM,
@@ -45,7 +44,7 @@ public class Machines {
         ).register(plugin);
         new RealisationAltar(
                 parent.getItemGroup().mechanisms,
-                ThemeUtils.themedSlimefunItemStack(
+                ThemeType.themeStack(
                         "CRY_REALISATION_ALTAR_1",
                         new ItemStack(Material.CHISELED_DEEPSLATE),
                         ThemeType.MECHANISM,
@@ -63,7 +62,7 @@ public class Machines {
         ).register(plugin);
         new LiquefactionBasin(
                 parent.getItemGroup().mechanisms,
-                ThemeUtils.themedSlimefunItemStack(
+                ThemeType.themeStack(
                         "CRY_LIQUEFACTION_BASIN_1",
                         new ItemStack(Material.CAULDRON),
                         ThemeType.MECHANISM,
