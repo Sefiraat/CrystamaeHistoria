@@ -210,7 +210,7 @@ public class LiquefactionBasinCache extends AbstractCache {
             UUID uuid = UUID.fromString(uuidString);
             return (ArmorStand) Bukkit.getEntity(uuid);
         } else {
-            final ArmorStand armorStand = (ArmorStand) block.getWorld().spawnEntity(getLocation(true).add(0.5, -1.7, 0.5), EntityType.ARMOR_STAND);
+            final ArmorStand armorStand = (ArmorStand) block.getWorld().spawnEntity(getLocation().add(0.5, -1.7, 0.5), EntityType.ARMOR_STAND);
             ArmourStandUtils.setDisplay(armorStand);
             BlockStorage.addBlockInfo(block.getLocation(), "ch_display_stand", armorStand.getUniqueId().toString());
             return armorStand;
