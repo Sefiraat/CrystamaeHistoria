@@ -50,14 +50,14 @@ public enum ThemeType {
     RARITY_EPIC(ChatColor.of("#b355d9"), "Epic", null),
     RARITY_MYTHICAL(ChatColor.of("#c42336"), "Mythical", null),
     RARITY_UNIQUE(ChatColor.of("#b35f12"), "Unique", null),
-    TYPE_ELEMENTAL(ChatColor.of("#34e8eb"), "Elemental", null),
-    TYPE_MECHANICAL(ChatColor.of("#6e8485"), "Mechanical", null),
-    TYPE_ALCHEMICAL(ChatColor.of("#ac47b5"), "Alchemical", null),
-    TYPE_HISTORICAL(ChatColor.of("#52411c"), "Historical", null),
-    TYPE_HUMAN(ChatColor.of("#c2cc50"), "Human", null),
-    TYPE_ANIMAL(ChatColor.of("#991c33"), "Animal", null),
-    TYPE_CELESTIAL(ChatColor.of("#e8d9b5"), "Celestial", null),
-    TYPE_VOID(ChatColor.of("#2b2820"), "Void", null),
+    TYPE_ELEMENTAL(ChatColor.of("#ba0000"), "Elemental", null),
+    TYPE_MECHANICAL(ChatColor.of("#ba5d00"), "Mechanical", null),
+    TYPE_ALCHEMICAL(ChatColor.of("#e5e81a"), "Alchemical", null),
+    TYPE_HISTORICAL(ChatColor.of("#24e81a"), "Historical", null),
+    TYPE_HUMAN(ChatColor.of("#201ae8"), "Human", null),
+    TYPE_ANIMAL(ChatColor.of("#701ae8"), "Animal", null),
+    TYPE_CELESTIAL(ChatColor.of("#ffffff"), "Celestial", null),
+    TYPE_VOID(ChatColor.of("#000000"), "Void", null),
     TYPE_PHILOSOPHICAL(ChatColor.of("#4d4aa8"), "Philosophical", null);
 
     private final ChatColor chatColor;
