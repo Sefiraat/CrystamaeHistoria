@@ -19,11 +19,11 @@ public class Keys {
     // Misc
     public static final String PANEL_STAND_PREFIX = "CH_PANEL_";
 
-    // ItemGroup
+    // ItemGroups
     private final NamespacedKey catMain = new NamespacedKey(CrystamaeHistoria.inst(), "main");
     private final NamespacedKey catMechanical = new NamespacedKey(CrystamaeHistoria.inst(), "mech");
     private final NamespacedKey catCrystal = new NamespacedKey(CrystamaeHistoria.inst(), "crystal");
-    private final NamespacedKey catTools = new NamespacedKey(CrystamaeHistoria.inst(), "tools");
+    private final NamespacedKey catTools = new NamespacedKey(CrystamaeHistoria.inst(), "TOOLS");
 
     // Recipe Types
     private final NamespacedKey realisationDummyCrystal = new NamespacedKey(CrystamaeHistoria.inst(), "r_d_c");

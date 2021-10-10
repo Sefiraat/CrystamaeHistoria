@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.slimefun.categories.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.Stave;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
@@ -22,7 +23,7 @@ public class Tools {
 
     public void setup() {
         SlimefunItemStack stave1 = new SlimefunItemStack("CRY_STAVE_1", Material.STICK, "Stave 1", "DUMMY");
-        new Stave(parent.getItemGroup().tools,
+        new Stave(ItemGroups.TOOLS,
                 stave1,
                 RecipeType.SMELTERY,
                 new ItemStack[]{},

@@ -1,6 +1,6 @@
 name: CrystamaeHistoria
 author: Sefiraat
-description: A magical addon with a Technical vibe allowing for automatic procudction of most things and adding cool new tools!
+description: A magical addon with a Technical vibe allowing for automatic procudction of most things and adding cool new TOOLS!
 main: io.github.sefiraat.crystamaehistoria.CrystamaeHistoria
 website: https://github.com/Sefiraat/CrystamaeHistoria
 version: ${project.version}

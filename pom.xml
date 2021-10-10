@@ -51,12 +51,23 @@
                             <pattern>org.bstats</pattern>
                             <shadedPattern>io.github.sefiraat.crystamaehistoria.bstats</shadedPattern>
                         </relocation>
+                        <relocation>
+                            <pattern>de.slikey</pattern>
+                            <shadedPattern>io.github.sefiraat.crystamaehistoria.slikey</shadedPattern>
+                        </relocation>
                     </relocations>
                     <filters>
                         <filter>
                             <artifact>*:*</artifact>
                             <excludes>
                                 <exclude>META-INF/*</exclude>
+                            </excludes>
+                        </filter>
+                        <filter>
+                            <artifact>com.elmakers.mine.bukkit:EffectLib</artifact>
+                            <excludes>
+                                <exclude>plugin.yml</exclude>
+                                <exclude>META-INF/MANIFEST.MF</exclude>
                             </excludes>
                         </filter>
                     </filters>
@@ -126,6 +137,12 @@
             <artifactId>lombok</artifactId>
             <version>1.18.20</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.elmakers.mine.bukkit</groupId>
+            <artifactId>EffectLib</artifactId>
+            <version>9.3</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

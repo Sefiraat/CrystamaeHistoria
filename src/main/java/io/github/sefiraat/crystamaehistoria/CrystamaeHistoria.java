@@ -1,9 +1,11 @@
 package io.github.sefiraat.crystamaehistoria;
 
+import de.slikey.effectlib.EffectManager;
 import io.github.mooy1.infinitylib.core.AbstractAddon;
 import io.github.sefiraat.crystamaehistoria.commands.TestSpell;
 import io.github.sefiraat.crystamaehistoria.magic.ActiveStorage;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.managers.ListenerManager;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTick;
 import io.github.sefiraat.crystamaehistoria.slimefun.Structure;
@@ -28,6 +30,7 @@ public class CrystamaeHistoria extends AbstractAddon {
     private Structure structure;
     private ListenerManager listenerManager;
     private StoriesManager storiesManager;
+    private EffectManager effectManager;
 
     private ActiveStorage activeStorage;
 
@@ -57,6 +60,10 @@ public class CrystamaeHistoria extends AbstractAddon {
 
     public static ActiveStorage getActiveStorage() {
         return instance.activeStorage;
+    }
+
+    public static EffectManager getEffectManager() {
+        return instance.effectManager;
     }
 
     public static PluginManager getPluginManager() {
@@ -115,10 +122,14 @@ public class CrystamaeHistoria extends AbstractAddon {
         this.listenerManager = new ListenerManager();
         this.storiesManager = new StoriesManager();
         this.activeStorage = new ActiveStorage();
+        this.effectManager = new EffectManager(this);
 
         new Metrics(this, 12065);
 
         getAddonCommand().addSub(new TestSpell());
+
+        // Just to load the class
+        SpellType.getValues();
 
     }
 

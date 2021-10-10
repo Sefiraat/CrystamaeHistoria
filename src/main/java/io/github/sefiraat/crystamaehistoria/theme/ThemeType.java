@@ -60,10 +60,6 @@ public enum ThemeType {
     TYPE_VOID(ChatColor.of("#000000"), "Void", null),
     TYPE_PHILOSOPHICAL(ChatColor.of("#4d4aa8"), "Philosophical", null);
 
-    private final ChatColor chatColor;
-    private final String loreLine;
-    private final Particle.DustOptions dustOptions;
-
     /**
      * List of names to be given to ArmourStands, invisible but mods and Minimaps can see them :)
      */
@@ -90,6 +86,9 @@ public enum ThemeType {
             "andrewandy",
             "EpicPlayer10"
     );
+    private final ChatColor chatColor;
+    private final String loreLine;
+    private final Particle.DustOptions dustOptions;
 
     ThemeType(ChatColor chatColor, String loreLine, @Nullable Particle.DustOptions dustOptions) {
         this.chatColor = chatColor;

@@ -14,12 +14,28 @@ import javax.annotation.Nonnull;
  *
  * @author Sfiguz7
  * @author Walshy
- *
  */
 
 public class PersistentStoryDataType implements PersistentDataType<int[], StoryList> {
 
     public static final PersistentDataType<int[], StoryList> TYPE = new PersistentStoryDataType();
+
+    public static @Nonnull
+    StoryList fromIntArray(@Nonnull int[] ints) {
+        Validate.notNull(ints, "The provided integer array cannot be null!");
+        StoryList storyList = new StoryList();
+        for (int i = 0; i < ints.length - 1; i = i + 3) {
+            int[] subInts = ArrayUtils.subarray(ints, i, i + 3);
+            storyList.getStoryList().add(new Story(subInts));
+        }
+        return storyList;
+    }
+
+    public static @Nonnull
+    int[] toIntArray(@Nonnull StoryList storyList) {
+        Validate.notNull(storyList, "The provided story cannot be null!");
+        return storyList.toPrimitive();
+    }
 
     @Override
     public @Nonnull
@@ -43,23 +59,6 @@ public class PersistentStoryDataType implements PersistentDataType<int[], StoryL
     public @Nonnull
     StoryList fromPrimitive(@Nonnull int[] primitive, @Nonnull PersistentDataAdapterContext context) {
         return fromIntArray(primitive);
-    }
-
-    public static @Nonnull
-    StoryList fromIntArray(@Nonnull int[] ints) {
-        Validate.notNull(ints, "The provided integer array cannot be null!");
-        StoryList storyList = new StoryList();
-        for (int i = 0; i < ints.length - 1; i = i + 3) {
-            int[] subInts = ArrayUtils.subarray(ints, i, i + 3);
-            storyList.getStoryList().add(new Story(subInts));
-        }
-        return storyList;
-    }
-
-    public static @Nonnull
-    int[] toIntArray(@Nonnull StoryList storyList) {
-        Validate.notNull(storyList, "The provided story cannot be null!");
-        return storyList.toPrimitive();
     }
 
 }

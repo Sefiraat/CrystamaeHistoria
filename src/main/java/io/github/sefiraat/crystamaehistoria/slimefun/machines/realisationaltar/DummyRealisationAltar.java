@@ -15,9 +15,9 @@ public class DummyRealisationAltar {
             ThemeType.MECHANISM,
             "Realisation Altar",
             "Crystal are gathered when mining the fully",
-            "formed crystals that gather around an active",
+            "formed CRYSTALS that gather around an active",
             "Altar. Giving the Altar storied blocks will",
-            "produce crystals."
+            "produce CRYSTALS."
     );
     public static final RecipeType TYPE = new RecipeType(CrystamaeHistoria.getKeys().getRealisationDummyCrystal(), STACK);
 

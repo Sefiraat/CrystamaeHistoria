@@ -20,6 +20,10 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.Teleport;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Tempest;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Vacuum;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
+import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.LiquefactionBasinCache;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import lombok.Getter;
 
 import javax.annotation.Nonnull;
@@ -28,25 +32,26 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public enum SpellType {
 
-    LIGHTNING_CALL("LIGHTNING_CALL", new CallLightning()),
-    FAN_OF_ARROWS("FAN_OF_ARROWS", new FanOfArrows()),
-    FIREBALL("FIREBALL", new Fireball()),
-    POISON_NOVA("POISON_NOVA", new PoisonNova()),
-    RAIN_OF_FIRE("RAIN_OF_FIRE", new RainOfFire()),
-    TELEPORT("TELEPORT", new Teleport()),
-    TEMPEST("TEMPEST", new Tempest()),
-    FIRE_NOVA("FIRE_NOVA", new FireNova()),
-    QUAKE("QUAKE", new Quake()),
-    BRIGHT("BRIGHT", new Bright()),
-    SQUALL("SQUALL", new Squall()),
-    ETHEREAL_FLOW("ETHEREAL_FLOW", new EtherealFlow()),
-    HEAL("HEAL", new Heal()),
-    HEALING_MIST("HEALING_MIST", new HealingMist()),
-    LOVE_POTION("LOVE_POTION", new LovePotion()),
-    SHROUD("SHROUD", new Shroud()),
-    PUSH("PUSH", new Push()),
-    VACUUM("VACUUM", new Vacuum()),
-    KNOWLEDGE_SHARE("KNOWLEDGE_SHARE", new KnowledgeShare());
+    // Tier 1 BlankPlateBasic Recipes
+    LIGHTNING_CALL("LIGHTNING_CALL", new CallLightning(), null),
+    FAN_OF_ARROWS("FAN_OF_ARROWS", new FanOfArrows(), new SpellRecipe(Materials.PLATE_T1, StoryType.MECHANICAL, StoryType.HISTORICAL, StoryType.HUMAN)),
+    FIREBALL("FIREBALL", new Fireball(), new SpellRecipe(Materials.PLATE_T1, StoryType.ELEMENTAL, StoryType.HUMAN, StoryType.CELESTIAL)),
+    POISON_NOVA("POISON_NOVA", new PoisonNova(), null),
+    RAIN_OF_FIRE("RAIN_OF_FIRE", new RainOfFire(), null),
+    TELEPORT("TELEPORT", new Teleport(), null),
+    TEMPEST("TEMPEST", new Tempest(), null),
+    FIRE_NOVA("FIRE_NOVA", new FireNova(), null),
+    QUAKE("QUAKE", new Quake(), null),
+    BRIGHT("BRIGHT", new Bright(), null),
+    SQUALL("SQUALL", new Squall(), null),
+    ETHEREAL_FLOW("ETHEREAL_FLOW", new EtherealFlow(), null),
+    HEAL("HEAL", new Heal(), null),
+    HEALING_MIST("HEALING_MIST", new HealingMist(), null),
+    LOVE_POTION("LOVE_POTION", new LovePotion(), null),
+    SHROUD("SHROUD", new Shroud(), null),
+    PUSH("PUSH", new Push(), null),
+    VACUUM("VACUUM", new Vacuum(), null),
+    KNOWLEDGE_SHARE("KNOWLEDGE_SHARE", new KnowledgeShare(), null);
 
     @Getter
     public static final SpellType[] values = values();
@@ -55,11 +60,17 @@ public enum SpellType {
     private final String id;
     @Getter
     private final Spell spell;
+    @Getter
+    private final SpellRecipe spellRecipe;
 
     @ParametersAreNonnullByDefault
-    SpellType(String id, Spell spell) {
+    SpellType(String id, Spell spell, @Nullable SpellRecipe spellRecipe) {
         this.id = id;
         this.spell = spell;
+        this.spellRecipe = spellRecipe;
+        if (spellRecipe != null) {
+            LiquefactionBasinCache.addSpellRecipe(this, spellRecipe);
+        }
     }
 
     @Nullable

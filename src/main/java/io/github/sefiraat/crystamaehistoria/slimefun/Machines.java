@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.slimefun.categories.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.chroniclerpanel.ChroniclerPanel;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.LiquefactionBasin;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar.RealisationAltar;
@@ -25,7 +26,7 @@ public class Machines {
 
     public void setup() {
         new ChroniclerPanel(
-                parent.getItemGroup().mechanisms,
+                ItemGroups.MECHANISMS,
                 ThemeType.themeStack(
                         "CRY_CHRONICLER_PANEL_1",
                         new ItemStack(Material.DEEPSLATE_TILE_SLAB),
@@ -43,7 +44,7 @@ public class Machines {
                 }
         ).register(plugin);
         new RealisationAltar(
-                parent.getItemGroup().mechanisms,
+                ItemGroups.MECHANISMS,
                 ThemeType.themeStack(
                         "CRY_REALISATION_ALTAR_1",
                         new ItemStack(Material.CHISELED_DEEPSLATE),
@@ -61,7 +62,7 @@ public class Machines {
                 }
         ).register(plugin);
         new LiquefactionBasin(
-                parent.getItemGroup().mechanisms,
+                ItemGroups.MECHANISMS,
                 ThemeType.themeStack(
                         "CRY_LIQUEFACTION_BASIN_1",
                         new ItemStack(Material.CAULDRON),
