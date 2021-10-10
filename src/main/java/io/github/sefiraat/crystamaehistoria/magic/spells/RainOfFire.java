@@ -17,10 +17,10 @@ public class RainOfFire extends Spell {
 
     public RainOfFire() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 20, false, 20, true)
-                .makeDamagingSpell(5, true, 0.5, false)
-                .makeProjectileSpell(this::fireProjectiles, this::projectileHits, 1, true, 0.5, true)
-                .addBeforeProjectileHitEvent(this::beforeProjectileHits)
-                .makeTickingSpell(this::fireProjectiles, 9, false, 10, false);
+            .makeDamagingSpell(5, true, 0.5, false)
+            .makeProjectileSpell(this::fireProjectiles, this::projectileHits, 1, true, 0.5, true)
+            .addBeforeProjectileHitEvent(this::beforeProjectileHits)
+            .makeTickingSpell(this::fireProjectiles, 9, false, 10, false);
         setSpellCore(spellCoreBuilder.build());
     }
 
@@ -35,10 +35,10 @@ public class RainOfFire extends Spell {
             double xOffset = ThreadLocalRandom.current().nextDouble(-range, range + 1);
             double zOffset = ThreadLocalRandom.current().nextDouble(-range, range + 1);
             Location spawnLocation = new Location(
-                    location.getWorld(),
-                    location.getX() + xOffset,
-                    location.getY() + 20,
-                    location.getZ() + zOffset
+                location.getWorld(),
+                location.getX() + xOffset,
+                location.getY() + 20,
+                location.getZ() + zOffset
             );
 
             MagicProjectile magicProjectile = new MagicProjectile(EntityType.FIREBALL, spawnLocation, castInformation.getCaster());

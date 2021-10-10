@@ -20,8 +20,8 @@ public class StackUtils {
         ItemMeta im = itemStack.getItemMeta();
         setName(itemStack, im);
         List<String> lore = new ArrayList<>();
-        StoryList storyList = StoryUtils.getAllStories(itemStack);
-        for (Story story : storyList.getStoryList()) {
+        List<Story> storyList = StoryUtils.getAllStories(itemStack);
+        for (Story story : storyList) {
             lore.add("");
             lore.add(story.getDisplayName());
             lore.addAll(story.getStoryLore());

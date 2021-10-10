@@ -17,9 +17,9 @@ public class PoisonNova extends Spell {
 
     public PoisonNova() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(20, true, 20, true, 10, true)
-                .makeDamagingSpell(1, false, 0, false)
-                .makeProjectileSpell(this::fireProjectile, this::projectileHit, 0, false, 0, false)
-                .addAfterProjectileHitEvent(this::afterProjectileHit);
+            .makeDamagingSpell(1, false, 0, false)
+            .makeProjectileSpell(this::fireProjectile, this::projectileHit, 0, false, 0, false)
+            .addAfterProjectileHitEvent(this::afterProjectileHit);
         setSpellCore(spellCoreBuilder.build());
     }
 

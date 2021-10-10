@@ -16,9 +16,9 @@ public class Tempest extends Spell {
 
     public Tempest() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(200, true, 20, false, 10, true)
-                .makeDamagingSpell(2, true, 0, false)
-                .makeProjectileSpell(this::fireProjectiles, this::onProjectileHit, 2, false, 2, false)
-                .addBeforeProjectileHitEvent(this::beforeProjectileHit);
+            .makeDamagingSpell(2, true, 0, false)
+            .makeProjectileSpell(this::fireProjectiles, this::onProjectileHit, 2, false, 2, false)
+            .addBeforeProjectileHitEvent(this::beforeProjectileHit);
         setSpellCore(spellCoreBuilder.build());
     }
 
@@ -33,10 +33,10 @@ public class Tempest extends Spell {
             double x = location.getX() + xOffset;
             double z = location.getZ() + zOffset;
             Location spawnLocation = new Location(
-                    location.getWorld(),
-                    location.getX() + xOffset,
-                    location.getWorld().getHighestBlockYAt((int) x, (int) z),
-                    location.getZ() + zOffset
+                location.getWorld(),
+                location.getX() + xOffset,
+                location.getWorld().getHighestBlockYAt((int) x, (int) z),
+                location.getZ() + zOffset
             );
 
             LightningStrike lightningStrike = spawnLocation.getWorld().strikeLightning(spawnLocation);

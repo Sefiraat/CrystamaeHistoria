@@ -15,7 +15,7 @@ public class LovePotion extends Spell {
 
     public LovePotion() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(20, true, 10, true, 5, true)
-                .makeInstantSpell(this::cast);
+            .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
     }
 

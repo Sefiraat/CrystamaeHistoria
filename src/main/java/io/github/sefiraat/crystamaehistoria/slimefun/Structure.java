@@ -17,9 +17,9 @@ public class Structure {
 
         CrystamaeHistoria plugin = CrystamaeHistoria.inst();
 
-        this.machines = new Machines(this, plugin);
-        this.materials = new Materials(this, plugin);
-        this.tools = new Tools(this, plugin);
+        this.machines = new Machines(plugin);
+        this.materials = new Materials(plugin);
+        this.tools = new Tools(plugin);
 
         setup();
     }

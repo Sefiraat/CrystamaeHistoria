@@ -14,7 +14,7 @@ public class Bright extends Spell {
 
     public Bright() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(2000, true, 0, false, 10, false)
-                .makeInstantSpell(this::cast);
+            .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
     }
 

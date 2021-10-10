@@ -10,14 +10,6 @@ import java.util.List;
 public class StoryList {
 
     @Getter
-    private final List<Story> storyList = new ArrayList<>();
-
-    public int[] toPrimitive() {
-        int[] ints = new int[0];
-        for (Story story : getStoryList()) {
-            ints = ArrayUtils.addAll(ints, story.toPrimitive());
-        }
-        return ints;
-    }
+    private final List<Story> list = new ArrayList<>();
 
 }

@@ -31,7 +31,7 @@ public class TestSpell extends SubCommand {
     @ParametersAreNonnullByDefault
     protected void complete(CommandSender commandSender, String[] strings, List<String> list) {
         if (strings.length == 1) {
-            for (SpellType spell : SpellType.getValues()) {
+            for (SpellType spell : SpellType.getCachedValues()) {
                 list.add(spell.name());
             }
         }

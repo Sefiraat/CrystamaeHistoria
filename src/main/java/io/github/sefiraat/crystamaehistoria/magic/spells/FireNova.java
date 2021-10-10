@@ -15,9 +15,9 @@ public class FireNova extends Spell {
 
     public FireNova() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(20, true, 10, false, 10, false)
-                .makeDamagingSpell(3, true, 1, false)
-                .makeProjectileSpell(this::fireProjectiles, this::projectileHit, 2, false, 1, false)
-                .addAfterProjectileHitEvent(this::afterProjectileHit);
+            .makeDamagingSpell(3, true, 1, false)
+            .makeProjectileSpell(this::fireProjectiles, this::projectileHit, 2, false, 1, false)
+            .addAfterProjectileHitEvent(this::afterProjectileHit);
         setSpellCore(spellCoreBuilder.build());
     }
 

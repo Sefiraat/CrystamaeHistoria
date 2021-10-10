@@ -17,7 +17,7 @@ public class Teleport extends Spell {
 
     public Teleport() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(20, true, 20, false, 1, true)
-                .makeInstantSpell(this::cast);
+            .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
     }
 

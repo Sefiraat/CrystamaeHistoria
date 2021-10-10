@@ -1,8 +1,11 @@
 package io.github.sefiraat.crystamaehistoria.utils;
 
+import lombok.experimental.UtilityClass;
+
 import java.util.concurrent.ThreadLocalRandom;
 
-public class GeneralUtils {
+@UtilityClass
+public final class GeneralUtils {
 
     /**
      * Tests a chance roll starting from 1 to upper

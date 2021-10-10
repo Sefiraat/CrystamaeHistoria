@@ -18,8 +18,8 @@ public class Shroud extends Spell {
 
     public Shroud() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(40, true, 10, true, 5, true)
-                .makeDamagingSpell(0, false, 0, false)
-                .makeInstantSpell(this::cast);
+            .makeDamagingSpell(0, false, 0, false)
+            .makeInstantSpell(this::cast);
         spellCoreBuilder.addNegativeEffect(PotionEffectType.BLINDNESS, 0, BLIND_DURATION);
         spellCoreBuilder.addNegativeEffect(PotionEffectType.WITHER, 0, WITHER_DURATION);
         setSpellCore(spellCoreBuilder.build());

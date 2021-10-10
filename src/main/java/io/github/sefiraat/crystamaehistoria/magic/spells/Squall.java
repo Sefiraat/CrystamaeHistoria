@@ -14,7 +14,7 @@ public class Squall extends Spell {
 
     public Squall() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(2000, true, 0, false, 10, true)
-                .makeInstantSpell(this::cast);
+            .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
     }
 

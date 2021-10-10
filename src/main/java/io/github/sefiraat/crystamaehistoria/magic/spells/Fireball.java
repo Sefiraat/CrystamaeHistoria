@@ -14,9 +14,9 @@ public class Fireball extends Spell {
 
     public Fireball() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 0, false, 1, true)
-                .makeProjectileSpell(this::fireProjectile, this::projectileHit, 1, false, 1, false)
-                .addBeforeProjectileHitEvent(this::beforeProjectileHit)
-                .makeDamagingSpell(2, true, 0.5, false);
+            .makeProjectileSpell(this::fireProjectile, this::projectileHit, 1, false, 1, false)
+            .addBeforeProjectileHitEvent(this::beforeProjectileHit)
+            .makeDamagingSpell(2, true, 0.5, false);
         setSpellCore(spellCoreBuilder.build());
     }
 

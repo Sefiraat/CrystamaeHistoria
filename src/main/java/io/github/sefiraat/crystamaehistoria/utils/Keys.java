@@ -37,6 +37,11 @@ public class Keys {
     private final NamespacedKey pdcStaveInstance = new NamespacedKey(CrystamaeHistoria.inst(), "stv");
     private final NamespacedKey pdcStaveLevel = new NamespacedKey(CrystamaeHistoria.inst(), "stv_lvl");
 
+    // Types
+    private final NamespacedKey pdcStoryId = new NamespacedKey(CrystamaeHistoria.inst(), "s_id");
+    private final NamespacedKey pdcStoryRarity = new NamespacedKey(CrystamaeHistoria.inst(), "s_r");
+    private final NamespacedKey pdcStoryType = new NamespacedKey(CrystamaeHistoria.inst(), "s_t");
+
     // Entities
     private final NamespacedKey pdcArmourStandName = new NamespacedKey(CrystamaeHistoria.inst(), "a_nm");
     private final NamespacedKey pdcIsDisplayStand = new NamespacedKey(CrystamaeHistoria.inst(), "a_dpy");

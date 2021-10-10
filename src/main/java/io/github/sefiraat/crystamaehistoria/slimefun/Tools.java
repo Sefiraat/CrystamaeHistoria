@@ -12,22 +12,20 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class Tools {
 
-    private final Structure parent;
     private final CrystamaeHistoria plugin;
 
     @ParametersAreNonnullByDefault
-    public Tools(Structure s, CrystamaeHistoria p) {
-        this.parent = s;
+    public Tools(CrystamaeHistoria p) {
         this.plugin = p;
     }
 
     public void setup() {
         SlimefunItemStack stave1 = new SlimefunItemStack("CRY_STAVE_1", Material.STICK, "Stave 1", "DUMMY");
         new Stave(ItemGroups.TOOLS,
-                stave1,
-                RecipeType.SMELTERY,
-                new ItemStack[]{},
-                1
+            stave1,
+            RecipeType.SMELTERY,
+            new ItemStack[]{},
+            1
         ).register(plugin);
     }
 

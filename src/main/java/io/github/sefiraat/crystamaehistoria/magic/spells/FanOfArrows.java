@@ -13,8 +13,8 @@ public class FanOfArrows extends Spell {
 
     public FanOfArrows() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(10, true, 20, true, 1, false)
-                .makeProjectileSpell(this::fireProjectiles, this::projectileHit, 0, false, 0, false)
-                .makeDamagingSpell(1, true, 0, false);
+            .makeProjectileSpell(this::fireProjectiles, this::projectileHit, 0, false, 0, false)
+            .makeDamagingSpell(1, true, 0, false);
         setSpellCore(spellCoreBuilder.build());
     }
 

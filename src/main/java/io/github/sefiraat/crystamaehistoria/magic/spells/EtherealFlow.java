@@ -12,7 +12,7 @@ public class EtherealFlow extends Spell {
 
     public EtherealFlow() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(720, true, 0, false, 10, false)
-                .makeTickingSpell(this::onTick, 30, true, 1, false);
+            .makeTickingSpell(this::onTick, 30, true, 1, false);
         setSpellCore(spellCoreBuilder.build());
 
     }

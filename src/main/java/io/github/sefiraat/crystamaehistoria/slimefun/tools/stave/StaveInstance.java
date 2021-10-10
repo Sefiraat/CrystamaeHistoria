@@ -106,7 +106,7 @@ public class StaveInstance {
                     spellInstance.setNextCast(nextCastTime);
                     save();
                 } else {
-                    double timeLeftSec = (double) ((nextCast - timeNow) / 1000L);
+                    double timeLeftSec = ((nextCast - timeNow) / 1000D);
                     player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ThemeType.WARNING.getChatColor() + "Spell on cooldown : " + timeLeftSec + "s remaining."));
                 }
             } else {

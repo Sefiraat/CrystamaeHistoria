@@ -10,14 +10,14 @@ import org.bukkit.inventory.ItemStack;
 public class DummyRealisationAltar {
 
     public static final SlimefunItemStack STACK = ThemeType.themeStack(
-            "CRY_CHRONICLER_PANEL_DUMMY_CRYSTAL",
-            new ItemStack(Material.CHISELED_DEEPSLATE),
-            ThemeType.MECHANISM,
-            "Realisation Altar",
-            "Crystal are gathered when mining the fully",
-            "formed CRYSTALS that gather around an active",
-            "Altar. Giving the Altar storied blocks will",
-            "produce CRYSTALS."
+        "CRY_CHRONICLER_PANEL_DUMMY_CRYSTAL",
+        new ItemStack(Material.CHISELED_DEEPSLATE),
+        ThemeType.MECHANISM,
+        "Realisation Altar",
+        "Crystal are gathered when mining the fully",
+        "formed CRYSTALS that gather around an active",
+        "Altar. Giving the Altar storied blocks will",
+        "produce CRYSTALS."
     );
     public static final RecipeType TYPE = new RecipeType(CrystamaeHistoria.getKeys().getRealisationDummyCrystal(), STACK);
 

@@ -65,26 +65,26 @@ public enum ThemeType {
      */
     @Nonnull
     public static final List<String> EGG_NAMES = Arrays.asList(
-            "TheBusyBiscuit",
-            "Alessio",
-            "Walshy",
-            "Jeff",
-            "Seggan",
-            "BOOMER_1",
-            "svr333",
-            "variananora",
-            "ProfElements",
-            "Riley",
-            "FluffyBear",
-            "GallowsDove",
-            "Apeiros",
-            "Martin",
-            "Bunnky",
-            "ReasonFoundDecoy",
-            "Oah",
-            "Azak",
-            "andrewandy",
-            "EpicPlayer10"
+        "TheBusyBiscuit",
+        "Alessio",
+        "Walshy",
+        "Jeff",
+        "Seggan",
+        "BOOMER_1",
+        "svr333",
+        "variananora",
+        "ProfElements",
+        "Riley",
+        "FluffyBear",
+        "GallowsDove",
+        "Apeiros",
+        "Martin",
+        "Bunnky",
+        "ReasonFoundDecoy",
+        "Oah",
+        "Azak",
+        "andrewandy",
+        "EpicPlayer10"
     );
     private final ChatColor chatColor;
     private final String loreLine;
@@ -132,10 +132,10 @@ public enum ThemeType {
         finalLore.add("");
         finalLore.add(applyThemeToString(ThemeType.CLICK_INFO, t.getLoreLine()));
         return new SlimefunItemStack(
-                id,
-                i,
-                ThemeType.applyThemeToString(t, name),
-                finalLore.toArray(new String[finalLore.size() - 1])
+            id,
+            i,
+            ThemeType.applyThemeToString(t, name),
+            finalLore.toArray(new String[finalLore.size() - 1])
         );
     }
 

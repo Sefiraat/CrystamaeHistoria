@@ -14,9 +14,9 @@ public class Push extends Spell {
 
     public Push() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 30, false, 10, true)
-                .makeDamagingSpell(0, false, 0.2, true)
-                .makeTickingSpell(this::onTick, 5, false, 20, false)
-                .addAfterTicksEvent(this::afterAllTicks);
+            .makeDamagingSpell(0, false, 0.2, true)
+            .makeTickingSpell(this::onTick, 5, false, 20, false)
+            .addAfterTicksEvent(this::afterAllTicks);
         setSpellCore(spellCoreBuilder.build());
     }
 

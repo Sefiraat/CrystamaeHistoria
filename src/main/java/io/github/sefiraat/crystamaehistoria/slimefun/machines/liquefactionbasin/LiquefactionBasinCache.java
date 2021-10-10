@@ -34,6 +34,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,7 +46,7 @@ import java.util.stream.Collectors;
 @Getter
 public class LiquefactionBasinCache extends AbstractCache {
 
-    public static final Map<StoryRarity, Integer> RARITY_VALUE_MAP = new HashMap<>();
+    public static final Map<StoryRarity, Integer> RARITY_VALUE_MAP = new EnumMap<>(StoryRarity.class);
     public static final double LOWEST_LEVEL = -1.7;
     public static final double HIGHEST_LEVEL = -1;
     public static final double MAX_VOLUME = 1000;
@@ -61,7 +62,7 @@ public class LiquefactionBasinCache extends AbstractCache {
         RARITY_VALUE_MAP.put(StoryRarity.UNIQUE, 2);
     }
 
-    private final Map<StoryType, Integer> contentMap = new HashMap<>();
+    private final Map<StoryType, Integer> contentMap = new EnumMap<>(StoryType.class);
 
     @ParametersAreNonnullByDefault
     public LiquefactionBasinCache(BlockMenu blockMenu) {
@@ -74,7 +75,7 @@ public class LiquefactionBasinCache extends AbstractCache {
 
     @ParametersAreNonnullByDefault
     public void consumeItems() {
-        Collection<Entity> entities = getWorld().getNearbyEntities(getLocation().clone().add(0.5, 0.5, 0.5), 0.3, 0.3, 0.3, entity -> entity instanceof Item);
+        Collection<Entity> entities = getWorld().getNearbyEntities(getLocation().clone().add(0.5, 0.5, 0.5), 0.3, 0.3, 0.3, Item.class::isInstance);
         for (Entity entity : entities) {
             Item item = (Item) entity;
             SlimefunItem slimefunItem = SlimefunItem.getByItem(item.getItemStack());
@@ -119,11 +120,16 @@ public class LiquefactionBasinCache extends AbstractCache {
     }
 
     private void updateDisplay() {
+        if (contentMap.isEmpty()) {
+            return;
+        }
+
         ArmorStand armorStand = getDisplayStand();
         int amount = 0;
         int red = 0;
         int green = 0;
         int blue = 0;
+
         for (Map.Entry<StoryType, Integer> entry : contentMap.entrySet()) {
             final Color color = ThemeType.getByType(entry.getKey()).getChatColor().getColor();
             final int additionalAmount = entry.getValue();
@@ -132,15 +138,19 @@ public class LiquefactionBasinCache extends AbstractCache {
             green += color.getGreen() * additionalAmount;
             blue += color.getBlue() * additionalAmount;
         }
-        red /= amount;
-        green /= amount;
-        blue /= amount;
-        final ItemStack itemStack = new ItemStack(Material.LEATHER_HELMET);
-        final LeatherArmorMeta leatherArmorMeta = (LeatherArmorMeta) itemStack.getItemMeta();
-        leatherArmorMeta.setColor(org.bukkit.Color.fromRGB(red, green, blue));
-        itemStack.setItemMeta(leatherArmorMeta);
-        ArmourStandUtils.setDisplayItem(armorStand, itemStack);
-        setFillHeight(armorStand);
+
+        if (amount > 0) {
+            red /= amount;
+            green /= amount;
+            blue /= amount;
+
+            final ItemStack itemStack = new ItemStack(Material.LEATHER_HELMET);
+            final LeatherArmorMeta leatherArmorMeta = (LeatherArmorMeta) itemStack.getItemMeta();
+            leatherArmorMeta.setColor(org.bukkit.Color.fromRGB(red, green, blue));
+            itemStack.setItemMeta(leatherArmorMeta);
+            ArmourStandUtils.setDisplayItem(armorStand, itemStack);
+            setFillHeight(armorStand);
+        }
     }
 
     private void emptyBasin() {
@@ -167,7 +177,7 @@ public class LiquefactionBasinCache extends AbstractCache {
     private void setFillHeight(ArmorStand armorStand) {
         final double diff = HIGHEST_LEVEL - LOWEST_LEVEL;
         final double incrementAmount = diff / MAX_VOLUME;
-        final double amount = incrementAmount * (double) getFillLevel();
+        final double amount = incrementAmount * getFillLevel();
         final Location location = blockMenu.getLocation().clone().add(0.5, -1.7 + amount, 0.5);
         armorStand.teleport(location);
     }
@@ -181,9 +191,9 @@ public class LiquefactionBasinCache extends AbstractCache {
     private void checkPlate(Item item) {
         // TODO Hate this - fix slowly or get REEE'd
         Set<StoryType> set = contentMap.entrySet()
-                .stream()
-                .sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed())
-                .limit(3).map(Map.Entry::getKey).collect(Collectors.toSet());
+            .stream()
+            .sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed())
+            .limit(3).map(Map.Entry::getKey).collect(Collectors.toSet());
         if (set.size() == 3) {
             emptyBasin();
             // TODO Check for t2

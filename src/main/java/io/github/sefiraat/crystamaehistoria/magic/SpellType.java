@@ -34,8 +34,8 @@ public enum SpellType {
 
     // Tier 1 BlankPlateBasic Recipes
     LIGHTNING_CALL("LIGHTNING_CALL", new CallLightning(), null),
-    FAN_OF_ARROWS("FAN_OF_ARROWS", new FanOfArrows(), new SpellRecipe(Materials.PLATE_T1, StoryType.MECHANICAL, StoryType.HISTORICAL, StoryType.HUMAN)),
-    FIREBALL("FIREBALL", new Fireball(), new SpellRecipe(Materials.PLATE_T1, StoryType.ELEMENTAL, StoryType.HUMAN, StoryType.CELESTIAL)),
+    FAN_OF_ARROWS("FAN_OF_ARROWS", new FanOfArrows(), new SpellRecipe(Materials.plateT1, StoryType.MECHANICAL, StoryType.HISTORICAL, StoryType.HUMAN)),
+    FIREBALL("FIREBALL", new Fireball(), new SpellRecipe(Materials.plateT1, StoryType.ELEMENTAL, StoryType.HUMAN, StoryType.CELESTIAL)),
     POISON_NOVA("POISON_NOVA", new PoisonNova(), null),
     RAIN_OF_FIRE("RAIN_OF_FIRE", new RainOfFire(), null),
     TELEPORT("TELEPORT", new Teleport(), null),
@@ -54,7 +54,7 @@ public enum SpellType {
     KNOWLEDGE_SHARE("KNOWLEDGE_SHARE", new KnowledgeShare(), null);
 
     @Getter
-    public static final SpellType[] values = values();
+    protected static final SpellType[] cachedValues = values();
 
     @Getter
     private final String id;

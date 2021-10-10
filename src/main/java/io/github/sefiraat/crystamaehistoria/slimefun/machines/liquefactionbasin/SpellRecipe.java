@@ -14,7 +14,7 @@ public class SpellRecipe {
 
     public SpellRecipe(SlimefunItem catalyst, StoryType type1, StoryType type2, StoryType type3) {
         this.catalyst = catalyst;
-        storyTypes = EnumSet.of(type1, type2, type3);
+        this.storyTypes = EnumSet.of(type1, type2, type3);
     }
 
 }

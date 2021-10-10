@@ -22,10 +22,10 @@ import java.util.Map;
 public class LiquefactionBasin extends TickingMenuBlock {
 
     protected static final int[] BACKGROUND_SLOTS = {
-            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 15, 16, 17, 18, 19, 20, 24, 25, 26, 27, 28, 29, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 15, 16, 17, 18, 19, 20, 24, 25, 26, 27, 28, 29, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44
     };
     protected static final int[] BACKGROUND_INPUT = {
-            12, 13, 14, 21, 23, 30, 31, 32
+        12, 13, 14, 21, 23, 30, 31, 32
     };
     protected static final int INPUT_SLOT = 22;
     protected static final Map<Location, LiquefactionBasinCache> CACHE_MAP = new HashMap<>();

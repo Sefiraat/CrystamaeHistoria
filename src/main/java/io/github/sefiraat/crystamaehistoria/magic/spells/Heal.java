@@ -13,8 +13,8 @@ public class Heal extends Spell {
 
     public Heal() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(10, true, 0, false, 1, true)
-                .makeInstantSpell(this::cast)
-                .makeHealingSpell(2, true);
+            .makeInstantSpell(this::cast)
+            .makeHealingSpell(2, true);
         setSpellCore(spellCoreBuilder.build());
     }
 

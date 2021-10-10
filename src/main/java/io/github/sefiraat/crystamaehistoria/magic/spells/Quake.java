@@ -16,8 +16,8 @@ public class Quake extends Spell {
 
     public Quake() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 30, false, 20, true)
-                .makeDamagingSpell(2, true, 0, false)
-                .makeTickingSpell(this::onTick, 5, false, 20, false);
+            .makeDamagingSpell(2, true, 0, false)
+            .makeTickingSpell(this::onTick, 5, false, 20, false);
         setSpellCore(spellCoreBuilder.build());
     }
 
@@ -32,10 +32,10 @@ public class Quake extends Spell {
             double directionalXOffset = ThreadLocalRandom.current().nextDouble(-0.5, 0.6);
             double directionalZOffset = ThreadLocalRandom.current().nextDouble(-0.5, 0.6);
             Location spawnLocation = new Location(
-                    castLocation.getWorld(),
-                    castLocation.getX() + xOffset,
-                    castLocation.getY(),
-                    castLocation.getZ() + zOffset
+                castLocation.getWorld(),
+                castLocation.getX() + xOffset,
+                castLocation.getY(),
+                castLocation.getZ() + zOffset
             );
 
             Particle.DustOptions dustOptions = new Particle.DustOptions(Color.fromRGB(90, 100, 105), 2);

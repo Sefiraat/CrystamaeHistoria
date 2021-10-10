@@ -127,12 +127,12 @@ public class SpellCoreBuilder {
     @CheckReturnValue
     @ParametersAreNonnullByDefault
     public SpellCoreBuilder makeProjectileSpell(
-            Consumer<CastInformation> fireProjectileConsumer,
-            Consumer<CastInformation> projectileHitConsumer,
-            double projectileAoeRange,
-            boolean projectileAoeMultiplied,
-            double projectileKnockbackAmount,
-            boolean projectileKnockbackMultiplied
+        Consumer<CastInformation> fireProjectileConsumer,
+        Consumer<CastInformation> projectileHitConsumer,
+        double projectileAoeRange,
+        boolean projectileAoeMultiplied,
+        double projectileKnockbackAmount,
+        boolean projectileKnockbackMultiplied
     ) {
         this.isProjectileSpell = true;
         this.fireProjectileEvent = fireProjectileConsumer;
@@ -195,7 +195,7 @@ public class SpellCoreBuilder {
 
     /**
      * @param potionEffectType The {@link PotionEffectType} to apply.
-     * @param amplification    The amplification of the effect. If multiple of the same effects are added, the values are combined.
+     * @param amplification    The amplification of the effect. If multiple of the same effects are added, the cashedValues are combined.
      * @param duration         The duration of the effect in seconds. If multiple of the same effects are added, the highest is used.
      */
     @ParametersAreNonnullByDefault
@@ -214,7 +214,7 @@ public class SpellCoreBuilder {
 
     /**
      * @param potionEffectType The {@link PotionEffectType} to apply.
-     * @param amplification    The amplification of the effect. If multiple of the same effects are added, the values are combined.
+     * @param amplification    The amplification of the effect. If multiple of the same effects are added, the cashedValues are combined.
      * @param duration         The duration of the effect. If multiple of the same effects are added, the highest is used.
      */
     @ParametersAreNonnullByDefault

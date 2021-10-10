@@ -20,6 +20,8 @@ import java.util.Locale;
 @Getter
 public class Story {
 
+    private static final String ROOT = "stories.";
+
     private final int id;
     @Nonnull
     private final String name;
@@ -46,10 +48,10 @@ public class Story {
         this.type = StoryType.getById(type);
         AddonConfig config = CrystamaeHistoria.config();
         String rarityString = this.rarity.toString().toLowerCase(Locale.ROOT);
-        this.name = config.getString("stories." + rarityString + "." + id + ".name");
-        this.storyShardProfile = new StoryShardProfile(config.getIntegerList("stories." + rarityString + "." + id + ".shards"));
-        this.storyStrings = config.getStringList("stories." + rarityString + "." + id + ".lore");
-        this.author = config.getString("stories." + rarityString + "." + id + ".author");
+        this.name = config.getString(ROOT + rarityString + "." + id + ".name");
+        this.storyShardProfile = new StoryShardProfile(config.getIntegerList(ROOT + rarityString + "." + id + ".shards"));
+        this.storyStrings = config.getStringList(ROOT + rarityString + "." + id + ".lore");
+        this.author = config.getString(ROOT + rarityString + "." + id + ".author");
     }
 
     public String getDisplayRarity() {
@@ -101,8 +103,8 @@ public class Story {
         if (obj instanceof Story) {
             Story story = (Story) obj;
             return this.id == story.id
-                    && this.rarity == story.rarity
-                    && this.type == story.type;
+                && this.rarity == story.rarity
+                && this.type == story.type;
         } else {
             return false;
         }

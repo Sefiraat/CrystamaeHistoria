@@ -21,6 +21,9 @@
 
         <sonar.issue.ignore.multicriteria.e2.ruleKey>java:S125</sonar.issue.ignore.multicriteria.e2.ruleKey>
         <sonar.issue.ignore.multicriteria.e2.resourceKey>**</sonar.issue.ignore.multicriteria.e2.resourceKey>
+
+        <sonar.issue.ignore.multicriteria.e3.ruleKey>java:S2245</sonar.issue.ignore.multicriteria.e3.ruleKey>
+        <sonar.issue.ignore.multicriteria.e3.resourceKey>**</sonar.issue.ignore.multicriteria.e3.resourceKey>
     </properties>
 
     <repositories>

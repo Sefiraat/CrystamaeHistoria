@@ -20,7 +20,7 @@ public class KnowledgeShare extends Spell {
 
     public KnowledgeShare() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(360, true, 15, false, 10, true)
-                .makeTickingSpell(this::onTick, 5, false, 2, false);
+            .makeTickingSpell(this::onTick, 5, false, 2, false);
         setSpellCore(spellCoreBuilder.build());
     }
 

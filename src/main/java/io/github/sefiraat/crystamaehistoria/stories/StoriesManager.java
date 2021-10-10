@@ -47,28 +47,28 @@ public class StoriesManager {
         String type = sConf.getString("type");
         StoryType storyType = StoryType.valueOf(type.toUpperCase(Locale.ROOT));
         return new Story(
-                Integer.parseInt(sConf.getName()),
-                rarity.getId(),
-                storyType.getId()
+            Integer.parseInt(sConf.getName()),
+            rarity.getId(),
+            storyType.getId()
         );
     }
 
     private void fillBlockTierMap() {
         blockTierMap.put(
+            1,
+            new BlockTier(
                 1,
-                new BlockTier(
-                        1,
-                        300,
-                        3,
-                        1,
-                        new StoryChances(
-                                90,
-                                10,
-                                0,
-                                0,
-                                0
-                        )
+                300,
+                3,
+                1,
+                new StoryChances(
+                    90,
+                    10,
+                    0,
+                    0,
+                    0
                 )
+            )
         );
     }
 
@@ -111,26 +111,26 @@ public class StoriesManager {
 
     private void fillBlockDefinitions() {
         storiedBlockDefinitionMap.put(
-                Material.STONE,
-                new StoriedBlockDefinition(
-                        blockTierMap.get(1),
-                        Arrays.asList(
-                                StoryType.ELEMENTAL,
-                                StoryType.HISTORICAL
-                        ),
-                        storyMapUnique.get(1)
-                )
+            Material.STONE,
+            new StoriedBlockDefinition(
+                blockTierMap.get(1),
+                Arrays.asList(
+                    StoryType.ELEMENTAL,
+                    StoryType.HISTORICAL
+                ),
+                storyMapUnique.get(1)
+            )
         );
         storiedBlockDefinitionMap.put(
-                Material.CRAFTING_TABLE,
-                new StoriedBlockDefinition(
-                        blockTierMap.get(1),
-                        Arrays.asList(
-                                StoryType.HUMAN,
-                                StoryType.PHILOSOPHICAL
-                        ),
-                        storyMapUnique.get(2)
-                )
+            Material.CRAFTING_TABLE,
+            new StoriedBlockDefinition(
+                blockTierMap.get(1),
+                Arrays.asList(
+                    StoryType.HUMAN,
+                    StoryType.PHILOSOPHICAL
+                ),
+                storyMapUnique.get(2)
+            )
         );
     }
 

@@ -24,6 +24,7 @@ import org.bukkit.inventory.meta.ItemMeta;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ThreadLocalRandom;
@@ -245,18 +246,18 @@ public class StoryUtils {
 
     @ParametersAreNonnullByDefault
     public static @Nullable
-    StoryList getAllStories(ItemStack itemStack) {
+    List<Story> getAllStories(ItemStack itemStack) {
         return itemStack.getItemMeta().getPersistentDataContainer().get(CrystamaeHistoria.getKeys().getPdcStories(), PersistentStoryDataType.TYPE);
     }
 
     @ParametersAreNonnullByDefault
     public static void applyStory(ItemStack itemStack, Story story) {
         final ItemMeta im = itemStack.getItemMeta();
-        StoryList storyList = getAllStories(itemStack);
+        List<Story> storyList = getAllStories(itemStack);
         if (storyList == null) {
-            storyList = new StoryList();
+            storyList = new ArrayList<>();
         }
-        storyList.getStoryList().add(story);
+        storyList.add(story);
         im.getPersistentDataContainer().set(CrystamaeHistoria.getKeys().getPdcStories(), PersistentStoryDataType.TYPE, storyList);
         itemStack.setItemMeta(im);
     }
@@ -264,12 +265,12 @@ public class StoryUtils {
     @ParametersAreNonnullByDefault
     public static int removeStory(ItemStack itemStack, Story story) {
         final ItemMeta im = itemStack.getItemMeta();
-        final StoryList storyList = getAllStories(itemStack);
+        final List<Story> storyList = getAllStories(itemStack);
         Validate.notNull(storyList, "No storyList found when trying to remove.");
-        storyList.getStoryList().remove(story);
+        storyList.remove(story);
         im.getPersistentDataContainer().set(CrystamaeHistoria.getKeys().getPdcStories(), PersistentStoryDataType.TYPE, storyList);
         itemStack.setItemMeta(im);
-        return storyList.getStoryList().size();
+        return storyList.size();
     }
 
 

@@ -45,9 +45,9 @@ public class SpellEffectListener implements Listener {
     private boolean eventAllowed(CastInformation castInformation, Entity hitEntity) {
         Player player = Bukkit.getPlayer(castInformation.getCaster());
         return hitEntity != null
-                && !(hitEntity instanceof Projectile)
-                && hitEntity.getUniqueId() != castInformation.getCaster()
-                && player != null;
+            && !(hitEntity instanceof Projectile)
+            && hitEntity.getUniqueId() != castInformation.getCaster()
+            && player != null;
     }
 
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)

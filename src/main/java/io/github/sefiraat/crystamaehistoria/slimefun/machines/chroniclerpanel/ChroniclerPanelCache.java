@@ -43,9 +43,9 @@ public class ChroniclerPanelCache extends AbstractCache {
     @ParametersAreNonnullByDefault
     public ChroniclerPanelCache(BlockMenu blockMenu) {
         super(blockMenu);
-        String workingOn = BlockStorage.getLocationInfo(blockMenu.getLocation(), Keys.BS_CP_WORKING_ON);
-        if (workingOn != null) {
-            setWorking(blockMenu.getBlock(), Material.valueOf(workingOn));
+        String workingOnString = BlockStorage.getLocationInfo(blockMenu.getLocation(), Keys.BS_CP_WORKING_ON);
+        if (workingOnString != null) {
+            setWorking(blockMenu.getBlock(), Material.valueOf(workingOnString));
         }
     }
 

@@ -129,7 +129,7 @@ public class CrystamaeHistoria extends AbstractAddon {
         getAddonCommand().addSub(new TestSpell());
 
         // Just to load the class
-        SpellType.getValues();
+        SpellType.getCachedValues();
 
     }
 

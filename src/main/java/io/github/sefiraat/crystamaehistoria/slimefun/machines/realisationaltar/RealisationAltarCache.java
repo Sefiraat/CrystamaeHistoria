@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.stories.Story;
 import io.github.sefiraat.crystamaehistoria.stories.StoryList;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
+import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.StackUtils;
 import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
@@ -13,6 +14,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import lombok.Getter;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
+import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -61,12 +63,12 @@ public class RealisationAltarCache extends AbstractCache {
     @ParametersAreNonnullByDefault
     private void processItem(ItemStack itemStack) {
         if (GeneralUtils.testChance(1, 5)) {
-            final StoryList storyList = StoryUtils.getAllStories(itemStack);
+            final List<Story> storyList = StoryUtils.getAllStories(itemStack);
             final int x = ThreadLocalRandom.current().nextInt(-3, 4);
             final int z = ThreadLocalRandom.current().nextInt(-3, 4);
             final Block potentialBlock = blockMenu.getBlock().getRelative(x, 0, z);
             if (potentialBlock.getType() == Material.AIR) {
-                Story story = storyList.getStoryList().get(0);
+                Story story = storyList.get(0);
                 potentialBlock.setType(Material.SMALL_AMETHYST_BUD);
                 crystalStoryMap.put(new BlockPosition(potentialBlock.getLocation()).getPosition(), new Pair<>(story.getRarity(), story.getId()));
                 if (StoryUtils.removeStory(itemStack, story) == 0) {
@@ -91,16 +93,20 @@ public class RealisationAltarCache extends AbstractCache {
         final long[] locations = crystalStoryMap.keySet().stream().mapToLong(l -> l).toArray();
         final int[] rarities = storyRarityIds.stream().mapToInt(i -> i).toArray();
         final int[] ids = storyIds.stream().mapToInt(i -> i).toArray();
-        PersistentDataAPI.setLongArray(blockMenu.getBlock().getChunk(), CrystamaeHistoria.getKeys().getResolutionCrystalMap(), locations);
-        PersistentDataAPI.setIntArray(blockMenu.getBlock().getChunk(), CrystamaeHistoria.getKeys().getResolutionRarityMap(), rarities);
-        PersistentDataAPI.setIntArray(blockMenu.getBlock().getChunk(), CrystamaeHistoria.getKeys().getResolutionStoryMap(), ids);
+        final Chunk chunk = blockMenu.getBlock().getChunk();
+        final Keys keys = CrystamaeHistoria.getKeys();
+        PersistentDataAPI.setLongArray(chunk, keys.getResolutionCrystalMap(), locations);
+        PersistentDataAPI.setIntArray(chunk, keys.getResolutionRarityMap(), rarities);
+        PersistentDataAPI.setIntArray(chunk, keys.getResolutionStoryMap(), ids);
     }
 
     protected void loadMap() {
-        final long[] locations = PersistentDataAPI.getLongArray(blockMenu.getBlock().getChunk(), CrystamaeHistoria.getKeys().getResolutionCrystalMap(), new long[0]);
-        final int[] rarities = PersistentDataAPI.getIntArray(blockMenu.getBlock().getChunk(), CrystamaeHistoria.getKeys().getResolutionRarityMap(), new int[0]);
-        final int[] ids = PersistentDataAPI.getIntArray(blockMenu.getBlock().getChunk(), CrystamaeHistoria.getKeys().getResolutionStoryMap(), new int[0]);
-        if (locations.length > 0) {
+        final Chunk chunk = blockMenu.getBlock().getChunk();
+        final Keys keys = CrystamaeHistoria.getKeys();
+        final long[] locations = PersistentDataAPI.getLongArray(chunk, keys.getResolutionCrystalMap());
+        final int[] rarities = PersistentDataAPI.getIntArray(chunk, keys.getResolutionRarityMap());
+        final int[] ids = PersistentDataAPI.getIntArray(chunk, keys.getResolutionStoryMap());
+        if (locations != null && locations.length > 0) {
             for (int i = 0; i < locations.length - 1; i++) {
                 crystalStoryMap.put(locations[i], new Pair<>(StoryRarity.getById(rarities[i]), ids[i]));
             }
