@@ -1,17 +1,19 @@
 package io.github.sefiraat.crystamaehistoria.stories.definition;
 
+import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class StoryShardProfile {
 
-    public final Map<StoryType, Integer> shardMap = new HashMap<>();
+    public final Map<StoryType, Integer> shardMap = new EnumMap<>(StoryType.class);
 
     public StoryShardProfile(int amountElemental, int amountMechanical, int amountAlchemical, int amountHistorical, int amountHuman, int amountAnimal, int amountCelestial, int amountVoid, int amountPhilosophical) {
         shardMap.put(StoryType.ELEMENTAL, amountElemental);
@@ -46,7 +48,7 @@ public class StoryShardProfile {
             StoryType storyType = entry.getKey();
             int amount = entry.getValue();
             if (amount > 0) {
-                ItemStack itemStack = Materials.CRYSTAL_MAP.get(rarity).get(storyType).getItem().clone();
+                ItemStack itemStack = CrystamaeHistoria.getStructure().getMaterials().getCrystalMap().get(rarity).get(storyType).getItem().clone();
                 itemStack.setAmount(amount);
                 location.getWorld().dropItemNaturally(location, itemStack);
             }

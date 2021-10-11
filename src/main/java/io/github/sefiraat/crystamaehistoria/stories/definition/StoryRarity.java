@@ -13,7 +13,7 @@ public enum StoryRarity {
     UNIQUE(6);
 
     @Getter
-    public static final StoryRarity[] values = values();
+    private static final StoryRarity[] values = values();
 
     @Getter
     private final int id;

@@ -59,13 +59,13 @@ public class Story {
     }
 
     public String getDisplayName() {
-        final TextComponent rarity = new TextComponent(getDisplayRarity());
-        final TextComponent name = new TextComponent(this.name);
+        final TextComponent rarityComponent = new TextComponent(getDisplayRarity());
+        final TextComponent nameComponent = new TextComponent(this.name);
 
-        rarity.setColor(ThemeType.getByRarity(this.rarity).getColor());
-        rarity.setBold(true);
-        name.setColor(ThemeType.CLICK_INFO.getColor());
-        return TextComponent.toLegacyText(rarity, name);
+        rarityComponent.setColor(ThemeType.getByRarity(this.rarity).getColor());
+        rarityComponent.setBold(true);
+        nameComponent.setColor(ThemeType.CLICK_INFO.getColor());
+        return TextComponent.toLegacyText(rarityComponent, nameComponent);
     }
 
     public List<String> getStoryLore() {

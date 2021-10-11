@@ -64,7 +64,7 @@ public enum ThemeType {
      * List of names to be given to ArmourStands, invisible but mods and Minimaps can see them :)
      */
     @Nonnull
-    public static final List<String> EGG_NAMES = Arrays.asList(
+    protected static final List<String> EGG_NAMES = Arrays.asList(
         "TheBusyBiscuit",
         "Alessio",
         "Walshy",

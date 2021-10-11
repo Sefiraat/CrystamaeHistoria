@@ -45,7 +45,7 @@ import java.util.stream.Collectors;
 @Getter
 public class LiquefactionBasinCache extends DisplayStandHolder {
 
-    public static final Map<StoryRarity, Integer> RARITY_VALUE_MAP = new EnumMap<>(StoryRarity.class);
+    protected static final Map<StoryRarity, Integer> RARITY_VALUE_MAP = new EnumMap<>(StoryRarity.class);
     public static final double LOWEST_LEVEL = -1.7;
     public static final double HIGHEST_LEVEL = -1;
     public static final double MAX_VOLUME = 1000;

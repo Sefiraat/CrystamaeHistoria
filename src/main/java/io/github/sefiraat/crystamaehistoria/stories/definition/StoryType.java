@@ -16,7 +16,7 @@ public enum StoryType {
     PHILOSOPHICAL(9);
 
     @Getter
-    public static final StoryType[] values = values();
+    private static final StoryType[] values = values();
 
     @Getter
     private final int id;

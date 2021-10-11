@@ -13,6 +13,7 @@ import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
 import io.github.sefiraat.crystamaehistoria.utils.TextUtils;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
@@ -23,7 +24,8 @@ import java.util.Map;
 public class Materials {
 
     // TODO Create a class to store the value map
-    public static final Map<StoryRarity, Map<StoryType, SlimefunItem>> CRYSTAL_MAP = new EnumMap<>(StoryRarity.class);
+    @Getter
+    private final Map<StoryRarity, Map<StoryType, SlimefunItem>> crystalMap = new EnumMap<>(StoryRarity.class);
 
     public static final SlimefunItem INERT_PLATE_T_1;
     public static final SlimefunItem CHARGED_PLATE_T_1;
@@ -97,7 +99,7 @@ public class Materials {
                 sfItem.register(plugin);
                 storyTypeSlimefunItemMap.put(type, sfItem);
             }
-            CRYSTAL_MAP.put(rarity, storyTypeSlimefunItemMap);
+            crystalMap.put(rarity, storyTypeSlimefunItemMap);
         }
     }
 
