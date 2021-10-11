@@ -44,6 +44,8 @@ Configurator.
 Plates hold the potential for a magical spell but will need refilling with Crystamae as the magical energy is used.
 There is no limit to the stored Crystamae. You can recharge a plate by dropping it into a basin.
 
+<p align="center"><img width="900" height="486" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_plate_filling.gif?raw=true"></p>
+
 ## Stave Configurator
 
 A Stave is, surprisingly, very easy to craft and source. The downside being is that the Stave does nothing by itself.
