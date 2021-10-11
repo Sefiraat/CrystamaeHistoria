@@ -28,13 +28,6 @@ public class Materials {
     public static final SlimefunItem INERT_PLATE_T_1;
     public static final SlimefunItem CHARGED_PLATE_T_1;
 
-    private final CrystamaeHistoria plugin;
-
-    @ParametersAreNonnullByDefault
-    public Materials(CrystamaeHistoria p) {
-        this.plugin = p;
-    }
-
     static {
         INERT_PLATE_T_1 = new BlankPlate(
             ItemGroups.CRYSTALS,
@@ -69,6 +62,13 @@ public class Materials {
         INERT_PLATE_T_1.register(CrystamaeHistoria.inst());
         CHARGED_PLATE_T_1.register(CrystamaeHistoria.inst());
 
+    }
+
+    private final CrystamaeHistoria plugin;
+
+    @ParametersAreNonnullByDefault
+    public Materials(CrystamaeHistoria p) {
+        this.plugin = p;
     }
 
     public void setup() {

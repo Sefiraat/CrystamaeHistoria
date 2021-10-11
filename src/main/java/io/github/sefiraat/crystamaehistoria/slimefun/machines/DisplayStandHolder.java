@@ -15,14 +15,14 @@ import java.util.UUID;
 
 public abstract class DisplayStandHolder extends AbstractCache {
 
+    protected DisplayStandHolder(BlockMenu blockMenu) {
+        super(blockMenu);
+    }
+
     @Override
     public void kill(Location location) {
         super.kill(location);
         getDisplayStand().remove();
-    }
-
-    protected DisplayStandHolder(BlockMenu blockMenu) {
-        super(blockMenu);
     }
 
     protected World getWorld() {
