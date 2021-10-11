@@ -5,7 +5,7 @@ import io.github.sefiraat.crystamaehistoria.resource.Skulls;
 import io.github.sefiraat.crystamaehistoria.slimefun.categories.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar.DummyRealisationAltar;
 import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.BlankPlateBasic;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.BlankPlate;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
@@ -18,7 +18,6 @@ import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.EnumMap;
-import java.util.HashMap;
 import java.util.Map;
 
 public class Materials {
@@ -36,13 +35,13 @@ public class Materials {
 
     public void setup() {
         setUpCrystals();
-        setPlateT1(new BlankPlateBasic(
+        setPlateT1(new BlankPlate(
             ItemGroups.CRYSTALS,
             ThemeType.themeStack(
                 "CRY_SPELL_PLATE_1",
                 new ItemStack(Material.PAPER),
                 ThemeType.CRAFTING,
-                "Basic Spell BlankPlateBasic",
+                "Basic Spell BlankPlate",
                 "Magical Crystamae in it's physical form"
             ),
             RecipeType.ORE_WASHER,

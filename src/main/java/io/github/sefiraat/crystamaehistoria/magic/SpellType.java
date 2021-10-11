@@ -32,7 +32,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public enum SpellType {
 
-    // Tier 1 BlankPlateBasic Recipes
+    // Tier 1 BlankPlate Recipes
     LIGHTNING_CALL("LIGHTNING_CALL", new CallLightning(), null),
     FAN_OF_ARROWS("FAN_OF_ARROWS", new FanOfArrows(), new SpellRecipe(Materials.plateT1, StoryType.MECHANICAL, StoryType.HISTORICAL, StoryType.HUMAN)),
     FIREBALL("FIREBALL", new Fireball(), new SpellRecipe(Materials.plateT1, StoryType.ELEMENTAL, StoryType.HUMAN, StoryType.CELESTIAL)),

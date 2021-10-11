@@ -1,6 +1,7 @@
-package io.github.sefiraat.crystamaehistoria.stories;
+package io.github.sefiraat.crystamaehistoria.utils.datatypes;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.stories.Story;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import org.bukkit.persistence.PersistentDataAdapterContext;
 import org.bukkit.persistence.PersistentDataContainer;
@@ -45,9 +46,9 @@ public class PersistentStoryDataType implements PersistentDataType<PersistentDat
 
         for (Story story : complex) {
             PersistentDataContainer container = context.newPersistentDataContainer();
-            container.set(keys.getPdcStoryId(), PersistentDataType.INTEGER, story.getId());
-            container.set(keys.getPdcStoryRarity(), PersistentDataType.INTEGER, story.getRarity().getId());
-            container.set(keys.getPdcStoryType(), PersistentDataType.INTEGER, story.getType().getId());
+            container.set(keys.getStoryId(), PersistentDataType.INTEGER, story.getId());
+            container.set(keys.getStoryRarity(), PersistentDataType.INTEGER, story.getRarity().getId());
+            container.set(keys.getStoryType(), PersistentDataType.INTEGER, story.getType().getId());
             containers[i] = container;
             i++;
         }
@@ -61,9 +62,9 @@ public class PersistentStoryDataType implements PersistentDataType<PersistentDat
         Keys keys = CrystamaeHistoria.getKeys();
         List<Story> list = new ArrayList<>();
         for (PersistentDataContainer container : primitive) {
-            int id = container.get(keys.getPdcStoryId(), PersistentDataType.INTEGER);
-            int rarity = container.get(keys.getPdcStoryRarity(), PersistentDataType.INTEGER);
-            int type = container.get(keys.getPdcStoryType(), PersistentDataType.INTEGER);
+            int id = container.get(keys.getStoryId(), PersistentDataType.INTEGER);
+            int rarity = container.get(keys.getStoryRarity(), PersistentDataType.INTEGER);
+            int type = container.get(keys.getStoryType(), PersistentDataType.INTEGER);
             list.add(new Story(id, rarity, type));
         }
         return list;

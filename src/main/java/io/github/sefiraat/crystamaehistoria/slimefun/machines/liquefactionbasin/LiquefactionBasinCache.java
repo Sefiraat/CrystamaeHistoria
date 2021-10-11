@@ -5,7 +5,7 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.slimefun.AbstractCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.BlankPlateBasic;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.BlankPlate;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
@@ -82,7 +82,7 @@ public class LiquefactionBasinCache extends AbstractCache {
             if (slimefunItem instanceof Crystal) {
                 Crystal crystal = (Crystal) slimefunItem;
                 addCrystamae(crystal.getType(), crystal.getRarity(), item);
-            } else if (slimefunItem instanceof BlankPlateBasic) {
+            } else if (slimefunItem instanceof BlankPlate) {
                 checkPlate(item);
             } else {
                 rejectItem(item, true);

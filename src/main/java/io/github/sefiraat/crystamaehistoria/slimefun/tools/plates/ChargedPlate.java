@@ -10,15 +10,14 @@ import org.bukkit.inventory.ItemStack;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @Getter
-public class BlankPlateBasic extends UnplaceableBlock {
+public class ChargedPlate extends UnplaceableBlock {
 
     private final int tier;
 
     @ParametersAreNonnullByDefault
-    public BlankPlateBasic(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, int tier) {
+    public ChargedPlate(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, int tier) {
         super(itemGroup, item, recipeType, recipe);
         this.tier = tier;
     }
-
 
 }
