@@ -1,7 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.slimefun.categories.ItemGroups;
+import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.ItemGroups;
 import lombok.Getter;
 
 public class Structure {
@@ -25,8 +25,6 @@ public class Structure {
     }
 
     private void setup() {
-        ItemGroups.setup();
-
         this.machines.setup();
         this.materials.setup();
         this.tools.setup();

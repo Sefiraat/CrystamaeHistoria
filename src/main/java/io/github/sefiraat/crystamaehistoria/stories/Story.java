@@ -62,14 +62,14 @@ public class Story {
         final TextComponent rarity = new TextComponent(getDisplayRarity());
         final TextComponent name = new TextComponent(this.name);
 
-        rarity.setColor(ThemeType.getByRarity(this.rarity).getChatColor());
+        rarity.setColor(ThemeType.getByRarity(this.rarity).getColor());
         rarity.setBold(true);
-        name.setColor(ThemeType.CLICK_INFO.getChatColor());
+        name.setColor(ThemeType.CLICK_INFO.getColor());
         return TextComponent.toLegacyText(rarity, name);
     }
 
     public List<String> getStoryLore() {
-        final ChatColor passive = ThemeType.PASSIVE.getChatColor();
+        final ChatColor passive = ThemeType.PASSIVE.getColor();
         final List<String> l = new ArrayList<>();
 
         for (String s : storyStrings) {
@@ -80,7 +80,7 @@ public class Story {
             l.add(TextComponent.toLegacyText(line));
         }
         if (author != null) {
-            l.add(ThemeType.NOTICE.getChatColor() + "Author : " + author);
+            l.add(ThemeType.NOTICE.getColor() + "Author : " + author);
         }
         return l;
     }

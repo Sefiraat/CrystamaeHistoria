@@ -25,7 +25,7 @@ public class StaveInstance {
 
     private static final String SLOT = "slot";
     private static final String SPELL_ID = "spell_id";
-    private static final String CHARGES = "charges";
+    private static final String CRYSTA = "crysta";
     private static final String NEXT_CAST = "next_cast";
 
     private final ItemStack itemStack;
@@ -45,7 +45,7 @@ public class StaveInstance {
                     JsonObject jsonObject = jsonElement.getAsJsonObject();
                     int slot = jsonObject.get(SLOT).getAsInt();
                     SpellType spell = SpellType.valueOf(jsonObject.get(SPELL_ID).getAsString());
-                    int charges = jsonObject.get(CHARGES).getAsInt();
+                    int charges = jsonObject.get(CRYSTA).getAsInt();
                     long nextCast = jsonObject.get(NEXT_CAST).getAsLong();
                     SpellInstance instance = new SpellInstance(spell, charges, nextCast);
                     spellInstanceMap.put(SpellSlot.getBySlot(slot), instance);
@@ -62,7 +62,7 @@ public class StaveInstance {
             SpellType spell = sp.getSpell();
             jsonObject.addProperty(SLOT, entry.getKey().getSlot());
             jsonObject.addProperty(SPELL_ID, spell != null ? spell.getId() : "null");
-            jsonObject.addProperty(CHARGES, sp.getCharges());
+            jsonObject.addProperty(CRYSTA, sp.getCrysta());
             jsonObject.addProperty(NEXT_CAST, sp.getNextCast());
             jsonArray.add(jsonObject);
         }
@@ -98,7 +98,7 @@ public class StaveInstance {
                 if (timeNow > nextCast) {
                     CastInformation castInformation = new CastInformation(player, stave.getLevel());
                     spellType.getSpell().castSpell(castInformation);
-                    player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ThemeType.CAST.getChatColor() + "Casting Spell : " + ThemeType.PASSIVE.getChatColor() + TextUtils.toTitleCase(spellType.getId())));
+                    player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ThemeType.CAST.getColor() + "Casting Spell : " + ThemeType.PASSIVE.getColor() + TextUtils.toTitleCase(spellType.getId())));
                     long cooldown = spellType.getSpell().getCooldown(castInformation);
                     CrystamaeHistoria.logWarning("CD: " + cooldown);
                     long nextCastTime = System.currentTimeMillis() + (cooldown * 1000L);
@@ -107,10 +107,10 @@ public class StaveInstance {
                     save();
                 } else {
                     double timeLeftSec = ((nextCast - timeNow) / 1000D);
-                    player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ThemeType.WARNING.getChatColor() + "Spell on cooldown : " + timeLeftSec + "s remaining."));
+                    player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ThemeType.WARNING.getColor() + "Spell on cooldown : " + timeLeftSec + "s remaining."));
                 }
             } else {
-                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ThemeType.WARNING.getChatColor() + "No spell in slot : " + spellSlot.name()));
+                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(ThemeType.WARNING.getColor() + "No spell in slot : " + spellSlot.name()));
             }
         }
     }

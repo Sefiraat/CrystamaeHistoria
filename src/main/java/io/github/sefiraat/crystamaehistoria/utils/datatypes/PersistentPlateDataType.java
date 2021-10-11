@@ -3,7 +3,6 @@ package io.github.sefiraat.crystamaehistoria.utils.datatypes;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.PlateStorage;
-import io.github.sefiraat.crystamaehistoria.stories.Story;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import org.bukkit.persistence.PersistentDataAdapterContext;
 import org.bukkit.persistence.PersistentDataContainer;
@@ -43,7 +42,7 @@ public class PersistentPlateDataType implements PersistentDataType<PersistentDat
         PersistentDataContainer container = context.newPersistentDataContainer();
         container.set(keys.getStoryId(), PersistentDataType.INTEGER, complex.getTier());
         container.set(keys.getStoryRarity(), PersistentDataType.STRING, complex.getStoredSpell().getId());
-        container.set(keys.getStoryType(), PersistentDataType.INTEGER, complex.getCharges());
+        container.set(keys.getStoryType(), PersistentDataType.INTEGER, complex.getCrysta());
         return container;
     }
 

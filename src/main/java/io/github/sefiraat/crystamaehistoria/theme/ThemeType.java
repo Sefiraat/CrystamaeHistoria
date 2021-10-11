@@ -86,16 +86,15 @@ public enum ThemeType {
         "andrewandy",
         "EpicPlayer10"
     );
-    private final ChatColor chatColor;
+    private final ChatColor color;
     private final String loreLine;
     private final Particle.DustOptions dustOptions;
 
-    ThemeType(ChatColor chatColor, String loreLine, @Nullable Particle.DustOptions dustOptions) {
-        this.chatColor = chatColor;
+    ThemeType(ChatColor color, String loreLine, @Nullable Particle.DustOptions dustOptions) {
+        this.color = color;
         this.loreLine = loreLine;
         this.dustOptions = dustOptions;
     }
-
 
     /**
      * Applies the theme color to a given string
@@ -107,7 +106,7 @@ public enum ThemeType {
     @Nonnull
     @ParametersAreNonnullByDefault
     public static String applyThemeToString(ThemeType t, String s) {
-        return t.getChatColor() + s;
+        return t.getColor() + s;
     }
 
     /**
@@ -123,7 +122,7 @@ public enum ThemeType {
     @Nonnull
     @ParametersAreNonnullByDefault
     public static SlimefunItemStack themeStack(String id, ItemStack i, ThemeType t, String name, String... lore) {
-        ChatColor passiveColor = ThemeType.PASSIVE.getChatColor();
+        ChatColor passiveColor = ThemeType.PASSIVE.getColor();
         List<String> finalLore = new ArrayList<>();
         finalLore.add("");
         for (String s : lore) {

@@ -34,8 +34,8 @@ public enum SpellType {
 
     // Tier 1 BlankPlate Recipes
     LIGHTNING_CALL("LIGHTNING_CALL", new CallLightning(), null),
-    FAN_OF_ARROWS("FAN_OF_ARROWS", new FanOfArrows(), new SpellRecipe(Materials.plateT1, StoryType.MECHANICAL, StoryType.HISTORICAL, StoryType.HUMAN)),
-    FIREBALL("FIREBALL", new Fireball(), new SpellRecipe(Materials.plateT1, StoryType.ELEMENTAL, StoryType.HUMAN, StoryType.CELESTIAL)),
+    FAN_OF_ARROWS("FAN_OF_ARROWS", new FanOfArrows(), new SpellRecipe(Materials.INERT_PLATE_T_1, StoryType.MECHANICAL, StoryType.HISTORICAL, StoryType.HUMAN)),
+    FIREBALL("FIREBALL", new Fireball(), new SpellRecipe(Materials.INERT_PLATE_T_1, StoryType.ELEMENTAL, StoryType.HUMAN, StoryType.CELESTIAL)),
     POISON_NOVA("POISON_NOVA", new PoisonNova(), null),
     RAIN_OF_FIRE("RAIN_OF_FIRE", new RainOfFire(), null),
     TELEPORT("TELEPORT", new Teleport(), null),

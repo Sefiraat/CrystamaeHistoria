@@ -41,9 +41,8 @@ and, based on the top 3 magical values, will produce a plate that is able to cha
 combinations are available meaning 80 possible magical spells. Plates are attached to Staves using the Stave
 Configurator.
 
-Plates hold the potential for a magical spell but will need refilling with Crystamae as charges are used up. There is no
-limit to the stored charges. charges are restored by dropping a pre-made plate into a basin with the same contents as
-when it was first made.
+Plates hold the potential for a magical spell but will need refilling with Crystamae as the magical energy is used.
+There is no limit to the stored Crystamae. You can recharge a plate by dropping it into a basin.
 
 ## Stave Configurator
 

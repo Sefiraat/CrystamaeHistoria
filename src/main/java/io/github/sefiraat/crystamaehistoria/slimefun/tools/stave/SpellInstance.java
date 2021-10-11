@@ -14,15 +14,15 @@ public class SpellInstance {
     private final SpellType spell;
     @Getter
     @Setter
-    private int charges;
+    private int crysta;
     @Getter
     @Setter
     private long nextCast;
 
     @ParametersAreNonnullByDefault
-    public SpellInstance(@Nullable SpellType spell, int charges, long nextCast) {
+    public SpellInstance(@Nullable SpellType spell, int crysta, long nextCast) {
         this.spell = spell;
-        this.charges = charges;
+        this.crysta = crysta;
         this.nextCast = nextCast;
     }
 

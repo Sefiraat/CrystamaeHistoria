@@ -3,9 +3,11 @@ package io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin
 import de.slikey.effectlib.effect.SphereEffect;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
-import io.github.sefiraat.crystamaehistoria.slimefun.AbstractCache;
+import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.DisplayStandHolder;
 import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.BlankPlate;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.PlateStorage;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
@@ -16,20 +18,18 @@ import lombok.Getter;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
-import org.bukkit.World;
-import org.bukkit.block.Block;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.util.Vector;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.awt.Color;
 import java.util.ArrayList;
@@ -39,12 +39,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 @Getter
-public class LiquefactionBasinCache extends AbstractCache {
+public class LiquefactionBasinCache extends DisplayStandHolder {
 
     public static final Map<StoryRarity, Integer> RARITY_VALUE_MAP = new EnumMap<>(StoryRarity.class);
     public static final double LOWEST_LEVEL = -1.7;
@@ -83,7 +82,7 @@ public class LiquefactionBasinCache extends AbstractCache {
                 Crystal crystal = (Crystal) slimefunItem;
                 addCrystamae(crystal.getType(), crystal.getRarity(), item);
             } else if (slimefunItem instanceof BlankPlate) {
-                checkPlate(item);
+                checkPlate(item, (BlankPlate) slimefunItem);
             } else {
                 rejectItem(item, true);
             }
@@ -131,7 +130,7 @@ public class LiquefactionBasinCache extends AbstractCache {
         int blue = 0;
 
         for (Map.Entry<StoryType, Integer> entry : contentMap.entrySet()) {
-            final Color color = ThemeType.getByType(entry.getKey()).getChatColor().getColor();
+            final Color color = ThemeType.getByType(entry.getKey()).getColor().getColor();
             final int additionalAmount = entry.getValue();
             amount += additionalAmount;
             red += color.getRed() * additionalAmount;
@@ -174,6 +173,7 @@ public class LiquefactionBasinCache extends AbstractCache {
         }
     }
 
+    @ParametersAreNonnullByDefault
     private void setFillHeight(ArmorStand armorStand) {
         final double diff = HIGHEST_LEVEL - LOWEST_LEVEL;
         final double incrementAmount = diff / MAX_VOLUME;
@@ -188,23 +188,15 @@ public class LiquefactionBasinCache extends AbstractCache {
         }
     }
 
-    private void checkPlate(Item item) {
-        // TODO Hate this - fix slowly or get REEE'd
-        Set<StoryType> set = contentMap.entrySet()
-            .stream()
-            .sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed())
-            .limit(3).map(Map.Entry::getKey).collect(Collectors.toSet());
+    @ParametersAreNonnullByDefault
+    private void checkPlate(Item item, BlankPlate plate) {
+        Set<StoryType> set = contentMap.entrySet().stream().sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed()).limit(3).map(Map.Entry::getKey).collect(Collectors.toSet());
         if (set.size() == 3) {
-            emptyBasin();
-            // TODO Check for t2
-            SpellType spellType = null;
-            for (Map.Entry<SpellType, SpellRecipe> recipeEntry : RECIPES_SPELL.entrySet()) {
-                if (recipeEntry.getValue().getStoryTypes().containsAll(set)) {
-                    spellType = recipeEntry.getKey();
-                    break;
-                }
-            }
+            SlimefunItem.getByItem(item.getItemStack());
+            SpellType spellType = getMatchingRecipe(set, plate);
             if (spellType != null) {
+                // TODO Plate tier checks
+                item.getWorld().dropItem(item.getLocation(), getChargedPlate(plate, spellType, getFillLevel()));
                 item.remove();
                 summonCatalystParticles();
             } else {
@@ -216,9 +208,32 @@ public class LiquefactionBasinCache extends AbstractCache {
                  */
                 rejectItem(item, false);
             }
+            emptyBasin();
         } else {
             rejectItem(item, true);
         }
+    }
+
+    @Nullable
+    @ParametersAreNonnullByDefault
+    public SpellType getMatchingRecipe(Set<StoryType> set, SlimefunItem slimefunItem) {
+        SpellType spellType = null;
+        for (Map.Entry<SpellType, SpellRecipe> recipeEntry : RECIPES_SPELL.entrySet()) {
+            if (recipeEntry.getValue().recipeMatches(set, slimefunItem)) {
+                spellType = recipeEntry.getKey();
+                break;
+            }
+        }
+        return spellType;
+    }
+
+    @Nonnull
+    @ParametersAreNonnullByDefault
+    public ItemStack getChargedPlate(BlankPlate plate, SpellType spellType, int crysta) {
+        PlateStorage plateStorage = new PlateStorage(plate.getTier(), spellType, crysta);
+        ItemStack newPlate = Materials.CHARGED_PLATE_T_1.getItem().clone();
+        PlateStorage.setPlateLore(newPlate, plateStorage);
+        return newPlate;
     }
 
     public int getFillLevel() {
@@ -247,43 +262,6 @@ public class LiquefactionBasinCache extends AbstractCache {
         sphereEffect.radius = 1;
         sphereEffect.iterations = 2;
         sphereEffect.start();
-    }
-
-    protected void kill(Location location) {
-        BlockStorage.clearBlockInfo(location);
-        getDisplayStand().remove();
-    }
-
-    protected World getWorld() {
-        return blockMenu.getLocation().getWorld();
-    }
-
-    protected Location getLocation() {
-        return blockMenu.getLocation().clone();
-    }
-
-    protected Location getLocation(boolean centered) {
-        if (centered) {
-            return getLocation().add(0.5, 0.5, 0.5);
-        } else {
-            return getLocation();
-        }
-    }
-
-    @ParametersAreNonnullByDefault
-    private ArmorStand getDisplayStand() {
-        // TODO Generify ArmourStands
-        Block block = blockMenu.getBlock();
-        String uuidString = BlockStorage.getLocationInfo(getLocation(), "ch_display_stand");
-        if (uuidString != null) {
-            UUID uuid = UUID.fromString(uuidString);
-            return (ArmorStand) Bukkit.getEntity(uuid);
-        } else {
-            final ArmorStand armorStand = (ArmorStand) block.getWorld().spawnEntity(getLocation().add(0.5, -1.7, 0.5), EntityType.ARMOR_STAND);
-            ArmourStandUtils.setDisplay(armorStand);
-            BlockStorage.addBlockInfo(block.getLocation(), "ch_display_stand", armorStand.getUniqueId().toString());
-            return armorStand;
-        }
     }
 
 }

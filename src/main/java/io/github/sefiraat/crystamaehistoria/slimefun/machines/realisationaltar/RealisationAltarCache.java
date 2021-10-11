@@ -1,9 +1,8 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.slimefun.AbstractCache;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.AbstractCache;
 import io.github.sefiraat.crystamaehistoria.stories.Story;
-import io.github.sefiraat.crystamaehistoria.stories.StoryList;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;

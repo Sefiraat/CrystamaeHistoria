@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.slimefun.categories;
+package io.github.sefiraat.crystamaehistoria.slimefun.itemgroups;
 
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import org.bukkit.NamespacedKey;
@@ -7,10 +7,10 @@ import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class DummyCategory extends ItemGroup {
+public class DummyItemGroup extends ItemGroup {
 
     @ParametersAreNonnullByDefault
-    public DummyCategory(NamespacedKey key, ItemStack item) {
+    public DummyItemGroup(NamespacedKey key, ItemStack item) {
         super(key, item);
     }
 

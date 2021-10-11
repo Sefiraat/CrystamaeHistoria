@@ -46,13 +46,13 @@ public class GUIElements {
         return new CustomItemStack(
             Material.RED_STAINED_GLASS_PANE,
             ChatColor.BLUE + "No block being chronicled.",
-            ThemeType.PASSIVE.getChatColor() + "Place a block above the Chronicler to start."
+            ThemeType.PASSIVE.getColor() + "Place a block above the Chronicler to start."
         );
     }
 
     @ParametersAreNonnullByDefault
     public static CustomItemStack menuChroniclerBlockDisplay(Material material) {
-        ChatColor colorPassive = ThemeType.PASSIVE.getChatColor();
+        ChatColor colorPassive = ThemeType.PASSIVE.getColor();
         return new CustomItemStack(
             material,
             ChatColor.BLUE + "Chronicling Block",
