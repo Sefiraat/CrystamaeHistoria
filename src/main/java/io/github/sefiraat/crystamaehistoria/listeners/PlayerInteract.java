@@ -36,7 +36,7 @@ public class PlayerInteract implements Listener {
                     break;
             }
             if (slot != null) {
-                staveInstance.tryCastSpell(slot, player);
+                //staveInstance.tryCastSpell(slot, player);
             }
         }
     }

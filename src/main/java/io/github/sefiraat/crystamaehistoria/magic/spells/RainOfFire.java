@@ -5,9 +5,13 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.magic.wrappers.MagicProjectile;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -61,5 +65,26 @@ public class RainOfFire extends Spell {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
             damageEntity(livingEntity, castInformation.getCaster(), getDamage(castInformation), castInformation.getDamageLocation(), getProjectileKnockback(castInformation));
         }
+    }
+
+    @Nonnull
+    @Override
+    public String getId() {
+        return "RAIN_OF_FIRE";
+    }
+
+    @Nonnull
+    @Override
+    public String[] getLore() {
+        return new String[] {
+            "Summons an epic hellscape of raining",
+            "fire."
+        };
+    }
+
+    @Nonnull
+    @Override
+    public ItemStack getStack() {
+        return new ItemStack(Material.FIRE_CHARGE);
     }
 }

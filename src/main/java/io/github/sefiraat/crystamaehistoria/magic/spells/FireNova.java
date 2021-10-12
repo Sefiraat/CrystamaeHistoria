@@ -5,10 +5,14 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.magic.wrappers.MagicProjectile;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 public class FireNova extends Spell {
@@ -53,5 +57,26 @@ public class FireNova extends Spell {
     @ParametersAreNonnullByDefault
     public void afterProjectileHit(CastInformation castInformation) {
         displayParticleEffect(castInformation.getMainTarget(), Particle.EXPLOSION_NORMAL, 1.0, 5);
+    }
+
+    @Nonnull
+    @Override
+    public String getId() {
+        return "FIRE_NOVA";
+    }
+
+    @Nonnull
+    @Override
+    public String[] getLore() {
+        return new String[] {
+            "Summons a massive nova of fireballs",
+            "around you to incinerate foes."
+        };
+    }
+
+    @Nonnull
+    @Override
+    public ItemStack getStack() {
+        return new ItemStack(Material.FIRE_CHARGE);
     }
 }

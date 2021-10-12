@@ -5,9 +5,13 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.magic.wrappers.MagicProjectile;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 public class Fireball extends Spell {
@@ -45,4 +49,24 @@ public class Fireball extends Spell {
         }
     }
 
+    @Nonnull
+    @Override
+    public String getId() {
+        return "FIREBALL";
+    }
+
+    @Nonnull
+    @Override
+    public String[] getLore() {
+        return new String[] {
+            "Shoots a fireball in the direction you are",
+            "looking at."
+        };
+    }
+
+    @Nonnull
+    @Override
+    public ItemStack getStack() {
+        return new ItemStack(Material.FIRE_CHARGE);
+    }
 }

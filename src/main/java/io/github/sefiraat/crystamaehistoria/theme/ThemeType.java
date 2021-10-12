@@ -1,5 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.theme;
 
+import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -43,6 +44,7 @@ public enum ThemeType {
     INFO(ChatColor.of("#21588f"), "Information", null),
     MOD(ChatColor.of("#bf307f"), "Modification", null),
     PROP(ChatColor.of("#bf307f"), "Material Trait", null),
+    SPELL(ChatColor.of("#bf307f"), "Spell", null),
     MULTIBLOCK(ChatColor.of("#ba12af"), "Multiblock", null),
     RARITY_COMMON(ChatColor.of("#dbdbdb"), "Common", null),
     RARITY_UNCOMMON(ChatColor.of("#97d16b"), "Uncommon", null),
@@ -84,7 +86,8 @@ public enum ThemeType {
         "Oah",
         "Azak",
         "andrewandy",
-        "EpicPlayer10"
+        "EpicPlayer10",
+        "GentlemanCheesy"
     );
     private final ChatColor color;
     private final String loreLine;
@@ -134,6 +137,36 @@ public enum ThemeType {
             id,
             i,
             ThemeType.applyThemeToString(t, name),
+            finalLore.toArray(new String[finalLore.size() - 1])
+        );
+    }
+
+    /**
+     * Gets a SlimefunItemStack with a pre-populated lore and name with themed colors.
+     *
+     * @param id   The ID for the new {@link SlimefunItemStack}
+     * @param i    The vanilla {@link ItemStack} used to base the {@link SlimefunItemStack} on
+     * @param spellType The {@link SpellType} used
+     * @param lore The lore lines for the {@link SlimefunItemStack}. Lore is book-ended with empty strings.
+     * @return Returns the new {@link SlimefunItemStack}
+     */
+    @Nonnull
+    @ParametersAreNonnullByDefault
+    public static SlimefunItemStack themeSpellStack(String id, ItemStack i, SpellType spellType, String... lore) {
+        ChatColor passiveColor = ThemeType.PASSIVE.getColor();
+        List<String> finalLore = new ArrayList<>();
+        finalLore.add("");
+        for (String s : lore) {
+            finalLore.add(passiveColor + s);
+        }
+        finalLore.add("");
+        finalLore.add(ThemeType.CLICK_INFO.getColor() + "Crysta Cost: " + ThemeType.NOTICE.getColor() + spellType.getSpell().getSpellCore().getCrystaCost());
+        finalLore.add("");
+        finalLore.add(applyThemeToString(ThemeType.CLICK_INFO, "Spell"));
+        return new SlimefunItemStack(
+            id,
+            i,
+            ThemeType.applyThemeToString(ThemeType.SPELL, toTitleCase(spellType.getId())),
             finalLore.toArray(new String[finalLore.size() - 1])
         );
     }

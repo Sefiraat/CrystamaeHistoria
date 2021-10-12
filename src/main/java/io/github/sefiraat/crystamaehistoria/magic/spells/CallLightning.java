@@ -5,11 +5,15 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.LightningStrike;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 public class CallLightning extends Spell {
@@ -47,5 +51,25 @@ public class CallLightning extends Spell {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
             damageEntity(livingEntity, castInformation.getCaster(), getDamage(castInformation), castInformation.getDamageLocation(), getKnockback(castInformation));
         }
+    }
+
+    @Nonnull
+    @Override
+    public String getId() {
+        return "CALL_LIGHTNING";
+    }
+
+    @Nonnull
+    @Override
+    public String[] getLore() {
+        return new String[] {
+            "Calls a lightning bolt down where you are looking"
+        };
+    }
+
+    @Nonnull
+    @Override
+    public ItemStack getStack() {
+        return new ItemStack(Material.LIGHTNING_ROD);
     }
 }

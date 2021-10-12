@@ -4,11 +4,15 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffectType;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 public class Shroud extends Spell {
@@ -36,5 +40,27 @@ public class Shroud extends Spell {
                 displayParticleEffect(livingEntity, Particle.SLIME, 2, 2);
             }
         }
+    }
+
+    @Nonnull
+    @Override
+    public String getId() {
+        return "SHROUD";
+    }
+
+    @Nonnull
+    @Override
+    public String[] getLore() {
+        return new String[] {
+            "Summons a dark miasma around the player",
+            "causing light damage and blinding those",
+            "affected."
+        };
+    }
+
+    @Nonnull
+    @Override
+    public ItemStack getStack() {
+        return new ItemStack(Material.BLACK_CANDLE);
     }
 }

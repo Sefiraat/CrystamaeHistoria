@@ -28,4 +28,8 @@ public final class ItemGroups {
         new ItemStack(Material.STICK),
         ThemeType.MAIN.getColor() + "Historia Staves and Tools"
     ));
+    public static final SubItemGroup SPELLS = new SubItemGroup(CrystamaeHistoria.getKeys().getCatTools(), MAIN, new CustomItemStack(
+        new ItemStack(Material.FIRE_CHARGE),
+        ThemeType.MAIN.getColor() + "Magic Spells"
+    ));
 }

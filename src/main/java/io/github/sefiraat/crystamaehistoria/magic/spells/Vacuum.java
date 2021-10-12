@@ -5,11 +5,15 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 public class Vacuum extends Spell {
@@ -45,4 +49,24 @@ public class Vacuum extends Spell {
         }
     }
 
+    @Nonnull
+    @Override
+    public String getId() {
+        return "VACUUM";
+    }
+
+    @Nonnull
+    @Override
+    public String[] getLore() {
+        return new String[] {
+            "Feeling lonely? This spell lets you get up",
+            "close and personal will all nearby things."
+        };
+    }
+
+    @NotNull
+    @Override
+    public ItemStack getStack() {
+        return new ItemStack(Material.FISHING_ROD);
+    }
 }

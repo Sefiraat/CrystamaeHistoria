@@ -4,9 +4,13 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 public class Heal extends Spell {
@@ -25,4 +29,23 @@ public class Heal extends Spell {
         displayParticleEffect(caster, Particle.HEART, 2, 10);
     }
 
+    @Nonnull
+    @Override
+    public String getId() {
+        return "HEAL";
+    }
+
+    @Nonnull
+    @Override
+    public String[] getLore() {
+        return new String[] {
+            "Heals the caster for a set amount of HP"
+        };
+    }
+
+    @Nonnull
+    @Override
+    public ItemStack getStack() {
+        return new ItemStack(Material.POTION);
+    }
 }

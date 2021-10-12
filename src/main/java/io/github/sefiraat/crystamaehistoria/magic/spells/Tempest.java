@@ -4,9 +4,12 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.LightningStrike;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.inventory.ItemStack;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -58,4 +61,24 @@ public class Tempest extends Spell {
         }
     }
 
+    @Nonnull
+    @Override
+    public String getId() {
+        return "TEMPEST";
+    }
+
+    @Nonnull
+    @Override
+    public String[] getLore() {
+        return new String[] {
+            "Summons a tempest of lightning around the",
+            "caster causing damage and knockback."
+        };
+    }
+
+    @Nonnull
+    @Override
+    public ItemStack getStack() {
+        return new ItemStack(Material.END_ROD);
+    }
 }

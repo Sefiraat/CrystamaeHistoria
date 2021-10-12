@@ -2,7 +2,10 @@ package io.github.sefiraat.crystamaehistoria.magic.spells.core;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTick;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,6 +19,7 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
@@ -34,6 +38,15 @@ public abstract class Spell {
     @Getter
     @Setter
     private SpellCore spellCore;
+
+    @Nonnull
+    public abstract String getId();
+
+    @Nonnull
+    public abstract String[] getLore();
+
+    @Nonnull
+    public abstract ItemStack getStack();
 
     @ParametersAreNonnullByDefault
     public void castSpell(CastInformation castInformation) {
@@ -66,8 +79,8 @@ public abstract class Spell {
     }
 
     @ParametersAreNonnullByDefault
-    public double getDurabilityCost(CastInformation castInformation) {
-        return spellCore.isDurabilityMultiplied() ? spellCore.getDurabilityCost() * (3 - castInformation.getStaveLevel()) : spellCore.getDurabilityCost();
+    public double getCrystaCost(CastInformation castInformation) {
+        return spellCore.isDurabilityMultiplied() ? spellCore.getCrystaCost() * (3 - castInformation.getStaveLevel()) : spellCore.getCrystaCost();
     }
 
     @ParametersAreNonnullByDefault

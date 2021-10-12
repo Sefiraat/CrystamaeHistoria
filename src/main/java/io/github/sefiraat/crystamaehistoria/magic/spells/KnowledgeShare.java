@@ -6,10 +6,16 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.ExperienceOrb;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.PotionMeta;
+import org.bukkit.potion.PotionData;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -45,5 +51,26 @@ public class KnowledgeShare extends Spell {
                 caster.giveExp(-EXP_PER_ORB);
             }
         }
+    }
+
+    @Nonnull
+    @Override
+    public String getId() {
+        return "KNOWLEDGE_SHARE";
+    }
+
+    @Nonnull
+    @Override
+    public String[] getLore() {
+        return new String[] {
+            "Removes EXP from the caster and makes",
+            "it rain down from the sky around them."
+        };
+    }
+
+    @Nonnull
+    @Override
+    public ItemStack getStack() {
+        return new ItemStack(Material.EXPERIENCE_BOTTLE);
     }
 }

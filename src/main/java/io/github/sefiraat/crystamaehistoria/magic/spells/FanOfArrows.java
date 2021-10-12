@@ -5,8 +5,12 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.magic.wrappers.MagicProjectile;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
+import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 public class FanOfArrows extends Spell {
@@ -44,4 +48,24 @@ public class FanOfArrows extends Spell {
         damageEntity(castInformation.getMainTarget(), castInformation.getCaster(), getDamage(castInformation));
     }
 
+    @Nonnull
+    @Override
+    public String getId() {
+        return "FAN_OF_ARROWS";
+    }
+
+    @Nonnull
+    @Override
+    public String[] getLore() {
+        return new String[] {
+            "Summons a fan of arrows around you to slice",
+            "through your opponents"
+        };
+    }
+
+    @Nonnull
+    @Override
+    public ItemStack getStack() {
+        return new ItemStack(Material.SPECTRAL_ARROW);
+    }
 }

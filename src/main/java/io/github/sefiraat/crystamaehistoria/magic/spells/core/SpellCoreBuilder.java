@@ -19,7 +19,7 @@ public class SpellCoreBuilder {
     @Getter
     private final double range;
     @Getter
-    private final int durabilityCost;
+    private final int crystaCost;
     @Getter
     private final Map<PotionEffectType, Pair<Integer, Integer>> positiveEffectPairMap = new HashMap<>();
     @Getter
@@ -85,12 +85,12 @@ public class SpellCoreBuilder {
     @Getter
     private boolean isHealingSpell;
 
-    public SpellCoreBuilder(int cooldown, boolean cooldownMultiplied, double range, boolean rangeMultiplied, int durabilityCost, boolean durabilityMultiplied) {
+    public SpellCoreBuilder(int cooldown, boolean cooldownMultiplied, double range, boolean rangeMultiplied, int crystaCost, boolean durabilityMultiplied) {
         this.cooldown = cooldown;
         this.cooldownMultiplied = cooldownMultiplied;
         this.range = range;
         this.rangeMultiplied = rangeMultiplied;
-        this.durabilityCost = durabilityCost;
+        this.crystaCost = crystaCost;
         this.durabilityMultiplied = durabilityMultiplied;
     }
 
@@ -188,18 +188,13 @@ public class SpellCoreBuilder {
         return this;
     }
 
-    @Nonnull
-    public SpellCore build() {
-        return new SpellCore(this);
-    }
-
     /**
      * @param potionEffectType The {@link PotionEffectType} to apply.
      * @param amplification    The amplification of the effect. If multiple of the same effects are added, the cashedValues are combined.
      * @param duration         The duration of the effect in seconds. If multiple of the same effects are added, the highest is used.
      */
     @ParametersAreNonnullByDefault
-    public void addPositiveEffect(PotionEffectType potionEffectType, int amplification, int duration) {
+    public SpellCoreBuilder addPositiveEffect(PotionEffectType potionEffectType, int amplification, int duration) {
         duration = duration * 1000;
         if (positiveEffectPairMap.containsKey(potionEffectType)) {
             Pair<Integer, Integer> integerPair = positiveEffectPairMap.get(potionEffectType);
@@ -210,6 +205,7 @@ public class SpellCoreBuilder {
         } else {
             positiveEffectPairMap.put(potionEffectType, new Pair<>(amplification, duration));
         }
+        return this;
     }
 
     /**
@@ -218,7 +214,7 @@ public class SpellCoreBuilder {
      * @param duration         The duration of the effect. If multiple of the same effects are added, the highest is used.
      */
     @ParametersAreNonnullByDefault
-    public void addNegativeEffect(PotionEffectType potionEffectType, int amplification, int duration) {
+    public SpellCoreBuilder addNegativeEffect(PotionEffectType potionEffectType, int amplification, int duration) {
         duration = duration * 1000;
         if (negativeEffectPairMap.containsKey(potionEffectType)) {
             Pair<Integer, Integer> integerPair = negativeEffectPairMap.get(potionEffectType);
@@ -229,6 +225,11 @@ public class SpellCoreBuilder {
         } else {
             negativeEffectPairMap.put(potionEffectType, new Pair<>(amplification, duration));
         }
+        return this;
     }
 
+    @Nonnull
+    public SpellCore build() {
+        return new SpellCore(this);
+    }
 }

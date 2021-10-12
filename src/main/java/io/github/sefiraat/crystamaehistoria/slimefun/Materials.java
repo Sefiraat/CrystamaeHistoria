@@ -26,6 +26,8 @@ public class Materials {
     // TODO Create a class to store the value map
     @Getter
     private final Map<StoryRarity, Map<StoryType, SlimefunItem>> crystalMap = new EnumMap<>(StoryRarity.class);
+    @Getter
+    private final Map<StoryType, SlimefunItem> typeItemMap = new EnumMap<>(StoryType.class);
 
     public static final SlimefunItem INERT_PLATE_T_1;
     public static final SlimefunItem CHARGED_PLATE_T_1;
@@ -75,6 +77,7 @@ public class Materials {
 
     public void setup() {
         setUpCrystals();
+        setUpDummyCrystalTypes();
     }
 
     private void setUpCrystals() {
@@ -86,7 +89,7 @@ public class Materials {
                     ItemGroups.CRYSTALS,
                     ThemeType.themeStack(
                         "CRY_CRYSTAL_" + rarity.toString() + "_" + type.toString(),
-                        Skulls.getByTypeAndRarity(rarity, type).getPlayerHead(),
+                        Skulls.getByType(type).getPlayerHead(),
                         ThemeType.CRYSTAL,
                         theme.getColor() + TextUtils.toTitleCase(rarity.toString() + " " + type.toString()) + " Crystal",
                         "Magical Crystamae in it's physical form"
@@ -100,6 +103,28 @@ public class Materials {
                 storyTypeSlimefunItemMap.put(type, sfItem);
             }
             crystalMap.put(rarity, storyTypeSlimefunItemMap);
+        }
+    }
+
+    private void setUpDummyCrystalTypes() {
+        for (StoryType type : StoryType.getValues()) {
+            ThemeType theme = ThemeType.getByType(type);
+            SlimefunItem sfItem = new Crystal(
+                ItemGroups.CRYSTALS,
+                ThemeType.themeStack(
+                    "CRY_CRYSTAL_DUMMY_" + type.toString() + "_" + type.toString(),
+                    Skulls.getByType(type).getPlayerHead(),
+                    ThemeType.CRYSTAL,
+                    theme.getColor() + TextUtils.toTitleCase(type.toString() + " Crystal"),
+                    "Magical Crystamae in it's physical form"
+                ),
+                DummyRealisationAltar.TYPE,
+                new ItemStack[]{null, null, null, null, new ItemStack(Material.AMETHYST_CLUSTER), null, null, null, null},
+                StoryRarity.COMMON,
+                type
+            );
+            sfItem.register(plugin);
+            typeItemMap.put(type, sfItem);
         }
     }
 

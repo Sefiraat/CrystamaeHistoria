@@ -17,7 +17,7 @@ public class SpellCore {
     @Getter
     private final double range;
     @Getter
-    private final int durabilityCost;
+    private final int crystaCost;
     @Getter
     private final double damageAmount;
     @Getter
@@ -88,7 +88,7 @@ public class SpellCore {
     public SpellCore(SpellCoreBuilder spellCoreBuilder) {
         this.cooldown = spellCoreBuilder.getCooldown();
         this.range = spellCoreBuilder.getRange();
-        this.durabilityCost = spellCoreBuilder.getDurabilityCost();
+        this.crystaCost = spellCoreBuilder.getCrystaCost();
         this.damageAmount = spellCoreBuilder.getDamageAmount();
         this.knockbackAmount = spellCoreBuilder.getKnockbackAmount();
         this.healAmount = spellCoreBuilder.getHealAmount();
