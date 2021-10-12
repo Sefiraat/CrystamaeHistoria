@@ -1,7 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.machines.chroniclerpanel;
 
 import io.github.mooy1.infinitylib.machines.TickingMenuBlock;
-import io.github.sefiraat.crystamaehistoria.theme.GUIElements;
+import io.github.sefiraat.crystamaehistoria.theme.GuiElements;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
@@ -36,8 +36,8 @@ public class ChroniclerPanel extends TickingMenuBlock {
     @Override
     @ParametersAreNonnullByDefault
     protected void setup(BlockMenuPreset blockMenuPreset) {
-        blockMenuPreset.drawBackground(GUIElements.menuBackground(), BACKGROUND_SLOTS);
-        blockMenuPreset.drawBackground(GUIElements.menuBackgroundInput(), BACKGROUND_INPUT);
+        blockMenuPreset.drawBackground(GuiElements.MENU_BACKGROUND, BACKGROUND_SLOTS);
+        blockMenuPreset.drawBackground(GuiElements.MENU_BACKGROUND_INPUT, BACKGROUND_INPUT);
     }
 
     @Override

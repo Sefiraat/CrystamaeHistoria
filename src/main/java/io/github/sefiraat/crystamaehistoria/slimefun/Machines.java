@@ -5,6 +5,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.chroniclerpanel.ChroniclerPanel;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.LiquefactionBasin;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar.RealisationAltar;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.staveconfigurator.StaveConfigurator;
 import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
@@ -41,6 +42,7 @@ public class Machines {
                 SlimefunItems.MAGIC_LUMP_2, SlimefunItems.MAGIC_LUMP_2, SlimefunItems.MAGIC_LUMP_2,
             }
         ).register(plugin);
+
         new RealisationAltar(
             ItemGroups.MECHANISMS,
             ThemeType.themeStack(
@@ -59,6 +61,7 @@ public class Machines {
                 SlimefunItems.MAGIC_LUMP_2, SlimefunItems.TALISMAN_MAGICIAN, SlimefunItems.MAGIC_LUMP_2,
             }
         ).register(plugin);
+
         new LiquefactionBasin(
             ItemGroups.MECHANISMS,
             ThemeType.themeStack(
@@ -69,6 +72,25 @@ public class Machines {
                 "The liquefaction basin can take",
                 "Crystals and convert them into their liquid",
                 "Crystamae form. Used for magical crafting"
+            ),
+            RecipeType.ENHANCED_CRAFTING_TABLE,
+            new ItemStack[]{
+                null, new ItemStack(Material.BOOK), null,
+                SlimefunItems.CORINTHIAN_BRONZE_INGOT, new ItemStack(Material.AMETHYST_CLUSTER), SlimefunItems.CORINTHIAN_BRONZE_INGOT,
+                SlimefunItems.MAGIC_LUMP_2, SlimefunItems.TALISMAN_MAGICIAN, SlimefunItems.MAGIC_LUMP_2,
+            }
+        ).register(plugin);
+
+        new StaveConfigurator(
+            ItemGroups.MECHANISMS,
+            ThemeType.themeStack(
+                "CRY_STAVE_CONFIGURATOR",
+                new ItemStack(Material.CUT_COPPER),
+                ThemeType.MECHANISM,
+                "Stave Configurator",
+                "The Stave Configurator allows you",
+                "to add spell plates into your",
+                "Staves."
             ),
             RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[]{
