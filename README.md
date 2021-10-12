@@ -13,7 +13,7 @@ experienced. These stories, once discovered, can be read from the block. Stories
 experience that created it.
 
 
-<p align="center"><img width="900" height="486" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_chronicler_panel.gif?raw=true"></p>
+<p align="center"><img width="900" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_chronicler_panel.gif?raw=true"></p>
 
 ## The Realisation Altar
 
@@ -21,7 +21,7 @@ The Realisation Altar will take the stories that have been discovered on blocks 
 from them. This energy slowly begins to crystalize around the altar and, when fully matured, can be broken giving you
 magic in its physical form. The type of crystal you get is dependent on the type of story that was used to form it.
 
-<p align="center"><img width="900" height="486" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_realisation_altar.gif?raw=true"></p>
+<p align="center"><img width="900" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_realisation_altar.gif?raw=true"></p>
 
 ## The Liquefaction Basin
 
@@ -32,7 +32,7 @@ absorbed to create a magical artefact, the result being based on the types of Cr
 Be careful when using the basin though, a wrong recipe will ruin all your materials and, sometimes, have devastating
 effects.
 
-<p align="center"><img width="900" height="486" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_liquefaction_basin.gif?raw=true"></p>
+<p align="center"><img width="900" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_liquefaction_basin.gif?raw=true"></p>
 
 ## Magical Plates
 
@@ -44,7 +44,7 @@ Configurator.
 Plates hold the potential for a magical spell but will need refilling with Crystamae as the magical energy is used.
 There is no limit to the stored Crystamae. You can recharge a plate by dropping it into a basin.
 
-<p align="center"><img width="900" height="486" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_plate_filling.gif?raw=true"></p>
+<p align="center"><img width="900" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_plate_filling.gif?raw=true"></p>
 
 ## Stave Configurator
 
@@ -58,8 +58,8 @@ customise your load-out whenever.
 
 The end result of all your hard work? Spells!
 
-<p align="center"><img width="900" height="486" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_spell_rof.gif?raw=true"></p>
+<p align="center"><img width="900" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_spell_rof.gif?raw=true"></p>
 
-<p align="center"><img width="900" height="486" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_spell_ethereal.gif?raw=true"></p>
+<p align="center"><img width="900" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_spell_ethereal.gif?raw=true"></p>
 
-<p align="center"><img width="900" height="486" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_spell_push.gif?raw=true"></p>
+<p align="center"><img width="900" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_spell_push.gif?raw=true"></p>
