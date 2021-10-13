@@ -2,7 +2,6 @@ package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.resource.Skulls;
-import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.DummyItemGroup;
 import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar.DummyRealisationAltar;
 import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
