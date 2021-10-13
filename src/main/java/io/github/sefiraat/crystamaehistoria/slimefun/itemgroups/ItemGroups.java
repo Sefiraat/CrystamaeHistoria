@@ -32,4 +32,9 @@ public final class ItemGroups {
         new ItemStack(Material.FIRE_CHARGE),
         ThemeType.MAIN.getColor() + "Magic Spells"
     ));
+
+    public static final DummyItemGroup DUMMY_ITEM_GROUP = new DummyItemGroup(CrystamaeHistoria.getKeys().getCatTools(), new CustomItemStack(
+        new ItemStack(Material.FIRE_CHARGE),
+        ThemeType.MAIN.getColor() + "Dummy Crystamae Historia"
+    ));
 }

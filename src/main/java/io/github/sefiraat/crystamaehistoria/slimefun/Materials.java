@@ -2,6 +2,7 @@ package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.resource.Skulls;
+import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.DummyItemGroup;
 import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar.DummyRealisationAltar;
 import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
@@ -28,7 +29,7 @@ public class Materials {
 
     static {
         INERT_PLATE_T_1 = new BlankPlate(
-            ItemGroups.CRYSTALS,
+            ItemGroups.TOOLS,
             ThemeType.themeStack(
                 "CRY_SPELL_PLATE_1",
                 new ItemStack(Material.PAPER),
@@ -43,7 +44,7 @@ public class Materials {
         );
 
         CHARGED_PLATE_T_1 = new ChargedPlate(
-            ItemGroups.CRYSTALS,
+            ItemGroups.TOOLS,
             ThemeType.themeStack(
                 "CRY_CHARGED_PLATE_1",
                 new ItemStack(Material.PAPER),
@@ -80,9 +81,9 @@ public class Materials {
     }
 
     private void setUpCrystals() {
-        for (StoryRarity rarity : StoryRarity.getValues()) {
+        for (StoryType type : StoryType.values()) {
             Map<StoryType, SlimefunItem> storyTypeSlimefunItemMap = new EnumMap<>(StoryType.class);
-            for (StoryType type : StoryType.values()) {
+            for (StoryRarity rarity : StoryRarity.getValues()) {
                 ThemeType theme = ThemeType.getByRarity(rarity);
                 SlimefunItem sfItem = new Crystal(
                     ItemGroups.CRYSTALS,
@@ -100,8 +101,8 @@ public class Materials {
                 );
                 sfItem.register(plugin);
                 storyTypeSlimefunItemMap.put(type, sfItem);
+                crystalMap.put(rarity, storyTypeSlimefunItemMap);
             }
-            crystalMap.put(rarity, storyTypeSlimefunItemMap);
         }
     }
 
@@ -109,7 +110,7 @@ public class Materials {
         for (StoryType type : StoryType.getValues()) {
             ThemeType theme = ThemeType.getByType(type);
             SlimefunItem sfItem = new Crystal(
-                ItemGroups.CRYSTALS,
+                ItemGroups.DUMMY_ITEM_GROUP,
                 ThemeType.themeStack(
                     "CRY_CRYSTAL_DUMMY_" + type.toString() + "_" + type.toString(),
                     Skulls.getByType(type).getPlayerHead(),
