@@ -1,36 +1,13 @@
 package io.github.sefiraat.crystamaehistoria.magic;
 
-import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Bright;
-import io.github.sefiraat.crystamaehistoria.magic.spells.CallLightning;
-import io.github.sefiraat.crystamaehistoria.magic.spells.EtherealFlow;
-import io.github.sefiraat.crystamaehistoria.magic.spells.FanOfArrows;
-import io.github.sefiraat.crystamaehistoria.magic.spells.FireNova;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Fireball;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Heal;
-import io.github.sefiraat.crystamaehistoria.magic.spells.HealingMist;
-import io.github.sefiraat.crystamaehistoria.magic.spells.KnowledgeShare;
-import io.github.sefiraat.crystamaehistoria.magic.spells.LovePotion;
-import io.github.sefiraat.crystamaehistoria.magic.spells.PoisonNova;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Push;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Quake;
-import io.github.sefiraat.crystamaehistoria.magic.spells.RainOfFire;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Shroud;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Squall;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Teleport;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Tempest;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Vacuum;
+import io.github.sefiraat.crystamaehistoria.magic.spells.*;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
-import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.ItemGroups;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.DummyLiquefactionBasin;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import lombok.Getter;
-import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -76,33 +53,7 @@ public enum SpellType {
         this.id = id;
         this.spell = spell;
         this.spellRecipe = spellRecipe;
-        // TODO Null check temporary to load without errors until all recipes are set - remove nullable and final spellItem
-        if (spellRecipe != null) {
-            LiquefactionBasinCache.addSpellRecipe(this, spellRecipe);
-            this.spellItem = getSlimefunItem();
-            this.spellItem.register(CrystamaeHistoria.inst());
-        }
-    }
-
-    public SlimefunItem getSlimefunItem() {
-        final Materials materials = CrystamaeHistoria.getStructure().getMaterials();
-        final ItemStack one = materials.getTypeItemMap().get(getRecipeStory(0)).getItem();
-        final ItemStack two = materials.getTypeItemMap().get(getRecipeStory(1)).getItem();
-        final ItemStack three = materials.getTypeItemMap().get(getRecipeStory(2)).getItem();
-
-        return new SlimefunItem(
-            ItemGroups.SPELLS,
-            ThemeType.themeSpellStack(
-                this.spell.getId(),
-                this.spell.getStack(),
-                this,
-                this.spell.getLore()
-            ),
-            DummyLiquefactionBasin.TYPE,
-            new ItemStack[]{
-                null, null, null, one, two, three, null, null, null
-            }
-        );
+        LiquefactionBasinCache.addSpellRecipe(this, spellRecipe);
     }
 
     @Nullable

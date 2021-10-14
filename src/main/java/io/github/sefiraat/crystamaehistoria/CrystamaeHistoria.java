@@ -5,7 +5,6 @@ import io.github.mooy1.infinitylib.core.AbstractAddon;
 import io.github.sefiraat.crystamaehistoria.commands.TestSpell;
 import io.github.sefiraat.crystamaehistoria.magic.ActiveStorage;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
-import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.managers.ListenerManager;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTick;
 import io.github.sefiraat.crystamaehistoria.slimefun.Structure;
@@ -92,22 +91,6 @@ public class CrystamaeHistoria extends AbstractAddon {
         return instance.activeStorage.getTickingCastables();
     }
 
-    @ParametersAreNonnullByDefault
-    // TODO Remove before v1
-    public static void logInfo(String... message) {
-        for (String string : message) {
-            instance.getServer().getLogger().info(string);
-        }
-    }
-
-    @ParametersAreNonnullByDefault
-    // TODO Remove before v1
-    public static void logWarning(String... message) {
-        for (String string : message) {
-            instance.getServer().getLogger().warning(string);
-        }
-    }
-
     @Override
     public void enable() {
 
@@ -124,13 +107,11 @@ public class CrystamaeHistoria extends AbstractAddon {
         this.activeStorage = new ActiveStorage();
         this.effectManager = new EffectManager(this);
 
+        structure.setup();
+
         new Metrics(this, 12065);
 
         getAddonCommand().addSub(new TestSpell());
-
-        // Just to load the class
-        SpellType.getCachedValues();
-
     }
 
     @Override
@@ -139,5 +120,4 @@ public class CrystamaeHistoria extends AbstractAddon {
         saveConfig();
         instance = null;
     }
-
 }

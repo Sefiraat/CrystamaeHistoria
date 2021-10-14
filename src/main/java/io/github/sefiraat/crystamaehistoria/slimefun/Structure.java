@@ -6,6 +6,8 @@ import lombok.Getter;
 public class Structure {
 
     @Getter
+    private final Spells spells;
+    @Getter
     private final Machines machines;
     @Getter
     private final Materials materials;
@@ -13,20 +15,17 @@ public class Structure {
     private final Tools tools;
 
     public Structure() {
-
         CrystamaeHistoria plugin = CrystamaeHistoria.inst();
-
         this.machines = new Machines(plugin);
         this.materials = new Materials(plugin);
         this.tools = new Tools(plugin);
-
-        setup();
+        this.spells = new Spells(plugin);
     }
 
-    private void setup() {
+    public void setup() {
         this.machines.setup();
         this.materials.setup();
         this.tools.setup();
+        this.spells.setup();
     }
-
 }
