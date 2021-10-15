@@ -12,7 +12,6 @@ import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentStaveDataT
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
-import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -31,39 +30,27 @@ public class PlayerInteract implements Listener {
         if (slimefunItem instanceof Stave) {
             Stave sfStave = (Stave) slimefunItem;
             StaveStorage staveStorage = new StaveStorage(stave);
-            SpellSlot slot = null;
-            Action action = e.getAction();
-            switch (action) {
-                case LEFT_CLICK_AIR:
-                case LEFT_CLICK_BLOCK:
-                    slot = player.isSneaking() ? SpellSlot.SHIFT_LEFT_CLICK : SpellSlot.LEFT_CLICK;
-                    break;
-                case RIGHT_CLICK_AIR:
-                case RIGHT_CLICK_BLOCK:
-                    slot = player.isSneaking() ? SpellSlot.SHIFT_RIGHT_CLICK : SpellSlot.RIGHT_CLICK;
-                    break;
-                default:
-                    break;
+            SpellSlot slot = SpellSlot.getByPlayerAndAction(player, e.getAction());
+            if (slot == SpellSlot.UNKNOWN) {
+                return;
             }
-            if (slot != null) {
-                CastInformation castInformation = new CastInformation(player, sfStave.getLevel());
-                CastResult castResult = staveStorage.tryCastSpell(slot, castInformation);
-                if (castResult == CastResult.CAST_SUCCESS) {
-                    ItemMeta itemMeta = stave.getItemMeta();
-                    StoryUtils.setCustom(
-                        itemMeta,
-                        CrystamaeHistoria.getKeys().getPdcStaveStorage(),
-                        PersistentStaveDataType.TYPE,
-                        staveStorage.getSpellInstanceMap()
-                    );
-                    player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(
-                        ThemeType.SUCCESS.getColor() + "Casting spell : " + castInformation.getSpellType().getId()
-                    ));
-                } else {
-                    player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(
-                        ThemeType.WARNING.getColor() + "Casting failed : " + castResult.getMessage())
-                    );
-                }
+            CastInformation castInformation = new CastInformation(player, sfStave.getLevel());
+            CastResult castResult = staveStorage.tryCastSpell(slot, castInformation);
+            if (castResult == CastResult.CAST_SUCCESS) {
+                ItemMeta itemMeta = stave.getItemMeta();
+                StoryUtils.setCustom(
+                    itemMeta,
+                    CrystamaeHistoria.getKeys().getPdcStaveStorage(),
+                    PersistentStaveDataType.TYPE,
+                    staveStorage.getSpellInstanceMap()
+                );
+                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(
+                    ThemeType.SUCCESS.getColor() + "Casting spell : " + castInformation.getSpellType().getId()
+                ));
+            } else {
+                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(
+                    ThemeType.WARNING.getColor() + "Casting failed : " + castResult.getMessage())
+                );
             }
         }
     }
