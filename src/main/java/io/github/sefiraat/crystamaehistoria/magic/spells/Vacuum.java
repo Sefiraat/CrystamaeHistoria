@@ -58,7 +58,7 @@ public class Vacuum extends Spell {
     @Nonnull
     @Override
     public String[] getLore() {
-        return new String[] {
+        return new String[]{
             "Feeling lonely? This spell lets you get up",
             "close and personal will all nearby things."
         };

@@ -34,8 +34,8 @@ public class Keys {
     private final NamespacedKey pdcPotentialStories = new NamespacedKey(CrystamaeHistoria.inst(), "s_pot");
     private final NamespacedKey pdcCurrentNumberOfStories = new NamespacedKey(CrystamaeHistoria.inst(), "s_cur_n");
     private final NamespacedKey pdcStories = new NamespacedKey(CrystamaeHistoria.inst(), "s_list");
-    private final NamespacedKey pdcStaveInstance = new NamespacedKey(CrystamaeHistoria.inst(), "stv");
-    private final NamespacedKey pdcStaveLevel = new NamespacedKey(CrystamaeHistoria.inst(), "stv_lvl");
+    private final NamespacedKey pdcPlateStorage = new NamespacedKey(CrystamaeHistoria.inst(), "plt");
+    private final NamespacedKey pdcStaveStorage = new NamespacedKey(CrystamaeHistoria.inst(), "stv");
 
     // Type - Story
     private final NamespacedKey storyId = new NamespacedKey(CrystamaeHistoria.inst(), "s_id");
@@ -46,6 +46,10 @@ public class Keys {
     private final NamespacedKey plateTier = new NamespacedKey(CrystamaeHistoria.inst(), "p_t");
     private final NamespacedKey plateSpell = new NamespacedKey(CrystamaeHistoria.inst(), "p_s");
     private final NamespacedKey plateCharges = new NamespacedKey(CrystamaeHistoria.inst(), "p_c");
+
+    // Type - Plate
+    private final NamespacedKey staveSlot = new NamespacedKey(CrystamaeHistoria.inst(), "sv_s");
+    private final NamespacedKey stavePlate = new NamespacedKey(CrystamaeHistoria.inst(), "sv_p");
 
     // Entities
     private final NamespacedKey pdcArmourStandName = new NamespacedKey(CrystamaeHistoria.inst(), "a_nm");

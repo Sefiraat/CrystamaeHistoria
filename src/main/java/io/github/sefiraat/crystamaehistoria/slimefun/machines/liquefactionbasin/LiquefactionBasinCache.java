@@ -3,11 +3,10 @@ package io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin
 import de.slikey.effectlib.effect.SphereEffect;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
-import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.DisplayStandHolder;
 import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.BlankPlate;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.PlateStorage;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.ChargedPlate;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
@@ -28,7 +27,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.util.Vector;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.awt.*;
@@ -40,10 +38,10 @@ import java.util.stream.Collectors;
 @Getter
 public class LiquefactionBasinCache extends DisplayStandHolder {
 
-    protected static final Map<StoryRarity, Integer> RARITY_VALUE_MAP = new EnumMap<>(StoryRarity.class);
     public static final double LOWEST_LEVEL = -1.7;
     public static final double HIGHEST_LEVEL = -1;
     public static final double MAX_VOLUME = 1000;
+    protected static final Map<StoryRarity, Integer> RARITY_VALUE_MAP = new EnumMap<>(StoryRarity.class);
     protected static final String CH_LEVEL_PREFIX = "ch_c_lvl:";
     private static final Map<SpellType, SpellRecipe> RECIPES_SPELL = new HashMap<>();
 
@@ -186,22 +184,19 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
     @ParametersAreNonnullByDefault
     private void checkPlate(Item item, BlankPlate plate) {
         Set<StoryType> set = contentMap.entrySet().stream().sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed()).limit(3).map(Map.Entry::getKey).collect(Collectors.toSet());
+        ItemStack itemStack = item.getItemStack();
         if (set.size() == 3) {
-            SlimefunItem.getByItem(item.getItemStack());
+            SlimefunItem.getByItem(itemStack);
             SpellType spellType = getMatchingRecipe(set, plate);
             if (spellType != null) {
                 // TODO Plate tier checks
-                item.getWorld().dropItem(item.getLocation(), getChargedPlate(plate, spellType, getFillLevel()));
-                item.remove();
+                item.getWorld().dropItem(item.getLocation(), ChargedPlate.getChargedPlate(plate.getTier(), spellType, getFillLevel()));
+                if (itemStack.getAmount() > 1) {
+                    itemStack.setAmount(itemStack.getAmount() - 1);
+                } else {
+                    item.remove();
+                }
                 summonCatalystParticles();
-            } else {
-                /*(
-                 TODO Remove
-                 Debugging only as when working this will not be able
-                 to not be present. Lets just yeet it for now to stop
-                 firing multiple times
-                 */
-                rejectItem(item, false);
             }
             emptyBasin();
         } else {
@@ -220,15 +215,6 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
             }
         }
         return spellType;
-    }
-
-    @Nonnull
-    @ParametersAreNonnullByDefault
-    public ItemStack getChargedPlate(BlankPlate plate, SpellType spellType, int crysta) {
-        PlateStorage plateStorage = new PlateStorage(plate.getTier(), spellType, crysta);
-        ItemStack newPlate = Materials.CHARGED_PLATE_T_1.getItem().clone();
-        PlateStorage.setPlateLore(newPlate, plateStorage);
-        return newPlate;
     }
 
     public int getFillLevel() {

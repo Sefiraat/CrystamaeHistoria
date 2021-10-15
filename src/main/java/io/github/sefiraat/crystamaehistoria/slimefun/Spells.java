@@ -32,17 +32,17 @@ public class Spells {
         final ItemStack three = materials.getTypeItemMap().get(spellType.getRecipeStory(2)).getItem();
 
         return new SlimefunItem(
-                ItemGroups.SPELLS,
-                ThemeType.themeSpellStack(
-                        spellType.getSpell().getId(),
-                        spellType.getSpell().getStack(),
-                        spellType,
-                        spellType.getSpell().getLore()
-                ),
-                DummyLiquefactionBasin.TYPE,
-                new ItemStack[]{
-                        null, null, null, one, two, three, null, null, null
-                }
+            ItemGroups.SPELLS,
+            ThemeType.themeSpellStack(
+                spellType.getSpell().getId(),
+                spellType.getSpell().getStack(),
+                spellType,
+                spellType.getSpell().getLore()
+            ),
+            DummyLiquefactionBasin.TYPE,
+            new ItemStack[]{
+                null, null, null, one, two, three, null, null, null
+            }
         );
     }
 

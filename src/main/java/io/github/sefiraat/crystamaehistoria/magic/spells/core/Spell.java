@@ -76,8 +76,8 @@ public abstract class Spell {
     }
 
     @ParametersAreNonnullByDefault
-    public double getCrystaCost(CastInformation castInformation) {
-        return spellCore.isDurabilityMultiplied() ? spellCore.getCrystaCost() * (3 - castInformation.getStaveLevel()) : spellCore.getCrystaCost();
+    public int getCrystaCost(CastInformation castInformation) {
+        return spellCore.isCrystaMultiplied() ? spellCore.getCrystaCost() * (3 - castInformation.getStaveLevel()) : spellCore.getCrystaCost();
     }
 
     @ParametersAreNonnullByDefault

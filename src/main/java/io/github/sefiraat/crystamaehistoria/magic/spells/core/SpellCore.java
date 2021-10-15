@@ -37,7 +37,7 @@ public class SpellCore {
     @Getter
     private final boolean rangeMultiplied;
     @Getter
-    private final boolean durabilityMultiplied;
+    private final boolean crystaMultiplied;
     @Getter
     private final boolean damageMultiplied;
     @Getter
@@ -98,7 +98,7 @@ public class SpellCore {
         this.tickInterval = spellCoreBuilder.getTickInterval();
         this.cooldownMultiplied = spellCoreBuilder.isCooldownMultiplied();
         this.rangeMultiplied = spellCoreBuilder.isRangeMultiplied();
-        this.durabilityMultiplied = spellCoreBuilder.isDurabilityMultiplied();
+        this.crystaMultiplied = spellCoreBuilder.isDurabilityMultiplied();
         this.damageMultiplied = spellCoreBuilder.isDamageMultiplied();
         this.knockbackMultiplied = spellCoreBuilder.isKnockbackMultiplied();
         this.healMultiplied = spellCoreBuilder.isHealMultiplied();

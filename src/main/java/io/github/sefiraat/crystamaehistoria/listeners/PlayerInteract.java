@@ -1,8 +1,9 @@
 package io.github.sefiraat.crystamaehistoria.listeners;
 
+import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.SpellSlot;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.Stave;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.StaveInstance;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.StaveStorage;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -20,7 +21,7 @@ public class PlayerInteract implements Listener {
         SlimefunItem slimefunItem = SlimefunItem.getByItem(itemStack);
         if (slimefunItem instanceof Stave) {
             Stave stave = (Stave) slimefunItem;
-            StaveInstance staveInstance = new StaveInstance(stave, itemStack);
+            StaveStorage staveStorage = new StaveStorage(itemStack);
             SpellSlot slot = null;
             Action action = e.getAction();
             switch (action) {
@@ -36,7 +37,8 @@ public class PlayerInteract implements Listener {
                     break;
             }
             if (slot != null) {
-                //staveInstance.tryCastSpell(slot, player);
+                CastInformation castInformation = new CastInformation(player, stave.getLevel());
+                staveStorage.tryCastSpell(slot, castInformation);
             }
         }
     }

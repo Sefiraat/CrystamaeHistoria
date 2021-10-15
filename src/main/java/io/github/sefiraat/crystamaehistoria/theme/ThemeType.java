@@ -144,10 +144,10 @@ public enum ThemeType {
     /**
      * Gets a SlimefunItemStack with a pre-populated lore and name with themed colors.
      *
-     * @param id   The ID for the new {@link SlimefunItemStack}
-     * @param i    The vanilla {@link ItemStack} used to base the {@link SlimefunItemStack} on
+     * @param id        The ID for the new {@link SlimefunItemStack}
+     * @param i         The vanilla {@link ItemStack} used to base the {@link SlimefunItemStack} on
      * @param spellType The {@link SpellType} used
-     * @param lore The lore lines for the {@link SlimefunItemStack}. Lore is book-ended with empty strings.
+     * @param lore      The lore lines for the {@link SlimefunItemStack}. Lore is book-ended with empty strings.
      * @return Returns the new {@link SlimefunItemStack}
      */
     @Nonnull

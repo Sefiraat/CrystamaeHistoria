@@ -37,7 +37,7 @@ public class Heal extends Spell {
     @Nonnull
     @Override
     public String[] getLore() {
-        return new String[] {
+        return new String[]{
             "Heals the caster for a set amount of HP"
         };
     }

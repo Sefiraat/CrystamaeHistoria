@@ -64,7 +64,7 @@ public class Quake extends Spell {
     @Nonnull
     @Override
     public String[] getLore() {
-        return new String[] {
+        return new String[]{
             "Creates a localized quake around the caster",
             "damaging and slowing."
         };

@@ -75,7 +75,7 @@ public class RainOfFire extends Spell {
     @Nonnull
     @Override
     public String[] getLore() {
-        return new String[] {
+        return new String[]{
             "Summons an epic hellscape of raining",
             "fire."
         };

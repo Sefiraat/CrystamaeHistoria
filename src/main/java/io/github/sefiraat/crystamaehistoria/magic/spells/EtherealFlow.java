@@ -36,7 +36,7 @@ public class EtherealFlow extends Spell {
     @Nonnull
     @Override
     public String[] getLore() {
-        return new String[] {
+        return new String[]{
             "Fast-forwards time"
         };
     }

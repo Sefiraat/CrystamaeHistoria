@@ -70,7 +70,7 @@ public class Tempest extends Spell {
     @Nonnull
     @Override
     public String[] getLore() {
-        return new String[] {
+        return new String[]{
             "Summons a tempest of lightning around the",
             "caster causing damage and knockback."
         };

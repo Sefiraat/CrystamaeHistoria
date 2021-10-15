@@ -1,6 +1,9 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.tools.plates;
 
+import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.CastResult;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
 import lombok.Getter;
 import net.md_5.bungee.api.ChatColor;
@@ -15,7 +18,7 @@ public class PlateStorage {
 
     private final int tier;
     private final SpellType storedSpell;
-    private final int crysta;
+    private int crysta;
 
     public PlateStorage(int tier, SpellType storedSpell, int crysta) {
         this.tier = tier;
@@ -48,6 +51,18 @@ public class PlateStorage {
         final ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setLore(finalLore);
         itemStack.setItemMeta(itemMeta);
+    }
+
+    public CastResult tryCastSpell(CastInformation castInformation) {
+        Spell spell = storedSpell.getSpell();
+        int crystaCost = spell.getCrystaCost(castInformation);
+        if (crysta >= crystaCost) {
+            spell.castSpell(castInformation);
+            this.crysta -= crystaCost;
+            return CastResult.CAST_SUCCESS;
+        } else {
+            return CastResult.CAST_FAIL_NO_CRYSTA;
+        }
     }
 
 }

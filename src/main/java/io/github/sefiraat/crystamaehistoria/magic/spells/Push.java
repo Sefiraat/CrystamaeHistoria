@@ -54,7 +54,7 @@ public class Push extends Spell {
     @Nonnull
     @Override
     public String[] getLore() {
-        return new String[] {
+        return new String[]{
             "In a jam? This spell gives you some room",
             "to breathe."
         };

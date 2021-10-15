@@ -50,7 +50,7 @@ public class Shroud extends Spell {
     @Nonnull
     @Override
     public String[] getLore() {
-        return new String[] {
+        return new String[]{
             "Summons a dark miasma around the player",
             "causing light damage and blinding those",
             "affected."

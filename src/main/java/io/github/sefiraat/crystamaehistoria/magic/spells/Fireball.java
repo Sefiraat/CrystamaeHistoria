@@ -28,10 +28,8 @@ public class Fireball extends Spell {
         Location location = castInformation.getCastLocation();
         Location aimLocation = location.clone().add(0, 1.5, 0).add(location.getDirection().multiply(2));
         MagicProjectile magicProjectile = new MagicProjectile(EntityType.SMALL_FIREBALL, aimLocation, castInformation.getCaster());
-        magicProjectile.setVelocity(location.getDirection(), 2);
-
+        magicProjectile.setVelocity(location.getDirection(), 1.5);
         registerProjectile(magicProjectile.getProjectile(), castInformation);
-
     }
 
     @ParametersAreNonnullByDefault
@@ -57,7 +55,7 @@ public class Fireball extends Spell {
     @Nonnull
     @Override
     public String[] getLore() {
-        return new String[] {
+        return new String[]{
             "Shoots a fireball in the direction you are",
             "looking at."
         };

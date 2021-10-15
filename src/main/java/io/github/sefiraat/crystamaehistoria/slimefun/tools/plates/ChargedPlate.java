@@ -1,12 +1,21 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.tools.plates;
 
+import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.magic.SpellType;
+import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
+import io.github.sefiraat.crystamaehistoria.utils.Keys;
+import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
+import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentPlateDataType;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import lombok.Getter;
+import org.bukkit.event.entity.ItemMergeEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @Getter
@@ -20,4 +29,36 @@ public class ChargedPlate extends UnplaceableBlock {
         this.tier = tier;
     }
 
+    @Nonnull
+    @ParametersAreNonnullByDefault
+    public static ItemStack getChargedPlate(int tier, SpellType spellType, int crysta) {
+        Keys keys = CrystamaeHistoria.getKeys();
+        PlateStorage plateStorage = new PlateStorage(tier, spellType, crysta);
+        ItemStack newPlate = Materials.CHARGED_PLATE_T_1.getItem().clone();
+        PlateStorage.setPlateLore(newPlate, plateStorage);
+        ItemMeta itemMeta = newPlate.getItemMeta();
+        StoryUtils.setCustom(
+            itemMeta,
+            keys.getPdcPlateStorage(),
+            PersistentPlateDataType.TYPE,
+            plateStorage
+        );
+        newPlate.setItemMeta(itemMeta);
+        return newPlate;
+    }
+
+    @Nonnull
+    @ParametersAreNonnullByDefault
+    public static ItemStack getChargedPlate(PlateStorage plateStorage) {
+        Keys keys = CrystamaeHistoria.getKeys();
+        ItemStack newPlate = Materials.CHARGED_PLATE_T_1.getItem().clone();
+        PlateStorage.setPlateLore(newPlate, plateStorage);
+        StoryUtils.setCustom(
+            newPlate.getItemMeta(),
+            keys.getPdcPlateStorage(),
+            PersistentPlateDataType.TYPE,
+            plateStorage
+        );
+        return newPlate;
+    }
 }

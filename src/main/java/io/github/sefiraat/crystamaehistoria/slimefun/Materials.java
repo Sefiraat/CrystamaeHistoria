@@ -23,12 +23,6 @@ import java.util.Map;
 
 public class Materials {
 
-    // TODO Create a class to store the value map
-    @Getter
-    private final Map<StoryRarity, Map<StoryType, SlimefunItem>> crystalMap = new EnumMap<>(StoryRarity.class);
-    @Getter
-    private final Map<StoryType, SlimefunItem> typeItemMap = new EnumMap<>(StoryType.class);
-
     public static final SlimefunItem INERT_PLATE_T_1;
     public static final SlimefunItem CHARGED_PLATE_T_1;
 
@@ -68,6 +62,11 @@ public class Materials {
 
     }
 
+    // TODO Create a class to store the value map
+    @Getter
+    private final Map<StoryRarity, Map<StoryType, SlimefunItem>> crystalMap = new EnumMap<>(StoryRarity.class);
+    @Getter
+    private final Map<StoryType, SlimefunItem> typeItemMap = new EnumMap<>(StoryType.class);
     private final CrystamaeHistoria plugin;
 
     @ParametersAreNonnullByDefault

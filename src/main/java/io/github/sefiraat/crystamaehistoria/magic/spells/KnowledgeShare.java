@@ -59,7 +59,7 @@ public class KnowledgeShare extends Spell {
     @Nonnull
     @Override
     public String[] getLore() {
-        return new String[] {
+        return new String[]{
             "Removes EXP from the caster and makes",
             "it rain down from the sky around them."
         };

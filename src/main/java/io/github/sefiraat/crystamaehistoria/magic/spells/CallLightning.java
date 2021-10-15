@@ -61,7 +61,7 @@ public class CallLightning extends Spell {
     @Nonnull
     @Override
     public String[] getLore() {
-        return new String[] {
+        return new String[]{
             "Calls a lightning bolt down where you are looking"
         };
     }

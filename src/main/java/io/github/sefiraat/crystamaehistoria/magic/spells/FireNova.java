@@ -67,7 +67,7 @@ public class FireNova extends Spell {
     @Nonnull
     @Override
     public String[] getLore() {
-        return new String[] {
+        return new String[]{
             "Summons a massive nova of fireballs",
             "around you to incinerate foes."
         };

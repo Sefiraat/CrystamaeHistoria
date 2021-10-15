@@ -56,7 +56,7 @@ public class FanOfArrows extends Spell {
     @Nonnull
     @Override
     public String[] getLore() {
-        return new String[] {
+        return new String[]{
             "Summons a fan of arrows around you to slice",
             "through your opponents"
         };

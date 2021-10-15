@@ -41,7 +41,7 @@ public class Squall extends Spell {
     @Nonnull
     @Override
     public String[] getLore() {
-        return new String[] {
+        return new String[]{
             "Causes the heavens to open up and pour",
             "down."
         };

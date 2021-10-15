@@ -40,9 +40,9 @@ public class PersistentPlateDataType implements PersistentDataType<PersistentDat
     public PersistentDataContainer toPrimitive(@Nonnull PlateStorage complex, @Nonnull PersistentDataAdapterContext context) {
         Keys keys = CrystamaeHistoria.getKeys();
         PersistentDataContainer container = context.newPersistentDataContainer();
-        container.set(keys.getStoryId(), PersistentDataType.INTEGER, complex.getTier());
-        container.set(keys.getStoryRarity(), PersistentDataType.STRING, complex.getStoredSpell().getId());
-        container.set(keys.getStoryType(), PersistentDataType.INTEGER, complex.getCrysta());
+        container.set(keys.getPlateTier(), PersistentDataType.INTEGER, complex.getTier());
+        container.set(keys.getPlateSpell(), PersistentDataType.STRING, complex.getStoredSpell().getId());
+        container.set(keys.getPlateCharges(), PersistentDataType.INTEGER, complex.getCrysta());
         return container;
     }
 

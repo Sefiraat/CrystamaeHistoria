@@ -47,7 +47,7 @@ public class HealingMist extends Spell {
     @Nonnull
     @Override
     public String[] getLore() {
-        return new String[] {
+        return new String[]{
             "Calls fourth a mist of healing energy",
             "around the caster. Gives regen to all",
             "players affected."

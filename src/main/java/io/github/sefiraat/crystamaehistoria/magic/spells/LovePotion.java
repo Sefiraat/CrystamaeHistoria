@@ -46,7 +46,7 @@ public class LovePotion extends Spell {
     @Nonnull
     @Override
     public String[] getLore() {
-        return new String[] {
+        return new String[]{
             "All nearby breedable entities get... friendly"
         };
     }

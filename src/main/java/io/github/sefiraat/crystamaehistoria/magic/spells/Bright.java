@@ -41,7 +41,7 @@ public class Bright extends Spell {
     @Nonnull
     @Override
     public String[] getLore() {
-        return new String[] {
+        return new String[]{
             "Turns any day into a pleasant sunny one!"
         };
     }

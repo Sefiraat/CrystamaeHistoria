@@ -73,7 +73,7 @@ public class PoisonNova extends Spell {
     @Nonnull
     @Override
     public String[] getLore() {
-        return new String[] {
+        return new String[]{
             "Summons a nova of poisonous bullets that",
             "tear through enemies and cause them to",
             "get sick."
@@ -83,6 +83,6 @@ public class PoisonNova extends Spell {
     @Nonnull
     @Override
     public ItemStack getStack() {
-        return new ItemStack(Material.ENDER_PEARL);
+        return new ItemStack(Material.SLIME_BALL);
     }
 }
