@@ -50,63 +50,6 @@ public class StaveConfigurator extends TickingMenuBlock {
     }
 
     @Override
-    protected void tick(@Nonnull Block block, BlockMenu blockMenu) {
-        if (blockMenu.hasViewer()) {
-            final ItemStack stave = blockMenu.getItemInSlot(STAVE_SLOT);
-            final SlimefunItem sfStave = SlimefunItem.getByItem(stave);
-            final boolean platesEmpty = platesEmpty(blockMenu);
-            if (stave == null && !platesEmpty) {
-                clearPlates(blockMenu);
-            } else if (stave != null && sfStave instanceof Stave && platesEmpty) {
-                final StaveStorage staveStorage = new StaveStorage(stave);
-                final Map<SpellSlot, PlateStorage> map = staveStorage.getSpellInstanceMap();
-                if (map != null) {
-                    for (Map.Entry<SpellSlot, PlateStorage> entry : map.entrySet()) {
-                        final SpellSlot spellSlot = entry.getKey();
-                        final PlateStorage plateStorage = map.get(spellSlot);
-                        final ItemStack plate = ChargedPlate.getChargedPlate(plateStorage);
-                        blockMenu.replaceExistingItem(getPlateSlot(spellSlot), plate);
-                    }
-                }
-                staveStorage.getSpellInstanceMap().clear();
-                ItemMeta itemMeta = stave.getItemMeta();
-                StoryUtils.setCustom(
-                    itemMeta,
-                    CrystamaeHistoria.getKeys().getPdcStaveStorage(),
-                    PersistentStaveDataType.TYPE,
-                    staveStorage.getSpellInstanceMap()
-                );
-                stave.setItemMeta(itemMeta);
-            }
-        }
-    }
-
-    @Override
-    protected void onNewInstance(@Nonnull BlockMenu blockMenu, @Nonnull Block b) {
-        super.onNewInstance(blockMenu, b);
-        blockMenu.addMenuClickHandler(STAVE_SLOT, (player, i, itemStack, clickAction) -> {
-            saveStave(blockMenu);
-            clearPlates(blockMenu);
-            return true;
-        });
-    }
-
-    private int getPlateSlot(@Nonnull SpellSlot spellSlot) {
-        switch (spellSlot) {
-            case LEFT_CLICK:
-                return LEFT_CLICK_SLOT;
-            case RIGHT_CLICK:
-                return RIGHT_CLICK_SLOT;
-            case SHIFT_LEFT_CLICK:
-                return S_LEFT_CLICK_SLOT;
-            case SHIFT_RIGHT_CLICK:
-                return S_RIGHT_CLICK_SLOT;
-            default:
-                throw new IllegalStateException("Unexpected value: " + spellSlot);
-        }
-    }
-
-    @Override
     @ParametersAreNonnullByDefault
     protected void setup(BlockMenuPreset blockMenuPreset) {
         blockMenuPreset.drawBackground(GuiElements.MENU_BACKGROUND, BACKGROUND_SLOTS);
@@ -119,24 +62,47 @@ public class StaveConfigurator extends TickingMenuBlock {
     }
 
     @Override
-    protected int[] getInputSlots() {
-        return new int[0];
+    protected void onNewInstance(@Nonnull BlockMenu blockMenu, @Nonnull Block b) {
+        super.onNewInstance(blockMenu, b);
+        blockMenu.addMenuClickHandler(STAVE_SLOT, (player, i, itemStack, clickAction) -> {
+            saveStave(blockMenu);
+            clearPlates(blockMenu);
+            return true;
+        });
     }
 
     @Override
-    protected int[] getOutputSlots() {
-        return new int[0];
-    }
-
-    private boolean platesEmpty(@Nonnull BlockMenu blockMenu) {
-        ItemStack p1 = blockMenu.getItemInSlot(LEFT_CLICK_SLOT);
-        ItemStack p2 = blockMenu.getItemInSlot(RIGHT_CLICK_SLOT);
-        ItemStack p3 = blockMenu.getItemInSlot(S_LEFT_CLICK_SLOT);
-        ItemStack p4 = blockMenu.getItemInSlot(S_RIGHT_CLICK_SLOT);
-        return p1 == null
-            && p2 == null
-            && p3 == null
-            && p4 == null;
+    protected void tick(@Nonnull Block block, BlockMenu blockMenu) {
+        if (blockMenu.hasViewer()) {
+            final ItemStack stave = blockMenu.getItemInSlot(STAVE_SLOT);
+            final SlimefunItem sfStave = SlimefunItem.getByItem(stave);
+            final boolean platesEmpty = platesEmpty(blockMenu);
+            if (stave == null && !platesEmpty) {
+                rejectItems(blockMenu);
+            } else if (stave != null && sfStave instanceof Stave && platesEmpty) {
+                final StaveStorage staveStorage = new StaveStorage(stave);
+                final Map<SpellSlot, PlateStorage> map = staveStorage.getSpellInstanceMap();
+                if (map != null) {
+                    for (Map.Entry<SpellSlot, PlateStorage> entry : map.entrySet()) {
+                        final SpellSlot spellSlot = entry.getKey();
+                        final PlateStorage plateStorage = map.get(spellSlot);
+                        final ItemStack plate = ChargedPlate.getChargedPlate(plateStorage);
+                        blockMenu.replaceExistingItem(getSlot(spellSlot), plate);
+                    }
+                }
+                staveStorage.getSpellInstanceMap().clear();
+                ItemMeta itemMeta = stave.getItemMeta();
+                StoryUtils.setCustom(
+                    itemMeta,
+                    CrystamaeHistoria.getKeys().getPdcStaveStorage(),
+                    PersistentStaveDataType.TYPE,
+                    staveStorage.getSpellInstanceMap()
+                );
+                stave.setItemMeta(itemMeta);
+            } else {
+                rejectInvalid(blockMenu);
+            }
+        }
     }
 
     private void saveStave(@Nonnull BlockMenu blockMenu) {
@@ -144,9 +110,10 @@ public class StaveConfigurator extends TickingMenuBlock {
         ItemStack stave = blockMenu.getItemInSlot(STAVE_SLOT);
         StaveStorage staveStorage = new StaveStorage();
         if (stave != null) {
+            rejectInvalid(blockMenu);
             ItemMeta itemMeta = stave.getItemMeta();
             for (SpellSlot spellSlot : SpellSlot.getCashedValues()) {
-                ItemStack plate = blockMenu.getItemInSlot(getPlateSlot(spellSlot));
+                ItemStack plate = blockMenu.getItemInSlot(getSlot(spellSlot));
                 if (plate != null && SlimefunItem.getByItem(plate) instanceof ChargedPlate) {
                     PlateStorage plateStorage = StoryUtils.getCustom(
                         plate.getItemMeta(),
@@ -166,10 +133,79 @@ public class StaveConfigurator extends TickingMenuBlock {
         }
     }
 
+    private int[] getPlateSlots() {
+        return new int[] {
+            LEFT_CLICK_SLOT,
+            RIGHT_CLICK_SLOT,
+            S_LEFT_CLICK_SLOT,
+            S_RIGHT_CLICK_SLOT
+        };
+    }
+
+    private boolean platesEmpty(@Nonnull BlockMenu blockMenu) {
+        for (int slot : getPlateSlots()) {
+            final ItemStack itemStack = blockMenu.getItemInSlot(slot);
+            if (itemStack != null) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public void rejectInvalid(BlockMenu blockMenu) {
+        for (int slot : getPlateSlots()) {
+            final ItemStack itemStack = blockMenu.getItemInSlot(slot);
+            final SlimefunItem slimefunItem = SlimefunItem.getByItem(itemStack);
+            if (!(slimefunItem instanceof ChargedPlate)) {
+                blockMenu.dropItems(blockMenu.getLocation(), slot);
+            }
+        }
+    }
+
     private void clearPlates(@Nonnull BlockMenu blockMenu) {
         blockMenu.replaceExistingItem(LEFT_CLICK_SLOT, null);
         blockMenu.replaceExistingItem(RIGHT_CLICK_SLOT, null);
         blockMenu.replaceExistingItem(S_LEFT_CLICK_SLOT, null);
         blockMenu.replaceExistingItem(S_RIGHT_CLICK_SLOT, null);
+    }
+
+    private void rejectItems(@Nonnull BlockMenu blockMenu) {
+        blockMenu.dropItems(
+            blockMenu.getLocation(),
+            LEFT_CLICK_SLOT,
+            RIGHT_CLICK_SLOT,
+            S_LEFT_CLICK_SLOT,
+            S_RIGHT_CLICK_SLOT
+        );
+    }
+
+    private int getSlot(@Nonnull SpellSlot spellSlot) {
+        switch (spellSlot) {
+            case LEFT_CLICK:
+                return LEFT_CLICK_SLOT;
+            case RIGHT_CLICK:
+                return RIGHT_CLICK_SLOT;
+            case SHIFT_LEFT_CLICK:
+                return S_LEFT_CLICK_SLOT;
+            case SHIFT_RIGHT_CLICK:
+                return S_RIGHT_CLICK_SLOT;
+            default:
+                throw new IllegalStateException("Unexpected value: " + spellSlot);
+        }
+    }
+
+    @Override
+    protected int[] getInputSlots() {
+        return new int[0];
+    }
+
+    @Override
+    protected int[] getOutputSlots() {
+        return new int[0];
+    }
+
+    @Override
+    protected boolean synchronous() {
+        return true;
     }
 }

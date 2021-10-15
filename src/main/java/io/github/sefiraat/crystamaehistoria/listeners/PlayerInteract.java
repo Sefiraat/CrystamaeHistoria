@@ -30,7 +30,7 @@ public class PlayerInteract implements Listener {
             Stave sfStave = (Stave) slimefunItem;
             StaveStorage staveStorage = new StaveStorage(stave);
             SpellSlot slot = SpellSlot.getByPlayerAndAction(player, e.getAction());
-            if (slot == SpellSlot.UNKNOWN) {
+            if (slot == null) {
                 return;
             }
             CastInformation castInformation = new CastInformation(player, sfStave.getLevel());
