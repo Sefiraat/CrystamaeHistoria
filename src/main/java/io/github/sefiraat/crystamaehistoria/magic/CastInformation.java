@@ -13,14 +13,14 @@ import java.util.function.Consumer;
 public class CastInformation {
 
     @Getter
-    @Setter
-    private SpellType spellType;
-    @Getter
     private final UUID caster;
     @Getter
     private final int staveLevel;
     @Getter
     private final Location castLocation;
+    @Getter
+    @Setter
+    private SpellType spellType;
     @Getter
     @Setter
     private Location damageLocation;
