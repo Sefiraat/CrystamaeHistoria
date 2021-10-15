@@ -32,8 +32,14 @@ public class ChargedPlate extends UnplaceableBlock {
     @Nonnull
     @ParametersAreNonnullByDefault
     public static ItemStack getChargedPlate(int tier, SpellType spellType, int crysta) {
-        Keys keys = CrystamaeHistoria.getKeys();
         PlateStorage plateStorage = new PlateStorage(tier, spellType, crysta);
+        return getChargedPlate(plateStorage);
+    }
+
+    @Nonnull
+    @ParametersAreNonnullByDefault
+    public static ItemStack getChargedPlate(PlateStorage plateStorage) {
+        Keys keys = CrystamaeHistoria.getKeys();
         ItemStack newPlate = Materials.CHARGED_PLATE_T_1.getItem().clone();
         PlateStorage.setPlateLore(newPlate, plateStorage);
         ItemMeta itemMeta = newPlate.getItemMeta();
@@ -44,21 +50,6 @@ public class ChargedPlate extends UnplaceableBlock {
             plateStorage
         );
         newPlate.setItemMeta(itemMeta);
-        return newPlate;
-    }
-
-    @Nonnull
-    @ParametersAreNonnullByDefault
-    public static ItemStack getChargedPlate(PlateStorage plateStorage) {
-        Keys keys = CrystamaeHistoria.getKeys();
-        ItemStack newPlate = Materials.CHARGED_PLATE_T_1.getItem().clone();
-        PlateStorage.setPlateLore(newPlate, plateStorage);
-        StoryUtils.setCustom(
-            newPlate.getItemMeta(),
-            keys.getPdcPlateStorage(),
-            PersistentPlateDataType.TYPE,
-            plateStorage
-        );
         return newPlate;
     }
 }

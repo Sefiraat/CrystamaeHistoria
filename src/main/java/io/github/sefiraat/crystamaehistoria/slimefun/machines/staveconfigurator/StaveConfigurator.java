@@ -67,9 +67,18 @@ public class StaveConfigurator extends TickingMenuBlock {
                         final SpellSlot spellSlot = entry.getKey();
                         final PlateStorage plateStorage = map.get(spellSlot);
                         final ItemStack plate = ChargedPlate.getChargedPlate(plateStorage);
-                        blockMenu.addItem(getPlateSlot(spellSlot), plate, (player, i, itemStack, clickAction) -> true);
+                        blockMenu.replaceExistingItem(getPlateSlot(spellSlot), plate);
                     }
                 }
+                staveStorage.getSpellInstanceMap().clear();
+                ItemMeta itemMeta = stave.getItemMeta();
+                StoryUtils.setCustom(
+                    itemMeta,
+                    CrystamaeHistoria.getKeys().getPdcStaveStorage(),
+                    PersistentStaveDataType.TYPE,
+                    staveStorage.getSpellInstanceMap()
+                );
+                stave.setItemMeta(itemMeta);
             }
         }
     }

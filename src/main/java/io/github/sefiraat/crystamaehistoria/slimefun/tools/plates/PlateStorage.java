@@ -54,6 +54,7 @@ public class PlateStorage {
     }
 
     public CastResult tryCastSpell(CastInformation castInformation) {
+        castInformation.setSpellType(storedSpell);
         Spell spell = storedSpell.getSpell();
         int crystaCost = spell.getCrystaCost(castInformation);
         if (crysta >= crystaCost) {

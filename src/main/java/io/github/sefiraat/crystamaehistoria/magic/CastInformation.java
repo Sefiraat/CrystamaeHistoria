@@ -13,6 +13,9 @@ import java.util.function.Consumer;
 public class CastInformation {
 
     @Getter
+    @Setter
+    private SpellType spellType;
+    @Getter
     private final UUID caster;
     @Getter
     private final int staveLevel;
