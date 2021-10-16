@@ -245,7 +245,7 @@ public abstract class Spell {
         castInformation.setAfterTicksEvent(spellCore.getAfterAllTicksEvent());
         SpellTick ticker = new SpellTick(castInformation, tickAmount);
         CrystamaeHistoria.getActiveStorage().getTickingCastables().put(ticker, tickAmount);
-        ticker.runTaskTimer(CrystamaeHistoria.inst(), 0, period);
+        ticker.runTaskTimer(CrystamaeHistoria.getInstance(), 0, period);
     }
 
     /**

@@ -33,7 +33,7 @@ public class Teleport extends Spell {
                 caster.teleport(teleportToLocation);
                 displayParticleEffect(caster, Particle.END_ROD, 1, 10);
             } else {
-                caster.sendMessage(CrystamaeHistoria.inst().getConfig().getString("messages.spells.teleport_no_suitable_location"));
+                caster.sendMessage(CrystamaeHistoria.getInstance().getConfig().getString("messages.spells.teleport_no_suitable_location"));
             }
         }
     }

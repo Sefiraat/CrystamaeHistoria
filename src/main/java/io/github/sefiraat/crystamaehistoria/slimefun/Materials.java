@@ -57,8 +57,8 @@ public class Materials {
             1
         );
 
-        INERT_PLATE_T_1.register(CrystamaeHistoria.inst());
-        CHARGED_PLATE_T_1.register(CrystamaeHistoria.inst());
+        INERT_PLATE_T_1.register(CrystamaeHistoria.getInstance());
+        CHARGED_PLATE_T_1.register(CrystamaeHistoria.getInstance());
 
     }
 

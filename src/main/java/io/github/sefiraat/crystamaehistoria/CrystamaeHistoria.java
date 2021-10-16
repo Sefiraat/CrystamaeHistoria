@@ -37,7 +37,7 @@ public class CrystamaeHistoria extends AbstractAddon {
         super("Sefiraat", "CrystamaeHistoria", "master", "auto-update");
     }
 
-    public static CrystamaeHistoria inst() {
+    public static CrystamaeHistoria getInstance() {
         return instance;
     }
 

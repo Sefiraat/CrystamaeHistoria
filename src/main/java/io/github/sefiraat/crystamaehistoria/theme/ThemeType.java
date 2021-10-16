@@ -102,29 +102,29 @@ public enum ThemeType {
     /**
      * Applies the theme color to a given string
      *
-     * @param t The {@link ThemeType} to apply the color from
-     * @param s The string to apply the color to
-     * @return Returns the string provides preceeded by the color
+     * @param themeType The {@link ThemeType} to apply the color from
+     * @param string The string to apply the color to
+     * @return Returns the string provides preceded by the color
      */
     @Nonnull
     @ParametersAreNonnullByDefault
-    public static String applyThemeToString(ThemeType t, String s) {
-        return t.getColor() + s;
+    public static String applyThemeToString(ThemeType themeType, String string) {
+        return themeType.getColor() + string;
     }
 
     /**
      * Gets a SlimefunItemStack with a pre-populated lore and name with themed colors.
      *
      * @param id   The ID for the new {@link SlimefunItemStack}
-     * @param i    The vanilla {@link ItemStack} used to base the {@link SlimefunItemStack} on
-     * @param t    The {@link ThemeType} {@link ChatColor} to apply to the {@link SlimefunItemStack} name
+     * @param itemStack    The vanilla {@link ItemStack} used to base the {@link SlimefunItemStack} on
+     * @param themeType    The {@link ThemeType} {@link ChatColor} to apply to the {@link SlimefunItemStack} name
      * @param name The name to apply to the {@link SlimefunItemStack}
      * @param lore The lore lines for the {@link SlimefunItemStack}. Lore is book-ended with empty strings.
      * @return Returns the new {@link SlimefunItemStack}
      */
     @Nonnull
     @ParametersAreNonnullByDefault
-    public static SlimefunItemStack themeStack(String id, ItemStack i, ThemeType t, String name, String... lore) {
+    public static SlimefunItemStack themeStack(String id, ItemStack itemStack, ThemeType themeType, String name, String... lore) {
         ChatColor passiveColor = ThemeType.PASSIVE.getColor();
         List<String> finalLore = new ArrayList<>();
         finalLore.add("");
@@ -132,11 +132,11 @@ public enum ThemeType {
             finalLore.add(passiveColor + s);
         }
         finalLore.add("");
-        finalLore.add(applyThemeToString(ThemeType.CLICK_INFO, t.getLoreLine()));
+        finalLore.add(applyThemeToString(ThemeType.CLICK_INFO, themeType.getLoreLine()));
         return new SlimefunItemStack(
             id,
-            i,
-            ThemeType.applyThemeToString(t, name),
+            itemStack,
+            ThemeType.applyThemeToString(themeType, name),
             finalLore.toArray(new String[finalLore.size() - 1])
         );
     }
@@ -145,14 +145,14 @@ public enum ThemeType {
      * Gets a SlimefunItemStack with a pre-populated lore and name with themed colors.
      *
      * @param id        The ID for the new {@link SlimefunItemStack}
-     * @param i         The vanilla {@link ItemStack} used to base the {@link SlimefunItemStack} on
+     * @param itemStack         The vanilla {@link ItemStack} used to base the {@link SlimefunItemStack} on
      * @param spellType The {@link SpellType} used
      * @param lore      The lore lines for the {@link SlimefunItemStack}. Lore is book-ended with empty strings.
      * @return Returns the new {@link SlimefunItemStack}
      */
     @Nonnull
     @ParametersAreNonnullByDefault
-    public static SlimefunItemStack themeSpellStack(String id, ItemStack i, SpellType spellType, String... lore) {
+    public static SlimefunItemStack themeSpellStack(String id, ItemStack itemStack, SpellType spellType, String... lore) {
         ChatColor passiveColor = ThemeType.PASSIVE.getColor();
         List<String> finalLore = new ArrayList<>();
         finalLore.add("");
@@ -165,7 +165,7 @@ public enum ThemeType {
         finalLore.add(applyThemeToString(ThemeType.CLICK_INFO, "Spell"));
         return new SlimefunItemStack(
             id,
-            i,
+            itemStack,
             ThemeType.applyThemeToString(ThemeType.SPELL, toTitleCase(spellType.getId())),
             finalLore.toArray(new String[finalLore.size() - 1])
         );

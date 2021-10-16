@@ -20,54 +20,54 @@ public class Keys {
     public static final String PANEL_STAND_PREFIX = "CH_PANEL_";
 
     // ItemGroups
-    private final NamespacedKey catMain = new NamespacedKey(CrystamaeHistoria.inst(), "main");
-    private final NamespacedKey catMechanical = new NamespacedKey(CrystamaeHistoria.inst(), "mech");
-    private final NamespacedKey catCrystal = new NamespacedKey(CrystamaeHistoria.inst(), "crystal");
-    private final NamespacedKey catTools = new NamespacedKey(CrystamaeHistoria.inst(), "TOOLS");
+    private final NamespacedKey catMain = new NamespacedKey(CrystamaeHistoria.getInstance(), "main");
+    private final NamespacedKey catMechanical = new NamespacedKey(CrystamaeHistoria.getInstance(), "mech");
+    private final NamespacedKey catCrystal = new NamespacedKey(CrystamaeHistoria.getInstance(), "crystal");
+    private final NamespacedKey catTools = new NamespacedKey(CrystamaeHistoria.getInstance(), "TOOLS");
 
     // Recipe Types
-    private final NamespacedKey realisationDummyCrystal = new NamespacedKey(CrystamaeHistoria.inst(), "r_d_c");
+    private final NamespacedKey realisationDummyCrystal = new NamespacedKey(CrystamaeHistoria.getInstance(), "r_d_c");
 
     // PDC
     // Items
-    private final NamespacedKey pdcIsStoried = new NamespacedKey(CrystamaeHistoria.inst(), "is_s");
-    private final NamespacedKey pdcPotentialStories = new NamespacedKey(CrystamaeHistoria.inst(), "s_pot");
-    private final NamespacedKey pdcCurrentNumberOfStories = new NamespacedKey(CrystamaeHistoria.inst(), "s_cur_n");
-    private final NamespacedKey pdcStories = new NamespacedKey(CrystamaeHistoria.inst(), "s_list");
-    private final NamespacedKey pdcPlateStorage = new NamespacedKey(CrystamaeHistoria.inst(), "plt");
-    private final NamespacedKey pdcStaveStorage = new NamespacedKey(CrystamaeHistoria.inst(), "stv");
+    private final NamespacedKey pdcIsStoried = new NamespacedKey(CrystamaeHistoria.getInstance(), "is_s");
+    private final NamespacedKey pdcPotentialStories = new NamespacedKey(CrystamaeHistoria.getInstance(), "s_pot");
+    private final NamespacedKey pdcCurrentNumberOfStories = new NamespacedKey(CrystamaeHistoria.getInstance(), "s_cur_n");
+    private final NamespacedKey pdcStories = new NamespacedKey(CrystamaeHistoria.getInstance(), "s_list");
+    private final NamespacedKey pdcPlateStorage = new NamespacedKey(CrystamaeHistoria.getInstance(), "plt");
+    private final NamespacedKey pdcStaveStorage = new NamespacedKey(CrystamaeHistoria.getInstance(), "stv");
 
     // Type - Story
-    private final NamespacedKey storyId = new NamespacedKey(CrystamaeHistoria.inst(), "s_id");
-    private final NamespacedKey storyRarity = new NamespacedKey(CrystamaeHistoria.inst(), "s_r");
-    private final NamespacedKey storyType = new NamespacedKey(CrystamaeHistoria.inst(), "s_t");
+    private final NamespacedKey storyId = new NamespacedKey(CrystamaeHistoria.getInstance(), "s_id");
+    private final NamespacedKey storyRarity = new NamespacedKey(CrystamaeHistoria.getInstance(), "s_r");
+    private final NamespacedKey storyType = new NamespacedKey(CrystamaeHistoria.getInstance(), "s_t");
 
     // Type - Plate
-    private final NamespacedKey plateTier = new NamespacedKey(CrystamaeHistoria.inst(), "p_t");
-    private final NamespacedKey plateSpell = new NamespacedKey(CrystamaeHistoria.inst(), "p_s");
-    private final NamespacedKey plateCharges = new NamespacedKey(CrystamaeHistoria.inst(), "p_c");
+    private final NamespacedKey plateTier = new NamespacedKey(CrystamaeHistoria.getInstance(), "p_t");
+    private final NamespacedKey plateSpell = new NamespacedKey(CrystamaeHistoria.getInstance(), "p_s");
+    private final NamespacedKey plateCharges = new NamespacedKey(CrystamaeHistoria.getInstance(), "p_c");
 
     // Type - Plate
-    private final NamespacedKey staveSlot = new NamespacedKey(CrystamaeHistoria.inst(), "sv_s");
-    private final NamespacedKey stavePlate = new NamespacedKey(CrystamaeHistoria.inst(), "sv_p");
+    private final NamespacedKey staveSlot = new NamespacedKey(CrystamaeHistoria.getInstance(), "sv_s");
+    private final NamespacedKey stavePlate = new NamespacedKey(CrystamaeHistoria.getInstance(), "sv_p");
 
     // Entities
-    private final NamespacedKey pdcArmourStandName = new NamespacedKey(CrystamaeHistoria.inst(), "a_nm");
-    private final NamespacedKey pdcIsDisplayStand = new NamespacedKey(CrystamaeHistoria.inst(), "a_dpy");
+    private final NamespacedKey pdcArmourStandName = new NamespacedKey(CrystamaeHistoria.getInstance(), "a_nm");
+    private final NamespacedKey pdcIsDisplayStand = new NamespacedKey(CrystamaeHistoria.getInstance(), "a_dpy");
 
     // CastableInstant Effects
-    private final NamespacedKey spellCaster = new NamespacedKey(CrystamaeHistoria.inst(), "caster");
-    private final NamespacedKey spellIsMagicProjectile = new NamespacedKey(CrystamaeHistoria.inst(), "is_mp");
-    private final NamespacedKey spellMagicProjectileDamage = new NamespacedKey(CrystamaeHistoria.inst(), "mp_dmg");
-    private final NamespacedKey spellMagicProjectileAoeRange = new NamespacedKey(CrystamaeHistoria.inst(), "mp_aoe");
-    private final NamespacedKey spellMagicProjectileKnockback = new NamespacedKey(CrystamaeHistoria.inst(), "mp_kb");
-    private final NamespacedKey spellMagicProjectileCooldownMulti = new NamespacedKey(CrystamaeHistoria.inst(), "mp_cm");
-    private final NamespacedKey spellMagicProjectileDurabilityMulti = new NamespacedKey(CrystamaeHistoria.inst(), "mp_dm");
+    private final NamespacedKey spellCaster = new NamespacedKey(CrystamaeHistoria.getInstance(), "caster");
+    private final NamespacedKey spellIsMagicProjectile = new NamespacedKey(CrystamaeHistoria.getInstance(), "is_mp");
+    private final NamespacedKey spellMagicProjectileDamage = new NamespacedKey(CrystamaeHistoria.getInstance(), "mp_dmg");
+    private final NamespacedKey spellMagicProjectileAoeRange = new NamespacedKey(CrystamaeHistoria.getInstance(), "mp_aoe");
+    private final NamespacedKey spellMagicProjectileKnockback = new NamespacedKey(CrystamaeHistoria.getInstance(), "mp_kb");
+    private final NamespacedKey spellMagicProjectileCooldownMulti = new NamespacedKey(CrystamaeHistoria.getInstance(), "mp_cm");
+    private final NamespacedKey spellMagicProjectileDurabilityMulti = new NamespacedKey(CrystamaeHistoria.getInstance(), "mp_dm");
 
     // Chunk Storage
-    private final NamespacedKey resolutionCrystalMap = new NamespacedKey(CrystamaeHistoria.inst(), "c_r_c");
-    private final NamespacedKey resolutionRarityMap = new NamespacedKey(CrystamaeHistoria.inst(), "c_r_r");
-    private final NamespacedKey resolutionStoryMap = new NamespacedKey(CrystamaeHistoria.inst(), "c_r_s");
+    private final NamespacedKey resolutionCrystalMap = new NamespacedKey(CrystamaeHistoria.getInstance(), "c_r_c");
+    private final NamespacedKey resolutionRarityMap = new NamespacedKey(CrystamaeHistoria.getInstance(), "c_r_r");
+    private final NamespacedKey resolutionStoryMap = new NamespacedKey(CrystamaeHistoria.getInstance(), "c_r_s");
 
 
 }

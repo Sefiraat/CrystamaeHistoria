@@ -73,7 +73,7 @@ public class StoriesManager {
     }
 
     private void fillStories() {
-        AddonConfig c = CrystamaeHistoria.inst().getConfig();
+        AddonConfig c = CrystamaeHistoria.getInstance().getConfig();
 
         ConfigurationSection common = c.getConfigurationSection("stories.common");
         Validate.notNull(common, "COMMON story configuration is not found, changed or deleted.");

@@ -14,16 +14,16 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class ArmourStandUtils {
 
     @ParametersAreNonnullByDefault
-    public static void setDisplay(ArmorStand a) {
-        a.setVisible(false);
-        a.setGravity(false);
-        a.setBasePlate(false);
-        a.setCustomNameVisible(false);
-        a.setRemoveWhenFarAway(false);
-        a.setCollidable(false);
-        a.setInvulnerable(true);
-        a.setCustomName(ThemeType.getRandomEggName());
-        PersistentDataAPI.setBoolean(a, CrystamaeHistoria.getKeys().getPdcIsDisplayStand(), true);
+    public static void setDisplay(ArmorStand armorStand) {
+        armorStand.setVisible(false);
+        armorStand.setGravity(false);
+        armorStand.setBasePlate(false);
+        armorStand.setCustomNameVisible(false);
+        armorStand.setRemoveWhenFarAway(false);
+        armorStand.setCollidable(false);
+        armorStand.setInvulnerable(true);
+        armorStand.setCustomName(ThemeType.getRandomEggName());
+        PersistentDataAPI.setBoolean(armorStand, CrystamaeHistoria.getKeys().getPdcIsDisplayStand(), true);
     }
 
     @ParametersAreNonnullByDefault
@@ -42,8 +42,8 @@ public class ArmourStandUtils {
     }
 
     @ParametersAreNonnullByDefault
-    public static boolean isDisplayStand(ArmorStand a) {
-        return PersistentDataAPI.getBoolean(a, CrystamaeHistoria.getKeys().getPdcIsDisplayStand());
+    public static boolean isDisplayStand(ArmorStand armorStand) {
+        return PersistentDataAPI.getBoolean(armorStand, CrystamaeHistoria.getKeys().getPdcIsDisplayStand());
     }
 
 }

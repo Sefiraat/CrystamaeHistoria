@@ -9,10 +9,10 @@ import io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar.C
 public class ListenerManager {
 
     public ListenerManager() {
-        CrystamaeHistoria.getPluginManager().registerEvents(new ArmorStandInteract(), CrystamaeHistoria.inst());
-        CrystamaeHistoria.getPluginManager().registerEvents(new PlayerInteract(), CrystamaeHistoria.inst());
-        CrystamaeHistoria.getPluginManager().registerEvents(new SpellEffectListener(), CrystamaeHistoria.inst());
-        CrystamaeHistoria.getPluginManager().registerEvents(new CrystalBreakListener(), CrystamaeHistoria.inst());
+        CrystamaeHistoria.getPluginManager().registerEvents(new ArmorStandInteract(), CrystamaeHistoria.getInstance());
+        CrystamaeHistoria.getPluginManager().registerEvents(new PlayerInteract(), CrystamaeHistoria.getInstance());
+        CrystamaeHistoria.getPluginManager().registerEvents(new SpellEffectListener(), CrystamaeHistoria.getInstance());
+        CrystamaeHistoria.getPluginManager().registerEvents(new CrystalBreakListener(), CrystamaeHistoria.getInstance());
     }
 
 }
