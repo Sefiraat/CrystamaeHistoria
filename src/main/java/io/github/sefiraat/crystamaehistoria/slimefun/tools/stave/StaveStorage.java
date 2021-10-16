@@ -4,13 +4,18 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.CastResult;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.PlateStorage;
+import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentStaveDataType;
 import lombok.Getter;
+import net.md_5.bungee.api.ChatColor;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.ArrayList;
 import java.util.EnumMap;
+import java.util.List;
 import java.util.Map;
 
 public class StaveStorage {
@@ -45,5 +50,38 @@ public class StaveStorage {
         } else {
             return CastResult.CAST_FAIL_SLOT_EMPTY;
         }
+    }
+
+    public static void setStaveLore(ItemStack itemStack, StaveStorage staveStorage) {
+        final String[] lore = new String[]{
+            "A stave with the ability to hold",
+            "magically charged plates.",
+            ""
+        };
+        final ChatColor passiveColor = ThemeType.PASSIVE.getColor();
+        final List<String> finalLore = new ArrayList<>();
+
+        for (String s : lore) {
+            finalLore.add(passiveColor + s);
+        }
+        finalLore.add("");
+
+        for (SpellSlot slot : SpellSlot.cashedValues) {
+            PlateStorage plateStorage = staveStorage.spellInstanceMap.get(slot);
+            if (plateStorage != null) {
+                String magic = ThemeType.toTitleCase(plateStorage.getStoredSpell().getId());
+                String crysta = String.valueOf(plateStorage.getCrysta());
+                finalLore.add(ThemeType.RARITY_MYTHICAL.getColor() + ThemeType.toTitleCase(slot.name()));
+                finalLore.add(ThemeType.PASSIVE.getColor() + "Spell: " + ThemeType.NOTICE.getColor() + magic);
+                finalLore.add(ThemeType.PASSIVE.getColor() + "Crysta: " + ThemeType.NOTICE.getColor() + crysta);
+                finalLore.add("");
+            }
+        }
+        finalLore.add("");
+
+        finalLore.add(ThemeType.applyThemeToString(ThemeType.CLICK_INFO, ThemeType.STAVE.getLoreLine()));
+        final ItemMeta itemMeta = itemStack.getItemMeta();
+        itemMeta.setLore(finalLore);
+        itemStack.setItemMeta(itemMeta);
     }
 }

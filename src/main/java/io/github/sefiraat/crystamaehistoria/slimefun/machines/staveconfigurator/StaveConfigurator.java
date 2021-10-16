@@ -130,6 +130,7 @@ public class StaveConfigurator extends TickingMenuBlock {
                 staveStorage.getSpellInstanceMap()
             );
             stave.setItemMeta(itemMeta);
+            StaveStorage.setStaveLore(stave, staveStorage);
         }
     }
 
