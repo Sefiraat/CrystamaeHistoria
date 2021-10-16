@@ -4,7 +4,6 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.Stave;
 import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
