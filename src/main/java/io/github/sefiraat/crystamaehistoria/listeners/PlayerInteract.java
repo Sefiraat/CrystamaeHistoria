@@ -43,12 +43,14 @@ public class PlayerInteract implements Listener {
                     PersistentStaveDataType.TYPE,
                     staveStorage.getSpellInstanceMap()
                 );
+                stave.setItemMeta(itemMeta);
+                StaveStorage.setStaveLore(stave, staveStorage);
                 player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(
-                    ThemeType.SUCCESS.getColor() + "Casting spell : " + castInformation.getSpellType().getId()
+                    ThemeType.SUCCESS.getColor() + "Casting spell: " + castInformation.getSpellType().getId()
                 ));
             } else {
                 player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(
-                    ThemeType.WARNING.getColor() + "Casting failed : " + castResult.getMessage())
+                    ThemeType.WARNING.getColor() + "Casting failed: " + castResult.getMessage())
                 );
             }
         }

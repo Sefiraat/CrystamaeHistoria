@@ -56,7 +56,6 @@ public class StaveStorage {
         final String[] lore = new String[]{
             "A stave with the ability to hold",
             "magically charged plates.",
-            ""
         };
         final ChatColor passiveColor = ThemeType.PASSIVE.getColor();
         final List<String> finalLore = new ArrayList<>();
@@ -64,21 +63,19 @@ public class StaveStorage {
         for (String s : lore) {
             finalLore.add(passiveColor + s);
         }
-        finalLore.add("");
 
         for (SpellSlot slot : SpellSlot.cashedValues) {
             PlateStorage plateStorage = staveStorage.spellInstanceMap.get(slot);
             if (plateStorage != null) {
+                finalLore.add("");
                 String magic = ThemeType.toTitleCase(plateStorage.getStoredSpell().getId());
                 String crysta = String.valueOf(plateStorage.getCrysta());
                 finalLore.add(ThemeType.RARITY_MYTHICAL.getColor() + ThemeType.toTitleCase(slot.name()));
                 finalLore.add(ThemeType.PASSIVE.getColor() + "Spell: " + ThemeType.NOTICE.getColor() + magic);
                 finalLore.add(ThemeType.PASSIVE.getColor() + "Crysta: " + ThemeType.NOTICE.getColor() + crysta);
-                finalLore.add("");
             }
         }
         finalLore.add("");
-
         finalLore.add(ThemeType.applyThemeToString(ThemeType.CLICK_INFO, ThemeType.STAVE.getLoreLine()));
         final ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setLore(finalLore);

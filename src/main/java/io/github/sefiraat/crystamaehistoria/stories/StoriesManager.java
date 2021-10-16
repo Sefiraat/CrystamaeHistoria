@@ -43,11 +43,11 @@ public class StoriesManager {
     }
 
     @ParametersAreNonnullByDefault
-    private static Story parseStory(ConfigurationSection sConf, StoryRarity rarity) {
-        String type = sConf.getString("type");
+    private static Story parseStory(ConfigurationSection storyConfiguration, StoryRarity rarity) {
+        String type = storyConfiguration.getString("type");
         StoryType storyType = StoryType.valueOf(type.toUpperCase(Locale.ROOT));
         return new Story(
-            Integer.parseInt(sConf.getName()),
+            Integer.parseInt(storyConfiguration.getName()),
             rarity.getId(),
             storyType.getId()
         );
@@ -130,6 +130,17 @@ public class StoriesManager {
                     StoryType.PHILOSOPHICAL
                 ),
                 storyMapUnique.get(2)
+            )
+        );
+        storiedBlockDefinitionMap.put(
+            Material.TORCH,
+            new StoriedBlockDefinition(
+                blockTierMap.get(1),
+                Arrays.asList(
+                    StoryType.HUMAN,
+                    StoryType.ELEMENTAL
+                ),
+                storyMapUnique.get(3)
             )
         );
     }

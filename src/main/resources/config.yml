@@ -109,3 +109,10 @@ stories:
         - minimal amount of materials. How it works
         - is still a mystery to this day.
       author: Ryhn12
+    3:
+      name: Lighting The Way
+      type: Human
+      shards: [ 1,1,0,0,1,0,1,0,0 ]
+      lore:
+        - Since the earliest days, lighting the way
+        - and protecting from unseen foes.

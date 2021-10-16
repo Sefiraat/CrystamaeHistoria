@@ -19,6 +19,7 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import org.bukkit.block.Block;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -28,21 +29,27 @@ import java.util.Map;
 
 public class StaveConfigurator extends TickingMenuBlock {
 
-    protected static final int[] BACKGROUND_SLOTS = {
+    private static final int[] BACKGROUND_SLOTS = {
         0, 2, 4, 5, 6, 7, 8, 9, 11, 13, 17, 18, 19, 20, 21, 22, 26, 27, 29, 31, 35, 36, 38, 40, 41, 42, 43, 44
     };
-    protected static final int[] BACKGROUND_INPUT = {
+    private static final int[] BACKGROUND_INPUT = {
         14, 15, 16, 23, 25, 32, 33, 34
     };
-    protected static final int STAVE_SLOT = 24;
-    protected static final int LEFT_CLICK_SLOT = 10;
-    protected static final int RIGHT_CLICK_SLOT = 12;
-    protected static final int S_LEFT_CLICK_SLOT = 28;
-    protected static final int S_RIGHT_CLICK_SLOT = 30;
-    protected static final int LEFT_NOTE = 1;
-    protected static final int RIGHT_NOTE = 3;
-    protected static final int S_LEFT_NOTE = 37;
-    protected static final int S_RIGHT_NOTE = 39;
+    private static final int STAVE_SLOT = 24;
+    private static final int LEFT_CLICK_SLOT = 10;
+    private static final int RIGHT_CLICK_SLOT = 12;
+    private static final int SHIFT_LEFT_CLICK_SLOT = 28;
+    private static final int SHIFT_RIGHT_CLICK_SLOT = 30;
+    private static final int LEFT_NOTE = 1;
+    private static final int RIGHT_NOTE = 3;
+    private static final int S_LEFT_NOTE = 37;
+    private static final int S_RIGHT_NOTE = 39;
+    private static final int[] PLATE_SLOTS = {
+        LEFT_CLICK_SLOT,
+        RIGHT_CLICK_SLOT,
+        SHIFT_LEFT_CLICK_SLOT,
+        SHIFT_RIGHT_CLICK_SLOT
+    };
 
     @ParametersAreNonnullByDefault
     public StaveConfigurator(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
@@ -134,17 +141,15 @@ public class StaveConfigurator extends TickingMenuBlock {
         }
     }
 
-    private int[] getPlateSlots() {
-        return new int[] {
-            LEFT_CLICK_SLOT,
-            RIGHT_CLICK_SLOT,
-            S_LEFT_CLICK_SLOT,
-            S_RIGHT_CLICK_SLOT
-        };
+    @Override
+    protected void onBreak(@Nonnull BlockBreakEvent e, @Nonnull BlockMenu menu) {
+        super.onBreak(e, menu);
+        saveStave(menu);
+        menu.dropItems(menu.getLocation(), STAVE_SLOT);
     }
 
     private boolean platesEmpty(@Nonnull BlockMenu blockMenu) {
-        for (int slot : getPlateSlots()) {
+        for (int slot : PLATE_SLOTS) {
             final ItemStack itemStack = blockMenu.getItemInSlot(slot);
             if (itemStack != null) {
                 return false;
@@ -154,7 +159,7 @@ public class StaveConfigurator extends TickingMenuBlock {
     }
 
     public void rejectInvalid(BlockMenu blockMenu) {
-        for (int slot : getPlateSlots()) {
+        for (int slot : PLATE_SLOTS) {
             final ItemStack itemStack = blockMenu.getItemInSlot(slot);
             final SlimefunItem slimefunItem = SlimefunItem.getByItem(itemStack);
             if (!(slimefunItem instanceof ChargedPlate)) {
@@ -166,8 +171,8 @@ public class StaveConfigurator extends TickingMenuBlock {
     private void clearPlates(@Nonnull BlockMenu blockMenu) {
         blockMenu.replaceExistingItem(LEFT_CLICK_SLOT, null);
         blockMenu.replaceExistingItem(RIGHT_CLICK_SLOT, null);
-        blockMenu.replaceExistingItem(S_LEFT_CLICK_SLOT, null);
-        blockMenu.replaceExistingItem(S_RIGHT_CLICK_SLOT, null);
+        blockMenu.replaceExistingItem(SHIFT_LEFT_CLICK_SLOT, null);
+        blockMenu.replaceExistingItem(SHIFT_RIGHT_CLICK_SLOT, null);
     }
 
     private void rejectItems(@Nonnull BlockMenu blockMenu) {
@@ -175,8 +180,8 @@ public class StaveConfigurator extends TickingMenuBlock {
             blockMenu.getLocation(),
             LEFT_CLICK_SLOT,
             RIGHT_CLICK_SLOT,
-            S_LEFT_CLICK_SLOT,
-            S_RIGHT_CLICK_SLOT
+            SHIFT_LEFT_CLICK_SLOT,
+            SHIFT_RIGHT_CLICK_SLOT
         );
     }
 
@@ -187,9 +192,9 @@ public class StaveConfigurator extends TickingMenuBlock {
             case RIGHT_CLICK:
                 return RIGHT_CLICK_SLOT;
             case SHIFT_LEFT_CLICK:
-                return S_LEFT_CLICK_SLOT;
+                return SHIFT_LEFT_CLICK_SLOT;
             case SHIFT_RIGHT_CLICK:
-                return S_RIGHT_CLICK_SLOT;
+                return SHIFT_RIGHT_CLICK_SLOT;
             default:
                 throw new IllegalStateException("Unexpected value: " + spellSlot);
         }
