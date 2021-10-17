@@ -31,7 +31,7 @@ public class StaveStorage {
         Keys keys = CrystamaeHistoria.getKeys();
         Map<SpellSlot, PlateStorage> map = DataTypeMethods.getCustom(
             itemStack.getItemMeta(),
-            keys.getPdcStaveStorage(),
+            Keys.PDC_STAVE_STORAGE,
             PersistentStaveDataType.TYPE
         );
         if (map != null) {

@@ -51,10 +51,10 @@ public class PersistentStoryChunkDataType implements PersistentDataType<Persiste
 
         for (Story story : complex) {
             PersistentDataContainer container = context.newPersistentDataContainer();
-            container.set(keys.getStoryId(), PersistentDataType.STRING, story.getId());
-            container.set(keys.getStoryRarity(), PersistentDataType.INTEGER, story.getRarity().getId());
-            container.set(keys.getResolutionStoryLocation(), PersistentDataType.LONG, story.getBlockPosition().getPosition());
-            container.set(keys.getResolutionStoryWorld(), PersistentUUIDDataType.TYPE, story.getBlockPosition().getWorld().getUID());
+            container.set(Keys.STORY_ID, PersistentDataType.STRING, story.getId());
+            container.set(Keys.STORY_RARITY, PersistentDataType.INTEGER, story.getRarity().getId());
+            container.set(Keys.RESOLUTION_STORY_LOCATION, PersistentDataType.LONG, story.getBlockPosition().getPosition());
+            container.set(Keys.RESOLUTION_STORY_WORLD, PersistentUUIDDataType.TYPE, story.getBlockPosition().getWorld().getUID());
             containers[i] = container;
             i++;
         }
@@ -68,10 +68,10 @@ public class PersistentStoryChunkDataType implements PersistentDataType<Persiste
         final Keys keys = CrystamaeHistoria.getKeys();
         List<Story> list = new ArrayList<>();
         for (PersistentDataContainer container : primitive) {
-            final String id = container.get(keys.getStoryId(), PersistentDataType.STRING);
-            final StoryRarity rarity = StoryRarity.getById(container.get(keys.getStoryRarity(), PersistentDataType.INTEGER));
-            final long locationLong = container.get(keys.getResolutionStoryLocation(), PersistentDataType.LONG);
-            final UUID worldUuid = container.get(keys.getResolutionStoryWorld(), PersistentUUIDDataType.TYPE);
+            final String id = container.get(Keys.STORY_ID, PersistentDataType.STRING);
+            final StoryRarity rarity = StoryRarity.getById(container.get(Keys.STORY_RARITY, PersistentDataType.INTEGER));
+            final long locationLong = container.get(Keys.RESOLUTION_STORY_LOCATION, PersistentDataType.LONG);
+            final UUID worldUuid = container.get(Keys.RESOLUTION_STORY_WORLD, PersistentUUIDDataType.TYPE);
             final World world = Bukkit.getWorld(worldUuid);
             final BlockPosition position = new BlockPosition(world, locationLong);
             final Story story = CrystamaeHistoria.getStoriesManager().getStory(id, rarity);

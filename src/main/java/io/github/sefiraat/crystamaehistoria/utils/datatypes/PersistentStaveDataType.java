@@ -42,14 +42,13 @@ public class PersistentStaveDataType implements PersistentDataType<PersistentDat
     @Override
     @Nonnull
     public PersistentDataContainer[] toPrimitive(@Nonnull Map<SpellSlot, PlateStorage> complex, @Nonnull PersistentDataAdapterContext context) {
-        Keys keys = CrystamaeHistoria.getKeys();
         PersistentDataContainer[] containers = new PersistentDataContainer[complex.size()];
         int i = 0;
 
         for (Map.Entry<SpellSlot, PlateStorage> spellTypeEntry : complex.entrySet()) {
             PersistentDataContainer container = context.newPersistentDataContainer();
-            container.set(keys.getStaveSlot(), PersistentDataType.STRING, spellTypeEntry.getKey().toString());
-            container.set(keys.getStavePlate(), PersistentPlateDataType.TYPE, spellTypeEntry.getValue());
+            container.set(Keys.STAVE_SLOT, PersistentDataType.STRING, spellTypeEntry.getKey().toString());
+            container.set(Keys.STAVE_PLATE, PersistentPlateDataType.TYPE, spellTypeEntry.getValue());
             containers[i] = container;
             i++;
         }
@@ -60,11 +59,10 @@ public class PersistentStaveDataType implements PersistentDataType<PersistentDat
     @Override
     @Nonnull
     public Map<SpellSlot, PlateStorage> fromPrimitive(@Nonnull PersistentDataContainer[] primitive, @Nonnull PersistentDataAdapterContext context) {
-        Keys keys = CrystamaeHistoria.getKeys();
         Map<SpellSlot, PlateStorage> plateStorageMap = new EnumMap<>(SpellSlot.class);
         for (PersistentDataContainer container : primitive) {
-            final SpellSlot spellSlot = SpellSlot.valueOf(container.get(keys.getStaveSlot(), PersistentDataType.STRING));
-            final PlateStorage plateStorage = container.get(keys.getStavePlate(), PersistentPlateDataType.TYPE);
+            final SpellSlot spellSlot = SpellSlot.valueOf(container.get(Keys.STAVE_SLOT, PersistentDataType.STRING));
+            final PlateStorage plateStorage = container.get(Keys.STAVE_PLATE, PersistentPlateDataType.TYPE);
             plateStorageMap.put(spellSlot, plateStorage);
         }
         return plateStorageMap;

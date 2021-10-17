@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin;
 
-import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
@@ -18,7 +18,7 @@ public class DummyLiquefactionBasin {
         "filled Liquefaction Basin containing",
         "the correct Crystamae."
     );
-    public static final RecipeType TYPE = new RecipeType(CrystamaeHistoria.getKeys().getRealisationDummyCrystal(), STACK);
+    public static final RecipeType TYPE = new RecipeType(Keys.REALISATION_DUMMY_CRYSTAL, STACK);
 
     private DummyLiquefactionBasin() {
         throw new IllegalStateException("Utility class");

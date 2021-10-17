@@ -220,7 +220,7 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
         final ItemStack itemStack = item.getItemStack();
         final ItemMeta itemMeta = itemStack.getItemMeta();
         final Keys keys = CrystamaeHistoria.getKeys();
-        final PlateStorage plateStorage = DataTypeMethods.getCustom(itemMeta, keys.getPdcPlateStorage(), PersistentPlateDataType.TYPE);
+        final PlateStorage plateStorage = DataTypeMethods.getCustom(itemMeta, Keys.PDC_PLATE_STORAGE, PersistentPlateDataType.TYPE);
         final SpellType currentSpellType = plateStorage.getStoredSpell();
 
         final Set<StoryType> set = contentMap.entrySet().stream().sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed()).limit(3).map(Map.Entry::getKey).collect(Collectors.toSet());

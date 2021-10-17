@@ -26,7 +26,7 @@ public class ArmourStandUtils {
         armorStand.setCollidable(false);
         armorStand.setInvulnerable(true);
         armorStand.setCustomName(ThemeType.getRandomEggName());
-        PersistentDataAPI.setBoolean(armorStand, CrystamaeHistoria.getKeys().getPdcIsDisplayStand(), true);
+        PersistentDataAPI.setBoolean(armorStand, Keys.PDC_IS_DISPLAY_STAND, true);
     }
 
     @ParametersAreNonnullByDefault
@@ -46,7 +46,7 @@ public class ArmourStandUtils {
 
     @ParametersAreNonnullByDefault
     public static boolean isDisplayStand(ArmorStand armorStand) {
-        return PersistentDataAPI.getBoolean(armorStand, CrystamaeHistoria.getKeys().getPdcIsDisplayStand());
+        return PersistentDataAPI.getBoolean(armorStand, Keys.PDC_IS_DISPLAY_STAND);
     }
 
     @ParametersAreNonnullByDefault
