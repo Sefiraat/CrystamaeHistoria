@@ -5,7 +5,7 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.CastResult;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.PlateStorage;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
-import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
+import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentStaveDataType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import lombok.Getter;
@@ -29,7 +29,7 @@ public class StaveStorage {
 
     public StaveStorage(ItemStack itemStack) {
         Keys keys = CrystamaeHistoria.getKeys();
-        Map<SpellSlot, PlateStorage> map = StoryUtils.getCustom(
+        Map<SpellSlot, PlateStorage> map = DataTypeMethods.getCustom(
             itemStack.getItemMeta(),
             keys.getPdcStaveStorage(),
             PersistentStaveDataType.TYPE

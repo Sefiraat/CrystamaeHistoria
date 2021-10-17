@@ -13,7 +13,7 @@ import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.ArmourStandUtils;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
-import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
+import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentPlateDataType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
@@ -220,7 +220,7 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
         final ItemStack itemStack = item.getItemStack();
         final ItemMeta itemMeta = itemStack.getItemMeta();
         final Keys keys = CrystamaeHistoria.getKeys();
-        final PlateStorage plateStorage = StoryUtils.getCustom(itemMeta, keys.getPdcPlateStorage(), PersistentPlateDataType.TYPE);
+        final PlateStorage plateStorage = DataTypeMethods.getCustom(itemMeta, keys.getPdcPlateStorage(), PersistentPlateDataType.TYPE);
         final SpellType currentSpellType = plateStorage.getStoredSpell();
 
         final Set<StoryType> set = contentMap.entrySet().stream().sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed()).limit(3).map(Map.Entry::getKey).collect(Collectors.toSet());

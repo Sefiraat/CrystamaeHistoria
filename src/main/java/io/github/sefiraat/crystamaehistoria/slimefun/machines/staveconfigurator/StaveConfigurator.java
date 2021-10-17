@@ -8,7 +8,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.SpellSlot;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.Stave;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.StaveStorage;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
-import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
+import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentPlateDataType;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentStaveDataType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.GuiElements;
@@ -99,7 +99,7 @@ public class StaveConfigurator extends TickingMenuBlock {
                 }
                 staveStorage.getSpellInstanceMap().clear();
                 ItemMeta itemMeta = stave.getItemMeta();
-                StoryUtils.setCustom(
+                DataTypeMethods.setCustom(
                     itemMeta,
                     CrystamaeHistoria.getKeys().getPdcStaveStorage(),
                     PersistentStaveDataType.TYPE,
@@ -122,7 +122,7 @@ public class StaveConfigurator extends TickingMenuBlock {
             for (SpellSlot spellSlot : SpellSlot.getCashedValues()) {
                 ItemStack plate = blockMenu.getItemInSlot(getSlot(spellSlot));
                 if (plate != null && SlimefunItem.getByItem(plate) instanceof ChargedPlate) {
-                    PlateStorage plateStorage = StoryUtils.getCustom(
+                    PlateStorage plateStorage = DataTypeMethods.getCustom(
                         plate.getItemMeta(),
                         keys.getPdcPlateStorage(),
                         PersistentPlateDataType.TYPE
@@ -130,7 +130,7 @@ public class StaveConfigurator extends TickingMenuBlock {
                     staveStorage.setSlot(spellSlot, plateStorage);
                 }
             }
-            StoryUtils.setCustom(
+            DataTypeMethods.setCustom(
                 itemMeta,
                 keys.getPdcStaveStorage(),
                 PersistentStaveDataType.TYPE,

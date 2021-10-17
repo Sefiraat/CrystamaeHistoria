@@ -8,6 +8,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
 import lombok.Getter;
 import lombok.Setter;
 import net.md_5.bungee.api.ChatColor;
+import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.TextComponent;
 
 import javax.annotation.Nonnull;
@@ -58,7 +59,7 @@ public class Story {
         rarityComponent.setColor(ThemeType.getByRarity(this.rarity).getColor());
         rarityComponent.setBold(true);
         nameComponent.setColor(ThemeType.CLICK_INFO.getColor());
-        return TextComponent.toLegacyText(rarityComponent, nameComponent);
+        return BaseComponent.toLegacyText(rarityComponent, nameComponent);
     }
 
     public List<String> getStoryLore() {
@@ -70,7 +71,7 @@ public class Story {
 
             line.setColor(passive);
             line.setItalic(false);
-            l.add(TextComponent.toLegacyText(line));
+            l.add(BaseComponent.toLegacyText(line));
         }
         if (author != null) {
             l.add(ThemeType.NOTICE.getColor() + "Author : " + author);
