@@ -9,12 +9,12 @@ import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.stories.Story;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryChances;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentStoriesDataType;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import lombok.experimental.UtilityClass;
 import org.apache.commons.lang.Validate;
 import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
 import org.bukkit.block.Block;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
@@ -30,7 +30,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
@@ -249,7 +248,7 @@ public class StoryUtils {
     @ParametersAreNonnullByDefault
     public static @Nullable
     List<Story> getAllStories(ItemStack itemStack) {
-        return getCustom(itemStack.getItemMeta(), Keys.PDC_STORIES, PersistentStoriesDataType.TYPE);
+        return DataTypeMethods.getCustom(itemStack.getItemMeta(), Keys.PDC_STORIES, PersistentStoriesDataType.TYPE);
     }
 
     @ParametersAreNonnullByDefault
@@ -260,7 +259,7 @@ public class StoryUtils {
             storyList = new ArrayList<>();
         }
         storyList.add(story);
-        setCustom(im, Keys.PDC_STORIES, PersistentStoriesDataType.TYPE, storyList);
+        DataTypeMethods.setCustom(im, Keys.PDC_STORIES, PersistentStoriesDataType.TYPE, storyList);
         itemStack.setItemMeta(im);
     }
 
@@ -270,73 +269,8 @@ public class StoryUtils {
         final List<Story> storyList = getAllStories(itemStack);
         Validate.notNull(storyList, "No storyList found when trying to remove.");
         storyList.remove(story);
-        StoryUtils.setCustom(im, Keys.PDC_STORIES, PersistentStoriesDataType.TYPE, storyList);
+        DataTypeMethods.setCustom(im, Keys.PDC_STORIES, PersistentStoriesDataType.TYPE, storyList);
         itemStack.setItemMeta(im);
         return storyList.size();
-    }
-
-    // TODO Swap out with PDCApi if the PR is accepted
-
-    /**
-     * Get an object based on the provided {@link PersistentDataType} in a {@link PersistentDataContainer}, if the key doesn't exist it returns null.
-     *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
-     * @return An object associated with this key or null if it doesn't exist
-     */
-    @Nullable
-    public static <T, Z> Z getCustom(@Nonnull PersistentDataHolder holder, @Nonnull NamespacedKey key, @Nonnull PersistentDataType<T, Z> type) {
-        return holder.getPersistentDataContainer().get(key, type);
-    }
-
-    /**
-     * This method returns an {@link Optional} describing the object defined by the {@link PersistentDataType}
-     * found under the given key. An empty {@link Optional} will be returned if no value has been found.
-     *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
-     * @return An {@link Optional} describing the result
-     *
-     * @see PersistentDataAPI#getCustom(PersistentDataHolder, NamespacedKey, PersistentDataType)
-     */
-    @Nonnull
-    public static <T, Z> Optional<Z> getOptionalCustom(@Nonnull PersistentDataHolder holder, @Nonnull NamespacedKey key, @Nonnull PersistentDataType<T, Z> type) {
-        return Optional.ofNullable(getCustom(holder, key, type));
-    }
-
-    /**
-     * Get an object based on the provided {@link PersistentDataType} in a {@link PersistentDataContainer} or the default value if the key doesn't exist.
-     *
-     * @param holder     The {@link PersistentDataHolder} to retrieve the data from
-     * @param key        The key of the data to retrieve
-     * @param defaultVal The default value to use if no key is found
-     * @return The object associated with this key or the default value if it doesn't exist
-     */
-    public static <T, Z> Z getCustom(@Nonnull PersistentDataHolder holder, @Nonnull NamespacedKey key, @Nonnull PersistentDataType<T, Z> type, @Nonnull Z defaultVal) {
-        return holder.getPersistentDataContainer().getOrDefault(key, type, defaultVal);
-    }
-
-    /**
-     * Checks if the specified {@link PersistentDataHolder} has a {@link PersistentDataContainer} with the specified
-     * key.
-     *
-     * @param holder The {@link PersistentDataHolder} to check
-     * @param key    The key to check for
-     * @return {@code true} if the holder has a {@link PersistentDataContainer} with the specified key.
-     */
-    public static <T, Z> boolean hasCustom(@Nonnull PersistentDataHolder holder, @Nonnull NamespacedKey key, @Nonnull PersistentDataType<T, Z> type) {
-        return holder.getPersistentDataContainer().has(key, type);
-    }
-
-    /**
-     * Set a custom {@link PersistentDataType} in a {@link PersistentDataContainer}
-     *
-     * @param holder The {@link PersistentDataHolder} to add the data to
-     * @param key    The key of the data to set
-     * @param type   The {@link PersistentDataType} to be used.
-     * @param obj    The object to put in the container
-     */
-    public static <T, Z> void setCustom(@Nonnull PersistentDataHolder holder, @Nonnull NamespacedKey key, @Nonnull PersistentDataType<T, Z> type, @Nonnull Z obj) {
-        holder.getPersistentDataContainer().set(key, type, obj);
     }
 }

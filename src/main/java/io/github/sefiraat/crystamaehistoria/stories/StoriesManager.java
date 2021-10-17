@@ -159,7 +159,7 @@ public class StoriesManager {
     @ParametersAreNonnullByDefault
     private void fillMap(Map<String, Story> map, List<Map<String, Object>> list, StoryRarity rarity) {
         for (Map<String, Object> storyDefinition : list) {
-            Story story = parseStory(storyDefinition, rarity);
+            Story story = new Story(storyDefinition, rarity);
             map.put(story.getId(), story);
         }
     }
@@ -207,14 +207,6 @@ public class StoriesManager {
             default:
                 throw new IllegalStateException("Unexpected value: " + storyRarity);
         }
-    }
-
-    @ParametersAreNonnullByDefault
-    private static Story parseStory(Map<String, Object> map, StoryRarity rarity) {
-        String type = (String) map.get("type");
-        String name = (String) map.get("name");
-        StoryType storyType = StoryType.valueOf(type.toUpperCase(Locale.ROOT));
-        return new Story(map, rarity);
     }
 
     @ParametersAreNonnullByDefault

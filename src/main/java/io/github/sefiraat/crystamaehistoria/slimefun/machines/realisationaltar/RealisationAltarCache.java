@@ -8,6 +8,7 @@ import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
+import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentStoryChunkDataType;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
@@ -94,13 +95,13 @@ public class RealisationAltarCache extends AbstractCache {
             story.setBlockPosition(new BlockPosition(blockMenu.getLocation().getWorld(), entry.getKey().getPosition()));
             stories.add(story);
         }
-        StoryUtils.setCustom(chunk, Keys.newKey(String.valueOf(position.getPosition())), PersistentStoryChunkDataType.TYPE, stories);
+        DataTypeMethods.setCustom(chunk, Keys.newKey(String.valueOf(position.getPosition())), PersistentStoryChunkDataType.TYPE, stories);
     }
 
     protected void loadMap() {
         final Chunk chunk = blockMenu.getBlock().getChunk();
         final BlockPosition position = new BlockPosition(blockMenu.getLocation());
-        final List<Story> stories = StoryUtils.getCustom(chunk, Keys.newKey(String.valueOf(position.getPosition())), PersistentStoryChunkDataType.TYPE);
+        final List<Story> stories = DataTypeMethods.getCustom(chunk, Keys.newKey(String.valueOf(position.getPosition())), PersistentStoryChunkDataType.TYPE);
         if (stories != null) {
             for (Story story : stories) {
                 crystalStoryMap.put(story.getBlockPosition(), new Pair<>(story.getRarity(), story.getId()));

@@ -4,7 +4,7 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
-import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
+import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentPlateDataType;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -42,7 +42,7 @@ public class ChargedPlate extends UnplaceableBlock {
         ItemStack newPlate = Materials.CHARGED_PLATE_T_1.getItem().clone();
         PlateStorage.setPlateLore(newPlate, plateStorage);
         ItemMeta itemMeta = newPlate.getItemMeta();
-        StoryUtils.setCustom(
+        DataTypeMethods.setCustom(
             itemMeta,
             Keys.PDC_PLATE_STORAGE,
             PersistentPlateDataType.TYPE,
