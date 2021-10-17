@@ -41,14 +41,13 @@ public class PersistentStoriesDataType implements PersistentDataType<PersistentD
     @Override
     @Nonnull
     public PersistentDataContainer[] toPrimitive(@Nonnull List<Story> complex, @Nonnull PersistentDataAdapterContext context) {
-        Keys keys = CrystamaeHistoria.getKeys();
         PersistentDataContainer[] containers = new PersistentDataContainer[complex.size()];
         int i = 0;
 
         for (Story story : complex) {
             PersistentDataContainer container = context.newPersistentDataContainer();
-            container.set(keys.getStoryId(), PersistentDataType.STRING, story.getId());
-            container.set(keys.getStoryRarity(), PersistentDataType.INTEGER, story.getRarity().getId());
+            container.set(Keys.STORY_ID, PersistentDataType.STRING, story.getId());
+            container.set(Keys.STORY_RARITY, PersistentDataType.INTEGER, story.getRarity().getId());
             containers[i] = container;
             i++;
         }
@@ -58,11 +57,10 @@ public class PersistentStoriesDataType implements PersistentDataType<PersistentD
     @Override
     @Nonnull
     public List<Story> fromPrimitive(@Nonnull PersistentDataContainer[] primitive, @Nonnull PersistentDataAdapterContext context) {
-        Keys keys = CrystamaeHistoria.getKeys();
         List<Story> list = new ArrayList<>();
         for (PersistentDataContainer container : primitive) {
-            String id = container.get(keys.getStoryId(), PersistentDataType.STRING);
-            StoryRarity rarity = StoryRarity.getById(container.get(keys.getStoryRarity(), PersistentDataType.INTEGER));
+            String id = container.get(Keys.STORY_ID, PersistentDataType.STRING);
+            StoryRarity rarity = StoryRarity.getById(container.get(Keys.STORY_RARITY, PersistentDataType.INTEGER));
             list.add(CrystamaeHistoria.getStoriesManager().getStory(id, rarity));
         }
         return list;

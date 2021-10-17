@@ -40,9 +40,9 @@ public class PersistentPlateDataType implements PersistentDataType<PersistentDat
     public PersistentDataContainer toPrimitive(@Nonnull PlateStorage complex, @Nonnull PersistentDataAdapterContext context) {
         Keys keys = CrystamaeHistoria.getKeys();
         PersistentDataContainer container = context.newPersistentDataContainer();
-        container.set(keys.getPlateTier(), PersistentDataType.INTEGER, complex.getTier());
-        container.set(keys.getPlateSpell(), PersistentDataType.STRING, complex.getStoredSpell().getId());
-        container.set(keys.getPlateCharges(), PersistentDataType.INTEGER, complex.getCrysta());
+        container.set(Keys.PLATE_TIER, PersistentDataType.INTEGER, complex.getTier());
+        container.set(Keys.PLATE_SPELL, PersistentDataType.STRING, complex.getStoredSpell().getId());
+        container.set(Keys.PLATE_CHARGES, PersistentDataType.INTEGER, complex.getCrysta());
         return container;
     }
 
@@ -51,9 +51,9 @@ public class PersistentPlateDataType implements PersistentDataType<PersistentDat
     public PlateStorage fromPrimitive(@Nonnull PersistentDataContainer primitive, @Nonnull PersistentDataAdapterContext context) {
         Keys keys = CrystamaeHistoria.getKeys();
         return new PlateStorage(
-            primitive.get(keys.getPlateTier(), PersistentDataType.INTEGER),
-            SpellType.valueOf(primitive.get(keys.getPlateSpell(), PersistentDataType.STRING)),
-            primitive.get(keys.getPlateCharges(), PersistentDataType.INTEGER)
+            primitive.get(Keys.PLATE_TIER, PersistentDataType.INTEGER),
+            SpellType.valueOf(primitive.get(Keys.PLATE_SPELL, PersistentDataType.STRING)),
+            primitive.get(Keys.PLATE_CHARGES, PersistentDataType.INTEGER)
         );
     }
 }

@@ -101,7 +101,7 @@ public class StaveConfigurator extends TickingMenuBlock {
                 ItemMeta itemMeta = stave.getItemMeta();
                 StoryUtils.setCustom(
                     itemMeta,
-                    CrystamaeHistoria.getKeys().getPdcStaveStorage(),
+                    Keys.PDC_STAVE_STORAGE,
                     PersistentStaveDataType.TYPE,
                     staveStorage.getSpellInstanceMap()
                 );
@@ -124,7 +124,7 @@ public class StaveConfigurator extends TickingMenuBlock {
                 if (plate != null && SlimefunItem.getByItem(plate) instanceof ChargedPlate) {
                     PlateStorage plateStorage = StoryUtils.getCustom(
                         plate.getItemMeta(),
-                        keys.getPdcPlateStorage(),
+                        Keys.PDC_PLATE_STORAGE,
                         PersistentPlateDataType.TYPE
                     );
                     staveStorage.setSlot(spellSlot, plateStorage);
@@ -132,7 +132,7 @@ public class StaveConfigurator extends TickingMenuBlock {
             }
             StoryUtils.setCustom(
                 itemMeta,
-                keys.getPdcStaveStorage(),
+                Keys.PDC_STAVE_STORAGE,
                 PersistentStaveDataType.TYPE,
                 staveStorage.getSpellInstanceMap()
             );

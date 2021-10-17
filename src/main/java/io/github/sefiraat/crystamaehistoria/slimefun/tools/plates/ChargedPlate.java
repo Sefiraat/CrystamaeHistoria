@@ -44,7 +44,7 @@ public class ChargedPlate extends UnplaceableBlock {
         ItemMeta itemMeta = newPlate.getItemMeta();
         StoryUtils.setCustom(
             itemMeta,
-            keys.getPdcPlateStorage(),
+            Keys.PDC_PLATE_STORAGE,
             PersistentPlateDataType.TYPE,
             plateStorage
         );
