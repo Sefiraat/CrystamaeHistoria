@@ -1,21 +1,27 @@
 package io.github.sefiraat.crystamaehistoria.stories;
 
-import io.github.mooy1.infinitylib.core.AddonConfig;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryChances;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
+import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import lombok.Getter;
+import net.md_5.bungee.api.chat.TextComponent;
 import org.apache.commons.lang.Validate;
 import org.bukkit.Material;
-import org.bukkit.configuration.ConfigurationSection;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StoriesManager {
 
@@ -24,33 +30,22 @@ public class StoriesManager {
     @Getter
     private final Map<Integer, BlockTier> blockTierMap = new HashMap<>();
     @Getter
-    private final Map<Integer, Story> storyMapCommon = new HashMap<>();
+    private final Map<String, Story> storyMapCommon = new HashMap<>();
     @Getter
-    private final Map<Integer, Story> storyMapUncommon = new HashMap<>();
+    private final Map<String, Story> storyMapUncommon = new HashMap<>();
     @Getter
-    private final Map<Integer, Story> storyMapRare = new HashMap<>();
+    private final Map<String, Story> storyMapRare = new HashMap<>();
     @Getter
-    private final Map<Integer, Story> storyMapEpic = new HashMap<>();
+    private final Map<String, Story> storyMapEpic = new HashMap<>();
     @Getter
-    private final Map<Integer, Story> storyMapMythical = new HashMap<>();
+    private final Map<String, Story> storyMapMythical = new HashMap<>();
     @Getter
-    private final Map<Integer, Story> storyMapUnique = new HashMap<>();
+    private final Map<String, Story> storyMapUnique = new HashMap<>();
 
     public StoriesManager() {
         fillBlockTierMap();
         fillStories();
         fillBlockDefinitions();
-    }
-
-    @ParametersAreNonnullByDefault
-    private static Story parseStory(ConfigurationSection storyConfiguration, StoryRarity rarity) {
-        String type = storyConfiguration.getString("type");
-        StoryType storyType = StoryType.valueOf(type.toUpperCase(Locale.ROOT));
-        return new Story(
-            Integer.parseInt(storyConfiguration.getName()),
-            rarity.getId(),
-            storyType.getId()
-        );
     }
 
     private void fillBlockTierMap() {
@@ -70,83 +65,132 @@ public class StoriesManager {
                 )
             )
         );
+        blockTierMap.put(
+            2,
+            new BlockTier(
+                2,
+                400,
+                3,
+                2,
+                new StoryChances(
+                    70,
+                    20,
+                    10,
+                    0,
+                    0
+                )
+            )
+        );
+        blockTierMap.put(
+            3,
+            new BlockTier(
+                3,
+                500,
+                4,
+                2,
+                new StoryChances(
+                    50,
+                    30,
+                    15,
+                    5,
+                    0
+                )
+            )
+        );
+        blockTierMap.put(
+            4,
+            new BlockTier(
+                4,
+                600,
+                5,
+                3,
+                new StoryChances(
+                    25,
+                    35,
+                    25,
+                    10,
+                    5
+                )
+            )
+        );
+        blockTierMap.put(
+            5,
+            new BlockTier(
+                5,
+                700,
+                5,
+                4,
+                new StoryChances(
+                    10,
+                    30,
+                    25,
+                    20,
+                    15
+                )
+            )
+        );
     }
 
+    /** @noinspection unchecked*/
     private void fillStories() {
-        AddonConfig c = CrystamaeHistoria.getInstance().getConfig();
+        FileConfiguration stories = CrystamaeHistoria.getConfigManager().getStories();
 
-        ConfigurationSection common = c.getConfigurationSection("stories.common");
-        Validate.notNull(common, "COMMON story configuration is not found, changed or deleted.");
+        List<Map<String, Object>> common = (List<Map<String, Object>>) stories.getList("common");
+        Validate.notNull(common, "Common story configuration is not found, changed or deleted.");
         fillMap(storyMapCommon, common, StoryRarity.COMMON);
 
-        ConfigurationSection uncommon = c.getConfigurationSection("stories.uncommon");
-        Validate.notNull(uncommon, "UNCOMMON story configuration is not found, changed or deleted.");
+        List<Map<String, Object>> uncommon = (List<Map<String, Object>>) stories.getList("uncommon");
+        Validate.notNull(uncommon, "Uncommon story configuration is not found, changed or deleted.");
         fillMap(storyMapUncommon, uncommon, StoryRarity.UNCOMMON);
 
-        ConfigurationSection rare = c.getConfigurationSection("stories.rare");
-        Validate.notNull(rare, "RARE story configuration is not found, changed or deleted.");
+        List<Map<String, Object>> rare = (List<Map<String, Object>>) stories.getList("rare");
+        Validate.notNull(rare, "Rare story configuration is not found, changed or deleted.");
         fillMap(storyMapRare, rare, StoryRarity.RARE);
 
-        ConfigurationSection epic = c.getConfigurationSection("stories.epic");
-        Validate.notNull(epic, "EPIC story configuration is not found, changed or deleted.");
+        List<Map<String, Object>> epic = (List<Map<String, Object>>) stories.getList("epic");
+        Validate.notNull(epic, "Epic story configuration is not found, changed or deleted.");
         fillMap(storyMapEpic, epic, StoryRarity.EPIC);
 
-        ConfigurationSection mythical = c.getConfigurationSection("stories.mythical");
-        Validate.notNull(mythical, "MYTHICAL story configuration is not found, changed or deleted.");
+        List<Map<String, Object>> mythical = (List<Map<String, Object>>) stories.getList("mythical");
+        Validate.notNull(mythical, "Mythical story configuration is not found, changed or deleted.");
         fillMap(storyMapMythical, mythical, StoryRarity.MYTHICAL);
-
-        ConfigurationSection unique = c.getConfigurationSection("stories.unique");
-        Validate.notNull(unique, "UNIQUE story configuration is not found, changed or deleted.");
-        fillMap(storyMapUnique, unique, StoryRarity.UNIQUE);
-
     }
 
     @ParametersAreNonnullByDefault
-    private void fillMap(Map<Integer, Story> map, ConfigurationSection section, StoryRarity rarity) {
-        for (String s : section.getKeys(false)) {
-            Story story = parseStory(section.getConfigurationSection(s), rarity);
-            map.put(Integer.parseInt(s), story);
+    private void fillMap(Map<String, Story> map, List<Map<String, Object>> list, StoryRarity rarity) {
+        for (Map<String, Object> storyDefinition : list) {
+            Story story = parseStory(storyDefinition, rarity);
+            map.put(story.getId(), story);
         }
     }
 
+    /** @noinspection unchecked*/
     private void fillBlockDefinitions() {
-        storiedBlockDefinitionMap.put(
-            Material.STONE,
-            new StoriedBlockDefinition(
-                blockTierMap.get(1),
-                Arrays.asList(
-                    StoryType.ELEMENTAL,
-                    StoryType.HISTORICAL
-                ),
-                storyMapUnique.get(1)
-            )
-        );
-        storiedBlockDefinitionMap.put(
-            Material.CRAFTING_TABLE,
-            new StoriedBlockDefinition(
-                blockTierMap.get(1),
-                Arrays.asList(
-                    StoryType.HUMAN,
-                    StoryType.PHILOSOPHICAL
-                ),
-                storyMapUnique.get(2)
-            )
-        );
-        storiedBlockDefinitionMap.put(
-            Material.TORCH,
-            new StoriedBlockDefinition(
-                blockTierMap.get(1),
-                Arrays.asList(
-                    StoryType.HUMAN,
-                    StoryType.ELEMENTAL
-                ),
-                storyMapUnique.get(3)
-            )
-        );
+        final FileConfiguration blocks = CrystamaeHistoria.getConfigManager().getBlocks();
+        final List<Map<String, Object>> blockList = (List<Map<String, Object>>) blocks.getList("blocks");
+
+        for (Map<String, Object> map : blockList) {
+            final Map<String, Object> storyMap = (Map<String, Object>) map.get("story");
+            final Story story = new Story(storyMap, StoryRarity.UNIQUE);
+
+            storyMapUnique.put(story.getId(), story);
+
+            final int tier = (int) map.get("tier");
+            final String material = (String) map.get("material");
+            final List<StoryType> types = ((List<String>) map.get("elements")).stream()
+                .map(StoryType::getByName)
+                .collect(Collectors.toList());
+            final StoriedBlockDefinition blockDefinition = new StoriedBlockDefinition(
+                blockTierMap.get(tier),
+                types,
+                story
+            );
+            storiedBlockDefinitionMap.put(Material.valueOf(material), blockDefinition);
+        }
     }
 
     @ParametersAreNonnullByDefault
-    public Story getStory(int id, StoryRarity storyRarity) {
+    public Story getStory(String id, StoryRarity storyRarity) {
         switch (storyRarity) {
             case COMMON:
                 return storyMapCommon.get(id);
@@ -165,5 +209,34 @@ public class StoriesManager {
         }
     }
 
+    @ParametersAreNonnullByDefault
+    private static Story parseStory(Map<String, Object> map, StoryRarity rarity) {
+        String type = (String) map.get("type");
+        String name = (String) map.get("name");
+        StoryType storyType = StoryType.valueOf(type.toUpperCase(Locale.ROOT));
+        return new Story(map, rarity);
+    }
 
+    @ParametersAreNonnullByDefault
+    public static void rebuildStoriedStack(ItemStack itemStack) {
+        ItemMeta im = itemStack.getItemMeta();
+        setName(itemStack, im);
+        List<String> lore = new ArrayList<>();
+        List<Story> storyList = StoryUtils.getAllStories(itemStack);
+        for (Story story : storyList) {
+            lore.add("");
+            lore.add(story.getDisplayName());
+            lore.addAll(story.getStoryLore());
+        }
+        im.setLore(lore);
+        itemStack.setItemMeta(im);
+    }
+
+    @ParametersAreNonnullByDefault
+    private static void setName(ItemStack itemStack, ItemMeta im) {
+        TextComponent name = new TextComponent("Storied " + ThemeType.toTitleCase(itemStack.getType().toString()));
+        name.setColor(ThemeType.MAIN.getColor());
+        name.setBold(true);
+        im.setDisplayName(name.toLegacyText());
+    }
 }

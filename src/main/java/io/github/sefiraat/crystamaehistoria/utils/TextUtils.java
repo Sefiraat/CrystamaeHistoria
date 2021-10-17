@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.utils;
 
-import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
+import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import lombok.experimental.UtilityClass;
 import net.md_5.bungee.api.ChatColor;
 import org.apache.commons.lang.StringUtils;

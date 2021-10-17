@@ -7,11 +7,15 @@ import io.github.sefiraat.crystamaehistoria.slimefun.machines.DisplayStandHolder
 import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.BlankPlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.ChargedPlate;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.PlateStorage;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
 import io.github.sefiraat.crystamaehistoria.utils.ArmourStandUtils;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
+import io.github.sefiraat.crystamaehistoria.utils.Keys;
+import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
+import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentPlateDataType;
+import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import lombok.Getter;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
@@ -24,6 +28,7 @@ import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.util.Vector;
 
@@ -80,7 +85,9 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
                 Crystal crystal = (Crystal) slimefunItem;
                 addCrystamae(crystal.getType(), crystal.getRarity(), item);
             } else if (slimefunItem instanceof BlankPlate) {
-                checkPlate(item, (BlankPlate) slimefunItem);
+                processBlankPlate(item, (BlankPlate) slimefunItem);
+            } else if (slimefunItem instanceof ChargedPlate) {
+                processChargedPlate(item, (ChargedPlate) slimefunItem);
             } else {
                 rejectItem(item, true);
             }
@@ -187,7 +194,7 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
     }
 
     @ParametersAreNonnullByDefault
-    private void checkPlate(Item item, BlankPlate plate) {
+    private void processBlankPlate(Item item, BlankPlate plate) {
         Set<StoryType> set = contentMap.entrySet().stream().sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed()).limit(3).map(Map.Entry::getKey).collect(Collectors.toSet());
         ItemStack itemStack = item.getItemStack();
         if (set.size() == 3) {
@@ -207,6 +214,28 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
         } else {
             rejectItem(item, true);
         }
+    }
+
+    private void processChargedPlate(Item item, ChargedPlate plate) {
+        final ItemStack itemStack = item.getItemStack();
+        final ItemMeta itemMeta = itemStack.getItemMeta();
+        final Keys keys = CrystamaeHistoria.getKeys();
+        final PlateStorage plateStorage = StoryUtils.getCustom(itemMeta, keys.getPdcPlateStorage(), PersistentPlateDataType.TYPE);
+        final SpellType currentSpellType = plateStorage.getStoredSpell();
+
+        final Set<StoryType> set = contentMap.entrySet().stream().sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed()).limit(3).map(Map.Entry::getKey).collect(Collectors.toSet());
+        if (set.size() == 3) {
+            SpellType spellType = getMatchingRecipe(set, plate);
+            if (spellType == currentSpellType) {
+                plateStorage.addCrysta(getFillLevel());
+                itemStack.setItemMeta(itemMeta);
+                summonCatalystParticles();
+            }
+            emptyBasin();
+        } else {
+            rejectItem(item, false);
+        }
+
     }
 
     @Nullable
@@ -249,5 +278,4 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
         sphereEffect.iterations = 2;
         sphereEffect.start();
     }
-
 }

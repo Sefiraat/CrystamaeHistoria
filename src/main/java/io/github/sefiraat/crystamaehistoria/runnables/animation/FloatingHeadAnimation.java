@@ -1,13 +1,13 @@
 package io.github.sefiraat.crystamaehistoria.runnables.animation;
 
-import io.github.sefiraat.crystamaehistoria.utils.AnimateUtils;
+import io.github.sefiraat.crystamaehistoria.utils.ArmourStandUtils;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.scheduler.BukkitRunnable;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
 public class FloatingHeadAnimation extends BukkitRunnable {
-
+    // TODO Replace
     public static final double Y_VARIATION = 0.2;
     public static final long SPEED = 1;
 
@@ -24,12 +24,12 @@ public class FloatingHeadAnimation extends BukkitRunnable {
     @Override
     public void run() {
         if (directionUp) {
-            AnimateUtils.panelAnimationStep(armorStand, true);
+            ArmourStandUtils.panelAnimationStep(armorStand, true);
             if (armorStand.getLocation().getY() >= (baseY + Y_VARIATION)) {
                 directionUp = false;
             }
         } else {
-            AnimateUtils.panelAnimationStep(armorStand, false);
+            ArmourStandUtils.panelAnimationStep(armorStand, false);
             if (armorStand.getLocation().getY() <= (baseY - Y_VARIATION)) {
                 directionUp = true;
             }

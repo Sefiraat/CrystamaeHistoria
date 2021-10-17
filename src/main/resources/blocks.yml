@@ -1,0 +1,42 @@
+blocks:
+  - material: STONE
+    tier: 1
+    elements:
+      - ELEMENTAL
+      - HISTORICAL
+    story:
+      name: Resolute
+      type: ELEMENTAL
+      lore:
+        - Stone is the resolute backbone of the world's
+        - makeup. Ever present and everlasting.
+      shards: [ 2,0,1,1,0,0,0,0,0 ]
+      author:
+  - material: CRAFTING_TABLE
+    tier: 1
+    main_element: HUMAN
+    elements:
+      - HUMAN
+      - PHILOSOPHICAL
+    story:
+      name: Endless Potential
+      type: HUMAN
+      lore:
+        - This table magically creates items with a
+        - minimal amount of materials. How it works
+        - is still a mystery to this day.
+      shards: [ 0,1,0,0,2,0,1,0,1 ]
+      author: Ryhn12
+  - material: TORCH
+    tier: 1
+    elements:
+      - HUMAN
+      - ELEMENTAL
+    story:
+      name: Lighting The Way
+      type: HUMAN
+      lore:
+        - Since the earliest days, lighting the way
+        - and protecting from unseen foes.
+      shards: [ 1,1,0,0,1,0,1,0,0 ]
+      author:

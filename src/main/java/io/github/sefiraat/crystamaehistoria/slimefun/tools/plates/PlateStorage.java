@@ -4,8 +4,9 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.CastResult;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
-import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
+import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import lombok.Getter;
+import lombok.Setter;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -18,6 +19,7 @@ public class PlateStorage {
 
     private final int tier;
     private final SpellType storedSpell;
+    @Setter
     private int crysta;
 
     public PlateStorage(int tier, SpellType storedSpell, int crysta) {
@@ -66,4 +68,7 @@ public class PlateStorage {
         }
     }
 
+    public void addCrysta(int amount) {
+        this.crysta += amount;
+    }
 }

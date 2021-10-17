@@ -4,10 +4,9 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.runnables.animation.FloatingHeadAnimation;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.AbstractCache;
 import io.github.sefiraat.crystamaehistoria.stories.StoriedBlockDefinition;
-import io.github.sefiraat.crystamaehistoria.utils.AnimateUtils;
+import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.utils.ArmourStandUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
-import io.github.sefiraat.crystamaehistoria.utils.StackUtils;
 import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
 import lombok.Getter;
 import lombok.Setter;
@@ -111,7 +110,7 @@ public class ChroniclerPanelCache extends AbstractCache {
 
     private void startAnimation() {
         ArmorStand armourStand = getDisplayStand();
-        AnimateUtils.panelAnimationReset(armourStand, blockMenu.getBlock());
+        ArmourStandUtils.panelAnimationReset(armourStand, blockMenu.getBlock());
         animation = new FloatingHeadAnimation(armourStand);
         animation.runTaskTimer(CrystamaeHistoria.getInstance(), 0, FloatingHeadAnimation.SPEED);
     }
@@ -128,7 +127,7 @@ public class ChroniclerPanelCache extends AbstractCache {
         if (animation != null) {
             animation.cancel();
         }
-        AnimateUtils.panelAnimationReset(getDisplayStand(), block);
+        ArmourStandUtils.panelAnimationReset(getDisplayStand(), block);
     }
 
     @ParametersAreNonnullByDefault
@@ -146,7 +145,7 @@ public class ChroniclerPanelCache extends AbstractCache {
                     // That was the last story, unlock unique
                     StoryUtils.requestUniqueStory(i);
                 }
-                StackUtils.rebuildStoriedStack(i);
+                StoriesManager.rebuildStoriedStack(i);
                 blockMenu.getBlock().getWorld().strikeLightningEffect(blockMiddle);
             }
         }

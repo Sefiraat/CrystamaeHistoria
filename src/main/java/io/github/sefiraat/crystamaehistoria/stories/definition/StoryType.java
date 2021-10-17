@@ -16,7 +16,7 @@ public enum StoryType {
     PHILOSOPHICAL(9);
 
     @Getter
-    private static final StoryType[] values = values();
+    private static final StoryType[] cachedValues = values();
 
     @Getter
     private final int id;
@@ -27,8 +27,18 @@ public enum StoryType {
 
     @Nullable
     public static StoryType getById(int id) {
-        for (StoryType storyType : getValues()) {
+        for (StoryType storyType : getCachedValues()) {
             if (storyType.id == id) {
+                return storyType;
+            }
+        }
+        return null;
+    }
+
+    @Nullable
+    public static StoryType getByName(String name) {
+        for (StoryType storyType : getCachedValues()) {
+            if (storyType.name().equals(name)) {
                 return storyType;
             }
         }

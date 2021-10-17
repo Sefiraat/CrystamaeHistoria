@@ -68,6 +68,8 @@ public class Keys {
     private final NamespacedKey resolutionCrystalMap = new NamespacedKey(CrystamaeHistoria.getInstance(), "c_r_c");
     private final NamespacedKey resolutionRarityMap = new NamespacedKey(CrystamaeHistoria.getInstance(), "c_r_r");
     private final NamespacedKey resolutionStoryMap = new NamespacedKey(CrystamaeHistoria.getInstance(), "c_r_s");
+    private final NamespacedKey resolutionStoryLocation = new NamespacedKey(CrystamaeHistoria.getInstance(), "c_r_l");
+    private final NamespacedKey resolutionStoryWorld = new NamespacedKey(CrystamaeHistoria.getInstance(), "c_r_w");
 
 
 }

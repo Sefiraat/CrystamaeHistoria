@@ -13,7 +13,7 @@ public enum StoryRarity {
     UNIQUE(6);
 
     @Getter
-    private static final StoryRarity[] values = values();
+    private static final StoryRarity[] cachedValues = values();
 
     @Getter
     private final int id;
@@ -24,7 +24,7 @@ public enum StoryRarity {
 
     @Nullable
     public static StoryRarity getById(int id) {
-        for (StoryRarity storyRarity : getValues()) {
+        for (StoryRarity storyRarity : getCachedValues()) {
             if (storyRarity.id == id) {
                 return storyRarity;
             }

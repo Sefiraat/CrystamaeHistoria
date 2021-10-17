@@ -19,12 +19,11 @@ public class CrystalBreakListener implements Listener {
         Block block = event.getBlock();
         if (block.getType() == Material.LARGE_AMETHYST_BUD) {
             BlockPosition blockPosition = new BlockPosition(block);
-            long l = blockPosition.getPosition();
             for (RealisationAltarCache cache : RealisationAltar.CACHE_MAP.values()) {
-                if (cache.getCrystalStoryMap().containsKey(l)) {
-                    Pair<StoryRarity, Integer> pair = cache.getCrystalStoryMap().get(l);
+                Pair<StoryRarity, String> pair = cache.getCrystalStoryMap().get(blockPosition);
+                if (pair != null) {
                     StoryRarity rarity = pair.getFirstValue();
-                    int id = pair.getSecondValue();
+                    String id = pair.getSecondValue();
                     Story story = CrystamaeHistoria.getStoriesManager().getStory(id, rarity);
                     StoryShardProfile shardProfile = story.getStoryShardProfile();
                     shardProfile.dropShards(rarity, block.getLocation());

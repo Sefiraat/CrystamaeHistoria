@@ -1,9 +1,6 @@
-package io.github.sefiraat.crystamaehistoria.managers;
+package io.github.sefiraat.crystamaehistoria.listeners;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.listeners.ArmorStandInteract;
-import io.github.sefiraat.crystamaehistoria.listeners.PlayerInteract;
-import io.github.sefiraat.crystamaehistoria.listeners.SpellEffectListener;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar.CrystalBreakListener;
 
 public class ListenerManager {

@@ -1,12 +1,15 @@
 package io.github.sefiraat.crystamaehistoria.utils;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
+import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import lombok.experimental.UtilityClass;
+import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.util.EulerAngle;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -46,4 +49,16 @@ public class ArmourStandUtils {
         return PersistentDataAPI.getBoolean(armorStand, CrystamaeHistoria.getKeys().getPdcIsDisplayStand());
     }
 
+    @ParametersAreNonnullByDefault
+    public static void panelAnimationStep(ArmorStand armorStand, boolean directionUp) {
+        armorStand.setHeadPose(armorStand.getHeadPose().add(0, 0.1, 0));
+        Location location = directionUp ? armorStand.getLocation().add(0, 0.01, 0) : armorStand.getLocation().add(0, -0.01, 0);
+        armorStand.teleport(location);
+    }
+
+    @ParametersAreNonnullByDefault
+    public static void panelAnimationReset(ArmorStand armorStand, Block block) {
+        armorStand.setHeadPose(new EulerAngle(0, 0, 0));
+        armorStand.teleport(block.getLocation().clone().add(0.5, -0.6, 0.5));
+    }
 }

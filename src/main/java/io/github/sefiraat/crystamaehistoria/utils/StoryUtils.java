@@ -9,7 +9,7 @@ import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.stories.Story;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryChances;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentStoryDataType;
+import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentStoriesDataType;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import lombok.experimental.UtilityClass;
 import org.apache.commons.lang.Validate;
@@ -35,8 +35,6 @@ import java.util.stream.Collectors;
 
 @UtilityClass
 public class StoryUtils {
-
-    // TODO Garbage - move to methods within Story
 
     /**
      * Returns true if the block is able to have stories (is in the map)
@@ -239,7 +237,7 @@ public class StoryUtils {
     }
 
     @ParametersAreNonnullByDefault
-    public static void addStory(ItemStack itemStack, List<StoryType> p, Map<Integer, Story> storyList) {
+    public static void addStory(ItemStack itemStack, List<StoryType> p, Map<String, Story> storyList) {
         final StoryType st = p.get(ThreadLocalRandom.current().nextInt(0, p.size()));
         final List<Story> availableStories = storyList.values().stream().filter(t -> t.getType() == st).collect(Collectors.toList());
         final Story story = availableStories.get(ThreadLocalRandom.current().nextInt(0, availableStories.size()));
@@ -250,7 +248,7 @@ public class StoryUtils {
     @ParametersAreNonnullByDefault
     public static @Nullable
     List<Story> getAllStories(ItemStack itemStack) {
-        return getCustom(itemStack.getItemMeta(), CrystamaeHistoria.getKeys().getPdcStories(), PersistentStoryDataType.TYPE);
+        return getCustom(itemStack.getItemMeta(), CrystamaeHistoria.getKeys().getPdcStories(), PersistentStoriesDataType.TYPE);
     }
 
     @ParametersAreNonnullByDefault
@@ -261,7 +259,7 @@ public class StoryUtils {
             storyList = new ArrayList<>();
         }
         storyList.add(story);
-        setCustom(im, CrystamaeHistoria.getKeys().getPdcStories(), PersistentStoryDataType.TYPE, storyList);
+        setCustom(im, CrystamaeHistoria.getKeys().getPdcStories(), PersistentStoriesDataType.TYPE, storyList);
         itemStack.setItemMeta(im);
     }
 
@@ -271,11 +269,10 @@ public class StoryUtils {
         final List<Story> storyList = getAllStories(itemStack);
         Validate.notNull(storyList, "No storyList found when trying to remove.");
         storyList.remove(story);
-        StoryUtils.setCustom(im, CrystamaeHistoria.getKeys().getPdcStories(), PersistentStoryDataType.TYPE, storyList);
+        StoryUtils.setCustom(im, CrystamaeHistoria.getKeys().getPdcStories(), PersistentStoriesDataType.TYPE, storyList);
         itemStack.setItemMeta(im);
         return storyList.size();
     }
-
 
     // TODO Swap out with PDCApi if the PR is accepted
 
@@ -340,5 +337,4 @@ public class StoryUtils {
     public static <T, Z> void setCustom(@Nonnull PersistentDataHolder holder, @Nonnull NamespacedKey key, @Nonnull PersistentDataType<T, Z> type, @Nonnull Z obj) {
         holder.getPersistentDataContainer().set(key, type, obj);
     }
-
 }

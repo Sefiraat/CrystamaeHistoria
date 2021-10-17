@@ -3,9 +3,10 @@ package io.github.sefiraat.crystamaehistoria;
 import de.slikey.effectlib.EffectManager;
 import io.github.mooy1.infinitylib.core.AbstractAddon;
 import io.github.sefiraat.crystamaehistoria.commands.TestSpell;
+import io.github.sefiraat.crystamaehistoria.config.ConfigManager;
+import io.github.sefiraat.crystamaehistoria.listeners.ListenerManager;
 import io.github.sefiraat.crystamaehistoria.magic.ActiveStorage;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
-import io.github.sefiraat.crystamaehistoria.managers.ListenerManager;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTick;
 import io.github.sefiraat.crystamaehistoria.slimefun.Structure;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
@@ -13,7 +14,6 @@ import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import org.apache.commons.lang.Validate;
 import org.bstats.bukkit.Metrics;
-import org.bukkit.Server;
 import org.bukkit.plugin.PluginManager;
 
 import javax.annotation.Nonnull;
@@ -27,11 +27,12 @@ public class CrystamaeHistoria extends AbstractAddon {
 
     private Keys keys;
     private Structure structure;
-    private ListenerManager listenerManager;
+    private ConfigManager configManager;
     private StoriesManager storiesManager;
+    private ListenerManager listenerManager;
+    private ActiveStorage activeStorage;
     private EffectManager effectManager;
 
-    private ActiveStorage activeStorage;
 
     public CrystamaeHistoria() {
         super("Sefiraat", "CrystamaeHistoria", "master", "auto-update");
@@ -65,12 +66,12 @@ public class CrystamaeHistoria extends AbstractAddon {
         return instance.effectManager;
     }
 
-    public static PluginManager getPluginManager() {
-        return instance.getServer().getPluginManager();
+    public static ConfigManager getConfigManager() {
+        return instance.configManager;
     }
 
-    public static Server getServ() {
-        return instance.getServer();
+    public static PluginManager getPluginManager() {
+        return instance.getServer().getPluginManager();
     }
 
     @Nonnull
@@ -78,22 +79,8 @@ public class CrystamaeHistoria extends AbstractAddon {
         return instance.activeStorage.getProjectileMap();
     }
 
-    @Nonnull
-    @ParametersAreNonnullByDefault
-    public static CastInformation getSpellCastInfo(UUID uuid) {
-        CastInformation castInformation = getProjectileMap().get(uuid).getFirstValue();
-        Validate.notNull(castInformation, "Cast information is null, magical projectile spawned incorrectly.");
-        return castInformation;
-    }
-
-    @Nonnull
-    public static Map<SpellTick, Integer> getTickingMap() {
-        return instance.activeStorage.getTickingCastables();
-    }
-
     @Override
     public void enable() {
-
         instance = this;
 
         getLogger().info("########################################");
@@ -102,8 +89,9 @@ public class CrystamaeHistoria extends AbstractAddon {
 
         this.keys = new Keys();
         this.structure = new Structure();
-        this.listenerManager = new ListenerManager();
+        this.configManager = new ConfigManager();
         this.storiesManager = new StoriesManager();
+        this.listenerManager = new ListenerManager();
         this.activeStorage = new ActiveStorage();
         this.effectManager = new EffectManager(this);
 
@@ -119,5 +107,18 @@ public class CrystamaeHistoria extends AbstractAddon {
         activeStorage.clearAll();
         saveConfig();
         instance = null;
+    }
+
+    @Nonnull
+    @ParametersAreNonnullByDefault
+    public static CastInformation getSpellCastInfo(UUID uuid) {
+        CastInformation castInformation = getProjectileMap().get(uuid).getFirstValue();
+        Validate.notNull(castInformation, "Cast information is null, magical projectile spawned incorrectly.");
+        return castInformation;
+    }
+
+    @Nonnull
+    public static Map<SpellTick, Integer> getTickingMap() {
+        return instance.activeStorage.getTickingCastables();
     }
 }

@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.theme;
+package io.github.sefiraat.crystamaehistoria.utils.theme;
 
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;

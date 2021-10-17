@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.theme;
+package io.github.sefiraat.crystamaehistoria.utils.theme;
 
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.SpellSlot;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;

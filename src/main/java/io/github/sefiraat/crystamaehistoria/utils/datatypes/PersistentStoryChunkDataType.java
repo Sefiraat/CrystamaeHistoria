@@ -2,7 +2,11 @@ package io.github.sefiraat.crystamaehistoria.utils.datatypes;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.stories.Story;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
+import org.bukkit.Bukkit;
+import org.bukkit.World;
 import org.bukkit.persistence.PersistentDataAdapterContext;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
@@ -10,6 +14,7 @@ import org.bukkit.persistence.PersistentDataType;
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * A {@link PersistentDataType} for {@link Story}s which uses an
@@ -20,9 +25,9 @@ import java.util.List;
  * @author Walshy
  */
 
-public class PersistentStoryDataType implements PersistentDataType<PersistentDataContainer[], List<Story>> {
+public class PersistentStoryChunkDataType implements PersistentDataType<PersistentDataContainer[], List<Story>> {
 
-    public static final PersistentDataType<PersistentDataContainer[], List<Story>> TYPE = new PersistentStoryDataType();
+    public static final PersistentDataType<PersistentDataContainer[], List<Story>> TYPE = new PersistentStoryChunkDataType();
 
     @Override
     @Nonnull
@@ -46,9 +51,10 @@ public class PersistentStoryDataType implements PersistentDataType<PersistentDat
 
         for (Story story : complex) {
             PersistentDataContainer container = context.newPersistentDataContainer();
-            container.set(keys.getStoryId(), PersistentDataType.INTEGER, story.getId());
+            container.set(keys.getStoryId(), PersistentDataType.STRING, story.getId());
             container.set(keys.getStoryRarity(), PersistentDataType.INTEGER, story.getRarity().getId());
-            container.set(keys.getStoryType(), PersistentDataType.INTEGER, story.getType().getId());
+            container.set(keys.getResolutionStoryLocation(), PersistentDataType.LONG, story.getBlockPosition().getPosition());
+            container.set(keys.getResolutionStoryWorld(), PersistentUUIDDataType.TYPE, story.getBlockPosition().getWorld().getUID());
             containers[i] = container;
             i++;
         }
@@ -59,15 +65,20 @@ public class PersistentStoryDataType implements PersistentDataType<PersistentDat
     @Override
     @Nonnull
     public List<Story> fromPrimitive(@Nonnull PersistentDataContainer[] primitive, @Nonnull PersistentDataAdapterContext context) {
-        Keys keys = CrystamaeHistoria.getKeys();
+        final Keys keys = CrystamaeHistoria.getKeys();
         List<Story> list = new ArrayList<>();
         for (PersistentDataContainer container : primitive) {
-            int id = container.get(keys.getStoryId(), PersistentDataType.INTEGER);
-            int rarity = container.get(keys.getStoryRarity(), PersistentDataType.INTEGER);
-            int type = container.get(keys.getStoryType(), PersistentDataType.INTEGER);
-            list.add(new Story(id, rarity, type));
+            final String id = container.get(keys.getStoryId(), PersistentDataType.STRING);
+            final StoryRarity rarity = StoryRarity.getById(container.get(keys.getStoryRarity(), PersistentDataType.INTEGER));
+            final long locationLong = container.get(keys.getResolutionStoryLocation(), PersistentDataType.LONG);
+            final UUID worldUuid = container.get(keys.getResolutionStoryWorld(), PersistentUUIDDataType.TYPE);
+            final World world = Bukkit.getWorld(worldUuid);
+            final BlockPosition position = new BlockPosition(world, locationLong);
+            final Story story = CrystamaeHistoria.getStoriesManager().getStory(id, rarity);
+            story.setBlockPosition(position);
+            list.add(story);
         }
+
         return list;
     }
-
 }

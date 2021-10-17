@@ -1,7 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.resource.Skulls;
 import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar.DummyRealisationAltar;
 import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
@@ -9,8 +8,9 @@ import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.BlankPlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.ChargedPlate;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import io.github.sefiraat.crystamaehistoria.theme.ThemeType;
+import io.github.sefiraat.crystamaehistoria.utils.Skulls;
 import io.github.sefiraat.crystamaehistoria.utils.TextUtils;
+import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import lombok.Getter;
@@ -80,11 +80,11 @@ public class Materials {
     }
 
     private void setUpCrystals() {
-        for (StoryType type : StoryType.values()) {
+        for (StoryRarity rarity : StoryRarity.getCachedValues()) {
             Map<StoryType, SlimefunItem> storyTypeSlimefunItemMap = new EnumMap<>(StoryType.class);
-            for (StoryRarity rarity : StoryRarity.getValues()) {
+            for (StoryType type : StoryType.values()) {
                 ThemeType theme = ThemeType.getByRarity(rarity);
-                SlimefunItem sfItem = new Crystal(
+                SlimefunItem slimefunItem = new Crystal(
                     ItemGroups.CRYSTALS,
                     ThemeType.themeStack(
                         "CRY_CRYSTAL_" + rarity.toString() + "_" + type.toString(),
@@ -98,15 +98,15 @@ public class Materials {
                     rarity,
                     type
                 );
-                sfItem.register(plugin);
-                storyTypeSlimefunItemMap.put(type, sfItem);
+                slimefunItem.register(plugin);
+                storyTypeSlimefunItemMap.put(type, slimefunItem);
                 crystalMap.put(rarity, storyTypeSlimefunItemMap);
             }
         }
     }
 
     private void setUpDummyCrystalTypes() {
-        for (StoryType type : StoryType.getValues()) {
+        for (StoryType type : StoryType.getCachedValues()) {
             ThemeType theme = ThemeType.getByType(type);
             SlimefunItem sfItem = new Crystal(
                 ItemGroups.DUMMY_ITEM_GROUP,

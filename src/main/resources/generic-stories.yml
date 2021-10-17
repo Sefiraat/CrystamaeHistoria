@@ -1,0 +1,145 @@
+common:
+  - name: Quiet Days
+    type: ELEMENTAL
+    shards: [ 1,0,1,1,0,0,0,0,0 ]
+    lore:
+    - Present during the beginning of the world.
+    - Everything was quiet and peaceful and serene.
+    author:
+  - name: Everlasting
+    type: HISTORICAL
+    shards: [ 1,0,1,1,0,0,0,0,0 ]
+    lore:
+      - Having seen the rise and fall over empires
+      - this block is proven everlasting and resolute.
+    author:
+  - name: Toil
+    type: HUMAN
+    shards: [ 0,0,0,0,1,0,1,0,1 ]
+    lore:
+      - Witness to the toil of poeple through the
+      - ages, aiding where possible; a fruitless task.
+    author:
+  - name: Good Life
+    type: PHILOSOPHICAL
+    shards: [ 0,0,0,0,1,0,0,0,2 ]
+    lore:
+      - Unknowing of the meaning of a good life, this
+      - block has questions in questions remaining unanswered.
+    author:
+uncommon:
+  - name: Quiet Days
+    type: ELEMENTAL
+    shards: [ 1,0,1,1,0,0,0,0,0 ]
+    lore:
+      - Present during the beginning of the world.
+      - Everything was quiet and peaceful and serene.
+    author:
+  - name: Everlasting
+    type: HISTORICAL
+    shards: [ 1,0,1,1,0,0,0,0,0 ]
+    lore:
+      - Having seen the rise and fall over empires
+      - this block is proven everlasting and resolute.
+    author:
+  - name: Toil
+    type: HUMAN
+    shards: [ 0,0,0,0,1,0,1,0,1 ]
+    lore:
+      - Witness to the toil of poeple through the
+      - ages, aiding where possible; a fruitless task.
+    author:
+  - name: Good Life
+    type: PHILOSOPHICAL
+    shards: [ 0,0,0,0,1,0,0,0,2 ]
+    lore:
+      - Unknowing of the meaning of a good life, this
+      - block has questions in questions remaining unanswered.
+    author:
+rare:
+  - name: Quiet Days
+    type: ELEMENTAL
+    shards: [ 1,0,1,1,0,0,0,0,0 ]
+    lore:
+      - Present during the beginning of the world.
+      - Everything was quiet and peaceful and serene.
+    author:
+  - name: Everlasting
+    type: HISTORICAL
+    shards: [ 1,0,1,1,0,0,0,0,0 ]
+    lore:
+      - Having seen the rise and fall over empires
+      - this block is proven everlasting and resolute.
+    author:
+  - name: Toil
+    type: HUMAN
+    shards: [ 0,0,0,0,1,0,1,0,1 ]
+    lore:
+      - Witness to the toil of poeple through the
+      - ages, aiding where possible; a fruitless task.
+    author:
+  - name: Good Life
+    type: PHILOSOPHICAL
+    shards: [ 0,0,0,0,1,0,0,0,2 ]
+    lore:
+      - Unknowing of the meaning of a good life, this
+      - block has questions in questions remaining unanswered.
+    author:
+epic:
+  - name: Quiet Days
+    type: ELEMENTAL
+    shards: [ 1,0,1,1,0,0,0,0,0 ]
+    lore:
+      - Present during the beginning of the world.
+      - Everything was quiet and peaceful and serene.
+    author:
+  - name: Everlasting
+    type: HISTORICAL
+    shards: [ 1,0,1,1,0,0,0,0,0 ]
+    lore:
+      - Having seen the rise and fall over empires
+      - this block is proven everlasting and resolute.
+    author:
+  - name: Toil
+    type: HUMAN
+    shards: [ 0,0,0,0,1,0,1,0,1 ]
+    lore:
+      - Witness to the toil of poeple through the
+      - ages, aiding where possible; a fruitless task.
+    author:
+  - name: Good Life
+    type: PHILOSOPHICAL
+    shards: [ 0,0,0,0,1,0,0,0,2 ]
+    lore:
+      - Unknowing of the meaning of a good life, this
+      - block has questions in questions remaining unanswered.
+    author:
+mythical:
+  - name: Quiet Days
+    type: ELEMENTAL
+    shards: [ 1,0,1,1,0,0,0,0,0 ]
+    lore:
+      - Present during the beginning of the world.
+      - Everything was quiet and peaceful and serene.
+    author:
+  - name: Everlasting
+    type: HISTORICAL
+    shards: [ 1,0,1,1,0,0,0,0,0 ]
+    lore:
+      - Having seen the rise and fall over empires
+      - this block is proven everlasting and resolute.
+    author:
+  - name: Toil
+    type: HUMAN
+    shards: [ 0,0,0,0,1,0,1,0,1 ]
+    lore:
+      - Witness to the toil of poeple through the
+      - ages, aiding where possible; a fruitless task.
+    author:
+  - name: Good Life
+    type: PHILOSOPHICAL
+    shards: [ 0,0,0,0,1,0,0,0,2 ]
+    lore:
+      - Unknowing of the meaning of a good life, this
+      - block has questions in questions remaining unanswered.
+    author:
