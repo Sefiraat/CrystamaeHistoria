@@ -171,21 +171,24 @@ public class StoriesManager {
 
         for (Map<String, Object> map : blockList) {
             final Map<String, Object> storyMap = (Map<String, Object>) map.get("story");
-            final Story story = new Story(storyMap, StoryRarity.UNIQUE);
+            final String name = (String) storyMap.get("name");
+            if (name != null) {
+                final Story story = new Story(storyMap, StoryRarity.UNIQUE);
 
-            storyMapUnique.put(story.getId(), story);
+                storyMapUnique.put(story.getId(), story);
 
-            final int tier = (int) map.get("tier");
-            final String material = (String) map.get("material");
-            final List<StoryType> types = ((List<String>) map.get("elements")).stream()
-                .map(StoryType::getByName)
-                .collect(Collectors.toList());
-            final StoriedBlockDefinition blockDefinition = new StoriedBlockDefinition(
-                blockTierMap.get(tier),
-                types,
-                story
-            );
-            storiedBlockDefinitionMap.put(Material.valueOf(material), blockDefinition);
+                final int tier = (int) map.get("tier");
+                final String material = (String) map.get("material");
+                final List<StoryType> types = ((List<String>) map.get("elements")).stream()
+                    .map(StoryType::getByName)
+                    .collect(Collectors.toList());
+                final StoriedBlockDefinition blockDefinition = new StoriedBlockDefinition(
+                    blockTierMap.get(tier),
+                    types,
+                    story
+                );
+                storiedBlockDefinitionMap.put(Material.valueOf(material), blockDefinition);
+            }
         }
     }
 

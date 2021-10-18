@@ -3,30 +3,65 @@ common:
     type: ELEMENTAL
     shards: [ 1,0,1,1,0,0,0,0,0 ]
     lore:
-    - Present during the beginning of the world.
-    - Everything was quiet and peaceful and serene.
-    author:
+      - Present during the beginning of the world.
+      - Everything was quiet and peaceful and serene.
+
+  - name: Grinding Gears
+    type: MECHANICAL
+    shards: [ 0,1,0,0,1,0,0,0,0 ]
+    lore:
+      - Constantly used without thanks or gratitude
+      - will wear down the spirit with ease.
+
+  - name: Lead into Gold
+    type: ALCHEMICAL
+    shards: [ 0,0,1,0,1,0,1,0,0 ]
+    lore:
+      - An unconsious drive towards wealth that has
+      - driven many-a-person mad.
+
   - name: Everlasting
     type: HISTORICAL
     shards: [ 1,0,1,1,0,0,0,0,0 ]
     lore:
       - Having seen the rise and fall over empires
       - this block is proven everlasting and resolute.
-    author:
+
   - name: Toil
     type: HUMAN
     shards: [ 0,0,0,0,1,0,1,0,1 ]
     lore:
-      - Witness to the toil of poeple through the
+      - Witness to the toil of people through the
       - ages, aiding where possible; a fruitless task.
-    author:
+
+  - name: Free Range
+    type: ANIMAL
+    shards: [ 0,0,0,0,0,1,1,0,1 ]
+    lore:
+      - Only the free can run wild and nothing stirs
+      - the magics more than animals roaming free.
+
+  - name: Moonlit
+    type: CELESTIAL
+    shards: [ 1,0,0,0,0,1,1,0,0 ]
+    lore:
+      - A spirit that enjoys nothing more than to bathe in
+      - the light of a waning moon.
+
+  - name: Despair
+    type: VOID
+    shards: [ 0,0,0,0,1,0,0,1,1 ]
+    lore:
+      - A longing for more that clutches to the deepest
+      - recesses of a mind causing depair and grief.
+
   - name: Good Life
     type: PHILOSOPHICAL
     shards: [ 0,0,0,0,1,0,0,0,2 ]
     lore:
       - Unknowing of the meaning of a good life, this
       - block has questions in questions remaining unanswered.
-    author:
+
 uncommon:
   - name: Quiet Days
     type: ELEMENTAL
@@ -34,28 +69,63 @@ uncommon:
     lore:
       - Present during the beginning of the world.
       - Everything was quiet and peaceful and serene.
-    author:
+
+  - name: Grinding Gears
+    type: MECHANICAL
+    shards: [ 0,1,0,0,1,0,0,0,0 ]
+    lore:
+      - Constantly used without thanks or gratitude
+      - will wear down the spirit with ease.
+
+  - name: Lead into Gold
+    type: ALCHEMICAL
+    shards: [ 0,0,1,0,1,0,1,0,0 ]
+    lore:
+      - An unconsious drive towards wealth that has
+      - driven many-a-person mad.
+
   - name: Everlasting
     type: HISTORICAL
     shards: [ 1,0,1,1,0,0,0,0,0 ]
     lore:
       - Having seen the rise and fall over empires
       - this block is proven everlasting and resolute.
-    author:
+
   - name: Toil
     type: HUMAN
     shards: [ 0,0,0,0,1,0,1,0,1 ]
     lore:
-      - Witness to the toil of poeple through the
+      - Witness to the toil of people through the
       - ages, aiding where possible; a fruitless task.
-    author:
+
+  - name: Free Range
+    type: ANIMAL
+    shards: [ 0,0,0,0,0,1,1,0,1 ]
+    lore:
+      - Only the free can run wild and nothing stirs
+      - the magics more than animals roaming free.
+
+  - name: Moonlit
+    type: CELESTIAL
+    shards: [ 1,0,0,0,0,1,1,0,0 ]
+    lore:
+      - A spirit that enjoys nothing more than to bathe in
+      - the light of a waning moon.
+
+  - name: Despair
+    type: VOID
+    shards: [ 0,0,0,0,1,0,0,1,1 ]
+    lore:
+      - A longing for more that clutches to the deepest
+      - recesses of a mind causing depair and grief.
+
   - name: Good Life
     type: PHILOSOPHICAL
     shards: [ 0,0,0,0,1,0,0,0,2 ]
     lore:
       - Unknowing of the meaning of a good life, this
       - block has questions in questions remaining unanswered.
-    author:
+
 rare:
   - name: Quiet Days
     type: ELEMENTAL
@@ -63,28 +133,63 @@ rare:
     lore:
       - Present during the beginning of the world.
       - Everything was quiet and peaceful and serene.
-    author:
+
+  - name: Grinding Gears
+    type: MECHANICAL
+    shards: [ 0,1,0,0,1,0,0,0,0 ]
+    lore:
+      - Constantly used without thanks or gratitude
+      - will wear down the spirit with ease.
+
+  - name: Lead into Gold
+    type: ALCHEMICAL
+    shards: [ 0,0,1,0,1,0,1,0,0 ]
+    lore:
+      - An unconsious drive towards wealth that has
+      - driven many-a-person mad.
+
   - name: Everlasting
     type: HISTORICAL
     shards: [ 1,0,1,1,0,0,0,0,0 ]
     lore:
       - Having seen the rise and fall over empires
       - this block is proven everlasting and resolute.
-    author:
+
   - name: Toil
     type: HUMAN
     shards: [ 0,0,0,0,1,0,1,0,1 ]
     lore:
-      - Witness to the toil of poeple through the
+      - Witness to the toil of people through the
       - ages, aiding where possible; a fruitless task.
-    author:
+
+  - name: Free Range
+    type: ANIMAL
+    shards: [ 0,0,0,0,0,1,1,0,1 ]
+    lore:
+      - Only the free can run wild and nothing stirs
+      - the magics more than animals roaming free.
+
+  - name: Moonlit
+    type: CELESTIAL
+    shards: [ 1,0,0,0,0,1,1,0,0 ]
+    lore:
+      - A spirit that enjoys nothing more than to bathe in
+      - the light of a waning moon.
+
+  - name: Despair
+    type: VOID
+    shards: [ 0,0,0,0,1,0,0,1,1 ]
+    lore:
+      - A longing for more that clutches to the deepest
+      - recesses of a mind causing depair and grief.
+
   - name: Good Life
     type: PHILOSOPHICAL
     shards: [ 0,0,0,0,1,0,0,0,2 ]
     lore:
       - Unknowing of the meaning of a good life, this
       - block has questions in questions remaining unanswered.
-    author:
+
 epic:
   - name: Quiet Days
     type: ELEMENTAL
@@ -92,28 +197,63 @@ epic:
     lore:
       - Present during the beginning of the world.
       - Everything was quiet and peaceful and serene.
-    author:
+
+  - name: Grinding Gears
+    type: MECHANICAL
+    shards: [ 0,1,0,0,1,0,0,0,0 ]
+    lore:
+      - Constantly used without thanks or gratitude
+      - will wear down the spirit with ease.
+
+  - name: Lead into Gold
+    type: ALCHEMICAL
+    shards: [ 0,0,1,0,1,0,1,0,0 ]
+    lore:
+      - An unconsious drive towards wealth that has
+      - driven many-a-person mad.
+
   - name: Everlasting
     type: HISTORICAL
     shards: [ 1,0,1,1,0,0,0,0,0 ]
     lore:
       - Having seen the rise and fall over empires
       - this block is proven everlasting and resolute.
-    author:
+
   - name: Toil
     type: HUMAN
     shards: [ 0,0,0,0,1,0,1,0,1 ]
     lore:
-      - Witness to the toil of poeple through the
+      - Witness to the toil of people through the
       - ages, aiding where possible; a fruitless task.
-    author:
+
+  - name: Free Range
+    type: ANIMAL
+    shards: [ 0,0,0,0,0,1,1,0,1 ]
+    lore:
+      - Only the free can run wild and nothing stirs
+      - the magics more than animals roaming free.
+
+  - name: Moonlit
+    type: CELESTIAL
+    shards: [ 1,0,0,0,0,1,1,0,0 ]
+    lore:
+      - A spirit that enjoys nothing more than to bathe in
+      - the light of a waning moon.
+
+  - name: Despair
+    type: VOID
+    shards: [ 0,0,0,0,1,0,0,1,1 ]
+    lore:
+      - A longing for more that clutches to the deepest
+      - recesses of a mind causing depair and grief.
+
   - name: Good Life
     type: PHILOSOPHICAL
     shards: [ 0,0,0,0,1,0,0,0,2 ]
     lore:
       - Unknowing of the meaning of a good life, this
       - block has questions in questions remaining unanswered.
-    author:
+
 mythical:
   - name: Quiet Days
     type: ELEMENTAL
@@ -121,25 +261,59 @@ mythical:
     lore:
       - Present during the beginning of the world.
       - Everything was quiet and peaceful and serene.
-    author:
+
+  - name: Grinding Gears
+    type: MECHANICAL
+    shards: [ 0,1,0,0,1,0,0,0,0 ]
+    lore:
+      - Constantly used without thanks or gratitude
+      - will wear down the spirit with ease.
+
+  - name: Lead into Gold
+    type: ALCHEMICAL
+    shards: [ 0,0,1,0,1,0,1,0,0 ]
+    lore:
+      - An unconsious drive towards wealth that has
+      - driven many-a-person mad.
+
   - name: Everlasting
     type: HISTORICAL
     shards: [ 1,0,1,1,0,0,0,0,0 ]
     lore:
       - Having seen the rise and fall over empires
       - this block is proven everlasting and resolute.
-    author:
+
   - name: Toil
     type: HUMAN
     shards: [ 0,0,0,0,1,0,1,0,1 ]
     lore:
-      - Witness to the toil of poeple through the
+      - Witness to the toil of people through the
       - ages, aiding where possible; a fruitless task.
-    author:
+
+  - name: Free Range
+    type: ANIMAL
+    shards: [ 0,0,0,0,0,1,1,0,1 ]
+    lore:
+      - Only the free can run wild and nothing stirs
+      - the magics more than animals roaming free.
+
+  - name: Moonlit
+    type: CELESTIAL
+    shards: [ 1,0,0,0,0,1,1,0,0 ]
+    lore:
+      - A spirit that enjoys nothing more than to bathe in
+      - the light of a waning moon.
+
+  - name: Despair
+    type: VOID
+    shards: [ 0,0,0,0,1,0,0,1,1 ]
+    lore:
+      - A longing for more that clutches to the deepest
+      - recesses of a mind causing depair and grief.
+
   - name: Good Life
     type: PHILOSOPHICAL
     shards: [ 0,0,0,0,1,0,0,0,2 ]
     lore:
       - Unknowing of the meaning of a good life, this
       - block has questions in questions remaining unanswered.
-    author:
