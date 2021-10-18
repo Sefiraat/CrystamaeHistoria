@@ -353,17 +353,6 @@ blocks:
         -
       shards:
 
-  - material: AXOLOTL_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: AZALEA
     tier: 1
     elements:
@@ -455,17 +444,6 @@ blocks:
         -
       shards:
 
-  - material: BAT_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: BEACON
     tier: 1
     elements:
@@ -544,17 +522,6 @@ blocks:
       shards:
 
   - material: BEE_NEST
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: BEE_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -975,17 +942,6 @@ blocks:
       shards:
 
   - material: BLAZE_ROD
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: BLAZE_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -1656,29 +1612,7 @@ blocks:
         -
       shards:
 
-  - material: CAT_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: CAULDRON
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: CAVE_SPIDER_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -1789,17 +1723,6 @@ blocks:
       shards:
 
   - material: CHICKEN
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: CHICKEN_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -2140,17 +2063,6 @@ blocks:
         -
       shards:
 
-  - material: COD_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: COMMAND_BLOCK
     tier: 1
     elements:
@@ -2349,17 +2261,6 @@ blocks:
         -
       shards:
 
-  - material: COW_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: CRACKED_DEEPSLATE_BRICKS
     tier: 1
     elements:
@@ -2438,17 +2339,6 @@ blocks:
       shards:
 
   - material: CREEPER_HEAD
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: CREEPER_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -3734,28 +3624,6 @@ blocks:
         -
       shards:
 
-  - material: DOLPHIN_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: DONKEY_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: DRAGON_BREATH
     tier: 1
     elements:
@@ -3833,29 +3701,7 @@ blocks:
         -
       shards:
 
-  - material: DROWNED_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: ELDER_GUARDIAN_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -3933,28 +3779,6 @@ blocks:
       shards:
 
   - material: ENCHANTING_TABLE
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: ENDERMAN_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: ENDERMITE_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -4076,17 +3900,6 @@ blocks:
       shards:
 
   - material: END_STONE_BRICK_WALL
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: EVOKER_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -4361,17 +4174,6 @@ blocks:
         -
       shards:
 
-  - material: FOX_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: FURNACE
     tier: 1
     elements:
@@ -4384,17 +4186,6 @@ blocks:
       shards:
 
   - material: FURNACE_MINECART
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: GHAST_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -4538,28 +4329,6 @@ blocks:
       shards:
 
   - material: GLOW_LICHEN
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: GLOW_SQUID_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: GOAT_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -5098,17 +4867,6 @@ blocks:
         -
       shards:
 
-  - material: GUARDIAN_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: GUNPOWDER
     tier: 1
     elements:
@@ -5167,17 +4925,6 @@ blocks:
         - over? Being called weighted at the same
         - time
       shards: [ 0,1,0,0,1,0,0,2,0 ]
-
-  - material: HOGLIN_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
 
   - material: HONEYCOMB
     tier: 1
@@ -5268,28 +5015,6 @@ blocks:
       shards:
 
   - material: HORN_CORAL_FAN
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: HORSE_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: HUSK_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -6508,17 +6233,6 @@ blocks:
         -
       shards:
 
-  - material: LLAMA_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: LODESTONE
     tier: 1
     elements:
@@ -6695,17 +6409,6 @@ blocks:
         -
       shards:
 
-  - material: MAGMA_CUBE_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: MAP
     tier: 1
     elements:
@@ -6784,17 +6487,6 @@ blocks:
       shards:
 
   - material: MOJANG_BANNER_PATTERN
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: MOOSHROOM_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -6905,17 +6597,6 @@ blocks:
       shards:
 
   - material: MOSS_CARPET
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: MULE_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -7632,17 +7313,6 @@ blocks:
         -
       shards:
 
-  - material: OCELOT_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: ORANGE_BANNER
     tier: 1
     elements:
@@ -7863,29 +7533,7 @@ blocks:
         -
       shards:
 
-  - material: PANDA_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: PAPER
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: PARROT_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -7929,62 +7577,7 @@ blocks:
         -
       shards:
 
-  - material: PHANTOM_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: PIGLIN_BANNER_PATTERN
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: PIGLIN_BRUTE_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: PIGLIN_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: PIG_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: PILLAGER_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -8183,17 +7776,6 @@ blocks:
       shards:
 
   - material: POISONOUS_POTATO
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: POLAR_BEAR_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -8667,17 +8249,6 @@ blocks:
         -
       shards:
 
-  - material: PUFFERFISH_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: PUMPKIN
     tier: 1
     elements:
@@ -8986,17 +8557,6 @@ blocks:
         -
       shards:
 
-  - material: RABBIT_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: RABBIT_STEW
     tier: 1
     elements:
@@ -9009,17 +8569,6 @@ blocks:
       shards:
 
   - material: RAIL
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: RAVAGER_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -9514,17 +9063,6 @@ blocks:
         -
       shards:
 
-  - material: SALMON_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: SAND
     tier: 1
     elements:
@@ -9657,17 +9195,6 @@ blocks:
         -
       shards:
 
-  - material: SHEEP_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: SHIELD
     tier: 1
     elements:
@@ -9701,51 +9228,7 @@ blocks:
         -
       shards:
 
-  - material: SHULKER_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: SILVERFISH_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: SKELETON_HORSE_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: SKELETON_SKULL
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: SKELETON_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -9779,17 +9262,6 @@ blocks:
       shards:
 
   - material: SLIME_BLOCK
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: SLIME_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -10097,17 +9569,6 @@ blocks:
         -
       shards:
 
-  - material: SPIDER_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: SPLASH_POTION
     tier: 1
     elements:
@@ -10341,17 +9802,6 @@ blocks:
         -
       shards:
 
-  - material: SQUID_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: STICK
     tier: 1
     elements:
@@ -10533,28 +9983,6 @@ blocks:
       shards:
 
   - material: STONE_SWORD
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: STRAY_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: STRIDER_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -10928,17 +10356,6 @@ blocks:
         -
       shards:
 
-  - material: TRADER_LLAMA_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: TRAPPED_CHEST
     tier: 1
     elements:
@@ -10984,17 +10401,6 @@ blocks:
       shards:
 
   - material: TROPICAL_FISH_BUCKET
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: TROPICAL_FISH_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -11071,17 +10477,6 @@ blocks:
         -
       shards:
 
-  - material: TURTLE_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: TWISTING_VINES
     tier: 1
     elements:
@@ -11093,51 +10488,7 @@ blocks:
         -
       shards:
 
-  - material: VEX_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: VILLAGER_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: VINDICATOR_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: VINE
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: WANDERING_TRADER_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -11771,17 +11122,6 @@ blocks:
         -
       shards:
 
-  - material: WITCH_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: WITHER_ROSE
     tier: 1
     elements:
@@ -11794,28 +11134,6 @@ blocks:
       shards:
 
   - material: WITHER_SKELETON_SKULL
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: WITHER_SKELETON_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: WOLF_SPAWN_EGG
     tier: 1
     elements:
       -
@@ -12035,17 +11353,6 @@ blocks:
         -
       shards:
 
-  - material: ZOGLIN_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: ZOMBIE_HEAD
     tier: 1
     elements:
@@ -12056,48 +11363,3 @@ blocks:
       lore:
         -
       shards:
-
-  - material: ZOMBIE_HORSE_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: ZOMBIE_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: ZOMBIE_VILLAGER_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: ZOMBIFIED_PIGLIN_SPAWN_EGG
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards: 
-
