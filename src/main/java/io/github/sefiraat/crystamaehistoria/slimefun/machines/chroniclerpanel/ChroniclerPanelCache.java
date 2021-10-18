@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.machines.AbstractCache;
 import io.github.sefiraat.crystamaehistoria.stories.StoriedBlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.utils.ArmourStandUtils;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
 import lombok.Getter;
@@ -19,6 +20,7 @@ import org.bukkit.Particle;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.block.data.type.Light;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
@@ -38,6 +40,7 @@ public class ChroniclerPanelCache extends AbstractCache {
     private StoriedBlockDefinition storiedBlockDefinition;
     private FloatingHeadAnimation animation;
     private Location blockMiddle;
+    private boolean lightDimming = true;
 
     @ParametersAreNonnullByDefault
     public ChroniclerPanelCache(BlockMenu blockMenu) {
@@ -67,6 +70,7 @@ public class ChroniclerPanelCache extends AbstractCache {
                     ArmourStandUtils.setDisplayItem(getDisplayStand(), workingOn);
                 } else {
                     // Working with an item in slot while workingOn matches means we can process the item
+                    animateLight();
                     processStack(i);
                 }
             } else {
@@ -136,9 +140,8 @@ public class ChroniclerPanelCache extends AbstractCache {
         // If this block isn't storied, make it storied then add the initial story set
         if (StoryUtils.hasRemainingStorySlots(i)) {
             int remaining = StoryUtils.getRemainingStoryAmount(i);
-            int rnd = ThreadLocalRandom.current().nextInt(1, 1001);
             int req = storiedBlockDefinition.getTier().chroniclingChance;
-            if (rnd <= req) {
+            if (GeneralUtils.testChance(req, 10000)) {
                 // We can chronicle a story
                 StoryUtils.requestNewStory(i);
                 if (remaining == 1) {
@@ -148,6 +151,24 @@ public class ChroniclerPanelCache extends AbstractCache {
                 StoriesManager.rebuildStoriedStack(i);
                 blockMenu.getBlock().getWorld().strikeLightningEffect(blockMiddle);
             }
+        }
+    }
+
+    private void animateLight() {
+        final Block block = blockMenu.getBlock().getRelative(BlockFace.UP);
+        if (block.getType() == Material.LIGHT) {
+            final Light light = (Light) block.getBlockData();
+            int level = light.getLevel();
+            if (level >= 15) {
+                light.setLevel(level - 1);
+                lightDimming = true;
+            } else if (level <= 5) {
+                light.setLevel(level + 1);
+                lightDimming = false;
+            } else {
+                light.setLevel(lightDimming ? level - 1 : level + 1);
+            }
+            block.setBlockData(light);
         }
     }
 

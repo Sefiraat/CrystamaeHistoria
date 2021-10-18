@@ -1,0 +1,104 @@
+blocks:
+  - material: STONE
+    tier: 1
+    elements:
+      - ELEMENTAL
+      - HISTORICAL
+    story:
+      name: Resolute
+      type: ELEMENTAL
+      lore:
+        - Stone is the resolute backbone of the world's
+        - makeup. Ever present and everlasting.
+      shards: [ 2,0,1,1,0,0,0,0,0 ]
+
+  - material: GRANITE
+    tier: 1
+    elements:
+      - ELEMENTAL
+      - HISTORICAL
+    story:
+      name: Coarse
+      type: ELEMENTAL
+      lore:
+        - As stone's prettier sibling, Granite is known
+        - for being big-headed and self-absorbed
+      shards: [ 2,0,1,1,0,0,0,0,0 ]
+
+  - material: POLISHED_GRANITE
+    tier: 2
+    elements:
+      - HUMAN
+      - ALCHEMICAL
+    story:
+      name: Lacquered
+      type: HUMAN
+      lore:
+        - Decorative and pristine, used for the finest of builds
+      shards: [ 2,0,0,1,2,0,0,0,1 ]
+
+  - material: DIORITE
+    tier: 1
+    elements:
+      - ELEMENTAL
+      - HISTORICAL
+    story:
+      name: Iskall's Finest
+      type: HUMAN
+      lore:
+        - A life of being judged and hated leaves it's mark
+      shards: [ 2,0,1,1,0,0,0,0,0 ]
+
+  - material: POLISHED_DIORITE
+    tier: 1
+    elements:
+      - HUMAN
+      - ALCHEMICAL
+    story:
+      name: Polished
+      type: HUMAN
+      lore:
+        - So you can actually polish a turd?
+      shards: [ 2,0,0,1,2,0,0,0,1 ]
+
+  - material: ANDESITE
+    tier: 1
+    elements:
+      - HUMAN
+      - ALCHEMICAL
+    story:
+      name: Polished
+      type: HUMAN
+      lore:
+        - Often thrown away as dull and boring,
+        - at his block is filled with an epic sadness
+      shards: [ 2,0,1,1,0,0,0,0,0 ]
+
+  - material: CRAFTING_TABLE
+    tier: 1
+    main_element: HUMAN
+    elements:
+      - HUMAN
+      - PHILOSOPHICAL
+    story:
+      name: Endless Potential
+      type: HUMAN
+      lore:
+        - This table magically creates items with a
+        - minimal amount of materials. How it works
+        - is still a mystery to this day.
+      shards: [ 0,1,0,0,2,0,1,0,1 ]
+      author: Ryhn12
+
+  - material: TORCH
+    tier: 1
+    elements:
+      - HUMAN
+      - ELEMENTAL
+    story:
+      name: Lighting The Way
+      type: HUMAN
+      lore:
+        - Since the earliest days, lighting the way
+        - and protecting from unseen foes.
+      shards: [ 1,1,0,0,1,0,1,0,0 ]

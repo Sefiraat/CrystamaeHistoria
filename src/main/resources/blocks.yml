@@ -1,104 +1,12232 @@
 blocks:
-  - material: STONE
-    tier: 1
-    elements:
-      - ELEMENTAL
-      - HISTORICAL
-    story:
-      name: Resolute
-      type: ELEMENTAL
-      lore:
-        - Stone is the resolute backbone of the world's
-        - makeup. Ever present and everlasting.
-      shards: [ 2,0,1,1,0,0,0,0,0 ]
-
-  - material: GRANITE
-    tier: 1
-    elements:
-      - ELEMENTAL
-      - HISTORICAL
-    story:
-      name: Coarse
-      type: ELEMENTAL
-      lore:
-        - As stone's prettier sibling, Granite is known
-        - for being big-headed and self-absorbed
-      shards: [ 2,0,1,1,0,0,0,0,0 ]
-
-  - material: POLISHED_GRANITE
-    tier: 2
-    elements:
-      - HUMAN
-      - ALCHEMICAL
-    story:
-      name: Lacquered
-      type: HUMAN
-      lore:
-        - Decorative and pristine, used for the finest of builds
-      shards: [ 2,0,0,1,2,0,0,0,1 ]
-
-  - material: DIORITE
-    tier: 1
-    elements:
-      - ELEMENTAL
-      - HISTORICAL
-    story:
-      name: Iskall's Finest
-      type: HUMAN
-      lore:
-        - A life of being judged and hated leaves it's mark
-      shards: [ 2,0,1,1,0,0,0,0,0 ]
-
-  - material: POLISHED_DIORITE
+  - material: ACACIA_BOAT
     tier: 1
     elements:
       - HUMAN
-      - ALCHEMICAL
+      - ELEMENTAL
+      - PHILOSOPHICAL
     story:
-      name: Polished
+      name: Ship-shape (Acacia)
+      type: PHILOSOPHICAL
+      lore:
+        - Live in the sunshine, swim the sea
+          and drink in the wild air
+      shards: [ 1,0,0,0,1,0,0,0,2 ]
+
+  - material: ACACIA_BUTTON
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+    story:
+      name: Depressed (Acacia)
       type: HUMAN
       lore:
-        - So you can actually polish a turd?
-      shards: [ 2,0,0,1,2,0,0,0,1 ]
+        - Can get easily depressed
+      shards: [ 0,1,0,0,2,0,0,1,0 ]
+
+  - material: ACACIA_DOOR
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+    story:
+      name: Gateway (Acacia)
+      type: HUMAN
+      lore:
+        - Every enterance is also an exit.
+        - Doors protects from the outside but
+        - dont let them keep you in!
+      shards: [ 0,2,0,0,1,0,0,0,1 ]
+
+  - material: ACACIA_FENCE
+    tier: 1
+    elements:
+      - HUMAN
+      - ANIMAL
+    story:
+      name: Livestock (Acacia)
+      type: ANIMAL
+      lore:
+        - Nothing brings more joy to a fence
+        - than keeping your livestock safe.
+      shards: [ 0,0,0,0,1,2,0,0,0 ]
+
+  - material: ACACIA_FENCE_GATE
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+      - ANIMAL
+    story:
+      name: Gate (Acacia)
+      type: MECHANICAL
+      lore:
+        - Still round the corner there may wait,
+        - A new road or a secret gate.
+      shards: [ 0,2,0,0,1,1,0,0,0 ]
+      author: J. R. R. Tolkien
+
+  - material: ACACIA_LEAVES
+    tier: 1
+    elements:
+      - ELEMENTAL
+      - PHILOSOPHICAL
+    story:
+      name: Leaf me alone! (Acacia)
+      type: PHILOSOPHICAL
+      lore:
+        - Gently swaying in a cool breeze,
+        - Leaves want nothign more than to be
+        - left alone to their thoughts.
+      shards: [1,0,0,1,0,0,0,0,1]
+
+  - material: ACACIA_LOG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ACACIA_PLANKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ACACIA_PRESSURE_PLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ACACIA_SAPLING
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ACACIA_SIGN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ACACIA_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ACACIA_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ACACIA_TRAPDOOR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ACACIA_WOOD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ACTIVATOR_RAIL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: AIR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ALLIUM
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: AMETHYST_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: AMETHYST_CLUSTER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: AMETHYST_SHARD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ANCIENT_DEBRIS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
 
   - material: ANDESITE
     tier: 1
     elements:
-      - HUMAN
-      - ALCHEMICAL
+      -
     story:
-      name: Polished
-      type: HUMAN
+      name:
+      type:
       lore:
-        - Often thrown away as dull and boring,
-        - at his block is filled with an epic sadness
-      shards: [ 2,0,1,1,0,0,0,0,0 ]
+        -
+      shards:
 
-  - material: CRAFTING_TABLE
+  - material: ANDESITE_SLAB
     tier: 1
-    main_element: HUMAN
     elements:
-      - HUMAN
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ANDESITE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ANDESITE_WALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ANVIL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: APPLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ARMOR_STAND
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ARROW
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: AXOLOTL_BUCKET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: AXOLOTL_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: AZALEA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: AZALEA_LEAVES
+    tier: 1
+    elements:
+      - ELEMENTAL
       - PHILOSOPHICAL
     story:
-      name: Endless Potential
-      type: HUMAN
+      name: Leaf me alone! (Azalea)
+      type: PHILOSOPHICAL
       lore:
-        - This table magically creates items with a
-        - minimal amount of materials. How it works
-        - is still a mystery to this day.
-      shards: [ 0,1,0,0,2,0,1,0,1 ]
-      author: Ryhn12
+        - Gently swaying in a cool breeze,
+        - Leaves want nothign more than to be
+        - left alone to their thoughts.
+      shards: [1,0,0,1,0,0,0,0,1]
 
-  - material: TORCH
+  - material: AZURE_BLUET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BAKED_POTATO
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BAMBOO
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BARREL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BARRIER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BASALT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BAT_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BEACON
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BEDROCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BEEF
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BEEHIVE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BEETROOT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BEETROOT_SEEDS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BEETROOT_SOUP
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BEE_NEST
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BEE_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BELL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BIG_DRIPLEAF
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BIRCH_BOAT
     tier: 1
     elements:
       - HUMAN
       - ELEMENTAL
+      - PHILOSOPHICAL
     story:
-      name: Lighting The Way
+      name: Ship-shape (Birch)
+      type: PHILOSOPHICAL
+      lore:
+        - Live in the sunshine, swim the sea
+          and drink in the wild air
+      shards: [ 1,0,0,0,1,0,0,0,2 ]
+
+  - material: BIRCH_BUTTON
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+    story:
+      name: Depressed (Birch)
       type: HUMAN
       lore:
-        - Since the earliest days, lighting the way
-        - and protecting from unseen foes.
-      shards: [ 1,1,0,0,1,0,1,0,0 ]
+        - Can get easily depressed
+      shards: [ 0,1,0,0,2,0,0,1,0 ]
+
+  - material: BIRCH_DOOR
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+    story:
+      name: Gateway (Birch)
+      type: HUMAN
+      lore:
+        - Every enterance is also an exit.
+        - Doors protects from the outside but
+        - dont let them keep you in!
+      shards: [ 0,2,0,0,1,0,0,0,1 ]
+
+  - material: BIRCH_FENCE
+    tier: 1
+    elements:
+      - HUMAN
+      - ANIMAL
+    story:
+      name: Livestock (Birch)
+      type: ANIMAL
+      lore:
+        - Nothing brings more joy to a fence
+        - than keeping your livestock safe.
+      shards: [ 0,0,0,0,1,2,0,0,0 ]
+
+  - material: BIRCH_FENCE_GATE
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+      - ANIMAL
+    story:
+      name: Gate (Birch)
+      type: MECHANICAL
+      lore:
+        - Still round the corner there may wait,
+        - A new road or a secret gate.
+      shards: [ 0,2,0,0,1,1,0,0,0 ]
+      author: J. R. R. Tolkien
+
+  - material: BIRCH_LEAVES
+    tier: 1
+    elements:
+      - ELEMENTAL
+      - PHILOSOPHICAL
+    story:
+      name: Leaf me alone! (Birch)
+      type: PHILOSOPHICAL
+      lore:
+        - Gently swaying in a cool breeze,
+        - Leaves want nothign more than to be
+        - left alone to their thoughts.
+      shards: [1,0,0,1,0,0,0,0,1]
+
+  - material: BIRCH_LOG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BIRCH_PLANKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BIRCH_PRESSURE_PLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BIRCH_SAPLING
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BIRCH_SIGN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BIRCH_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BIRCH_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BIRCH_TRAPDOOR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BIRCH_WOOD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLACKSTONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLACKSTONE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLACKSTONE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLACKSTONE_WALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLACK_BANNER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLACK_BED
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLACK_CANDLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLACK_CARPET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLACK_CONCRETE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLACK_CONCRETE_POWDER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLACK_DYE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLACK_GLAZED_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLACK_SHULKER_BOX
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLACK_STAINED_GLASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLACK_STAINED_GLASS_PANE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLACK_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLACK_WOOL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLAST_FURNACE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLAZE_POWDER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLAZE_ROD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLAZE_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLUE_BANNER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLUE_BED
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLUE_CANDLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLUE_CARPET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLUE_CONCRETE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLUE_CONCRETE_POWDER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLUE_DYE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLUE_GLAZED_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLUE_ICE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLUE_ORCHID
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLUE_SHULKER_BOX
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLUE_STAINED_GLASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLUE_STAINED_GLASS_PANE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLUE_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BLUE_WOOL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BONE_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BONE_MEAL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BOOK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BOOKSHELF
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BOW
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BOWL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BRAIN_CORAL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BRAIN_CORAL_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BRAIN_CORAL_FAN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BREAD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BREWING_STAND
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BRICK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BRICKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BRICK_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BRICK_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BRICK_WALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BROWN_BANNER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BROWN_BED
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BROWN_CANDLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BROWN_CARPET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BROWN_CONCRETE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BROWN_CONCRETE_POWDER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BROWN_DYE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BROWN_GLAZED_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BROWN_MUSHROOM
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BROWN_MUSHROOM_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BROWN_SHULKER_BOX
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BROWN_STAINED_GLASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BROWN_STAINED_GLASS_PANE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BROWN_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BROWN_WOOL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BUBBLE_CORAL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BUBBLE_CORAL_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BUBBLE_CORAL_FAN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BUCKET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BUDDING_AMETHYST
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: BUNDLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CACTUS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CAKE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CALCITE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CAMPFIRE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CANDLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CARROT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CARROT_ON_A_STICK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CARTOGRAPHY_TABLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CARVED_PUMPKIN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CAT_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CAULDRON
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CAVE_SPIDER_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHAIN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHAINMAIL_BOOTS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHAINMAIL_CHESTPLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHAINMAIL_HELMET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHAINMAIL_LEGGINGS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHAIN_COMMAND_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHARCOAL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHEST
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHEST_MINECART
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHICKEN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHICKEN_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHIPPED_ANVIL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHISELED_DEEPSLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHISELED_NETHER_BRICKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHISELED_POLISHED_BLACKSTONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHISELED_QUARTZ_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHISELED_RED_SANDSTONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHISELED_SANDSTONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHISELED_STONE_BRICKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHORUS_FLOWER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHORUS_FRUIT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CHORUS_PLANT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CLAY
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CLAY_BALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COAL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COAL_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COAL_ORE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COARSE_DIRT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COBBLED_DEEPSLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COBBLED_DEEPSLATE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COBBLED_DEEPSLATE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COBBLED_DEEPSLATE_WALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COBBLESTONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COBBLESTONE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COBBLESTONE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COBBLESTONE_WALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COBWEB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COCOA_BEANS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COD_BUCKET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COD_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COMMAND_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COMMAND_BLOCK_MINECART
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COMPARATOR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COMPASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COMPOSTER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CONDUIT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COOKED_BEEF
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COOKED_CHICKEN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COOKED_COD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COOKED_MUTTON
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COOKED_PORKCHOP
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COOKED_RABBIT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COOKED_SALMON
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COOKIE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COPPER_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COPPER_INGOT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COPPER_ORE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CORNFLOWER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: COW_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CRACKED_DEEPSLATE_BRICKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CRACKED_DEEPSLATE_TILES
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CRACKED_NETHER_BRICKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CRACKED_POLISHED_BLACKSTONE_BRICKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CRACKED_STONE_BRICKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CRAFTING_TABLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CREEPER_BANNER_PATTERN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CREEPER_HEAD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CREEPER_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CRIMSON_BUTTON
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+      - VOID
+    story:
+      name: Depressed (Crimson)
+      type: HUMAN
+      lore:
+        - Can get easily depressed
+      shards: [ 0,1,0,0,2,0,1,0,0 ]
+
+  - material: CRIMSON_DOOR
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+      - VOID
+    story:
+      name: Gateway (Crimson)
+      type: HUMAN
+      lore:
+        - Every enterance is also an exit.
+        - Doors protects from the outside but
+        - dont let them keep you in!
+      shards: [ 0,2,0,0,1,0,0,1,1 ]
+
+  - material: CRIMSON_FENCE
+    tier: 1
+    elements:
+      - HUMAN
+      - ANIMAL
+      - VOID
+    story:
+      name: Livestock (Crimson)
+      type: ANIMAL
+      lore:
+        - Nothing brings more joy to a fence
+        - than keeping your livestock safe.
+      shards: [ 0,0,0,0,1,2,0,1,0 ]
+
+  - material: CRIMSON_FENCE_GATE
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+      - ANIMAL
+      - VOID
+    story:
+      name: Gate (Crimson)
+      type: MECHANICAL
+      lore:
+        - Still round the corner there may wait,
+        - A new road or a secret gate.
+      shards: [ 0,2,0,0,1,1,0,0,0 ]
+      author: J. R. R. Tolkien
+
+  - material: CRIMSON_FUNGUS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CRIMSON_HYPHAE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CRIMSON_NYLIUM
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CRIMSON_PLANKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CRIMSON_PRESSURE_PLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CRIMSON_ROOTS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CRIMSON_SIGN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CRIMSON_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CRIMSON_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CRIMSON_STEM
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CRIMSON_TRAPDOOR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CROSSBOW
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CRYING_OBSIDIAN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CUT_COPPER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CUT_COPPER_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CUT_COPPER_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CUT_RED_SANDSTONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CUT_RED_SANDSTONE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CUT_SANDSTONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CUT_SANDSTONE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CYAN_BANNER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CYAN_BED
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CYAN_CANDLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CYAN_CARPET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CYAN_CONCRETE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CYAN_CONCRETE_POWDER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CYAN_DYE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CYAN_GLAZED_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CYAN_SHULKER_BOX
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CYAN_STAINED_GLASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CYAN_STAINED_GLASS_PANE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CYAN_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: CYAN_WOOL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DAMAGED_ANVIL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DANDELION
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DARK_OAK_BOAT
+    tier: 1
+    elements:
+      - HUMAN
+      - ELEMENTAL
+      - PHILOSOPHICAL
+    story:
+      name: Ship-shape (Dark Oak)
+      type: PHILOSOPHICAL
+      lore:
+        - Live in the sunshine, swim the sea
+          and drink in the wild air
+      shards: [ 1,0,0,0,1,0,0,0,2 ]
+
+  - material: DARK_OAK_BUTTON
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+    story:
+      name: Depressed (Dark Oak)
+      type: HUMAN
+      lore:
+        - Can get easily depressed
+      shards: [ 0,1,0,0,2,0,0,1,0 ]
+
+  - material: DARK_OAK_DOOR
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+    story:
+      name: Gateway (Dark Oak)
+      type: HUMAN
+      lore:
+        - Every enterance is also an exit.
+        - Doors protects from the outside but
+        - dont let them keep you in!
+      shards: [ 0,2,0,0,1,0,0,0,1 ]
+
+  - material: DARK_OAK_FENCE
+    tier: 1
+    elements:
+      - HUMAN
+      - ANIMAL
+    story:
+      name: Livestock (Dark Oak)
+      type: ANIMAL
+      lore:
+        - Nothing brings more joy to a fence
+        - than keeping your livestock safe.
+      shards: [ 0,0,0,0,1,2,0,0,0 ]
+
+  - material: DARK_OAK_FENCE_GATE
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+      - ANIMAL
+    story:
+      name: Gate (Dark Oak)
+      type: MECHANICAL
+      lore:
+        - Still round the corner there may wait,
+        - A new road or a secret gate.
+      shards: [ 0,2,0,0,1,1,0,0,0 ]
+      author: J. R. R. Tolkien
+
+  - material: DARK_OAK_LEAVES
+    tier: 1
+    elements:
+      - ELEMENTAL
+      - PHILOSOPHICAL
+    story:
+      name: Leaf me alone! (Dark Oak)
+      type: PHILOSOPHICAL
+      lore:
+        - Gently swaying in a cool breeze,
+        - Leaves want nothign more than to be
+        - left alone to their thoughts.
+      shards: [1,0,0,1,0,0,0,0,1]
+
+  - material: DARK_OAK_LOG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DARK_OAK_PLANKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DARK_OAK_PRESSURE_PLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DARK_OAK_SAPLING
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DARK_OAK_SIGN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DARK_OAK_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DARK_OAK_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DARK_OAK_TRAPDOOR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DARK_OAK_WOOD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DARK_PRISMARINE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DARK_PRISMARINE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DARK_PRISMARINE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DAYLIGHT_DETECTOR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEAD_BRAIN_CORAL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEAD_BRAIN_CORAL_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEAD_BRAIN_CORAL_FAN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEAD_BUBBLE_CORAL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEAD_BUBBLE_CORAL_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEAD_BUBBLE_CORAL_FAN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEAD_BUSH
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEAD_FIRE_CORAL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEAD_FIRE_CORAL_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEAD_FIRE_CORAL_FAN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEAD_HORN_CORAL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEAD_HORN_CORAL_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEAD_HORN_CORAL_FAN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEAD_TUBE_CORAL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEAD_TUBE_CORAL_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEAD_TUBE_CORAL_FAN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEBUG_STICK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEEPSLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEEPSLATE_BRICKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEEPSLATE_BRICK_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEEPSLATE_BRICK_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEEPSLATE_BRICK_WALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEEPSLATE_COAL_ORE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEEPSLATE_COPPER_ORE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEEPSLATE_DIAMOND_ORE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEEPSLATE_EMERALD_ORE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEEPSLATE_GOLD_ORE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEEPSLATE_IRON_ORE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEEPSLATE_LAPIS_ORE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEEPSLATE_REDSTONE_ORE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEEPSLATE_TILES
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEEPSLATE_TILE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEEPSLATE_TILE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DEEPSLATE_TILE_WALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DETECTOR_RAIL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DIAMOND
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DIAMOND_AXE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DIAMOND_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DIAMOND_BOOTS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DIAMOND_CHESTPLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DIAMOND_HELMET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DIAMOND_HOE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DIAMOND_HORSE_ARMOR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DIAMOND_LEGGINGS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DIAMOND_ORE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DIAMOND_PICKAXE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DIAMOND_SHOVEL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DIAMOND_SWORD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DIORITE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DIORITE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DIORITE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DIORITE_WALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DIRT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DIRT_PATH
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DISPENSER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DOLPHIN_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DONKEY_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DRAGON_BREATH
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DRAGON_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DRAGON_HEAD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DRIED_KELP
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DRIED_KELP_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DRIPSTONE_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DROPPER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: DROWNED_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ELDER_GUARDIAN_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ELYTRA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: EMERALD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: EMERALD_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: EMERALD_ORE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ENCHANTED_BOOK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ENCHANTED_GOLDEN_APPLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ENCHANTING_TABLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ENDERMAN_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ENDERMITE_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ENDER_CHEST
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ENDER_EYE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ENDER_PEARL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: END_CRYSTAL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: END_PORTAL_FRAME
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: END_ROD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: END_STONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: END_STONE_BRICKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: END_STONE_BRICK_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: END_STONE_BRICK_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: END_STONE_BRICK_WALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: EVOKER_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: EXPERIENCE_BOTTLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: EXPOSED_COPPER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: EXPOSED_CUT_COPPER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: EXPOSED_CUT_COPPER_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: EXPOSED_CUT_COPPER_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FARMLAND
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FEATHER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FERMENTED_SPIDER_EYE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FERN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FILLED_MAP
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FIREWORK_ROCKET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FIREWORK_STAR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FIRE_CHARGE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FIRE_CORAL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FIRE_CORAL_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FIRE_CORAL_FAN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FISHING_ROD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FLETCHING_TABLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FLINT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FLINT_AND_STEEL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FLOWERING_AZALEA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FLOWERING_AZALEA_LEAVES
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FLOWER_BANNER_PATTERN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FLOWER_POT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FOX_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FURNACE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: FURNACE_MINECART
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GHAST_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GHAST_TEAR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GILDED_BLACKSTONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GLASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GLASS_BOTTLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GLASS_PANE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GLISTERING_MELON_SLICE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GLOBE_BANNER_PATTERN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GLOWSTONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GLOWSTONE_DUST
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GLOW_BERRIES
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GLOW_INK_SAC
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GLOW_ITEM_FRAME
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GLOW_LICHEN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GLOW_SQUID_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GOAT_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GOLDEN_APPLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GOLDEN_AXE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GOLDEN_BOOTS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GOLDEN_CARROT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GOLDEN_CHESTPLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GOLDEN_HELMET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GOLDEN_HOE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GOLDEN_HORSE_ARMOR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GOLDEN_LEGGINGS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GOLDEN_PICKAXE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GOLDEN_SHOVEL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GOLDEN_SWORD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GOLD_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GOLD_INGOT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GOLD_NUGGET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GOLD_ORE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GRANITE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GRANITE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GRANITE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GRANITE_WALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GRASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GRASS_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GRAVEL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GRAY_BANNER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GRAY_BED
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GRAY_CANDLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GRAY_CARPET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GRAY_CONCRETE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GRAY_CONCRETE_POWDER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GRAY_DYE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GRAY_GLAZED_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GRAY_SHULKER_BOX
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GRAY_STAINED_GLASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GRAY_STAINED_GLASS_PANE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GRAY_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GRAY_WOOL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GREEN_BANNER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GREEN_BED
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GREEN_CANDLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GREEN_CARPET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GREEN_CONCRETE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GREEN_CONCRETE_POWDER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GREEN_DYE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GREEN_GLAZED_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GREEN_SHULKER_BOX
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GREEN_STAINED_GLASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GREEN_STAINED_GLASS_PANE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GREEN_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GREEN_WOOL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GRINDSTONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GUARDIAN_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: GUNPOWDER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: HANGING_ROOTS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: HAY_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: HEART_OF_THE_SEA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: HEAVY_WEIGHTED_PRESSURE_PLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: HOGLIN_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: HONEYCOMB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: HONEYCOMB_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: HONEY_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: HONEY_BOTTLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: HOPPER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: HOPPER_MINECART
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: HORN_CORAL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: HORN_CORAL_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: HORN_CORAL_FAN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: HORSE_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: HUSK_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ICE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: INFESTED_CHISELED_STONE_BRICKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: INFESTED_COBBLESTONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: INFESTED_CRACKED_STONE_BRICKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: INFESTED_DEEPSLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: INFESTED_MOSSY_STONE_BRICKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: INFESTED_STONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: INFESTED_STONE_BRICKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: INK_SAC
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: IRON_AXE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: IRON_BARS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: IRON_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: IRON_BOOTS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: IRON_CHESTPLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: IRON_DOOR
+    tier: 2
+    elements:
+      - HUMAN
+      - MECHANICAL
+      - CELESTIAL
+    story:
+      name: Stronghold
+      type: HUMAN
+      lore:
+        - Protection again all indruders gives
+        - this item purpose and drive.
+      shards: [ 0,2,0,0,1,0,1,0,1 ]
+
+  - material: IRON_HELMET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: IRON_HOE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: IRON_HORSE_ARMOR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: IRON_INGOT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: IRON_LEGGINGS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: IRON_NUGGET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: IRON_ORE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: IRON_PICKAXE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: IRON_SHOVEL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: IRON_SWORD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: IRON_TRAPDOOR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ITEM_FRAME
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: JACK_O_LANTERN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: JIGSAW
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: JUKEBOX
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: JUNGLE_BOAT
+    tier: 1
+    elements:
+      - HUMAN
+      - ELEMENTAL
+      - PHILOSOPHICAL
+    story:
+      name: Ship-shape (Jungle)
+      type: PHILOSOPHICAL
+      lore:
+        - Live in the sunshine, swim the sea
+          and drink in the wild air
+      shards: [ 1,0,0,0,1,0,0,0,2 ]
+
+  - material: JUNGLE_BUTTON
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+    story:
+      name: Depressed (Jungle)
+      type: HUMAN
+      lore:
+        - Can get easily depressed
+      shards: [ 0,1,0,0,2,0,0,1,0 ]
+
+  - material: JUNGLE_DOOR
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+    story:
+      name: Gateway (Jungle)
+      type: HUMAN
+      lore:
+        - Every enterance is also an exit.
+        - Doors protects from the outside but
+        - dont let them keep you in!
+      shards: [ 0,2,0,0,1,0,0,0,1 ]
+
+  - material: JUNGLE_FENCE
+    tier: 1
+    elements:
+      - HUMAN
+      - ANIMAL
+    story:
+      name: Livestock (Jungle)
+      type: ANIMAL
+      lore:
+        - Nothing brings more joy to a fence
+        - than keeping your livestock safe.
+      shards: [ 0,0,0,0,1,2,0,0,0 ]
+
+  - material: JUNGLE_FENCE_GATE
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+      - ANIMAL
+    story:
+      name: Gate (Jungle)
+      type: MECHANICAL
+      lore:
+        - Still round the corner there may wait,
+        - A new road or a secret gate.
+      shards: [ 0,2,0,0,1,1,0,0,0 ]
+      author: J. R. R. Tolkien
+
+  - material: JUNGLE_LEAVES
+    tier: 1
+    elements:
+      - ELEMENTAL
+      - PHILOSOPHICAL
+    story:
+      name: Leaf me alone! (Jungle)
+      type: PHILOSOPHICAL
+      lore:
+        - Gently swaying in a cool breeze,
+        - Leaves want nothign more than to be
+        - left alone to their thoughts.
+      shards: [1,0,0,1,0,0,0,0,1]
+
+  - material: JUNGLE_LOG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: JUNGLE_PLANKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: JUNGLE_PRESSURE_PLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: JUNGLE_SAPLING
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: JUNGLE_SIGN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: JUNGLE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: JUNGLE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: JUNGLE_TRAPDOOR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: JUNGLE_WOOD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: KELP
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: KNOWLEDGE_BOOK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LADDER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LANTERN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LAPIS_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LAPIS_LAZULI
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LAPIS_ORE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LARGE_AMETHYST_BUD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LARGE_FERN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LAVA_BUCKET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LEAD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LEATHER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LEATHER_BOOTS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LEATHER_CHESTPLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LEATHER_HELMET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LEATHER_HORSE_ARMOR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LEATHER_LEGGINGS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LECTERN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LEVER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHTNING_ROD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_BLUE_BANNER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_BLUE_BED
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_BLUE_CANDLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_BLUE_CARPET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_BLUE_CONCRETE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_BLUE_CONCRETE_POWDER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_BLUE_DYE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_BLUE_GLAZED_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_BLUE_SHULKER_BOX
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_BLUE_STAINED_GLASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_BLUE_STAINED_GLASS_PANE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_BLUE_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_BLUE_WOOL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_GRAY_BANNER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_GRAY_BED
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_GRAY_CANDLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_GRAY_CARPET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_GRAY_CONCRETE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_GRAY_CONCRETE_POWDER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_GRAY_DYE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_GRAY_GLAZED_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_GRAY_SHULKER_BOX
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_GRAY_STAINED_GLASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_GRAY_STAINED_GLASS_PANE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_GRAY_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_GRAY_WOOL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIGHT_WEIGHTED_PRESSURE_PLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LILAC
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LILY_OF_THE_VALLEY
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LILY_PAD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIME_BANNER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIME_BED
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIME_CANDLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIME_CARPET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIME_CONCRETE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIME_CONCRETE_POWDER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIME_DYE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIME_GLAZED_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIME_SHULKER_BOX
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIME_STAINED_GLASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIME_STAINED_GLASS_PANE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIME_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LIME_WOOL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LINGERING_POTION
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LLAMA_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LODESTONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: LOOM
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MAGENTA_BANNER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MAGENTA_BED
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MAGENTA_CANDLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MAGENTA_CARPET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MAGENTA_CONCRETE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MAGENTA_CONCRETE_POWDER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MAGENTA_DYE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MAGENTA_GLAZED_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MAGENTA_SHULKER_BOX
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MAGENTA_STAINED_GLASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MAGENTA_STAINED_GLASS_PANE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MAGENTA_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MAGENTA_WOOL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MAGMA_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MAGMA_CREAM
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MAGMA_CUBE_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MAP
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MEDIUM_AMETHYST_BUD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MELON
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MELON_SEEDS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MELON_SLICE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MILK_BUCKET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MINECART
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MOJANG_BANNER_PATTERN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MOOSHROOM_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MOSSY_COBBLESTONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MOSSY_COBBLESTONE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MOSSY_COBBLESTONE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MOSSY_COBBLESTONE_WALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MOSSY_STONE_BRICKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MOSSY_STONE_BRICK_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MOSSY_STONE_BRICK_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MOSSY_STONE_BRICK_WALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MOSS_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MOSS_CARPET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MULE_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MUSHROOM_STEM
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MUSHROOM_STEW
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MUSIC_DISC_11
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MUSIC_DISC_13
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MUSIC_DISC_BLOCKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MUSIC_DISC_CAT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MUSIC_DISC_CHIRP
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MUSIC_DISC_FAR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MUSIC_DISC_MALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MUSIC_DISC_MELLOHI
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MUSIC_DISC_PIGSTEP
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MUSIC_DISC_STAL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MUSIC_DISC_STRAD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MUSIC_DISC_WAIT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MUSIC_DISC_WARD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MUTTON
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: MYCELIUM
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NAME_TAG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NAUTILUS_SHELL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHERITE_AXE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHERITE_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHERITE_BOOTS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHERITE_CHESTPLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHERITE_HELMET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHERITE_HOE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHERITE_INGOT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHERITE_LEGGINGS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHERITE_PICKAXE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHERITE_SCRAP
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHERITE_SHOVEL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHERITE_SWORD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHERRACK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHER_BRICK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHER_BRICKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHER_BRICK_FENCE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHER_BRICK_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHER_BRICK_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHER_BRICK_WALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHER_GOLD_ORE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHER_QUARTZ_ORE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHER_SPROUTS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHER_STAR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHER_WART
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NETHER_WART_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: NOTE_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: OAK_BOAT
+    tier: 1
+    elements:
+      - HUMAN
+      - ELEMENTAL
+      - PHILOSOPHICAL
+    story:
+      name: Ship-shape (Oak)
+      type: PHILOSOPHICAL
+      lore:
+        - Live in the sunshine, swim the sea
+          and drink in the wild air
+      shards: [ 1,0,0,0,1,0,0,0,2 ]
+
+  - material: OAK_BUTTON
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+    story:
+      name: Depressed (Oak)
+      type: HUMAN
+      lore:
+        - Can get easily depressed
+      shards: [ 0,1,0,0,2,0,0,1,0 ]
+
+  - material: OAK_DOOR
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+    story:
+      name: Gateway
+      type: HUMAN
+      lore:
+        - Every enterance is also an exit.
+        - Doors protects from the outside but
+        - dont let them keep you in!
+      shards: [ 0,2,0,0,1,0,0,0,1 ]
+
+  - material: OAK_FENCE
+    tier: 1
+    elements:
+      - HUMAN
+      - ANIMAL
+    story:
+      name: Livestock (Oak)
+      type: ANIMAL
+      lore:
+        - Nothing brings more joy to a fence
+        - than keeping your livestock safe.
+      shards: [ 0,0,0,0,1,2,0,0,0 ]
+
+  - material: OAK_FENCE_GATE
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+      - ANIMAL
+    story:
+      name: Gate (Oak)
+      type: MECHANICAL
+      lore:
+        - Still round the corner there may wait,
+        - A new road or a secret gate.
+      shards: [ 0,2,0,0,1,1,0,0,0 ]
+      author: J. R. R. Tolkien
+
+  - material: OAK_LEAVES
+    tier: 1
+    elements:
+      - ELEMENTAL
+      - PHILOSOPHICAL
+    story:
+      name: Leaf me alone! (Oak)
+      type: PHILOSOPHICAL
+      lore:
+        - Gently swaying in a cool breeze,
+        - Leaves want nothign more than to be
+        - left alone to their thoughts.
+      shards: [1,0,0,1,0,0,0,0,1]
+
+  - material: OAK_LOG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: OAK_PLANKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: OAK_PRESSURE_PLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: OAK_SAPLING
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: OAK_SIGN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: OAK_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: OAK_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: OAK_TRAPDOOR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: OAK_WOOD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: OBSERVER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: OBSIDIAN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: OCELOT_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ORANGE_BANNER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ORANGE_BED
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ORANGE_CANDLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ORANGE_CARPET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ORANGE_CONCRETE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ORANGE_CONCRETE_POWDER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ORANGE_DYE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ORANGE_GLAZED_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ORANGE_SHULKER_BOX
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ORANGE_STAINED_GLASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ORANGE_STAINED_GLASS_PANE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ORANGE_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ORANGE_TULIP
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ORANGE_WOOL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: OXEYE_DAISY
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: OXIDIZED_COPPER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: OXIDIZED_CUT_COPPER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: OXIDIZED_CUT_COPPER_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: OXIDIZED_CUT_COPPER_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PACKED_ICE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PAINTING
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PANDA_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PAPER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PARROT_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PEONY
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PETRIFIED_OAK_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PHANTOM_MEMBRANE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PHANTOM_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PIGLIN_BANNER_PATTERN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PIGLIN_BRUTE_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PIGLIN_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PIG_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PILLAGER_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PINK_BANNER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PINK_BED
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PINK_CANDLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PINK_CARPET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PINK_CONCRETE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PINK_CONCRETE_POWDER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PINK_DYE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PINK_GLAZED_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PINK_SHULKER_BOX
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PINK_STAINED_GLASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PINK_STAINED_GLASS_PANE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PINK_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PINK_TULIP
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PINK_WOOL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PISTON
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PLAYER_HEAD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PODZOL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POINTED_DRIPSTONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POISONOUS_POTATO
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLAR_BEAR_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_ANDESITE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_ANDESITE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_ANDESITE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_BASALT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_BLACKSTONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_BLACKSTONE_BRICKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_BLACKSTONE_BRICK_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_BLACKSTONE_BRICK_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_BLACKSTONE_BRICK_WALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_BLACKSTONE_BUTTON
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+    story:
+      name: Depressed (Polished Blackstone)
+      type: HUMAN
+      lore:
+        - Can get easily depressed
+      shards: [ 1,1,0,0,2,0,0,0,0 ]
+
+  - material: POLISHED_BLACKSTONE_PRESSURE_PLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_BLACKSTONE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_BLACKSTONE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_BLACKSTONE_WALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_DEEPSLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_DEEPSLATE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_DEEPSLATE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_DEEPSLATE_WALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_DIORITE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_DIORITE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_DIORITE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_GRANITE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_GRANITE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POLISHED_GRANITE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POPPED_CHORUS_FRUIT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POPPY
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PORKCHOP
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POTATO
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POTION
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POWDER_SNOW_BUCKET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: POWERED_RAIL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PRISMARINE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PRISMARINE_BRICKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PRISMARINE_BRICK_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PRISMARINE_BRICK_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PRISMARINE_CRYSTALS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PRISMARINE_SHARD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PRISMARINE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PRISMARINE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PRISMARINE_WALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PUFFERFISH
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PUFFERFISH_BUCKET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PUFFERFISH_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PUMPKIN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PUMPKIN_PIE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PUMPKIN_SEEDS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PURPLE_BANNER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PURPLE_BED
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PURPLE_CANDLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PURPLE_CARPET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PURPLE_CONCRETE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PURPLE_CONCRETE_POWDER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PURPLE_DYE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PURPLE_GLAZED_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PURPLE_SHULKER_BOX
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PURPLE_STAINED_GLASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PURPLE_STAINED_GLASS_PANE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PURPLE_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PURPLE_WOOL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PURPUR_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PURPUR_PILLAR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PURPUR_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: PURPUR_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: QUARTZ
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: QUARTZ_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: QUARTZ_BRICKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: QUARTZ_PILLAR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: QUARTZ_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: QUARTZ_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RABBIT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RABBIT_FOOT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RABBIT_HIDE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RABBIT_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RABBIT_STEW
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RAIL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RAVAGER_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RAW_COPPER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RAW_COPPER_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RAW_GOLD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RAW_GOLD_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RAW_IRON
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RAW_IRON_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: REDSTONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: REDSTONE_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: REDSTONE_LAMP
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: REDSTONE_ORE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: REDSTONE_TORCH
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_BANNER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_BED
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_CANDLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_CARPET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_CONCRETE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_CONCRETE_POWDER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_DYE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_GLAZED_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_MUSHROOM
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_MUSHROOM_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_NETHER_BRICKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_NETHER_BRICK_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_NETHER_BRICK_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_NETHER_BRICK_WALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_SAND
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_SANDSTONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_SANDSTONE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_SANDSTONE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_SANDSTONE_WALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_SHULKER_BOX
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_STAINED_GLASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_STAINED_GLASS_PANE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_TULIP
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RED_WOOL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: REPEATER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: REPEATING_COMMAND_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: RESPAWN_ANCHOR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ROOTED_DIRT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ROSE_BUSH
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ROTTEN_FLESH
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SADDLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SALMON
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SALMON_BUCKET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SALMON_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SAND
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SANDSTONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SANDSTONE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SANDSTONE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SANDSTONE_WALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SCAFFOLDING
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SCULK_SENSOR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SCUTE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SEAGRASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SEA_LANTERN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SEA_PICKLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SHEARS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SHEEP_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SHIELD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SHROOMLIGHT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SHULKER_BOX
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SHULKER_SHELL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SHULKER_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SILVERFISH_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SKELETON_HORSE_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SKELETON_SKULL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SKELETON_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SKULL_BANNER_PATTERN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SLIME_BALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SLIME_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SLIME_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SMALL_AMETHYST_BUD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SMALL_DRIPLEAF
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SMITHING_TABLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SMOKER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SMOOTH_BASALT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SMOOTH_QUARTZ
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SMOOTH_QUARTZ_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SMOOTH_QUARTZ_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SMOOTH_RED_SANDSTONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SMOOTH_RED_SANDSTONE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SMOOTH_RED_SANDSTONE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SMOOTH_SANDSTONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SMOOTH_SANDSTONE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SMOOTH_SANDSTONE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SMOOTH_STONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SMOOTH_STONE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SNOW
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SNOWBALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SNOW_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SOUL_CAMPFIRE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SOUL_LANTERN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SOUL_SAND
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SOUL_SOIL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SOUL_TORCH
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SPAWNER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SPECTRAL_ARROW
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SPIDER_EYE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SPIDER_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SPLASH_POTION
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SPONGE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SPORE_BLOSSOM
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SPRUCE_BOAT
+    tier: 1
+    elements:
+      - HUMAN
+      - ELEMENTAL
+      - PHILOSOPHICAL
+    story:
+      name: Ship-shape (Spruce)
+      type: PHILOSOPHICAL
+      lore:
+        - Live in the sunshine, swim the sea
+          and drink in the wild air
+      shards: [ 1,0,0,0,1,0,0,0,2 ]
+
+  - material: SPRUCE_BUTTON
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+    story:
+      name: Depressed (Spruce)
+      type: HUMAN
+      lore:
+        - Can get easily depressed
+      shards: [ 0,1,0,0,2,0,0,1,0 ]
+
+  - material: SPRUCE_DOOR
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+    story:
+      name: Gateway
+      type: HUMAN
+      lore:
+        - Every enterance is also an exit.
+        - Doors protects from the outside but
+        - dont let them keep you in!
+      shards: [ 0,2,0,0,1,0,0,0,1 ]
+
+  - material: SPRUCE_FENCE
+    tier: 1
+    elements:
+      - HUMAN
+      - ANIMAL
+    story:
+      name: Livestock (Spruce)
+      type: ANIMAL
+      lore:
+        - Nothing brings more joy to a fence
+        - than keeping your livestock safe.
+      shards: [ 0,0,0,0,1,2,0,0,0 ]
+
+  - material: SPRUCE_FENCE_GATE
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+      - ANIMAL
+    story:
+      name: Gate (Spruce)
+      type: MECHANICAL
+      lore:
+        - Still round the corner there may wait,
+        - A new road or a secret gate.
+      shards: [ 0,2,0,0,1,1,0,0,0 ]
+      author: J. R. R. Tolkien
+
+  - material: SPRUCE_LEAVES
+    tier: 1
+    elements:
+      - ELEMENTAL
+      - PHILOSOPHICAL
+    story:
+      name: Leaf me alone! (Spruce)
+      type: PHILOSOPHICAL
+      lore:
+        - Gently swaying in a cool breeze,
+        - Leaves want nothign more than to be
+        - left alone to their thoughts.
+      shards: [1,0,0,1,0,0,0,0,1]
+
+  - material: SPRUCE_LOG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SPRUCE_PLANKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SPRUCE_PRESSURE_PLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SPRUCE_SAPLING
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SPRUCE_SIGN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SPRUCE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SPRUCE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SPRUCE_TRAPDOOR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SPRUCE_WOOD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SPYGLASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SQUID_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STICK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STICKY_PISTON
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STONE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STONECUTTER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STONE_AXE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STONE_BRICKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STONE_BRICK_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STONE_BRICK_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STONE_BRICK_WALL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STONE_BUTTON
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+    story:
+      name: Depressed (Stone)
+      type: HUMAN
+      lore:
+        - Can get easily depressed
+      shards: [ 1,1,0,0,2,0,0,0,0 ]
+
+  - material: STONE_HOE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STONE_PICKAXE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STONE_PRESSURE_PLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STONE_SHOVEL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STONE_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STONE_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STONE_SWORD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STRAY_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STRIDER_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STRING
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STRIPPED_ACACIA_LOG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STRIPPED_ACACIA_WOOD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STRIPPED_BIRCH_LOG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STRIPPED_BIRCH_WOOD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STRIPPED_CRIMSON_HYPHAE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STRIPPED_CRIMSON_STEM
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STRIPPED_DARK_OAK_LOG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STRIPPED_DARK_OAK_WOOD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STRIPPED_JUNGLE_LOG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STRIPPED_JUNGLE_WOOD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STRIPPED_OAK_LOG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STRIPPED_OAK_WOOD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STRIPPED_SPRUCE_LOG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STRIPPED_SPRUCE_WOOD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STRIPPED_WARPED_HYPHAE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STRIPPED_WARPED_STEM
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STRUCTURE_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: STRUCTURE_VOID
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SUGAR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SUGAR_CANE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SUNFLOWER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SUSPICIOUS_STEW
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: SWEET_BERRIES
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TALL_GRASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TARGET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TINTED_GLASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TIPPED_ARROW
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TNT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TNT_MINECART
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TORCH
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TOTEM_OF_UNDYING
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TRADER_LLAMA_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TRAPPED_CHEST
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TRIDENT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TRIPWIRE_HOOK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TROPICAL_FISH
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TROPICAL_FISH_BUCKET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TROPICAL_FISH_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TUBE_CORAL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TUBE_CORAL_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TUBE_CORAL_FAN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TUFF
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TURTLE_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TURTLE_HELMET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TURTLE_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: TWISTING_VINES
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: VEX_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: VILLAGER_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: VINDICATOR_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: VINE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WANDERING_TRADER_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WARPED_BUTTON
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+      - VOID
+    story:
+      name: Depressed (Warped)
+      type: HUMAN
+      lore:
+        - Can get easily depressed
+      shards: [ 0,1,0,0,2,0,1,0,0 ]
+
+  - material: WARPED_DOOR
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+      - VOID
+    story:
+      name: Gateway
+      type: HUMAN
+      lore:
+        - Every enterance is also an exit.
+        - Doors protects from the outside but
+        - dont let them keep you in!
+      shards: [ 0,2,0,0,1,0,0,1,1 ]
+
+  - material: WARPED_FENCE
+    tier: 1
+    elements:
+      - HUMAN
+      - ANIMAL
+    story:
+      name: Livestock (Warped)
+      type: ANIMAL
+      lore:
+        - Nothing brings more joy to a fence
+        - than keeping your livestock safe.
+      shards: [ 0,0,0,0,1,2,0,0,0 ]
+
+  - material: WARPED_FENCE_GATE
+    tier: 1
+    elements:
+      - HUMAN
+      - MECHANICAL
+      - ANIMAL
+      - VOID
+    story:
+      name: Gate (Warped)
+      type: MECHANICAL
+      lore:
+        - Still round the corner there may wait,
+        - A new road or a secret gate.
+      shards: [ 0,2,0,0,1,1,0,1,0 ]
+      author: J. R. R. Tolkien
+
+  - material: WARPED_FUNGUS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WARPED_FUNGUS_ON_A_STICK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WARPED_HYPHAE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WARPED_NYLIUM
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WARPED_PLANKS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WARPED_PRESSURE_PLATE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WARPED_ROOTS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WARPED_SIGN
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WARPED_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WARPED_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WARPED_STEM
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WARPED_TRAPDOOR
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WARPED_WART_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WATER_BUCKET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WAXED_COPPER_BLOCK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WAXED_CUT_COPPER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WAXED_CUT_COPPER_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WAXED_CUT_COPPER_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WAXED_EXPOSED_COPPER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WAXED_EXPOSED_CUT_COPPER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WAXED_EXPOSED_CUT_COPPER_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WAXED_EXPOSED_CUT_COPPER_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WAXED_OXIDIZED_COPPER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WAXED_OXIDIZED_CUT_COPPER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WAXED_OXIDIZED_CUT_COPPER_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WAXED_OXIDIZED_CUT_COPPER_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WAXED_WEATHERED_COPPER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WAXED_WEATHERED_CUT_COPPER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WAXED_WEATHERED_CUT_COPPER_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WAXED_WEATHERED_CUT_COPPER_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WEATHERED_COPPER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WEATHERED_CUT_COPPER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WEATHERED_CUT_COPPER_SLAB
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WEATHERED_CUT_COPPER_STAIRS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WEEPING_VINES
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WET_SPONGE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WHEAT
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WHEAT_SEEDS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WHITE_BANNER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WHITE_BED
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WHITE_CANDLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WHITE_CARPET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WHITE_CONCRETE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WHITE_CONCRETE_POWDER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WHITE_DYE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WHITE_GLAZED_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WHITE_SHULKER_BOX
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WHITE_STAINED_GLASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WHITE_STAINED_GLASS_PANE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WHITE_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WHITE_TULIP
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WHITE_WOOL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WITCH_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WITHER_ROSE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WITHER_SKELETON_SKULL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WITHER_SKELETON_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WOLF_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WOODEN_AXE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WOODEN_HOE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WOODEN_PICKAXE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WOODEN_SHOVEL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WOODEN_SWORD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WRITABLE_BOOK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: WRITTEN_BOOK
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: YELLOW_BANNER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: YELLOW_BED
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: YELLOW_CANDLE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: YELLOW_CARPET
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: YELLOW_CONCRETE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: YELLOW_CONCRETE_POWDER
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: YELLOW_DYE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: YELLOW_GLAZED_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: YELLOW_SHULKER_BOX
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: YELLOW_STAINED_GLASS
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: YELLOW_STAINED_GLASS_PANE
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: YELLOW_TERRACOTTA
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: YELLOW_WOOL
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ZOGLIN_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ZOMBIE_HEAD
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ZOMBIE_HORSE_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ZOMBIE_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ZOMBIE_VILLAGER_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards:
+
+  - material: ZOMBIFIED_PIGLIN_SPAWN_EGG
+    tier: 1
+    elements:
+      -
+    story:
+      name:
+      type:
+      lore:
+        -
+      shards: 
+

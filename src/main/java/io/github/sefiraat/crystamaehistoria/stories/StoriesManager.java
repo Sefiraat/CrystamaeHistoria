@@ -53,7 +53,7 @@ public class StoriesManager {
             1,
             new BlockTier(
                 1,
-                300,
+                700,
                 3,
                 1,
                 new StoryChances(
@@ -69,7 +69,7 @@ public class StoriesManager {
             2,
             new BlockTier(
                 2,
-                400,
+                600,
                 3,
                 2,
                 new StoryChances(
@@ -101,7 +101,7 @@ public class StoriesManager {
             4,
             new BlockTier(
                 4,
-                600,
+                400,
                 5,
                 3,
                 new StoryChances(
@@ -117,7 +117,7 @@ public class StoriesManager {
             5,
             new BlockTier(
                 5,
-                700,
+                300,
                 5,
                 4,
                 new StoryChances(
