@@ -92,7 +92,7 @@ blocks:
       lore:
         - Every adventure begins with a good tree
         - punch
-      shards: [ 2,0,0,1,1,0,0,0,0]
+      shards: [ 2,0,0,1,1,0,0,0,0 ]
 
   - material: ACACIA_PLANKS
     tier: 1
@@ -136,46 +136,53 @@ blocks:
   - material: ACACIA_SIGN
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Signed (Acacia)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Imbued with the thoughts of those
+        - authors
+      shards: [ 0,0,0,0,1,0,1,1,1 ]
 
   - material: ACACIA_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
     story:
-      name:
-      type:
+      name: A cut below (Acacia)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Ripped in half and divided from
+        - self. A soul torn asunder
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: ACACIA_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Arise (Acacia)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - Lives to feel the joy of others being
+        - raised to new heights.
+      shards: [ 0,1,0,0,1,0,1,0,1 ]
 
   - material: ACACIA_TRAPDOOR
     tier: 1
     elements:
-      -
+      - HUMAN
+      - VOID
     story:
-      name:
-      type:
+      name: To the Pits (Acacia)
+      type: VOID
       lore:
-        -
-      shards:
+        - Awaiting the perfect moment to drop an
+        - unsuspecting person to their end
+      shards: [ 0,1,0,0,1,0,0,1,0 ]
 
   - material: ACACIA_WOOD
     tier: 1
@@ -647,7 +654,7 @@ blocks:
       lore:
         - Every adventure begins with a good tree
         - punch
-      shards: [ 2,0,0,1,1,0,0,0,0]
+      shards: [ 2,0,0,1,1,0,0,0,0 ]
 
   - material: BIRCH_PLANKS
     tier: 1
@@ -691,46 +698,53 @@ blocks:
   - material: BIRCH_SIGN
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Signed (Birch)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Imbued with the thoughts of those
+        - authors
+      shards: [ 0,0,0,0,1,0,1,1,1 ]
 
   - material: BIRCH_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
     story:
-      name:
-      type:
+      name: A cut below (Birch)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Ripped in half and divided from
+        - self. A soul torn asunder
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: BIRCH_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Arise (Birch)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - Lives to feel the joy of others being
+        - raised to new heights.
+      shards: [ 0,1,0,0,1,0,1,0,1 ]
 
   - material: BIRCH_TRAPDOOR
     tier: 1
     elements:
-      -
+      - HUMAN
+      - VOID
     story:
-      name:
-      type:
+      name: To the Pits (Birch)
+      type: VOID
       lore:
-        -
-      shards:
+        - Awaiting the perfect moment to drop an
+        - unsuspecting person to their end
+      shards: [ 0,1,0,0,1,0,0,1,0 ]
 
   - material: BIRCH_WOOD
     tier: 1
@@ -2481,35 +2495,43 @@ blocks:
   - material: CRIMSON_SIGN
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
+      - VOID
     story:
-      name:
-      type:
+      name: Signed (Crimson)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Imbued with the thoughts of those
+        - authors
+      shards: [ 0,0,0,0,1,0,0,2,1 ]
 
   - material: CRIMSON_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - VOID
     story:
-      name:
-      type:
+      name: A cut below
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Ripped in half and divided from
+        - self. A soul torn asunder
+      shards: [ 1,1,0,0,1,0,0,1,0 ]
 
   - material: CRIMSON_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
+      - VOID
     story:
-      name:
-      type:
+      name: Arise (Crimson)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - Lives to feel the joy of others being
+        - raised to new heights.
+      shards: [ 0,1,0,0,1,0,1,1,1 ]
 
   - material: CRIMSON_STEM
     tier: 1
@@ -2525,13 +2547,15 @@ blocks:
   - material: CRIMSON_TRAPDOOR
     tier: 1
     elements:
-      -
+      - HUMAN
+      - VOID
     story:
-      name:
-      type:
+      name: To the Pits (Crimson)
+      type: VOID
       lore:
-        -
-      shards:
+        - Awaiting the perfect moment to drop an
+        - unsuspecting person to their end
+      shards: [ 0,1,0,0,1,0,0,1,0 ]
 
   - material: CROSSBOW
     tier: 1
@@ -2879,7 +2903,7 @@ blocks:
       lore:
         - Every adventure begins with a good tree
         - punch
-      shards: [ 2,0,0,1,1,0,0,0,0]
+      shards: [ 2,0,0,1,1,0,0,0,0 ]
 
   - material: DARK_OAK_PLANKS
     tier: 1
@@ -2923,46 +2947,53 @@ blocks:
   - material: DARK_OAK_SIGN
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Signed (Dark Oak)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Imbued with the thoughts of those
+        - authors
+      shards: [ 0,0,0,0,1,0,1,1,1 ]
 
   - material: DARK_OAK_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
     story:
-      name:
-      type:
+      name: A cut below (Dark Oak)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Ripped in half and divided from
+        - self. A soul torn asunder
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: DARK_OAK_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Arise (Dark Oak)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - Lives to feel the joy of others being
+        - raised to new heights.
+      shards: [ 0,1,0,0,1,0,1,0,1 ]
 
   - material: DARK_OAK_TRAPDOOR
     tier: 1
     elements:
-      -
+      - HUMAN
+      - VOID
     story:
-      name:
-      type:
+      name: To the Pits (Dark Oak)
+      type: VOID
       lore:
-        -
-      shards:
+        - Awaiting the perfect moment to drop an
+        - unsuspecting person to their end
+      shards: [ 0,1,0,0,1,0,0,1,0 ]
 
   - material: DARK_OAK_WOOD
     tier: 1
@@ -5306,13 +5337,16 @@ blocks:
   - material: IRON_TRAPDOOR
     tier: 1
     elements:
-      -
+      - HUMAN
+      - MECHANICAL
+      - VOID
     story:
-      name:
-      type:
+      name: Sent to the depths
+      type: VOID
       lore:
-        -
-      shards:
+        - Controlled from afar to drop those
+        - above on command
+      shards: [ 0,1,0,0,1,0,0,2,0 ]
 
   - material: ITEM_FRAME
     tier: 1
@@ -5451,7 +5485,7 @@ blocks:
       lore:
         - Every adventure begins with a good tree
         - punch
-      shards: [ 2,0,0,1,1,0,0,0,0]
+      shards: [ 2,0,0,1,1,0,0,0,0 ]
 
   - material: JUNGLE_PLANKS
     tier: 1
@@ -5495,46 +5529,53 @@ blocks:
   - material: JUNGLE_SIGN
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Signed (Jungle)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Imbued with the thoughts of those
+        - authors
+      shards: [ 0,0,0,0,1,0,1,1,1 ]
 
   - material: JUNGLE_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
     story:
-      name:
-      type:
+      name: A cut below (Jungle)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Ripped in half and divided from
+        - self. A soul torn asunder
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: JUNGLE_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Arise (Jungle)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - Lives to feel the joy of others being
+        - raised to new heights.
+      shards: [ 0,1,0,0,1,0,1,0,1 ]
 
   - material: JUNGLE_TRAPDOOR
     tier: 1
     elements:
-      -
+      - HUMAN
+      - VOID
     story:
-      name:
-      type:
+      name: To the Pits (Jungle)
+      type: VOID
       lore:
-        -
-      shards:
+        - Awaiting the perfect moment to drop an
+        - unsuspecting person to their end
+      shards: [ 0,1,0,0,1,0,0,1,0 ]
 
   - material: JUNGLE_WOOD
     tier: 1
@@ -7195,7 +7236,7 @@ blocks:
       lore:
         - Every adventure begins with a good tree
         - punch
-      shards: [ 2,0,0,1,1,0,0,0,0]
+      shards: [ 2,0,0,1,1,0,0,0,0 ]
 
   - material: OAK_PLANKS
     tier: 1
@@ -7239,46 +7280,53 @@ blocks:
   - material: OAK_SIGN
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Signed (Oak)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Imbued with the thoughts of those
+        - authors
+      shards: [ 0,0,0,0,1,0,1,1,1 ]
 
   - material: OAK_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
     story:
-      name:
-      type:
+      name: A cut below (Oak)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Ripped in half and divided from
+        - self. A soul torn asunder
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: OAK_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Arise (Oak)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - Lives to feel the joy of others being
+        - raised to new heights.
+      shards: [ 0,1,0,0,1,0,1,0,1 ]
 
   - material: OAK_TRAPDOOR
     tier: 1
     elements:
-      -
+      - HUMAN
+      - VOID
     story:
-      name:
-      type:
+      name: To the Pits (Oak)
+      type: VOID
       lore:
-        -
-      shards:
+        - Awaiting the perfect moment to drop an
+        - unsuspecting person to their end
+      shards: [ 0,1,0,0,1,0,0,1,0 ]
 
   - material: OAK_WOOD
     tier: 1
@@ -9695,7 +9743,7 @@ blocks:
       lore:
         - Every adventure begins with a good tree
         - punch
-      shards: [ 2,0,0,1,1,0,0,0,0]
+      shards: [ 2,0,0,1,1,0,0,0,0 ]
 
   - material: SPRUCE_PLANKS
     tier: 1
@@ -9739,46 +9787,53 @@ blocks:
   - material: SPRUCE_SIGN
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Signed (Spruce)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Imbued with the thoughts of those
+        - authors
+      shards: [ 0,0,0,0,1,0,1,1,1 ]
 
   - material: SPRUCE_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
     story:
-      name:
-      type:
+      name: A cut below (Spruce)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Ripped in half and divided from
+        - self. A soul torn asunder
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: SPRUCE_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Arise (Spruce)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - Lives to feel the joy of others being
+        - raised to new heights.
+      shards: [ 0,1,0,0,1,0,1,0,1 ]
 
   - material: SPRUCE_TRAPDOOR
     tier: 1
     elements:
-      -
+      - HUMAN
+      - VOID
     story:
-      name:
-      type:
+      name: To the Pits (Spruce)
+      type: VOID
       lore:
-        -
-      shards:
+        - Awaiting the perfect moment to drop an
+        - unsuspecting person to their end
+      shards: [ 0,1,0,0,1,0,0,1,0 ]
 
   - material: SPRUCE_WOOD
     tier: 1
@@ -10641,35 +10696,43 @@ blocks:
   - material: WARPED_SIGN
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
+      - VOID
     story:
-      name:
-      type:
+      name: Signed (Warped)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Imbued with the thoughts of those
+        - authors
+      shards: [ 0,0,0,0,1,0,0,2,1 ]
 
   - material: WARPED_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - VOID
     story:
-      name:
-      type:
+      name: A cut below
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Ripped in half and divided from
+        - self. A soul torn asunder
+      shards: [ 1,1,0,0,1,0,0,1,0 ]
 
   - material: WARPED_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
+      - VOID
     story:
-      name:
-      type:
+      name: Arise (Warped)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - Lives to feel the joy of others being
+        - raised to new heights.
+      shards: [ 0,1,0,0,1,0,1,1,1 ]
 
   - material: WARPED_STEM
     tier: 1
@@ -10685,13 +10748,15 @@ blocks:
   - material: WARPED_TRAPDOOR
     tier: 1
     elements:
-      -
+      - HUMAN
+      - VOID
     story:
-      name:
-      type:
+      name: To the Pits (Warped)
+      type: VOID
       lore:
-        -
-      shards:
+        - Awaiting the perfect moment to drop an
+        - unsuspecting person to their end
+      shards: [ 0,1,0,0,1,0,0,1,0 ]
 
   - material: WARPED_WART_BLOCK
     tier: 1
