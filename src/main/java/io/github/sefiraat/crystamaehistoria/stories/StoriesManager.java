@@ -21,6 +21,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.logging.Level;
 import java.util.stream.Collectors;
 
 public class StoriesManager {
@@ -168,7 +169,6 @@ public class StoriesManager {
     private void fillBlockDefinitions() {
         final FileConfiguration blocks = CrystamaeHistoria.getConfigManager().getBlocks();
         final List<Map<String, Object>> blockList = (List<Map<String, Object>>) blocks.getList("blocks");
-
         for (Map<String, Object> map : blockList) {
             final Map<String, Object> storyMap = (Map<String, Object>) map.get("story");
             final String name = (String) storyMap.get("name");
@@ -190,6 +190,7 @@ public class StoriesManager {
                 storiedBlockDefinitionMap.put(Material.valueOf(material), blockDefinition);
             }
         }
+        CrystamaeHistoria.log(Level.INFO, "Loaded: " + storiedBlockDefinitionMap.size() + " unique (block) stories.");
     }
 
     @ParametersAreNonnullByDefault

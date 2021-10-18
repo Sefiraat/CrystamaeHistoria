@@ -79,51 +79,59 @@ blocks:
         - Gently swaying in a cool breeze,
         - Leaves want nothign more than to be
         - left alone to their thoughts.
-      shards: [1,0,0,1,0,0,0,0,1]
+      shards: [ 1,0,0,1,0,0,0,0,1 ]
 
   - material: ACACIA_LOG
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Punching Trees Gives Me Wood (Acacia)
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - Every adventure begins with a good tree
+        - punch
+      shards: [ 2,0,0,1,1,0,0,0,0]
 
   - material: ACACIA_PLANKS
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Walk the Plank (Acacia)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - The first step on your crafting journey
+        - driving new players forwards.
+      shards: [ 1,0,0,0,1,0,1,0,0 ]
 
   - material: ACACIA_PRESSURE_PLATE
     tier: 1
     elements:
-      -
+      - MECHANICAL
+      - VOID
     story:
-      name:
-      type:
+      name: Under Pressure (Acacia)
+      type: VOID
       lore:
-        -
-      shards:
+        - Being walked all over will drop any
+        - spirit.
+      shards: [ 0,2,0,0,1,0,0,1,0 ]
 
   - material: ACACIA_SAPLING
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Growth (Acacia)
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - A youthful spirit empowered to grow
+        - into a mighty tree
+      shards: [ 1,0,1,1,0,1,0,0,0 ]
 
   - material: ACACIA_SIGN
     tier: 1
@@ -181,17 +189,6 @@ blocks:
       shards:
 
   - material: ACTIVATOR_RAIL
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: AIR
     tier: 1
     elements:
       -
@@ -390,7 +387,7 @@ blocks:
         - Gently swaying in a cool breeze,
         - Leaves want nothign more than to be
         - left alone to their thoughts.
-      shards: [1,0,0,1,0,0,0,0,1]
+      shards: [ 1,0,0,1,0,0,0,0,1 ]
 
   - material: AZURE_BLUET
     tier: 1
@@ -670,51 +667,59 @@ blocks:
         - Gently swaying in a cool breeze,
         - Leaves want nothign more than to be
         - left alone to their thoughts.
-      shards: [1,0,0,1,0,0,0,0,1]
+      shards: [ 1,0,0,1,0,0,0,0,1 ]
 
   - material: BIRCH_LOG
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Punching Trees Gives Me Wood (Birch)
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - Every adventure begins with a good tree
+        - punch
+      shards: [ 2,0,0,1,1,0,0,0,0]
 
   - material: BIRCH_PLANKS
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Walk the Plank (Birch)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - The first step on your crafting journey
+        - driving new players forwards.
+      shards: [ 1,0,0,0,1,0,1,0,0 ]
 
   - material: BIRCH_PRESSURE_PLATE
     tier: 1
     elements:
-      -
+      - MECHANICAL
+      - VOID
     story:
-      name:
-      type:
+      name: Under Pressure (Birch)
+      type: VOID
       lore:
-        -
-      shards:
+        - Being walked all over will drop any
+        - spirit.
+      shards: [ 0,2,0,0,1,0,0,1,0 ]
 
   - material: BIRCH_SAPLING
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Growth (Birch)
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - A youthful spirit empowered to grow
+        - into a mighty tree
+      shards: [ 1,0,1,1,0,1,0,0,0 ]
 
   - material: BIRCH_SIGN
     tier: 1
@@ -893,17 +898,6 @@ blocks:
       shards:
 
   - material: BLACK_GLAZED_TERRACOTTA
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: BLACK_SHULKER_BOX
     tier: 1
     elements:
       -
@@ -1102,17 +1096,6 @@ blocks:
       shards:
 
   - material: BLUE_ORCHID
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: BLUE_SHULKER_BOX
     tier: 1
     elements:
       -
@@ -1454,17 +1437,6 @@ blocks:
       shards:
 
   - material: BROWN_MUSHROOM_BLOCK
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: BROWN_SHULKER_BOX
     tier: 1
     elements:
       -
@@ -2581,24 +2553,29 @@ blocks:
   - material: CRIMSON_PLANKS
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - VOID
     story:
-      name:
-      type:
+      name: Walk the Plank (Crimson)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - The first step on your crafting journey
+        - driving new players forwards.
+      shards: [ 1,0,0,0,1,0,0,1,0 ]
 
   - material: CRIMSON_PRESSURE_PLATE
     tier: 1
     elements:
-      -
+      - MECHANICAL
+      - VOID
     story:
-      name:
-      type:
+      name: Under Pressure (Crimson)
+      type: VOID
       lore:
-        -
-      shards:
+        - Being walked all over will drop any
+        - spirit.
+      shards: [ 0,2,0,0,0,0,0,2,0 ]
 
   - material: CRIMSON_ROOTS
     tier: 1
@@ -2853,17 +2830,6 @@ blocks:
         -
       shards:
 
-  - material: CYAN_SHULKER_BOX
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: CYAN_STAINED_GLASS
     tier: 1
     elements:
@@ -3010,51 +2976,59 @@ blocks:
         - Gently swaying in a cool breeze,
         - Leaves want nothign more than to be
         - left alone to their thoughts.
-      shards: [1,0,0,1,0,0,0,0,1]
+      shards: [ 1,0,0,1,0,0,0,0,1 ]
 
   - material: DARK_OAK_LOG
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Punching Trees Gives Me Wood (Dark Oak)
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - Every adventure begins with a good tree
+        - punch
+      shards: [ 2,0,0,1,1,0,0,0,0]
 
   - material: DARK_OAK_PLANKS
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Walk the Plank (Dark Oak)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - The first step on your crafting journey
+        - driving new players forwards.
+      shards: [ 1,0,0,0,1,0,1,0,0 ]
 
   - material: DARK_OAK_PRESSURE_PLATE
     tier: 1
     elements:
-      -
+      - MECHANICAL
+      - VOID
     story:
-      name:
-      type:
+      name: Under Pressure (Dark Oak)
+      type: VOID
       lore:
-        -
-      shards:
+        - Being walked all over will drop any
+        - spirit.
+      shards: [ 0,2,0,0,1,0,0,1,0 ]
 
   - material: DARK_OAK_SAPLING
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Growth (Dark Oak)
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - A youthful spirit empowered to grow
+        - into a mighty tree
+      shards: [ 1,0,1,1,0,1,0,0,0 ]
 
   - material: DARK_OAK_SIGN
     tier: 1
@@ -4937,17 +4911,6 @@ blocks:
         -
       shards:
 
-  - material: GRAY_SHULKER_BOX
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: GRAY_STAINED_GLASS
     tier: 1
     elements:
@@ -5080,17 +5043,6 @@ blocks:
         -
       shards:
 
-  - material: GREEN_SHULKER_BOX
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: GREEN_STAINED_GLASS
     tier: 1
     elements:
@@ -5202,15 +5154,19 @@ blocks:
       shards:
 
   - material: HEAVY_WEIGHTED_PRESSURE_PLATE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - MECHANICAL
+      - ELEMENTAL
+      - VOID
     story:
-      name:
-      type:
+      name: Really Under Pressure (Heavy)
+      type: VOID
       lore:
-        -
-      shards:
+        - The only thing worse than being walked all
+        - over? Being called weighted at the same
+        - time
+      shards: [ 0,1,0,0,1,0,0,2,0 ]
 
   - material: HOGLIN_SPAWN_EGG
     tier: 1
@@ -5757,51 +5713,59 @@ blocks:
         - Gently swaying in a cool breeze,
         - Leaves want nothign more than to be
         - left alone to their thoughts.
-      shards: [1,0,0,1,0,0,0,0,1]
+      shards: [ 1,0,0,1,0,0,0,0,1 ]
 
   - material: JUNGLE_LOG
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Punching Trees Gives Me Wood (Jungle)
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - Every adventure begins with a good tree
+        - punch
+      shards: [ 2,0,0,1,1,0,0,0,0]
 
   - material: JUNGLE_PLANKS
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Walk the Plank (Jungle)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - The first step on your crafting journey
+        - driving new players forwards.
+      shards: [ 1,0,0,0,1,0,1,0,0 ]
 
   - material: JUNGLE_PRESSURE_PLATE
     tier: 1
     elements:
-      -
+      - MECHANICAL
+      - VOID
     story:
-      name:
-      type:
+      name: Under Pressure (Jungle)
+      type: VOID
       lore:
-        -
-      shards:
+        - Being walked all over will drop any
+        - spirit.
+      shards: [ 0,2,0,0,1,0,0,1,0 ]
 
   - material: JUNGLE_SAPLING
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Growth (Jungle)
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - A youthful spirit empowered to grow
+        - into a mighty tree
+      shards: [ 1,0,1,1,0,1,0,0,0 ]
 
   - material: JUNGLE_SIGN
     tier: 1
@@ -6177,17 +6141,6 @@ blocks:
         -
       shards:
 
-  - material: LIGHT_BLUE_SHULKER_BOX
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: LIGHT_BLUE_STAINED_GLASS
     tier: 1
     elements:
@@ -6320,17 +6273,6 @@ blocks:
         -
       shards:
 
-  - material: LIGHT_GRAY_SHULKER_BOX
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: LIGHT_GRAY_STAINED_GLASS
     tier: 1
     elements:
@@ -6376,15 +6318,19 @@ blocks:
       shards:
 
   - material: LIGHT_WEIGHTED_PRESSURE_PLATE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - MECHANICAL
+      - ELEMENTAL
+      - VOID
     story:
-      name:
-      type:
+      name: Really Under Pressure (Light)
+      type: VOID
       lore:
-        -
-      shards:
+        - The only thing worse than being walked all
+        - over? Being called weighted at the same
+        - time
+      shards: [ 0,1,0,0,1,0,0,2,0 ]
 
   - material: LILAC
     tier: 1
@@ -6497,17 +6443,6 @@ blocks:
       shards:
 
   - material: LIME_GLAZED_TERRACOTTA
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: LIME_SHULKER_BOX
     tier: 1
     elements:
       -
@@ -6684,17 +6619,6 @@ blocks:
       shards:
 
   - material: MAGENTA_GLAZED_TERRACOTTA
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: MAGENTA_SHULKER_BOX
     tier: 1
     elements:
       -
@@ -7577,51 +7501,59 @@ blocks:
         - Gently swaying in a cool breeze,
         - Leaves want nothign more than to be
         - left alone to their thoughts.
-      shards: [1,0,0,1,0,0,0,0,1]
+      shards: [ 1,0,0,1,0,0,0,0,1 ]
 
   - material: OAK_LOG
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Punching Trees Gives Me Wood (Oak)
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - Every adventure begins with a good tree
+        - punch
+      shards: [ 2,0,0,1,1,0,0,0,0]
 
   - material: OAK_PLANKS
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Walk the Plank (Oak)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - The first step on your crafting journey
+        - driving new players forwards.
+      shards: [ 1,0,0,0,1,0,1,0,0 ]
 
   - material: OAK_PRESSURE_PLATE
     tier: 1
     elements:
-      -
+      - MECHANICAL
+      - VOID
     story:
-      name:
-      type:
+      name: Under Pressure (Oak)
+      type: VOID
       lore:
-        -
-      shards:
+        - Being walked all over will drop any
+        - spirit.
+      shards: [ 0,2,0,0,1,0,0,1,0 ]
 
   - material: OAK_SAPLING
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Growth (Oak)
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - A youthful spirit empowered to grow
+        - into a mighty tree
+      shards: [ 1,0,1,1,0,1,0,0,0 ]
 
   - material: OAK_SIGN
     tier: 1
@@ -7789,17 +7721,6 @@ blocks:
       shards:
 
   - material: ORANGE_GLAZED_TERRACOTTA
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: ORANGE_SHULKER_BOX
     tier: 1
     elements:
       -
@@ -8152,17 +8073,6 @@ blocks:
       shards:
 
   - material: PINK_GLAZED_TERRACOTTA
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: PINK_SHULKER_BOX
     tier: 1
     elements:
       -
@@ -8889,17 +8799,6 @@ blocks:
         -
       shards:
 
-  - material: PURPLE_SHULKER_BOX
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: PURPLE_STAINED_GLASS
     tier: 1
     elements:
@@ -9461,17 +9360,6 @@ blocks:
         -
       shards:
 
-  - material: RED_SHULKER_BOX
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: RED_STAINED_GLASS
     tier: 1
     elements:
@@ -9792,17 +9680,6 @@ blocks:
       shards:
 
   - material: SHROOMLIGHT
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: SHULKER_BOX
     tier: 1
     elements:
       -
@@ -10344,51 +10221,59 @@ blocks:
         - Gently swaying in a cool breeze,
         - Leaves want nothign more than to be
         - left alone to their thoughts.
-      shards: [1,0,0,1,0,0,0,0,1]
+      shards: [ 1,0,0,1,0,0,0,0,1 ]
 
   - material: SPRUCE_LOG
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Punching Trees Gives Me Wood (Spruce)
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - Every adventure begins with a good tree
+        - punch
+      shards: [ 2,0,0,1,1,0,0,0,0]
 
   - material: SPRUCE_PLANKS
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Walk the Plank (Spruce)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - The first step on your crafting journey
+        - driving new players forwards.
+      shards: [ 1,0,0,0,1,0,1,0,0 ]
 
   - material: SPRUCE_PRESSURE_PLATE
     tier: 1
     elements:
-      -
+      - MECHANICAL
+      - VOID
     story:
-      name:
-      type:
+      name: Under Pressure (Spruce)
+      type: VOID
       lore:
-        -
-      shards:
+        - Being walked all over will drop any
+        - spirit.
+      shards: [ 0,2,0,0,1,0,0,1,0 ]
 
   - material: SPRUCE_SAPLING
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Growth
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - A youthful spirit empowered to grow
+        - into a mighty tree
+      shards: [ 1,0,1,1,0,1,0,0,0 ]
 
   - material: SPRUCE_SIGN
     tier: 1
@@ -10603,13 +10488,16 @@ blocks:
   - material: STONE_PRESSURE_PLATE
     tier: 1
     elements:
-      -
+      - MECHANICAL
+      - VOID
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Under Pressure (Stone)
+      type: VOID
       lore:
-        -
-      shards:
+        - Being walked all over will drop any
+        - spirit.
+      shards: [ 1,1,0,0,1,0,0,1,0 ]
 
   - material: STONE_SHOVEL
     tier: 1
@@ -11364,24 +11252,29 @@ blocks:
   - material: WARPED_PLANKS
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - VOID
     story:
-      name:
-      type:
+      name: Walk the Plank (Warped)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - The first step on your crafting journey
+        - driving new players forwards.
+      shards: [ 1,0,0,0,1,0,0,1,0 ]
 
   - material: WARPED_PRESSURE_PLATE
     tier: 1
     elements:
-      -
+      - MECHANICAL
+      - VOID
     story:
-      name:
-      type:
+      name: Under Pressure (Acacia)
+      type: VOID
       lore:
-        -
-      shards:
+        - Being walked all over will drop any
+        - spirit.
+      shards: [ 0,1,0,0,1,0,0,2,0 ]
 
   - material: WARPED_ROOTS
     tier: 1
@@ -11823,17 +11716,6 @@ blocks:
         -
       shards:
 
-  - material: WHITE_SHULKER_BOX
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: WHITE_STAINED_GLASS
     tier: 1
     elements:
@@ -12099,17 +11981,6 @@ blocks:
       shards:
 
   - material: YELLOW_GLAZED_TERRACOTTA
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: YELLOW_SHULKER_BOX
     tier: 1
     elements:
       -
