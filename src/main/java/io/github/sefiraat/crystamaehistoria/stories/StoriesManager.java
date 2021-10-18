@@ -178,16 +178,17 @@ public class StoriesManager {
                 storyMapUnique.put(story.getId(), story);
 
                 final int tier = (int) map.get("tier");
-                final String material = (String) map.get("material");
+                final Material material = Material.getMaterial((String) map.get("material"));
                 final List<StoryType> types = ((List<String>) map.get("elements")).stream()
                     .map(StoryType::getByName)
                     .collect(Collectors.toList());
                 final StoriedBlockDefinition blockDefinition = new StoriedBlockDefinition(
+                    material,
                     blockTierMap.get(tier),
                     types,
                     story
                 );
-                storiedBlockDefinitionMap.put(Material.valueOf(material), blockDefinition);
+                storiedBlockDefinitionMap.put(material, blockDefinition);
             }
         }
         CrystamaeHistoria.log(Level.INFO, "Loaded: " + storiedBlockDefinitionMap.size() + " unique (block) stories.");

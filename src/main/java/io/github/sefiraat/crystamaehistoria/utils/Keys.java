@@ -26,6 +26,7 @@ public class Keys {
     public static final NamespacedKey CAT_MECHANICAL = newKey("mech");
     public static final NamespacedKey CAT_CRYSTAL = newKey("crystal");
     public static final NamespacedKey CAT_TOOLS = newKey("tools");
+    public static final NamespacedKey CAT_STORY_COLLECTION = newKey("s_collection");
 
     // Recipe Types
     public static final NamespacedKey REALISATION_DUMMY_CRYSTAL = newKey("r_d_c");

@@ -27,6 +27,12 @@ public class GuiElements {
         " "
     );
 
+    public static final CustomItemStack MENU_DIVIDER = new CustomItemStack(
+        Material.LIME_STAINED_GLASS_PANE,
+        " ",
+        " "
+    );
+
     public static CustomItemStack getSpellSlotPane(SpellSlot spellSlot) {
         return new CustomItemStack(
             Material.RED_STAINED_GLASS_PANE,

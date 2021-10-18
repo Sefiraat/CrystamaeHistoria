@@ -18,7 +18,6 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
 import org.bukkit.Particle;
 import org.bukkit.World;
 import org.bukkit.block.Block;
@@ -35,7 +34,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class RealisationAltarCache extends AbstractCache {
 
     @Getter
-    private Map<BlockPosition, Pair<StoryRarity, String>> crystalStoryMap = new HashMap<>();
+    private final Map<BlockPosition, Pair<StoryRarity, String>> crystalStoryMap = new HashMap<>();
 
     @ParametersAreNonnullByDefault
     public RealisationAltarCache(BlockMenu blockMenu) {
@@ -44,10 +43,14 @@ public class RealisationAltarCache extends AbstractCache {
 
     protected void process() {
         tryGrow();
-        final ItemStack i = blockMenu.getItemInSlot(RealisationAltar.INPUT_SLOT);
-        if (i != null && i.getType() != Material.AIR && !StoryUtils.hasRemainingStorySlots(i)) {
-            rejectOverage(i);
-            processItem(i);
+        final ItemStack itemStack = blockMenu.getItemInSlot(RealisationAltar.INPUT_SLOT);
+        if (itemStack != null
+            && itemStack.getType() != Material.AIR
+            && StoryUtils.isStoried(itemStack)
+            && !StoryUtils.hasRemainingStorySlots(itemStack)
+        ) {
+            rejectOverage(itemStack);
+            processItem(itemStack);
         }
         saveMap();
     }

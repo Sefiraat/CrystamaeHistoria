@@ -13,18 +13,6 @@ public class StoryShardProfile {
 
     public final Map<StoryType, Integer> shardMap = new EnumMap<>(StoryType.class);
 
-    public StoryShardProfile(int amountElemental, int amountMechanical, int amountAlchemical, int amountHistorical, int amountHuman, int amountAnimal, int amountCelestial, int amountVoid, int amountPhilosophical) {
-        shardMap.put(StoryType.ELEMENTAL, amountElemental);
-        shardMap.put(StoryType.MECHANICAL, amountMechanical);
-        shardMap.put(StoryType.ALCHEMICAL, amountAlchemical);
-        shardMap.put(StoryType.HISTORICAL, amountHistorical);
-        shardMap.put(StoryType.HUMAN, amountHuman);
-        shardMap.put(StoryType.ANIMAL, amountAnimal);
-        shardMap.put(StoryType.CELESTIAL, amountCelestial);
-        shardMap.put(StoryType.VOID, amountVoid);
-        shardMap.put(StoryType.PHILOSOPHICAL, amountPhilosophical);
-    }
-
     public StoryShardProfile(List<Integer> integerList) {
         shardMap.put(StoryType.ELEMENTAL, integerList.get(StoryType.ELEMENTAL.getId() - 1));
         shardMap.put(StoryType.MECHANICAL, integerList.get(StoryType.MECHANICAL.getId() - 1));
