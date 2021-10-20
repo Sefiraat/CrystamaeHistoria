@@ -64,6 +64,10 @@ public class Keys {
     public static final NamespacedKey RESOLUTION_STORY_LOCATION = newKey("c_r_l");
     public static final NamespacedKey RESOLUTION_STORY_WORLD = newKey("c_r_w");
 
+    private Keys() {
+        throw new IllegalStateException("Utility Class");
+    }
+
     @Nonnull
     public static NamespacedKey newKey(@Nonnull String value) {
         return new NamespacedKey(CrystamaeHistoria.getInstance(), value);

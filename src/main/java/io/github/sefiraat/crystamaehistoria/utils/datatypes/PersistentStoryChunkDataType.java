@@ -45,7 +45,6 @@ public class PersistentStoryChunkDataType implements PersistentDataType<Persiste
     @Override
     @Nonnull
     public PersistentDataContainer[] toPrimitive(@Nonnull List<Story> complex, @Nonnull PersistentDataAdapterContext context) {
-        Keys keys = CrystamaeHistoria.getKeys();
         PersistentDataContainer[] containers = new PersistentDataContainer[complex.size()];
         int i = 0;
 
@@ -65,7 +64,6 @@ public class PersistentStoryChunkDataType implements PersistentDataType<Persiste
     @Override
     @Nonnull
     public List<Story> fromPrimitive(@Nonnull PersistentDataContainer[] primitive, @Nonnull PersistentDataAdapterContext context) {
-        final Keys keys = CrystamaeHistoria.getKeys();
         List<Story> list = new ArrayList<>();
         for (PersistentDataContainer container : primitive) {
             final String id = container.get(Keys.STORY_ID, PersistentDataType.STRING);

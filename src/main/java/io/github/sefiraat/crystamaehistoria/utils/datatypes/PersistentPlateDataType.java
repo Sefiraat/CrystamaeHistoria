@@ -38,7 +38,6 @@ public class PersistentPlateDataType implements PersistentDataType<PersistentDat
     @Override
     @Nonnull
     public PersistentDataContainer toPrimitive(@Nonnull PlateStorage complex, @Nonnull PersistentDataAdapterContext context) {
-        Keys keys = CrystamaeHistoria.getKeys();
         PersistentDataContainer container = context.newPersistentDataContainer();
         container.set(Keys.PLATE_TIER, PersistentDataType.INTEGER, complex.getTier());
         container.set(Keys.PLATE_SPELL, PersistentDataType.STRING, complex.getStoredSpell().getId());
@@ -49,7 +48,6 @@ public class PersistentPlateDataType implements PersistentDataType<PersistentDat
     @Override
     @Nonnull
     public PlateStorage fromPrimitive(@Nonnull PersistentDataContainer primitive, @Nonnull PersistentDataAdapterContext context) {
-        Keys keys = CrystamaeHistoria.getKeys();
         return new PlateStorage(
             primitive.get(Keys.PLATE_TIER, PersistentDataType.INTEGER),
             SpellType.valueOf(primitive.get(Keys.PLATE_SPELL, PersistentDataType.STRING)),

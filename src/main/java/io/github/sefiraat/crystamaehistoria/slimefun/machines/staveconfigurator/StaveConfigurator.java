@@ -113,7 +113,6 @@ public class StaveConfigurator extends TickingMenuBlock {
     }
 
     private void saveStave(@Nonnull BlockMenu blockMenu) {
-        Keys keys = CrystamaeHistoria.getKeys();
         ItemStack stave = blockMenu.getItemInSlot(STAVE_SLOT);
         StaveStorage staveStorage = new StaveStorage();
         if (stave != null) {

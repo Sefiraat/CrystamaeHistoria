@@ -219,7 +219,6 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
     private void processChargedPlate(Item item, ChargedPlate plate) {
         final ItemStack itemStack = item.getItemStack();
         final ItemMeta itemMeta = itemStack.getItemMeta();
-        final Keys keys = CrystamaeHistoria.getKeys();
         final PlateStorage plateStorage = DataTypeMethods.getCustom(itemMeta, Keys.PDC_PLATE_STORAGE, PersistentPlateDataType.TYPE);
         final SpellType currentSpellType = plateStorage.getStoredSpell();
 

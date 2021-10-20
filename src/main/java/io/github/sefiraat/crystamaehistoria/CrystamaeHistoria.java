@@ -87,7 +87,6 @@ public class CrystamaeHistoria extends AbstractAddon {
         getLogger().info("    Crystamae Historia - By Sefiraat    ");
         getLogger().info("########################################");
 
-        this.keys = new Keys();
         this.structure = new Structure();
         this.configManager = new ConfigManager();
         this.storiesManager = new StoriesManager();

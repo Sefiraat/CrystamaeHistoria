@@ -38,7 +38,6 @@ public class ChargedPlate extends UnplaceableBlock {
     @Nonnull
     @ParametersAreNonnullByDefault
     public static ItemStack getChargedPlate(PlateStorage plateStorage) {
-        Keys keys = CrystamaeHistoria.getKeys();
         ItemStack newPlate = Materials.CHARGED_PLATE_T_1.getItem().clone();
         PlateStorage.setPlateLore(newPlate, plateStorage);
         ItemMeta itemMeta = newPlate.getItemMeta();

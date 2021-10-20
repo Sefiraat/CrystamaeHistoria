@@ -28,7 +28,6 @@ public class StaveStorage {
     }
 
     public StaveStorage(ItemStack itemStack) {
-        Keys keys = CrystamaeHistoria.getKeys();
         Map<SpellSlot, PlateStorage> map = DataTypeMethods.getCustom(
             itemStack.getItemMeta(),
             Keys.PDC_STAVE_STORAGE,
