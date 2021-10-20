@@ -277,7 +277,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         final String healingSpell = MessageFormat.format("{0}Healing: {1}Will heal and/or buff", color, passive);
         final String tickingSpell1 = MessageFormat.format("{0}Ticking: {1}Effects of this spell will", color, passive);
         final String tickingSpell2 = MessageFormat.format("{0}fire ({1}{2}{3}) times", passive, notice, ticks, passive);
-        final String tickingSpell3 = MessageFormat.format("{0}Tick number {1} with stave tier", color, spellCore.isDamageMultiplied() ? "increases" : "doesn't increase");
+        final String tickingSpell3 = MessageFormat.format("{0}Tick number {1} with stave tier", passive, spellCore.isDamageMultiplied() ? "increases" : "doesn't increase");
 
         final String projectileSpell1 = MessageFormat.format("{0}Projectile: {1}This spell fires a projectile", color, passive);
         final String projectileSpell2 = MessageFormat.format("{0}which, when it hits, may induce", passive);
@@ -312,7 +312,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         final List<String> lore = new ArrayList<>();
 
         final String message = MessageFormat.format("{0}Range: {1}{2}", color, passive, spell.getSpellCore().getRange());
-        final String multiMessage = MessageFormat.format("{0}Range {1} with stave tier", color, spell.getSpellCore().isRangeMultiplied() ? "increases" : "doesn't increase");
+        final String multiMessage = MessageFormat.format("{0}Range {1} with stave tier", passive, spell.getSpellCore().isRangeMultiplied() ? "increases" : "doesn't increase");
 
         lore.add(message);
         lore.add(multiMessage);
@@ -330,7 +330,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         final List<String> lore = new ArrayList<>();
 
         final String message = MessageFormat.format("{0}Knockback: {1}{2}", color, passive, spell.getSpellCore().getKnockbackAmount());
-        final String multiMessage = MessageFormat.format("{0}Amount {1} with stave tier", color, spell.getSpellCore().isKnockbackMultiplied() ? "increases" : "doesn't increase");
+        final String multiMessage = MessageFormat.format("{0}Amount {1} with stave tier", passive, spell.getSpellCore().isKnockbackMultiplied() ? "increases" : "doesn't increase");
 
         lore.add(message);
         lore.add(multiMessage);
