@@ -82,7 +82,7 @@ public class PoisonNova extends Spell {
 
     @Nonnull
     @Override
-    public ItemStack getStack() {
-        return new ItemStack(Material.SLIME_BALL);
+    public Material getMaterial() {
+        return Material.SLIME_BALL;
     }
 }

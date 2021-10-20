@@ -48,7 +48,7 @@ public class Bright extends Spell {
 
     @Nonnull
     @Override
-    public ItemStack getStack() {
-        return new ItemStack(Material.SUNFLOWER);
+    public Material getMaterial() {
+        return Material.SUNFLOWER;
     }
 }

@@ -33,12 +33,7 @@ public class Spells {
 
         return new SlimefunItem(
             ItemGroups.SPELLS,
-            ThemeType.themeSpellStack(
-                spellType.getSpell().getId(),
-                spellType.getSpell().getStack(),
-                spellType,
-                spellType.getSpell().getLore()
-            ),
+            spellType.getSpell().getThemedStack(),
             DummyLiquefactionBasin.TYPE,
             new ItemStack[]{
                 null, null, null, one, two, three, null, null, null

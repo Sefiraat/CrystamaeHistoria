@@ -63,8 +63,6 @@ public enum SpellType {
     private final Spell spell;
     @Getter
     private final SpellRecipe spellRecipe;
-    @Getter
-    private SlimefunItem spellItem;
 
     @ParametersAreNonnullByDefault
     SpellType(String id, Spell spell, @Nullable SpellRecipe spellRecipe) {

@@ -10,7 +10,6 @@ import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
@@ -66,7 +65,7 @@ public class Vacuum extends Spell {
 
     @NotNull
     @Override
-    public ItemStack getStack() {
-        return new ItemStack(Material.FISHING_ROD);
+    public Material getMaterial() {
+        return Material.FISHING_ROD;
     }
 }

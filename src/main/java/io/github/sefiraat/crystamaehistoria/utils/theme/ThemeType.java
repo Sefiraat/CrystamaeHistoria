@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.utils.theme;
 
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -137,36 +138,6 @@ public enum ThemeType {
             id,
             itemStack,
             ThemeType.applyThemeToString(themeType, name),
-            finalLore.toArray(new String[finalLore.size() - 1])
-        );
-    }
-
-    /**
-     * Gets a SlimefunItemStack with a pre-populated lore and name with themed colors.
-     *
-     * @param id        The ID for the new {@link SlimefunItemStack}
-     * @param itemStack         The vanilla {@link ItemStack} used to base the {@link SlimefunItemStack} on
-     * @param spellType The {@link SpellType} used
-     * @param lore      The lore lines for the {@link SlimefunItemStack}. Lore is book-ended with empty strings.
-     * @return Returns the new {@link SlimefunItemStack}
-     */
-    @Nonnull
-    @ParametersAreNonnullByDefault
-    public static SlimefunItemStack themeSpellStack(String id, ItemStack itemStack, SpellType spellType, String... lore) {
-        ChatColor passiveColor = ThemeType.PASSIVE.getColor();
-        List<String> finalLore = new ArrayList<>();
-        finalLore.add("");
-        for (String s : lore) {
-            finalLore.add(passiveColor + s);
-        }
-        finalLore.add("");
-        finalLore.add(ThemeType.CLICK_INFO.getColor() + "Crysta Cost: " + ThemeType.NOTICE.getColor() + spellType.getSpell().getSpellCore().getCrystaCost());
-        finalLore.add("");
-        finalLore.add(applyThemeToString(ThemeType.CLICK_INFO, "Spell"));
-        return new SlimefunItemStack(
-            id,
-            itemStack,
-            ThemeType.applyThemeToString(ThemeType.SPELL, toTitleCase(spellType.getId())),
             finalLore.toArray(new String[finalLore.size() - 1])
         );
     }

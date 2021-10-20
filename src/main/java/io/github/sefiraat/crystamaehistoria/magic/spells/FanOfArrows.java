@@ -64,7 +64,7 @@ public class FanOfArrows extends Spell {
 
     @Nonnull
     @Override
-    public ItemStack getStack() {
-        return new ItemStack(Material.SPECTRAL_ARROW);
+    public Material getMaterial() {
+        return Material.SPECTRAL_ARROW;
     }
 }

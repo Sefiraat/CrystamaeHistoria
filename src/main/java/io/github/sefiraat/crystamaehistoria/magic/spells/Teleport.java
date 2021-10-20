@@ -80,7 +80,7 @@ public class Teleport extends Spell {
 
     @Nonnull
     @Override
-    public ItemStack getStack() {
-        return new ItemStack(Material.ENDER_PEARL);
+    public Material getMaterial() {
+        return Material.ENDER_PEARL;
     }
 }

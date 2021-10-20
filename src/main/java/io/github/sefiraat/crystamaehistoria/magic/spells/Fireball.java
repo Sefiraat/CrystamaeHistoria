@@ -63,7 +63,7 @@ public class Fireball extends Spell {
 
     @Nonnull
     @Override
-    public ItemStack getStack() {
-        return new ItemStack(Material.FIRE_CHARGE);
+    public Material getMaterial() {
+        return Material.FIRE_CHARGE;
     }
 }

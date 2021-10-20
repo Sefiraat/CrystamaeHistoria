@@ -62,7 +62,7 @@ public class Push extends Spell {
 
     @Nonnull
     @Override
-    public ItemStack getStack() {
-        return new ItemStack(Material.PISTON);
+    public Material getMaterial() {
+        return Material.PISTON;
     }
 }

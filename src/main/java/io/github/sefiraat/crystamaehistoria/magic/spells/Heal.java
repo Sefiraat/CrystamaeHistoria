@@ -44,7 +44,7 @@ public class Heal extends Spell {
 
     @Nonnull
     @Override
-    public ItemStack getStack() {
-        return new ItemStack(Material.POTION);
+    public Material getMaterial() {
+        return Material.POTION;
     }
 }

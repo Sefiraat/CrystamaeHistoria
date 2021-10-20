@@ -24,7 +24,9 @@ public class Structure {
     }
 
     public void setup() {
-        ItemGroups.STORY_COLLECTION.register(CrystamaeHistoria.getInstance());
+        CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
+        ItemGroups.STORY_COLLECTION.register(plugin);
+        ItemGroups.SPELL_COLLECTION.register(plugin);
 
         this.machines.setup();
         this.materials.setup();

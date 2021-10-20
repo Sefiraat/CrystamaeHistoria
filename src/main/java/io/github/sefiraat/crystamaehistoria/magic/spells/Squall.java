@@ -49,7 +49,7 @@ public class Squall extends Spell {
 
     @Nonnull
     @Override
-    public ItemStack getStack() {
-        return new ItemStack(Material.BUCKET);
+    public Material getMaterial() {
+        return Material.BUCKET;
     }
 }

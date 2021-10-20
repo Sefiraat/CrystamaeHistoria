@@ -59,7 +59,7 @@ public class Shroud extends Spell {
 
     @Nonnull
     @Override
-    public ItemStack getStack() {
-        return new ItemStack(Material.BLACK_CANDLE);
+    public Material getMaterial() {
+        return Material.BLACK_CANDLE;
     }
 }

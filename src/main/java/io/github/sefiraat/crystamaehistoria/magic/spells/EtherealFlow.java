@@ -43,7 +43,7 @@ public class EtherealFlow extends Spell {
 
     @Nonnull
     @Override
-    public ItemStack getStack() {
-        return new ItemStack(Material.CLOCK);
+    public Material getMaterial() {
+        return Material.CLOCK;
     }
 }

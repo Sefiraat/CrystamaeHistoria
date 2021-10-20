@@ -78,7 +78,7 @@ public class Tempest extends Spell {
 
     @Nonnull
     @Override
-    public ItemStack getStack() {
-        return new ItemStack(Material.END_ROD);
+    public Material getMaterial() {
+        return Material.END_ROD;
     }
 }

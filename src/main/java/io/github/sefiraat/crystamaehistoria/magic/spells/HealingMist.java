@@ -56,7 +56,7 @@ public class HealingMist extends Spell {
 
     @Nonnull
     @Override
-    public ItemStack getStack() {
-        return new ItemStack(Material.GOLDEN_APPLE);
+    public Material getMaterial() {
+        return Material.GOLDEN_APPLE;
     }
 }

@@ -68,7 +68,7 @@ public class CallLightning extends Spell {
 
     @Nonnull
     @Override
-    public ItemStack getStack() {
-        return new ItemStack(Material.LIGHTNING_ROD);
+    public Material getMaterial() {
+        return Material.LIGHTNING_ROD;
     }
 }

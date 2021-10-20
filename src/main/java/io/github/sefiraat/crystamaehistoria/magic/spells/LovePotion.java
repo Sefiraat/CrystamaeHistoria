@@ -53,11 +53,7 @@ public class LovePotion extends Spell {
 
     @Nonnull
     @Override
-    public ItemStack getStack() {
-        ItemStack itemStack = new ItemStack(Material.POTION);
-        PotionMeta potionMeta = (PotionMeta) itemStack.getItemMeta();
-        potionMeta.setColor(Color.RED);
-        itemStack.setItemMeta(potionMeta);
-        return itemStack;
+    public Material getMaterial() {
+        return Material.POTION;
     }
 }

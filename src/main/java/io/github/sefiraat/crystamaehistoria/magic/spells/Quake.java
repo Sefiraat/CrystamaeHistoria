@@ -72,7 +72,7 @@ public class Quake extends Spell {
 
     @Nonnull
     @Override
-    public ItemStack getStack() {
-        return new ItemStack(Material.CRACKED_DEEPSLATE_BRICKS);
+    public Material getMaterial() {
+        return Material.CRACKED_DEEPSLATE_BRICKS;
     }
 }

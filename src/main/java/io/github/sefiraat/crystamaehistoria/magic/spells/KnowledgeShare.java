@@ -67,7 +67,7 @@ public class KnowledgeShare extends Spell {
 
     @Nonnull
     @Override
-    public ItemStack getStack() {
-        return new ItemStack(Material.EXPERIENCE_BOTTLE);
+    public Material getMaterial() {
+        return Material.EXPERIENCE_BOTTLE;
     }
 }

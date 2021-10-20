@@ -1,35 +1,28 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.itemgroups;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.stories.StoriedBlockDefinition;
-import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import io.github.sefiraat.crystamaehistoria.utils.theme.GuiElements;
+import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.FlexItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile;
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuide;
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
-import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
 /**
  * @noinspection deprecation
  */
-public class StoryCollectionFlexGroup extends FlexItemGroup {
+public class SpellCollectionFlexGroup extends FlexItemGroup {
 
     private static final int PAGE_SIZE = 36;
 
@@ -45,18 +38,20 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         45, 46, 47, 48, 49, 50, 51, 52, 53
     };
 
-    private static final int CHRONICLING_SLOT = 20;
-    private static final int TIER_SLOT = 22;
-    private static final int UNIQUE_SLOT = 40;
-
-    private static final int[] DIVIDER = new int[]{
-        36, 37, 38, 39, 41, 42, 43, 44
+    private static final int SPELL = 19;
+    private static final int[] RECIPE = new int[]{
+        21, 22, 23
     };
-    private static final int[] CRYSTAMAE = new int[]{
-        45, 46, 47, 48, 49, 50, 51, 52, 53
-    };
+    private static final int MECHANISM = 25;
+    private static final int CRYSTA_COST = 37;
+    private static final int VALUES = 38;
+    private static final int CAST_TYPE = 39;
+    private static final int RANGE = 40;
+    private static final int KNOCK_BACK = 41;
+    private static final int PROJECTILE_INFO = 42;
+    private static final int EFFECTS = 43;
 
-    protected StoryCollectionFlexGroup(NamespacedKey key, ItemStack item) {
+    protected SpellCollectionFlexGroup(NamespacedKey key, ItemStack item) {
         super(key, item);
     }
 
@@ -67,9 +62,13 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
 
     @Override
     public void open(Player p, PlayerProfile profile, SlimefunGuideMode mode) {
-        final ChestMenu chestMenu = new ChestMenu(ThemeType.MAIN.getColor() + "Crystamae Magic Compendium");
+        final ChestMenu chestMenu = new ChestMenu(ThemeType.MAIN.getColor() + "Spell Compendium");
 
         for (int slot : HEADER) {
+            chestMenu.addItem(slot, ChestMenuUtils.getBackground(), (player1, i1, itemStack, clickAction) -> false);
+        }
+
+        for (int slot : FOOTER) {
             chestMenu.addItem(slot, ChestMenuUtils.getBackground(), (player1, i1, itemStack, clickAction) -> false);
         }
 
@@ -81,10 +80,10 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
     private void setupPage(@Nonnull Player p, @Nonnull PlayerProfile profile, @Nonnull SlimefunGuideMode mode, @Nonnull ChestMenu menu, int page) {
         final int numberOfBlocks = CrystamaeHistoria.getStoriesManager().getStoriedBlockDefinitionMap().size();
         final int totalPages = (int) Math.ceil(numberOfBlocks / (double) PAGE_SIZE);
-        final List<StoriedBlockDefinition> blockDefinitions = new ArrayList<>(CrystamaeHistoria.getStoriesManager().getStoriedBlockDefinitionMap().values());
+        final List<SpellType> spellTypes = Arrays.asList(SpellType.getCachedValues());
         final int start = (page - 1) * PAGE_SIZE;
-        final int end = Math.min(start + PAGE_SIZE, blockDefinitions.size());
-        final List<StoriedBlockDefinition> blockDefinitionSubList = blockDefinitions.subList(start, end);
+        final int end = Math.min(start + PAGE_SIZE, spellTypes.size());
+        final List<SpellType> blockDefinitionSubList = spellTypes.subList(start, end);
 
         // Back
         menu.replaceExistingItem(GUIDE_BACK, ChestMenuUtils.getBackButton(p, Slimefun.getLocalization().getMessage("guide.back.guide")));
@@ -93,28 +92,28 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
             return false;
         });
 
-        blockDefinitionSubList.sort(Comparator.comparing(definition -> definition.getMaterial().name()));
+        blockDefinitionSubList.sort(Comparator.comparing(spellType -> spellType.getSpell().getId()));
 
         reapplyFooter(p, profile, mode, menu, page, totalPages);
 
         for (int i = 0; i < 36; i++) {
             final int slot = i + 9;
-            // TODO [WalshyBoi] Visible when unlocked or GuideMode == CHEAT
+            // TODO WalshyBoi Visible when unlocked or GuideMode == CHEAT
             if (i + 1 > blockDefinitionSubList.size()) {
                 menu.replaceExistingItem(slot, null);
                 menu.addMenuClickHandler(slot, (player1, i1, itemStack1, clickAction) -> false);
             } else {
-                StoriedBlockDefinition definition = blockDefinitionSubList.get(i);
-                menu.replaceExistingItem(slot, new ItemStack(definition.getMaterial()));
+                SpellType spellType = SpellType.getCachedValues()[i];
+                menu.replaceExistingItem(slot, new ItemStack(spellType.getSpell().getThemedStack()));
                 menu.addMenuClickHandler(slot, (player1, i1, itemStack1, clickAction) -> {
-                    displayDefinition(player1, profile, mode, menu, page, definition);
+                    displayDefinition(player1, profile, mode, menu, page, spellType);
                     return false;
                 });
             }
         }
     }
 
-    private void displayDefinition(@Nonnull Player p, @Nonnull PlayerProfile profile, @Nonnull SlimefunGuideMode mode, @Nonnull ChestMenu menu, int returnPage, @Nonnull StoriedBlockDefinition definition) {
+    private void displayDefinition(@Nonnull Player p, @Nonnull PlayerProfile profile, @Nonnull SlimefunGuideMode mode, @Nonnull ChestMenu menu, int returnPage, @Nonnull SpellType spellType) {
         // Back Button
         menu.replaceExistingItem(GUIDE_BACK, ChestMenuUtils.getBackButton(p, Slimefun.getLocalization().getMessage("guide.back.guide")));
         menu.addMenuClickHandler(GUIDE_BACK, (player1, slot, itemStack, clickAction) -> {
@@ -124,26 +123,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
 
         clearDisplay(menu);
 
-        for (int slot : DIVIDER) {
-            menu.replaceExistingItem(slot, GuiElements.MENU_DIVIDER);
-        }
-        for (int slot : CRYSTAMAE) {
-            menu.replaceExistingItem(slot, ChestMenuUtils.getBackground());
-        }
-        menu.replaceExistingItem(CHRONICLING_SLOT, getPoolsItemStack(definition));
-        menu.replaceExistingItem(TIER_SLOT, getTierItemStack(definition));
-        menu.replaceExistingItem(UNIQUE_SLOT, getUniqueStoryItemStack(definition));
-
-        for (Map.Entry<StoryType, Integer> entry : definition.getUnique().getStoryShardProfile().shardMap.entrySet()) {
-            int amount = entry.getValue();
-            if (amount > 0) {
-                StoryType type = entry.getKey();
-                ItemStack itemStack = CrystamaeHistoria.getStructure().getMaterials().getTypeItemMap().get(type).getItem();
-                itemStack.setAmount(entry.getValue());
-                menu.replaceExistingItem(CRYSTAMAE[type.getId() - 1], itemStack);
-            }
-        }
-
+        // TODO Fill with spell shit
     }
 
     private void clearDisplay(@Nonnull ChestMenu menu) {
@@ -176,49 +156,5 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
             }
             return false;
         });
-    }
-
-    private ItemStack getPoolsItemStack(@Nonnull StoriedBlockDefinition definition) {
-        final List<StoryType> storyTypes = definition.getPools();
-        final List<String> lore = Arrays.stream(new String[]{
-            "When chronicling this item, you",
-            "can draw latent stories from the",
-            "following story pools.",
-            ""
-        }).map(s -> ThemeType.PASSIVE.getColor() + s).collect(Collectors.toList());
-
-        for (StoryType storyType : storyTypes) {
-            lore.add(ThemeType.CLICK_INFO.getColor() + ThemeType.toTitleCase(storyType.toString()));
-        }
-        return new CustomItemStack(
-            Material.DEEPSLATE_BRICK_SLAB,
-            ThemeType.MAIN.getColor() + "Chronicling Results",
-            lore
-        );
-    }
-
-    private ItemStack getUniqueStoryItemStack(@Nonnull StoriedBlockDefinition definition) {
-        return new CustomItemStack(
-            definition.getMaterial(),
-            ThemeType.MAIN.getColor() + definition.getUnique().getId(),
-            definition.getUnique().getStoryLore()
-        );
-    }
-
-    private ItemStack getTierItemStack(@Nonnull StoriedBlockDefinition definition) {
-        switch (definition.getTier().tier) {
-            case 1:
-                return GuiElements.TIER_INDICATOR_1;
-            case 2:
-                return GuiElements.TIER_INDICATOR_2;
-            case 3:
-                return GuiElements.TIER_INDICATOR_3;
-            case 4:
-                return GuiElements.TIER_INDICATOR_4;
-            case 5:
-                return GuiElements.TIER_INDICATOR_5;
-            default:
-                throw new IllegalStateException("Inapplicable tier provided: " + definition.getTier().tier);
-        }
     }
 }
