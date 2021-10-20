@@ -19,7 +19,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -35,6 +34,9 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
     private static final int CHRONICLING_SLOT = 20;
     private static final int TIER_SLOT = 22;
     private static final int UNIQUE_SLOT = 40;
+    private static final int GUIDE_BACK = 1;
+    private static final int PAGE_PREVIOUS = 40;
+    private static final int PAGE_NEXT = 40;
     private static final int[] HEADER = new int[]{
         0, 1, 2, 3, 4, 5, 6, 7, 8
     };
@@ -58,7 +60,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
     }
 
     @Override
-    public void open(Player player, PlayerProfile playerProfile, SlimefunGuideMode guideMode) {
+    public void open(Player p, PlayerProfile profile, SlimefunGuideMode mode) {
         final ChestMenu chestMenu = new ChestMenu(ThemeType.MAIN.getColor() + "Crystamae Magic Compendium");
 
         for (int slot : HEADER) {
@@ -71,19 +73,13 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
 
         chestMenu.setEmptySlotsClickable(false);
 
-        // Back
-        chestMenu.replaceExistingItem(1, ChestMenuUtils.getBackButton(player, Slimefun.getLocalization().getMessage("guide.back.guide")));
-        chestMenu.addMenuClickHandler(1, (player1, slot, itemStack, clickAction) -> {
-            SlimefunGuide.openItemGroup(playerProfile, ItemGroups.MAIN, guideMode, 1);
-            return false;
-        });
 
-        setupPage(chestMenu, player, 1);
+        setupPage(p, profile, mode, chestMenu, 1);
 
-        chestMenu.open(player);
+        chestMenu.open(p);
     }
 
-    private void setupPage(@Nonnull ChestMenu chestMenu, @Nonnull Player player, int page) {
+    private void setupPage(@Nonnull Player p, @Nonnull PlayerProfile profile, @Nonnull SlimefunGuideMode mode, @Nonnull ChestMenu menu, int page) {
         final int numberOfBlocks = CrystamaeHistoria.getStoriesManager().getStoriedBlockDefinitionMap().size();
         final int totalPages = (int) Math.ceil(numberOfBlocks / (double) PAGE_SIZE);
         final List<StoriedBlockDefinition> blockDefinitions = new ArrayList<>(CrystamaeHistoria.getStoriesManager().getStoriedBlockDefinitionMap().values());
@@ -91,47 +87,54 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         final int end = Math.min(start + PAGE_SIZE, blockDefinitions.size());
         final List<StoriedBlockDefinition> blockDefinitionSubList = blockDefinitions.subList(start, end);
 
+        // Back
+        menu.replaceExistingItem(GUIDE_BACK, ChestMenuUtils.getBackButton(p, Slimefun.getLocalization().getMessage("guide.back.guide")));
+        menu.addMenuClickHandler(GUIDE_BACK, (player1, slot, itemStack, clickAction) -> {
+            SlimefunGuide.openItemGroup(profile, ItemGroups.MAIN, mode, 1);
+            return false;
+        });
+
         blockDefinitionSubList.sort(Comparator.comparing(definition -> definition.getMaterial().name()));
 
-        reapplyFooter(chestMenu, player, page, totalPages);
+        reapplyFooter(p, profile, mode, menu, page, totalPages);
 
         for (int i = 0; i < 36; i++) {
             final int slot = i + 9;
-            // TODO Visible when unlocked or GuideMode == CHEAT
+            // TODO WalshyBoi Visible when unlocked or GuideMode == CHEAT
             if (i + 1 > blockDefinitionSubList.size()) {
-                chestMenu.replaceExistingItem(slot, null);
-                chestMenu.addMenuClickHandler(slot, (player1, i1, itemStack1, clickAction) -> false);
+                menu.replaceExistingItem(slot, null);
+                menu.addMenuClickHandler(slot, (player1, i1, itemStack1, clickAction) -> false);
             } else {
                 StoriedBlockDefinition definition = blockDefinitionSubList.get(i);
                 // TODO Open Story Info
-                chestMenu.replaceExistingItem(slot, new ItemStack(definition.getMaterial()));
-                chestMenu.addMenuClickHandler(slot, (player1, i1, itemStack1, clickAction) -> {
-                    displayDefinition(chestMenu, player1, page, definition);
+                menu.replaceExistingItem(slot, new ItemStack(definition.getMaterial()));
+                menu.addMenuClickHandler(slot, (player1, i1, itemStack1, clickAction) -> {
+                    displayDefinition(player1, profile, mode, menu, page, definition);
                     return false;
                 });
             }
         }
     }
 
-    private void displayDefinition(@Nonnull ChestMenu chestMenu, @Nonnull Player player, int returnPage, @Nonnull StoriedBlockDefinition definition) {
+    private void displayDefinition(@Nonnull Player p, @Nonnull PlayerProfile profile, @Nonnull SlimefunGuideMode mode, @Nonnull ChestMenu menu, int returnPage, @Nonnull StoriedBlockDefinition definition) {
         // Back Button
-        chestMenu.replaceExistingItem(1, ChestMenuUtils.getBackButton(player, Slimefun.getLocalization().getMessage("guide.back.guide")));
-        chestMenu.addMenuClickHandler(1, (player1, slot, itemStack, clickAction) -> {
-            setupPage(chestMenu, player1, returnPage);
+        menu.replaceExistingItem(GUIDE_BACK, ChestMenuUtils.getBackButton(p, Slimefun.getLocalization().getMessage("guide.back.guide")));
+        menu.addMenuClickHandler(GUIDE_BACK, (player1, slot, itemStack, clickAction) -> {
+            setupPage(player1, profile, mode, menu, returnPage);
             return false;
         });
 
-        clearDisplay(chestMenu);
+        clearDisplay(menu);
 
         for (int slot : DIVIDER) {
-            chestMenu.replaceExistingItem(slot, GuiElements.MENU_DIVIDER);
+            menu.replaceExistingItem(slot, GuiElements.MENU_DIVIDER);
         }
         for (int slot : CRYSTAMAE) {
-            chestMenu.replaceExistingItem(slot, ChestMenuUtils.getBackground());
+            menu.replaceExistingItem(slot, ChestMenuUtils.getBackground());
         }
-        chestMenu.replaceExistingItem(CHRONICLING_SLOT, getPoolsItemStack(definition));
-        chestMenu.replaceExistingItem(TIER_SLOT, getTierItemStack(definition));
-        chestMenu.replaceExistingItem(UNIQUE_SLOT, getUniqueStoryItemStack(definition));
+        menu.replaceExistingItem(CHRONICLING_SLOT, getPoolsItemStack(definition));
+        menu.replaceExistingItem(TIER_SLOT, getTierItemStack(definition));
+        menu.replaceExistingItem(UNIQUE_SLOT, getUniqueStoryItemStack(definition));
 
         for (Map.Entry<StoryType, Integer> entry : definition.getUnique().getStoryShardProfile().shardMap.entrySet()) {
             int amount = entry.getValue();
@@ -139,45 +142,45 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
                 StoryType type = entry.getKey();
                 ItemStack itemStack = CrystamaeHistoria.getStructure().getMaterials().getTypeItemMap().get(type).getItem().clone();
                 itemStack.setAmount(entry.getValue());
-                chestMenu.replaceExistingItem(CRYSTAMAE[type.getId() - 1], itemStack);
+                menu.replaceExistingItem(CRYSTAMAE[type.getId() - 1], itemStack);
             }
         }
 
     }
 
-    private void clearDisplay(@Nonnull ChestMenu chestMenu) {
+    private void clearDisplay(@Nonnull ChestMenu menu) {
         for (int i = 0; i < 45; i++) {
             final int slot = i + 9;
-            chestMenu.replaceExistingItem(slot, null);
-            chestMenu.addMenuClickHandler(slot, (player1, i1, itemStack1, clickAction) -> false);
+            menu.replaceExistingItem(slot, null);
+            menu.addMenuClickHandler(slot, (player1, i1, itemStack1, clickAction) -> false);
         }
     }
 
-    private void reapplyFooter(@Nonnull ChestMenu chestMenu, @Nonnull Player player, int page, int totalPages) {
-        for (int i = 45; i < 54; i++) {
-            chestMenu.replaceExistingItem(i, ChestMenuUtils.getBackground());
+    private void reapplyFooter(@Nonnull Player p, @Nonnull PlayerProfile profile, SlimefunGuideMode mode, @Nonnull ChestMenu menu, int page, int totalPages) {
+        for (int slot : FOOTER) {
+            menu.replaceExistingItem(slot, ChestMenuUtils.getBackground());
         }
 
-        chestMenu.replaceExistingItem(46, ChestMenuUtils.getPreviousButton(player, page, totalPages));
-        chestMenu.addMenuClickHandler(46, (player1, slot, itemStack, clickAction) -> {
+        menu.replaceExistingItem(PAGE_PREVIOUS, ChestMenuUtils.getPreviousButton(p, page, totalPages));
+        menu.addMenuClickHandler(PAGE_PREVIOUS, (player1, slot, itemStack, clickAction) -> {
             final int previousPage = page - 1;
             if (previousPage != page && previousPage >= 1) {
-                setupPage(chestMenu, player1, previousPage);
+                setupPage(player1, profile, mode, menu, previousPage);
             }
             return false;
         });
 
-        chestMenu.replaceExistingItem(52, ChestMenuUtils.getNextButton(player, page, totalPages));
-        chestMenu.addMenuClickHandler(52, (player1, slot, itemStack, clickAction) -> {
+        menu.replaceExistingItem(PAGE_NEXT, ChestMenuUtils.getNextButton(p, page, totalPages));
+        menu.addMenuClickHandler(PAGE_NEXT, (player1, slot, itemStack, clickAction) -> {
             final int nextPage = page + 1;
             if (nextPage != page && nextPage <= totalPages) {
-                setupPage(chestMenu, player1, nextPage);
+                setupPage(player1, profile, mode, menu, nextPage);
             }
             return false;
         });
     }
 
-    private ItemStack getPoolsItemStack(StoriedBlockDefinition definition) {
+    private ItemStack getPoolsItemStack(@Nonnull StoriedBlockDefinition definition) {
         final List<StoryType> storyTypes = definition.getPools();
         final List<String> lore = new ArrayList<>();
         for (String s : Arrays.asList(
@@ -197,7 +200,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         );
     }
 
-    private ItemStack getUniqueStoryItemStack(StoriedBlockDefinition definition) {
+    private ItemStack getUniqueStoryItemStack(@Nonnull StoriedBlockDefinition definition) {
         return new CustomItemStack(
             definition.getMaterial(),
             ThemeType.MAIN.getColor() + definition.getUnique().getId(),
@@ -205,7 +208,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         );
     }
 
-    private ItemStack getTierItemStack(StoriedBlockDefinition definition) {
+    private ItemStack getTierItemStack(@Nonnull StoriedBlockDefinition definition) {
         switch (definition.getTier().tier) {
             case 1:
                 return GuiElements.TIER_INDICATOR_1;
