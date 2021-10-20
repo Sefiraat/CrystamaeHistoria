@@ -7,7 +7,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 public class FloatingHeadAnimation extends BukkitRunnable {
-    // TODO Replace
     public static final double Y_VARIATION = 0.2;
     public static final long SPEED = 1;
 
