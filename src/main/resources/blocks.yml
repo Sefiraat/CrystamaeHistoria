@@ -264,13 +264,15 @@ blocks:
   - material: ANDESITE
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: Polished
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Often thrown away as dull and boring,
+        - at his block is filled with an epic sadness
+      shards: [ 2,0,1,1,0,0,0,0,0 ]
 
   - material: ANDESITE_SLAB
     tier: 1
@@ -2332,14 +2334,19 @@ blocks:
 
   - material: CRAFTING_TABLE
     tier: 1
+    main_element: HUMAN
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Endless Potential
+      type: HUMAN
       lore:
-        -
-      shards:
+        - This table magically creates items with a
+        - minimal amount of materials. How it works
+        - is still a mystery to this day.
+      shards: [ 0,1,0,0,2,0,1,0,1 ]
+      author: Ryhn12
 
   - material: CREEPER_BANNER_PATTERN
     tier: 1
@@ -3581,13 +3588,14 @@ blocks:
   - material: DIORITE
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Iskall's Finest
+      type: HUMAN
       lore:
-        -
-      shards:
+        - A life of being judged and hated leaves it's mark
+      shards: [ 2,0,1,1,0,0,0,0,0 ]
 
   - material: DIORITE_SLAB
     tier: 1
@@ -4549,13 +4557,15 @@ blocks:
   - material: GRANITE
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Coarse
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - As stone's prettier sibling, Granite is known
+        - for being big-headed and self-absorbed
+      shards: [ 2,0,1,1,0,0,0,0,0 ]
 
   - material: GRANITE_SLAB
     tier: 1
@@ -8036,13 +8046,14 @@ blocks:
   - material: POLISHED_DIORITE
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: Polished
+      type: HUMAN
       lore:
-        -
-      shards:
+        - So you can actually polish a turd?
+      shards: [ 2,0,0,1,2,0,0,0,1 ]
 
   - material: POLISHED_DIORITE_SLAB
     tier: 1
@@ -8067,15 +8078,16 @@ blocks:
       shards:
 
   - material: POLISHED_GRANITE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: Lacquered
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Decorative and pristine, used for the finest of builds
+      shards: [ 2,0,0,1,2,0,0,0,1 ]
 
   - material: POLISHED_GRANITE_SLAB
     tier: 1
@@ -9882,13 +9894,15 @@ blocks:
   - material: STONE
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Resolute
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - Stone is the resolute backbone of the world's
+        - makeup. Ever present and everlasting.
+      shards: [ 2,0,1,1,0,0,0,0,0 ]
 
   - material: STONECUTTER
     tier: 1
@@ -10392,13 +10406,15 @@ blocks:
   - material: TORCH
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Lighting The Way
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Since the earliest days, lighting the way
+        - and protecting from unseen foes.
+      shards: [ 1,1,0,0,1,0,1,0,0 ]
 
   - material: TOTEM_OF_UNDYING
     tier: 1
