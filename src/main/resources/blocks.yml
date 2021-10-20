@@ -5345,7 +5345,7 @@ blocks:
       shards:
 
   - material: IRON_TRAPDOOR
-    tier: 1
+    tier: 2
     elements:
       - HUMAN
       - MECHANICAL

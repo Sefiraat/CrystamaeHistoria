@@ -33,7 +33,6 @@ public class CrystamaeHistoria extends AbstractAddon {
     private ActiveStorage activeStorage;
     private EffectManager effectManager;
 
-
     public CrystamaeHistoria() {
         super("Sefiraat", "CrystamaeHistoria", "master", "auto-update");
     }

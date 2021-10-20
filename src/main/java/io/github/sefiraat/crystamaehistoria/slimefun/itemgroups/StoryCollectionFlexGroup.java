@@ -35,8 +35,8 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
 
     private static final int GUIDE_BACK = 1;
 
-    private static final int PAGE_PREVIOUS = 40;
-    private static final int PAGE_NEXT = 40;
+    private static final int PAGE_PREVIOUS = 46;
+    private static final int PAGE_NEXT = 52;
 
     private static final int[] HEADER = new int[]{
         0, 1, 2, 3, 4, 5, 6, 7, 8
@@ -73,6 +73,10 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
             chestMenu.addItem(slot, ChestMenuUtils.getBackground(), (player1, i1, itemStack, clickAction) -> false);
         }
 
+        for (int slot : FOOTER) {
+            chestMenu.addItem(slot, ChestMenuUtils.getBackground(), (player1, i1, itemStack, clickAction) -> false);
+        }
+
         chestMenu.setEmptySlotsClickable(false);
         setupPage(p, profile, mode, chestMenu, 1);
         chestMenu.open(p);
@@ -86,6 +90,8 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         final int end = Math.min(start + PAGE_SIZE, blockDefinitions.size());
         final List<StoriedBlockDefinition> blockDefinitionSubList = blockDefinitions.subList(start, end);
 
+        reapplyFooter(p, profile, mode, menu, page, totalPages);
+
         // Back
         menu.replaceExistingItem(GUIDE_BACK, ChestMenuUtils.getBackButton(p, Slimefun.getLocalization().getMessage("guide.back.guide")));
         menu.addMenuClickHandler(GUIDE_BACK, (player1, slot, itemStack, clickAction) -> {
@@ -94,8 +100,6 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         });
 
         blockDefinitionSubList.sort(Comparator.comparing(definition -> definition.getMaterial().name()));
-
-        reapplyFooter(p, profile, mode, menu, page, totalPages);
 
         for (int i = 0; i < 36; i++) {
             final int slot = i + 9;
@@ -130,15 +134,21 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         for (int slot : CRYSTAMAE) {
             menu.replaceExistingItem(slot, ChestMenuUtils.getBackground());
         }
+
         menu.replaceExistingItem(CHRONICLING_SLOT, getPoolsItemStack(definition));
+        menu.addMenuClickHandler(CHRONICLING_SLOT, (player, i, itemStack, clickAction) -> false);
+
         menu.replaceExistingItem(TIER_SLOT, getTierItemStack(definition));
+        menu.addMenuClickHandler(TIER_SLOT, (player, i, itemStack, clickAction) -> false);
+
         menu.replaceExistingItem(UNIQUE_SLOT, getUniqueStoryItemStack(definition));
+        menu.addMenuClickHandler(UNIQUE_SLOT, (player, i, itemStack, clickAction) -> false);
 
         for (Map.Entry<StoryType, Integer> entry : definition.getUnique().getStoryShardProfile().shardMap.entrySet()) {
             int amount = entry.getValue();
             if (amount > 0) {
                 StoryType type = entry.getKey();
-                ItemStack itemStack = CrystamaeHistoria.getStructure().getMaterials().getTypeItemMap().get(type).getItem();
+                ItemStack itemStack = CrystamaeHistoria.getStructure().getMaterials().getTypeItemMap().get(type).getItem().clone();
                 itemStack.setAmount(entry.getValue());
                 menu.replaceExistingItem(CRYSTAMAE[type.getId() - 1], itemStack);
             }
@@ -157,6 +167,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
     private void reapplyFooter(@Nonnull Player p, @Nonnull PlayerProfile profile, SlimefunGuideMode mode, @Nonnull ChestMenu menu, int page, int totalPages) {
         for (int slot : FOOTER) {
             menu.replaceExistingItem(slot, ChestMenuUtils.getBackground());
+            menu.addMenuClickHandler(slot, ((player, i, itemStack, clickAction) -> false));
         }
 
         menu.replaceExistingItem(PAGE_PREVIOUS, ChestMenuUtils.getPreviousButton(p, page, totalPages));

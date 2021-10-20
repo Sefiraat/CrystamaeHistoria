@@ -5,6 +5,7 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTick;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +21,8 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.inventory.ItemFlag;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.util.Vector;
@@ -54,18 +57,22 @@ public abstract class Spell {
     public SlimefunItemStack getThemedStack() {
         ChatColor passiveColor = ThemeType.PASSIVE.getColor();
         List<String> finalLore = new ArrayList<>();
-        finalLore.add("");
         for (String s : getLore()) {
             finalLore.add(passiveColor + s);
         }
         finalLore.add("");
         finalLore.add(ThemeType.applyThemeToString(ThemeType.CLICK_INFO, "Spell"));
-        return new SlimefunItemStack(
+        SlimefunItemStack stack = new SlimefunItemStack(
             getId(),
             getMaterial(),
             ThemeType.applyThemeToString(ThemeType.SPELL, ThemeType.toTitleCase(getId())),
             finalLore.toArray(new String[finalLore.size() - 1])
         );
+        ItemMeta itemMeta = stack.getItemMeta();
+        itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        itemMeta.addItemFlags(ItemFlag.HIDE_POTION_EFFECTS);
+        stack.setItemMeta(itemMeta);
+        return stack;
     }
 
     @ParametersAreNonnullByDefault
