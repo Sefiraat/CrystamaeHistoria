@@ -19,6 +19,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
@@ -34,10 +35,16 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
     private static final int CHRONICLING_SLOT = 20;
     private static final int TIER_SLOT = 22;
     private static final int UNIQUE_SLOT = 40;
-    private static final int[] DIVIDER_SLOTS = new int[]{
+    private static final int[] HEADER = new int[]{
+        0, 1, 2, 3, 4, 5, 6, 7, 8
+    };
+    private static final int[] FOOTER = new int[]{
+        45, 46, 47, 48, 49, 50, 51, 52, 53
+    };
+    private static final int[] DIVIDER = new int[]{
         36, 37, 38, 39, 41, 42, 43, 44
     };
-    private static final int[] CRYSTAMAE_SLOTS = new int[]{
+    private static final int[] CRYSTAMAE = new int[]{
         45, 46, 47, 48, 49, 50, 51, 52, 53
     };
 
@@ -52,17 +59,14 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
 
     @Override
     public void open(Player player, PlayerProfile playerProfile, SlimefunGuideMode guideMode) {
-        final int numberOfBlocks = CrystamaeHistoria.getStoriesManager().getStoriedBlockDefinitionMap().size();
-        final int totalPages = (int) Math.ceil(numberOfBlocks / (double) PAGE_SIZE);
         final ChestMenu chestMenu = new ChestMenu(ThemeType.MAIN.getColor() + "Crystamae Magic Compendium");
 
-        // Top
-        for (int i = 0; i < 9; i++) {
-            chestMenu.addItem(i, ChestMenuUtils.getBackground(), (player1, i1, itemStack, clickAction) -> false);
+        for (int slot : HEADER) {
+            chestMenu.addItem(slot, ChestMenuUtils.getBackground(), (player1, i1, itemStack, clickAction) -> false);
         }
-        // Bottom
-        for (int i = 45; i < 54; i++) {
-            chestMenu.addItem(i, ChestMenuUtils.getBackground(), (player1, i1, itemStack, clickAction) -> false);
+
+        for (int slot : FOOTER) {
+            chestMenu.addItem(slot, ChestMenuUtils.getBackground(), (player1, i1, itemStack, clickAction) -> false);
         }
 
         chestMenu.setEmptySlotsClickable(false);
@@ -119,13 +123,14 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
 
         clearDisplay(chestMenu);
 
-        for (int slot : DIVIDER_SLOTS) {
+        for (int slot : DIVIDER) {
             chestMenu.replaceExistingItem(slot, GuiElements.MENU_DIVIDER);
         }
-        for (int slot : CRYSTAMAE_SLOTS) {
+        for (int slot : CRYSTAMAE) {
             chestMenu.replaceExistingItem(slot, ChestMenuUtils.getBackground());
         }
         chestMenu.replaceExistingItem(CHRONICLING_SLOT, getPoolsItemStack(definition));
+        chestMenu.replaceExistingItem(TIER_SLOT, getTierItemStack(definition));
         chestMenu.replaceExistingItem(UNIQUE_SLOT, getUniqueStoryItemStack(definition));
 
         for (Map.Entry<StoryType, Integer> entry : definition.getUnique().getStoryShardProfile().shardMap.entrySet()) {
@@ -134,7 +139,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
                 StoryType type = entry.getKey();
                 ItemStack itemStack = CrystamaeHistoria.getStructure().getMaterials().getTypeItemMap().get(type).getItem().clone();
                 itemStack.setAmount(entry.getValue());
-                chestMenu.replaceExistingItem(CRYSTAMAE_SLOTS[type.getId() - 1], itemStack);
+                chestMenu.replaceExistingItem(CRYSTAMAE[type.getId() - 1], itemStack);
             }
         }
 
@@ -198,5 +203,22 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
             ThemeType.MAIN.getColor() + definition.getUnique().getId(),
             definition.getUnique().getStoryLore()
         );
+    }
+
+    private ItemStack getTierItemStack(StoriedBlockDefinition definition) {
+        switch (definition.getTier().tier) {
+            case 1:
+                return GuiElements.TIER_INDICATOR_1;
+            case 2:
+                return GuiElements.TIER_INDICATOR_2;
+            case 3:
+                return GuiElements.TIER_INDICATOR_3;
+            case 4:
+                return GuiElements.TIER_INDICATOR_4;
+            case 5:
+                return GuiElements.TIER_INDICATOR_5;
+            default:
+                throw new IllegalStateException("Inapplicable tier provided: " + definition.getTier().tier);
+        }
     }
 }
