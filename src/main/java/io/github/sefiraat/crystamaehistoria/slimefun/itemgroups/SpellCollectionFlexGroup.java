@@ -204,16 +204,19 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
     }
 
     private ItemStack getMechanismStack() {
-        final List<String> lore = Arrays.stream(new String[]{
-            "Spells are created by combining",
-            "liquid crystamae in a Liquefaction",
-            "Basin.",
-            "The highest 3 amounts of liquid",
-            "determine the spell created (left).",
-            "",
-            "Throw in a Spell Plate when ready",
-            "to create your spell."
-        }).map(s -> ThemeType.PASSIVE.getColor() + s).collect(Collectors.toList());
+        final List<String> lore = Arrays.stream(
+            new String[]{
+                "Spells are created by combining",
+                "liquid crystamae in a Liquefaction",
+                "Basin.",
+                "The highest 3 amounts of liquid",
+                "determine the spell created (left).",
+                "",
+                "Throw in a Spell Plate when ready",
+                "to create your spell."
+            }
+            ).map(s -> ThemeType.PASSIVE.getColor() + s)
+            .collect(Collectors.toList());
 
         return new CustomItemStack(
             Material.CAULDRON,

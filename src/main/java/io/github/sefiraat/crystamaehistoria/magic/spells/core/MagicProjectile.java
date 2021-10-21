@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.magic.wrappers;
+package io.github.sefiraat.crystamaehistoria.magic.spells.core;
 
 import lombok.Getter;
 import org.bukkit.Bukkit;
