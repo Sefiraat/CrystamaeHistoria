@@ -42,7 +42,7 @@ public class Push extends Spell {
         double range = getRange(castInformation);
         for (Entity entity : castLocation.getWorld().getNearbyEntities(castLocation, range, 2, range)) {
             if (entity instanceof LivingEntity && entity.getUniqueId() != castInformation.getCaster()) {
-                pushEntity(castLocation, entity, amount);
+                pushEntity(castInformation.getCaster(), castLocation, entity, amount);
                 displayParticleEffect(entity, Particle.CRIT, 1, 10);
             }
         }

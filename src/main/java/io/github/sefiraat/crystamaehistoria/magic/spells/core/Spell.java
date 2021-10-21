@@ -6,13 +6,16 @@ import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTick;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import lombok.Getter;
 import lombok.Setter;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.Particle;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
@@ -190,20 +193,23 @@ public abstract class Spell {
     }
 
     @ParametersAreNonnullByDefault
-    protected void pullEntity(Location loc, Entity pushed, double force) {
+    protected void pullEntity(UUID caster, Location loc, Entity pushed, double force) {
         Vector vector = pushed.getLocation().toVector().subtract(loc.toVector()).normalize().multiply(-force);
-        pushEntity(vector, pushed);
+        pushEntity(caster, loc, vector, pushed);
     }
 
     @ParametersAreNonnullByDefault
-    protected void pushEntity(Location loc, Entity pushed, double force) {
+    protected void pushEntity(UUID caster, Location loc, Entity pushed, double force) {
         Vector vector = pushed.getLocation().toVector().subtract(loc.toVector()).normalize().multiply(force);
-        pushEntity(vector, pushed);
+        pushEntity(caster, loc, vector, pushed);
     }
 
     @ParametersAreNonnullByDefault
-    protected void pushEntity(Vector vector, Entity pushed) {
-        pushed.setVelocity(vector);
+    protected void pushEntity(UUID caster, Location loc, Vector vector, Entity pushed) {
+        Interaction interaction = pushed instanceof Player ? Interaction.ATTACK_PLAYER : Interaction.INTERACT_ENTITY;
+        if (hasPermission(caster, loc, interaction)) {
+            pushed.setVelocity(vector);
+        }
     }
 
     @ParametersAreNonnullByDefault
@@ -213,10 +219,14 @@ public abstract class Spell {
 
     @ParametersAreNonnullByDefault
     protected void damageEntity(LivingEntity livingEntity, UUID caster, double damage, @Nullable Location knockbackOrigin, double knockbackForce) {
-        Player player = Bukkit.getPlayer(caster);
-        livingEntity.damage(damage, player);
+        Interaction interaction = livingEntity instanceof Player ? Interaction.ATTACK_PLAYER : Interaction.ATTACK_ENTITY;
+        if (hasPermission(caster, livingEntity.getLocation(), interaction)) {
+            Player player = Bukkit.getPlayer(caster);
+            livingEntity.damage(damage, player);
+        }
+
         if (knockbackOrigin != null && knockbackForce > 0) {
-            pushEntity(knockbackOrigin, livingEntity, knockbackForce);
+            pushEntity(caster, knockbackOrigin, livingEntity, knockbackForce);
         }
     }
 
@@ -338,6 +348,11 @@ public abstract class Spell {
             }
         }
         return livingEntities;
+    }
+
+    protected boolean hasPermission(UUID player, Location location, Interaction interaction) {
+        OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(player);
+        return Slimefun.getProtectionManager().hasPermission(offlinePlayer, location, interaction);
     }
 
 }
