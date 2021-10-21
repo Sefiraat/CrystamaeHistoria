@@ -19,6 +19,7 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.Particle;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
+import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -348,6 +349,18 @@ public abstract class Spell {
             }
         }
         return livingEntities;
+    }
+
+    protected boolean hasPermission(Player player, Block block, Interaction interaction) {
+        return hasPermission(player.getUniqueId(), block.getLocation(), interaction);
+    }
+
+    protected boolean hasPermission(Player player, Location location, Interaction interaction) {
+        return hasPermission(player.getUniqueId(), location, interaction);
+    }
+
+    protected boolean hasPermission(UUID player, Block block, Interaction interaction) {
+        return hasPermission(player, block.getLocation(), interaction);
     }
 
     protected boolean hasPermission(UUID player, Location location, Interaction interaction) {

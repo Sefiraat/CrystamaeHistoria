@@ -1,5 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.magic;
 
+import io.github.sefiraat.crystamaehistoria.magic.spells.Break;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Bright;
 import io.github.sefiraat.crystamaehistoria.magic.spells.CallLightning;
 import io.github.sefiraat.crystamaehistoria.magic.spells.EtherealFlow;
@@ -49,7 +50,8 @@ public enum SpellType {
     SHROUD("SHROUD", new Shroud()),
     PUSH("PUSH", new Push()),
     VACUUM("VACUUM", new Vacuum()),
-    KNOWLEDGE_SHARE("KNOWLEDGE_SHARE", new KnowledgeShare());
+    KNOWLEDGE_SHARE("KNOWLEDGE_SHARE", new KnowledgeShare()),
+    BREAK("BREAK", new Break());
 
     @Getter
     protected static final SpellType[] cachedValues = values();
