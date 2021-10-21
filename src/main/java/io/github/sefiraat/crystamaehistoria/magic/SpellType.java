@@ -32,48 +32,49 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public enum SpellType {
 
     // Tier 1 Plate Recipes
-    LIGHTNING_CALL("LIGHTNING_CALL", new CallLightning()),
-    FAN_OF_ARROWS("FAN_OF_ARROWS", new FanOfArrows()),
-    FIREBALL("FIREBALL", new Fireball()),
-    POISON_NOVA("POISON_NOVA", new PoisonNova()),
-    RAIN_OF_FIRE("RAIN_OF_FIRE", new RainOfFire()),
-    TELEPORT("TELEPORT", new Teleport()),
-    TEMPEST("TEMPEST", new Tempest()),
-    FIRE_NOVA("FIRE_NOVA", new FireNova()),
-    QUAKE("QUAKE", new Quake()),
-    BRIGHT("BRIGHT", new Bright()),
-    SQUALL("SQUALL", new Squall()),
-    ETHEREAL_FLOW("ETHEREAL_FLOW", new EtherealFlow()),
-    HEAL("HEAL", new Heal()),
-    HEALING_MIST("HEALING_MIST", new HealingMist()),
-    LOVE_POTION("LOVE_POTION", new LovePotion()),
-    SHROUD("SHROUD", new Shroud()),
-    PUSH("PUSH", new Push()),
-    VACUUM("VACUUM", new Vacuum()),
-    KNOWLEDGE_SHARE("KNOWLEDGE_SHARE", new KnowledgeShare()),
-    BREAK("BREAK", new Break());
+    LIGHTNING_CALL(new CallLightning()),
+    FAN_OF_ARROWS(new FanOfArrows()),
+    FIREBALL(new Fireball()),
+    POISON_NOVA(new PoisonNova()),
+    RAIN_OF_FIRE(new RainOfFire()),
+    TELEPORT(new Teleport()),
+    TEMPEST(new Tempest()),
+    FIRE_NOVA(new FireNova()),
+    QUAKE(new Quake()),
+    BRIGHT(new Bright()),
+    SQUALL(new Squall()),
+    ETHEREAL_FLOW(new EtherealFlow()),
+    HEAL(new Heal()),
+    HEALING_MIST(new HealingMist()),
+    LOVE_POTION(new LovePotion()),
+    SHROUD(new Shroud()),
+    PUSH(new Push()),
+    VACUUM(new Vacuum()),
+    KNOWLEDGE_SHARE(new KnowledgeShare()),
+    BREAK(new Break());
 
     @Getter
     protected static final SpellType[] cachedValues = values();
-
-    @Getter
-    private final String id;
     @Getter
     private final Spell spell;
 
     @ParametersAreNonnullByDefault
-    SpellType(String id, Spell spell) {
-        this.id = id;
+    SpellType(Spell spell) {
         this.spell = spell;
         LiquefactionBasinCache.addSpellRecipe(this, spell.getRecipe());
+    }
+
+    @Nonnull
+    public String getId() {
+        return spell.getId();
     }
 
     @Nullable
     @ParametersAreNonnullByDefault
     public static Spell getById(String id) {
-        for (SpellType spell : getCachedValues()) {
-            if (spell.id.equals(id)) {
-                return spell.spell;
+        for (SpellType spellType : getCachedValues()) {
+            if (spellType.getId().equals(id)) {
+                return spellType.spell;
             }
         }
         return null;
