@@ -39,11 +39,11 @@ public class SpellCoreBuilder {
     @Getter
     private int tickInterval;
     @Getter
-    private boolean cooldownMultiplied;
+    private boolean cooldownDivided;
     @Getter
     private boolean rangeMultiplied;
     @Getter
-    private boolean durabilityMultiplied;
+    private boolean crystaDivided;
     @Getter
     private boolean damageMultiplied;
     @Getter
@@ -85,13 +85,13 @@ public class SpellCoreBuilder {
     @Getter
     private boolean isHealingSpell;
 
-    public SpellCoreBuilder(int cooldown, boolean cooldownMultiplied, double range, boolean rangeMultiplied, int crystaCost, boolean durabilityMultiplied) {
+    public SpellCoreBuilder(int cooldown, boolean cooldownDivided, double range, boolean rangeMultiplied, int crystaCost, boolean crystaDivided) {
         this.cooldown = cooldown;
-        this.cooldownMultiplied = cooldownMultiplied;
+        this.cooldownDivided = cooldownDivided;
         this.range = range;
         this.rangeMultiplied = rangeMultiplied;
         this.crystaCost = crystaCost;
-        this.durabilityMultiplied = durabilityMultiplied;
+        this.crystaDivided = crystaDivided;
     }
 
     @Nonnull

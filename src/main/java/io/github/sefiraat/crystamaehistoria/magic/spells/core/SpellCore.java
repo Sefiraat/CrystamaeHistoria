@@ -96,9 +96,9 @@ public class SpellCore {
         this.projectileKnockbackAmount = spellCoreBuilder.getProjectileKnockbackAmount();
         this.numberOfTicks = spellCoreBuilder.getNumberOfTicks();
         this.tickInterval = spellCoreBuilder.getTickInterval();
-        this.cooldownMultiplied = spellCoreBuilder.isCooldownMultiplied();
+        this.cooldownMultiplied = spellCoreBuilder.isCooldownDivided();
         this.rangeMultiplied = spellCoreBuilder.isRangeMultiplied();
-        this.crystaMultiplied = spellCoreBuilder.isDurabilityMultiplied();
+        this.crystaMultiplied = spellCoreBuilder.isCrystaDivided();
         this.damageMultiplied = spellCoreBuilder.isDamageMultiplied();
         this.knockbackMultiplied = spellCoreBuilder.isKnockbackMultiplied();
         this.healMultiplied = spellCoreBuilder.isHealMultiplied();
