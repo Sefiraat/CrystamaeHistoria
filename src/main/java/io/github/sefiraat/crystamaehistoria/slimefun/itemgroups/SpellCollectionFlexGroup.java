@@ -138,7 +138,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
 
         for (int i = 0; i < RECIPE.length; i++) {
             int slot = RECIPE[i];
-            StoryType storyType = spellType.getSpellRecipe().getStoryTypes().get(i);
+            StoryType storyType = spellType.getSpell().getRecipe().getInput(i);
             ItemStack stack = CrystamaeHistoria.getStructure().getMaterials().getTypeItemMap().get(storyType).getItem();
             menu.replaceExistingItem(slot, stack);
             menu.addMenuClickHandler(slot, ((player, slot2, itemStack, clickAction) -> false));

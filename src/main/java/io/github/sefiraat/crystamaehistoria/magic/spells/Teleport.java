@@ -4,12 +4,15 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
+import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -82,5 +85,16 @@ public class Teleport extends Spell {
     @Override
     public Material getMaterial() {
         return Material.ENDER_PEARL;
+    }
+
+    @NotNull
+    @Override
+    public SpellRecipe getRecipe() {
+        return new SpellRecipe(
+            Materials.INERT_PLATE_T_1,
+            StoryType.ELEMENTAL,
+            StoryType.HISTORICAL,
+            StoryType.VOID
+        );
     }
 }

@@ -3,12 +3,15 @@ package io.github.sefiraat.crystamaehistoria.magic.spells;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
+import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -50,5 +53,16 @@ public class Bright extends Spell {
     @Override
     public Material getMaterial() {
         return Material.SUNFLOWER;
+    }
+
+    @NotNull
+    @Override
+    public SpellRecipe getRecipe() {
+        return new SpellRecipe(
+            Materials.INERT_PLATE_T_1,
+            StoryType.ALCHEMICAL,
+            StoryType.HISTORICAL,
+            StoryType.CELESTIAL
+        );
     }
 }

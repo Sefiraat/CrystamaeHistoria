@@ -1,12 +1,16 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells;
 
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
+import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -65,5 +69,16 @@ public class FanOfArrows extends Spell {
     @Override
     public Material getMaterial() {
         return Material.SPECTRAL_ARROW;
+    }
+
+    @NotNull
+    @Override
+    public SpellRecipe getRecipe() {
+        return new SpellRecipe(
+            Materials.INERT_PLATE_T_1,
+            StoryType.MECHANICAL,
+            StoryType.HISTORICAL,
+            StoryType.HUMAN
+        );
     }
 }

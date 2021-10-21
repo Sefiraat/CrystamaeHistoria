@@ -3,11 +3,14 @@ package io.github.sefiraat.crystamaehistoria.magic.spells;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
+import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.LightningStrike;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -80,5 +83,16 @@ public class Tempest extends Spell {
     @Override
     public Material getMaterial() {
         return Material.END_ROD;
+    }
+
+    @NotNull
+    @Override
+    public SpellRecipe getRecipe() {
+        return new SpellRecipe(
+            Materials.INERT_PLATE_T_1,
+            StoryType.ELEMENTAL,
+            StoryType.MECHANICAL,
+            StoryType.CELESTIAL
+        );
     }
 }

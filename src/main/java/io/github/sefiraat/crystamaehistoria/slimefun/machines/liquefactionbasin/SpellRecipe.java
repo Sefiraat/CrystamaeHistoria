@@ -8,7 +8,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
-@Getter
 public class SpellRecipe {
 
     private final SlimefunItem catalyst;
@@ -21,6 +20,14 @@ public class SpellRecipe {
 
     public boolean recipeMatches(Set<StoryType> testTypes, SlimefunItem testCatalyst) {
         return storyTypes.containsAll(testTypes) && catalyst.getId().equals(testCatalyst.getId());
+    }
+
+    public SlimefunItem getCatalyst() {
+        return catalyst;
+    }
+
+    public StoryType getInput(int index) {
+        return storyTypes.get(index);
     }
 
 }

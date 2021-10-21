@@ -3,15 +3,16 @@ package io.github.sefiraat.crystamaehistoria.magic.spells;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import org.bukkit.Color;
+import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Animals;
 import org.bukkit.entity.Breedable;
 import org.bukkit.entity.Entity;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.PotionMeta;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -55,5 +56,16 @@ public class LovePotion extends Spell {
     @Override
     public Material getMaterial() {
         return Material.POTION;
+    }
+
+    @NotNull
+    @Override
+    public SpellRecipe getRecipe() {
+        return new SpellRecipe(
+            Materials.INERT_PLATE_T_1,
+            StoryType.ALCHEMICAL,
+            StoryType.ANIMAL,
+            StoryType.CELESTIAL
+        );
     }
 }
