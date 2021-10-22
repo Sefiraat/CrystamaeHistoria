@@ -5,8 +5,8 @@ import io.github.mooy1.infinitylib.core.AbstractAddon;
 import io.github.sefiraat.crystamaehistoria.commands.TestSpell;
 import io.github.sefiraat.crystamaehistoria.config.ConfigManager;
 import io.github.sefiraat.crystamaehistoria.listeners.ListenerManager;
-import io.github.sefiraat.crystamaehistoria.magic.ActiveStorage;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
+import io.github.sefiraat.crystamaehistoria.runnables.RunnableManager;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTick;
 import io.github.sefiraat.crystamaehistoria.slimefun.Structure;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
@@ -30,6 +30,7 @@ public class CrystamaeHistoria extends AbstractAddon {
     private ConfigManager configManager;
     private StoriesManager storiesManager;
     private ListenerManager listenerManager;
+    private RunnableManager runnableManager;
     private ActiveStorage activeStorage;
     private EffectManager effectManager;
 
@@ -51,6 +52,10 @@ public class CrystamaeHistoria extends AbstractAddon {
 
     public static ListenerManager getListenerManager() {
         return instance.listenerManager;
+    }
+
+    public static RunnableManager getRunnableManager() {
+        return instance.runnableManager;
     }
 
     public static StoriesManager getStoriesManager() {
@@ -90,6 +95,7 @@ public class CrystamaeHistoria extends AbstractAddon {
         this.configManager = new ConfigManager();
         this.storiesManager = new StoriesManager();
         this.listenerManager = new ListenerManager();
+        this.runnableManager = new RunnableManager();
         this.activeStorage = new ActiveStorage();
         this.effectManager = new EffectManager(this);
 

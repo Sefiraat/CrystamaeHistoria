@@ -1,5 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.magic;
 
+import io.github.sefiraat.crystamaehistoria.magic.spells.AncientDefence;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Break;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Bright;
 import io.github.sefiraat.crystamaehistoria.magic.spells.CallLightning;
@@ -22,7 +23,6 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.Tempest;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Vacuum;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.LiquefactionBasinCache;
-import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import lombok.Getter;
 
 import javax.annotation.Nonnull;
@@ -51,7 +51,8 @@ public enum SpellType {
     PUSH(new Push()),
     VACUUM(new Vacuum()),
     KNOWLEDGE_SHARE(new KnowledgeShare()),
-    BREAK(new Break());
+    BREAK(new Break()),
+    ANCIENT_DEFENCE(new AncientDefence());
 
     @Getter
     protected static final SpellType[] cachedValues = values();
