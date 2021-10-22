@@ -11,7 +11,7 @@ public class ListenerManager {
         addListener(new PlayerInteract());
         addListener(new SpellEffectListener());
         addListener(new CrystalBreakListener());
-        addListener(new BlockBreak());
+        addListener(new RemovalBlocksListener());
     }
 
     private void addListener(Listener listener) {

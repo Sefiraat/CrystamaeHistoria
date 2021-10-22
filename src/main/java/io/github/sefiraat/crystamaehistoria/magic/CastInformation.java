@@ -2,6 +2,7 @@ package io.github.sefiraat.crystamaehistoria.magic;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -43,6 +44,10 @@ public class CastInformation {
         this.caster = caster.getUniqueId();
         this.staveLevel = staveLevel;
         this.castLocation = caster.getLocation().clone();
+    }
+
+    public Player getCasterAsPlayer() {
+        return Bukkit.getPlayer(this.caster);
     }
 
     public void runPreAffectEvent() {

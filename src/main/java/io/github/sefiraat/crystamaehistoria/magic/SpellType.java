@@ -11,6 +11,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.Fireball;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Heal;
 import io.github.sefiraat.crystamaehistoria.magic.spells.HealingMist;
 import io.github.sefiraat.crystamaehistoria.magic.spells.KnowledgeShare;
+import io.github.sefiraat.crystamaehistoria.magic.spells.LavaLake;
 import io.github.sefiraat.crystamaehistoria.magic.spells.LovePotion;
 import io.github.sefiraat.crystamaehistoria.magic.spells.PoisonNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Push;
@@ -52,7 +53,8 @@ public enum SpellType {
     VACUUM(new Vacuum()),
     KNOWLEDGE_SHARE(new KnowledgeShare()),
     BREAK(new Break()),
-    ANCIENT_DEFENCE(new AncientDefence());
+    ANCIENT_DEFENCE(new AncientDefence()),
+    LAVA_LAKE(new LavaLake());
 
     @Getter
     protected static final SpellType[] cachedValues = values();
