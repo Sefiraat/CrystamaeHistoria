@@ -37,7 +37,9 @@ public class Story {
     @Nullable
     private BlockPosition blockPosition;
 
-    /** @noinspection unchecked*/
+    /**
+     * @noinspection unchecked
+     */
     @ParametersAreNonnullByDefault
     public Story(Map<String, Object> map, StoryRarity storyRarity) {
         this.rarity = storyRarity;

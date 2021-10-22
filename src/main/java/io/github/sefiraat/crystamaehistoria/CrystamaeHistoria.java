@@ -83,6 +83,19 @@ public class CrystamaeHistoria extends AbstractAddon {
         return instance.activeStorage.getProjectileMap();
     }
 
+    @Nonnull
+    @ParametersAreNonnullByDefault
+    public static CastInformation getSpellCastInfo(UUID uuid) {
+        CastInformation castInformation = getProjectileMap().get(uuid).getFirstValue();
+        Validate.notNull(castInformation, "Cast information is null, magical projectile spawned incorrectly.");
+        return castInformation;
+    }
+
+    @Nonnull
+    public static Map<SpellTick, Integer> getTickingMap() {
+        return instance.activeStorage.getTickingCastables();
+    }
+
     @Override
     public void enable() {
         instance = this;
@@ -111,18 +124,5 @@ public class CrystamaeHistoria extends AbstractAddon {
         activeStorage.clearAll();
         saveConfig();
         instance = null;
-    }
-
-    @Nonnull
-    @ParametersAreNonnullByDefault
-    public static CastInformation getSpellCastInfo(UUID uuid) {
-        CastInformation castInformation = getProjectileMap().get(uuid).getFirstValue();
-        Validate.notNull(castInformation, "Cast information is null, magical projectile spawned incorrectly.");
-        return castInformation;
-    }
-
-    @Nonnull
-    public static Map<SpellTick, Integer> getTickingMap() {
-        return instance.activeStorage.getTickingCastables();
     }
 }

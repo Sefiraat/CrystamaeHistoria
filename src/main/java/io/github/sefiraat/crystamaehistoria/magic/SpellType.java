@@ -67,11 +67,6 @@ public enum SpellType {
         LiquefactionBasinCache.addSpellRecipe(this, spell.getRecipe());
     }
 
-    @Nonnull
-    public String getId() {
-        return spell.getId();
-    }
-
     @Nullable
     @ParametersAreNonnullByDefault
     public static Spell getById(String id) {
@@ -81,6 +76,11 @@ public enum SpellType {
             }
         }
         return null;
+    }
+
+    @Nonnull
+    public String getId() {
+        return spell.getId();
     }
 
     @Nonnull

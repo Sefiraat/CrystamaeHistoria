@@ -215,7 +215,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
                 "Throw in a Spell Plate when ready",
                 "to create your spell."
             }
-            ).map(s -> ThemeType.PASSIVE.getColor() + s)
+        ).map(s -> ThemeType.PASSIVE.getColor() + s)
             .collect(Collectors.toList());
 
         return new CustomItemStack(

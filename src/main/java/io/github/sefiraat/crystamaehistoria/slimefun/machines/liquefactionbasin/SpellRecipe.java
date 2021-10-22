@@ -2,7 +2,6 @@ package io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin
 
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import lombok.Getter;
 
 import java.util.Arrays;
 import java.util.List;

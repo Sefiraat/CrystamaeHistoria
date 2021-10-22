@@ -1,7 +1,5 @@
 package io.github.sefiraat.crystamaehistoria.utils.theme;
 
-import io.github.sefiraat.crystamaehistoria.magic.SpellType;
-import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -97,18 +95,18 @@ public enum ThemeType {
     ThemeType(ChatColor color, String loreLine) {
         this(color, loreLine, null);
     }
-    
+
     ThemeType(ChatColor color, String loreLine, @Nullable Particle.DustOptions dustOptions) {
         this.color = color;
         this.loreLine = loreLine;
         this.dustOptions = dustOptions;
     }
-    
+
     /**
      * Applies the theme color to a given string
      *
      * @param themeType The {@link ThemeType} to apply the color from
-     * @param string The string to apply the color to
+     * @param string    The string to apply the color to
      * @return Returns the string provides preceded by the color
      */
     @Nonnull
@@ -120,11 +118,11 @@ public enum ThemeType {
     /**
      * Gets a SlimefunItemStack with a pre-populated lore and name with themed colors.
      *
-     * @param id   The ID for the new {@link SlimefunItemStack}
-     * @param itemStack    The vanilla {@link ItemStack} used to base the {@link SlimefunItemStack} on
-     * @param themeType    The {@link ThemeType} {@link ChatColor} to apply to the {@link SlimefunItemStack} name
-     * @param name The name to apply to the {@link SlimefunItemStack}
-     * @param lore The lore lines for the {@link SlimefunItemStack}. Lore is book-ended with empty strings.
+     * @param id        The ID for the new {@link SlimefunItemStack}
+     * @param itemStack The vanilla {@link ItemStack} used to base the {@link SlimefunItemStack} on
+     * @param themeType The {@link ThemeType} {@link ChatColor} to apply to the {@link SlimefunItemStack} name
+     * @param name      The name to apply to the {@link SlimefunItemStack}
+     * @param lore      The lore lines for the {@link SlimefunItemStack}. Lore is book-ended with empty strings.
      * @return Returns the new {@link SlimefunItemStack}
      */
     @Nonnull

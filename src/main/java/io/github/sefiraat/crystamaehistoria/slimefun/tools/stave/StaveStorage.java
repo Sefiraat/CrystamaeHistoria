@@ -1,6 +1,5 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.tools.stave;
 
-import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.CastResult;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.PlateStorage;
@@ -38,19 +37,6 @@ public class StaveStorage {
         }
     }
 
-    public void setSlot(SpellSlot spellSlot, PlateStorage plateStorage) {
-        spellInstanceMap.put(spellSlot, plateStorage);
-    }
-
-    public CastResult tryCastSpell(SpellSlot slot, CastInformation castInformation) {
-        PlateStorage plateStorage = spellInstanceMap.get(slot);
-        if (plateStorage != null) {
-            return plateStorage.tryCastSpell(castInformation);
-        } else {
-            return CastResult.CAST_FAIL_SLOT_EMPTY;
-        }
-    }
-
     public static void setStaveLore(ItemStack itemStack, StaveStorage staveStorage) {
         final String[] lore = new String[]{
             "A stave with the ability to hold",
@@ -79,5 +65,18 @@ public class StaveStorage {
         final ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setLore(finalLore);
         itemStack.setItemMeta(itemMeta);
+    }
+
+    public void setSlot(SpellSlot spellSlot, PlateStorage plateStorage) {
+        spellInstanceMap.put(spellSlot, plateStorage);
+    }
+
+    public CastResult tryCastSpell(SpellSlot slot, CastInformation castInformation) {
+        PlateStorage plateStorage = spellInstanceMap.get(slot);
+        if (plateStorage != null) {
+            return plateStorage.tryCastSpell(castInformation);
+        } else {
+            return CastResult.CAST_FAIL_SLOT_EMPTY;
+        }
     }
 }

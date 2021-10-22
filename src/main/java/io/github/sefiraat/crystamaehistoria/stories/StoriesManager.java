@@ -48,6 +48,29 @@ public class StoriesManager {
         fillBlockDefinitions();
     }
 
+    @ParametersAreNonnullByDefault
+    public static void rebuildStoriedStack(ItemStack itemStack) {
+        ItemMeta im = itemStack.getItemMeta();
+        setName(itemStack, im);
+        List<String> lore = new ArrayList<>();
+        List<Story> storyList = StoryUtils.getAllStories(itemStack);
+        for (Story story : storyList) {
+            lore.add("");
+            lore.add(story.getDisplayName());
+            lore.addAll(story.getStoryLore());
+        }
+        im.setLore(lore);
+        itemStack.setItemMeta(im);
+    }
+
+    @ParametersAreNonnullByDefault
+    private static void setName(ItemStack itemStack, ItemMeta im) {
+        TextComponent name = new TextComponent("Storied " + ThemeType.toTitleCase(itemStack.getType().toString()));
+        name.setColor(ThemeType.MAIN.getColor());
+        name.setBold(true);
+        im.setDisplayName(name.toLegacyText());
+    }
+
     private void fillBlockTierMap() {
         blockTierMap.put(
             1,
@@ -131,7 +154,9 @@ public class StoriesManager {
         );
     }
 
-    /** @noinspection unchecked*/
+    /**
+     * @noinspection unchecked
+     */
     private void fillStories() {
         FileConfiguration stories = CrystamaeHistoria.getConfigManager().getStories();
 
@@ -164,7 +189,9 @@ public class StoriesManager {
         }
     }
 
-    /** @noinspection unchecked*/
+    /**
+     * @noinspection unchecked
+     */
     private void fillBlockDefinitions() {
         final FileConfiguration blocks = CrystamaeHistoria.getConfigManager().getBlocks();
         final List<Map<String, Object>> blockList = (List<Map<String, Object>>) blocks.getList("blocks");
@@ -211,28 +238,5 @@ public class StoriesManager {
             default:
                 throw new IllegalStateException("Unexpected value: " + storyRarity);
         }
-    }
-
-    @ParametersAreNonnullByDefault
-    public static void rebuildStoriedStack(ItemStack itemStack) {
-        ItemMeta im = itemStack.getItemMeta();
-        setName(itemStack, im);
-        List<String> lore = new ArrayList<>();
-        List<Story> storyList = StoryUtils.getAllStories(itemStack);
-        for (Story story : storyList) {
-            lore.add("");
-            lore.add(story.getDisplayName());
-            lore.addAll(story.getStoryLore());
-        }
-        im.setLore(lore);
-        itemStack.setItemMeta(im);
-    }
-
-    @ParametersAreNonnullByDefault
-    private static void setName(ItemStack itemStack, ItemMeta im) {
-        TextComponent name = new TextComponent("Storied " + ThemeType.toTitleCase(itemStack.getType().toString()));
-        name.setColor(ThemeType.MAIN.getColor());
-        name.setBold(true);
-        im.setDisplayName(name.toLegacyText());
     }
 }

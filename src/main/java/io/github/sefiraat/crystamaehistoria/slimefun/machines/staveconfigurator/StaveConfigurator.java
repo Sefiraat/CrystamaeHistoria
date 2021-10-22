@@ -1,7 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.machines.staveconfigurator;
 
 import io.github.mooy1.infinitylib.machines.TickingMenuBlock;
-import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.ChargedPlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.PlateStorage;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.SpellSlot;

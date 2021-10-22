@@ -35,7 +35,7 @@ public class PersistentStoriesDataType implements PersistentDataType<PersistentD
     @Override
     @Nonnull
     public Class<List<Story>> getComplexType() {
-            return (Class<List<Story>>) (Class<?>) List.class;
+        return (Class<List<Story>>) (Class<?>) List.class;
     }
 
     @Override

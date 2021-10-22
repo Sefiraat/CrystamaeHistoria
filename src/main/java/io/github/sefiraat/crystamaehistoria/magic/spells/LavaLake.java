@@ -11,7 +11,6 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;

@@ -26,8 +26,8 @@ public class ConfigManager {
         CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
         File file = new File(plugin.getDataFolder(), fileName);
         //if (!file.exists()) {
-            file.getParentFile().mkdirs();
-            plugin.saveResource(fileName, true);
+        file.getParentFile().mkdirs();
+        plugin.saveResource(fileName, true);
         //}
         YamlConfiguration yaml = new YamlConfiguration();
         try {
