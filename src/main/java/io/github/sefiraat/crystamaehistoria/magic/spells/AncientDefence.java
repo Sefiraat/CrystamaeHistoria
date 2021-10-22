@@ -40,7 +40,7 @@ public class AncientDefence extends Spell {
                     && hasPermission(castInformation.getCaster(), block, Interaction.PLACE_BLOCK)
                 ) {
                     block.setType(Material.RED_STAINED_GLASS);
-                    GeneralUtils.markBlockForRemoval(block, 5000);
+                    GeneralUtils.markBlockForRemoval(block, 5);
                 }
             }
         }

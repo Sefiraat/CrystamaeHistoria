@@ -83,7 +83,8 @@ public final class GeneralUtils {
         return ThreadLocalRandom.current().nextDouble(1, upper);
     }
 
-    public static void markBlockForRemoval(Block block, long timeUntilRemoval) {
+    public static void markBlockForRemoval(Block block, int secondsUntilRemoval) {
+        long timeUntilRemoval = secondsUntilRemoval * 1000L;
         block.setMetadata("ch", new FixedMetadataValue(CrystamaeHistoria.getInstance(), "y"));
         long removalTime = System.currentTimeMillis() + timeUntilRemoval;
         CrystamaeHistoria.getActiveStorage().getBlocksToRemove().put(new BlockPosition(block), removalTime);
