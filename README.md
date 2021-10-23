@@ -58,6 +58,8 @@ customise your load-out whenever.
 
 The end result of all your hard work? Spells!
 
+<p align="center"><img width="900" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_spell_chaos.gif?raw=true"></p>
+
 <p align="center"><img width="900" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_spell_rof.gif?raw=true"></p>
 
 <p align="center"><img width="900" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_spell_ethereal.gif?raw=true"></p>
