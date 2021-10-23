@@ -19,7 +19,8 @@ public class FanOfArrows extends Spell {
 
     public FanOfArrows() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(10, true, 20, true, 1, false)
-            .makeProjectileSpell(this::fireProjectiles, this::projectileHit, 0, false, 0, false)
+            .makeProjectileSpell(this::fireProjectiles, 0, false, 0, false)
+            .makeProjectileVsEntitySpell(this::projectileHit)
             .makeDamagingSpell(1, true, 0, false);
         setSpellCore(spellCoreBuilder.build());
     }
@@ -41,7 +42,7 @@ public class FanOfArrows extends Spell {
             MagicProjectile magicProjectile = new MagicProjectile(EntityType.ARROW, spawn, castInformation.getCaster());
             magicProjectile.setVelocity(destination, 1);
 
-            registerProjectile(magicProjectile.getProjectile(), castInformation);
+            registerProjectile(magicProjectile, castInformation, 3);
         }
     }
 

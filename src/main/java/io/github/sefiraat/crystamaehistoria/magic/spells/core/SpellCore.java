@@ -59,11 +59,17 @@ public class SpellCore {
     @Getter
     private final boolean isProjectileSpell;
     @Getter
+    private final boolean isProjectileVsEntitySpell;
+    @Getter
+    private final boolean isProjectileVsBlockSpell;
+    @Getter
     private final Consumer<CastInformation> fireProjectileEvent;
     @Getter
     private final Consumer<CastInformation> beforeProjectileHitEvent;
     @Getter
     private final Consumer<CastInformation> projectileHitEvent;
+    @Getter
+    private final Consumer<CastInformation> projectileHitBlockEvent;
     @Getter
     private final Consumer<CastInformation> afterProjectileHitEvent;
     @Getter
@@ -109,9 +115,12 @@ public class SpellCore {
         this.isInstantCast = spellCoreBuilder.isInstantCast();
         this.instantCastEvent = spellCoreBuilder.getInstantCastEvent();
         this.isProjectileSpell = spellCoreBuilder.isProjectileSpell();
+        this.isProjectileVsEntitySpell = spellCoreBuilder.isProjectileVsEntitySpell();
+        this.isProjectileVsBlockSpell = spellCoreBuilder.isProjectileVsBlockSpell();
         this.fireProjectileEvent = spellCoreBuilder.getFireProjectileEvent();
         this.beforeProjectileHitEvent = spellCoreBuilder.getBeforeProjectileHitEvent();
         this.projectileHitEvent = spellCoreBuilder.getProjectileHitEvent();
+        this.projectileHitBlockEvent = spellCoreBuilder.getProjectileHitBlockEvent();
         this.afterProjectileHitEvent = spellCoreBuilder.getAfterProjectileHitEvent();
         this.isTickingSpell = spellCoreBuilder.isTickingSpell();
         this.tickEvent = spellCoreBuilder.getTickEvent();

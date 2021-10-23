@@ -21,29 +21,32 @@ public class SpellEffectListener implements Listener {
 
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onProjectileHit(ProjectileHitEvent event) {
-        UUID projectile = event.getEntity().getUniqueId();
+        final UUID projectile = event.getEntity().getUniqueId();
         if (CrystamaeHistoria.getProjectileMap().containsKey(projectile)) {
             event.setCancelled(true);
-            CastInformation castInfo = CrystamaeHistoria.getSpellCastInfo(projectile);
-            Entity hitEntity = event.getHitEntity();
-            if (eventAllowed(castInfo, hitEntity)) {
-                Location location = hitEntity.getLocation();
+            final CastInformation castInfo = CrystamaeHistoria.getSpellCastInfo(projectile);
+            final Entity hitEntity = event.getHitEntity();
+            if (entityHitAllowed(castInfo, hitEntity)) {
+                final Location location = hitEntity.getLocation();
 
                 castInfo.setMainTarget((LivingEntity) hitEntity);
                 castInfo.setDamageLocation(location);
 
-                // TODO Combine?
                 castInfo.runPreAffectEvent();
                 castInfo.runAffectEvent();
                 castInfo.runPostAffectEvent();
+            }
+            if (event.getHitBlock() != null) {
+                castInfo.setHitBlock(event.getHitBlock());
+                castInfo.runProjectileHitBlockEvent();
             }
             event.getEntity().remove();
             CrystamaeHistoria.getProjectileMap().remove(projectile);
         }
     }
 
-    private boolean eventAllowed(CastInformation castInformation, Entity hitEntity) {
-        Player player = Bukkit.getPlayer(castInformation.getCaster());
+    private boolean entityHitAllowed(CastInformation castInformation, Entity hitEntity) {
+        final Player player = Bukkit.getPlayer(castInformation.getCaster());
         return hitEntity != null
             && !(hitEntity instanceof Projectile)
             && hitEntity.getUniqueId() != castInformation.getCaster()
@@ -52,13 +55,13 @@ public class SpellEffectListener implements Listener {
 
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onLightningStrikeHit(LightningStrikeEvent event) {
-        LightningStrike lightningStrike = event.getLightning();
-        UUID uuid = lightningStrike.getUniqueId();
+        final LightningStrike lightningStrike = event.getLightning();
+        final UUID uuid = lightningStrike.getUniqueId();
         if (CrystamaeHistoria.getProjectileMap().containsKey(uuid)) {
             CastInformation castInformation = CrystamaeHistoria.getProjectileMap().get(uuid).getFirstValue();
 
             if (castInformation != null) {
-                Location location = event.getLightning().getLocation();
+                final Location location = event.getLightning().getLocation();
                 castInformation.setDamageLocation(location);
 
                 // TODO Combine?
@@ -68,7 +71,6 @@ public class SpellEffectListener implements Listener {
 
                 event.setCancelled(true);
                 CrystamaeHistoria.getProjectileMap().remove(uuid);
-
             }
         }
     }

@@ -22,7 +22,11 @@ public class ConfigManager {
         this.stories.options().copyDefaults(true);
     }
 
+    /**
+     * @noinspection ResultOfMethodCallIgnored
+     */
     private FileConfiguration getConfig(String fileName) {
+        // Todo remove commented code and add config diff
         CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
         File file = new File(plugin.getDataFolder(), fileName);
         //if (!file.exists()) {

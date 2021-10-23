@@ -23,8 +23,9 @@ public class Tempest extends Spell {
     public Tempest() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(200, true, 20, false, 10, true)
             .makeDamagingSpell(2, true, 0, false)
-            .makeProjectileSpell(this::fireProjectiles, this::onProjectileHit, 2, false, 2, false)
-            .addBeforeProjectileHitEvent(this::beforeProjectileHit);
+            .makeProjectileSpell(this::fireProjectiles, 2, false, 2, false)
+            .makeProjectileVsEntitySpell(this::onProjectileHit)
+            .addBeforeProjectileHitEntityEvent(this::beforeProjectileHit);
         setSpellCore(spellCoreBuilder.build());
     }
 

@@ -4,6 +4,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.AncientDefence;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Break;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Bright;
 import io.github.sefiraat.crystamaehistoria.magic.spells.CallLightning;
+import io.github.sefiraat.crystamaehistoria.magic.spells.Chaos;
 import io.github.sefiraat.crystamaehistoria.magic.spells.EtherealFlow;
 import io.github.sefiraat.crystamaehistoria.magic.spells.FanOfArrows;
 import io.github.sefiraat.crystamaehistoria.magic.spells.FireNova;
@@ -54,7 +55,8 @@ public enum SpellType {
     KNOWLEDGE_SHARE(new KnowledgeShare()),
     BREAK(new Break()),
     ANCIENT_DEFENCE(new AncientDefence()),
-    LAVA_LAKE(new LavaLake());
+    LAVA_LAKE(new LavaLake()),
+    CHAOS(new Chaos());
 
     @Getter
     protected static final SpellType[] cachedValues = values();

@@ -24,8 +24,9 @@ public class RainOfFire extends Spell {
     public RainOfFire() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 20, false, 20, true)
             .makeDamagingSpell(5, true, 0.5, false)
-            .makeProjectileSpell(this::fireProjectiles, this::projectileHits, 1, true, 0.5, true)
-            .addBeforeProjectileHitEvent(this::beforeProjectileHits)
+            .makeProjectileSpell(this::fireProjectiles, 1, true, 0.5, true)
+            .makeProjectileVsEntitySpell(this::projectileHits)
+            .addBeforeProjectileHitEntityEvent(this::beforeProjectileHits)
             .makeTickingSpell(this::fireProjectiles, 9, false, 10, false);
         setSpellCore(spellCoreBuilder.build());
     }
@@ -51,7 +52,7 @@ public class RainOfFire extends Spell {
             Location destination = spawnLocation.clone().subtract(0, 20, 0);
             magicProjectile.setVelocity(destination, 2);
 
-            registerProjectile(magicProjectile.getProjectile(), castInformation);
+            registerProjectile(magicProjectile, castInformation);
         }
     }
 

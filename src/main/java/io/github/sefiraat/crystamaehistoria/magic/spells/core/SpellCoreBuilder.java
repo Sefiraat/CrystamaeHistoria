@@ -67,11 +67,17 @@ public class SpellCoreBuilder {
     @Getter
     private boolean isProjectileSpell;
     @Getter
+    private boolean isProjectileVsEntitySpell;
+    @Getter
+    private boolean isProjectileVsBlockSpell;
+    @Getter
     private Consumer<CastInformation> fireProjectileEvent;
     @Getter
     private Consumer<CastInformation> beforeProjectileHitEvent;
     @Getter
     private Consumer<CastInformation> projectileHitEvent;
+    @Getter
+    private Consumer<CastInformation> projectileHitBlockEvent;
     @Getter
     private Consumer<CastInformation> afterProjectileHitEvent;
     @Getter
@@ -128,7 +134,6 @@ public class SpellCoreBuilder {
     @ParametersAreNonnullByDefault
     public SpellCoreBuilder makeProjectileSpell(
         Consumer<CastInformation> fireProjectileConsumer,
-        Consumer<CastInformation> projectileHitConsumer,
         double projectileAoeRange,
         boolean projectileAoeMultiplied,
         double projectileKnockbackAmount,
@@ -136,7 +141,6 @@ public class SpellCoreBuilder {
     ) {
         this.isProjectileSpell = true;
         this.fireProjectileEvent = fireProjectileConsumer;
-        this.projectileHitEvent = projectileHitConsumer;
         this.projectileAoeRange = projectileAoeRange;
         this.projectileAoeMultiplied = projectileAoeMultiplied;
         this.projectileKnockbackAmount = projectileKnockbackAmount;
@@ -147,7 +151,29 @@ public class SpellCoreBuilder {
     @Nonnull
     @CheckReturnValue
     @ParametersAreNonnullByDefault
-    public SpellCoreBuilder addBeforeProjectileHitEvent(Consumer<CastInformation> spellCastInformationConsumer) {
+    public SpellCoreBuilder makeProjectileVsEntitySpell(
+        Consumer<CastInformation> projectileHitConsumer
+    ) {
+        this.isProjectileVsEntitySpell = true;
+        this.projectileHitEvent = projectileHitConsumer;
+        return this;
+    }
+
+    @Nonnull
+    @CheckReturnValue
+    @ParametersAreNonnullByDefault
+    public SpellCoreBuilder makeProjectileVsBlockSpell(
+        Consumer<CastInformation> projectileHitConsumer
+    ) {
+        this.isProjectileVsBlockSpell = true;
+        this.projectileHitBlockEvent = projectileHitConsumer;
+        return this;
+    }
+
+    @Nonnull
+    @CheckReturnValue
+    @ParametersAreNonnullByDefault
+    public SpellCoreBuilder addBeforeProjectileHitEntityEvent(Consumer<CastInformation> spellCastInformationConsumer) {
         this.beforeProjectileHitEvent = spellCastInformationConsumer;
         return this;
     }
@@ -155,8 +181,16 @@ public class SpellCoreBuilder {
     @Nonnull
     @CheckReturnValue
     @ParametersAreNonnullByDefault
-    public SpellCoreBuilder addAfterProjectileHitEvent(Consumer<CastInformation> spellCastInformationConsumer) {
+    public SpellCoreBuilder addAfterProjectileHitEntityEvent(Consumer<CastInformation> spellCastInformationConsumer) {
         this.afterProjectileHitEvent = spellCastInformationConsumer;
+        return this;
+    }
+
+    @Nonnull
+    @CheckReturnValue
+    @ParametersAreNonnullByDefault
+    public SpellCoreBuilder addProjectileHitBlockEvent(Consumer<CastInformation> spellCastInformationConsumer) {
+        this.projectileHitBlockEvent = spellCastInformationConsumer;
         return this;
     }
 

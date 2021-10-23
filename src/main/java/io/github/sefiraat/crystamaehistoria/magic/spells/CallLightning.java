@@ -23,8 +23,9 @@ public class CallLightning extends Spell {
     public CallLightning() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(50, true, 100, false, 5, true)
             .makeDamagingSpell(2, true, 0, false)
-            .makeProjectileSpell(this::fireProjectiles, this::projectileHit, 2, false, 0.5, true)
-            .addBeforeProjectileHitEvent(this::beforeProjectileHit);
+            .makeProjectileSpell(this::fireProjectiles, 2, false, 0.5, true)
+            .makeProjectileVsEntitySpell(this::projectileHit)
+            .addBeforeProjectileHitEntityEvent(this::beforeProjectileHit);
         setSpellCore(spellCoreBuilder.build());
     }
 

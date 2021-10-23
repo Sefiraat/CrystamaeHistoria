@@ -24,8 +24,9 @@ public class PoisonNova extends Spell {
     public PoisonNova() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(20, true, 20, true, 10, true)
             .makeDamagingSpell(1, false, 0, false)
-            .makeProjectileSpell(this::fireProjectile, this::projectileHit, 0, false, 0, false)
-            .addAfterProjectileHitEvent(this::afterProjectileHit);
+            .makeProjectileSpell(this::fireProjectile, 0, false, 0, false)
+            .makeProjectileVsEntitySpell(this::projectileHit)
+            .addAfterProjectileHitEntityEvent(this::afterProjectileHit);
         setSpellCore(spellCoreBuilder.build());
     }
 
@@ -46,7 +47,7 @@ public class PoisonNova extends Spell {
             MagicProjectile magicProjectile = new MagicProjectile(EntityType.ENDER_PEARL, spawn, castInformation.getCaster());
             magicProjectile.setVelocity(destination, 1);
 
-            registerProjectile(magicProjectile.getProjectile(), castInformation);
+            registerProjectile(magicProjectile, castInformation);
         }
     }
 

@@ -20,8 +20,9 @@ public class Fireball extends Spell {
 
     public Fireball() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 0, false, 1, true)
-            .makeProjectileSpell(this::fireProjectile, this::projectileHit, 1, false, 1, false)
-            .addBeforeProjectileHitEvent(this::beforeProjectileHit)
+            .makeProjectileSpell(this::fireProjectile, 1, false, 1, false)
+            .makeProjectileVsEntitySpell(this::projectileHit)
+            .addBeforeProjectileHitEntityEvent(this::beforeProjectileHit)
             .makeDamagingSpell(2, true, 0.5, false);
         setSpellCore(spellCoreBuilder.build());
     }
@@ -32,7 +33,7 @@ public class Fireball extends Spell {
         Location aimLocation = location.clone().add(0, 1.5, 0).add(location.getDirection().multiply(2));
         MagicProjectile magicProjectile = new MagicProjectile(EntityType.SMALL_FIREBALL, aimLocation, castInformation.getCaster());
         magicProjectile.setVelocity(location.getDirection(), 1.5);
-        registerProjectile(magicProjectile.getProjectile(), castInformation);
+        registerProjectile(magicProjectile, castInformation);
     }
 
     @ParametersAreNonnullByDefault

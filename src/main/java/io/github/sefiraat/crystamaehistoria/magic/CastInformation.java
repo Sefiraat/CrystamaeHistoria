@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.block.Block;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
@@ -28,12 +29,17 @@ public class CastInformation {
     @Getter
     @Setter
     private LivingEntity mainTarget;
+    @Getter
     @Setter
-    private Consumer<CastInformation> beforeAffectEvent;
+    private Block hitBlock;
     @Setter
-    private Consumer<CastInformation> affectEvent;
+    private Consumer<CastInformation> beforeProjectileHitEvent;
     @Setter
-    private Consumer<CastInformation> afterAffectEvent;
+    private Consumer<CastInformation> projectileHitEvent;
+    @Setter
+    private Consumer<CastInformation> afterProjectileHitEvent;
+    @Setter
+    private Consumer<CastInformation> projectileHitBlockEvent;
     @Setter
     private Consumer<CastInformation> tickEvent;
     @Setter
@@ -51,15 +57,19 @@ public class CastInformation {
     }
 
     public void runPreAffectEvent() {
-        if (beforeAffectEvent != null) beforeAffectEvent.accept(this);
+        if (beforeProjectileHitEvent != null) beforeProjectileHitEvent.accept(this);
     }
 
     public void runAffectEvent() {
-        if (affectEvent != null) affectEvent.accept(this);
+        if (projectileHitEvent != null) projectileHitEvent.accept(this);
     }
 
     public void runPostAffectEvent() {
-        if (afterAffectEvent != null) afterAffectEvent.accept(this);
+        if (afterProjectileHitEvent != null) afterProjectileHitEvent.accept(this);
+    }
+
+    public void runProjectileHitBlockEvent() {
+        if (projectileHitBlockEvent != null) projectileHitBlockEvent.accept(this);
     }
 
     public void runTickEvent() {

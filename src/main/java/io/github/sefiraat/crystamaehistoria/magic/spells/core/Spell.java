@@ -21,6 +21,7 @@ import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.LightningStrike;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
@@ -91,9 +92,14 @@ public abstract class Spell {
 
         if (spellCore.isProjectileSpell()) {
             spellCore.getFireProjectileEvent().accept(castInformation);
-            castInformation.setBeforeAffectEvent(spellCore.getBeforeProjectileHitEvent());
-            castInformation.setAffectEvent(spellCore.getProjectileHitEvent());
-            castInformation.setAfterAffectEvent(spellCore.getAfterProjectileHitEvent());
+            if (spellCore.isProjectileVsEntitySpell()) {
+                castInformation.setBeforeProjectileHitEvent(spellCore.getBeforeProjectileHitEvent());
+                castInformation.setProjectileHitEvent(spellCore.getProjectileHitEvent());
+                castInformation.setAfterProjectileHitEvent(spellCore.getAfterProjectileHitEvent());
+            }
+            if (spellCore.isProjectileVsBlockSpell()) {
+                castInformation.setProjectileHitBlockEvent(spellCore.getProjectileHitBlockEvent());
+            }
         }
 
         if (spellCore.isTickingSpell()) {
@@ -250,12 +256,12 @@ public abstract class Spell {
      * the projectile/definition to the projectileMap. Used when detecting
      * the projectile hitting targets.
      *
-     * @param entity          The {@link Entity} being stored (projectile or LightningStrike)
+     * @param projectile      The {@link MagicProjectile} being stored (projectile or LightningStrike)
      * @param castInformation The {@link CastInformation} with the stave information
      */
     @ParametersAreNonnullByDefault
-    protected void registerProjectile(Entity entity, CastInformation castInformation) {
-        registerProjectile(entity, castInformation, spellCore.getParticleNumber());
+    protected void registerProjectile(MagicProjectile projectile, CastInformation castInformation) {
+        registerProjectile(projectile.getProjectile().getUniqueId(), castInformation, 5000);
     }
 
     /**
@@ -263,16 +269,42 @@ public abstract class Spell {
      * the projectile/definition to the projectileMap. Used when detecting
      * the projectile hitting targets.
      *
-     * @param entity          The {@link Entity} being stored (projectile or lightningstrike)
+     * @param projectile      The {@link MagicProjectile} being stored (projectile or LightningStrike)
      * @param castInformation The {@link CastInformation} with the stave information
      */
     @ParametersAreNonnullByDefault
-    protected void registerProjectile(Entity entity, CastInformation castInformation, long projectileDuration) {
-        castInformation.setBeforeAffectEvent(spellCore.getBeforeProjectileHitEvent());
-        castInformation.setAffectEvent(spellCore.getProjectileHitEvent());
-        castInformation.setAfterAffectEvent(spellCore.getAfterProjectileHitEvent());
+    protected void registerProjectile(MagicProjectile projectile, CastInformation castInformation, int lifeInSeconds) {
+        registerProjectile(projectile.getProjectile().getUniqueId(), castInformation, lifeInSeconds * 1000L);
+    }
+
+    /**
+     * Used to register the projectile's events to the definition and then
+     * the projectile/definition to the projectileMap. Used when detecting
+     * the projectile hitting targets.
+     *
+     * @param lightningStrike The {@link LightningStrike} being stored (projectile or LightningStrike)
+     * @param castInformation The {@link CastInformation} with the stave information
+     */
+    @ParametersAreNonnullByDefault
+    protected void registerProjectile(LightningStrike lightningStrike, CastInformation castInformation) {
+        registerProjectile(lightningStrike.getUniqueId(), castInformation, 1000);
+    }
+
+    /**
+     * Used to register the projectile's events to the definition and then
+     * the projectile/definition to the projectileMap. Used when detecting
+     * the projectile hitting targets.
+     *
+     * @param uuid            The {@link UUID} being stored (projectile or lightningstrike)
+     * @param castInformation The {@link CastInformation} with the stave information
+     */
+    @ParametersAreNonnullByDefault
+    private void registerProjectile(UUID uuid, CastInformation castInformation, long projectileDuration) {
+        castInformation.setBeforeProjectileHitEvent(spellCore.getBeforeProjectileHitEvent());
+        castInformation.setProjectileHitEvent(spellCore.getProjectileHitEvent());
+        castInformation.setAfterProjectileHitEvent(spellCore.getAfterProjectileHitEvent());
         Long expiry = System.currentTimeMillis() + projectileDuration;
-        CrystamaeHistoria.getActiveStorage().getProjectileMap().put(entity.getUniqueId(), new Pair<>(castInformation, expiry));
+        CrystamaeHistoria.getActiveStorage().getProjectileMap().put(uuid, new Pair<>(castInformation, expiry));
     }
 
     /**
