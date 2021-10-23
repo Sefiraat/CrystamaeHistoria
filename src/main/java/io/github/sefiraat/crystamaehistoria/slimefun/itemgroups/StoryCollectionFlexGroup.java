@@ -88,6 +88,9 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         final List<StoriedBlockDefinition> blockDefinitions = new ArrayList<>(CrystamaeHistoria.getStoriesManager().getStoriedBlockDefinitionMap().values());
         final int start = (page - 1) * PAGE_SIZE;
         final int end = Math.min(start + PAGE_SIZE, blockDefinitions.size());
+
+        blockDefinitions.sort(Comparator.comparing(definition -> definition.getMaterial().name()));
+
         final List<StoriedBlockDefinition> blockDefinitionSubList = blockDefinitions.subList(start, end);
 
         reapplyFooter(p, profile, mode, menu, page, totalPages);
@@ -98,8 +101,6 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
             SlimefunGuide.openItemGroup(profile, ItemGroups.MAIN, mode, 1);
             return false;
         });
-
-        blockDefinitionSubList.sort(Comparator.comparing(definition -> definition.getMaterial().name()));
 
         for (int i = 0; i < 36; i++) {
             final int slot = i + 9;

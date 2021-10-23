@@ -92,6 +92,9 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         final int totalPages = (int) Math.ceil(numberOfBlocks / (double) PAGE_SIZE);
         final int start = (page - 1) * PAGE_SIZE;
         final int end = Math.min(start + PAGE_SIZE, spellTypes.size());
+
+        spellTypes.sort(Comparator.comparing(spellType -> spellType.getSpell().getId()));
+
         final List<SpellType> blockDefinitionSubList = spellTypes.subList(start, end);
 
         // Back
@@ -100,8 +103,6 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
             SlimefunGuide.openItemGroup(profile, ItemGroups.MAIN, mode, 1);
             return false;
         });
-
-        blockDefinitionSubList.sort(Comparator.comparing(spellType -> spellType.getSpell().getId()));
 
         reapplyFooter(p, profile, mode, menu, page, totalPages);
 
