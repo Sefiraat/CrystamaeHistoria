@@ -90,7 +90,7 @@ public class Chaos extends Spell {
     @Nonnull
     @Override
     public Material getMaterial() {
-        return Material.SOUL_FIRE;
+        return Material.SOUL_LANTERN;
     }
 
     @NotNull
