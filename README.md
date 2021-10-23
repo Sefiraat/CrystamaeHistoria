@@ -54,6 +54,8 @@ magic. The configurator allows you to add/remove 4 plates to the Stave at any gi
 a specific player action (Left, Right, Shift-Left and Shift-Right click). Plates can be added and removed freely to
 customise your load-out whenever.
 
+<p align="center"><img width="900" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_stave_configurator.gif?raw=true"></p>
+
 ## Spells
 
 The end result of all your hard work? Spells!
