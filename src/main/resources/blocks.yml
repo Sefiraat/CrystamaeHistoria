@@ -87,7 +87,7 @@ blocks:
       - ELEMENTAL
       - HISTORICAL
     story:
-      name: Punching Trees Gives Me Wood (Acacia)
+      name: Punching Trees Gives Me Log (Acacia)
       type: ELEMENTAL
       lore:
         - Every adventure begins with a good tree
@@ -187,13 +187,15 @@ blocks:
   - material: ACACIA_WOOD
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Punching Trees Gives Me Wood (Acacia)
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - Every adventure begins with a good tree
+        - punch
+      shards: [ 2,0,0,1,1,0,0,0,0 ]
 
   - material: ACTIVATOR_RAIL
     tier: 1
@@ -251,15 +253,19 @@ blocks:
       shards:
 
   - material: ANCIENT_DEBRIS
-    tier: 1
+    tier: 3
     elements:
-      -
+      - ELEMENTAL
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: Depths
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - Used in the creation of the strongest
+        - items. Hidden in the depths by an old
+        - civilisation.
+      shards: [1,0,1,1,0,0,0,0,0]
+      author: OOOOMAGAAA
 
   - material: ANDESITE
     tier: 1
@@ -651,7 +657,7 @@ blocks:
       - ELEMENTAL
       - HISTORICAL
     story:
-      name: Punching Trees Gives Me Wood (Birch)
+      name: Punching Trees Gives Me Log (Birch)
       type: ELEMENTAL
       lore:
         - Every adventure begins with a good tree
@@ -751,13 +757,15 @@ blocks:
   - material: BIRCH_WOOD
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Punching Trees Gives Me Wood (Birch)
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - Every adventure begins with a good tree
+        - punch
+      shards: [ 2,0,0,1,1,0,0,0,0 ]
 
   - material: BLACKSTONE
     tier: 1
@@ -925,15 +933,19 @@ blocks:
       shards:
 
   - material: BLACK_WOOL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
+      - VOID
     story:
-      name:
-      type:
+      name: Soft! (Black)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Fluffy and black, the most comfortable
+        - of materials. Longing to become the next
+        - bed or carpet.
+      shards: [0,0,1,0,0,2,0,1,0]
+      author: OOOOMAGAAA
 
   - material: BLAST_FURNACE
     tier: 1
@@ -1112,15 +1124,19 @@ blocks:
       shards:
 
   - material: BLUE_WOOL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Soft! (Blue)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Fluffy and blue, the most comfortable
+        - of materials. Longing to become the next
+        - bed or carpet.
+      shards: [1,0,1,0,0,2,0,0,0]
+      author: OOOOMAGAAA
 
   - material: BONE
     tier: 1
@@ -1134,26 +1150,31 @@ blocks:
       shards:
 
   - material: BONE_BLOCK
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Found Remains
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Fossils scattered across the world and
+        - depths of the Nether. Nothing is known
+        - about the creatures that left them behind.
+      shards: [0,0,1,1,0,1,0,0,0]
 
   - material: BONE_MEAL
     tier: 1
     elements:
-      -
+      - ANIMAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Fe Fi Fo Fum
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - I'll grind his bones to make my bread
+      shards: [0,0,1,0,1,1,0,0,1]
+      author: Jack and the Beanstalk?
 
   - material: BOOK
     tier: 1
@@ -1167,15 +1188,19 @@ blocks:
       shards:
 
   - material: BOOKSHELF
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Knowledge
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - An unending source practically dripping with
+        - the knowledge of the smartest people who
+        - ever existed.
+      shards: [0,0,0,1,1,0,1,0,1]
+      author: OOOOMAGAAA
 
   - material: BOW
     tier: 1
@@ -1453,15 +1478,19 @@ blocks:
       shards:
 
   - material: BROWN_WOOL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Soft! (Brown)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Fluffy and brown, the most comfortable
+        - of materials. Longing to become the next
+        - bed or carpet.
+      shards: [0,0,1,1,0,2,0,0,0]
+      author: OOOOMAGAAA
 
   - material: BUBBLE_CORAL
     tier: 1
@@ -1838,15 +1867,19 @@ blocks:
       shards:
 
   - material: CHORUS_FLOWER
-    tier: 1
+    tier: 2
     elements:
-      -
+      - VOID
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Shifty...
+      type: VOID
       lore:
-        -
-      shards:
+        - Woven into the fabric of space and
+        - time by the Ancient Builders, these
+        - flowers seem... shifty...
+      shards: [0,0,1,0,0,1,0,1,0]
+      author: Seggan
 
   - material: CHORUS_FRUIT
     tier: 1
@@ -2785,15 +2818,19 @@ blocks:
       shards:
 
   - material: CYAN_WOOL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Soft! (White)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Fluffy and cyan, the most comfortable
+        - of materials. Longing to become the next
+        - bed or carpet.
+      shards: [0,0,1,0,0,2,0,0,1]
+      author: OOOOMAGAAA
 
   - material: DAMAGED_ANVIL
     tier: 1
@@ -2905,7 +2942,7 @@ blocks:
       - ELEMENTAL
       - HISTORICAL
     story:
-      name: Punching Trees Gives Me Wood (Dark Oak)
+      name: Punching Trees Gives Me Log (Dark Oak)
       type: ELEMENTAL
       lore:
         - Every adventure begins with a good tree
@@ -3005,13 +3042,15 @@ blocks:
   - material: DARK_OAK_WOOD
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Punching Trees Gives Me Wood (Dark Oak)
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - Every adventure begins with a good tree
+        - punch
+      shards: [ 2,0,0,1,1,0,0,0,0 ]
 
   - material: DARK_PRISMARINE
     tier: 1
@@ -3633,68 +3672,84 @@ blocks:
   - material: DIRT
     tier: 1
     elements:
-      -
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Grounded
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - Shaping the very face of the minecraft
+        - world, dirt is a constant keeping us
+        - all grounded.
+      shards: [2,0,0,1,0,0,0,0,0]
 
   - material: DIRT_PATH
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Walked all over
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Without complaint, a spirit allows
+        - itself to be walked all over so long
+        - as it feels it's helping others.
+      shards: [1,0,0,0,1,0,0,0,1]
 
   - material: DISPENSER
-    tier: 1
+    tier: 2
     elements:
-      -
+      - MECHANICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Fire!
+      type: MECHANICAL
       lore:
-        -
-      shards:
+        - Being used as a weapon was once tiring but
+        - now nothing brings more satisfaction than
+        - firing at an enemy.
+      shards: [0,2,0,0,1,0,0,0,0]
 
   - material: DRAGON_BREATH
-    tier: 1
+    tier: 4
     elements:
-      -
+      - VOID
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Foul
+      type: VOID
       lore:
-        -
-      shards:
+        - Encapsulated toxins from a scarred soul.
+      shards: [0,0,0,0,0,1,0,2,1]
 
   - material: DRAGON_EGG
-    tier: 1
+    tier: 5
     elements:
-      -
+      - VOID
+      - CELESTIAL
+      - ANIMAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: The End
+      type: VOID
       lore:
-        -
-      shards:
+        - The finality of all things throngs
+        - from within this egg.
+        - Everything must end and all returns.
+      shards: [2,2,2,2,2,2,2,2,2]
 
   - material: DRAGON_HEAD
-    tier: 1
+    tier: 5
     elements:
-      -
+      - VOID
+      - ANIMAL
     story:
-      name:
-      type:
+      name: A worthy sacrifice
+      type: VOID
       lore:
-        -
-      shards:
+        - Her spirit unabashed, a sacrifice made and
+        - a spirit set free.
+      shards: [1,1,1,1,1,2,1,2,1]
 
   - material: DRIED_KELP
     tier: 1
@@ -3818,15 +3873,19 @@ blocks:
       shards:
 
   - material: ENCHANTING_TABLE
-    tier: 1
+    tier: 3
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Magi's Might
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - Imbued with the pure essence of old
+        - Magi. While not usable by all, those
+        - who do are destined for greatness.
+      shards: [0,0,0,1,0,0,1,0,1]
+      author: OOOOMAGAAA
 
   - material: ENDER_CHEST
     tier: 1
@@ -3873,26 +3932,35 @@ blocks:
       shards:
 
   - material: END_PORTAL_FRAME
-    tier: 1
+    tier: 5
     elements:
-      -
+      - HUMAN
+      - MECHANICAL
+      - VOID
     story:
-      name:
-      type:
+      name: Unbreaking
+      type: MECHANICAL
       lore:
-        -
-      shards:
+        - Back in the early days, the Ancient Builders
+        - created a devistating being they needed to hide
+        - from. They built strongholds and eventually
+        - constructed these portals to make their escape.
+      shards: [0,2,0,1,1,0,0,2,0]
+      author: Ashton
 
   - material: END_ROD
-    tier: 1
+    tier: 2
     elements:
-      -
+      - CELESTIAL
+      - VOID
     story:
-      name:
-      type:
+      name: Shining Bright
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - Seemingly created by the Purpur engineers,
+        - it's unknown how the light is produced.
+      shards: [0,0,1,0,0,0,1,1,0]
+      author: Seggan
 
   - material: END_STONE
     tier: 1
@@ -4313,15 +4381,18 @@ blocks:
       shards:
 
   - material: GLOWSTONE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: Irridecant
+      type: ALCHEMICAL
       lore:
-        -
-      shards:
+        - Found only in the hottest of locaitons,
+        - it is still unknown how or why this
+        - stone glows.
+      shards: [0,0,2,0,0,0,1,0,0]
+      author: OOOOMAGAAA
 
   - material: GLOWSTONE_DUST
     tier: 1
@@ -4614,13 +4685,15 @@ blocks:
   - material: GRASS_BLOCK
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Start of the Chain
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - The start of the food web. Grass brings
+        - life into this world.
+      shards: [1,0,1,0,0,1,0,0,0]
 
   - material: GRAVEL
     tier: 1
@@ -4755,15 +4828,18 @@ blocks:
       shards:
 
   - material: GRAY_WOOL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Soft! (Gray)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Fluffy and gray, the most comfortable
+        - of materials. Longing to become the next
+        - bed or carpet.
+      shards: [0,0,1,0,0,2,0,0,0]
+      author: OOOOMAGAAA
 
   - material: GREEN_BANNER
     tier: 1
@@ -4887,15 +4963,19 @@ blocks:
       shards:
 
   - material: GREEN_WOOL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Soft! (Green)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Fluffy and green, the most comfortable
+        - of materials. Longing to become the next
+        - bed or carpet.
+      shards: [0,0,1,0,1,2,0,0,0]
+      author: OOOOMAGAAA
 
   - material: GRINDSTONE
     tier: 1
@@ -5188,15 +5268,19 @@ blocks:
       shards:
 
   - material: IRON_BLOCK
-    tier: 1
+    tier: 3
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - MECHANICAL
     story:
-      name:
-      type:
+      name: Technological Marvel
+      type: MECHANICAL
       lore:
-        -
-      shards:
+        - Made from the earth, this block is
+        - used for machines and the furthering
+        - of technology.
+      shards: [1,2,0,0,1,0,0,0,0]
 
   - material: IRON_BOOTS
     tier: 1
@@ -5490,7 +5574,7 @@ blocks:
       - ELEMENTAL
       - HISTORICAL
     story:
-      name: Punching Trees Gives Me Wood (Jungle)
+      name: Punching Trees Gives Me Log (Jungle)
       type: ELEMENTAL
       lore:
         - Every adventure begins with a good tree
@@ -5590,13 +5674,15 @@ blocks:
   - material: JUNGLE_WOOD
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Punching Trees Gives Me Wood (Jungle)
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - Every adventure begins with a good tree
+        - punch
+      shards: [ 2,0,0,1,1,0,0,0,0 ]
 
   - material: KELP
     tier: 1
@@ -5951,15 +6037,18 @@ blocks:
       shards:
 
   - material: LIGHT_BLUE_WOOL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Soft! (Light Blue)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Fluffy and light blue, the most comfortable
+        - of materials. Longing to become the next
+        - bed or carpet.
+      shards: [0,0,1,0,0,2,0,0,0]
+      author: OOOOMAGAAA
 
   - material: LIGHT_GRAY_BANNER
     tier: 1
@@ -6083,16 +6172,18 @@ blocks:
       shards:
 
   - material: LIGHT_GRAY_WOOL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Soft! (Light Gray)
+      type: ANIMAL
       lore:
-        -
-      shards:
-
+        - Fluffy and light gray, the most comfortable
+        - of materials. Longing to become the next
+        - bed or carpet.
+      shards: [0,0,1,0,0,2,0,0,0]
+      author: OOOOMAGAAA
   - material: LIGHT_WEIGHTED_PRESSURE_PLATE
     tier: 2
     elements:
@@ -6263,15 +6354,19 @@ blocks:
       shards:
 
   - material: LIME_WOOL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Soft! (Lime)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Fluffy and lime, the most comfortable
+        - of materials. Longing to become the next
+        - bed or carpet.
+      shards: [0,0,1,0,0,2,1,0,0]
+      author: OOOOMAGAAA
 
   - material: LINGERING_POTION
     tier: 1
@@ -6428,15 +6523,19 @@ blocks:
       shards:
 
   - material: MAGENTA_WOOL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: Soft! (Magenta)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Fluffy and magenta, the most comfortable
+        - of materials. Longing to become the next
+        - bed or carpet.
+      shards: [0,0,1,0,0,2,0,0,0]
+      author: OOOOMAGAAA
 
   - material: MAGMA_BLOCK
     tier: 1
@@ -6879,15 +6978,19 @@ blocks:
       shards:
 
   - material: NETHERITE_BLOCK
-    tier: 1
+    tier: 4
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Showing Off
+      type: HUMAN
       lore:
-        -
-      shards:
+        - A block made only to show off insane wealth
+        - After the first was made, it sparked wars,
+        - treachery and deceipt.
+      shards: [0,0,0,0,2,0,1,0,1]
+      author: ashton
 
   - material: NETHERITE_BOOTS
     tier: 1
@@ -7002,13 +7105,14 @@ blocks:
   - material: NETHERRACK
     tier: 1
     elements:
-      -
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Instability
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - It is unknown how such a soft rock can
+        - support the scructure of the Nether.
+      shards: [1,0,1,0,0,0,0,0,0]
 
   - material: NETHER_BRICK
     tier: 1
@@ -7241,7 +7345,7 @@ blocks:
       - ELEMENTAL
       - HISTORICAL
     story:
-      name: Punching Trees Gives Me Wood (Oak)
+      name: Punching Trees Gives Me Log (Oak)
       type: ELEMENTAL
       lore:
         - Every adventure begins with a good tree
@@ -7341,13 +7445,15 @@ blocks:
   - material: OAK_WOOD
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Punching Trees Gives Me Wood (Oak)
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - Every adventure begins with a good tree
+        - punch
+      shards: [ 2,0,0,1,1,0,0,0,0 ]
 
   - material: OBSERVER
     tier: 1
@@ -7361,15 +7467,19 @@ blocks:
       shards:
 
   - material: OBSIDIAN
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - VOID
     story:
-      name:
-      type:
+      name: Anger
+      type: VOID
       lore:
-        -
-      shards:
+        - Having waited so long underground in anger,
+        - it now manages to rise above the ground
+        - to potentially reveal its secrets.
+      shards: [1,0,0,1,0,0,0,1,0]
+      author: TerslenK
 
   - material: ORANGE_BANNER
     tier: 1
@@ -7504,15 +7614,19 @@ blocks:
       shards:
 
   - material: ORANGE_WOOL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
+      - MECHANICAL
     story:
-      name:
-      type:
+      name: Soft! (Orange)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Fluffy and orange, the most comfortable
+        - of materials. Longing to become the next
+        - bed or carpet.
+      shards: [0,1,1,0,0,2,0,0,0]
+      author: OOOOMAGAAA
 
   - material: OXEYE_DAISY
     tier: 1
@@ -7779,15 +7893,18 @@ blocks:
       shards:
 
   - material: PINK_WOOL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Soft! (Pink)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Fluffy and pink, the most comfortable
+        - of materials. Longing to become the next
+        - bed or carpet.
+      shards: [0,0,1,0,0,2,0,0,0]
+      author: OOOOMAGAAA
 
   - material: PISTON
     tier: 1
@@ -7847,13 +7964,15 @@ blocks:
   - material: POLISHED_ANDESITE
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: Pure Joy
+      type: HUMAN
       lore:
-        -
-      shards:
+        - An epic sadness is converted to pure
+        - joy.
+      shards: [ 2,0,0,1,2,0,0,0,1 ]
 
   - material: POLISHED_ANDESITE_SLAB
     tier: 1
@@ -8464,26 +8583,34 @@ blocks:
       shards:
 
   - material: PURPLE_WOOL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Soft! (Purple)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Fluffy and purple, the most comfortable
+        - of materials. Longing to become the next
+        - bed or carpet.
+      shards: [0,0,1,0,0,2,0,0,0]
+      author: OOOOMAGAAA
 
   - material: PURPUR_BLOCK
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - VOID
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Ancient Remnants
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - This is the only evidence left of the
+        - long-lost Ancient Builders who created
+        - it
+      shards: [0,0,0,1,1,0,0,1,0]
+      author: Seggan
 
   - material: PURPUR_PILLAR
     tier: 1
@@ -8739,15 +8866,19 @@ blocks:
       shards:
 
   - material: REDSTONE_ORE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - MECHANICAL
     story:
-      name:
-      type:
+      name: A new age
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - When first discovered. human history completely
+        - changed, making it possible to create circuits,
+        - machines and the birth of electricity.
+      shards: [2,1,0,0,0,0,0,0,0]
+      author: TerslenK
 
   - material: REDSTONE_TORCH
     tier: 1
@@ -9014,15 +9145,18 @@ blocks:
       shards:
 
   - material: RED_WOOL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Soft! (Red)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Fluffy and red, the most comfortable
+        - of materials. Longing to become the next
+        - bed or carpet.
+      shards: [0,0,1,0,0,2,0,0,0]
+      author: OOOOMAGAAA
 
   - material: REPEATER
     tier: 1
@@ -9566,24 +9700,30 @@ blocks:
   - material: SOUL_SAND
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Torn Apart (Sand)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - The souls of those before you, perhaps
+        - ripped from the mysterious Ancient Builders?
+      shards: [1,0,0,1,0,0,0,0,0]
+      author: Seggan
 
-  - material: SOUL_SOIL
+  - material: SOUL_SAND
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Torn Apart (Soil)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - The souls of those before you, perhaps
+        - ripped from the mysterious Ancient Builders?
+      shards: [1,0,0,1,0,0,0,0,0]
+      author: Seggan
 
   - material: SOUL_TORCH
     tier: 1
@@ -9750,7 +9890,7 @@ blocks:
       - ELEMENTAL
       - HISTORICAL
     story:
-      name: Punching Trees Gives Me Wood (Spruce)
+      name: Punching Trees Gives Me Log (Spruce)
       type: ELEMENTAL
       lore:
         - Every adventure begins with a good tree
@@ -9850,13 +9990,15 @@ blocks:
   - material: SPRUCE_WOOD
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Punching Trees Gives Me Wood (Spruce)
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - Every adventure begins with a good tree
+        - punch
+      shards: [ 2,0,0,1,1,0,0,0,0 ]
 
   - material: SPYGLASS
     tier: 1
@@ -9881,15 +10023,20 @@ blocks:
       shards:
 
   - material: STICKY_PISTON
-    tier: 1
+    tier: 3
     elements:
-      -
+      - MECHANICAL
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Stuck in a rut
+      type: MECHANICAL
       lore:
-        -
-      shards:
+        - Constantly working hard to move all
+        - manner of blocks, the Sticky Piston is
+        - cursed to push and retrieve the same block
+        - without end.
+      shards: [0,1,0,0,1,0,1,0,1]
 
   - material: STONE
     tier: 1
@@ -10076,200 +10223,214 @@ blocks:
   - material: STRIPPED_ACACIA_LOG
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Stripped Bare (Acacia Log)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With nothing left to hide, this spirit
+        - allows itself to be more open and free.
+      shards: [1,1,0,0,1,0,0,0,0]
 
   - material: STRIPPED_ACACIA_WOOD
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Stripped Bare (Acacia Wood)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With nothing left to hide, this spirit
+        - allows itself to be more open and free.
+      shards: [1,1,0,0,1,0,0,0,0]
 
   - material: STRIPPED_BIRCH_LOG
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Stripped Bare (Birch Log)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With nothing left to hide, this spirit
+        - allows itself to be more open and free.
+      shards: [1,1,0,0,1,0,0,0,0]
 
   - material: STRIPPED_BIRCH_WOOD
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Stripped Bare (Birch Wood)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With nothing left to hide, this spirit
+        - allows itself to be more open and free.
+      shards: [1,1,0,0,1,0,0,0,0]
 
   - material: STRIPPED_CRIMSON_HYPHAE
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - VOID
     story:
-      name:
-      type:
+      name: Stripped Bare (Crimson Hyphae)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With nothing left to hide, this spirit
+        - allows itself to be more open and free.
+      shards: [1,1,0,0,1,0,0,1,0]
 
   - material: STRIPPED_CRIMSON_STEM
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - VOID
     story:
-      name:
-      type:
+      name: Stripped Bare (Crimson Stem)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With nothing left to hide, this spirit
+        - allows itself to be more open and free.
+      shards: [1,1,0,0,1,0,0,0,0]
 
   - material: STRIPPED_DARK_OAK_LOG
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Stripped Bare (Dark Oak Log)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With nothing left to hide, this spirit
+        - allows itself to be more open and free.
+      shards: [1,1,0,0,1,0,0,0,0]
 
   - material: STRIPPED_DARK_OAK_WOOD
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Stripped Bare (Dark Oak Wood)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With nothing left to hide, this spirit
+        - allows itself to be more open and free.
+      shards: [1,1,0,0,1,0,0,0,0]
 
   - material: STRIPPED_JUNGLE_LOG
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Stripped Bare (Jungle Log)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With nothing left to hide, this spirit
+        - allows itself to be more open and free.
+      shards: [1,1,0,0,1,0,0,0,0]
 
   - material: STRIPPED_JUNGLE_WOOD
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Stripped Bare (Jungle Wood)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With nothing left to hide, this spirit
+        - allows itself to be more open and free.
+      shards: [1,1,0,0,1,0,0,0,0]
 
   - material: STRIPPED_OAK_LOG
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Stripped Bare (Oak Log)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With nothing left to hide, this spirit
+        - allows itself to be more open and free.
+      shards: [1,1,0,0,1,0,0,0,0]
 
   - material: STRIPPED_OAK_WOOD
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Stripped Bare (Oak Wood)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With nothing left to hide, this spirit
+        - allows itself to be more open and free.
+      shards: [1,1,0,0,1,0,0,0,0]
 
   - material: STRIPPED_SPRUCE_LOG
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Stripped Bare (Spruce Log)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With nothing left to hide, this spirit
+        - allows itself to be more open and free.
+      shards: [1,1,0,0,1,0,0,0,0]
 
   - material: STRIPPED_SPRUCE_WOOD
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Stripped Bare (Spruce Wood)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With nothing left to hide, this spirit
+        - allows itself to be more open and free.
+      shards: [1,1,0,0,1,0,0,0,0]
 
   - material: STRIPPED_WARPED_HYPHAE
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - VOID
     story:
-      name:
-      type:
+      name: Stripped Bare (Warped Hyphae)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With nothing left to hide, this spirit
+        - allows itself to be more open and free.
+      shards: [1,1,0,0,1,0,0,1,0]
 
   - material: STRIPPED_WARPED_STEM
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - VOID
     story:
-      name:
-      type:
+      name: Stripped Bare (Warped Stem)
+      type: HUMAN
       lore:
-        -
-      shards:
-
-  - material: STRUCTURE_BLOCK
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: STRUCTURE_VOID
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
+        - With nothing left to hide, this spirit
+        - allows itself to be more open and free.
+      shards: [1,1,0,0,1,0,0,1,0]
 
   - material: SUGAR
     tier: 1
@@ -10382,15 +10543,17 @@ blocks:
       shards:
 
   - material: TNT
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ALCHEMICAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Wait for it...
+      type: ALCHEMICAL
       lore:
-        -
-      shards:
+        - WAIT FOR IT!
+      shards: [0,1,2,0,0,0,0,0,1]
+      author: Seggan
 
   - material: TNT_MINECART
     tier: 1
@@ -11193,15 +11356,18 @@ blocks:
       shards:
 
   - material: WHITE_WOOL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Soft! (White)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Fluffy and white, the most comfortable
+        - of materials. Longing to become the next
+        - bed or carpet.
+      shards: [0,0,1,0,0,2,0,0,0]
+      author: OOOOMAGAAA
 
   - material: WITHER_ROSE
     tier: 1
@@ -11424,15 +11590,18 @@ blocks:
       shards:
 
   - material: YELLOW_WOOL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Soft! (yellow)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Fluffy and yellow, the most comfortable
+        - of materials. Longing to become the next
+        - bed or carpet.
+      shards: [0,0,1,0,0,2,0,0,0]
+      author: OOOOMAGAAA
 
   - material: ZOMBIE_HEAD
     tier: 1
