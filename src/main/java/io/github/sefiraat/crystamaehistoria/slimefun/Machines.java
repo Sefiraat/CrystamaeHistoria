@@ -8,6 +8,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar.R
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.staveconfigurator.StaveConfigurator;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
@@ -75,9 +76,15 @@ public class Machines {
             ),
             RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[]{
-                null, new ItemStack(Material.BOOK), null,
-                SlimefunItems.CORINTHIAN_BRONZE_INGOT, new ItemStack(Material.AMETHYST_CLUSTER), SlimefunItems.CORINTHIAN_BRONZE_INGOT,
-                SlimefunItems.MAGIC_LUMP_2, SlimefunItems.TALISMAN_MAGICIAN, SlimefunItems.MAGIC_LUMP_2,
+                null,
+                new ItemStack(Material.BOOK),
+                null,
+                SlimefunItems.CORINTHIAN_BRONZE_INGOT,
+                new ItemStack(Material.AMETHYST_CLUSTER),
+                SlimefunItems.CORINTHIAN_BRONZE_INGOT,
+                CrystamaeHistoria.getStructure().getMaterials().amalgamateIngot.getItem(),
+                SlimefunItems.TALISMAN_MAGICIAN,
+                CrystamaeHistoria.getStructure().getMaterials().amalgamateIngot.getItem(),
             }
         ).register(plugin);
 
@@ -94,9 +101,15 @@ public class Machines {
             ),
             RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[]{
-                null, new ItemStack(Material.BOOK), null,
-                SlimefunItems.CORINTHIAN_BRONZE_INGOT, new ItemStack(Material.AMETHYST_CLUSTER), SlimefunItems.CORINTHIAN_BRONZE_INGOT,
-                SlimefunItems.MAGIC_LUMP_2, SlimefunItems.TALISMAN_MAGICIAN, SlimefunItems.MAGIC_LUMP_2,
+                SlimefunItems.COPPER_INGOT,
+                SlimefunItems.COPPER_INGOT,
+                SlimefunItems.COPPER_INGOT,
+                SlimefunItems.CORINTHIAN_BRONZE_INGOT,
+                new ItemStack(Material.AMETHYST_CLUSTER),
+                SlimefunItems.CORINTHIAN_BRONZE_INGOT,
+                CrystamaeHistoria.getStructure().getMaterials().amalgamateIngot.getItem(),
+                Materials.CHARGED_PLATE_T_1.getItem(),
+                CrystamaeHistoria.getStructure().getMaterials().amalgamateIngot.getItem(),
             }
         ).register(plugin);
     }

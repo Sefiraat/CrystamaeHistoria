@@ -32,10 +32,10 @@ public class ConfigManager {
         // Todo remove commented code and add config diff
         CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
         File file = new File(plugin.getDataFolder(), fileName);
-        //if (!file.exists()) {
-        file.getParentFile().mkdirs();
-        plugin.saveResource(fileName, true);
-        //}
+        if (!file.exists()) {
+            file.getParentFile().mkdirs();
+            plugin.saveResource(fileName, true);
+        }
         YamlConfiguration yaml = new YamlConfiguration();
         try {
             yaml.load(file);

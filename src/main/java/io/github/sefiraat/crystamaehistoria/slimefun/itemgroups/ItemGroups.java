@@ -43,7 +43,7 @@ public final class ItemGroups {
         MAIN,
         new CustomItemStack(
             new ItemStack(Material.STICK),
-            ThemeType.MAIN.getColor() + "Historia Staves and Tools"
+            ThemeType.MAIN.getColor() + "Historia Staves and Materials"
         )
     );
 

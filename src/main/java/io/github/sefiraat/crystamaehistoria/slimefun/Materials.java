@@ -25,6 +25,8 @@ public class Materials {
 
     public static final SlimefunItem INERT_PLATE_T_1;
     public static final SlimefunItem CHARGED_PLATE_T_1;
+    public SlimefunItem amalgamateDust;
+    public SlimefunItem amalgamateIngot;
 
     static {
         INERT_PLATE_T_1 = new BlankPlate(
@@ -77,6 +79,45 @@ public class Materials {
     public void setup() {
         setUpCrystals();
         setUpDummyCrystalTypes();
+
+        amalgamateDust = new SlimefunItem(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_AMALGAMATE_DUST",
+                new ItemStack(Material.GLOWSTONE_DUST),
+                ThemeType.CRAFTING,
+                "Amalgamate Dust",
+                "A dust combining all magic types."
+            ),
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                crystalMap.get(StoryRarity.COMMON).get(StoryType.ELEMENTAL).getItem(),
+                crystalMap.get(StoryRarity.COMMON).get(StoryType.MECHANICAL).getItem(),
+                crystalMap.get(StoryRarity.COMMON).get(StoryType.ALCHEMICAL).getItem(),
+                crystalMap.get(StoryRarity.COMMON).get(StoryType.HISTORICAL).getItem(),
+                crystalMap.get(StoryRarity.COMMON).get(StoryType.HUMAN).getItem(),
+                crystalMap.get(StoryRarity.COMMON).get(StoryType.ANIMAL).getItem(),
+                crystalMap.get(StoryRarity.COMMON).get(StoryType.CELESTIAL).getItem(),
+                crystalMap.get(StoryRarity.COMMON).get(StoryType.VOID).getItem(),
+                crystalMap.get(StoryRarity.COMMON).get(StoryType.PHILOSOPHICAL).getItem()
+            }
+        );
+
+        amalgamateIngot = new SlimefunItem(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_AMALGAMATE_INGOT",
+                new ItemStack(Material.GOLD_INGOT),
+                ThemeType.CRAFTING,
+                "Amalgamate Ingot",
+                "An ingot crafted of pure magics."
+            ),
+            RecipeType.SMELTERY,
+            new ItemStack[] {
+                amalgamateDust.getItem()
+            }
+        );
+
     }
 
     private void setUpCrystals() {
