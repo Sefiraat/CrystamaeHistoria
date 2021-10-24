@@ -22,7 +22,7 @@ public class Tools {
     public void setup() {
         new Stave(
             ItemGroups.TOOLS,
-            ThemeType.themeStack(
+            ThemeType.themedSlimefunItemStack(
                 "CRY_STAVE_1",
                 new ItemStack(Material.STICK),
                 ThemeType.STAVE,

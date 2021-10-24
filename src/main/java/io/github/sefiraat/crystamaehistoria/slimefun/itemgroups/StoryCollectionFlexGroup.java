@@ -3,6 +3,7 @@ package io.github.sefiraat.crystamaehistoria.slimefun.itemgroups;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.stories.StoriedBlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.ResearchUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.GuiElements;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.FlexItemGroup;
@@ -104,17 +105,24 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
 
         for (int i = 0; i < 36; i++) {
             final int slot = i + 9;
-            // TODO [WalshyBoi] Visible when unlocked or GuideMode == CHEAT
-            if (i + 1 > blockDefinitionSubList.size()) {
+
+            if (i + 1 <= blockDefinitionSubList.size()) {
+                final StoriedBlockDefinition definition = blockDefinitionSubList.get(i);
+                final boolean researched = ResearchUtils.hasUnlockedUniqueStory(p, definition);
+
+                if (mode == SlimefunGuideMode.CHEAT_MODE || researched) {
+                    menu.replaceExistingItem(slot, new ItemStack(definition.getMaterial()));
+                    menu.addMenuClickHandler(slot, (player1, i1, itemStack1, clickAction) -> {
+                        displayDefinition(player1, profile, mode, menu, page, definition);
+                        return false;
+                    });
+                } else {
+                    menu.replaceExistingItem(slot, GuiElements.getStoryNotUnlockedIcon(definition.getMaterial()));
+                    menu.addMenuClickHandler(slot, (player1, i1, itemStack1, clickAction) -> false);
+                }
+            } else {
                 menu.replaceExistingItem(slot, null);
                 menu.addMenuClickHandler(slot, (player1, i1, itemStack1, clickAction) -> false);
-            } else {
-                StoriedBlockDefinition definition = blockDefinitionSubList.get(i);
-                menu.replaceExistingItem(slot, new ItemStack(definition.getMaterial()));
-                menu.addMenuClickHandler(slot, (player1, i1, itemStack1, clickAction) -> {
-                    displayDefinition(player1, profile, mode, menu, page, definition);
-                    return false;
-                });
             }
         }
     }

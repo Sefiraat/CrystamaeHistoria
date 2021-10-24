@@ -13,11 +13,13 @@ import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.ArmourStandUtils;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
+import io.github.sefiraat.crystamaehistoria.utils.ResearchUtils;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentPlateDataType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import lombok.Getter;
+import lombok.Setter;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
@@ -27,11 +29,13 @@ import org.bukkit.Particle;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Item;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.util.Vector;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.awt.Color;
@@ -42,6 +46,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
@@ -69,6 +74,16 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
     @ParametersAreNonnullByDefault
     public LiquefactionBasinCache(BlockMenu blockMenu) {
         super(blockMenu);
+
+        final String activePlayerString = BlockStorage.getLocationInfo(blockMenu.getLocation(), Keys.BS_CP_ACTIVE_PLAYER);
+        if (activePlayerString != null) {
+            this.activePlayer = UUID.fromString(activePlayerString);
+        }
+    }
+
+    public void setActivePlayer(@Nonnull Player player) {
+        this.activePlayer = player.getUniqueId();
+        BlockStorage.addBlockInfo(this.blockMenu.getBlock(), Keys.BS_CP_ACTIVE_PLAYER, player.getUniqueId().toString());
     }
 
     public static void addSpellRecipe(SpellType spellType, SpellRecipe spellRecipe) {
@@ -209,6 +224,11 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
                     item.remove();
                 }
                 summonCatalystParticles();
+                if (activePlayer != null
+                    && !ResearchUtils.hasUnlockedSpell(activePlayer, spellType)
+                ) {
+                    ResearchUtils.unlockSpell(activePlayer, spellType);
+                }
             }
             emptyBasin();
         } else {
@@ -225,7 +245,7 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
         final Set<StoryType> set = contentMap.entrySet().stream().sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed()).limit(3).map(Map.Entry::getKey).collect(Collectors.toSet());
         if (set.size() == 3) {
             SpellType spellType = getMatchingRecipe(set, plate);
-            if (spellType == currentSpellType) {
+            if (spellType != null && spellType == currentSpellType) {
                 plateStorage.addCrysta(getFillLevel());
                 itemStack.setItemMeta(itemMeta);
                 summonCatalystParticles();

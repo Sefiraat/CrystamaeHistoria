@@ -11,6 +11,7 @@ public class Keys {
 
     // BlockStorage
     public static final String BS_CP_WORKING_ON = "BS_CP_WORKING_ON";
+    public static final String BS_CP_ACTIVE_PLAYER = "BS_CP_ACTIVE_PLAYER";
     public static final String BS_CP_STORIED = "BS_CP_STORIED";
     public static final String BS_CP_STORIES = "BS_CP_STORIES";
 

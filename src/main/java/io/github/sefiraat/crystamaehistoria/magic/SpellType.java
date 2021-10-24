@@ -25,6 +25,8 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.Tempest;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Vacuum;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.LiquefactionBasinCache;
+import io.github.sefiraat.crystamaehistoria.utils.Keys;
+import io.github.thebusybiscuit.slimefun4.api.researches.Research;
 import lombok.Getter;
 
 import javax.annotation.Nonnull;
@@ -65,8 +67,11 @@ public enum SpellType {
 
     @ParametersAreNonnullByDefault
     SpellType(Spell spell) {
+        final String researchId = "CRYS_SPELL" + spell.getId();
+
         this.spell = spell;
         LiquefactionBasinCache.addSpellRecipe(this, spell.getRecipe());
+        new Research(Keys.newKey(researchId), spell.getId().hashCode(), researchId,1).register();
     }
 
     @Nullable

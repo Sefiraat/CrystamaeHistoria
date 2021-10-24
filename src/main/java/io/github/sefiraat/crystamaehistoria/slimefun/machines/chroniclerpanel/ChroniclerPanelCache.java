@@ -8,6 +8,7 @@ import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.utils.ArmourStandUtils;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
+import io.github.sefiraat.crystamaehistoria.utils.ResearchUtils;
 import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
 import lombok.Getter;
 import lombok.Setter;
@@ -23,15 +24,16 @@ import org.bukkit.block.BlockFace;
 import org.bukkit.block.data.type.Light;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Getter
-@Setter
 public class ChroniclerPanelCache extends AbstractCache {
 
     @Nullable
@@ -45,16 +47,21 @@ public class ChroniclerPanelCache extends AbstractCache {
     @ParametersAreNonnullByDefault
     public ChroniclerPanelCache(BlockMenu blockMenu) {
         super(blockMenu);
-        String workingOnString = BlockStorage.getLocationInfo(blockMenu.getLocation(), Keys.BS_CP_WORKING_ON);
+
+        final String workingOnString = BlockStorage.getLocationInfo(blockMenu.getLocation(), Keys.BS_CP_WORKING_ON);
         if (workingOnString != null) {
             setWorking(blockMenu.getBlock(), Material.valueOf(workingOnString));
+        }
+
+        final String activePlayerString = BlockStorage.getLocationInfo(blockMenu.getLocation(), Keys.BS_CP_ACTIVE_PLAYER);
+        if (activePlayerString != null) {
+            this.activePlayer = UUID.fromString(activePlayerString);
         }
     }
 
     protected void process() {
-        Block b = blockMenu.getBlock();
-
-        ItemStack i = blockMenu.getItemInSlot(ChroniclerPanel.INPUT_SLOT);
+        final Block b = blockMenu.getBlock();
+        final ItemStack i = blockMenu.getItemInSlot(ChroniclerPanel.INPUT_SLOT);
 
         if (i != null && i.getType() != Material.AIR && StoryUtils.canBeStoried(i)) {
             rejectOverage(i);
@@ -63,7 +70,7 @@ public class ChroniclerPanelCache extends AbstractCache {
             }
             if (StoryUtils.getRemainingStoryAmount(i) > 0) {
                 // A block is in the Input slot. Does the current item being worked on match the input?
-                Material m = i.getType();
+                final Material m = i.getType();
                 if (!working || workingOn != m) {
                     // Either not working or workingOn has changed
                     setWorking(b, m);
@@ -91,7 +98,7 @@ public class ChroniclerPanelCache extends AbstractCache {
     @ParametersAreNonnullByDefault
     protected void rejectOverage(ItemStack i) {
         if (i.getAmount() > 1) {
-            ItemStack i2 = i.clone();
+            final ItemStack i2 = i.clone();
             i.setAmount(1);
             i2.setAmount(i2.getAmount() - 1);
             blockMenu.getBlock().getWorld().dropItemNaturally(blockMenu.getLocation(), i2);
@@ -100,11 +107,13 @@ public class ChroniclerPanelCache extends AbstractCache {
 
     @ParametersAreNonnullByDefault
     protected void setWorking(Block block, Material m) {
+        final Block lightBlock = block.getRelative(BlockFace.UP);
+
         blockMiddle = block.getLocation().clone().add(0.5, 0.5, 0.5);
         workingOn = m;
         working = true;
+
         BlockStorage.addBlockInfo(block, Keys.BS_CP_WORKING_ON, m.toString());
-        Block lightBlock = block.getRelative(BlockFace.UP);
         if (lightBlock.getType() == Material.AIR) {
             lightBlock.setType(Material.LIGHT);
         }
@@ -113,7 +122,8 @@ public class ChroniclerPanelCache extends AbstractCache {
     }
 
     private void startAnimation() {
-        ArmorStand armourStand = getDisplayStand();
+        final ArmorStand armourStand = getDisplayStand();
+
         ArmourStandUtils.panelAnimationReset(armourStand, blockMenu.getBlock());
         animation = new FloatingHeadAnimation(armourStand);
         animation.runTaskTimer(CrystamaeHistoria.getInstance(), 0, FloatingHeadAnimation.SPEED);
@@ -121,16 +131,20 @@ public class ChroniclerPanelCache extends AbstractCache {
 
     @ParametersAreNonnullByDefault
     private void setNotWorking(Block block) {
+        final Block lightBlock = block.getRelative(BlockFace.UP);
+
         workingOn = null;
         working = false;
         BlockStorage.addBlockInfo(block, Keys.BS_CP_WORKING_ON, null);
-        Block lightBlock = block.getRelative(BlockFace.UP);
+
         if (lightBlock.getType() == Material.LIGHT) {
             lightBlock.setType(Material.AIR);
         }
+
         if (animation != null) {
             animation.cancel();
         }
+
         ArmourStandUtils.panelAnimationReset(getDisplayStand(), block);
     }
 
@@ -139,14 +153,19 @@ public class ChroniclerPanelCache extends AbstractCache {
         summonParticles();
         // If this block isn't storied, make it storied then add the initial story set
         if (StoryUtils.hasRemainingStorySlots(i)) {
-            int remaining = StoryUtils.getRemainingStoryAmount(i);
-            int req = storiedBlockDefinition.getTier().chroniclingChance;
+            final int remaining = StoryUtils.getRemainingStoryAmount(i);
+            final int req = storiedBlockDefinition.getTier().chroniclingChance;
             if (GeneralUtils.testChance(req, 10000)) {
                 // We can chronicle a story
                 StoryUtils.requestNewStory(i);
                 if (remaining == 1) {
-                    // That was the last story, unlock unique
+                    // That was the last story, unlock unique and set research
                     StoryUtils.requestUniqueStory(i);
+                    if (activePlayer != null
+                        && !ResearchUtils.hasUnlockedUniqueStory(activePlayer, storiedBlockDefinition)
+                    ) {
+                        ResearchUtils.unlockUniqueStory(activePlayer, storiedBlockDefinition);
+                    }
                 }
                 StoriesManager.rebuildStoriedStack(i);
                 blockMenu.getBlock().getWorld().strikeLightningEffect(blockMiddle);
@@ -203,10 +222,10 @@ public class ChroniclerPanelCache extends AbstractCache {
 
     @ParametersAreNonnullByDefault
     private ArmorStand getDisplayStand() {
-        Block block = blockMenu.getBlock();
-        String uuidString = BlockStorage.getLocationInfo(getLocation(), "ch_display_stand");
+        final Block block = blockMenu.getBlock();
+        final String uuidString = BlockStorage.getLocationInfo(getLocation(), "ch_display_stand");
         if (uuidString != null) {
-            UUID uuid = UUID.fromString(uuidString);
+            final UUID uuid = UUID.fromString(uuidString);
             return (ArmorStand) Bukkit.getEntity(uuid);
         } else {
             final ArmorStand armorStand = (ArmorStand) block.getWorld().spawnEntity(getLocation().add(0.5, -0.6, 0.5), EntityType.ARMOR_STAND);

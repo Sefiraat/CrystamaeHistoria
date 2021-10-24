@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class DummyRealisationAltar {
 
-    public static final SlimefunItemStack STACK = ThemeType.themeStack(
+    public static final SlimefunItemStack STACK = ThemeType.themedSlimefunItemStack(
         "CRY_CHRONICLER_PANEL_DUMMY_CRYSTAL",
         new ItemStack(Material.CHISELED_DEEPSLATE),
         ThemeType.MECHANISM,

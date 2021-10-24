@@ -9,7 +9,7 @@ import org.bukkit.inventory.ItemStack;
 
 public class DummyLiquefactionBasin {
 
-    public static final SlimefunItemStack STACK = ThemeType.themeStack(
+    public static final SlimefunItemStack STACK = ThemeType.themedSlimefunItemStack(
         "CRY_LIQUEFACTION_BASIN_DUMMY_SPELL",
         new ItemStack(Material.CAULDRON),
         ThemeType.MECHANISM,

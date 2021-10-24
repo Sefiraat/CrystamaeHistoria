@@ -5,6 +5,8 @@ import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCore;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.ResearchUtils;
+import io.github.sefiraat.crystamaehistoria.utils.theme.GuiElements;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.FlexItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile;
@@ -108,17 +110,24 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
 
         for (int i = 0; i < 36; i++) {
             final int slot = i + 9;
-            // TODO WalshyBoi Visible when unlocked or GuideMode == CHEAT
-            if (i + 1 > blockDefinitionSubList.size()) {
+
+            if (i + 1 <= blockDefinitionSubList.size()) {
+                final SpellType spellType = SpellType.getCachedValues()[i];
+                final boolean researched = ResearchUtils.hasUnlockedSpell(p, spellType);
+
+                if (mode == SlimefunGuideMode.CHEAT_MODE || researched) {
+                    menu.replaceExistingItem(slot, new ItemStack(spellType.getSpell().getThemedStack()));
+                    menu.addMenuClickHandler(slot, (player1, i1, itemStack1, clickAction) -> {
+                        displayDefinition(player1, profile, mode, menu, page, spellType);
+                        return false;
+                    });
+                } else {
+                    menu.replaceExistingItem(slot, GuiElements.getSpellNotUnlockedIcon(spellType.getId()));
+                    menu.addMenuClickHandler(slot, (player1, i1, itemStack1, clickAction) -> false);
+                }
+            } else {
                 menu.replaceExistingItem(slot, null);
                 menu.addMenuClickHandler(slot, (player1, i1, itemStack1, clickAction) -> false);
-            } else {
-                SpellType spellType = SpellType.getCachedValues()[i];
-                menu.replaceExistingItem(slot, new ItemStack(spellType.getSpell().getThemedStack()));
-                menu.addMenuClickHandler(slot, (player1, i1, itemStack1, clickAction) -> {
-                    displayDefinition(player1, profile, mode, menu, page, spellType);
-                    return false;
-                });
             }
         }
     }

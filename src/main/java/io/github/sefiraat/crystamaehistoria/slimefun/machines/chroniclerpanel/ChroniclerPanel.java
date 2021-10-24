@@ -1,20 +1,26 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.machines.chroniclerpanel;
 
 import io.github.mooy1.infinitylib.machines.TickingMenuBlock;
+import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.utils.theme.GuiElements;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.core.handlers.BlockPlaceHandler;
+import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
 
 public class ChroniclerPanel extends TickingMenuBlock {
 
@@ -31,6 +37,15 @@ public class ChroniclerPanel extends TickingMenuBlock {
     @ParametersAreNonnullByDefault
     public ChroniclerPanel(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
+        this.addItemHandler(new BlockPlaceHandler(false) {
+            @Override
+            public void onPlayerPlace(@NotNull BlockPlaceEvent event) {
+                final Location location = event.getBlockPlaced().getLocation();
+                final ChroniclerPanelCache cache = new ChroniclerPanelCache(BlockStorage.getInventory(location));
+                cache.setActivePlayer(event.getPlayer());
+                caches.put(location, cache);
+            }
+        });
     }
 
     @Override
@@ -46,6 +61,12 @@ public class ChroniclerPanel extends TickingMenuBlock {
         ChroniclerPanelCache cache = ChroniclerPanel.this.caches.get(block.getLocation());
         if (cache != null) {
             cache.process();
+            // TODO Remove
+            if (cache.getActivePlayer() != null) {
+                CrystamaeHistoria.log(Level.WARNING, "Chronicler : " + cache.getActivePlayer().toString());
+            } else {
+                CrystamaeHistoria.log(Level.WARNING, "Chronicler : Empty");
+            }
         }
     }
 
@@ -73,8 +94,10 @@ public class ChroniclerPanel extends TickingMenuBlock {
     @ParametersAreNonnullByDefault
     protected void onNewInstance(BlockMenu blockMenu, Block b) {
         super.onNewInstance(blockMenu, b);
-        ChroniclerPanelCache cache = new ChroniclerPanelCache(blockMenu);
-        caches.put(blockMenu.getLocation(), cache);
+        if (!caches.containsKey(blockMenu.getLocation())) {
+            ChroniclerPanelCache cache = new ChroniclerPanelCache(blockMenu);
+            caches.put(blockMenu.getLocation(), cache);
+        }
     }
 
     @Override

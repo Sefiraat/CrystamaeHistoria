@@ -1,10 +1,13 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin;
 
 import io.github.mooy1.infinitylib.machines.TickingMenuBlock;
+import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.chroniclerpanel.ChroniclerPanelCache;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.core.handlers.BlockPlaceHandler;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
@@ -13,11 +16,14 @@ import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
 
 public class LiquefactionBasin extends TickingMenuBlock {
 
@@ -33,6 +39,15 @@ public class LiquefactionBasin extends TickingMenuBlock {
     @ParametersAreNonnullByDefault
     public LiquefactionBasin(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
+        this.addItemHandler(new BlockPlaceHandler(false) {
+            @Override
+            public void onPlayerPlace(@NotNull BlockPlaceEvent event) {
+                final Location location = event.getBlockPlaced().getLocation();
+                final LiquefactionBasinCache cache = new LiquefactionBasinCache(BlockStorage.getInventory(location));
+                cache.setActivePlayer(event.getPlayer());
+                CACHE_MAP.put(location, cache);
+            }
+        });
     }
 
     @Override
@@ -42,6 +57,12 @@ public class LiquefactionBasin extends TickingMenuBlock {
         if (cache != null) {
             cache.consumeItems();
             cache.syncBlock();
+            // TODO Remove
+            if (cache.getActivePlayer() != null) {
+                CrystamaeHistoria.log(Level.WARNING, "LB : " + cache.getActivePlayer().toString());
+            } else {
+                CrystamaeHistoria.log(Level.WARNING, "LB : Empty");
+            }
         }
     }
 
@@ -79,18 +100,20 @@ public class LiquefactionBasin extends TickingMenuBlock {
     @ParametersAreNonnullByDefault
     protected void onNewInstance(BlockMenu blockMenu, Block b) {
         super.onNewInstance(blockMenu, b);
-        LiquefactionBasinCache cache = new LiquefactionBasinCache(blockMenu);
-        Config c = BlockStorage.getLocationInfo(blockMenu.getLocation());
+        if (!CACHE_MAP.containsKey(blockMenu.getLocation())) {
+            LiquefactionBasinCache cache = new LiquefactionBasinCache(blockMenu);
+            Config c = BlockStorage.getLocationInfo(blockMenu.getLocation());
 
-        for (String key : c.getKeys()) {
-            if (key.startsWith(LiquefactionBasinCache.CH_LEVEL_PREFIX)) {
-                String id = key.replace(LiquefactionBasinCache.CH_LEVEL_PREFIX, "");
-                int amount = Integer.parseInt(c.getString(key));
-                cache.getContentMap().put(StoryType.valueOf(id), amount);
+            for (String key : c.getKeys()) {
+                if (key.startsWith(LiquefactionBasinCache.CH_LEVEL_PREFIX)) {
+                    String id = key.replace(LiquefactionBasinCache.CH_LEVEL_PREFIX, "");
+                    int amount = Integer.parseInt(c.getString(key));
+                    cache.getContentMap().put(StoryType.valueOf(id), amount);
+                }
             }
-        }
 
-        CACHE_MAP.put(blockMenu.getLocation(), cache);
+            CACHE_MAP.put(blockMenu.getLocation(), cache);
+        }
     }
 
     @Override

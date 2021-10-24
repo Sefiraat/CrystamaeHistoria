@@ -14,12 +14,15 @@ public class ConfigManager {
 
     private final FileConfiguration blocks;
     private final FileConfiguration stories;
+    private final FileConfiguration research;
 
     public ConfigManager() {
         this.blocks = getConfig("blocks.yml");
         this.blocks.options().copyDefaults(true);
         this.stories = getConfig("generic-stories.yml");
         this.stories.options().copyDefaults(true);
+        this.research = getConfig("research.yml");
+        this.research.options().copyDefaults(true);
     }
 
     /**
@@ -40,5 +43,14 @@ public class ConfigManager {
             e.printStackTrace();
         }
         return yaml;
+    }
+
+    public void saveResearches() {
+        File file = new File(CrystamaeHistoria.getInstance().getDataFolder(), "research.yml");
+        try {
+            research.save(file);
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
     }
 }

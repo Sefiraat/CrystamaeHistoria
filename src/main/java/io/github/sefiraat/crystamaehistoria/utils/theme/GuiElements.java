@@ -6,6 +6,9 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import lombok.experimental.UtilityClass;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.inventory.ItemStack;
+
+import java.text.MessageFormat;
 
 @UtilityClass
 public class GuiElements {
@@ -54,6 +57,32 @@ public class GuiElements {
         Skulls.GUI_TIER_NUMBER_5.getPlayerHead(),
         ThemeType.CLICK_INFO.getColor() + "Tier 5"
     );
+
+    public static ItemStack getStoryNotUnlockedIcon(Material material) {
+        return ThemeType.themedItemStack(
+            Material.BARRIER,
+            ThemeType.RESEARCH,
+            ThemeType.toTitleCase(material.toString()),
+            MessageFormat.format("{0}{1}LOCKED", ThemeType.RESEARCH.getColor(), ChatColor.BOLD),
+            "This unique story is not yet",
+            "unlocked.",
+            "Stories are unlocked the first time",
+            "you chronicle the required block."
+        );
+    }
+
+    public static ItemStack getSpellNotUnlockedIcon(String id) {
+        return ThemeType.themedItemStack(
+            Material.BARRIER,
+            ThemeType.RESEARCH,
+            ThemeType.toTitleCase(id),
+            MessageFormat.format("{0}{1}LOCKED", ThemeType.RESEARCH.getColor(), ChatColor.BOLD),
+            "This spell is not yet unlocked.",
+            "Spells are unlocked the first time",
+            "you charge a plate with it in the",
+            "liquefaction basin."
+        );
+    }
 
     public static CustomItemStack getSpellSlotPane(SpellSlot spellSlot) {
         return new CustomItemStack(

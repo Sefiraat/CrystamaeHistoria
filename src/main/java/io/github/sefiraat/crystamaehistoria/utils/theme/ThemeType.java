@@ -3,9 +3,11 @@ package io.github.sefiraat.crystamaehistoria.utils.theme;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import lombok.Getter;
 import net.md_5.bungee.api.ChatColor;
 import org.apache.commons.lang.WordUtils;
+import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.inventory.ItemStack;
 
@@ -26,6 +28,7 @@ public enum ThemeType {
     SUCCESS(ChatColor.GREEN, "Success"),
     MAIN(ChatColor.of("#21588f"), "Crystamae Historia"),
     CLICK_INFO(ChatColor.of("#e4ed32"), "Click here"),
+    RESEARCH(ChatColor.of("#a60e03"), "Research"),
     CRAFTING(ChatColor.of("#dbcea9"), "Crafting Material"),
     CRYSTAL(ChatColor.of("#dbcea9"), "Crystal"),
     MACHINE(ChatColor.of("#3295a8"), "Machine"),
@@ -127,7 +130,7 @@ public enum ThemeType {
      */
     @Nonnull
     @ParametersAreNonnullByDefault
-    public static SlimefunItemStack themeStack(String id, ItemStack itemStack, ThemeType themeType, String name, String... lore) {
+    public static SlimefunItemStack themedSlimefunItemStack(String id, ItemStack itemStack, ThemeType themeType, String name, String... lore) {
         ChatColor passiveColor = ThemeType.PASSIVE.getColor();
         List<String> finalLore = new ArrayList<>();
         finalLore.add("");
@@ -139,6 +142,34 @@ public enum ThemeType {
         return new SlimefunItemStack(
             id,
             itemStack,
+            ThemeType.applyThemeToString(themeType, name),
+            finalLore.toArray(new String[finalLore.size() - 1])
+        );
+    }
+
+    /**
+     * Gets an ItemStack with a pre-populated lore and name with themed colors.
+     *
+     * @param id        The ID for the new {@link ItemStack}
+     * @param material  The {@link Material} used to base the {@link ItemStack} on
+     * @param themeType The {@link ThemeType} {@link ChatColor} to apply to the {@link ItemStack} name
+     * @param name      The name to apply to the {@link ItemStack}
+     * @param lore      The lore lines for the {@link ItemStack}. Lore is book-ended with empty strings.
+     * @return Returns the new {@link ItemStack}
+     */
+    @Nonnull
+    @ParametersAreNonnullByDefault
+    public static ItemStack themedItemStack(Material material, ThemeType themeType, String name, String... lore) {
+        ChatColor passiveColor = ThemeType.PASSIVE.getColor();
+        List<String> finalLore = new ArrayList<>();
+        finalLore.add("");
+        for (String s : lore) {
+            finalLore.add(passiveColor + s);
+        }
+        finalLore.add("");
+        finalLore.add(applyThemeToString(ThemeType.CLICK_INFO, themeType.getLoreLine()));
+        return new CustomItemStack(
+            material,
             ThemeType.applyThemeToString(themeType, name),
             finalLore.toArray(new String[finalLore.size() - 1])
         );

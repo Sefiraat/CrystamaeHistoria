@@ -29,7 +29,7 @@ public class Materials {
     static {
         INERT_PLATE_T_1 = new BlankPlate(
             ItemGroups.TOOLS,
-            ThemeType.themeStack(
+            ThemeType.themedSlimefunItemStack(
                 "CRY_SPELL_PLATE_1",
                 new ItemStack(Material.PAPER),
                 ThemeType.CRAFTING,
@@ -44,7 +44,7 @@ public class Materials {
 
         CHARGED_PLATE_T_1 = new ChargedPlate(
             ItemGroups.TOOLS,
-            ThemeType.themeStack(
+            ThemeType.themedSlimefunItemStack(
                 "CRY_CHARGED_PLATE_1",
                 new ItemStack(Material.PAPER),
                 ThemeType.CRAFTING,
@@ -86,7 +86,7 @@ public class Materials {
                 ThemeType theme = ThemeType.getByRarity(rarity);
                 SlimefunItem slimefunItem = new Crystal(
                     ItemGroups.CRYSTALS,
-                    ThemeType.themeStack(
+                    ThemeType.themedSlimefunItemStack(
                         "CRY_CRYSTAL_" + rarity.toString() + "_" + type.toString(),
                         Skulls.getByType(type).getPlayerHead(),
                         ThemeType.CRYSTAL,
@@ -110,7 +110,7 @@ public class Materials {
             ThemeType theme = ThemeType.getByType(type);
             SlimefunItem sfItem = new Crystal(
                 ItemGroups.DUMMY_ITEM_GROUP,
-                ThemeType.themeStack(
+                ThemeType.themedSlimefunItemStack(
                     "CRY_CRYSTAL_DUMMY_" + type.toString() + "_" + type.toString(),
                     Skulls.getByType(type).getPlayerHead(),
                     ThemeType.CRYSTAL,

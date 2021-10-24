@@ -26,7 +26,7 @@ public class Machines {
     public void setup() {
         new ChroniclerPanel(
             ItemGroups.MECHANISMS,
-            ThemeType.themeStack(
+            ThemeType.themedSlimefunItemStack(
                 "CRY_CHRONICLER_PANEL_1",
                 new ItemStack(Material.DEEPSLATE_TILE_SLAB),
                 ThemeType.MECHANISM,
@@ -45,7 +45,7 @@ public class Machines {
 
         new RealisationAltar(
             ItemGroups.MECHANISMS,
-            ThemeType.themeStack(
+            ThemeType.themedSlimefunItemStack(
                 "CRY_REALISATION_ALTAR_1",
                 new ItemStack(Material.CHISELED_DEEPSLATE),
                 ThemeType.MECHANISM,
@@ -64,7 +64,7 @@ public class Machines {
 
         new LiquefactionBasin(
             ItemGroups.MECHANISMS,
-            ThemeType.themeStack(
+            ThemeType.themedSlimefunItemStack(
                 "CRY_LIQUEFACTION_BASIN_1",
                 new ItemStack(Material.CAULDRON),
                 ThemeType.MECHANISM,
@@ -83,7 +83,7 @@ public class Machines {
 
         new StaveConfigurator(
             ItemGroups.MECHANISMS,
-            ThemeType.themeStack(
+            ThemeType.themedSlimefunItemStack(
                 "CRY_STAVE_CONFIGURATOR",
                 new ItemStack(Material.CUT_COPPER),
                 ThemeType.MECHANISM,
