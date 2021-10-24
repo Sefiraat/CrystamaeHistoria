@@ -34,12 +34,12 @@ public class StaveConfigurator extends TickingMenuBlock {
     private static final int[] BACKGROUND_INPUT = {
         14, 15, 16, 23, 25, 32, 33, 34
     };
-    private static final int STAVE_SLOT = 24;
-    private static final int LEFT_CLICK_SLOT = 10;
-    private static final int RIGHT_CLICK_SLOT = 12;
-    private static final int SHIFT_LEFT_CLICK_SLOT = 28;
-    private static final int SHIFT_RIGHT_CLICK_SLOT = 30;
-    private static final int LEFT_NOTE = 1;
+    private static final int STAVE_SLOT = 20;
+    private static final int LEFT_CLICK_SLOT = 14;
+    private static final int RIGHT_CLICK_SLOT = 16;
+    private static final int SHIFT_LEFT_CLICK_SLOT = 32;
+    private static final int SHIFT_RIGHT_CLICK_SLOT = 34;
+    private static final int LEFT_NOTE = 5;
     private static final int RIGHT_NOTE = 3;
     private static final int S_LEFT_NOTE = 37;
     private static final int S_RIGHT_NOTE = 39;

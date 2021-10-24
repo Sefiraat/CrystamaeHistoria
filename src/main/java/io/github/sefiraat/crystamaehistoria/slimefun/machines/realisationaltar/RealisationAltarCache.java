@@ -21,6 +21,7 @@ import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -72,7 +73,9 @@ public class RealisationAltarCache extends AbstractCache {
             final int x = ThreadLocalRandom.current().nextInt(-3, 4);
             final int z = ThreadLocalRandom.current().nextInt(-3, 4);
             final Block potentialBlock = blockMenu.getBlock().getRelative(x, 0, z);
-            if (potentialBlock.getType() == Material.AIR) {
+            if (potentialBlock.getType() == Material.AIR
+                && potentialBlock.getRelative(BlockFace.DOWN).getType().isSolid()
+            ) {
                 Story story = storyList.get(0);
                 potentialBlock.setType(Material.SMALL_AMETHYST_BUD);
                 crystalStoryMap.put(new BlockPosition(potentialBlock.getLocation()), new Pair<>(story.getRarity(), story.getId()));

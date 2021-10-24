@@ -58,6 +58,16 @@ public class GuiElements {
         ThemeType.CLICK_INFO.getColor() + "Tier 5"
     );
 
+    public static ItemStack getUniqueStoryIcon(Material material) {
+        return ThemeType.themedItemStack(
+            material,
+            ThemeType.RARITY_UNIQUE,
+            ThemeType.toTitleCase(material.toString()),
+            "This unique story has been",
+            "chronicled."
+        );
+    }
+
     public static ItemStack getStoryNotUnlockedIcon(Material material) {
         return ThemeType.themedItemStack(
             Material.BARRIER,

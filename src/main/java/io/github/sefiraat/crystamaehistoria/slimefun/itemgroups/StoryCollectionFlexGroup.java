@@ -111,7 +111,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
                 final boolean researched = ResearchUtils.hasUnlockedUniqueStory(p, definition);
 
                 if (mode == SlimefunGuideMode.CHEAT_MODE || researched) {
-                    menu.replaceExistingItem(slot, new ItemStack(definition.getMaterial()));
+                    menu.replaceExistingItem(slot, GuiElements.getUniqueStoryIcon(definition.getMaterial()));
                     menu.addMenuClickHandler(slot, (player1, i1, itemStack1, clickAction) -> {
                         displayDefinition(player1, profile, mode, menu, page, definition);
                         return false;

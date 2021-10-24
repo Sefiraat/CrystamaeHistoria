@@ -24,6 +24,8 @@ public class ArmourStandUtils {
         armorStand.setRemoveWhenFarAway(false);
         armorStand.setCollidable(false);
         armorStand.setInvulnerable(true);
+        armorStand.setMarker(true);
+        armorStand.setSilent(false);
         armorStand.setCustomName(ThemeType.getRandomEggName());
         PersistentDataAPI.setBoolean(armorStand, Keys.PDC_IS_DISPLAY_STAND, true);
     }

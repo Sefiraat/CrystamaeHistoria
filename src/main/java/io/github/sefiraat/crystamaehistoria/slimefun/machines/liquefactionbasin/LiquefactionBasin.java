@@ -1,8 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin;
 
 import io.github.mooy1.infinitylib.machines.TickingMenuBlock;
-import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.chroniclerpanel.ChroniclerPanelCache;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -23,7 +21,6 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
 
 public class LiquefactionBasin extends TickingMenuBlock {
 
@@ -57,12 +54,6 @@ public class LiquefactionBasin extends TickingMenuBlock {
         if (cache != null) {
             cache.consumeItems();
             cache.syncBlock();
-            // TODO Remove
-            if (cache.getActivePlayer() != null) {
-                CrystamaeHistoria.log(Level.WARNING, "LB : " + cache.getActivePlayer().toString());
-            } else {
-                CrystamaeHistoria.log(Level.WARNING, "LB : Empty");
-            }
         }
     }
 

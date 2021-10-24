@@ -36,7 +36,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public enum SpellType {
 
     // Tier 1 Plate Recipes
-    LIGHTNING_CALL(new CallLightning()),
+    CALL_LIGHTNING(new CallLightning()),
     FAN_OF_ARROWS(new FanOfArrows()),
     FIREBALL(new Fireball()),
     POISON_NOVA(new PoisonNova()),

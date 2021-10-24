@@ -1,7 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.machines.chroniclerpanel;
 
 import io.github.mooy1.infinitylib.machines.TickingMenuBlock;
-import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.utils.theme.GuiElements;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -20,7 +19,6 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Level;
 
 public class ChroniclerPanel extends TickingMenuBlock {
 
@@ -61,12 +59,6 @@ public class ChroniclerPanel extends TickingMenuBlock {
         ChroniclerPanelCache cache = ChroniclerPanel.this.caches.get(block.getLocation());
         if (cache != null) {
             cache.process();
-            // TODO Remove
-            if (cache.getActivePlayer() != null) {
-                CrystamaeHistoria.log(Level.WARNING, "Chronicler : " + cache.getActivePlayer().toString());
-            } else {
-                CrystamaeHistoria.log(Level.WARNING, "Chronicler : Empty");
-            }
         }
     }
 
