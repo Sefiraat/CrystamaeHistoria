@@ -43,13 +43,13 @@ public class ResearchUtils {
     }
 
     private static void setResearchConfig(UUID uuid, ResearchType researchType, String researchId, Object object) {
-        String path = MessageFormat.format("{0}.{1}.{2}", uuid, researchType , researchId);
+        String path = MessageFormat.format("{0}.{1}.{2}", uuid, researchType, researchId);
         CrystamaeHistoria.getConfigManager().getResearch().set(path, object);
         CrystamaeHistoria.getConfigManager().saveResearches();
     }
 
     private static boolean getResearchBoolean(UUID uuid, ResearchType researchType, String researchId) {
-        String path = MessageFormat.format("{0}.{1}.{2}", uuid, researchType , researchId);
+        String path = MessageFormat.format("{0}.{1}.{2}", uuid, researchType, researchId);
         return CrystamaeHistoria.getConfigManager().getResearch().getBoolean(path);
     }
 

@@ -1,8 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.machines.staveconfigurator;
 
-import io.github.mooy1.infinitylib.common.StackUtils;
 import io.github.mooy1.infinitylib.machines.MenuBlock;
-import io.github.mooy1.infinitylib.machines.TickingMenuBlock;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.ChargedPlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.PlateStorage;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.SpellSlot;
@@ -19,6 +17,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
+import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
@@ -108,9 +107,14 @@ public class StaveConfigurator extends MenuBlock {
         });
 
         blockMenu.addMenuClickHandler(ADD_PLATES, (player, i, itemStack, clickAction) -> {
-            ItemStack stave = blockMenu.getItemInSlot(STAVE_SLOT);
+            final ItemStack stave = blockMenu.getItemInSlot(STAVE_SLOT);
+            final SlimefunItem sfStave = SlimefunItem.getByItem(stave);
             StaveStorage staveStorage = new StaveStorage();
-            if (stave != null) {
+            if (stave != null
+                && sfStave instanceof Stave
+                && !platesEmpty(blockMenu)
+                && staveIsEmpty(stave)
+            ) {
                 rejectInvalid(blockMenu);
                 ItemMeta itemMeta = stave.getItemMeta();
                 for (SpellSlot spellSlot : SpellSlot.getCashedValues()) {
@@ -138,39 +142,16 @@ public class StaveConfigurator extends MenuBlock {
         });
     }
 
-    private void saveStave(@Nonnull BlockMenu blockMenu) {
-        ItemStack stave = blockMenu.getItemInSlot(STAVE_SLOT);
-        StaveStorage staveStorage = new StaveStorage();
-        if (stave != null) {
-            rejectInvalid(blockMenu);
-            ItemMeta itemMeta = stave.getItemMeta();
-            for (SpellSlot spellSlot : SpellSlot.getCashedValues()) {
-                ItemStack plate = blockMenu.getItemInSlot(getSlot(spellSlot));
-                if (plate != null && SlimefunItem.getByItem(plate) instanceof ChargedPlate) {
-                    PlateStorage plateStorage = DataTypeMethods.getCustom(
-                        plate.getItemMeta(),
-                        Keys.PDC_PLATE_STORAGE,
-                        PersistentPlateDataType.TYPE
-                    );
-                    staveStorage.setSlot(spellSlot, plateStorage);
-                }
-            }
-            DataTypeMethods.setCustom(
-                itemMeta,
-                Keys.PDC_STAVE_STORAGE,
-                PersistentStaveDataType.TYPE,
-                staveStorage.getSpellInstanceMap()
-            );
-            stave.setItemMeta(itemMeta);
-            StaveStorage.setStaveLore(stave, staveStorage);
-        }
-    }
-
     @Override
     protected void onBreak(@Nonnull BlockBreakEvent e, @Nonnull BlockMenu menu) {
         super.onBreak(e, menu);
-        saveStave(menu);
-        menu.dropItems(menu.getLocation(), STAVE_SLOT);
+        super.onBreak(e, menu);
+        Location location = menu.getLocation();
+        menu.dropItems(location, LEFT_CLICK_SLOT);
+        menu.dropItems(location, RIGHT_CLICK_SLOT);
+        menu.dropItems(location, SHIFT_LEFT_CLICK_SLOT);
+        menu.dropItems(location, SHIFT_RIGHT_CLICK_SLOT);
+        menu.dropItems(location, STAVE_SLOT);
     }
 
     public void rejectInvalid(BlockMenu blockMenu) {
@@ -198,6 +179,21 @@ public class StaveConfigurator extends MenuBlock {
             SHIFT_LEFT_CLICK_SLOT,
             SHIFT_RIGHT_CLICK_SLOT
         );
+    }
+
+    private boolean platesEmpty(@Nonnull BlockMenu blockMenu) {
+        for (int slot : PLATE_SLOTS) {
+            final ItemStack itemStack = blockMenu.getItemInSlot(slot);
+            if (itemStack != null) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean staveIsEmpty(ItemStack stave) {
+        final StaveStorage staveStorage = new StaveStorage(stave);
+        return staveStorage.getSpellInstanceMap().size() == 0;
     }
 
     private int getSlot(@Nonnull SpellSlot spellSlot) {

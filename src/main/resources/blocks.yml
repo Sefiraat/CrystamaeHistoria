@@ -264,7 +264,7 @@ blocks:
         - Used in the creation of the strongest
         - items. Hidden in the depths by an old
         - civilisation.
-      shards: [1,0,1,1,0,0,0,0,0]
+      shards: [ 1,0,1,1,0,0,0,0,0 ]
       author: OOOOMAGAAA
 
   - material: ANDESITE
@@ -944,7 +944,7 @@ blocks:
         - Fluffy and black, the most comfortable
         - of materials. Longing to become the next
         - bed or carpet.
-      shards: [0,0,1,0,0,2,0,1,0]
+      shards: [ 0,0,1,0,0,2,0,1,0 ]
       author: OOOOMAGAAA
 
   - material: BLAST_FURNACE
@@ -1135,7 +1135,7 @@ blocks:
         - Fluffy and blue, the most comfortable
         - of materials. Longing to become the next
         - bed or carpet.
-      shards: [1,0,1,0,0,2,0,0,0]
+      shards: [ 1,0,1,0,0,2,0,0,0 ]
       author: OOOOMAGAAA
 
   - material: BONE
@@ -1161,7 +1161,7 @@ blocks:
         - Fossils scattered across the world and
         - depths of the Nether. Nothing is known
         - about the creatures that left them behind.
-      shards: [0,0,1,1,0,1,0,0,0]
+      shards: [ 0,0,1,1,0,1,0,0,0 ]
 
   - material: BONE_MEAL
     tier: 1
@@ -1173,7 +1173,7 @@ blocks:
       type: PHILOSOPHICAL
       lore:
         - I'll grind his bones to make my bread
-      shards: [0,0,1,0,1,1,0,0,1]
+      shards: [ 0,0,1,0,1,1,0,0,1 ]
       author: Jack and the Beanstalk?
 
   - material: BOOK
@@ -1199,7 +1199,7 @@ blocks:
         - An unending source practically dripping with
         - the knowledge of the smartest people who
         - ever existed.
-      shards: [0,0,0,1,1,0,1,0,1]
+      shards: [ 0,0,0,1,1,0,1,0,1 ]
       author: OOOOMAGAAA
 
   - material: BOW
@@ -1489,7 +1489,7 @@ blocks:
         - Fluffy and brown, the most comfortable
         - of materials. Longing to become the next
         - bed or carpet.
-      shards: [0,0,1,1,0,2,0,0,0]
+      shards: [ 0,0,1,1,0,2,0,0,0 ]
       author: OOOOMAGAAA
 
   - material: BUBBLE_CORAL
@@ -1878,7 +1878,7 @@ blocks:
         - Woven into the fabric of space and
         - time by the Ancient Builders, these
         - flowers seem... shifty...
-      shards: [0,0,1,0,0,1,0,1,0]
+      shards: [ 0,0,1,0,0,1,0,1,0 ]
       author: Seggan
 
   - material: CHORUS_FRUIT
@@ -2829,7 +2829,7 @@ blocks:
         - Fluffy and cyan, the most comfortable
         - of materials. Longing to become the next
         - bed or carpet.
-      shards: [0,0,1,0,0,2,0,0,1]
+      shards: [ 0,0,1,0,0,2,0,0,1 ]
       author: OOOOMAGAAA
 
   - material: DAMAGED_ANVIL
@@ -3680,7 +3680,7 @@ blocks:
         - Shaping the very face of the minecraft
         - world, dirt is a constant keeping us
         - all grounded.
-      shards: [2,0,0,1,0,0,0,0,0]
+      shards: [ 2,0,0,1,0,0,0,0,0 ]
 
   - material: DIRT_PATH
     tier: 1
@@ -3694,7 +3694,7 @@ blocks:
         - Without complaint, a spirit allows
         - itself to be walked all over so long
         - as it feels it's helping others.
-      shards: [1,0,0,0,1,0,0,0,1]
+      shards: [ 1,0,0,0,1,0,0,0,1 ]
 
   - material: DISPENSER
     tier: 2
@@ -3708,7 +3708,7 @@ blocks:
         - Being used as a weapon was once tiring but
         - now nothing brings more satisfaction than
         - firing at an enemy.
-      shards: [0,2,0,0,1,0,0,0,0]
+      shards: [ 0,2,0,0,1,0,0,0,0 ]
 
   - material: DRAGON_BREATH
     tier: 4
@@ -3720,7 +3720,7 @@ blocks:
       type: VOID
       lore:
         - Encapsulated toxins from a scarred soul.
-      shards: [0,0,0,0,0,1,0,2,1]
+      shards: [ 0,0,0,0,0,1,0,2,1 ]
 
   - material: DRAGON_EGG
     tier: 5
@@ -3736,7 +3736,7 @@ blocks:
         - The finality of all things throngs
         - from within this egg.
         - Everything must end and all returns.
-      shards: [2,2,2,2,2,2,2,2,2]
+      shards: [ 2,2,2,2,2,2,2,2,2 ]
 
   - material: DRAGON_HEAD
     tier: 5
@@ -3749,7 +3749,7 @@ blocks:
       lore:
         - Her spirit unabashed, a sacrifice made and
         - a spirit set free.
-      shards: [1,1,1,1,1,2,1,2,1]
+      shards: [ 1,1,1,1,1,2,1,2,1 ]
 
   - material: DRIED_KELP
     tier: 1
@@ -3884,7 +3884,7 @@ blocks:
         - Imbued with the pure essence of old
         - Magi. While not usable by all, those
         - who do are destined for greatness.
-      shards: [0,0,0,1,0,0,1,0,1]
+      shards: [ 0,0,0,1,0,0,1,0,1 ]
       author: OOOOMAGAAA
 
   - material: ENDER_CHEST
@@ -3945,7 +3945,7 @@ blocks:
         - created a devistating being they needed to hide
         - from. They built strongholds and eventually
         - constructed these portals to make their escape.
-      shards: [0,2,0,1,1,0,0,2,0]
+      shards: [ 0,2,0,1,1,0,0,2,0 ]
       author: Ashton
 
   - material: END_ROD
@@ -3959,7 +3959,7 @@ blocks:
       lore:
         - Seemingly created by the Purpur engineers,
         - it's unknown how the light is produced.
-      shards: [0,0,1,0,0,0,1,1,0]
+      shards: [ 0,0,1,0,0,0,1,1,0 ]
       author: Seggan
 
   - material: END_STONE
@@ -4391,7 +4391,7 @@ blocks:
         - Found only in the hottest of locaitons,
         - it is still unknown how or why this
         - stone glows.
-      shards: [0,0,2,0,0,0,1,0,0]
+      shards: [ 0,0,2,0,0,0,1,0,0 ]
       author: OOOOMAGAAA
 
   - material: GLOWSTONE_DUST
@@ -4693,7 +4693,7 @@ blocks:
       lore:
         - The start of the food web. Grass brings
         - life into this world.
-      shards: [1,0,1,0,0,1,0,0,0]
+      shards: [ 1,0,1,0,0,1,0,0,0 ]
 
   - material: GRAVEL
     tier: 1
@@ -4838,7 +4838,7 @@ blocks:
         - Fluffy and gray, the most comfortable
         - of materials. Longing to become the next
         - bed or carpet.
-      shards: [0,0,1,0,0,2,0,0,0]
+      shards: [ 0,0,1,0,0,2,0,0,0 ]
       author: OOOOMAGAAA
 
   - material: GREEN_BANNER
@@ -4974,7 +4974,7 @@ blocks:
         - Fluffy and green, the most comfortable
         - of materials. Longing to become the next
         - bed or carpet.
-      shards: [0,0,1,0,1,2,0,0,0]
+      shards: [ 0,0,1,0,1,2,0,0,0 ]
       author: OOOOMAGAAA
 
   - material: GRINDSTONE
@@ -5280,7 +5280,7 @@ blocks:
         - Made from the earth, this block is
         - used for machines and the furthering
         - of technology.
-      shards: [1,2,0,0,1,0,0,0,0]
+      shards: [ 1,2,0,0,1,0,0,0,0 ]
 
   - material: IRON_BOOTS
     tier: 1
@@ -6047,7 +6047,7 @@ blocks:
         - Fluffy and light blue, the most comfortable
         - of materials. Longing to become the next
         - bed or carpet.
-      shards: [0,0,1,0,0,2,0,0,0]
+      shards: [ 0,0,1,0,0,2,0,0,0 ]
       author: OOOOMAGAAA
 
   - material: LIGHT_GRAY_BANNER
@@ -6182,7 +6182,7 @@ blocks:
         - Fluffy and light gray, the most comfortable
         - of materials. Longing to become the next
         - bed or carpet.
-      shards: [0,0,1,0,0,2,0,0,0]
+      shards: [ 0,0,1,0,0,2,0,0,0 ]
       author: OOOOMAGAAA
   - material: LIGHT_WEIGHTED_PRESSURE_PLATE
     tier: 2
@@ -6365,7 +6365,7 @@ blocks:
         - Fluffy and lime, the most comfortable
         - of materials. Longing to become the next
         - bed or carpet.
-      shards: [0,0,1,0,0,2,1,0,0]
+      shards: [ 0,0,1,0,0,2,1,0,0 ]
       author: OOOOMAGAAA
 
   - material: LINGERING_POTION
@@ -6534,7 +6534,7 @@ blocks:
         - Fluffy and magenta, the most comfortable
         - of materials. Longing to become the next
         - bed or carpet.
-      shards: [0,0,1,0,0,2,0,0,0]
+      shards: [ 0,0,1,0,0,2,0,0,0 ]
       author: OOOOMAGAAA
 
   - material: MAGMA_BLOCK
@@ -6989,7 +6989,7 @@ blocks:
         - A block made only to show off insane wealth
         - After the first was made, it sparked wars,
         - treachery and deceipt.
-      shards: [0,0,0,0,2,0,1,0,1]
+      shards: [ 0,0,0,0,2,0,1,0,1 ]
       author: ashton
 
   - material: NETHERITE_BOOTS
@@ -7112,7 +7112,7 @@ blocks:
       lore:
         - It is unknown how such a soft rock can
         - support the scructure of the Nether.
-      shards: [1,0,1,0,0,0,0,0,0]
+      shards: [ 1,0,1,0,0,0,0,0,0 ]
 
   - material: NETHER_BRICK
     tier: 1
@@ -7478,7 +7478,7 @@ blocks:
         - Having waited so long underground in anger,
         - it now manages to rise above the ground
         - to potentially reveal its secrets.
-      shards: [1,0,0,1,0,0,0,1,0]
+      shards: [ 1,0,0,1,0,0,0,1,0 ]
       author: TerslenK
 
   - material: ORANGE_BANNER
@@ -7625,7 +7625,7 @@ blocks:
         - Fluffy and orange, the most comfortable
         - of materials. Longing to become the next
         - bed or carpet.
-      shards: [0,1,1,0,0,2,0,0,0]
+      shards: [ 0,1,1,0,0,2,0,0,0 ]
       author: OOOOMAGAAA
 
   - material: OXEYE_DAISY
@@ -7903,7 +7903,7 @@ blocks:
         - Fluffy and pink, the most comfortable
         - of materials. Longing to become the next
         - bed or carpet.
-      shards: [0,0,1,0,0,2,0,0,0]
+      shards: [ 0,0,1,0,0,2,0,0,0 ]
       author: OOOOMAGAAA
 
   - material: PISTON
@@ -8593,7 +8593,7 @@ blocks:
         - Fluffy and purple, the most comfortable
         - of materials. Longing to become the next
         - bed or carpet.
-      shards: [0,0,1,0,0,2,0,0,0]
+      shards: [ 0,0,1,0,0,2,0,0,0 ]
       author: OOOOMAGAAA
 
   - material: PURPUR_BLOCK
@@ -8609,7 +8609,7 @@ blocks:
         - This is the only evidence left of the
         - long-lost Ancient Builders who created
         - it
-      shards: [0,0,0,1,1,0,0,1,0]
+      shards: [ 0,0,0,1,1,0,0,1,0 ]
       author: Seggan
 
   - material: PURPUR_PILLAR
@@ -8877,7 +8877,7 @@ blocks:
         - When first discovered. human history completely
         - changed, making it possible to create circuits,
         - machines and the birth of electricity.
-      shards: [2,1,0,0,0,0,0,0,0]
+      shards: [ 2,1,0,0,0,0,0,0,0 ]
       author: TerslenK
 
   - material: REDSTONE_TORCH
@@ -9155,7 +9155,7 @@ blocks:
         - Fluffy and red, the most comfortable
         - of materials. Longing to become the next
         - bed or carpet.
-      shards: [0,0,1,0,0,2,0,0,0]
+      shards: [ 0,0,1,0,0,2,0,0,0 ]
       author: OOOOMAGAAA
 
   - material: REPEATER
@@ -9708,7 +9708,7 @@ blocks:
       lore:
         - The souls of those before you, perhaps
         - ripped from the mysterious Ancient Builders?
-      shards: [1,0,0,1,0,0,0,0,0]
+      shards: [ 1,0,0,1,0,0,0,0,0 ]
       author: Seggan
 
   - material: SOUL_SAND
@@ -9722,7 +9722,7 @@ blocks:
       lore:
         - The souls of those before you, perhaps
         - ripped from the mysterious Ancient Builders?
-      shards: [1,0,0,1,0,0,0,0,0]
+      shards: [ 1,0,0,1,0,0,0,0,0 ]
       author: Seggan
 
   - material: SOUL_TORCH
@@ -10036,7 +10036,7 @@ blocks:
         - manner of blocks, the Sticky Piston is
         - cursed to push and retrieve the same block
         - without end.
-      shards: [0,1,0,0,1,0,1,0,1]
+      shards: [ 0,1,0,0,1,0,1,0,1 ]
 
   - material: STONE
     tier: 1
@@ -10231,7 +10231,7 @@ blocks:
       lore:
         - With nothing left to hide, this spirit
         - allows itself to be more open and free.
-      shards: [1,1,0,0,1,0,0,0,0]
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: STRIPPED_ACACIA_WOOD
     tier: 1
@@ -10244,7 +10244,7 @@ blocks:
       lore:
         - With nothing left to hide, this spirit
         - allows itself to be more open and free.
-      shards: [1,1,0,0,1,0,0,0,0]
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: STRIPPED_BIRCH_LOG
     tier: 1
@@ -10257,7 +10257,7 @@ blocks:
       lore:
         - With nothing left to hide, this spirit
         - allows itself to be more open and free.
-      shards: [1,1,0,0,1,0,0,0,0]
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: STRIPPED_BIRCH_WOOD
     tier: 1
@@ -10270,7 +10270,7 @@ blocks:
       lore:
         - With nothing left to hide, this spirit
         - allows itself to be more open and free.
-      shards: [1,1,0,0,1,0,0,0,0]
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: STRIPPED_CRIMSON_HYPHAE
     tier: 1
@@ -10284,7 +10284,7 @@ blocks:
       lore:
         - With nothing left to hide, this spirit
         - allows itself to be more open and free.
-      shards: [1,1,0,0,1,0,0,1,0]
+      shards: [ 1,1,0,0,1,0,0,1,0 ]
 
   - material: STRIPPED_CRIMSON_STEM
     tier: 1
@@ -10298,7 +10298,7 @@ blocks:
       lore:
         - With nothing left to hide, this spirit
         - allows itself to be more open and free.
-      shards: [1,1,0,0,1,0,0,0,0]
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: STRIPPED_DARK_OAK_LOG
     tier: 1
@@ -10311,7 +10311,7 @@ blocks:
       lore:
         - With nothing left to hide, this spirit
         - allows itself to be more open and free.
-      shards: [1,1,0,0,1,0,0,0,0]
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: STRIPPED_DARK_OAK_WOOD
     tier: 1
@@ -10324,7 +10324,7 @@ blocks:
       lore:
         - With nothing left to hide, this spirit
         - allows itself to be more open and free.
-      shards: [1,1,0,0,1,0,0,0,0]
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: STRIPPED_JUNGLE_LOG
     tier: 1
@@ -10337,7 +10337,7 @@ blocks:
       lore:
         - With nothing left to hide, this spirit
         - allows itself to be more open and free.
-      shards: [1,1,0,0,1,0,0,0,0]
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: STRIPPED_JUNGLE_WOOD
     tier: 1
@@ -10350,7 +10350,7 @@ blocks:
       lore:
         - With nothing left to hide, this spirit
         - allows itself to be more open and free.
-      shards: [1,1,0,0,1,0,0,0,0]
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: STRIPPED_OAK_LOG
     tier: 1
@@ -10363,7 +10363,7 @@ blocks:
       lore:
         - With nothing left to hide, this spirit
         - allows itself to be more open and free.
-      shards: [1,1,0,0,1,0,0,0,0]
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: STRIPPED_OAK_WOOD
     tier: 1
@@ -10376,7 +10376,7 @@ blocks:
       lore:
         - With nothing left to hide, this spirit
         - allows itself to be more open and free.
-      shards: [1,1,0,0,1,0,0,0,0]
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: STRIPPED_SPRUCE_LOG
     tier: 1
@@ -10389,7 +10389,7 @@ blocks:
       lore:
         - With nothing left to hide, this spirit
         - allows itself to be more open and free.
-      shards: [1,1,0,0,1,0,0,0,0]
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: STRIPPED_SPRUCE_WOOD
     tier: 1
@@ -10402,7 +10402,7 @@ blocks:
       lore:
         - With nothing left to hide, this spirit
         - allows itself to be more open and free.
-      shards: [1,1,0,0,1,0,0,0,0]
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: STRIPPED_WARPED_HYPHAE
     tier: 1
@@ -10416,7 +10416,7 @@ blocks:
       lore:
         - With nothing left to hide, this spirit
         - allows itself to be more open and free.
-      shards: [1,1,0,0,1,0,0,1,0]
+      shards: [ 1,1,0,0,1,0,0,1,0 ]
 
   - material: STRIPPED_WARPED_STEM
     tier: 1
@@ -10430,7 +10430,7 @@ blocks:
       lore:
         - With nothing left to hide, this spirit
         - allows itself to be more open and free.
-      shards: [1,1,0,0,1,0,0,1,0]
+      shards: [ 1,1,0,0,1,0,0,1,0 ]
 
   - material: SUGAR
     tier: 1
@@ -10552,7 +10552,7 @@ blocks:
       type: ALCHEMICAL
       lore:
         - WAIT FOR IT!
-      shards: [0,1,2,0,0,0,0,0,1]
+      shards: [ 0,1,2,0,0,0,0,0,1 ]
       author: Seggan
 
   - material: TNT_MINECART
@@ -11366,7 +11366,7 @@ blocks:
         - Fluffy and white, the most comfortable
         - of materials. Longing to become the next
         - bed or carpet.
-      shards: [0,0,1,0,0,2,0,0,0]
+      shards: [ 0,0,1,0,0,2,0,0,0 ]
       author: OOOOMAGAAA
 
   - material: WITHER_ROSE
@@ -11600,7 +11600,7 @@ blocks:
         - Fluffy and yellow, the most comfortable
         - of materials. Longing to become the next
         - bed or carpet.
-      shards: [0,0,1,0,0,2,0,0,0]
+      shards: [ 0,0,1,0,0,2,0,0,0 ]
       author: OOOOMAGAAA
 
   - material: ZOMBIE_HEAD

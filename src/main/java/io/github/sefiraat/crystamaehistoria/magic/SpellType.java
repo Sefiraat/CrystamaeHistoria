@@ -71,7 +71,7 @@ public enum SpellType {
 
         this.spell = spell;
         LiquefactionBasinCache.addSpellRecipe(this, spell.getRecipe());
-        new Research(Keys.newKey(researchId), spell.getId().hashCode(), researchId,1).register();
+        new Research(Keys.newKey(researchId), spell.getId().hashCode(), researchId, 1).register();
     }
 
     @Nullable

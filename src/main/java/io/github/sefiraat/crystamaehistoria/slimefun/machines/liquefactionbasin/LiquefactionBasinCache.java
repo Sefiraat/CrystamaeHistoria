@@ -14,14 +14,11 @@ import io.github.sefiraat.crystamaehistoria.utils.ArmourStandUtils;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.ResearchUtils;
-import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentPlateDataType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import lombok.Getter;
-import lombok.Setter;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
@@ -83,13 +80,13 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
         }
     }
 
+    public static void addSpellRecipe(SpellType spellType, SpellRecipe spellRecipe) {
+        RECIPES_SPELL.put(spellType, spellRecipe);
+    }
+
     public void setActivePlayer(@Nonnull Player player) {
         this.activePlayer = player.getUniqueId();
         BlockStorage.addBlockInfo(this.blockMenu.getBlock(), Keys.BS_CP_ACTIVE_PLAYER, player.getUniqueId().toString());
-    }
-
-    public static void addSpellRecipe(SpellType spellType, SpellRecipe spellRecipe) {
-        RECIPES_SPELL.put(spellType, spellRecipe);
     }
 
     @ParametersAreNonnullByDefault
