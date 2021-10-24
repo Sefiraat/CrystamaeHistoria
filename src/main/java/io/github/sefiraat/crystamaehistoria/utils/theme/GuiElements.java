@@ -23,6 +23,21 @@ public class GuiElements {
         ChatColor.BLUE + "Input"
     );
 
+    public static final CustomItemStack MENU_STAVE_INPUT = new CustomItemStack(
+        Material.LIGHT_BLUE_STAINED_GLASS_PANE,
+        ChatColor.BLUE + "Stave Input"
+    );
+
+    public static final CustomItemStack MENU_REMOVE_PLATES = new CustomItemStack(
+        Material.ORANGE_STAINED_GLASS_PANE,
+        ChatColor.BLUE + "Remove Plates"
+    );
+
+    public static final CustomItemStack MENU_SAVE_STAVE = new CustomItemStack(
+        Material.GREEN_STAINED_GLASS_PANE,
+        ChatColor.BLUE + "Save Stave Config"
+    );
+
     public static final CustomItemStack MENU_BACKGROUND_OUTPUT = new CustomItemStack(
         Material.ORANGE_STAINED_GLASS_PANE,
         ChatColor.RED + "Output"

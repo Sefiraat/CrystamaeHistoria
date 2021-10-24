@@ -1,5 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.machines.staveconfigurator;
 
+import io.github.mooy1.infinitylib.common.StackUtils;
+import io.github.mooy1.infinitylib.machines.MenuBlock;
 import io.github.mooy1.infinitylib.machines.TickingMenuBlock;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.ChargedPlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.PlateStorage;
@@ -26,23 +28,25 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Map;
 
-public class StaveConfigurator extends TickingMenuBlock {
+public class StaveConfigurator extends MenuBlock {
 
     private static final int[] BACKGROUND_SLOTS = {
-        0, 2, 4, 5, 6, 7, 8, 9, 11, 13, 17, 18, 19, 20, 21, 22, 26, 27, 29, 31, 35, 36, 38, 40, 41, 42, 43, 44
+        0, 1, 2, 3, 4, 6, 8, 9, 11, 13, 15, 17, 18, 20, 21, 22, 23, 24, 25, 26, 27, 29, 31, 33, 35, 36, 37, 38, 39, 40, 42, 44
     };
     private static final int[] BACKGROUND_INPUT = {
-        14, 15, 16, 23, 25, 32, 33, 34
+        10, 28
     };
-    private static final int STAVE_SLOT = 20;
+    private static final int STAVE_SLOT = 19;
+    private static final int REMOVE_PLATES = 12;
+    private static final int ADD_PLATES = 30;
     private static final int LEFT_CLICK_SLOT = 14;
     private static final int RIGHT_CLICK_SLOT = 16;
     private static final int SHIFT_LEFT_CLICK_SLOT = 32;
     private static final int SHIFT_RIGHT_CLICK_SLOT = 34;
     private static final int LEFT_NOTE = 5;
-    private static final int RIGHT_NOTE = 3;
-    private static final int S_LEFT_NOTE = 37;
-    private static final int S_RIGHT_NOTE = 39;
+    private static final int RIGHT_NOTE = 7;
+    private static final int S_LEFT_NOTE = 41;
+    private static final int S_RIGHT_NOTE = 43;
     private static final int[] PLATE_SLOTS = {
         LEFT_CLICK_SLOT,
         RIGHT_CLICK_SLOT,
@@ -59,33 +63,26 @@ public class StaveConfigurator extends TickingMenuBlock {
     @ParametersAreNonnullByDefault
     protected void setup(BlockMenuPreset blockMenuPreset) {
         blockMenuPreset.drawBackground(GuiElements.MENU_BACKGROUND, BACKGROUND_SLOTS);
-        blockMenuPreset.drawBackground(GuiElements.MENU_BACKGROUND_INPUT, BACKGROUND_INPUT);
+        blockMenuPreset.drawBackground(GuiElements.MENU_STAVE_INPUT, BACKGROUND_INPUT);
 
         blockMenuPreset.addItem(LEFT_NOTE, GuiElements.getSpellSlotPane(SpellSlot.LEFT_CLICK), (player, i, itemStack, clickAction) -> false);
         blockMenuPreset.addItem(RIGHT_NOTE, GuiElements.getSpellSlotPane(SpellSlot.RIGHT_CLICK), (player, i, itemStack, clickAction) -> false);
         blockMenuPreset.addItem(S_LEFT_NOTE, GuiElements.getSpellSlotPane(SpellSlot.SHIFT_LEFT_CLICK), (player, i, itemStack, clickAction) -> false);
         blockMenuPreset.addItem(S_RIGHT_NOTE, GuiElements.getSpellSlotPane(SpellSlot.SHIFT_RIGHT_CLICK), (player, i, itemStack, clickAction) -> false);
+
+        blockMenuPreset.addItem(REMOVE_PLATES, GuiElements.MENU_REMOVE_PLATES, (player, i, itemStack, clickAction) -> false);
+        blockMenuPreset.addItem(ADD_PLATES, GuiElements.MENU_SAVE_STAVE, (player, i, itemStack, clickAction) -> false);
     }
 
     @Override
     protected void onNewInstance(@Nonnull BlockMenu blockMenu, @Nonnull Block b) {
         super.onNewInstance(blockMenu, b);
-        blockMenu.addMenuClickHandler(STAVE_SLOT, (player, i, itemStack, clickAction) -> {
-            saveStave(blockMenu);
-            clearPlates(blockMenu);
-            return true;
-        });
-    }
 
-    @Override
-    protected void tick(@Nonnull Block block, BlockMenu blockMenu) {
-        if (blockMenu.hasViewer()) {
+        blockMenu.addMenuClickHandler(REMOVE_PLATES, (player, i, itemStack, clickAction) -> {
+            rejectItems(blockMenu);
             final ItemStack stave = blockMenu.getItemInSlot(STAVE_SLOT);
             final SlimefunItem sfStave = SlimefunItem.getByItem(stave);
-            final boolean platesEmpty = platesEmpty(blockMenu);
-            if (stave == null && !platesEmpty) {
-                rejectItems(blockMenu);
-            } else if (stave != null && sfStave instanceof Stave && platesEmpty) {
+            if (stave != null && sfStave instanceof Stave) {
                 final StaveStorage staveStorage = new StaveStorage(stave);
                 final Map<SpellSlot, PlateStorage> map = staveStorage.getSpellInstanceMap();
                 if (map != null) {
@@ -105,10 +102,40 @@ public class StaveConfigurator extends TickingMenuBlock {
                     staveStorage.getSpellInstanceMap()
                 );
                 stave.setItemMeta(itemMeta);
-            } else {
-                rejectInvalid(blockMenu);
+                StaveStorage.setStaveLore(stave, staveStorage);
             }
-        }
+            return false;
+        });
+
+        blockMenu.addMenuClickHandler(ADD_PLATES, (player, i, itemStack, clickAction) -> {
+            ItemStack stave = blockMenu.getItemInSlot(STAVE_SLOT);
+            StaveStorage staveStorage = new StaveStorage();
+            if (stave != null) {
+                rejectInvalid(blockMenu);
+                ItemMeta itemMeta = stave.getItemMeta();
+                for (SpellSlot spellSlot : SpellSlot.getCashedValues()) {
+                    ItemStack plate = blockMenu.getItemInSlot(getSlot(spellSlot));
+                    if (plate != null && SlimefunItem.getByItem(plate) instanceof ChargedPlate) {
+                        PlateStorage plateStorage = DataTypeMethods.getCustom(
+                            plate.getItemMeta(),
+                            Keys.PDC_PLATE_STORAGE,
+                            PersistentPlateDataType.TYPE
+                        );
+                        staveStorage.setSlot(spellSlot, plateStorage);
+                    }
+                }
+                DataTypeMethods.setCustom(
+                    itemMeta,
+                    Keys.PDC_STAVE_STORAGE,
+                    PersistentStaveDataType.TYPE,
+                    staveStorage.getSpellInstanceMap()
+                );
+                stave.setItemMeta(itemMeta);
+                StaveStorage.setStaveLore(stave, staveStorage);
+                clearPlates(blockMenu);
+            }
+            return false;
+        });
     }
 
     private void saveStave(@Nonnull BlockMenu blockMenu) {
@@ -144,16 +171,6 @@ public class StaveConfigurator extends TickingMenuBlock {
         super.onBreak(e, menu);
         saveStave(menu);
         menu.dropItems(menu.getLocation(), STAVE_SLOT);
-    }
-
-    private boolean platesEmpty(@Nonnull BlockMenu blockMenu) {
-        for (int slot : PLATE_SLOTS) {
-            final ItemStack itemStack = blockMenu.getItemInSlot(slot);
-            if (itemStack != null) {
-                return false;
-            }
-        }
-        return true;
     }
 
     public void rejectInvalid(BlockMenu blockMenu) {
@@ -206,10 +223,5 @@ public class StaveConfigurator extends TickingMenuBlock {
     @Override
     protected int[] getOutputSlots() {
         return new int[0];
-    }
-
-    @Override
-    protected boolean synchronous() {
-        return true;
     }
 }

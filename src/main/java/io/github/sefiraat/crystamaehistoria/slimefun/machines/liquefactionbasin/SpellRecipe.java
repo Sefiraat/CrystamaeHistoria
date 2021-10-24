@@ -9,24 +9,24 @@ import java.util.Set;
 
 public class SpellRecipe {
 
-    private final SlimefunItem catalyst;
+    private final int tier;
     private final List<StoryType> storyTypes;
 
-    public SpellRecipe(SlimefunItem catalyst, StoryType type1, StoryType type2, StoryType type3) {
-        this.catalyst = catalyst;
+    public SpellRecipe(int tier, StoryType type1, StoryType type2, StoryType type3) {
+        this.tier = tier;
         this.storyTypes = Arrays.asList(type1, type2, type3);
     }
 
-    public boolean recipeMatches(Set<StoryType> testTypes, SlimefunItem testCatalyst) {
-        return storyTypes.containsAll(testTypes) && catalyst.getId().equals(testCatalyst.getId());
+    public boolean recipeMatches(Set<StoryType> testTypes, int tier) {
+        return this.storyTypes.containsAll(testTypes) && this.tier == tier;
     }
 
-    public SlimefunItem getCatalyst() {
-        return catalyst;
+    public int getTier() {
+        return this.tier;
     }
 
     public StoryType getInput(int index) {
-        return storyTypes.get(index);
+        return this.storyTypes.get(index);
     }
 
 }

@@ -60,7 +60,7 @@ public class Squall extends Spell {
     @Override
     public SpellRecipe getRecipe() {
         return new SpellRecipe(
-            Materials.INERT_PLATE_T_1,
+            1,
             StoryType.ALCHEMICAL,
             StoryType.HISTORICAL,
             StoryType.VOID

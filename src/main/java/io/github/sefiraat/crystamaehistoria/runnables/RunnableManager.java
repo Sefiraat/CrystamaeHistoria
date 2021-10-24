@@ -6,13 +6,13 @@ import lombok.Getter;
 public class RunnableManager {
 
     @Getter
-    public final TemporaryBlockRemoval temporaryBlockRemoval;
+    public final ClearActiveStorage clearActiveStorage;
 
     public RunnableManager() {
         CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
 
-        this.temporaryBlockRemoval = new TemporaryBlockRemoval();
-        this.temporaryBlockRemoval.runTaskTimer(plugin, 1, 20);
+        this.clearActiveStorage = new ClearActiveStorage();
+        this.clearActiveStorage.runTaskTimer(plugin, 1, 20);
     }
 
 }

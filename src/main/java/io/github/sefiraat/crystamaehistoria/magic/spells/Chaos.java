@@ -4,7 +4,6 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
@@ -46,9 +45,12 @@ public class Chaos extends Spell {
             final double radius = ThreadLocalRandom.current().nextDouble(minRadius, maxRadius);
             final double y = radius * Math.cos(a);
             final double x = radius * Math.sin(a);
-            final Vector pointVector = startVector.clone().add(new Vector(x, y, 0)).rotateAroundY(-(location.getYaw() * alessioMath));
+            final Vector pointVector = startVector.clone()
+                .add(new Vector(x, y, 0))
+                .rotateAroundY(-(location.getYaw() * alessioMath));
             final Location pointLocation = location.clone().add(pointVector);
             final MagicProjectile projectile = new MagicProjectile(EntityType.SPECTRAL_ARROW, pointLocation, caster.getUniqueId());
+
             projectile.getProjectile().setGravity(false);
             projectile.setVelocity(location.getDirection(), 1);
             registerProjectile(projectile, castInformation, 10);
@@ -97,7 +99,7 @@ public class Chaos extends Spell {
     @Override
     public SpellRecipe getRecipe() {
         return new SpellRecipe(
-            Materials.INERT_PLATE_T_1,
+            1,
             StoryType.MECHANICAL,
             StoryType.HISTORICAL,
             StoryType.VOID

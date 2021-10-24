@@ -14,10 +14,12 @@ import io.github.sefiraat.crystamaehistoria.utils.ArmourStandUtils;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.ResearchUtils;
+import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentPlateDataType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import lombok.Getter;
 import lombok.Setter;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
@@ -244,10 +246,12 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
 
         final Set<StoryType> set = contentMap.entrySet().stream().sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed()).limit(3).map(Map.Entry::getKey).collect(Collectors.toSet());
         if (set.size() == 3) {
-            SpellType spellType = getMatchingRecipe(set, plate);
+            SpellType spellType = getMatchingRecipeCharged(set, plate);
             if (spellType != null && spellType == currentSpellType) {
                 plateStorage.addCrysta(getFillLevel());
+                DataTypeMethods.setCustom(itemMeta, Keys.PDC_PLATE_STORAGE, PersistentPlateDataType.TYPE, plateStorage);
                 itemStack.setItemMeta(itemMeta);
+                PlateStorage.setPlateLore(itemStack, plateStorage);
                 summonCatalystParticles();
             }
             emptyBasin();
@@ -259,10 +263,23 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
 
     @Nullable
     @ParametersAreNonnullByDefault
-    public SpellType getMatchingRecipe(Set<StoryType> set, SlimefunItem slimefunItem) {
+    public SpellType getMatchingRecipe(Set<StoryType> set, BlankPlate blankPlate) {
         SpellType spellType = null;
         for (Map.Entry<SpellType, SpellRecipe> recipeEntry : RECIPES_SPELL.entrySet()) {
-            if (recipeEntry.getValue().recipeMatches(set, slimefunItem)) {
+            if (recipeEntry.getValue().recipeMatches(set, blankPlate.getTier())) {
+                spellType = recipeEntry.getKey();
+                break;
+            }
+        }
+        return spellType;
+    }
+
+    @Nullable
+    @ParametersAreNonnullByDefault
+    public SpellType getMatchingRecipeCharged(Set<StoryType> set, ChargedPlate chargedPlate) {
+        SpellType spellType = null;
+        for (Map.Entry<SpellType, SpellRecipe> recipeEntry : RECIPES_SPELL.entrySet()) {
+            if (recipeEntry.getValue().recipeMatches(set, chargedPlate.getTier())) {
                 spellType = recipeEntry.getKey();
                 break;
             }
