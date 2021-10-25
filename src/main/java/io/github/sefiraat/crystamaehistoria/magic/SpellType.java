@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.magic;
 
 import io.github.sefiraat.crystamaehistoria.magic.spells.AncientDefence;
+import io.github.sefiraat.crystamaehistoria.magic.spells.Bobulate;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Break;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Bright;
 import io.github.sefiraat.crystamaehistoria.magic.spells.CallLightning;
@@ -58,7 +59,8 @@ public enum SpellType {
     BREAK(new Break()),
     ANCIENT_DEFENCE(new AncientDefence()),
     LAVA_LAKE(new LavaLake()),
-    CHAOS(new Chaos());
+    CHAOS(new Chaos()),
+    BOBULATE(new Bobulate());
 
     @Getter
     protected static final SpellType[] cachedValues = values();

@@ -8,6 +8,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.LightningStrike;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.entity.Projectile;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -20,10 +21,12 @@ public class SpellEffectListener implements Listener {
 
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onProjectileHit(ProjectileHitEvent event) {
-        final UUID projectile = event.getEntity().getUniqueId();
-        if (CrystamaeHistoria.getProjectileMap().containsKey(projectile)) {
+        final Projectile projectile = event.getEntity();
+        final UUID projectileUUID = projectile.getUniqueId();
+        if (CrystamaeHistoria.getProjectileMap().containsKey(projectileUUID)) {
             event.setCancelled(true);
-            final CastInformation castInfo = CrystamaeHistoria.getSpellCastInfo(projectile);
+            final CastInformation castInfo = CrystamaeHistoria.getSpellCastInfo(projectileUUID);
+            castInfo.setProjectileLocation(projectile.getLocation());
             final Entity hitEntity = event.getHitEntity();
             if (entityHitAllowed(castInfo, hitEntity)) {
                 final Location location = hitEntity.getLocation();
@@ -39,8 +42,8 @@ public class SpellEffectListener implements Listener {
                 castInfo.setHitBlock(event.getHitBlock());
                 castInfo.runProjectileHitBlockEvent();
             }
-            event.getEntity().remove();
-            CrystamaeHistoria.getProjectileMap().remove(projectile);
+            projectile.remove();
+            CrystamaeHistoria.getProjectileMap().remove(projectileUUID);
         }
     }
 

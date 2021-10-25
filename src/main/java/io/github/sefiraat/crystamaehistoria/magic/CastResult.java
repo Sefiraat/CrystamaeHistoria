@@ -8,6 +8,8 @@ public enum CastResult {
     CAST_FAIL_SLOT_EMPTY("No plate in slot");
 
     @Getter
+    protected static final CastResult[] cachedValues = values();
+    @Getter
     private final String message;
 
     CastResult(String message) {

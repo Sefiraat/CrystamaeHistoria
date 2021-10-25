@@ -32,6 +32,9 @@ public class CastInformation {
     @Getter
     @Setter
     private Block hitBlock;
+    @Getter
+    @Setter
+    private Location projectileLocation;
     @Setter
     private Consumer<CastInformation> beforeProjectileHitEvent;
     @Setter

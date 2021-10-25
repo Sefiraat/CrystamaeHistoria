@@ -36,7 +36,8 @@ public class HealingMist extends Spell {
         for (Entity entity : location.getWorld().getNearbyEntities(location, range, range, range, Player.class::isInstance)) {
             Player player = (Player) entity;
             applyPositiveEffects(player);
-            displayParticleEffect(player, Particle.HEART, 2, 10);
+            displayParticleEffect(player, Particle.HEART, 2, 5);
+            displayParticleEffect(player, Particle.CLOUD, 2, 2);
         }
     }
 

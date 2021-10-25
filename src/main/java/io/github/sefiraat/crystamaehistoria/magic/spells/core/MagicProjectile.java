@@ -55,4 +55,8 @@ public class MagicProjectile {
         return projectile.getLocation();
     }
 
+    public void disableGravity() {
+        projectile.setGravity(false);
+    }
+
 }

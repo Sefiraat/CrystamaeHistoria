@@ -17,7 +17,6 @@ public enum StoryType {
 
     @Getter
     private static final StoryType[] cachedValues = values();
-
     @Getter
     private final int id;
 

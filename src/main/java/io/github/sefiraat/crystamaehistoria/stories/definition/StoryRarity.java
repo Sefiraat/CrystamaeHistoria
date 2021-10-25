@@ -14,7 +14,6 @@ public enum StoryRarity {
 
     @Getter
     private static final StoryRarity[] cachedValues = values();
-
     @Getter
     private final int id;
 

@@ -10,6 +10,7 @@ import io.github.sefiraat.crystamaehistoria.runnables.RunnableManager;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTick;
 import io.github.sefiraat.crystamaehistoria.slimefun.Structure;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
+import io.github.sefiraat.crystamaehistoria.utils.CrystaTag;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import org.apache.commons.lang.Validate;
@@ -117,6 +118,7 @@ public class CrystamaeHistoria extends AbstractAddon {
         new Metrics(this, 12065);
 
         getAddonCommand().addSub(new TestSpell());
+        CrystaTag.getCachedValues();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.utils.theme;
 
+import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -63,6 +64,9 @@ public enum ThemeType {
     TYPE_CELESTIAL(ChatColor.of("#ffffff"), "Celestial"),
     TYPE_VOID(ChatColor.of("#222222"), "Void"),
     TYPE_PHILOSOPHICAL(ChatColor.of("#4d4aa8"), "Philosophical");
+
+    @Getter
+    protected static final ThemeType[] cachedValues = values();
 
     /**
      * List of names to be given to ArmourStands, invisible but mods and Minimaps can see them :)
