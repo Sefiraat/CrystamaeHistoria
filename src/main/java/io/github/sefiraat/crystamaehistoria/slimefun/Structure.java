@@ -28,8 +28,8 @@ public class Structure {
         ItemGroups.STORY_COLLECTION.register(plugin);
         ItemGroups.SPELL_COLLECTION.register(plugin);
 
-        this.machines.setup();
         this.materials.setup();
+        this.machines.setup();
         this.tools.setup();
         this.spells.setup();
     }

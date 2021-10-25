@@ -80,6 +80,8 @@ public class Materials {
         setUpCrystals();
         setUpDummyCrystalTypes();
 
+        CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
+
         amalgamateDust = new SlimefunItem(
             ItemGroups.TOOLS,
             ThemeType.themedSlimefunItemStack(
@@ -102,6 +104,7 @@ public class Materials {
                 crystalMap.get(StoryRarity.COMMON).get(StoryType.PHILOSOPHICAL).getItem()
             }
         );
+        amalgamateDust.register(plugin);
 
         amalgamateIngot = new SlimefunItem(
             ItemGroups.TOOLS,
@@ -117,6 +120,7 @@ public class Materials {
                 amalgamateDust.getItem()
             }
         );
+        amalgamateIngot.register(plugin);
 
     }
 

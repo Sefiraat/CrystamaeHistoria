@@ -1,5 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin;
 
+import com.sun.tools.sjavac.Log;
 import de.slikey.effectlib.effect.SphereEffect;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
@@ -7,6 +8,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.machines.DisplayStandHolder
 import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.BlankPlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.ChargedPlate;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.MagicalPlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.PlateStorage;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
@@ -47,6 +49,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.logging.Level;
 import java.util.stream.Collectors;
 
 @Getter
@@ -215,7 +218,6 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
             SlimefunItem.getByItem(itemStack);
             SpellType spellType = getMatchingRecipe(set, plate);
             if (spellType != null) {
-                // TODO Plate tier checks
                 item.getWorld().dropItem(item.getLocation(), ChargedPlate.getChargedPlate(plate.getTier(), spellType, getFillLevel()));
                 if (itemStack.getAmount() > 1) {
                     itemStack.setAmount(itemStack.getAmount() - 1);
@@ -239,11 +241,26 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
         final ItemStack itemStack = item.getItemStack();
         final ItemMeta itemMeta = itemStack.getItemMeta();
         final PlateStorage plateStorage = DataTypeMethods.getCustom(itemMeta, Keys.PDC_PLATE_STORAGE, PersistentPlateDataType.TYPE);
-        final SpellType currentSpellType = plateStorage.getStoredSpell();
 
-        final Set<StoryType> set = contentMap.entrySet().stream().sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed()).limit(3).map(Map.Entry::getKey).collect(Collectors.toSet());
+        if (plateStorage == null) {
+            CrystamaeHistoria.log(
+                Level.SEVERE,
+                "The charged plate used has not been configured correctly. /sf cheat charged plates will not" +
+                    " work in the Liquefaction Basin. If this is not the case, please raises an issue."
+            );
+            item.remove();
+            return;
+        }
+
+        final SpellType currentSpellType = plateStorage.getStoredSpell();
+        final Set<StoryType> set = contentMap.entrySet().stream()
+            .sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed())
+            .limit(3)
+            .map(Map.Entry::getKey)
+            .collect(Collectors.toSet());
+
         if (set.size() == 3) {
-            SpellType spellType = getMatchingRecipeCharged(set, plate);
+            SpellType spellType = getMatchingRecipe(set, plate);
             if (spellType != null && spellType == currentSpellType) {
                 plateStorage.addCrysta(getFillLevel());
                 DataTypeMethods.setCustom(itemMeta, Keys.PDC_PLATE_STORAGE, PersistentPlateDataType.TYPE, plateStorage);
@@ -255,28 +272,14 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
         } else {
             rejectItem(item, false);
         }
-
     }
 
     @Nullable
     @ParametersAreNonnullByDefault
-    public SpellType getMatchingRecipe(Set<StoryType> set, BlankPlate blankPlate) {
+    public SpellType getMatchingRecipe(Set<StoryType> set, MagicalPlate magicalPlate) {
         SpellType spellType = null;
         for (Map.Entry<SpellType, SpellRecipe> recipeEntry : RECIPES_SPELL.entrySet()) {
-            if (recipeEntry.getValue().recipeMatches(set, blankPlate.getTier())) {
-                spellType = recipeEntry.getKey();
-                break;
-            }
-        }
-        return spellType;
-    }
-
-    @Nullable
-    @ParametersAreNonnullByDefault
-    public SpellType getMatchingRecipeCharged(Set<StoryType> set, ChargedPlate chargedPlate) {
-        SpellType spellType = null;
-        for (Map.Entry<SpellType, SpellRecipe> recipeEntry : RECIPES_SPELL.entrySet()) {
-            if (recipeEntry.getValue().recipeMatches(set, chargedPlate.getTier())) {
+            if (recipeEntry.getValue().recipeMatches(set, magicalPlate.getTier())) {
                 spellType = recipeEntry.getKey();
                 break;
             }

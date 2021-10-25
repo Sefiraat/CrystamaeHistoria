@@ -8,7 +8,6 @@ import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentPlateDataT
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
-import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import lombok.Getter;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -17,14 +16,11 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
 @Getter
-public class ChargedPlate extends UnplaceableBlock {
-
-    private final int tier;
+public class ChargedPlate extends MagicalPlate {
 
     @ParametersAreNonnullByDefault
     public ChargedPlate(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, int tier) {
-        super(itemGroup, item, recipeType, recipe);
-        this.tier = tier;
+        super(itemGroup, item, recipeType, recipe, tier);
     }
 
     @Nonnull
