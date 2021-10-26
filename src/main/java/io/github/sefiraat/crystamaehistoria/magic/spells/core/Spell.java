@@ -199,6 +199,27 @@ public abstract class Spell {
         }
     }
 
+
+    @ParametersAreNonnullByDefault
+    protected void displayParticleEffect(Entity entity, double rangeRadius, int numberOfParticles, Particle.DustOptions dustOptions) {
+        displayParticleEffect(entity.getLocation(), rangeRadius, numberOfParticles, dustOptions);
+    }
+
+    @ParametersAreNonnullByDefault
+    protected void displayParticleEffect(Entity entity, double rangeRadius, Particle.DustOptions dustOptions) {
+        displayParticleEffect(entity.getLocation(), rangeRadius, spellCore.getParticleNumber(), dustOptions);
+    }
+
+    @ParametersAreNonnullByDefault
+    protected void displayParticleEffect(Location location, double rangeRadius, int numberOfParticles, Particle.DustOptions dustOptions) {
+        for (int i = 0; i < numberOfParticles; i++) {
+            double x = ThreadLocalRandom.current().nextDouble(-rangeRadius, rangeRadius + 0.1);
+            double y = ThreadLocalRandom.current().nextDouble(-rangeRadius, rangeRadius + 0.1);
+            double z = ThreadLocalRandom.current().nextDouble(-rangeRadius, rangeRadius + 0.1);
+            location.getWorld().spawnParticle(Particle.REDSTONE, location.clone().add(x, y, z), 1, dustOptions);
+        }
+    }
+
     @ParametersAreNonnullByDefault
     protected void pullEntity(UUID caster, Location loc, Entity pushed, double force) {
         Vector vector = pushed.getLocation().toVector().subtract(loc.toVector()).normalize().multiply(-force);

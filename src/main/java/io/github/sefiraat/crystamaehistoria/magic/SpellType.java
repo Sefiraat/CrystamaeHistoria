@@ -15,6 +15,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.HealingMist;
 import io.github.sefiraat.crystamaehistoria.magic.spells.KnowledgeShare;
 import io.github.sefiraat.crystamaehistoria.magic.spells.LavaLake;
 import io.github.sefiraat.crystamaehistoria.magic.spells.LovePotion;
+import io.github.sefiraat.crystamaehistoria.magic.spells.Oviparous;
 import io.github.sefiraat.crystamaehistoria.magic.spells.PoisonNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Push;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Quake;
@@ -62,7 +63,8 @@ public enum SpellType {
     LAVA_LAKE(new LavaLake()),
     CHAOS(new Chaos()),
     BOBULATE(new Bobulate()),
-    STAR_FALL(new StarFall());
+    STAR_FALL(new StarFall()),
+    OVIPAROUS(new Oviparous());
 
     @Getter
     protected static final SpellType[] cachedValues = values();
