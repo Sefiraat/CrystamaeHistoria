@@ -205,14 +205,7 @@ public class SpellCoreBuilder {
     @ParametersAreNonnullByDefault
     public SpellCoreBuilder addPositiveEffect(PotionEffectType potionEffectType, int level, int durationInSeconds) {
         durationInSeconds = durationInSeconds * 20;
-        if (positiveEffectPairMap.containsKey(potionEffectType)) {
-            Pair<Integer, Integer> integerPair = positiveEffectPairMap.get(potionEffectType);
-            integerPair.setFirstValue(integerPair.getFirstValue() + durationInSeconds);
-            integerPair.setSecondValue(Math.max(integerPair.getSecondValue(), level));
-            positiveEffectPairMap.put(potionEffectType, integerPair);
-        } else {
-            positiveEffectPairMap.put(potionEffectType, new Pair<>(level, durationInSeconds));
-        }
+        positiveEffectPairMap.put(potionEffectType, new Pair<>(level, durationInSeconds));
         return this;
     }
 
@@ -224,14 +217,7 @@ public class SpellCoreBuilder {
     @ParametersAreNonnullByDefault
     public SpellCoreBuilder addNegativeEffect(PotionEffectType potionEffectType, int level, int durationInSeconds) {
         durationInSeconds = durationInSeconds * 20;
-        if (negativeEffectPairMap.containsKey(potionEffectType)) {
-            Pair<Integer, Integer> integerPair = negativeEffectPairMap.get(potionEffectType);
-            integerPair.setFirstValue(integerPair.getFirstValue() + durationInSeconds);
-            integerPair.setSecondValue(Math.max(integerPair.getSecondValue(), level));
-            negativeEffectPairMap.put(potionEffectType, integerPair);
-        } else {
-            negativeEffectPairMap.put(potionEffectType, new Pair<>(level, durationInSeconds));
-        }
+        negativeEffectPairMap.put(potionEffectType, new Pair<>(level, durationInSeconds));
         return this;
     }
 

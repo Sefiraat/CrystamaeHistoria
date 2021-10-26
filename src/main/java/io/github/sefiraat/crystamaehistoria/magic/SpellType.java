@@ -28,6 +28,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Squall;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.StarFall;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Teleport;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Tempest;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.TimeDilation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Vacuum;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
@@ -68,7 +69,8 @@ public enum SpellType {
     STAR_FALL(new StarFall()),
     OVIPAROUS(new Oviparous()),
     BLOOD_MAGICS(new BloodMagics()),
-    PRISM(new Prism());
+    PRISM(new Prism()),
+    TIME_DILATION(new TimeDilation());
 
     @Getter
     protected static final SpellType[] cachedValues = values();

@@ -342,9 +342,12 @@ public abstract class Spell {
      */
     @ParametersAreNonnullByDefault
     protected void registerTicker(CastInformation castInformation, long period, int tickAmount) {
+        tickAmount = spellCore.isNumberOfTicksMultiplied() ? tickAmount * castInformation.getStaveLevel() : tickAmount;
+        period = spellCore.isTickIntervalMultiplied() ? period * castInformation.getStaveLevel() : period;
         castInformation.setTickEvent(spellCore.getTickEvent());
         castInformation.setAfterTicksEvent(spellCore.getAfterAllTicksEvent());
-        SpellTick ticker = new SpellTick(castInformation, tickAmount);
+
+        final SpellTick ticker = new SpellTick(castInformation, tickAmount);
         CrystamaeHistoria.getActiveStorage().getTickingCastables().put(ticker, tickAmount);
         ticker.runTaskTimer(CrystamaeHistoria.getInstance(), 0, period);
     }
@@ -361,7 +364,7 @@ public abstract class Spell {
             int amplification = entry.getValue().getFirstValue();
 
             duration = spellCore.isEffectDurationMultiplied() ? duration * castInformation.getStaveLevel() : duration;
-            amplification = spellCore.isEffectDurationMultiplied() ? amplification * castInformation.getStaveLevel() : amplification;
+            amplification = spellCore.isAmplificationMultiplied() ? amplification * castInformation.getStaveLevel() : amplification;
 
             final PotionEffect potionEffect = new PotionEffect(entry.getKey(), duration, amplification - 1);
             livingEntity.addPotionEffect(potionEffect);
@@ -380,9 +383,9 @@ public abstract class Spell {
             int amplification = entry.getValue().getFirstValue();
 
             duration = spellCore.isEffectDurationMultiplied() ? duration * castInformation.getStaveLevel() : duration;
-            amplification = spellCore.isEffectDurationMultiplied() ? amplification * castInformation.getStaveLevel() : amplification - 1;
+            amplification = spellCore.isAmplificationMultiplied() ? amplification * castInformation.getStaveLevel() : amplification;
 
-            final PotionEffect potionEffect = new PotionEffect(entry.getKey(), duration, amplification);
+            final PotionEffect potionEffect = new PotionEffect(entry.getKey(), duration, amplification - 1);
             livingEntity.addPotionEffect(potionEffect);
         }
     }
