@@ -181,7 +181,7 @@ public abstract class Spell {
 
     @ParametersAreNonnullByDefault
     protected void displayParticleEffect(Entity entity, Particle particle, double rangeRadius, int numberOfParticles) {
-        displayParticleEffect(entity.getLocation(), particle, rangeRadius, numberOfParticles);
+        displayParticleEffect(entity.getLocation().clone().add(0, 1, 0), particle, rangeRadius, numberOfParticles);
     }
 
     @ParametersAreNonnullByDefault

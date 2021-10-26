@@ -3,8 +3,11 @@ package io.github.sefiraat.crystamaehistoria.listeners;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
+import io.github.sefiraat.crystamaehistoria.utils.Keys;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LightningStrike;
 import org.bukkit.entity.LivingEntity;
@@ -13,9 +16,11 @@ import org.bukkit.entity.Projectile;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.weather.LightningStrikeEvent;
 
+import javax.naming.Name;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -84,4 +89,27 @@ public class SpellEffectListener implements Listener {
             CrystamaeHistoria.getStrikeMap().remove(uuid);
         }
     }
+
+    @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
+    public void onInvulnerablePlayerDamaged(EntityDamageEvent event) {
+        NamespacedKey key = Keys.PDC_IS_INVULNERABLE;
+        EntityDamageEvent.DamageCause cause = event.getCause();
+        if (event.getEntity() instanceof LivingEntity
+            && PersistentDataAPI.hasLong(event.getEntity(), key)
+        ) {
+            LivingEntity livingEntity = (LivingEntity) event.getEntity();
+            long expiry = PersistentDataAPI.getLong(livingEntity, key);
+            if (expiry >= System.currentTimeMillis()) {
+                if (cause != EntityDamageEvent.DamageCause.CUSTOM
+                    && cause != EntityDamageEvent.DamageCause.SUICIDE
+                ) {
+                    event.setCancelled(true);
+                }
+            } else {
+                PersistentDataAPI.remove(livingEntity, key);
+            }
+        }
+    }
+
+
 }

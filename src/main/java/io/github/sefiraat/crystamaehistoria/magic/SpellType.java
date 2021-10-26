@@ -20,6 +20,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LovePotion;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Oviparous;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.PoisonNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Prism;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Protectorate;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Push;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Quake;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.RainOfFire;
@@ -70,7 +71,8 @@ public enum SpellType {
     OVIPAROUS(new Oviparous()),
     BLOOD_MAGICS(new BloodMagics()),
     PRISM(new Prism()),
-    TIME_DILATION(new TimeDilation());
+    TIME_DILATION(new TimeDilation()),
+    PROTECTORATE(new Protectorate());
 
     @Getter
     protected static final SpellType[] cachedValues = values();
