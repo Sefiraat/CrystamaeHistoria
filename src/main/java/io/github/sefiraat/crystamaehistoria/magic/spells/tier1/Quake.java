@@ -23,6 +23,7 @@ public class Quake extends Spell {
     public Quake() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 30, false, 20, true)
             .makeDamagingSpell(2, true, 0, false)
+            .makeEffectingSpell(true, false)
             .makeTickingSpell(this::onTick, 5, false, 20, false)
             .addNegativeEffect(PotionEffectType.SLOW, 1, 60);
         setSpellCore(spellCoreBuilder.build());
@@ -51,7 +52,7 @@ public class Quake extends Spell {
         for (Entity entity : castLocation.getWorld().getNearbyEntities(castLocation, range, 2, range)) {
             if (entity instanceof LivingEntity && entity.getUniqueId() != castInformation.getCaster()) {
                 LivingEntity livingEntity = (LivingEntity) entity;
-                applyNegativeEffects(livingEntity);
+                applyNegativeEffects(livingEntity, castInformation);
                 damageEntity(livingEntity, castInformation.getCaster(), getDamage(castInformation));
             }
         }

@@ -6,88 +6,52 @@ import lombok.Getter;
 import org.bukkit.potion.PotionEffectType;
 
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 
+@Getter
 public class SpellCore {
 
-    @Getter
     private final long cooldown;
-    @Getter
     private final double range;
-    @Getter
     private final int crystaCost;
-    @Getter
     private final double damageAmount;
-    @Getter
     private final double knockbackAmount;
-    @Getter
     private final double healAmount;
-    @Getter
     private final double projectileAoeRange;
-    @Getter
     private final double projectileKnockbackAmount;
-    @Getter
     private final int numberOfTicks;
-    @Getter
     private final int tickInterval;
-    @Getter
     private final boolean cooldownMultiplied;
-    @Getter
     private final boolean rangeMultiplied;
-    @Getter
     private final boolean crystaMultiplied;
-    @Getter
     private final boolean damageMultiplied;
-    @Getter
     private final boolean knockbackMultiplied;
-    @Getter
     private final boolean healMultiplied;
-    @Getter
     private final boolean projectileAoeMultiplied;
-    @Getter
     private final boolean projectileKnockbackMultiplied;
-    @Getter
     private final boolean numberOfTicksMultiplied;
-    @Getter
     private final boolean tickIntervalMultiplied;
-    @Getter
     private final boolean isInstantCast;
-    @Getter
     private final Consumer<CastInformation> instantCastEvent;
-    @Getter
     private final boolean isProjectileSpell;
-    @Getter
     private final boolean isProjectileVsEntitySpell;
-    @Getter
     private final boolean isProjectileVsBlockSpell;
-    @Getter
     private final Consumer<CastInformation> fireProjectileEvent;
-    @Getter
     private final Consumer<CastInformation> beforeProjectileHitEvent;
-    @Getter
     private final Consumer<CastInformation> projectileHitEvent;
-    @Getter
     private final Consumer<CastInformation> projectileHitBlockEvent;
-    @Getter
     private final Consumer<CastInformation> afterProjectileHitEvent;
-    @Getter
     private final boolean isTickingSpell;
-    @Getter
     private final Consumer<CastInformation> tickEvent;
-    @Getter
     private final Consumer<CastInformation> afterAllTicksEvent;
-    @Getter
     private final boolean isDamagingSpell;
-    @Getter
     private final boolean isHealingSpell;
-    @Getter
-    private final Map<PotionEffectType, Pair<Integer, Integer>> positiveEffectPairMap = new HashMap<>();
-    @Getter
-    private final Map<PotionEffectType, Pair<Integer, Integer>> negativeEffectPairMap = new HashMap<>();
-    @Getter
-    private int particleNumber = 1;
+    private final boolean isEffectingSpell;
+    private final boolean amplificationMultiplied;
+    private final boolean effectDurationMultiplied;
+    private final Map<PotionEffectType, Pair<Integer, Integer>> positiveEffectPairMap;
+    private final Map<PotionEffectType, Pair<Integer, Integer>> negativeEffectPairMap;
 
 
     @ParametersAreNonnullByDefault
@@ -127,6 +91,11 @@ public class SpellCore {
         this.afterAllTicksEvent = spellCoreBuilder.getAfterAllTicksEvent();
         this.isDamagingSpell = spellCoreBuilder.isDamagingSpell();
         this.isHealingSpell = spellCoreBuilder.isHealingSpell();
+        this.isEffectingSpell = spellCoreBuilder.isEffectingSpell();
+        this.amplificationMultiplied = spellCoreBuilder.isAmplificationMultiplied();
+        this.effectDurationMultiplied = spellCoreBuilder.isEffectDurationMultiplied();
+        this.positiveEffectPairMap = spellCoreBuilder.getPositiveEffectPairMap();
+        this.negativeEffectPairMap = spellCoreBuilder.getNegativeEffectPairMap();
     }
 
 }

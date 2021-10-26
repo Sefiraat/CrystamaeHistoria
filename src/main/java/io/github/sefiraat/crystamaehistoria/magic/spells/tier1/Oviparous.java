@@ -46,7 +46,7 @@ public class Oviparous extends Spell {
                 entity.setVelocity(new Vector(0, 1, 0));
             }
             if (entity instanceof Turtle) {
-                Block block = location.clone().add(0,0.5,0).getBlock();
+                Block block = location.clone().add(0, 0.5, 0).getBlock();
                 if (block.getType() == Material.AIR
                     && block.getRelative(BlockFace.DOWN).getType().isSolid()
                 ) {

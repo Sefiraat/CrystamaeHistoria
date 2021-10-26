@@ -18,15 +18,13 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class Shroud extends Spell {
 
-    private static final int BLIND_DURATION = 15;
-    private static final int WITHER_DURATION = 5;
-
     public Shroud() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(40, true, 10, true, 5, true)
             .makeDamagingSpell(0, false, 0, false)
-            .makeInstantSpell(this::cast);
-        spellCoreBuilder.addNegativeEffect(PotionEffectType.BLINDNESS, 0, BLIND_DURATION);
-        spellCoreBuilder.addNegativeEffect(PotionEffectType.WITHER, 0, WITHER_DURATION);
+            .makeInstantSpell(this::cast)
+            .makeEffectingSpell(true, false)
+            .addNegativeEffect(PotionEffectType.BLINDNESS, 1, 20)
+            .addNegativeEffect(PotionEffectType.WITHER, 1, 10);
         setSpellCore(spellCoreBuilder.build());
     }
 
@@ -37,7 +35,7 @@ public class Shroud extends Spell {
         for (Entity entity : location.getWorld().getNearbyEntities(location, range, range, range)) {
             if (entity instanceof LivingEntity && entity.getUniqueId() != castInformation.getCaster()) {
                 LivingEntity livingEntity = (LivingEntity) entity;
-                applyNegativeEffects(livingEntity);
+                applyNegativeEffects(livingEntity, castInformation);
                 displayParticleEffect(livingEntity, Particle.SLIME, 2, 2);
             }
         }

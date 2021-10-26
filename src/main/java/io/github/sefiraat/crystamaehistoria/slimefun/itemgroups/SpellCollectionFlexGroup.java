@@ -390,39 +390,59 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         final ChatColor passive = ThemeType.PASSIVE.getColor();
         final List<String> lore = new ArrayList<>();
 
-        if (spellCore.getNegativeEffectPairMap().size() > 0) {
-            lore.add(color + "Negative Effects:");
-            spellCore.getNegativeEffectPairMap().forEach(
-                (type, pair) -> {
-                    final String negativeEffectMessage = MessageFormat.format(
-                        "{0}{1}: {2}Power ({3}) - Duration ({4})",
-                        color,
-                        type.getName(),
-                        passive,
-                        pair.getFirstValue(),
-                        pair.getSecondValue()
-                    );
-                    lore.add(negativeEffectMessage);
-                }
+        if (spellCore.isEffectingSpell()) {
+            final String effectAmplification = MessageFormat.format(
+                "{0}Effect power {1} with stave tier",
+                passive,
+                spellCore.isAmplificationMultiplied() ? "increases" : "doesn't increase"
             );
+            final String effectDuration = MessageFormat.format(
+                "{0}Effect duration {1} with stave tier",
+                passive,
+                spellCore.isEffectDurationMultiplied() ? "increases" : "doesn't increase"
+            );
+
+            if (spellCore.getNegativeEffectPairMap().size() > 0) {
+                lore.add(color + "Negative Effects:");
+                spellCore.getNegativeEffectPairMap().forEach(
+                    (type, pair) -> {
+                        final String negativeEffectMessage = MessageFormat.format(
+                            "{0}{1}: {2}Power ({3}) - Duration ({4})",
+                            color,
+                            type.getName(),
+                            passive,
+                            pair.getFirstValue(),
+                            pair.getSecondValue()
+                        );
+                        lore.add(negativeEffectMessage);
+                    }
+                );
+            }
+
+            if (spellCore.getNegativeEffectPairMap().size() > 0) {
+                lore.add(color + "Positive Effects:");
+                spellCore.getPositiveEffectPairMap().forEach(
+                    (type, pair) -> {
+                        final String positiveEffectMessage = MessageFormat.format(
+                            "{0}{1}: {2}Power ({3}) - Duration ({4})",
+                            color,
+                            type.getName(),
+                            passive,
+                            pair.getFirstValue(),
+                            pair.getSecondValue()
+                        );
+                        lore.add(positiveEffectMessage);
+                    }
+                );
+            }
+
+            lore.add("");
+            lore.add(effectAmplification);
+            lore.add(effectDuration);
+        } else {
+            lore.add(color + "Spell has no effects");
         }
 
-        if (spellCore.getNegativeEffectPairMap().size() > 0) {
-            lore.add(color + "Positive Effects:");
-            spellCore.getPositiveEffectPairMap().forEach(
-                (type, pair) -> {
-                    final String positiveEffectMessage = MessageFormat.format(
-                        "{0}{1}: {2}Power ({3}) - Duration ({4})",
-                        color,
-                        type.getName(),
-                        passive,
-                        pair.getFirstValue(),
-                        pair.getSecondValue()
-                    );
-                    lore.add(positiveEffectMessage);
-                }
-            );
-        }
 
         return new CustomItemStack(
             Material.POTION,

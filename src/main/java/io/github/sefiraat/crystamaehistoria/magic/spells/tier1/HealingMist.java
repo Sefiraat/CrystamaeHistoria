@@ -18,14 +18,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class HealingMist extends Spell {
 
-    private static final int REGEN_DURATION = 10;
-    private static final int AMPLIFICATION = 0;
-
     public HealingMist() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 10, false, 5, true)
             .makeInstantSpell(this::cast)
-            .makeHealingSpell(0, false);
-        spellCoreBuilder.addPositiveEffect(PotionEffectType.REGENERATION, AMPLIFICATION, REGEN_DURATION);
+            .makeEffectingSpell(true, false)
+            .addPositiveEffect(PotionEffectType.REGENERATION, 1, 10);
         setSpellCore(spellCoreBuilder.build());
     }
 
@@ -35,7 +32,7 @@ public class HealingMist extends Spell {
         double range = getRange(castInformation);
         for (Entity entity : location.getWorld().getNearbyEntities(location, range, range, range, Player.class::isInstance)) {
             Player player = (Player) entity;
-            applyPositiveEffects(player);
+            applyPositiveEffects(player, castInformation);
             displayParticleEffect(player, Particle.HEART, 2, 5);
             displayParticleEffect(player, Particle.CLOUD, 2, 2);
         }

@@ -176,7 +176,7 @@ public abstract class Spell {
 
     @ParametersAreNonnullByDefault
     protected void displayParticleEffect(Entity entity, Particle particle, double rangeRadius) {
-        displayParticleEffect(entity.getLocation(), particle, rangeRadius, spellCore.getParticleNumber());
+        displayParticleEffect(entity.getLocation(), particle, rangeRadius, 5);
     }
 
     @ParametersAreNonnullByDefault
@@ -186,7 +186,7 @@ public abstract class Spell {
 
     @ParametersAreNonnullByDefault
     protected void displayParticleEffect(Location location, Particle particle, double rangeRadius) {
-        displayParticleEffect(location, particle, rangeRadius, spellCore.getParticleNumber());
+        displayParticleEffect(location, particle, rangeRadius, 5);
     }
 
     @ParametersAreNonnullByDefault
@@ -207,7 +207,7 @@ public abstract class Spell {
 
     @ParametersAreNonnullByDefault
     protected void displayParticleEffect(Entity entity, double rangeRadius, Particle.DustOptions dustOptions) {
-        displayParticleEffect(entity.getLocation(), rangeRadius, spellCore.getParticleNumber(), dustOptions);
+        displayParticleEffect(entity.getLocation(), rangeRadius, 5, dustOptions);
     }
 
     @ParametersAreNonnullByDefault
@@ -355,9 +355,16 @@ public abstract class Spell {
      * @param livingEntity The {@link LivingEntity} to apply the effects to
      */
     @ParametersAreNonnullByDefault
-    protected void applyPositiveEffects(LivingEntity livingEntity) {
+    protected void applyPositiveEffects(LivingEntity livingEntity, CastInformation castInformation) {
         for (Map.Entry<PotionEffectType, Pair<Integer, Integer>> entry : spellCore.getPositiveEffectPairMap().entrySet()) {
-            livingEntity.addPotionEffect(new PotionEffect(entry.getKey(), entry.getValue().getFirstValue(), entry.getValue().getSecondValue()));
+            int duration = entry.getValue().getSecondValue();
+            int amplification = entry.getValue().getFirstValue();
+
+            duration = spellCore.isEffectDurationMultiplied() ? duration * castInformation.getStaveLevel() : duration;
+            amplification = spellCore.isEffectDurationMultiplied() ? amplification * castInformation.getStaveLevel() : amplification;
+
+            final PotionEffect potionEffect = new PotionEffect(entry.getKey(), duration, amplification - 1);
+            livingEntity.addPotionEffect(potionEffect);
         }
     }
 
@@ -367,9 +374,16 @@ public abstract class Spell {
      * @param livingEntity The {@link LivingEntity} to apply the effects to
      */
     @ParametersAreNonnullByDefault
-    protected void applyNegativeEffects(LivingEntity livingEntity) {
+    protected void applyNegativeEffects(LivingEntity livingEntity, CastInformation castInformation) {
         for (Map.Entry<PotionEffectType, Pair<Integer, Integer>> entry : spellCore.getNegativeEffectPairMap().entrySet()) {
-            livingEntity.addPotionEffect(new PotionEffect(entry.getKey(), entry.getValue().getFirstValue(), entry.getValue().getSecondValue()));
+            int duration = entry.getValue().getSecondValue();
+            int amplification = entry.getValue().getFirstValue();
+
+            duration = spellCore.isEffectDurationMultiplied() ? duration * castInformation.getStaveLevel() : duration;
+            amplification = spellCore.isEffectDurationMultiplied() ? amplification * castInformation.getStaveLevel() : amplification - 1;
+
+            final PotionEffect potionEffect = new PotionEffect(entry.getKey(), duration, amplification);
+            livingEntity.addPotionEffect(potionEffect);
         }
     }
 

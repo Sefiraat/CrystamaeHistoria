@@ -39,7 +39,7 @@ public class StarFall extends Spell {
         final Collection<Entity> entities = location.getWorld().getNearbyEntities(location, size, size, size);
 
         for (Entity entity : entities) {
-            if (GeneralUtils.testChance(1,5)
+            if (GeneralUtils.testChance(1, 5)
                 && entity instanceof LivingEntity
                 && entity.getUniqueId() != castInformation.getCaster()
             ) {

@@ -1,5 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.magic;
 
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.AncientDefence;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.BloodMagics;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Bobulate;
@@ -18,6 +19,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LavaLake;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LovePotion;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Oviparous;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.PoisonNova;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Prism;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Push;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Quake;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.RainOfFire;
@@ -27,7 +29,6 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.StarFall;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Teleport;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Tempest;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Vacuum;
-import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.thebusybiscuit.slimefun4.api.researches.Research;
@@ -66,7 +67,8 @@ public enum SpellType {
     BOBULATE(new Bobulate()),
     STAR_FALL(new StarFall()),
     OVIPAROUS(new Oviparous()),
-    BLOOD_MAGICS(new BloodMagics());
+    BLOOD_MAGICS(new BloodMagics()),
+    PRISM(new Prism());
 
     @Getter
     protected static final SpellType[] cachedValues = values();
