@@ -1,31 +1,32 @@
 package io.github.sefiraat.crystamaehistoria.magic;
 
-import io.github.sefiraat.crystamaehistoria.magic.spells.AncientDefence;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Bobulate;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Break;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Bright;
-import io.github.sefiraat.crystamaehistoria.magic.spells.CallLightning;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Chaos;
-import io.github.sefiraat.crystamaehistoria.magic.spells.EtherealFlow;
-import io.github.sefiraat.crystamaehistoria.magic.spells.FanOfArrows;
-import io.github.sefiraat.crystamaehistoria.magic.spells.FireNova;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Fireball;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Heal;
-import io.github.sefiraat.crystamaehistoria.magic.spells.HealingMist;
-import io.github.sefiraat.crystamaehistoria.magic.spells.KnowledgeShare;
-import io.github.sefiraat.crystamaehistoria.magic.spells.LavaLake;
-import io.github.sefiraat.crystamaehistoria.magic.spells.LovePotion;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Oviparous;
-import io.github.sefiraat.crystamaehistoria.magic.spells.PoisonNova;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Push;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Quake;
-import io.github.sefiraat.crystamaehistoria.magic.spells.RainOfFire;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Shroud;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Squall;
-import io.github.sefiraat.crystamaehistoria.magic.spells.StarFall;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Teleport;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Tempest;
-import io.github.sefiraat.crystamaehistoria.magic.spells.Vacuum;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.AncientDefence;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.BloodMagics;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Bobulate;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Break;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Bright;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.CallLightning;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Chaos;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EtherealFlow;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FanOfArrows;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FireNova;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Fireball;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Heal;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.HealingMist;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.KnowledgeShare;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LavaLake;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LovePotion;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Oviparous;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.PoisonNova;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Push;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Quake;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.RainOfFire;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Shroud;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Squall;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.StarFall;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Teleport;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Tempest;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Vacuum;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
@@ -64,7 +65,8 @@ public enum SpellType {
     CHAOS(new Chaos()),
     BOBULATE(new Bobulate()),
     STAR_FALL(new StarFall()),
-    OVIPAROUS(new Oviparous());
+    OVIPAROUS(new Oviparous()),
+    BLOOD_MAGICS(new BloodMagics());
 
     @Getter
     protected static final SpellType[] cachedValues = values();

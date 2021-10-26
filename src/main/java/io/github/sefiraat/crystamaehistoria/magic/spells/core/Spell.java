@@ -221,21 +221,21 @@ public abstract class Spell {
     }
 
     @ParametersAreNonnullByDefault
-    protected void pullEntity(UUID caster, Location loc, Entity pushed, double force) {
-        Vector vector = pushed.getLocation().toVector().subtract(loc.toVector()).normalize().multiply(-force);
-        pushEntity(caster, loc, vector, pushed);
+    protected void pullEntity(UUID caster, Location pullToLocation, Entity pushed, double force) {
+        Vector vector = pushed.getLocation().toVector().subtract(pullToLocation.toVector()).normalize().multiply(-force);
+        pushEntity(caster, vector, pushed);
     }
 
     @ParametersAreNonnullByDefault
-    protected void pushEntity(UUID caster, Location loc, Entity pushed, double force) {
-        Vector vector = pushed.getLocation().toVector().subtract(loc.toVector()).normalize().multiply(force);
-        pushEntity(caster, loc, vector, pushed);
+    protected void pushEntity(UUID caster, Location pushFromLocation, Entity pushed, double force) {
+        Vector vector = pushed.getLocation().toVector().subtract(pushFromLocation.toVector()).normalize().multiply(force);
+        pushEntity(caster, vector, pushed);
     }
 
     @ParametersAreNonnullByDefault
-    protected void pushEntity(UUID caster, Location loc, Vector vector, Entity pushed) {
+    protected void pushEntity(UUID caster, Vector vector, Entity pushed) {
         Interaction interaction = pushed instanceof Player ? Interaction.ATTACK_PLAYER : Interaction.INTERACT_ENTITY;
-        if (hasPermission(caster, loc, interaction)) {
+        if (hasPermission(caster, pushed.getLocation(), interaction)) {
             pushed.setVelocity(vector);
         }
     }

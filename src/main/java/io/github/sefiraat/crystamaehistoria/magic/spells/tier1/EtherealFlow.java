@@ -1,53 +1,52 @@
-package io.github.sefiraat.crystamaehistoria.magic.spells;
+package io.github.sefiraat.crystamaehistoria.magic.spells.tier1;
 
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import org.bukkit.Bukkit;
+import org.bukkit.Effect;
+import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.Particle;
-import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class Heal extends Spell {
+public class EtherealFlow extends Spell {
 
-    public Heal() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(10, true, 0, false, 1, true)
-            .makeInstantSpell(this::cast)
-            .makeHealingSpell(2, true);
+    public EtherealFlow() {
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(720, true, 0, false, 10, false)
+            .makeTickingSpell(this::onTick, 30, true, 1, false);
         setSpellCore(spellCoreBuilder.build());
+
     }
 
     @ParametersAreNonnullByDefault
-    public void cast(CastInformation castInformation) {
-        Player caster = Bukkit.getPlayer(castInformation.getCaster());
-        healEntity(caster, getHealAmount(castInformation));
-        displayParticleEffect(caster, Particle.HEART, 2, 10);
+    public void onTick(CastInformation castInformation) {
+        Location location = castInformation.getCastLocation();
+        location.getWorld().setTime(location.getWorld().getTime() + (50L * castInformation.getStaveLevel()));
+        location.getWorld().playEffect(location, Effect.ENDER_SIGNAL, 1);
     }
 
     @Nonnull
     @Override
     public String getId() {
-        return "HEAL";
+        return "ETHEREAL_FLOW";
     }
 
     @Nonnull
     @Override
     public String[] getLore() {
         return new String[]{
-            "Heals the caster for a set amount of HP"
+            "Fast-forwards time"
         };
     }
 
     @Nonnull
     @Override
     public Material getMaterial() {
-        return Material.POTION;
+        return Material.CLOCK;
     }
 
     @NotNull
@@ -55,8 +54,8 @@ public class Heal extends Spell {
     public SpellRecipe getRecipe() {
         return new SpellRecipe(
             1,
-            StoryType.HUMAN,
-            StoryType.CELESTIAL,
+            StoryType.HISTORICAL,
+            StoryType.VOID,
             StoryType.PHILOSOPHICAL
         );
     }

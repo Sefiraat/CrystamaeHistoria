@@ -1,52 +1,43 @@
-package io.github.sefiraat.crystamaehistoria.magic.spells;
+package io.github.sefiraat.crystamaehistoria.magic.spells.tier1;
 
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.block.Block;
 import org.bukkit.entity.LightningStrike;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
-import java.util.concurrent.ThreadLocalRandom;
 
-public class Tempest extends Spell {
+public class CallLightning extends Spell {
 
-    private static final double PROJECTILE_NUMBER = 5;
-
-    public Tempest() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(200, true, 20, false, 10, true)
+    public CallLightning() {
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(50, true, 100, false, 5, true)
             .makeDamagingSpell(2, true, 0, false)
-            .makeProjectileSpell(this::fireProjectiles, 2, false, 2, false)
-            .makeProjectileVsEntitySpell(this::onProjectileHit)
+            .makeProjectileSpell(this::fireProjectiles, 2, false, 0.5, true)
+            .makeProjectileVsEntitySpell(this::projectileHit)
             .addBeforeProjectileHitEntityEvent(this::beforeProjectileHit);
         setSpellCore(spellCoreBuilder.build());
     }
 
     @ParametersAreNonnullByDefault
     public void fireProjectiles(CastInformation castInformation) {
-        Location location = castInformation.getCastLocation();
-
-        for (int i = 0; i < (PROJECTILE_NUMBER * castInformation.getStaveLevel()); i++) {
-            double range = getRange(castInformation);
-            double xOffset = ThreadLocalRandom.current().nextDouble(-range, range + 1);
-            double zOffset = ThreadLocalRandom.current().nextDouble(-range, range + 1);
-            double x = location.getX() + xOffset;
-            double z = location.getZ() + zOffset;
-            Location spawnLocation = new Location(
-                location.getWorld(),
-                location.getX() + xOffset,
-                location.getWorld().getHighestBlockYAt((int) x, (int) z),
-                location.getZ() + zOffset
-            );
-
-            LightningStrike lightningStrike = spawnLocation.getWorld().strikeLightning(spawnLocation);
-            registerLightningStrike(lightningStrike, castInformation);
+        Player player = Bukkit.getPlayer(castInformation.getCaster());
+        if (player != null) {
+            Block block = player.getTargetBlockExact((int) getRange(castInformation));
+            if (block != null) {
+                Location location = block.getLocation();
+                LightningStrike lightningStrike = location.getWorld().strikeLightning(location);
+                registerLightningStrike(lightningStrike, castInformation);
+            }
         }
     }
 
@@ -58,7 +49,7 @@ public class Tempest extends Spell {
     }
 
     @ParametersAreNonnullByDefault
-    public void onProjectileHit(CastInformation castInformation) {
+    public void projectileHit(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
             damageEntity(livingEntity, castInformation.getCaster(), getDamage(castInformation), castInformation.getDamageLocation(), getKnockback(castInformation));
         }
@@ -67,22 +58,21 @@ public class Tempest extends Spell {
     @Nonnull
     @Override
     public String getId() {
-        return "TEMPEST";
+        return "CALL_LIGHTNING";
     }
 
     @Nonnull
     @Override
     public String[] getLore() {
         return new String[]{
-            "Summons a tempest of lightning around the",
-            "caster causing damage and knockback."
+            "Calls a lightning bolt down where you are looking"
         };
     }
 
     @Nonnull
     @Override
     public Material getMaterial() {
-        return Material.END_ROD;
+        return Material.LIGHTNING_ROD;
     }
 
     @NotNull
@@ -92,7 +82,7 @@ public class Tempest extends Spell {
             1,
             StoryType.ELEMENTAL,
             StoryType.MECHANICAL,
-            StoryType.CELESTIAL
+            StoryType.HISTORICAL
         );
     }
 }

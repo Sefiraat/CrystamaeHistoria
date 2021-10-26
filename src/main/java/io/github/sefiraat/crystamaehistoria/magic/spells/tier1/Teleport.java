@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.magic.spells;
+package io.github.sefiraat.crystamaehistoria.magic.spells.tier1;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;

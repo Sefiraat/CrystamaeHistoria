@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.magic.spells;
+package io.github.sefiraat.crystamaehistoria.magic.spells.tier1;
 
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
@@ -15,10 +15,10 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class Bright extends Spell {
+public class Squall extends Spell {
 
-    public Bright() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(2000, true, 0, false, 10, false)
+    public Squall() {
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(2000, true, 0, false, 10, true)
             .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
     }
@@ -27,9 +27,9 @@ public class Bright extends Spell {
     public void cast(CastInformation castInformation) {
         Player caster = Bukkit.getPlayer(castInformation.getCaster());
         if (caster != null) {
-            caster.getWorld().setThundering(false);
-            caster.getWorld().setStorm(false);
-            displayParticleEffect(caster, Particle.FALLING_NECTAR, 2, 30);
+            caster.getWorld().setThundering(true);
+            caster.getWorld().setStorm(true);
+            displayParticleEffect(caster, Particle.ELECTRIC_SPARK, 2, 30);
             caster.getWorld().playEffect(caster.getLocation(), Effect.BONE_MEAL_USE, 1);
         }
     }
@@ -37,21 +37,22 @@ public class Bright extends Spell {
     @Nonnull
     @Override
     public String getId() {
-        return "BRIGHT";
+        return "SQUALL";
     }
 
     @Nonnull
     @Override
     public String[] getLore() {
         return new String[]{
-            "Turns any day into a pleasant sunny one!"
+            "Causes the heavens to open up and pour",
+            "down."
         };
     }
 
     @Nonnull
     @Override
     public Material getMaterial() {
-        return Material.SUNFLOWER;
+        return Material.BUCKET;
     }
 
     @NotNull
@@ -61,7 +62,7 @@ public class Bright extends Spell {
             1,
             StoryType.ALCHEMICAL,
             StoryType.HISTORICAL,
-            StoryType.CELESTIAL
+            StoryType.VOID
         );
     }
 }

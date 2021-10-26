@@ -1,25 +1,23 @@
-package io.github.sefiraat.crystamaehistoria.magic.spells;
+package io.github.sefiraat.crystamaehistoria.magic.spells.tier1;
 
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class Vacuum extends Spell {
+public class Push extends Spell {
 
-    public Vacuum() {
+    public Push() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 30, false, 10, true)
             .makeDamagingSpell(0, false, 0.2, true)
             .makeTickingSpell(this::onTick, 5, false, 20, false)
@@ -29,22 +27,21 @@ public class Vacuum extends Spell {
 
     @ParametersAreNonnullByDefault
     public void onTick(CastInformation castInformation) {
-        pull(castInformation, getKnockback(castInformation));
+        push(castInformation, getKnockback(castInformation));
     }
 
     @ParametersAreNonnullByDefault
     public void afterAllTicks(CastInformation castInformation) {
-        pull(castInformation, getKnockback(castInformation) * 3);
+        push(castInformation, getKnockback(castInformation) * 3);
     }
 
     @ParametersAreNonnullByDefault
-    private void pull(CastInformation castInformation, double amount) {
-        Player caster = Bukkit.getPlayer(castInformation.getCaster());
-        Location castLocation = caster.getLocation();
+    private void push(CastInformation castInformation, double amount) {
+        Location castLocation = castInformation.getCastLocation();
         double range = getRange(castInformation);
         for (Entity entity : castLocation.getWorld().getNearbyEntities(castLocation, range, 2, range)) {
             if (entity instanceof LivingEntity && entity.getUniqueId() != castInformation.getCaster()) {
-                pullEntity(castInformation.getCaster(), castLocation, entity, amount);
+                pushEntity(castInformation.getCaster(), castLocation, entity, amount);
                 displayParticleEffect(entity, Particle.CRIT, 1, 10);
             }
         }
@@ -53,22 +50,22 @@ public class Vacuum extends Spell {
     @Nonnull
     @Override
     public String getId() {
-        return "VACUUM";
+        return "PUSH";
     }
 
     @Nonnull
     @Override
     public String[] getLore() {
         return new String[]{
-            "Feeling lonely? This spell lets you get up",
-            "close and personal will all nearby things."
+            "In a jam? This spell gives you some room",
+            "to breathe."
         };
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public Material getMaterial() {
-        return Material.FISHING_ROD;
+        return Material.PISTON;
     }
 
     @NotNull
@@ -78,7 +75,7 @@ public class Vacuum extends Spell {
             1,
             StoryType.MECHANICAL,
             StoryType.HUMAN,
-            StoryType.VOID
+            StoryType.CELESTIAL
         );
     }
 }

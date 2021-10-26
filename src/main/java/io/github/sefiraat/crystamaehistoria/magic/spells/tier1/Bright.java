@@ -1,52 +1,57 @@
-package io.github.sefiraat.crystamaehistoria.magic.spells;
+package io.github.sefiraat.crystamaehistoria.magic.spells.tier1;
 
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import org.bukkit.Bukkit;
 import org.bukkit.Effect;
-import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Particle;
+import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class EtherealFlow extends Spell {
+public class Bright extends Spell {
 
-    public EtherealFlow() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(720, true, 0, false, 10, false)
-            .makeTickingSpell(this::onTick, 30, true, 1, false);
+    public Bright() {
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(2000, true, 0, false, 10, false)
+            .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
-
     }
 
     @ParametersAreNonnullByDefault
-    public void onTick(CastInformation castInformation) {
-        Location location = castInformation.getCastLocation();
-        location.getWorld().setTime(location.getWorld().getTime() + (50L * castInformation.getStaveLevel()));
-        location.getWorld().playEffect(location, Effect.ENDER_SIGNAL, 1);
+    public void cast(CastInformation castInformation) {
+        Player caster = Bukkit.getPlayer(castInformation.getCaster());
+        if (caster != null) {
+            caster.getWorld().setThundering(false);
+            caster.getWorld().setStorm(false);
+            displayParticleEffect(caster, Particle.FALLING_NECTAR, 2, 30);
+            caster.getWorld().playEffect(caster.getLocation(), Effect.BONE_MEAL_USE, 1);
+        }
     }
 
     @Nonnull
     @Override
     public String getId() {
-        return "ETHEREAL_FLOW";
+        return "BRIGHT";
     }
 
     @Nonnull
     @Override
     public String[] getLore() {
         return new String[]{
-            "Fast-forwards time"
+            "Turns any day into a pleasant sunny one!"
         };
     }
 
     @Nonnull
     @Override
     public Material getMaterial() {
-        return Material.CLOCK;
+        return Material.SUNFLOWER;
     }
 
     @NotNull
@@ -54,9 +59,9 @@ public class EtherealFlow extends Spell {
     public SpellRecipe getRecipe() {
         return new SpellRecipe(
             1,
+            StoryType.ALCHEMICAL,
             StoryType.HISTORICAL,
-            StoryType.VOID,
-            StoryType.PHILOSOPHICAL
+            StoryType.CELESTIAL
         );
     }
 }

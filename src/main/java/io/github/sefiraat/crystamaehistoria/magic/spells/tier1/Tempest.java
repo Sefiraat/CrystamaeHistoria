@@ -1,14 +1,13 @@
-package io.github.sefiraat.crystamaehistoria.magic.spells;
+package io.github.sefiraat.crystamaehistoria.magic.spells.tier1;
 
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
-import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.entity.EntityType;
+import org.bukkit.entity.LightningStrike;
 import org.bukkit.entity.LivingEntity;
 import org.jetbrains.annotations.NotNull;
 
@@ -16,17 +15,16 @@ import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class RainOfFire extends Spell {
+public class Tempest extends Spell {
 
-    private static final int PROJECTILES_PER_WAVE = 5;
+    private static final double PROJECTILE_NUMBER = 5;
 
-    public RainOfFire() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 20, false, 20, true)
-            .makeDamagingSpell(5, true, 0.5, false)
-            .makeProjectileSpell(this::fireProjectiles, 1, true, 0.5, true)
-            .makeProjectileVsEntitySpell(this::projectileHits)
-            .addBeforeProjectileHitEntityEvent(this::beforeProjectileHits)
-            .makeTickingSpell(this::fireProjectiles, 9, false, 10, false);
+    public Tempest() {
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(200, true, 20, false, 10, true)
+            .makeDamagingSpell(2, true, 0, false)
+            .makeProjectileSpell(this::fireProjectiles, 2, false, 2, false)
+            .makeProjectileVsEntitySpell(this::onProjectileHit)
+            .addBeforeProjectileHitEntityEvent(this::beforeProjectileHit);
         setSpellCore(spellCoreBuilder.build());
     }
 
@@ -34,60 +32,57 @@ public class RainOfFire extends Spell {
     public void fireProjectiles(CastInformation castInformation) {
         Location location = castInformation.getCastLocation();
 
-        for (int i = 0; i < (PROJECTILES_PER_WAVE * castInformation.getStaveLevel()); i++) {
-
+        for (int i = 0; i < (PROJECTILE_NUMBER * castInformation.getStaveLevel()); i++) {
             double range = getRange(castInformation);
-
             double xOffset = ThreadLocalRandom.current().nextDouble(-range, range + 1);
             double zOffset = ThreadLocalRandom.current().nextDouble(-range, range + 1);
+            double x = location.getX() + xOffset;
+            double z = location.getZ() + zOffset;
             Location spawnLocation = new Location(
                 location.getWorld(),
                 location.getX() + xOffset,
-                location.getY() + 20,
+                location.getWorld().getHighestBlockYAt((int) x, (int) z),
                 location.getZ() + zOffset
             );
 
-            MagicProjectile magicProjectile = new MagicProjectile(EntityType.FIREBALL, spawnLocation, castInformation.getCaster());
-            Location destination = spawnLocation.clone().subtract(0, 20, 0);
-            magicProjectile.setVelocity(destination, 2);
-
-            registerProjectile(magicProjectile, castInformation);
+            LightningStrike lightningStrike = spawnLocation.getWorld().strikeLightning(spawnLocation);
+            registerLightningStrike(lightningStrike, castInformation);
         }
     }
 
     @ParametersAreNonnullByDefault
-    public void beforeProjectileHits(CastInformation castInformation) {
+    public void beforeProjectileHit(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
-            livingEntity.setFireTicks(80);
+            livingEntity.setFireTicks(40);
         }
     }
 
     @ParametersAreNonnullByDefault
-    public void projectileHits(CastInformation castInformation) {
+    public void onProjectileHit(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
-            damageEntity(livingEntity, castInformation.getCaster(), getDamage(castInformation), castInformation.getDamageLocation(), getProjectileKnockback(castInformation));
+            damageEntity(livingEntity, castInformation.getCaster(), getDamage(castInformation), castInformation.getDamageLocation(), getKnockback(castInformation));
         }
     }
 
     @Nonnull
     @Override
     public String getId() {
-        return "RAIN_OF_FIRE";
+        return "TEMPEST";
     }
 
     @Nonnull
     @Override
     public String[] getLore() {
         return new String[]{
-            "Summons an epic hellscape of raining",
-            "fire."
+            "Summons a tempest of lightning around the",
+            "caster causing damage and knockback."
         };
     }
 
     @Nonnull
     @Override
     public Material getMaterial() {
-        return Material.FIRE_CHARGE;
+        return Material.END_ROD;
     }
 
     @NotNull
@@ -96,8 +91,8 @@ public class RainOfFire extends Spell {
         return new SpellRecipe(
             1,
             StoryType.ELEMENTAL,
-            StoryType.HUMAN,
-            StoryType.VOID
+            StoryType.MECHANICAL,
+            StoryType.CELESTIAL
         );
     }
 }
