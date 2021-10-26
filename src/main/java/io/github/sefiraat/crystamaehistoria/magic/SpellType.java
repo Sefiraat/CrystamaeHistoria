@@ -21,6 +21,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.Quake;
 import io.github.sefiraat.crystamaehistoria.magic.spells.RainOfFire;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Shroud;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Squall;
+import io.github.sefiraat.crystamaehistoria.magic.spells.StarFall;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Teleport;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Tempest;
 import io.github.sefiraat.crystamaehistoria.magic.spells.Vacuum;
@@ -60,7 +61,8 @@ public enum SpellType {
     ANCIENT_DEFENCE(new AncientDefence()),
     LAVA_LAKE(new LavaLake()),
     CHAOS(new Chaos()),
-    BOBULATE(new Bobulate());
+    BOBULATE(new Bobulate()),
+    STAR_FALL(new StarFall());
 
     @Getter
     protected static final SpellType[] cachedValues = values();

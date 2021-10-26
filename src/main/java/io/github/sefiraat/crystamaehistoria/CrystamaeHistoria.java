@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.commands.TestSpell;
 import io.github.sefiraat.crystamaehistoria.config.ConfigManager;
 import io.github.sefiraat.crystamaehistoria.listeners.ListenerManager;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.runnables.RunnableManager;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTick;
 import io.github.sefiraat.crystamaehistoria.slimefun.Structure;
@@ -80,14 +81,27 @@ public class CrystamaeHistoria extends AbstractAddon {
     }
 
     @Nonnull
-    public static Map<UUID, Pair<CastInformation, Long>> getProjectileMap() {
+    public static Map<MagicProjectile, Pair<CastInformation, Long>> getProjectileMap() {
         return instance.activeStorage.getProjectileMap();
     }
 
     @Nonnull
+    public static Map<UUID, Pair<CastInformation, Long>> getStrikeMap() {
+        return instance.activeStorage.getStrikeMap();
+    }
+
+    @Nonnull
     @ParametersAreNonnullByDefault
-    public static CastInformation getSpellCastInfo(UUID uuid) {
-        CastInformation castInformation = getProjectileMap().get(uuid).getFirstValue();
+    public static CastInformation getProjectileCastInfo(MagicProjectile magicProjectile) {
+        CastInformation castInformation = getProjectileMap().get(magicProjectile).getFirstValue();
+        Validate.notNull(castInformation, "Cast information is null, magical projectile spawned incorrectly.");
+        return castInformation;
+    }
+
+    @Nonnull
+    @ParametersAreNonnullByDefault
+    public static CastInformation getStrikeCastInfo(UUID lightningStrike) {
+        CastInformation castInformation = getStrikeMap().get(lightningStrike).getFirstValue();
         Validate.notNull(castInformation, "Cast information is null, magical projectile spawned incorrectly.");
         return castInformation;
     }

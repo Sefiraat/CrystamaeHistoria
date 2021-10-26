@@ -25,8 +25,6 @@ public class Materials {
 
     public static final SlimefunItem INERT_PLATE_T_1;
     public static final SlimefunItem CHARGED_PLATE_T_1;
-    public SlimefunItem amalgamateDust;
-    public SlimefunItem amalgamateIngot;
 
     static {
         INERT_PLATE_T_1 = new BlankPlate(
@@ -70,6 +68,8 @@ public class Materials {
     @Getter
     private final Map<StoryType, SlimefunItem> typeItemMap = new EnumMap<>(StoryType.class);
     private final CrystamaeHistoria plugin;
+    public SlimefunItem amalgamateDust;
+    public SlimefunItem amalgamateIngot;
 
     @ParametersAreNonnullByDefault
     public Materials(CrystamaeHistoria p) {
@@ -116,7 +116,7 @@ public class Materials {
                 "An ingot crafted of pure magics."
             ),
             RecipeType.SMELTERY,
-            new ItemStack[] {
+            new ItemStack[]{
                 amalgamateDust.getItem()
             }
         );

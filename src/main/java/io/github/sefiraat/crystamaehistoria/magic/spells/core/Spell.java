@@ -254,14 +254,14 @@ public abstract class Spell {
     /**
      * Used to register the projectile's events to the definition and then
      * the projectile/definition to the projectileMap. Used when detecting
-     * the projectile hitting targets.
+     * the projectile hitting targets. Defaults expiry to 5 seconds
      *
-     * @param projectile      The {@link MagicProjectile} being stored (projectile or LightningStrike)
+     * @param projectile      The {@link MagicProjectile} being stored
      * @param castInformation The {@link CastInformation} with the stave information
      */
     @ParametersAreNonnullByDefault
     protected void registerProjectile(MagicProjectile projectile, CastInformation castInformation) {
-        registerProjectile(projectile.getProjectile().getUniqueId(), castInformation, 5000);
+        registerProjectile(projectile, castInformation, 5);
     }
 
     /**
@@ -269,12 +269,12 @@ public abstract class Spell {
      * the projectile/definition to the projectileMap. Used when detecting
      * the projectile hitting targets.
      *
-     * @param projectile      The {@link MagicProjectile} being stored (projectile or LightningStrike)
+     * @param projectile      The {@link MagicProjectile} being stored
      * @param castInformation The {@link CastInformation} with the stave information
      */
     @ParametersAreNonnullByDefault
     protected void registerProjectile(MagicProjectile projectile, CastInformation castInformation, int lifeInSeconds) {
-        registerProjectile(projectile.getProjectile().getUniqueId(), castInformation, lifeInSeconds * 1000L);
+        registerProjectile(projectile, castInformation, lifeInSeconds * 1000L);
     }
 
     /**
@@ -282,12 +282,16 @@ public abstract class Spell {
      * the projectile/definition to the projectileMap. Used when detecting
      * the projectile hitting targets.
      *
-     * @param lightningStrike The {@link LightningStrike} being stored (projectile or LightningStrike)
+     * @param lightningStrike The {@link LightningStrike} being stored
      * @param castInformation The {@link CastInformation} with the stave information
      */
     @ParametersAreNonnullByDefault
-    protected void registerProjectile(LightningStrike lightningStrike, CastInformation castInformation) {
-        registerProjectile(lightningStrike.getUniqueId(), castInformation, 1000);
+    protected void registerLightningStrike(LightningStrike lightningStrike, CastInformation castInformation) {
+        castInformation.setBeforeProjectileHitEvent(spellCore.getBeforeProjectileHitEvent());
+        castInformation.setProjectileHitEvent(spellCore.getProjectileHitEvent());
+        castInformation.setAfterProjectileHitEvent(spellCore.getAfterProjectileHitEvent());
+        Long expiry = System.currentTimeMillis() + 1000;
+        CrystamaeHistoria.getActiveStorage().getStrikeMap().put(lightningStrike.getUniqueId(), new Pair<>(castInformation, expiry));
     }
 
     /**
@@ -295,16 +299,16 @@ public abstract class Spell {
      * the projectile/definition to the projectileMap. Used when detecting
      * the projectile hitting targets.
      *
-     * @param uuid            The {@link UUID} being stored (projectile or lightningstrike)
+     * @param magicProjectile The {@link MagicProjectile} being stored
      * @param castInformation The {@link CastInformation} with the stave information
      */
     @ParametersAreNonnullByDefault
-    private void registerProjectile(UUID uuid, CastInformation castInformation, long projectileDuration) {
+    private void registerProjectile(MagicProjectile magicProjectile, CastInformation castInformation, long projectileDuration) {
         castInformation.setBeforeProjectileHitEvent(spellCore.getBeforeProjectileHitEvent());
         castInformation.setProjectileHitEvent(spellCore.getProjectileHitEvent());
         castInformation.setAfterProjectileHitEvent(spellCore.getAfterProjectileHitEvent());
         Long expiry = System.currentTimeMillis() + projectileDuration;
-        CrystamaeHistoria.getActiveStorage().getProjectileMap().put(uuid, new Pair<>(castInformation, expiry));
+        CrystamaeHistoria.getActiveStorage().getProjectileMap().put(magicProjectile, new Pair<>(castInformation, expiry));
     }
 
     /**

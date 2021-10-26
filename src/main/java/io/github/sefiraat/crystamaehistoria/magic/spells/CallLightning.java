@@ -36,7 +36,7 @@ public class CallLightning extends Spell {
             if (block != null) {
                 Location location = block.getLocation();
                 LightningStrike lightningStrike = location.getWorld().strikeLightning(location);
-                registerProjectile(lightningStrike, castInformation);
+                registerLightningStrike(lightningStrike, castInformation);
             }
         }
     }

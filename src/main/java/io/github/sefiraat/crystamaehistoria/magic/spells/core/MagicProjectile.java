@@ -1,24 +1,32 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells.core;
 
+import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import lombok.Getter;
+import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Projectile;
+import org.bukkit.util.Consumer;
 import org.bukkit.util.Vector;
 
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.UUID;
 
 public class MagicProjectile {
 
     @Getter
-    private final Projectile projectile;
+    private final UUID projectileUUID;
+    @Getter
+    @Setter
+    private Consumer<MagicProjectile> consumer;
 
     @ParametersAreNonnullByDefault
     public MagicProjectile(EntityType entityType, Location location, UUID caster) {
-        projectile = (Projectile) location.getWorld().spawnEntity(location, entityType);
+        final Projectile projectile = (Projectile) location.getWorld().spawnEntity(location, entityType);
         projectile.setShooter(Bukkit.getPlayer(caster));
         projectile.setBounce(false);
         if (projectile instanceof Fireball) {
@@ -26,6 +34,7 @@ public class MagicProjectile {
             fireball.setIsIncendiary(false);
             fireball.setYield(0f);
         }
+        this.projectileUUID = projectile.getUniqueId();
     }
 
     /**
@@ -34,6 +43,7 @@ public class MagicProjectile {
      */
     @ParametersAreNonnullByDefault
     public void setVelocity(Location targetLocation, double speed) {
+        Projectile projectile = (Projectile) Bukkit.getEntity(projectileUUID);
         Vector velocity = targetLocation.toVector().subtract(projectile.getLocation().toVector()).normalize();
         setVelocity(velocity, speed);
     }
@@ -44,6 +54,7 @@ public class MagicProjectile {
      */
     @ParametersAreNonnullByDefault
     public void setVelocity(Vector vector, double speed) {
+        Projectile projectile = (Projectile) Bukkit.getEntity(projectileUUID);
         // Fireball projectiles want to move wrongly :)
         if (projectile instanceof Fireball) {
             ((Fireball) projectile).setDirection(vector);
@@ -51,12 +62,37 @@ public class MagicProjectile {
         projectile.setVelocity(vector.multiply(speed));
     }
 
+    @Nonnull
     public Location getLocation() {
+        Projectile projectile = (Projectile) Bukkit.getEntity(projectileUUID);
         return projectile.getLocation();
     }
 
+    @Nullable
+    public Projectile getProjectile() {
+        return (Projectile) Bukkit.getEntity(projectileUUID);
+    }
+
+    public boolean matches(Projectile projectile) {
+        return this.projectileUUID.equals(projectile.getUniqueId());
+    }
+
     public void disableGravity() {
+        Projectile projectile = (Projectile) Bukkit.getEntity(projectileUUID);
         projectile.setGravity(false);
     }
 
+    public void kill() {
+        CrystamaeHistoria.getProjectileMap().remove(this);
+        Projectile projectile = (Projectile) Bukkit.getEntity(projectileUUID);
+        if (projectile != null) {
+            projectile.remove();
+        }
+    }
+
+    public void run() {
+        if (consumer != null) {
+            consumer.accept(this);
+        }
+    }
 }

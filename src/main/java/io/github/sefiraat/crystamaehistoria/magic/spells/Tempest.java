@@ -46,7 +46,7 @@ public class Tempest extends Spell {
             );
 
             LightningStrike lightningStrike = spawnLocation.getWorld().strikeLightning(spawnLocation);
-            registerProjectile(lightningStrike, castInformation);
+            registerLightningStrike(lightningStrike, castInformation);
         }
     }
 

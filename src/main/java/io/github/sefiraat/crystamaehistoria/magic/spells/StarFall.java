@@ -1,0 +1,116 @@
+package io.github.sefiraat.crystamaehistoria.magic.spells;
+
+import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
+import org.bukkit.Color;
+import org.bukkit.Location;
+import org.bukkit.Material;
+import org.bukkit.Particle;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.LivingEntity;
+import org.jetbrains.annotations.NotNull;
+
+import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.Collection;
+
+public class StarFall extends Spell {
+
+    public StarFall() {
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 7, true, 40, true)
+            .makeDamagingSpell(2, true, 0.5, false)
+            .makeProjectileSpell(this::fireProjectiles, 1, true, 0.5, true)
+            .makeProjectileVsEntitySpell(this::projectileHits)
+            .makeProjectileVsBlockSpell(this::projectileHits)
+            .makeTickingSpell(this::fireProjectiles, 9, false, 10, false);
+        setSpellCore(spellCoreBuilder.build());
+    }
+
+    @ParametersAreNonnullByDefault
+    public void fireProjectiles(CastInformation castInformation) {
+        final Location location = castInformation.getCastLocation();
+        final double size = getRange(castInformation);
+        final Collection<Entity> entities = location.getWorld().getNearbyEntities(location, size, size, size);
+
+        for (Entity entity : entities) {
+            if (GeneralUtils.testChance(1,5)
+                && entity instanceof LivingEntity
+                && entity.getUniqueId() != castInformation.getCaster()
+            ) {
+                final Location spawnLocation = entity.getLocation().clone().add(0, 100, 0);
+                final Location destination = spawnLocation.clone().subtract(0, 100, 0);
+                final MagicProjectile magicProjectile = new MagicProjectile(EntityType.TRIDENT, spawnLocation, castInformation.getCaster());
+
+                magicProjectile.setVelocity(destination, 2);
+                magicProjectile.disableGravity();
+                magicProjectile.setConsumer(this::projectileGraphics);
+                registerProjectile(magicProjectile, castInformation);
+            }
+        }
+    }
+
+    @ParametersAreNonnullByDefault
+    public void projectileHits(CastInformation castInformation) {
+        for (final LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
+            damageEntity(
+                livingEntity,
+                castInformation.getCaster(),
+                getDamage(castInformation),
+                castInformation.getDamageLocation(),
+                getProjectileKnockback(castInformation)
+            );
+        }
+    }
+
+    public void projectileGraphics(MagicProjectile magicProjectile) {
+        final Location location = magicProjectile.getProjectile().getLocation();
+        final Particle.DustOptions dustOptions = new Particle.DustOptions(
+            Color.fromRGB(135, 50, 235),
+            2F
+        );
+        location.getWorld().spawnParticle(
+            Particle.REDSTONE,
+            location,
+            10,
+            dustOptions
+        );
+    }
+
+    @Nonnull
+    @Override
+    public String getId() {
+        return "STAR_FALL";
+    }
+
+    @Nonnull
+    @Override
+    public String[] getLore() {
+        return new String[]{
+            "Rains celestial beings from the skies",
+            "to decimate your opponents."
+        };
+    }
+
+    @Nonnull
+    @Override
+    public Material getMaterial() {
+        return Material.NETHER_STAR;
+    }
+
+    @NotNull
+    @Override
+    public SpellRecipe getRecipe() {
+        return new SpellRecipe(
+            1,
+            StoryType.ALCHEMICAL,
+            StoryType.CELESTIAL,
+            StoryType.PHILOSOPHICAL
+        );
+    }
+}

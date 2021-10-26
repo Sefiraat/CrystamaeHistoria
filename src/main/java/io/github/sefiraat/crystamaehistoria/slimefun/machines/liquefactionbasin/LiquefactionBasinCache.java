@@ -1,6 +1,5 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin;
 
-import com.sun.tools.sjavac.Log;
 import de.slikey.effectlib.effect.SphereEffect;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
