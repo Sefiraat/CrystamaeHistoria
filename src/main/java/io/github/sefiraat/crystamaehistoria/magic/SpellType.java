@@ -85,11 +85,8 @@ public enum SpellType {
 
     @ParametersAreNonnullByDefault
     SpellType(Spell spell) {
-        final String researchId = "CRYS_SPELL" + spell.getId();
-
         this.spell = spell;
         LiquefactionBasinCache.addSpellRecipe(this, spell.getRecipe());
-        new Research(Keys.newKey(researchId), spell.getId().hashCode(), researchId, 1).register();
     }
 
     @Nullable
