@@ -32,6 +32,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Squall;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.StarFall;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Teleport;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Tempest;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.TimeCompression;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.TimeDilation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Vacuum;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.LiquefactionBasinCache;
@@ -51,6 +52,7 @@ public enum SpellType {
     FIREBALL(new Fireball()),
     POISON_NOVA(new PoisonNova()),
     RAIN_OF_FIRE(new RainOfFire()),
+    STAR_FALL(new StarFall()),
     TELEPORT(new Teleport()),
     TEMPEST(new Tempest()),
     FIRE_NOVA(new FireNova()),
@@ -70,15 +72,15 @@ public enum SpellType {
     LAVA_LAKE(new LavaLake()),
     CHAOS(new Chaos()),
     BOBULATE(new Bobulate()),
-    STAR_FALL(new StarFall()),
+    ANIMANIACS(new Animaniacs()),
     OVIPAROUS(new Oviparous()),
     BLOOD_MAGICS(new BloodMagics()),
     PRISM(new Prism()),
-    TIME_DILATION(new TimeDilation()),
-    PROTECTORATE(new Protectorate()),
-    HELLSCAPE(new Hellscape()),
     ANTI_PRISM(new AntiPrism()),
-    ANIMANIACS(new Animaniacs());
+    TIME_DILATION(new TimeDilation()),
+    TIME_COMPRESSION(new TimeCompression()),
+    PROTECTORATE(new Protectorate()),
+    HELLSCAPE(new Hellscape());
 
     @Getter
     protected static final SpellType[] cachedValues = values();

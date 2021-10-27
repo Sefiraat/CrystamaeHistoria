@@ -22,7 +22,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Animaniacs extends Spell {
 
-    public static final List<EntityType> CONVERTIBLE_LIST = Arrays.asList(
+    protected static final List<EntityType> CONVERTIBLE_LIST = Arrays.asList(
         EntityType.COW,
         EntityType.CHICKEN,
         EntityType.SHEEP,
