@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -43,10 +44,8 @@ public class EarthNova extends Spell {
             int dz = (int) (sizeEnd * Math.sin(angle));
             Location spawn = middle.clone().add(sx, 0, sz);
             Location destination = middle.clone().add(dx, 0, dz);
-            MagicProjectile magicProjectile = new MagicProjectile(EntityType.ENDER_PEARL, spawn, castInformation.getCaster());
+            MagicProjectile magicProjectile = SpellUtils.summonMagicProjectile(castInformation, EntityType.ENDER_PEARL, spawn);
             magicProjectile.setVelocity(destination, 1);
-
-            registerProjectile(magicProjectile, castInformation);
         }
 
     }

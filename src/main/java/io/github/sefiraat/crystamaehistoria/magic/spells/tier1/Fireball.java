@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
@@ -30,9 +31,8 @@ public class Fireball extends Spell {
     public void fireProjectile(CastInformation castInformation) {
         Location location = castInformation.getCastLocation();
         Location aimLocation = location.clone().add(0, 1.5, 0).add(location.getDirection().multiply(2));
-        MagicProjectile magicProjectile = new MagicProjectile(EntityType.SMALL_FIREBALL, aimLocation, castInformation.getCaster());
+        MagicProjectile magicProjectile = SpellUtils.summonMagicProjectile(castInformation, EntityType.SMALL_FIREBALL, aimLocation);
         magicProjectile.setVelocity(location.getDirection(), 1.5);
-        registerProjectile(magicProjectile, castInformation);
     }
 
     @ParametersAreNonnullByDefault

@@ -7,6 +7,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
+import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -45,12 +46,10 @@ public class StarFall extends Spell {
             ) {
                 final Location spawnLocation = entity.getLocation().clone().add(0, 100, 0);
                 final Location destination = spawnLocation.clone().subtract(0, 100, 0);
-                final MagicProjectile magicProjectile = new MagicProjectile(EntityType.TRIDENT, spawnLocation, castInformation.getCaster());
+                final MagicProjectile magicProjectile = SpellUtils.summonMagicProjectile(castInformation, EntityType.TRIDENT, spawnLocation, this::onTick);
 
                 magicProjectile.setVelocity(destination, 2);
                 magicProjectile.disableGravity();
-                magicProjectile.setConsumer(this::projectileGraphics);
-                registerProjectile(magicProjectile, castInformation);
             }
         }
     }
@@ -68,7 +67,7 @@ public class StarFall extends Spell {
         }
     }
 
-    public void projectileGraphics(MagicProjectile magicProjectile) {
+    public void onTick(MagicProjectile magicProjectile) {
         final Location location = magicProjectile.getProjectile().getLocation();
         final Particle.DustOptions dustOptions = new Particle.DustOptions(
             Color.fromRGB(135, 50, 235),

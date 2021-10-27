@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -64,10 +65,9 @@ public class Animaniacs extends Spell {
     public void fireProjectile(CastInformation castInformation) {
         final Location location = castInformation.getCastLocation();
         final Location aimLocation = location.clone().add(0, 1.5, 0).add(location.getDirection().multiply(2));
-        final MagicProjectile magicProjectile = new MagicProjectile(EntityType.SNOWBALL, aimLocation, castInformation.getCaster());
+        final MagicProjectile magicProjectile = SpellUtils.summonMagicProjectile(castInformation, EntityType.SNOWBALL, aimLocation);
         magicProjectile.setVelocity(location.getDirection(), 1.5);
         magicProjectile.disableGravity();
-        registerProjectile(magicProjectile, castInformation);
     }
 
     public void projectileHit(CastInformation castInformation) {
@@ -84,8 +84,6 @@ public class Animaniacs extends Spell {
                 newEntity.setCustomName(name);
             }
         }
-
-
     }
 
     @Nonnull

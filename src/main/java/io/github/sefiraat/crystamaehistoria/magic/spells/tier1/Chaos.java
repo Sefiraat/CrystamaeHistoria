@@ -5,11 +5,14 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.MagicalPlate;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
@@ -49,12 +52,15 @@ public class Chaos extends Spell {
                 .add(new Vector(x, y, 0))
                 .rotateAroundY(-(location.getYaw() * alessioMath));
             final Location pointLocation = location.clone().add(pointVector);
-            final MagicProjectile projectile = new MagicProjectile(EntityType.SPECTRAL_ARROW, pointLocation, caster.getUniqueId());
+            final MagicProjectile projectile = SpellUtils.summonMagicProjectile(castInformation, EntityType.SPECTRAL_ARROW, pointLocation, this::onTick);
 
             projectile.getProjectile().setGravity(false);
             projectile.setVelocity(location.getDirection(), 1);
-            registerProjectile(projectile, castInformation, 10);
         }
+    }
+
+    public void onTick(MagicProjectile magicProjectile) {
+        displayParticleEffect(magicProjectile.getProjectile(), Particle.GLOW, 0.2, 1);
     }
 
     public void onHitEntity(CastInformation castInformation) {

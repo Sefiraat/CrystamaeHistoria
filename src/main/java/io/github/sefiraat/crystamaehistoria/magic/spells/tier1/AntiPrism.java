@@ -8,6 +8,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
+import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -48,9 +49,8 @@ public class AntiPrism extends Spell {
     public void cast(CastInformation castInformation) {
         Location location = castInformation.getCastLocation();
         Location aimLocation = location.clone().add(0, 1.5, 0).add(location.getDirection().multiply(2));
-        MagicProjectile magicProjectile = new MagicProjectile(EntityType.SPLASH_POTION, aimLocation, castInformation.getCaster());
+        MagicProjectile magicProjectile = SpellUtils.summonMagicProjectile(castInformation, EntityType.SPLASH_POTION, aimLocation);
         magicProjectile.setVelocity(location.getDirection(), 0.5);
-        registerProjectile(magicProjectile, castInformation);
     }
 
     @ParametersAreNonnullByDefault

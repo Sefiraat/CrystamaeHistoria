@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -40,12 +41,9 @@ public class Hellscape extends Spell {
             final double dz = Math.sin(rotated) * 4;
             final Location spawn = middle.clone().add(x, 0, z);
             final Location destination = middle.clone().add(dx, 0, dz);
-            final MagicProjectile magicProjectile = new MagicProjectile(EntityType.SNOWBALL, spawn, castInformation.getCaster());
-
-            magicProjectile.setConsumer(this::projectileParticle);
+            final MagicProjectile magicProjectile = SpellUtils.summonMagicProjectile(castInformation, EntityType.SNOWBALL, spawn, this::onTick);
             magicProjectile.disableGravity();
             magicProjectile.setVelocity(destination, 0.2);
-            registerProjectile(magicProjectile, castInformation);
         }
     }
 
@@ -68,7 +66,7 @@ public class Hellscape extends Spell {
     }
 
     @ParametersAreNonnullByDefault
-    public void projectileParticle(MagicProjectile magicProjectile) {
+    public void onTick(MagicProjectile magicProjectile) {
         displayParticleEffect(magicProjectile.getProjectile(), Particle.SWEEP_ATTACK, 0.5, 1);
         displayParticleEffect(magicProjectile.getProjectile(), Particle.VILLAGER_ANGRY, 0.5, 1);
     }

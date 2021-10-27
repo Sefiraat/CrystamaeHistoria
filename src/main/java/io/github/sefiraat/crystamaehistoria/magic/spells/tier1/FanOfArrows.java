@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
@@ -38,10 +39,8 @@ public class FanOfArrows extends Spell {
             int dz = (int) (sizeEnd * Math.sin(angle));
             Location spawn = middle.clone().add(sx, 0, sz);
             Location destination = middle.clone().add(dx, 5, dz);
-            MagicProjectile magicProjectile = new MagicProjectile(EntityType.ARROW, spawn, castInformation.getCaster());
+            MagicProjectile magicProjectile = SpellUtils.summonMagicProjectile(castInformation, EntityType.ARROW, spawn);
             magicProjectile.setVelocity(destination, 1);
-
-            registerProjectile(magicProjectile, castInformation, 3);
         }
     }
 

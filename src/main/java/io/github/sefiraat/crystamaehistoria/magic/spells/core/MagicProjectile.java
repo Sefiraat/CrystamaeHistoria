@@ -8,13 +8,13 @@ import org.bukkit.Location;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Projectile;
-import org.bukkit.util.Consumer;
 import org.bukkit.util.Vector;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.UUID;
+import java.util.function.Consumer;
 
 public class MagicProjectile {
 
@@ -25,15 +25,7 @@ public class MagicProjectile {
     private Consumer<MagicProjectile> consumer;
 
     @ParametersAreNonnullByDefault
-    public MagicProjectile(EntityType entityType, Location location, UUID caster) {
-        final Projectile projectile = (Projectile) location.getWorld().spawnEntity(location, entityType);
-        projectile.setShooter(Bukkit.getPlayer(caster));
-        projectile.setBounce(false);
-        if (projectile instanceof Fireball) {
-            Fireball fireball = (Fireball) projectile;
-            fireball.setIsIncendiary(false);
-            fireball.setYield(0f);
-        }
+    public MagicProjectile(Projectile projectile) {
         this.projectileUUID = projectile.getUniqueId();
     }
 

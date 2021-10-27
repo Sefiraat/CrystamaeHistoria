@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
@@ -47,11 +48,9 @@ public class RainOfFire extends Spell {
                 location.getZ() + zOffset
             );
 
-            MagicProjectile magicProjectile = new MagicProjectile(EntityType.FIREBALL, spawnLocation, castInformation.getCaster());
+            MagicProjectile magicProjectile = SpellUtils.summonMagicProjectile(castInformation, EntityType.FIREBALL, spawnLocation);
             Location destination = spawnLocation.clone().subtract(0, 20, 0);
             magicProjectile.setVelocity(destination, 2);
-
-            registerProjectile(magicProjectile, castInformation);
         }
     }
 

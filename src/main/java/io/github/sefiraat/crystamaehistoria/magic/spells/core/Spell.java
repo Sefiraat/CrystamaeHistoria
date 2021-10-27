@@ -275,32 +275,6 @@ public abstract class Spell {
     /**
      * Used to register the projectile's events to the definition and then
      * the projectile/definition to the projectileMap. Used when detecting
-     * the projectile hitting targets. Defaults expiry to 5 seconds
-     *
-     * @param projectile      The {@link MagicProjectile} being stored
-     * @param castInformation The {@link CastInformation} with the stave information
-     */
-    @ParametersAreNonnullByDefault
-    protected void registerProjectile(MagicProjectile projectile, CastInformation castInformation) {
-        registerProjectile(projectile, castInformation, 5);
-    }
-
-    /**
-     * Used to register the projectile's events to the definition and then
-     * the projectile/definition to the projectileMap. Used when detecting
-     * the projectile hitting targets.
-     *
-     * @param projectile      The {@link MagicProjectile} being stored
-     * @param castInformation The {@link CastInformation} with the stave information
-     */
-    @ParametersAreNonnullByDefault
-    protected void registerProjectile(MagicProjectile projectile, CastInformation castInformation, int lifeInSeconds) {
-        registerProjectile(projectile, castInformation, lifeInSeconds * 1000L);
-    }
-
-    /**
-     * Used to register the projectile's events to the definition and then
-     * the projectile/definition to the projectileMap. Used when detecting
      * the projectile hitting targets.
      *
      * @param lightningStrike The {@link LightningStrike} being stored

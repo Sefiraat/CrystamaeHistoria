@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells.tier1;
 
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicSummon;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
@@ -9,6 +10,7 @@ import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import io.github.sefiraat.crystamaehistoria.utils.mobgoals.BoringGoal;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.entity.EntityType;
 import org.jetbrains.annotations.NotNull;
 
@@ -39,10 +41,15 @@ public class FlameSprite extends Spell {
                 EntityType.BLAZE,
                 caster,
                 spawnLocation,
-                new BoringGoal(caster)
+                new BoringGoal(caster),
+                this::onTick
             );
 
         }
+    }
+
+    public void onTick(MagicSummon magicSummon) {
+        displayParticleEffect(magicSummon.getMob(), Particle.FLAME, 1, 4);
     }
 
     @Nonnull

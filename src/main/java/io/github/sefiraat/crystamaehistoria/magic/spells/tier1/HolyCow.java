@@ -7,14 +7,11 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
-import io.github.sefiraat.crystamaehistoria.utils.mobgoals.FiendGoal;
 import io.github.sefiraat.crystamaehistoria.utils.mobgoals.HolyCowGoal;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
-import org.bukkit.entity.Cow;
 import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Phantom;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
@@ -46,13 +43,13 @@ public class HolyCow extends Spell {
                 spawnLocation,
                 new HolyCowGoal(caster),
                 300,
-                this::mobTick
+                this::onTick
             );
         }
     }
 
-    public void mobTick(MagicSummon magicSummon) {
-        displayParticleEffect(magicSummon.getMob(), Particle.GLOW, 2, 4);
+    public void onTick(MagicSummon magicSummon) {
+        displayParticleEffect(magicSummon.getMob(), Particle.GLOW, 1, 4);
     }
 
     @Nonnull
