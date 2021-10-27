@@ -7,6 +7,7 @@ import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentUUIDDataType;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Mob;
@@ -55,7 +56,6 @@ public abstract class AbstractGoal<T extends Mob> implements Goal<T> {
 
     @Override
     public final void tick() {
-
         final Player player = removeOffline();
 
         if (player != null) {
@@ -94,7 +94,12 @@ public abstract class AbstractGoal<T extends Mob> implements Goal<T> {
                 if (getFollowsPlayer()
                     && self.getLocation().distance(player.getLocation()) > getStayNearDistance()
                 ) {
-                    self.getPathfinder().moveTo(player);
+                    final Location location = player.getLocation().clone().add(
+                        ThreadLocalRandom.current().nextDouble(-1.5, 1.5),
+                        0,
+                        ThreadLocalRandom.current().nextDouble(-1.5, 1.5)
+                    );
+                    self.getPathfinder().moveTo(location);
                 }
             }
 
