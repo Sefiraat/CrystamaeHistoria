@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.magic;
 
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.AirNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.AncientDefence;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Animaniacs;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.AntiPrism;
@@ -10,10 +11,12 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Break;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Bright;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.CallLightning;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Chaos;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EarthNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EtherealFlow;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FanOfArrows;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FireNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Fireball;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FrostNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Heal;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.HealingMist;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Hellscape;
@@ -47,41 +50,44 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public enum SpellType {
 
-    // Tier 1 Plate Recipes
+    // Tier 1
+    AIR_NOVA(new AirNova()),
+    ANCIENT_DEFENCE(new AncientDefence()),
+    ANIMANIACS(new Animaniacs()),
+    ANTI_PRISM(new AntiPrism()),
+    BLOOD_MAGICS(new BloodMagics()),
+    BOBULATE(new Bobulate()),
+    BREAK(new Break()),
+    BRIGHT(new Bright()),
     CALL_LIGHTNING(new CallLightning()),
+    CHAOS(new Chaos()),
+    EARTH_NOVA(new EarthNova()),
+    ETHEREAL_FLOW(new EtherealFlow()),
     FAN_OF_ARROWS(new FanOfArrows()),
     FIREBALL(new Fireball()),
+    FIRE_NOVA(new FireNova()),
+    FROST_NOVA(new FrostNova()),
+    HEAL(new Heal()),
+    HEALING_MIST(new HealingMist()),
+    HELLSCAPE(new Hellscape()),
+    KNOWLEDGE_SHARE(new KnowledgeShare()),
+    LAVA_LAKE(new LavaLake()),
+    LOVE_POTION(new LovePotion()),
+    OVIPAROUS(new Oviparous()),
     POISON_NOVA(new PoisonNova()),
+    PRISM(new Prism()),
+    PROTECTORATE(new Protectorate()),
+    PUSH(new Push()),
+    QUAKE(new Quake()),
     RAIN_OF_FIRE(new RainOfFire()),
+    SHROUD(new Shroud()),
+    SQUALL(new Squall()),
     STAR_FALL(new StarFall()),
     TELEPORT(new Teleport()),
     TEMPEST(new Tempest()),
-    FIRE_NOVA(new FireNova()),
-    QUAKE(new Quake()),
-    BRIGHT(new Bright()),
-    SQUALL(new Squall()),
-    ETHEREAL_FLOW(new EtherealFlow()),
-    HEAL(new Heal()),
-    HEALING_MIST(new HealingMist()),
-    LOVE_POTION(new LovePotion()),
-    SHROUD(new Shroud()),
-    PUSH(new Push()),
-    VACUUM(new Vacuum()),
-    KNOWLEDGE_SHARE(new KnowledgeShare()),
-    BREAK(new Break()),
-    ANCIENT_DEFENCE(new AncientDefence()),
-    LAVA_LAKE(new LavaLake()),
-    CHAOS(new Chaos()),
-    BOBULATE(new Bobulate()),
-    ANIMANIACS(new Animaniacs()),
-    OVIPAROUS(new Oviparous()),
-    BLOOD_MAGICS(new BloodMagics()),
-    PRISM(new Prism()),
-    ANTI_PRISM(new AntiPrism()),
-    TIME_DILATION(new TimeDilation()),
     TIME_COMPRESSION(new TimeCompression()),
-    PROTECTORATE(new Protectorate()),
-    HELLSCAPE(new Hellscape()),
+    TIME_DILATION(new TimeDilation()),
+    VACUUM(new Vacuum()),
     WITHER_WEATHER(new WitherWeather());
 
     @Getter
