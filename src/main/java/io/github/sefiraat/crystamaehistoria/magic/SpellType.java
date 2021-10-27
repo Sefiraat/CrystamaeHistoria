@@ -16,6 +16,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EtherealFlow;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FanOfArrows;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FireNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Fireball;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FlameSprite;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FrostNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Heal;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.HealingMist;
@@ -40,8 +41,6 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.TimeDilation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Vacuum;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.WitherWeather;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.LiquefactionBasinCache;
-import io.github.sefiraat.crystamaehistoria.utils.Keys;
-import io.github.thebusybiscuit.slimefun4.api.researches.Research;
 import lombok.Getter;
 
 import javax.annotation.Nonnull;
@@ -66,6 +65,7 @@ public enum SpellType {
     FAN_OF_ARROWS(new FanOfArrows()),
     FIREBALL(new Fireball()),
     FIRE_NOVA(new FireNova()),
+    FLAME_SPRITE(new FlameSprite()),
     FROST_NOVA(new FrostNova()),
     HEAL(new Heal()),
     HEALING_MIST(new HealingMist()),

@@ -8,6 +8,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Entity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,6 +24,8 @@ public class ActiveStorage {
     private final Map<SpellTick, Integer> tickingCastables = new HashMap<>();
     @Getter
     private final Map<BlockPosition, Long> blocksToRemove = new HashMap<>();
+    @Getter
+    private final Map<Entity, Long> summonedEntities = new HashMap<>();
 
     public void removeProjectile(MagicProjectile magicProjectile) {
         projectileMap.remove(magicProjectile);
@@ -41,20 +44,15 @@ public class ActiveStorage {
         }
         projectileMap.clear();
 
+        // Clear all spawned entities created from spells
+        for (Entity entity : summonedEntities.keySet()) {
+            entity.remove();
+        }
+        summonedEntities.clear();
+
         // Remove all temporary blocks
         removeBlocks(true);
         blocksToRemove.clear();
-    }
-
-    // TODO Need a runnable to clear this down
-    public void clearExpired() {
-        for (Map.Entry<MagicProjectile, Pair<CastInformation, Long>> entry : projectileMap.entrySet()) {
-            long time = System.currentTimeMillis();
-            long expiration = entry.getValue().getSecondValue();
-            if (time > expiration) {
-                projectileMap.remove(entry.getKey());
-            }
-        }
     }
 
     public void removeBlocks(boolean forceRemoveAll) {

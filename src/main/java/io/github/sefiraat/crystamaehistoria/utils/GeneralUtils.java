@@ -34,7 +34,7 @@ public final class GeneralUtils {
     }
 
     /**
-     * Rolls a number starting from 1 to upper
+     * Rolls a number starting from 0 to upper
      *
      * @param upper The highest possible number that could roll (inclusive)
      * @return rolled int

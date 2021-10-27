@@ -79,9 +79,9 @@ public class Prism extends Spell {
     public SpellRecipe getRecipe() {
         return new SpellRecipe(
             1,
-            StoryType.HUMAN,
-            StoryType.CELESTIAL,
-            StoryType.PHILOSOPHICAL
+            StoryType.ALCHEMICAL,
+            StoryType.HISTORICAL,
+            StoryType.HUMAN
         );
     }
 }
