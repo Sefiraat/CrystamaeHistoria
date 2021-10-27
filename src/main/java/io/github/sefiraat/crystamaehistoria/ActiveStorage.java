@@ -2,6 +2,7 @@ package io.github.sefiraat.crystamaehistoria;
 
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicSummon;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTick;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
@@ -25,7 +26,7 @@ public class ActiveStorage {
     @Getter
     private final Map<BlockPosition, Long> blocksToRemove = new HashMap<>();
     @Getter
-    private final Map<Entity, Long> summonedEntities = new HashMap<>();
+    private final Map<MagicSummon, Long> summonedEntities = new HashMap<>();
 
     public void removeProjectile(MagicProjectile magicProjectile) {
         projectileMap.remove(magicProjectile);
@@ -45,8 +46,8 @@ public class ActiveStorage {
         projectileMap.clear();
 
         // Clear all spawned entities created from spells
-        for (Entity entity : summonedEntities.keySet()) {
-            entity.remove();
+        for (MagicSummon magicSummon : summonedEntities.keySet()) {
+            magicSummon.kill();
         }
         summonedEntities.clear();
 

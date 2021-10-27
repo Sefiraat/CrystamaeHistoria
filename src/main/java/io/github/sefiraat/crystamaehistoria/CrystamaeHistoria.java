@@ -7,6 +7,7 @@ import io.github.sefiraat.crystamaehistoria.config.ConfigManager;
 import io.github.sefiraat.crystamaehistoria.listeners.ListenerManager;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicSummon;
 import io.github.sefiraat.crystamaehistoria.runnables.RunnableManager;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTick;
 import io.github.sefiraat.crystamaehistoria.slimefun.Structure;
@@ -86,7 +87,7 @@ public class CrystamaeHistoria extends AbstractAddon {
     }
 
     @Nonnull
-    public static Map<Entity, Long> getSummonedEntityMap() {
+    public static Map<MagicSummon, Long> getSummonedEntityMap() {
         return instance.activeStorage.getSummonedEntities();
     }
 

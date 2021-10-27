@@ -21,6 +21,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FrostNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Heal;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.HealingMist;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Hellscape;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.HolyCow;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.KnowledgeShare;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LavaLake;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LovePotion;
@@ -71,6 +72,7 @@ public enum SpellType {
     HEAL(new Heal()),
     HEALING_MIST(new HealingMist()),
     HELLSCAPE(new Hellscape()),
+    HOLY_COW(new HolyCow()),
     KNOWLEDGE_SHARE(new KnowledgeShare()),
     LAVA_LAKE(new LavaLake()),
     LOVE_POTION(new LovePotion()),
