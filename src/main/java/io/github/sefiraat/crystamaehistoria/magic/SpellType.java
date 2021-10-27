@@ -2,6 +2,7 @@ package io.github.sefiraat.crystamaehistoria.magic;
 
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.AncientDefence;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Animaniacs;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.AntiPrism;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.BloodMagics;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Bobulate;
@@ -76,7 +77,8 @@ public enum SpellType {
     TIME_DILATION(new TimeDilation()),
     PROTECTORATE(new Protectorate()),
     HELLSCAPE(new Hellscape()),
-    ANTI_PRISM(new AntiPrism());
+    ANTI_PRISM(new AntiPrism()),
+    ANIMANIACS(new Animaniacs());
 
     @Getter
     protected static final SpellType[] cachedValues = values();
