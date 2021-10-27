@@ -363,7 +363,7 @@ blocks:
       - HUMAN
       - ANIMAL
     story:
-      name: Cellmates Forever
+      name: Small but Cosy!
       type: ANIMAL
       lore:
         - Even though most organisms hate
@@ -491,7 +491,7 @@ blocks:
       lore:
         - This rock has been here for so
         - long, it has turned hard as
-        - stone... wait... that's not
+        - stone. Wait... that's not
         - right...
       shards:
       author: Seggan
@@ -11152,10 +11152,10 @@ blocks:
       - HUMAN
       - ELEMENTAL
     story:
-      name: Blah blah blah
+      name: What a Mouthful!
       type: HUMAN
       lore:
-        - How can you say this in one breath?
+        - Can you say this in one breath!?
       shards:
       author: Seggan
 
