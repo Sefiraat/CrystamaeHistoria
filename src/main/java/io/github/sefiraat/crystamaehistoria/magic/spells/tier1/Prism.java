@@ -5,6 +5,8 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.Keys;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
@@ -43,6 +45,10 @@ public class Prism extends Spell {
     @ParametersAreNonnullByDefault
     public void cast(CastInformation castInformation) {
         Player player = castInformation.getCasterAsPlayer();
+        if (PersistentDataAPI.getBoolean(player, Keys.newKey("ANTIPRISM"))) {
+            player.damage(200);
+        }
+        PersistentDataAPI.setBoolean(player, Keys.newKey("PRISM"), true);
         applyPositiveEffects(player, castInformation);
         displayParticleEffect(player, Particle.SPELL, 2, 20);
     }
