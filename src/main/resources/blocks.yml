@@ -360,13 +360,17 @@ blocks:
   - material: AXOLOTL_BUCKET
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Cellmates Forever
+      type: ANIMAL
       lore:
-        -
+        - Even though most organisms hate
+        - being locked up, the axolotl
+        - loves it
       shards:
+      author: Seggan
 
   - material: AZALEA
     tier: 1
@@ -462,24 +466,35 @@ blocks:
   - material: BEACON
     tier: 1
     elements:
-      -
+      - ALCHEMICAL
+      - HUMAN
+      # the wither sourcing
+      - VOID
     story:
-      name:
-      type:
+      name: Bringing home the b(e)acon
+      type: ALCHEMICAL
       lore:
-        -
+        - The light in the distance...
+        - The smell of your base...
+        - The warmth of Regeration II...
       shards:
+      author: Seggan
 
   - material: BEDROCK
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - VOID
     story:
-      name:
-      type:
+      name: The sleeping rock
+      type: ELEMENTAL
       lore:
-        -
+        - This rock has been here for so
+        - long, it has turned hard as
+        - stone... wait... that's not
+        - right...
       shards:
+      author: Seggan
 
   - material: BEEF
     tier: 1
@@ -770,13 +785,15 @@ blocks:
   - material: BLACKSTONE
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - VOID
     story:
-      name:
-      type:
+      name: Black stone
+      type: ELEMENTAL
       lore:
-        -
+        - Black stone, what else can it be?
       shards:
+      author: Seggan
 
   - material: BLACKSTONE_SLAB
     tier: 1
@@ -5995,13 +6012,18 @@ blocks:
   - material: LIGHT_BLUE_GLAZED_TERRACOTTA
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Mistaken identity
+      type: PHILOSOPHICAL
       lore:
-        -
+        # referencing the infinity panel
+        - Some mistake this for an
+        - overpowered power generation
+        - device
       shards:
+      author: Seggan
 
   - material: LIGHT_BLUE_STAINED_GLASS
     tier: 1
@@ -11127,13 +11149,15 @@ blocks:
   - material: WAXED_WEATHERED_CUT_COPPER_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Blah blah blah
+      type: HUMAN
       lore:
-        -
+        - How can you say this in one breath?
       shards:
+      author: Seggan
 
   - material: WEATHERED_COPPER
     tier: 1
