@@ -35,6 +35,9 @@ public class CastInformation {
     @Getter
     @Setter
     private Location projectileLocation;
+    @Getter
+    @Setter
+    private int currentTick = 1;
     @Setter
     private Consumer<CastInformation> beforeProjectileHitEvent;
     @Setter
@@ -60,27 +63,40 @@ public class CastInformation {
     }
 
     public void runPreAffectEvent() {
-        if (beforeProjectileHitEvent != null) beforeProjectileHitEvent.accept(this);
+        if (beforeProjectileHitEvent != null) {
+            beforeProjectileHitEvent.accept(this);
+        }
     }
 
     public void runAffectEvent() {
-        if (projectileHitEvent != null) projectileHitEvent.accept(this);
+        if (projectileHitEvent != null) {
+            projectileHitEvent.accept(this);
+        }
     }
 
     public void runPostAffectEvent() {
-        if (afterProjectileHitEvent != null) afterProjectileHitEvent.accept(this);
+        if (afterProjectileHitEvent != null) {
+            afterProjectileHitEvent.accept(this);
+        }
     }
 
     public void runProjectileHitBlockEvent() {
-        if (projectileHitBlockEvent != null) projectileHitBlockEvent.accept(this);
+        if (projectileHitBlockEvent != null) {
+            projectileHitBlockEvent.accept(this);
+        }
     }
 
     public void runTickEvent() {
-        if (tickEvent != null) tickEvent.accept(this);
+        if (tickEvent != null) {
+            tickEvent.accept(this);
+        }
+        this.currentTick++;
     }
 
     public void runAfterTicksEvent() {
-        if (afterTicksEvent != null) afterTicksEvent.accept(this);
+        if (afterTicksEvent != null) {
+            afterTicksEvent.accept(this);
+        }
     }
 
 }

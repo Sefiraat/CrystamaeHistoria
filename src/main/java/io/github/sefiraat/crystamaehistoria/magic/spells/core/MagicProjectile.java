@@ -79,7 +79,9 @@ public class MagicProjectile {
 
     public void disableGravity() {
         Projectile projectile = (Projectile) Bukkit.getEntity(projectileUUID);
-        projectile.setGravity(false);
+        if (projectile != null) {
+            projectile.setGravity(false);
+        }
     }
 
     public void kill() {

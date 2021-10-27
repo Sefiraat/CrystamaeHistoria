@@ -20,7 +20,6 @@ import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.weather.LightningStrikeEvent;
 
-import javax.naming.Name;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -59,7 +58,6 @@ public class SpellEffectListener implements Listener {
             castInfo.runProjectileHitBlockEvent();
         }
 
-        CrystamaeHistoria.getActiveStorage().removeProjectile(magicProjectile);
         magicProjectile.kill();
     }
 
@@ -80,7 +78,6 @@ public class SpellEffectListener implements Listener {
             final Location location = event.getLightning().getLocation();
             castInformation.setDamageLocation(location);
 
-            // TODO Combine?
             castInformation.runPreAffectEvent();
             castInformation.runAffectEvent();
             castInformation.runPostAffectEvent();

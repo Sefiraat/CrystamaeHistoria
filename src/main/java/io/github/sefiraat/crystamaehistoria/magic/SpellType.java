@@ -14,6 +14,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FireNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Fireball;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Heal;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.HealingMist;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Hellscape;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.KnowledgeShare;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LavaLake;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LovePotion;
@@ -72,7 +73,8 @@ public enum SpellType {
     BLOOD_MAGICS(new BloodMagics()),
     PRISM(new Prism()),
     TIME_DILATION(new TimeDilation()),
-    PROTECTORATE(new Protectorate());
+    PROTECTORATE(new Protectorate()),
+    HELLSCAPE(new Hellscape());
 
     @Getter
     protected static final SpellType[] cachedValues = values();
