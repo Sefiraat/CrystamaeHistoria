@@ -7,19 +7,22 @@ import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import io.github.sefiraat.crystamaehistoria.utils.mobgoals.BoringGoal;
+import io.github.sefiraat.crystamaehistoria.utils.mobgoals.FiendGoal;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Phantom;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.UUID;
+import java.util.concurrent.Phaser;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class FlameSprite extends Spell {
+public class SpawnFiends extends Spell {
 
-    public FlameSprite() {
+    public SpawnFiends() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 0, false, 50, true)
             .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
@@ -35,34 +38,37 @@ public class FlameSprite extends Spell {
                 0,
                 ThreadLocalRandom.current().nextDouble(-3,3)
             );
-            SpellUtils.summonTemporaryMob(
-                EntityType.BLAZE,
+            Phantom phantom = (Phantom) SpellUtils.summonTemporaryMob(
+                EntityType.PHANTOM,
                 caster,
                 spawnLocation,
-                new BoringGoal(caster)
+                new FiendGoal(caster),
+                180
             );
-
+            phantom.setSize(2);
+            phantom.setShouldBurnInDay(false);
         }
     }
 
     @Nonnull
     @Override
     public String getId() {
-        return "FLAME_SPRITE";
+        return "SPAWN_FIENDS";
     }
 
     @Nonnull
     @Override
     public String[] getLore() {
         return new String[]{
-            "Summons 1-5 blazes to attack your enemies."
+            "Summons 1-5 fiends to attack your enemies.",
+            "Fiends are erratic and do not follow the caster."
         };
     }
 
     @Nonnull
     @Override
     public Material getMaterial() {
-        return Material.BLAZE_SPAWN_EGG;
+        return Material.PHANTOM_SPAWN_EGG;
     }
 
     @NotNull
@@ -70,9 +76,9 @@ public class FlameSprite extends Spell {
     public SpellRecipe getRecipe() {
         return new SpellRecipe(
             1,
-            StoryType.ELEMENTAL,
             StoryType.ANIMAL,
-            StoryType.VOID
+            StoryType.VOID,
+            StoryType.PHILOSOPHICAL
         );
     }
 

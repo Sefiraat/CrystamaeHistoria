@@ -4,9 +4,9 @@ import org.bukkit.entity.Blaze;
 
 import java.util.UUID;
 
-public class BlazeGoal extends AbstractGoal<Blaze> {
+public class BoringGoal extends AbstractGoal<Blaze> {
 
-    public BlazeGoal(UUID owningPlayer) {
+    public BoringGoal(UUID owningPlayer) {
         super(owningPlayer);
     }
 

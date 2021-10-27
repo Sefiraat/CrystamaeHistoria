@@ -17,8 +17,16 @@ import java.util.UUID;
 public class SpellUtils {
 
     public static <T extends Mob> T summonTemporaryMob(EntityType entityType, UUID caster, Location location, AbstractGoal<T> goal) {
+       return summonTemporaryMob(entityType, caster, location, goal, 30);
+    }
+
+    public static <T extends Mob> T summonTemporaryMob(EntityType entityType, UUID caster, Location location, AbstractGoal<T> goal, int timeInSeconds) {
+       return summonTemporaryMob(entityType, caster, location, goal, timeInSeconds * 1000L);
+    }
+
+    private static <T extends Mob> T summonTemporaryMob(EntityType entityType, UUID caster, Location location, AbstractGoal<T> goal, long duration) {
         T mob = (T) location.getWorld().spawnEntity(location, entityType);
-        CrystamaeHistoria.getSummonedEntityMap().put(mob, System.currentTimeMillis() + (60 * 1000));
+        CrystamaeHistoria.getSummonedEntityMap().put(mob, System.currentTimeMillis() + duration);
         DataTypeMethods.setCustom(mob, Keys.PDC_IS_SPAWN_OWNER, PersistentUUIDDataType.TYPE, caster);
         goal.setSelf(mob);
         MobGoals mobGoals = Bukkit.getMobGoals();
