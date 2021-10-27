@@ -7,19 +7,24 @@ import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LightningStrike;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.Projectile;
+import org.bukkit.entity.WitherSkeleton;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
+import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.weather.LightningStrikeEvent;
+import org.bukkit.inventory.ItemStack;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -105,6 +110,22 @@ public class SpellEffectListener implements Listener {
             } else {
                 PersistentDataAPI.remove(livingEntity, key);
             }
+        }
+    }
+
+    @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
+    public void onnWitherWeatherDeath(EntityDeathEvent event) {
+        NamespacedKey key = Keys.PDC_IS_WEATHER_WITHER;
+        if (event.getEntity() instanceof WitherSkeleton
+            && PersistentDataAPI.getBoolean(event.getEntity(), key)
+        ) {
+            List<ItemStack> itemStackList = event.getDrops();
+            for (ItemStack itemStack : itemStackList) {
+                if (itemStack.getType() == Material.WITHER_SKELETON_SKULL) {
+                    return;
+                }
+            }
+            itemStackList.add(new ItemStack(Material.WITHER_SKELETON_SKULL));
         }
     }
 

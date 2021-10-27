@@ -51,6 +51,7 @@ public class Keys {
     // Entities
     public static final NamespacedKey PDC_IS_DISPLAY_STAND = newKey("a_dpy");
     public static final NamespacedKey PDC_IS_INVULNERABLE = newKey("invul");
+    public static final NamespacedKey PDC_IS_WEATHER_WITHER = newKey("weather");
 
     // Chunk Storage
     public static final NamespacedKey RESOLUTION_CRYSTAL_MAP = newKey("c_r_c");

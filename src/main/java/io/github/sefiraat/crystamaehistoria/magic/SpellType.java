@@ -35,6 +35,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Tempest;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.TimeCompression;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.TimeDilation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Vacuum;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.WitherWeather;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.thebusybiscuit.slimefun4.api.researches.Research;
@@ -80,7 +81,8 @@ public enum SpellType {
     TIME_DILATION(new TimeDilation()),
     TIME_COMPRESSION(new TimeCompression()),
     PROTECTORATE(new Protectorate()),
-    HELLSCAPE(new Hellscape());
+    HELLSCAPE(new Hellscape()),
+    WITHER_WEATHER(new WitherWeather());
 
     @Getter
     protected static final SpellType[] cachedValues = values();
