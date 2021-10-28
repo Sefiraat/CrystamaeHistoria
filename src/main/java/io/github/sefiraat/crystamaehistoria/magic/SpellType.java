@@ -25,6 +25,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Hellscape;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.HolyCow;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.KnowledgeShare;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LavaLake;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LeechBomb;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LovePotion;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Oviparous;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.PoisonNova;
@@ -38,6 +39,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Shroud;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.SpawnFiends;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Squall;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.StarFall;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.SummonGolem;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Teleport;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Tempest;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.TimeCompression;
@@ -78,6 +80,7 @@ public enum SpellType {
     GYROSCOPIC(new Gyroscopic()),
     KNOWLEDGE_SHARE(new KnowledgeShare()),
     LAVA_LAKE(new LavaLake()),
+    LEECH_BOMB(new LeechBomb()),
     LOVE_POTION(new LovePotion()),
     OVIPAROUS(new Oviparous()),
     POISON_NOVA(new PoisonNova()),
@@ -91,6 +94,7 @@ public enum SpellType {
     SPAWN_FIENDS(new SpawnFiends()),
     SQUALL(new Squall()),
     STAR_FALL(new StarFall()),
+    SUMMON_GOLEM(new SummonGolem()),
     TELEPORT(new Teleport()),
     TEMPEST(new Tempest()),
     TIME_COMPRESSION(new TimeCompression()),

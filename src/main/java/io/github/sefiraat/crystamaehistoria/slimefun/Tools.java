@@ -22,6 +22,7 @@ public class Tools {
     }
 
     public void setup() {
+        final ItemStack elementalCrystal = CrystamaeHistoria.getStructure().getMaterials().getCrystalMap().get(StoryRarity.UNIQUE).get(StoryType.ELEMENTAL).getItem();
         final ItemStack ingot = CrystamaeHistoria.getStructure().getMaterials().amalgamateIngot.getItem();
 
         Stave basic = new Stave(
@@ -36,7 +37,7 @@ public class Tools {
             ),
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
-                null, null, CrystamaeHistoria.getStructure().getMaterials().getCrystalMap().get(StoryRarity.UNIQUE).get(StoryType.ELEMENTAL).getItem(),
+                null, null, elementalCrystal,
                 null, new ItemStack(Material.STICK), null,
                 new ItemStack(Material.STICK), null, null
             },

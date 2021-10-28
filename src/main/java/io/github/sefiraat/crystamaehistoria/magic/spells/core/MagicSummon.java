@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Mob;
+import org.bukkit.entity.Player;
 
 import javax.annotation.Nullable;
 import java.util.UUID;
@@ -15,16 +16,24 @@ public class MagicSummon {
     @Getter
     public final UUID mobUUID;
     @Getter
+    public final UUID ownerUUID;
+    @Getter
     @Setter
     public Consumer<MagicSummon> tickConsumer;
 
-    public MagicSummon(Mob mob) {
-        this.mobUUID = mob.getUniqueId();
+    public MagicSummon(UUID mobUUID, UUID ownerUUID) {
+        this.mobUUID = mobUUID;
+        this.ownerUUID = ownerUUID;
     }
 
     @Nullable
     public Mob getMob() {
         return (Mob) Bukkit.getEntity(mobUUID);
+    }
+
+    @Nullable
+    public Player getPlayer() {
+        return (Player) Bukkit.getEntity(ownerUUID);
     }
 
     public void kill() {

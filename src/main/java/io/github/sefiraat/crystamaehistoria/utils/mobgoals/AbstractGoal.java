@@ -3,6 +3,7 @@ package io.github.sefiraat.crystamaehistoria.utils.mobgoals;
 import com.destroystokyo.paper.entity.ai.Goal;
 import com.destroystokyo.paper.entity.ai.GoalKey;
 import com.destroystokyo.paper.entity.ai.GoalType;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.Stave;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentUUIDDataType;
@@ -10,6 +11,7 @@ import lombok.Getter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Mob;
 import org.bukkit.entity.Monster;
@@ -71,7 +73,7 @@ public abstract class AbstractGoal<T extends Mob> implements Goal<T> {
                 if (getTargetsEnemies()) {
                     final List<LivingEntity> entities = new ArrayList<>(
                         player.getWorld().getNearbyEntitiesByType(
-                            Monster.class,
+                            getTargetClass(),
                             player.getLocation(),
                             15,
                             15,
@@ -147,4 +149,9 @@ public abstract class AbstractGoal<T extends Mob> implements Goal<T> {
     public boolean getFollowsPlayer() {
         return true;
     }
+
+    public Class<? extends Entity> getTargetClass() {
+        return Monster.class;
+    }
+
 }

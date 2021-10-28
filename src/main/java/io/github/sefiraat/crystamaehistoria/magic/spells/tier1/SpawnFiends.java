@@ -6,7 +6,6 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
-import io.github.sefiraat.crystamaehistoria.utils.mobgoals.BoringGoal;
 import io.github.sefiraat.crystamaehistoria.utils.mobgoals.FiendGoal;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -17,7 +16,6 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.UUID;
-import java.util.concurrent.Phaser;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class SpawnFiends extends Spell {

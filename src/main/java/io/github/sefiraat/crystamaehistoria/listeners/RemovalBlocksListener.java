@@ -15,22 +15,30 @@ public class RemovalBlocksListener implements Listener {
 
     @EventHandler
     public void onRemovableBlockBreak(BlockBreakEvent event) {
-        event.setCancelled(processBlockRemoval(event.getBlock()));
+        if (processBlockRemoval(event.getBlock())) {
+            event.setCancelled(true);
+        }
     }
 
     @EventHandler
     public void onBucketUse(PlayerBucketFillEvent event) {
-        event.setCancelled(processBlockRemoval(event.getBlock()));
+        if (processBlockRemoval(event.getBlock())) {
+            event.setCancelled(true);
+        }
     }
 
     @EventHandler
     public void onBlockForm(BlockFormEvent event) {
-        event.setCancelled(processBlockRemoval(event.getBlock()));
+        if (processBlockRemoval(event.getBlock())) {
+            event.setCancelled(true);
+        }
     }
 
     @EventHandler
     public void onBlockExplode(BlockExplodeEvent event) {
-        event.setCancelled(processBlockRemoval(event.getBlock()));
+        if (processBlockRemoval(event.getBlock())) {
+            event.setCancelled(true);
+        }
     }
 
     private boolean processBlockRemoval(Block block) {

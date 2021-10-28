@@ -45,7 +45,7 @@ public class SpellUtils {
 
     private static <T extends Mob> MagicSummon summonTemporaryMob(EntityType entityType, UUID caster, Location location, AbstractGoal<T> goal, long duration, @Nullable Consumer<MagicSummon> tickConsumer) {
         final T mob = (T) location.getWorld().spawnEntity(location, entityType);
-        final MagicSummon magicSummon = new MagicSummon(mob);
+        final MagicSummon magicSummon = new MagicSummon(mob.getUniqueId(), caster);
         final MobGoals mobGoals = Bukkit.getMobGoals();
 
         if (tickConsumer != null) {

@@ -4,6 +4,8 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
+import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
+import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentUUIDDataType;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -18,9 +20,11 @@ import org.bukkit.entity.WitherSkeleton;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
+import org.bukkit.event.player.PlayerEggThrowEvent;
 import org.bukkit.event.weather.LightningStrikeEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -64,6 +68,13 @@ public class SpellEffectListener implements Listener {
         }
 
         magicProjectile.kill();
+    }
+
+    @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
+    public void onEggThrow(PlayerEggThrowEvent event) {
+        if (CrystamaeHistoria.getProjectileMap().containsKey(event.getEgg().getUniqueId())) {
+            event.setHatching(false);
+        }
     }
 
     private boolean entityHitAllowed(CastInformation castInformation, Entity hitEntity) {
@@ -132,13 +143,17 @@ public class SpellEffectListener implements Listener {
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onMagicSummonDeath(EntityDeathEvent event) {
         NamespacedKey key = Keys.PDC_IS_SPAWN_OWNER;
-        if (PersistentDataAPI.hasBoolean(event.getEntity(), key)) {
+        if (DataTypeMethods.hasCustom(event.getEntity(), key, PersistentUUIDDataType.TYPE)) {
             event.setCancelled(true);
             event.getEntity().remove();
         }
     }
 
-
-
-
+    @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
+    public void onMagicSummonChangeBlock(EntityChangeBlockEvent event) {
+        NamespacedKey key = Keys.PDC_IS_SPAWN_OWNER;
+        if (DataTypeMethods.hasCustom(event.getEntity(), key, PersistentUUIDDataType.TYPE)) {
+            event.setCancelled(true);
+        }
+    }
 }

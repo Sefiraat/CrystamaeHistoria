@@ -369,7 +369,7 @@ blocks:
         - Even though most organisms hate
         - being locked up, the axolotl
         - loves it
-      shards:
+      shards: [ 1,0,0,0,1,1,0,0,0 ]
       author: Seggan
 
   - material: AZALEA
@@ -468,7 +468,6 @@ blocks:
     elements:
       - ALCHEMICAL
       - HUMAN
-      # the wither sourcing
       - VOID
     story:
       name: Bringing home the b(e)acon
@@ -477,7 +476,7 @@ blocks:
         - The light in the distance...
         - The smell of your base...
         - The warmth of Regeration II...
-      shards:
+      shards: [ 0,2,0,0,1,0,0,1,0 ]
       author: Seggan
 
   - material: BEDROCK
@@ -493,7 +492,7 @@ blocks:
         - long, it has turned hard as
         - stone. Wait... that's not
         - right...
-      shards:
+      shards: [ 2,0,0,0,0,0,0,2,0 ]
       author: Seggan
 
   - material: BEEF
@@ -792,7 +791,7 @@ blocks:
       type: ELEMENTAL
       lore:
         - Black stone, what else can it be?
-      shards:
+      shards: [ 1,1,0,0,0,0,0,1,0 ]
       author: Seggan
 
   - material: BLACKSTONE_SLAB
@@ -6018,11 +6017,10 @@ blocks:
       name: Mistaken identity
       type: PHILOSOPHICAL
       lore:
-        # referencing the infinity panel
         - Some mistake this for an
         - overpowered power generation
         - device
-      shards:
+      shards: [ 0,0,0,0,1,0,0,0,2 ]
       author: Seggan
 
   - material: LIGHT_BLUE_STAINED_GLASS
@@ -11150,13 +11148,13 @@ blocks:
     tier: 1
     elements:
       - HUMAN
-      - ELEMENTAL
+      - PHILOSOPHICAL
     story:
       name: What a Mouthful!
       type: HUMAN
       lore:
         - Can you say this in one breath!?
-      shards:
+      shards: [ 0,1,0,0,1,0,0,0,2 ]
       author: Seggan
 
   - material: WEATHERED_COPPER
