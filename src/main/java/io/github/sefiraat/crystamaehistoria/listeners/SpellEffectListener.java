@@ -114,7 +114,7 @@ public class SpellEffectListener implements Listener {
     }
 
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
-    public void onnWitherWeatherDeath(EntityDeathEvent event) {
+    public void onWitherWeatherDeath(EntityDeathEvent event) {
         NamespacedKey key = Keys.PDC_IS_WEATHER_WITHER;
         if (event.getEntity() instanceof WitherSkeleton
             && PersistentDataAPI.getBoolean(event.getEntity(), key)
@@ -128,6 +128,17 @@ public class SpellEffectListener implements Listener {
             itemStackList.add(new ItemStack(Material.WITHER_SKELETON_SKULL));
         }
     }
+
+    @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
+    public void onMagicSummonDeath(EntityDeathEvent event) {
+        NamespacedKey key = Keys.PDC_IS_SPAWN_OWNER;
+        if (PersistentDataAPI.hasBoolean(event.getEntity(), key)) {
+            event.setCancelled(true);
+            event.getEntity().remove();
+        }
+    }
+
+
 
 
 }

@@ -18,6 +18,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FireNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Fireball;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FlameSprite;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FrostNova;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Gyroscopic;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Heal;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.HealingMist;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Hellscape;
@@ -32,6 +33,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Protectorate;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Push;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Quake;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.RainOfFire;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.RemnantOfWar;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Shroud;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.SpawnFiends;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Squall;
@@ -73,6 +75,7 @@ public enum SpellType {
     HEALING_MIST(new HealingMist()),
     HELLSCAPE(new Hellscape()),
     HOLY_COW(new HolyCow()),
+    GYROSCOPIC(new Gyroscopic()),
     KNOWLEDGE_SHARE(new KnowledgeShare()),
     LAVA_LAKE(new LavaLake()),
     LOVE_POTION(new LovePotion()),
@@ -83,6 +86,7 @@ public enum SpellType {
     PUSH(new Push()),
     QUAKE(new Quake()),
     RAIN_OF_FIRE(new RainOfFire()),
+    REMNANT_OF_WAR(new RemnantOfWar()),
     SHROUD(new Shroud()),
     SPAWN_FIENDS(new SpawnFiends()),
     SQUALL(new Squall()),
