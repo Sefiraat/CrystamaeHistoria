@@ -41,16 +41,19 @@ public class PersistentPlateDataType implements PersistentDataType<PersistentDat
         container.set(Keys.PLATE_TIER, PersistentDataType.INTEGER, complex.getTier());
         container.set(Keys.PLATE_SPELL, PersistentDataType.STRING, complex.getStoredSpell().getId());
         container.set(Keys.PLATE_CHARGES, PersistentDataType.INTEGER, complex.getCrysta());
+        container.set(Keys.PLATE_COOLDOWN, PersistentDataType.LONG, complex.getCooldown());
         return container;
     }
 
     @Override
     @Nonnull
     public PlateStorage fromPrimitive(@Nonnull PersistentDataContainer primitive, @Nonnull PersistentDataAdapterContext context) {
-        return new PlateStorage(
+        PlateStorage plateStorage = new PlateStorage(
             primitive.get(Keys.PLATE_TIER, PersistentDataType.INTEGER),
             SpellType.valueOf(primitive.get(Keys.PLATE_SPELL, PersistentDataType.STRING)),
             primitive.get(Keys.PLATE_CHARGES, PersistentDataType.INTEGER)
         );
+        plateStorage.setCooldown(primitive.get(Keys.PLATE_COOLDOWN, PersistentDataType.LONG));
+        return plateStorage;
     }
 }

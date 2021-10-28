@@ -21,6 +21,8 @@ public class PlateStorage {
     private final SpellType storedSpell;
     @Setter
     private int crysta;
+    @Setter
+    private long cooldown = 0;
 
     public PlateStorage(int tier, SpellType storedSpell, int crysta) {
         this.tier = tier;
@@ -60,9 +62,14 @@ public class PlateStorage {
         Spell spell = storedSpell.getSpell();
         int crystaCost = spell.getCrystaCost(castInformation);
         if (crysta >= crystaCost) {
-            spell.castSpell(castInformation);
-            this.crysta -= crystaCost;
-            return CastResult.CAST_SUCCESS;
+            if (cooldown <= System.currentTimeMillis()) {
+                spell.castSpell(castInformation);
+                this.crysta -= crystaCost;
+                this.cooldown = System.currentTimeMillis() + (spell.getCooldown(castInformation) * 1000L);
+                return CastResult.CAST_SUCCESS;
+            } else {
+                return CastResult.ON_COOLDOWN;
+            }
         } else {
             return CastResult.CAST_FAIL_NO_CRYSTA;
         }

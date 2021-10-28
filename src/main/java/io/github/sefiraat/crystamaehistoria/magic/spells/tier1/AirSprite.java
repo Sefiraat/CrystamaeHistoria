@@ -19,9 +19,9 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class FlameSprite extends Spell {
+public class AirSprite extends Spell {
 
-    public FlameSprite() {
+    public AirSprite() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 0, false, 50, true)
             .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
@@ -38,7 +38,7 @@ public class FlameSprite extends Spell {
                 ThreadLocalRandom.current().nextDouble(-3,3)
             );
             SpellUtils.summonTemporaryMob(
-                EntityType.BLAZE,
+                EntityType.VEX,
                 caster,
                 spawnLocation,
                 new BoringGoal(caster),
@@ -49,20 +49,20 @@ public class FlameSprite extends Spell {
     }
 
     public void onTick(MagicSummon magicSummon) {
-        displayParticleEffect(magicSummon.getMob(), Particle.FLAME, 1, 4);
+        displayParticleEffect(magicSummon.getMob(), Particle.CLOUD, 1, 2);
     }
 
     @Nonnull
     @Override
     public String getId() {
-        return "FLAME_SPRITE";
+        return "AIR_SPRITE";
     }
 
     @Nonnull
     @Override
     public String[] getLore() {
         return new String[]{
-            "Summons 1-5 flame sprites to attack",
+            "Summons 1-5 air sprites to attack",
             "your enemies."
         };
     }
@@ -70,7 +70,7 @@ public class FlameSprite extends Spell {
     @Nonnull
     @Override
     public Material getMaterial() {
-        return Material.BLAZE_SPAWN_EGG;
+        return Material.VEX_SPAWN_EGG;
     }
 
     @NotNull
@@ -80,7 +80,7 @@ public class FlameSprite extends Spell {
             1,
             StoryType.ELEMENTAL,
             StoryType.ANIMAL,
-            StoryType.VOID
+            StoryType.CELESTIAL
         );
     }
 

@@ -97,7 +97,9 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
 
         spellTypes.sort(Comparator.comparing(spellType -> spellType.getSpell().getId()));
 
-        final List<SpellType> blockDefinitionSubList = spellTypes.subList(start, end);
+        final List<SpellType> spellTypeSubList = spellTypes.subList(start, end);
+
+        reapplyFooter(p, profile, mode, menu, page, totalPages);
 
         // Back
         menu.replaceExistingItem(GUIDE_BACK, ChestMenuUtils.getBackButton(p, Slimefun.getLocalization().getMessage("guide.back.guide")));
@@ -106,13 +108,11 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
             return false;
         });
 
-        reapplyFooter(p, profile, mode, menu, page, totalPages);
-
         for (int i = 0; i < 36; i++) {
             final int slot = i + 9;
 
-            if (i + 1 <= blockDefinitionSubList.size()) {
-                final SpellType spellType = SpellType.getCachedValues()[i];
+            if (i + 1 <= spellTypeSubList.size()) {
+                final SpellType spellType = spellTypeSubList.get(i);
                 final boolean researched = ResearchUtils.hasUnlockedSpell(p, spellType);
 
                 if (mode == SlimefunGuideMode.CHEAT_MODE || researched) {
@@ -157,7 +157,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         menu.replaceExistingItem(MECHANISM, getMechanismStack());
         menu.addMenuClickHandler(MECHANISM, ((player, i, itemStack, clickAction) -> false));
 
-        menu.replaceExistingItem(CRYSTA_COST, getCrystaStack(spell));
+        menu.replaceExistingItem(CRYSTA_COST, getBasicStack(spell));
         menu.addMenuClickHandler(CRYSTA_COST, ((player, i, itemStack, clickAction) -> false));
 
         menu.replaceExistingItem(VALUES, getValuesStack(spell));
@@ -235,16 +235,18 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         );
     }
 
-    private ItemStack getCrystaStack(Spell spell) {
+    private ItemStack getBasicStack(Spell spell) {
         final ChatColor color = ThemeType.CLICK_INFO.getColor();
         final ChatColor passive = ThemeType.PASSIVE.getColor();
 
-        final String message = MessageFormat.format("{0}Crysta Cost per Cast: {1}{2}", color, passive, spell.getSpellCore().getCrystaCost());
+        final String crysta = MessageFormat.format("{0}Crysta Cost per Cast: {1}{2}", color, passive, spell.getSpellCore().getCrystaCost());
+        final String cooldown = MessageFormat.format("{0}Cooldown (sec) on use: {1}{2}", color, passive, spell.getSpellCore().getCooldownSeconds());
 
         return new CustomItemStack(
             Material.GLOW_BERRIES,
-            ThemeType.MAIN.getColor() + "Crysta Cost",
-            message
+            ThemeType.MAIN.getColor() + "Basic Details",
+            crysta,
+            cooldown
         );
     }
 
@@ -326,9 +328,14 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
 
         final String message = MessageFormat.format("{0}Range: {1}{2}", color, passive, spell.getSpellCore().getRange());
         final String multiMessage = MessageFormat.format("{0}Range {1} with stave tier", passive, spell.getSpellCore().isRangeMultiplied() ? "increases" : "doesn't increase");
+        final String noRange = "Not effected by range";
 
-        lore.add(message);
-        lore.add(multiMessage);
+        if (spell.getSpellCore().getKnockbackAmount() > 0) {
+            lore.add(message);
+            lore.add(multiMessage);
+        } else {
+            lore.add(noRange);
+        }
 
         return new CustomItemStack(
             Material.TARGET,
@@ -344,9 +351,14 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
 
         final String message = MessageFormat.format("{0}Knockback: {1}{2}", color, passive, spell.getSpellCore().getKnockbackAmount());
         final String multiMessage = MessageFormat.format("{0}Amount {1} with stave tier", passive, spell.getSpellCore().isKnockbackMultiplied() ? "increases" : "doesn't increase");
+        final String noKnockback = "No direct knockback";
 
-        lore.add(message);
-        lore.add(multiMessage);
+        if (spell.getSpellCore().getKnockbackAmount() > 0) {
+            lore.add(message);
+            lore.add(multiMessage);
+        } else {
+            lore.add(noKnockback);
+        }
 
         return new CustomItemStack(
             Material.SLIME_BLOCK,
@@ -379,7 +391,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
 
         return new CustomItemStack(
             Material.FIRE_CHARGE,
-            ThemeType.MAIN.getColor() + "Knockback",
+            ThemeType.MAIN.getColor() + "Projectile Information",
             lore
         );
     }
@@ -419,7 +431,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
                 );
             }
 
-            if (spellCore.getNegativeEffectPairMap().size() > 0) {
+            if (spellCore.getPositiveEffectPairMap().size() > 0) {
                 lore.add(color + "Positive Effects:");
                 spellCore.getPositiveEffectPairMap().forEach(
                     (type, pair) -> {
@@ -440,12 +452,12 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
             lore.add(effectAmplification);
             lore.add(effectDuration);
         } else {
-            lore.add(color + "Spell has no effects");
+            lore.add(passive + "Spell has no effects");
         }
 
 
         return new CustomItemStack(
-            Material.POTION,
+            Material.BREWING_STAND,
             ThemeType.MAIN.getColor() + "Effects",
             lore
         );

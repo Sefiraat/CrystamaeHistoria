@@ -12,6 +12,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.EntityType;
+import org.bukkit.potion.PotionEffectType;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
@@ -19,58 +20,63 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class FlameSprite extends Spell {
+public class Ravage extends Spell {
 
-    public FlameSprite() {
+    public Ravage() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 0, false, 50, true)
-            .makeInstantSpell(this::cast);
+            .makeInstantSpell(this::cast)
+            .makeEffectingSpell(true, false)
+            .addPositiveEffect(PotionEffectType.DAMAGE_RESISTANCE, 1, 300)
+            .addPositiveEffect(PotionEffectType.INCREASE_DAMAGE, 1, 300)
+            .addPositiveEffect(PotionEffectType.ABSORPTION, 1, 300);
         setSpellCore(spellCoreBuilder.build());
     }
 
     @ParametersAreNonnullByDefault
     public void cast(CastInformation castInformation) {
-        UUID caster = castInformation.getCaster();
-        Location location = castInformation.getCastLocation();
-        for (int i = 0; i < castInformation.getStaveLevel(); i++) {
-            Location spawnLocation = location.clone().add(
-                ThreadLocalRandom.current().nextDouble(-3,3),
-                0,
-                ThreadLocalRandom.current().nextDouble(-3,3)
-            );
-            SpellUtils.summonTemporaryMob(
-                EntityType.BLAZE,
-                caster,
-                spawnLocation,
-                new BoringGoal(caster),
-                this::onTick
-            );
-
-        }
+        final UUID caster = castInformation.getCaster();
+        final Location location = castInformation.getCastLocation();
+        final Location spawnLocation = location.clone().add(
+            ThreadLocalRandom.current().nextDouble(-3,3),
+            0,
+            ThreadLocalRandom.current().nextDouble(-3,3)
+        );
+        final MagicSummon magicSummon = SpellUtils.summonTemporaryMob(
+            EntityType.RAVAGER,
+            caster,
+            spawnLocation,
+            new BoringGoal(caster),
+            300,
+            this::onTick
+        );
+        applyPositiveEffects(magicSummon.getMob(), castInformation);
     }
 
     public void onTick(MagicSummon magicSummon) {
-        displayParticleEffect(magicSummon.getMob(), Particle.FLAME, 1, 4);
+        displayParticleEffect(magicSummon.getMob(), Particle.VILLAGER_ANGRY, 1, 2);
     }
 
     @Nonnull
     @Override
     public String getId() {
-        return "FLAME_SPRITE";
+        return "RAVAGE";
     }
 
     @Nonnull
     @Override
     public String[] getLore() {
         return new String[]{
-            "Summons 1-5 flame sprites to attack",
-            "your enemies."
+            "Summons a tame ravager to your side.",
+            "This spells effects and multipliers",
+            "are applied to the ravager, not the",
+            "caster."
         };
     }
 
     @Nonnull
     @Override
     public Material getMaterial() {
-        return Material.BLAZE_SPAWN_EGG;
+        return Material.RAVAGER_SPAWN_EGG;
     }
 
     @NotNull
@@ -78,9 +84,9 @@ public class FlameSprite extends Spell {
     public SpellRecipe getRecipe() {
         return new SpellRecipe(
             1,
-            StoryType.ELEMENTAL,
-            StoryType.ANIMAL,
-            StoryType.VOID
+            StoryType.MECHANICAL,
+            StoryType.ALCHEMICAL,
+            StoryType.ANIMAL
         );
     }
 

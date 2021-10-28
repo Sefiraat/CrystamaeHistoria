@@ -12,7 +12,7 @@ import java.util.function.Consumer;
 @Getter
 public class SpellCore {
 
-    private final long cooldown;
+    private final int cooldownSeconds;
     private final double range;
     private final int crystaCost;
     private final double damageAmount;
@@ -56,7 +56,7 @@ public class SpellCore {
 
     @ParametersAreNonnullByDefault
     public SpellCore(SpellCoreBuilder spellCoreBuilder) {
-        this.cooldown = spellCoreBuilder.getCooldown();
+        this.cooldownSeconds = spellCoreBuilder.getCooldownSeconds();
         this.range = spellCoreBuilder.getRange();
         this.crystaCost = spellCoreBuilder.getCrystaCost();
         this.damageAmount = spellCoreBuilder.getDamageAmount();
@@ -68,7 +68,7 @@ public class SpellCore {
         this.tickInterval = spellCoreBuilder.getTickInterval();
         this.cooldownMultiplied = spellCoreBuilder.isCooldownDivided();
         this.rangeMultiplied = spellCoreBuilder.isRangeMultiplied();
-        this.crystaMultiplied = spellCoreBuilder.isCrystaDivided();
+        this.crystaMultiplied = spellCoreBuilder.isCrystaMultiplied();
         this.damageMultiplied = spellCoreBuilder.isDamageMultiplied();
         this.knockbackMultiplied = spellCoreBuilder.isKnockbackMultiplied();
         this.healMultiplied = spellCoreBuilder.isHealMultiplied();

@@ -19,7 +19,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class Fireball extends Spell {
 
     public Fireball() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 0, false, 1, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(1, true, 0, false, 1, true)
             .makeProjectileSpell(this::fireProjectile, 1, false, 1, false)
             .makeProjectileVsEntitySpell(this::projectileHit)
             .addBeforeProjectileHitEntityEvent(this::beforeProjectileHit)

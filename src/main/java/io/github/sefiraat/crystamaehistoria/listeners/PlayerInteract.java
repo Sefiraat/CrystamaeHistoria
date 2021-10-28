@@ -50,7 +50,7 @@ public class PlayerInteract implements Listener {
                 ));
             } else {
                 player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(
-                    ThemeType.WARNING.getColor() + "Casting failed: " + castResult.getMessage())
+                    ThemeType.WARNING.getColor() + "Cast failed: " + castResult.getMessage())
                 );
             }
         }

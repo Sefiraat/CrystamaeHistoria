@@ -15,55 +15,68 @@ import java.util.function.Consumer;
 @Getter
 public class SpellCoreBuilder {
 
-    private final int cooldown;
+    // All
+    private final int cooldownSeconds;
     private final double range;
     private final int crystaCost;
-    private final Map<PotionEffectType, Pair<Integer, Integer>> positiveEffectPairMap = new HashMap<>();
-    private final Map<PotionEffectType, Pair<Integer, Integer>> negativeEffectPairMap = new HashMap<>();
-    private double damageAmount;
-    private double knockbackAmount;
-    private double healAmount;
-    private double projectileAoeRange;
-    private double projectileKnockbackAmount;
-    private int numberOfTicks;
-    private int tickInterval;
-    private boolean cooldownDivided;
-    private boolean rangeMultiplied;
-    private boolean crystaDivided;
-    private boolean damageMultiplied;
-    private boolean knockbackMultiplied;
-    private boolean healMultiplied;
-    private boolean projectileAoeMultiplied;
-    private boolean projectileKnockbackMultiplied;
-    private boolean numberOfTicksMultiplied;
-    private boolean tickIntervalMultiplied;
+    private final boolean cooldownDivided;
+    private final boolean rangeMultiplied;
+    private final boolean crystaMultiplied;
     private int particleNumber = 1;
+
+    // Instant Casts
     private boolean isInstantCast;
     private Consumer<CastInformation> instantCastEvent;
+
+    // Projectile Based Spells
     private boolean isProjectileSpell;
     private boolean isProjectileVsEntitySpell;
     private boolean isProjectileVsBlockSpell;
+    private double projectileAoeRange;
+    private double projectileKnockbackAmount;
+    private boolean projectileAoeMultiplied;
+    private boolean projectileKnockbackMultiplied;
     private Consumer<CastInformation> fireProjectileEvent;
     private Consumer<CastInformation> beforeProjectileHitEvent;
     private Consumer<CastInformation> projectileHitEvent;
     private Consumer<CastInformation> projectileHitBlockEvent;
     private Consumer<CastInformation> afterProjectileHitEvent;
+
+    // Ticking Spells
     private boolean isTickingSpell;
+    private int numberOfTicks;
+    private int tickInterval;
+    private boolean numberOfTicksMultiplied;
+    private boolean tickIntervalMultiplied;
     private Consumer<CastInformation> tickEvent;
     private Consumer<CastInformation> afterAllTicksEvent;
+
+    // Damaging Spells
     private boolean isDamagingSpell;
+    private double damageAmount;
+    private boolean damageMultiplied;
+    private double knockbackAmount;
+    private boolean knockbackMultiplied;
+
+    // Healing Spells
     private boolean isHealingSpell;
+    private double healAmount;
+    private boolean healMultiplied;
+
+    // Affecting spells
     private boolean isEffectingSpell;
+    private final Map<PotionEffectType, Pair<Integer, Integer>> positiveEffectPairMap = new HashMap<>();
+    private final Map<PotionEffectType, Pair<Integer, Integer>> negativeEffectPairMap = new HashMap<>();
     private boolean amplificationMultiplied;
     private boolean effectDurationMultiplied;
 
-    public SpellCoreBuilder(int cooldown, boolean cooldownDivided, double range, boolean rangeMultiplied, int crystaCost, boolean crystaDivided) {
-        this.cooldown = cooldown;
+    public SpellCoreBuilder(int cooldownSeconds, boolean cooldownDivided, double range, boolean rangeMultiplied, int crystaCost, boolean crystaMultiplied) {
+        this.cooldownSeconds = cooldownSeconds;
         this.cooldownDivided = cooldownDivided;
         this.range = range;
         this.rangeMultiplied = rangeMultiplied;
         this.crystaCost = crystaCost;
-        this.crystaDivided = crystaDivided;
+        this.crystaMultiplied = crystaMultiplied;
     }
 
     @Nonnull

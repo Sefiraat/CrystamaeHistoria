@@ -84,9 +84,9 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
     }
 
     private void setupPage(@Nonnull Player p, @Nonnull PlayerProfile profile, @Nonnull SlimefunGuideMode mode, @Nonnull ChestMenu menu, int page) {
+        final List<StoriedBlockDefinition> blockDefinitions = new ArrayList<>(CrystamaeHistoria.getStoriesManager().getStoriedBlockDefinitionMap().values());
         final int numberOfBlocks = CrystamaeHistoria.getStoriesManager().getStoriedBlockDefinitionMap().size();
         final int totalPages = (int) Math.ceil(numberOfBlocks / (double) PAGE_SIZE);
-        final List<StoriedBlockDefinition> blockDefinitions = new ArrayList<>(CrystamaeHistoria.getStoriesManager().getStoriedBlockDefinitionMap().values());
         final int start = (page - 1) * PAGE_SIZE;
         final int end = Math.min(start + PAGE_SIZE, blockDefinitions.size());
 

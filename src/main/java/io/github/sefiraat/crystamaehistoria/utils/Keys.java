@@ -43,6 +43,7 @@ public class Keys {
     public static final NamespacedKey PLATE_TIER = newKey("p_t");
     public static final NamespacedKey PLATE_SPELL = newKey("p_s");
     public static final NamespacedKey PLATE_CHARGES = newKey("p_c");
+    public static final NamespacedKey PLATE_COOLDOWN = newKey("p_cd");
 
     // Type - Plate
     public static final NamespacedKey STAVE_SLOT = newKey("sv_s");

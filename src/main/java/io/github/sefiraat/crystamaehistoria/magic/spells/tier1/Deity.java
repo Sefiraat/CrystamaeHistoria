@@ -8,10 +8,12 @@ import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import io.github.sefiraat.crystamaehistoria.utils.mobgoals.BoringGoal;
+import io.github.sefiraat.crystamaehistoria.utils.mobgoals.DeityGoal;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.EntityType;
+import org.bukkit.potion.PotionEffectType;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
@@ -19,58 +21,53 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class FlameSprite extends Spell {
+public class Deity extends Spell {
 
-    public FlameSprite() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 0, false, 50, true)
-            .makeInstantSpell(this::cast);
+    public Deity() {
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(600, true, 0, false, 1000, true)
+            .makeInstantSpell(this::cast)
+            .addPositiveEffect(PotionEffectType.GLOWING, 1, 120);
         setSpellCore(spellCoreBuilder.build());
     }
 
     @ParametersAreNonnullByDefault
     public void cast(CastInformation castInformation) {
-        UUID caster = castInformation.getCaster();
-        Location location = castInformation.getCastLocation();
-        for (int i = 0; i < castInformation.getStaveLevel(); i++) {
-            Location spawnLocation = location.clone().add(
-                ThreadLocalRandom.current().nextDouble(-3,3),
-                0,
-                ThreadLocalRandom.current().nextDouble(-3,3)
-            );
-            SpellUtils.summonTemporaryMob(
-                EntityType.BLAZE,
-                caster,
-                spawnLocation,
-                new BoringGoal(caster),
-                this::onTick
-            );
-
-        }
-    }
-
-    public void onTick(MagicSummon magicSummon) {
-        displayParticleEffect(magicSummon.getMob(), Particle.FLAME, 1, 4);
+        final UUID caster = castInformation.getCaster();
+        final Location location = castInformation.getCastLocation();
+        final Location spawnLocation = location.clone().add(
+            ThreadLocalRandom.current().nextDouble(-3,3),
+            0,
+            ThreadLocalRandom.current().nextDouble(-3,3)
+        );
+        final MagicSummon magicSummon = SpellUtils.summonTemporaryMob(
+            EntityType.GIANT,
+            caster,
+            spawnLocation,
+            new DeityGoal(caster),
+            120
+        );
+        applyPositiveEffects(magicSummon.getMob(), castInformation);
     }
 
     @Nonnull
     @Override
     public String getId() {
-        return "FLAME_SPRITE";
+        return "DEITY";
     }
 
     @Nonnull
     @Override
     public String[] getLore() {
         return new String[]{
-            "Summons 1-5 flame sprites to attack",
-            "your enemies."
+            "Summons a deity to your side. It",
+            "does... Nothing!"
         };
     }
 
     @Nonnull
     @Override
     public Material getMaterial() {
-        return Material.BLAZE_SPAWN_EGG;
+        return Material.END_CRYSTAL;
     }
 
     @NotNull
@@ -80,7 +77,7 @@ public class FlameSprite extends Spell {
             1,
             StoryType.ELEMENTAL,
             StoryType.ANIMAL,
-            StoryType.VOID
+            StoryType.PHILOSOPHICAL
         );
     }
 

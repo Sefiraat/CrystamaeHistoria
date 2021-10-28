@@ -109,8 +109,8 @@ public abstract class Spell {
     }
 
     @ParametersAreNonnullByDefault
-    public long getCooldown(CastInformation castInformation) {
-        return spellCore.isCooldownMultiplied() ? spellCore.getCooldown() * (3 - castInformation.getStaveLevel()) : spellCore.getCooldown();
+    public int getCooldown(CastInformation castInformation) {
+        return spellCore.isCooldownMultiplied() ? spellCore.getCooldownSeconds() * (3 - castInformation.getStaveLevel()) : spellCore.getCooldownSeconds();
     }
 
     @ParametersAreNonnullByDefault
@@ -120,7 +120,7 @@ public abstract class Spell {
 
     @ParametersAreNonnullByDefault
     public int getCrystaCost(CastInformation castInformation) {
-        return spellCore.isCrystaMultiplied() ? spellCore.getCrystaCost() * (3 - castInformation.getStaveLevel()) : spellCore.getCrystaCost();
+        return spellCore.isCrystaMultiplied() ? spellCore.getCrystaCost() * (castInformation.getStaveLevel()) : spellCore.getCrystaCost();
     }
 
     @ParametersAreNonnullByDefault
