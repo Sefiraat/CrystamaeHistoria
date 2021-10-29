@@ -5,8 +5,6 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -25,11 +23,9 @@ public class Break extends Spell {
 
     @ParametersAreNonnullByDefault
     public void cast(CastInformation castInformation) {
-        Player caster = Bukkit.getPlayer(castInformation.getCaster());
-        Block block = caster.getTargetBlockExact((int) getRange(castInformation));
-        if (hasPermission(caster, block.getLocation(), Interaction.BREAK_BLOCK)) {
-            block.breakNaturally(caster.getInventory().getItemInMainHand());
-        }
+        Player player = castInformation.getCasterAsPlayer();
+        Block block = player.getTargetBlockExact((int) getRange(castInformation));
+        tryBreakBlock(castInformation.getCaster(), block);
     }
 
     @Nonnull

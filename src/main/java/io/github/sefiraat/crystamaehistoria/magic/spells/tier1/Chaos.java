@@ -7,7 +7,6 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -73,9 +72,7 @@ public class Chaos extends Spell {
     }
 
     public void onHitBlock(CastInformation castInformation) {
-        if (hasPermission(castInformation.getCaster(), castInformation.getHitBlock(), Interaction.BREAK_BLOCK)) {
-            castInformation.getHitBlock().breakNaturally();
-        }
+        tryBreakBlock(castInformation.getCaster(), castInformation.getHitBlock());
     }
 
     @Nonnull
