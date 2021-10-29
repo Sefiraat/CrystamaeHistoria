@@ -9,7 +9,6 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.bukkit.entity.Entity;
 
 import java.util.HashMap;
 import java.util.Map;

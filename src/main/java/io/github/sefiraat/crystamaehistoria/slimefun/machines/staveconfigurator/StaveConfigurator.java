@@ -1,11 +1,11 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.machines.staveconfigurator;
 
 import io.github.mooy1.infinitylib.machines.MenuBlock;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.InstancePlate;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.InstanceStave;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.ChargedPlate;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.PlateStorage;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.SpellSlot;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.Stave;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.StaveStorage;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentPlateDataType;
@@ -82,26 +82,26 @@ public class StaveConfigurator extends MenuBlock {
             final ItemStack stave = blockMenu.getItemInSlot(STAVE_SLOT);
             final SlimefunItem sfStave = SlimefunItem.getByItem(stave);
             if (stave != null && sfStave instanceof Stave) {
-                final StaveStorage staveStorage = new StaveStorage(stave);
-                final Map<SpellSlot, PlateStorage> map = staveStorage.getSpellInstanceMap();
+                final InstanceStave staveInstance = new InstanceStave(stave);
+                final Map<SpellSlot, InstancePlate> map = staveInstance.getSpellInstanceMap();
                 if (map != null) {
-                    for (Map.Entry<SpellSlot, PlateStorage> entry : map.entrySet()) {
+                    for (Map.Entry<SpellSlot, InstancePlate> entry : map.entrySet()) {
                         final SpellSlot spellSlot = entry.getKey();
-                        final PlateStorage plateStorage = map.get(spellSlot);
-                        final ItemStack plate = ChargedPlate.getChargedPlate(plateStorage);
+                        final InstancePlate instancePlate = map.get(spellSlot);
+                        final ItemStack plate = ChargedPlate.getChargedPlate(instancePlate);
                         blockMenu.replaceExistingItem(getSlot(spellSlot), plate);
                     }
                 }
-                staveStorage.getSpellInstanceMap().clear();
+                staveInstance.getSpellInstanceMap().clear();
                 ItemMeta itemMeta = stave.getItemMeta();
                 DataTypeMethods.setCustom(
                     itemMeta,
                     Keys.PDC_STAVE_STORAGE,
                     PersistentStaveDataType.TYPE,
-                    staveStorage.getSpellInstanceMap()
+                    staveInstance.getSpellInstanceMap()
                 );
                 stave.setItemMeta(itemMeta);
-                StaveStorage.setStaveLore(stave, staveStorage);
+                staveInstance.buildLore();
             }
             return false;
         });
@@ -109,7 +109,7 @@ public class StaveConfigurator extends MenuBlock {
         blockMenu.addMenuClickHandler(ADD_PLATES, (player, i, itemStack, clickAction) -> {
             final ItemStack stave = blockMenu.getItemInSlot(STAVE_SLOT);
             final SlimefunItem sfStave = SlimefunItem.getByItem(stave);
-            StaveStorage staveStorage = new StaveStorage();
+            InstanceStave staveInstance = new InstanceStave(itemStack);
             if (stave != null
                 && sfStave instanceof Stave
                 && !platesEmpty(blockMenu)
@@ -120,22 +120,22 @@ public class StaveConfigurator extends MenuBlock {
                 for (SpellSlot spellSlot : SpellSlot.getCashedValues()) {
                     ItemStack plate = blockMenu.getItemInSlot(getSlot(spellSlot));
                     if (plate != null && SlimefunItem.getByItem(plate) instanceof ChargedPlate) {
-                        PlateStorage plateStorage = DataTypeMethods.getCustom(
+                        InstancePlate instancePlate = DataTypeMethods.getCustom(
                             plate.getItemMeta(),
                             Keys.PDC_PLATE_STORAGE,
                             PersistentPlateDataType.TYPE
                         );
-                        staveStorage.setSlot(spellSlot, plateStorage);
+                        staveInstance.setSlot(spellSlot, instancePlate);
                     }
                 }
                 DataTypeMethods.setCustom(
                     itemMeta,
                     Keys.PDC_STAVE_STORAGE,
                     PersistentStaveDataType.TYPE,
-                    staveStorage.getSpellInstanceMap()
+                    staveInstance.getSpellInstanceMap()
                 );
                 stave.setItemMeta(itemMeta);
-                StaveStorage.setStaveLore(stave, staveStorage);
+                staveInstance.buildLore();
                 clearPlates(blockMenu);
             }
             return false;
@@ -192,8 +192,8 @@ public class StaveConfigurator extends MenuBlock {
     }
 
     private boolean staveIsEmpty(ItemStack stave) {
-        final StaveStorage staveStorage = new StaveStorage(stave);
-        return staveStorage.getSpellInstanceMap().size() == 0;
+        final InstanceStave instanceStave = new InstanceStave(stave);
+        return instanceStave.getSpellInstanceMap().size() == 0;
     }
 
     private int getSlot(@Nonnull SpellSlot spellSlot) {

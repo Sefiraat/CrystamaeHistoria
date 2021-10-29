@@ -11,6 +11,7 @@ import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -54,6 +55,9 @@ public class LiquefactionBasin extends TickingMenuBlock {
         if (cache != null) {
             cache.consumeItems();
             cache.syncBlock();
+        }
+        if (block.getType() != Material.CAULDRON) {
+            block.setType(Material.CAULDRON);
         }
     }
 

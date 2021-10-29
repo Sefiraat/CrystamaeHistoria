@@ -32,9 +32,9 @@ public class SpawnFiends extends Spell {
         Location location = castInformation.getCastLocation();
         for (int i = 0; i < castInformation.getStaveLevel(); i++) {
             Location spawnLocation = location.clone().add(
-                ThreadLocalRandom.current().nextDouble(-3,3),
+                ThreadLocalRandom.current().nextDouble(-3, 3),
                 0,
-                ThreadLocalRandom.current().nextDouble(-3,3)
+                ThreadLocalRandom.current().nextDouble(-3, 3)
             );
             Phantom phantom = (Phantom) SpellUtils.summonTemporaryMob(
                 EntityType.PHANTOM,

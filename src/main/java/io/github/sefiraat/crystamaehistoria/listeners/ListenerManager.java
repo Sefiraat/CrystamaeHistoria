@@ -1,7 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.listeners;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar.CrystalBreakListener;
 import org.bukkit.event.Listener;
 
 public class ListenerManager {
@@ -11,7 +10,8 @@ public class ListenerManager {
         addListener(new PlayerInteract());
         addListener(new SpellEffectListener());
         addListener(new CrystalBreakListener());
-        addListener(new RemovalBlocksListener());
+        addListener(new BlockRemovalListener());
+        addListener(new MaintenanceListener());
     }
 
     private void addListener(Listener listener) {

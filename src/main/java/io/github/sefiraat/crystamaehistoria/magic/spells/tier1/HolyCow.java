@@ -33,9 +33,9 @@ public class HolyCow extends Spell {
         Location location = castInformation.getCastLocation();
         for (int i = 0; i < castInformation.getStaveLevel(); i++) {
             Location spawnLocation = location.clone().add(
-                ThreadLocalRandom.current().nextDouble(-3,3),
+                ThreadLocalRandom.current().nextDouble(-3, 3),
                 0,
-                ThreadLocalRandom.current().nextDouble(-3,3)
+                ThreadLocalRandom.current().nextDouble(-3, 3)
             );
             SpellUtils.summonTemporaryMob(
                 EntityType.COW,

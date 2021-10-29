@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.tools.plates;
 
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.InstancePlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
@@ -26,21 +27,21 @@ public class ChargedPlate extends MagicalPlate {
     @Nonnull
     @ParametersAreNonnullByDefault
     public static ItemStack getChargedPlate(int tier, SpellType spellType, int crysta) {
-        PlateStorage plateStorage = new PlateStorage(tier, spellType, crysta);
-        return getChargedPlate(plateStorage);
+        InstancePlate instancePlate = new InstancePlate(tier, spellType, crysta);
+        return getChargedPlate(instancePlate);
     }
 
     @Nonnull
     @ParametersAreNonnullByDefault
-    public static ItemStack getChargedPlate(PlateStorage plateStorage) {
+    public static ItemStack getChargedPlate(InstancePlate instancePlate) {
         ItemStack newPlate = Materials.CHARGED_PLATE_T_1.getItem().clone();
-        PlateStorage.setPlateLore(newPlate, plateStorage);
+        InstancePlate.setPlateLore(newPlate, instancePlate);
         ItemMeta itemMeta = newPlate.getItemMeta();
         DataTypeMethods.setCustom(
             itemMeta,
             Keys.PDC_PLATE_STORAGE,
             PersistentPlateDataType.TYPE,
-            plateStorage
+            instancePlate
         );
         newPlate.setItemMeta(itemMeta);
         return newPlate;

@@ -28,19 +28,19 @@ public class SpellUtils {
     // TODO Wrap projectiles in this also
 
     public static <T extends Mob> MagicSummon summonTemporaryMob(EntityType entityType, UUID caster, Location location, AbstractGoal<T> goal) {
-       return summonTemporaryMob(entityType, caster, location, goal, 30);
+        return summonTemporaryMob(entityType, caster, location, goal, 30);
     }
 
     public static <T extends Mob> MagicSummon summonTemporaryMob(EntityType entityType, UUID caster, Location location, AbstractGoal<T> goal, int timeInSeconds) {
-       return summonTemporaryMob(entityType, caster, location, goal, timeInSeconds * 1000L, null);
+        return summonTemporaryMob(entityType, caster, location, goal, timeInSeconds * 1000L, null);
     }
 
-    public static <T extends Mob> MagicSummon summonTemporaryMob(EntityType entityType, UUID caster, Location location, AbstractGoal<T> goal,  @Nonnull Consumer<MagicSummon> tickConsumer) {
-       return summonTemporaryMob(entityType, caster, location, goal, 30, tickConsumer);
+    public static <T extends Mob> MagicSummon summonTemporaryMob(EntityType entityType, UUID caster, Location location, AbstractGoal<T> goal, @Nonnull Consumer<MagicSummon> tickConsumer) {
+        return summonTemporaryMob(entityType, caster, location, goal, 30, tickConsumer);
     }
 
     public static <T extends Mob> MagicSummon summonTemporaryMob(EntityType entityType, UUID caster, Location location, AbstractGoal<T> goal, int timeInSeconds, @Nonnull Consumer<MagicSummon> tickConsumer) {
-       return summonTemporaryMob(entityType, caster, location, goal, timeInSeconds * 1000L, tickConsumer);
+        return summonTemporaryMob(entityType, caster, location, goal, timeInSeconds * 1000L, tickConsumer);
     }
 
     private static <T extends Mob> MagicSummon summonTemporaryMob(EntityType entityType, UUID caster, Location location, AbstractGoal<T> goal, long duration, @Nullable Consumer<MagicSummon> tickConsumer) {
@@ -59,19 +59,19 @@ public class SpellUtils {
     }
 
     public static MagicProjectile summonMagicProjectile(CastInformation castInformation, EntityType entityType, Location location) {
-       return summonMagicProjectile(castInformation, entityType, location, 5);
+        return summonMagicProjectile(castInformation, entityType, location, 5);
     }
 
     public static MagicProjectile summonMagicProjectile(CastInformation castInformation, EntityType entityType, Location location, int timeInSeconds) {
-       return summonMagicProjectile(castInformation, entityType, location, timeInSeconds * 1000L, null);
+        return summonMagicProjectile(castInformation, entityType, location, timeInSeconds * 1000L, null);
     }
 
     public static MagicProjectile summonMagicProjectile(CastInformation castInformation, EntityType entityType, Location location, @Nonnull Consumer<MagicProjectile> tickConsumer) {
-       return summonMagicProjectile(castInformation, entityType, location, 30, tickConsumer);
+        return summonMagicProjectile(castInformation, entityType, location, 30, tickConsumer);
     }
 
     public static MagicProjectile summonMagicProjectile(CastInformation castInformation, EntityType entityType, Location location, int timeInSeconds, @Nonnull Consumer<MagicProjectile> tickConsumer) {
-       return summonMagicProjectile(castInformation, entityType, location, timeInSeconds * 1000L, tickConsumer);
+        return summonMagicProjectile(castInformation, entityType, location, timeInSeconds * 1000L, tickConsumer);
     }
 
     private static MagicProjectile summonMagicProjectile(CastInformation castInformation, EntityType entityType, Location location, long duration, @Nullable Consumer<MagicProjectile> tickConsumer) {

@@ -109,8 +109,8 @@ public abstract class Spell {
     }
 
     @ParametersAreNonnullByDefault
-    public int getCooldown(CastInformation castInformation) {
-        return spellCore.isCooldownMultiplied() ? spellCore.getCooldownSeconds() * (3 - castInformation.getStaveLevel()) : spellCore.getCooldownSeconds();
+    public double getCooldownSeconds(CastInformation castInformation) {
+        return spellCore.isCooldownDivided() ? spellCore.getCooldownSeconds() / castInformation.getStaveLevel() : spellCore.getCooldownSeconds();
     }
 
     @ParametersAreNonnullByDefault

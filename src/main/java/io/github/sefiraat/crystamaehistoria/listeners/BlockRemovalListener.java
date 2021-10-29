@@ -11,7 +11,7 @@ import org.bukkit.event.block.BlockExplodeEvent;
 import org.bukkit.event.block.BlockFormEvent;
 import org.bukkit.event.player.PlayerBucketFillEvent;
 
-public class RemovalBlocksListener implements Listener {
+public class BlockRemovalListener implements Listener {
 
     @EventHandler
     public void onRemovableBlockBreak(BlockBreakEvent event) {

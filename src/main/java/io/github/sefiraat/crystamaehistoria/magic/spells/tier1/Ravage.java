@@ -37,9 +37,9 @@ public class Ravage extends Spell {
         final UUID caster = castInformation.getCaster();
         final Location location = castInformation.getCastLocation();
         final Location spawnLocation = location.clone().add(
-            ThreadLocalRandom.current().nextDouble(-3,3),
+            ThreadLocalRandom.current().nextDouble(-3, 3),
             0,
-            ThreadLocalRandom.current().nextDouble(-3,3)
+            ThreadLocalRandom.current().nextDouble(-3, 3)
         );
         final MagicSummon magicSummon = SpellUtils.summonTemporaryMob(
             EntityType.RAVAGER,

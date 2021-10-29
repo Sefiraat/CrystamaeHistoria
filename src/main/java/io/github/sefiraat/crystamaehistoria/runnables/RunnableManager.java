@@ -1,9 +1,9 @@
 package io.github.sefiraat.crystamaehistoria.runnables;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.runnables.spells.ProjectileTick;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SummonedEntityTick;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.TemporaryBlocksTick;
-import io.github.sefiraat.crystamaehistoria.runnables.spells.ProjectileTick;
 import lombok.Getter;
 
 public class RunnableManager {

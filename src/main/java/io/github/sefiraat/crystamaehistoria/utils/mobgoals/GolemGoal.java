@@ -1,7 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.utils.mobgoals;
 
 import org.bukkit.entity.Mob;
-import org.bukkit.entity.Player;
 
 import java.util.UUID;
 

@@ -1,6 +1,8 @@
-package io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar;
+package io.github.sefiraat.crystamaehistoria.listeners;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar.RealisationAltar;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar.RealisationAltarCache;
 import io.github.sefiraat.crystamaehistoria.stories.Story;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryShardProfile;
@@ -27,7 +29,7 @@ public class CrystalBreakListener implements Listener {
 
     private void handleCrystal(Block block) {
         BlockPosition blockPosition = new BlockPosition(block);
-        for (RealisationAltarCache cache : RealisationAltar.CACHE_MAP.values()) {
+        for (RealisationAltarCache cache : RealisationAltar.getCaches().values()) {
             Pair<StoryRarity, String> pair = cache.getCrystalStoryMap().get(blockPosition);
             if (pair != null) {
                 StoryRarity rarity = pair.getFirstValue();

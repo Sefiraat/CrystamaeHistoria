@@ -8,7 +8,6 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
-import io.github.sefiraat.crystamaehistoria.utils.mobgoals.FiendGoal;
 import io.github.sefiraat.crystamaehistoria.utils.mobgoals.LeechGoal;
 import org.bukkit.Location;
 import org.bukkit.Material;

@@ -1,7 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.utils.datatypes;
 
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.PlateStorage;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.InstancePlate;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import org.bukkit.persistence.PersistentDataAdapterContext;
 import org.bukkit.persistence.PersistentDataContainer;
@@ -10,7 +10,7 @@ import org.bukkit.persistence.PersistentDataType;
 import javax.annotation.Nonnull;
 
 /**
- * A {@link PersistentDataType} for {@link PlateStorage}s which uses an
+ * A {@link PersistentDataType} for {@link InstancePlate}s which uses an
  * {@link Integer} array for storage purposes.
  * Creatively thieved from {@see <a href="https://github.com/baked-libs/dough/blob/main/dough-data/src/main/java/io/github/bakedlibs/dough/data/persistent/PersistentUUIDDataType.java">PersistentUUIDDataType}
  *
@@ -18,9 +18,9 @@ import javax.annotation.Nonnull;
  * @author Walshy
  */
 
-public class PersistentPlateDataType implements PersistentDataType<PersistentDataContainer, PlateStorage> {
+public class PersistentPlateDataType implements PersistentDataType<PersistentDataContainer, InstancePlate> {
 
-    public static final PersistentDataType<PersistentDataContainer, PlateStorage> TYPE = new PersistentPlateDataType();
+    public static final PersistentDataType<PersistentDataContainer, InstancePlate> TYPE = new PersistentPlateDataType();
 
     @Override
     @Nonnull
@@ -30,13 +30,13 @@ public class PersistentPlateDataType implements PersistentDataType<PersistentDat
 
     @Override
     @Nonnull
-    public Class<PlateStorage> getComplexType() {
-        return PlateStorage.class;
+    public Class<InstancePlate> getComplexType() {
+        return InstancePlate.class;
     }
 
     @Override
     @Nonnull
-    public PersistentDataContainer toPrimitive(@Nonnull PlateStorage complex, @Nonnull PersistentDataAdapterContext context) {
+    public PersistentDataContainer toPrimitive(@Nonnull InstancePlate complex, @Nonnull PersistentDataAdapterContext context) {
         PersistentDataContainer container = context.newPersistentDataContainer();
         container.set(Keys.PLATE_TIER, PersistentDataType.INTEGER, complex.getTier());
         container.set(Keys.PLATE_SPELL, PersistentDataType.STRING, complex.getStoredSpell().getId());
@@ -47,13 +47,13 @@ public class PersistentPlateDataType implements PersistentDataType<PersistentDat
 
     @Override
     @Nonnull
-    public PlateStorage fromPrimitive(@Nonnull PersistentDataContainer primitive, @Nonnull PersistentDataAdapterContext context) {
-        PlateStorage plateStorage = new PlateStorage(
+    public InstancePlate fromPrimitive(@Nonnull PersistentDataContainer primitive, @Nonnull PersistentDataAdapterContext context) {
+        InstancePlate instancePlate = new InstancePlate(
             primitive.get(Keys.PLATE_TIER, PersistentDataType.INTEGER),
             SpellType.valueOf(primitive.get(Keys.PLATE_SPELL, PersistentDataType.STRING)),
             primitive.get(Keys.PLATE_CHARGES, PersistentDataType.INTEGER)
         );
-        plateStorage.setCooldown(primitive.get(Keys.PLATE_COOLDOWN, PersistentDataType.LONG));
-        return plateStorage;
+        instancePlate.setCooldown(primitive.get(Keys.PLATE_COOLDOWN, PersistentDataType.LONG));
+        return instancePlate;
     }
 }

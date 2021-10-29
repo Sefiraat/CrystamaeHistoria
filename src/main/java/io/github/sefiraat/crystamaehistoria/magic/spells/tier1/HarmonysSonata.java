@@ -7,9 +7,9 @@ import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import io.github.thebusybiscuit.slimefun4.utils.tags.SlimefunTag;
-import org.bukkit.Effect;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.Tag;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
@@ -49,7 +49,7 @@ public class HarmonysSonata extends Spell {
                 .findAny()
                 .orElse(Material.DANDELION);
             if (Tag.TALL_FLOWERS.isTagged(material)) {
-                    final Block upper = block.getRelative(BlockFace.UP);
+                final Block upper = block.getRelative(BlockFace.UP);
                 if (upper.getType() == Material.AIR) {
                     block.setType(material, false);
                     upper.setType(material, false);
@@ -66,6 +66,7 @@ public class HarmonysSonata extends Spell {
                 block.setType(material);
             }
             block.getRelative(BlockFace.DOWN).setType(Material.GRASS_BLOCK);
+            displayParticleEffect(block.getLocation(), Particle.FIREWORKS_SPARK, 0.5, 3);
         }
     }
 

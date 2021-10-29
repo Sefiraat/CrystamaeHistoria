@@ -3,7 +3,6 @@ package io.github.sefiraat.crystamaehistoria.utils.mobgoals;
 import com.destroystokyo.paper.entity.ai.Goal;
 import com.destroystokyo.paper.entity.ai.GoalKey;
 import com.destroystokyo.paper.entity.ai.GoalType;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.Stave;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentUUIDDataType;
@@ -69,7 +68,7 @@ public abstract class AbstractGoal<T extends Mob> implements Goal<T> {
                 return;
             }
 
-            if (self.getTarget() == null || self.getTarget().isDead()) {
+            if (getTickCondition() && (self.getTarget() == null || self.getTarget().isDead())) {
                 if (getTargetsEnemies()) {
                     final List<LivingEntity> entities = new ArrayList<>(
                         player.getWorld().getNearbyEntitiesByType(
@@ -106,9 +105,11 @@ public abstract class AbstractGoal<T extends Mob> implements Goal<T> {
                     );
                     self.getPathfinder().moveTo(location);
                 }
+
+                customActions(player);
+
             }
 
-            customActions(player);
         }
     }
 
@@ -143,6 +144,10 @@ public abstract class AbstractGoal<T extends Mob> implements Goal<T> {
     }
 
     public boolean getTargetsEnemies() {
+        return true;
+    }
+
+    public boolean getTickCondition() {
         return true;
     }
 
