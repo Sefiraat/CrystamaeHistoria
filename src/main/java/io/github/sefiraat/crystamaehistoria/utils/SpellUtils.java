@@ -16,6 +16,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Mob;
 import org.bukkit.entity.Projectile;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -48,13 +49,18 @@ public class SpellUtils {
         final MagicSummon magicSummon = new MagicSummon(mob.getUniqueId(), caster);
         final MobGoals mobGoals = Bukkit.getMobGoals();
 
+        mobGoals.removeAllGoals(mob);
+
         if (tickConsumer != null) {
             magicSummon.setTickConsumer(tickConsumer);
         }
+
         CrystamaeHistoria.getSummonedEntityMap().put(magicSummon, System.currentTimeMillis() + duration);
         DataTypeMethods.setCustom(mob, Keys.PDC_IS_SPAWN_OWNER, PersistentUUIDDataType.TYPE, caster);
         goal.setSelf(mob);
+
         mobGoals.addGoal(mob, 1, goal);
+
         return magicSummon;
     }
 

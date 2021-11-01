@@ -7,7 +7,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.HashSet;
 import java.util.Set;
 
-public class SummonedEntityTick extends BukkitRunnable {
+public class SummonedEntityRunnable extends BukkitRunnable {
 
     @Override
     public void run() {

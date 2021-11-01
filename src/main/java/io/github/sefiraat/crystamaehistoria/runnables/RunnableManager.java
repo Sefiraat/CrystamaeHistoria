@@ -1,30 +1,30 @@
 package io.github.sefiraat.crystamaehistoria.runnables;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.runnables.spells.ProjectileTick;
-import io.github.sefiraat.crystamaehistoria.runnables.spells.SummonedEntityTick;
-import io.github.sefiraat.crystamaehistoria.runnables.spells.TemporaryBlocksTick;
+import io.github.sefiraat.crystamaehistoria.runnables.spells.ProjectileRunnable;
+import io.github.sefiraat.crystamaehistoria.runnables.spells.SummonedEntityRunnable;
+import io.github.sefiraat.crystamaehistoria.runnables.spells.TemporaryBlocksRunnable;
 import lombok.Getter;
 
 public class RunnableManager {
 
     @Getter
-    public final TemporaryBlocksTick temporaryBlocksTick;
+    public final TemporaryBlocksRunnable temporaryBlocksRunnable;
     @Getter
-    public final ProjectileTick projectileTick;
+    public final ProjectileRunnable projectileRunnable;
     @Getter
-    public final SummonedEntityTick summonedEntityTick;
+    public final SummonedEntityRunnable summonedEntityRunnable;
 
     public RunnableManager() {
         CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
 
-        this.temporaryBlocksTick = new TemporaryBlocksTick();
-        this.temporaryBlocksTick.runTaskTimer(plugin, 1, 20);
+        this.temporaryBlocksRunnable = new TemporaryBlocksRunnable();
+        this.temporaryBlocksRunnable.runTaskTimer(plugin, 1, 20);
 
-        this.projectileTick = new ProjectileTick();
-        this.projectileTick.runTaskTimer(plugin, 1, 2);
+        this.projectileRunnable = new ProjectileRunnable();
+        this.projectileRunnable.runTaskTimer(plugin, 1, 2);
 
-        this.summonedEntityTick = new SummonedEntityTick();
-        this.summonedEntityTick.runTaskTimer(plugin, 1, 20);
+        this.summonedEntityRunnable = new SummonedEntityRunnable();
+        this.summonedEntityRunnable.runTaskTimer(plugin, 1, 20);
     }
 }

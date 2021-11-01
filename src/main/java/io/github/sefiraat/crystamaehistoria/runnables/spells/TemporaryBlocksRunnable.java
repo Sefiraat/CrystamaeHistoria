@@ -4,7 +4,7 @@ import io.github.sefiraat.crystamaehistoria.ActiveStorage;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import org.bukkit.scheduler.BukkitRunnable;
 
-public class TemporaryBlocksTick extends BukkitRunnable {
+public class TemporaryBlocksRunnable extends BukkitRunnable {
 
     @Override
     public void run() {

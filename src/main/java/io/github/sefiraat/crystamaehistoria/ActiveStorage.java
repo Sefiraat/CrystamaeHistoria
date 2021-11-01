@@ -3,7 +3,7 @@ package io.github.sefiraat.crystamaehistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicSummon;
-import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTick;
+import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTickRunnable;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import lombok.Getter;
@@ -21,7 +21,7 @@ public class ActiveStorage {
     @Getter
     private final Map<UUID, Pair<CastInformation, Long>> strikeMap = new HashMap<>();
     @Getter
-    private final Map<SpellTick, Integer> tickingCastables = new HashMap<>();
+    private final Map<SpellTickRunnable, Integer> tickingCastables = new HashMap<>();
     @Getter
     private final Map<BlockPosition, Long> blocksToRemove = new HashMap<>();
     @Getter
@@ -33,8 +33,8 @@ public class ActiveStorage {
 
     public void clearAll() {
         // Cancels all outstanding spells being cast
-        for (SpellTick spellTick : tickingCastables.keySet()) {
-            spellTick.cancel();
+        for (SpellTickRunnable spellTickRunnable : tickingCastables.keySet()) {
+            spellTickRunnable.cancel();
         }
         tickingCastables.clear();
 

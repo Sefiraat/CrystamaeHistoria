@@ -9,7 +9,7 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicSummon;
 import io.github.sefiraat.crystamaehistoria.runnables.RunnableManager;
-import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTick;
+import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTickRunnable;
 import io.github.sefiraat.crystamaehistoria.slimefun.Structure;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.utils.CrystaTag;
@@ -107,7 +107,7 @@ public class CrystamaeHistoria extends AbstractAddon {
     }
 
     @Nonnull
-    public static Map<SpellTick, Integer> getTickingMap() {
+    public static Map<SpellTickRunnable, Integer> getTickingMap() {
         return instance.activeStorage.getTickingCastables();
     }
 

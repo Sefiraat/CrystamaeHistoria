@@ -7,12 +7,13 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
-import io.github.sefiraat.crystamaehistoria.utils.mobgoals.RidableGroundGoal;
+import io.github.sefiraat.crystamaehistoria.utils.mobgoals.FlyingPhantomGoal;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
+import org.bukkit.entity.Bat;
 import org.bukkit.entity.EntityType;
-import org.bukkit.potion.PotionEffectType;
+import org.bukkit.entity.Phantom;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
@@ -20,17 +21,12 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class Ravage extends Spell {
+// TODO UNUSED
+public class PhantomsFlight extends Spell {
 
-    // TODO Riding ravagers removed until Paper patches
-
-    public Ravage() {
+    public PhantomsFlight() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 0, false, 50, true)
-            .makeInstantSpell(this::cast)
-            .makeEffectingSpell(true, false)
-            .addPositiveEffect(PotionEffectType.DAMAGE_RESISTANCE, 1, 300)
-            .addPositiveEffect(PotionEffectType.INCREASE_DAMAGE, 1, 300)
-            .addPositiveEffect(PotionEffectType.ABSORPTION, 1, 300);
+            .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
     }
 
@@ -44,41 +40,43 @@ public class Ravage extends Spell {
             ThreadLocalRandom.current().nextDouble(-3, 3)
         );
         final MagicSummon magicSummon = SpellUtils.summonTemporaryMob(
-            EntityType.RAVAGER,
+            EntityType.BAT,
             caster,
             spawnLocation,
-            new RidableGroundGoal(caster),
-            300,
+            new FlyingPhantomGoal(caster),
+            castInformation.getStaveLevel() * 300,
             this::onTick
         );
-        applyPositiveEffects(magicSummon.getMob(), castInformation);
+        Bat bat = (Bat) magicSummon.getMob();
+        bat.setInvisible(true);
+        bat.setInvulnerable(true);
+        bat.addPassenger(castInformation.getCasterAsPlayer());
     }
 
     public void onTick(MagicSummon magicSummon) {
-        displayParticleEffect(magicSummon.getMob(), Particle.VILLAGER_ANGRY, 1, 2);
+        displayParticleEffect(magicSummon.getMob(), Particle.SPORE_BLOSSOM_AIR, 1, 2);
     }
 
     @Nonnull
     @Override
     public String getId() {
-        return "RAVAGE";
+        return "PHANTOMS_FLIGHT";
     }
 
     @Nonnull
     @Override
     public String[] getLore() {
         return new String[]{
-            "Summons a tame ravager to your side.",
-            "This spells effects and multipliers",
-            "are applied to the ravager, not the",
-            "caster."
+            "Summons a dragon to ride.",
+            "Getting off the dragon will make",
+            "it fly away."
         };
     }
 
     @Nonnull
     @Override
     public Material getMaterial() {
-        return Material.RAVAGER_SPAWN_EGG;
+        return Material.DRAGON_EGG;
     }
 
     @NotNull
@@ -86,9 +84,9 @@ public class Ravage extends Spell {
     public SpellRecipe getRecipe() {
         return new SpellRecipe(
             1,
-            StoryType.MECHANICAL,
-            StoryType.ALCHEMICAL,
-            StoryType.ANIMAL
+            StoryType.ANIMAL,
+            StoryType.CELESTIAL,
+            StoryType.PHILOSOPHICAL
         );
     }
 

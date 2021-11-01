@@ -7,7 +7,7 @@ import org.bukkit.scheduler.BukkitRunnable;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ProjectileTick extends BukkitRunnable {
+public class ProjectileRunnable extends BukkitRunnable {
 
     @Override
     public void run() {

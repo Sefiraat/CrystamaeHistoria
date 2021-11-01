@@ -2,7 +2,7 @@ package io.github.sefiraat.crystamaehistoria.magic.spells.core;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
-import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTick;
+import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTickRunnable;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -324,7 +324,7 @@ public abstract class Spell {
         castInformation.setTickEvent(spellCore.getTickEvent());
         castInformation.setAfterTicksEvent(spellCore.getAfterAllTicksEvent());
 
-        final SpellTick ticker = new SpellTick(castInformation, tickAmount);
+        final SpellTickRunnable ticker = new SpellTickRunnable(castInformation, tickAmount);
         CrystamaeHistoria.getActiveStorage().getTickingCastables().put(ticker, tickAmount);
         ticker.runTaskTimer(CrystamaeHistoria.getInstance(), 0, period);
     }
