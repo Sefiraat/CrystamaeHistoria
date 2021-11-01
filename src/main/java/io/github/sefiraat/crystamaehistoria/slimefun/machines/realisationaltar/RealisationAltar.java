@@ -33,6 +33,10 @@ public class RealisationAltar extends TickingMenuBlock {
         super(itemGroup, item, recipeType, recipe);
     }
 
+    public static Map<Location, RealisationAltarCache> getCaches() {
+        return CACHE_MAP;
+    }
+
     @Override
     @ParametersAreNonnullByDefault
     protected void tick(Block block, BlockMenu blockMenu) {

@@ -1,6 +1,5 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells.tier1;
 
-import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
@@ -13,10 +12,8 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.Persis
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
-import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffectType;
 import org.jetbrains.annotations.NotNull;
 

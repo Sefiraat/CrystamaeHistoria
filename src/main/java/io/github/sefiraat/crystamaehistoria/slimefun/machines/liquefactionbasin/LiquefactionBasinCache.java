@@ -3,12 +3,12 @@ package io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin
 import de.slikey.effectlib.effect.SphereEffect;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.InstancePlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.DisplayStandHolder;
 import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.BlankPlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.ChargedPlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.MagicalPlate;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.PlateStorage;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.ArmourStandUtils;
@@ -239,9 +239,9 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
     private void processChargedPlate(Item item, ChargedPlate plate) {
         final ItemStack itemStack = item.getItemStack();
         final ItemMeta itemMeta = itemStack.getItemMeta();
-        final PlateStorage plateStorage = DataTypeMethods.getCustom(itemMeta, Keys.PDC_PLATE_STORAGE, PersistentPlateDataType.TYPE);
+        final InstancePlate instancePlate = DataTypeMethods.getCustom(itemMeta, Keys.PDC_PLATE_STORAGE, PersistentPlateDataType.TYPE);
 
-        if (plateStorage == null) {
+        if (instancePlate == null) {
             CrystamaeHistoria.log(
                 Level.SEVERE,
                 "The charged plate used has not been configured correctly. /sf cheat charged plates will not" +
@@ -251,7 +251,7 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
             return;
         }
 
-        final SpellType currentSpellType = plateStorage.getStoredSpell();
+        final SpellType currentSpellType = instancePlate.getStoredSpell();
         final Set<StoryType> set = contentMap.entrySet().stream()
             .sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed())
             .limit(3)
@@ -261,10 +261,10 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
         if (set.size() == 3) {
             SpellType spellType = getMatchingRecipe(set, plate);
             if (spellType != null && spellType == currentSpellType) {
-                plateStorage.addCrysta(getFillLevel());
-                DataTypeMethods.setCustom(itemMeta, Keys.PDC_PLATE_STORAGE, PersistentPlateDataType.TYPE, plateStorage);
+                instancePlate.addCrysta(getFillLevel());
+                DataTypeMethods.setCustom(itemMeta, Keys.PDC_PLATE_STORAGE, PersistentPlateDataType.TYPE, instancePlate);
                 itemStack.setItemMeta(itemMeta);
-                PlateStorage.setPlateLore(itemStack, plateStorage);
+                InstancePlate.setPlateLore(itemStack, instancePlate);
                 summonCatalystParticles();
             }
             emptyBasin();

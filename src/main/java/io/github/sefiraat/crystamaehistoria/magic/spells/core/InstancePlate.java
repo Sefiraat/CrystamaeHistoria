@@ -1,9 +1,9 @@
-package io.github.sefiraat.crystamaehistoria.slimefun.tools.plates;
+package io.github.sefiraat.crystamaehistoria.magic.spells.core;
 
+import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.CastResult;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
-import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,9 +13,10 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 
 @Getter
-public class PlateStorage {
+public class InstancePlate {
 
     private final int tier;
     private final SpellType storedSpell;
@@ -24,16 +25,16 @@ public class PlateStorage {
     @Setter
     private long cooldown = 0;
 
-    public PlateStorage(int tier, SpellType storedSpell, int crysta) {
+    public InstancePlate(int tier, SpellType storedSpell, int crysta) {
         this.tier = tier;
         this.storedSpell = storedSpell;
         this.crysta = crysta;
     }
 
-    public static void setPlateLore(ItemStack itemStack, PlateStorage plateStorage) {
+    public static void setPlateLore(ItemStack itemStack, InstancePlate instancePlate) {
 
-        String magic = plateStorage != null ? ThemeType.toTitleCase(plateStorage.storedSpell.getId()) : "None";
-        String crysta = plateStorage != null ? String.valueOf(plateStorage.crysta) : "0";
+        String magic = instancePlate != null ? ThemeType.toTitleCase(instancePlate.storedSpell.getId()) : "None";
+        String crysta = instancePlate != null ? String.valueOf(instancePlate.crysta) : "0";
 
         final String[] lore = new String[]{
             "A magically charged plate storing magic",
@@ -65,7 +66,9 @@ public class PlateStorage {
             if (cooldown <= System.currentTimeMillis()) {
                 spell.castSpell(castInformation);
                 this.crysta -= crystaCost;
-                this.cooldown = System.currentTimeMillis() + (spell.getCooldown(castInformation) * 1000L);
+                final long cdSeconds = (long) (spell.getCooldownSeconds(castInformation) * 1000);
+                CrystamaeHistoria.log(Level.WARNING, String.valueOf(cdSeconds));
+                this.cooldown = System.currentTimeMillis() + cdSeconds;
                 return CastResult.CAST_SUCCESS;
             } else {
                 return CastResult.ON_COOLDOWN;

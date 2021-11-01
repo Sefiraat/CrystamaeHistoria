@@ -2,7 +2,7 @@ package io.github.sefiraat.crystamaehistoria.magic.spells.core;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
-import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTick;
+import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTickRunnable;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -105,12 +105,11 @@ public abstract class Spell {
         if (spellCore.isTickingSpell()) {
             registerTicker(castInformation, spellCore.getTickInterval(), spellCore.getNumberOfTicks());
         }
-
     }
 
     @ParametersAreNonnullByDefault
-    public int getCooldown(CastInformation castInformation) {
-        return spellCore.isCooldownMultiplied() ? spellCore.getCooldownSeconds() * (3 - castInformation.getStaveLevel()) : spellCore.getCooldownSeconds();
+    public double getCooldownSeconds(CastInformation castInformation) {
+        return spellCore.isCooldownDivided() ? spellCore.getCooldownSeconds() / castInformation.getStaveLevel() : spellCore.getCooldownSeconds();
     }
 
     @ParametersAreNonnullByDefault
@@ -199,7 +198,6 @@ public abstract class Spell {
         }
     }
 
-
     @ParametersAreNonnullByDefault
     protected void displayParticleEffect(Entity entity, double rangeRadius, int numberOfParticles, Particle.DustOptions dustOptions) {
         displayParticleEffect(entity.getLocation(), rangeRadius, numberOfParticles, dustOptions);
@@ -221,41 +219,63 @@ public abstract class Spell {
     }
 
     @ParametersAreNonnullByDefault
-    protected void pullEntity(UUID caster, Location pullToLocation, Entity pushed, double force) {
-        Vector vector = pushed.getLocation().toVector().subtract(pullToLocation.toVector()).normalize().multiply(-force);
-        pushEntity(caster, vector, pushed);
+    protected boolean tryBreakBlock(UUID caster, Block block) {
+        Player player = Bukkit.getPlayer(caster);
+        if (player != null
+            && hasPermission(caster, block, Interaction.BREAK_BLOCK)
+            && block.getType().getHardness() < 100
+        ) {
+            block.breakNaturally(player.getInventory().getItemInMainHand());
+            return true;
+        }
+        return false;
     }
 
     @ParametersAreNonnullByDefault
-    protected void pushEntity(UUID caster, Location pushFromLocation, Entity pushed, double force) {
-        Vector vector = pushed.getLocation().toVector().subtract(pushFromLocation.toVector()).normalize().multiply(force);
-        pushEntity(caster, vector, pushed);
+    protected boolean pullEntity(UUID caster, Location pullToLocation, Entity pushed, double force) {
+        Vector vector = pushed.getLocation().toVector()
+            .subtract(pullToLocation.toVector())
+            .normalize()
+            .multiply(-force);
+        return pushEntity(caster, vector, pushed);
     }
 
     @ParametersAreNonnullByDefault
-    protected void pushEntity(UUID caster, Vector vector, Entity pushed) {
+    protected boolean pushEntity(UUID caster, Location pushFromLocation, Entity pushed, double force) {
+        Vector vector = pushed.getLocation().toVector()
+            .subtract(pushFromLocation.toVector())
+            .normalize()
+            .multiply(force);
+        return pushEntity(caster, vector, pushed);
+    }
+
+    @ParametersAreNonnullByDefault
+    protected boolean pushEntity(UUID caster, Vector vector, Entity pushed) {
         Interaction interaction = pushed instanceof Player ? Interaction.ATTACK_PLAYER : Interaction.INTERACT_ENTITY;
         if (hasPermission(caster, pushed.getLocation(), interaction)) {
             pushed.setVelocity(vector);
+            return true;
         }
+        return false;
     }
 
     @ParametersAreNonnullByDefault
-    protected void damageEntity(LivingEntity livingEntity, UUID caster, double damage) {
-        damageEntity(livingEntity, caster, damage, null, 0);
+    protected boolean damageEntity(LivingEntity livingEntity, UUID caster, double damage) {
+        return damageEntity(livingEntity, caster, damage, null, 0);
     }
 
     @ParametersAreNonnullByDefault
-    protected void damageEntity(LivingEntity livingEntity, UUID caster, double damage, @Nullable Location knockbackOrigin, double knockbackForce) {
+    protected boolean damageEntity(LivingEntity livingEntity, UUID caster, double damage, @Nullable Location knockbackOrigin, double knockbackForce) {
         Interaction interaction = livingEntity instanceof Player ? Interaction.ATTACK_PLAYER : Interaction.ATTACK_ENTITY;
         if (hasPermission(caster, livingEntity.getLocation(), interaction)) {
             Player player = Bukkit.getPlayer(caster);
             livingEntity.damage(damage, player);
+            if (knockbackOrigin != null && knockbackForce > 0) {
+                pushEntity(caster, knockbackOrigin, livingEntity, knockbackForce);
+            }
+            return true;
         }
-
-        if (knockbackOrigin != null && knockbackForce > 0) {
-            pushEntity(caster, knockbackOrigin, livingEntity, knockbackForce);
-        }
+        return false;
     }
 
     /**
@@ -294,23 +314,6 @@ public abstract class Spell {
      * the projectile/definition to the projectileMap. Used when detecting
      * the projectile hitting targets.
      *
-     * @param magicProjectile The {@link MagicProjectile} being stored
-     * @param castInformation The {@link CastInformation} with the stave information
-     */
-    @ParametersAreNonnullByDefault
-    private void registerProjectile(MagicProjectile magicProjectile, CastInformation castInformation, long projectileDuration) {
-        castInformation.setBeforeProjectileHitEvent(spellCore.getBeforeProjectileHitEvent());
-        castInformation.setProjectileHitEvent(spellCore.getProjectileHitEvent());
-        castInformation.setAfterProjectileHitEvent(spellCore.getAfterProjectileHitEvent());
-        Long expiry = System.currentTimeMillis() + projectileDuration;
-        CrystamaeHistoria.getActiveStorage().getProjectileMap().put(magicProjectile, new Pair<>(castInformation, expiry));
-    }
-
-    /**
-     * Used to register the projectile's events to the definition and then
-     * the projectile/definition to the projectileMap. Used when detecting
-     * the projectile hitting targets.
-     *
      * @param castInformation The {@link CastInformation} with the stave information
      * @param tickAmount      The number of times this event should tick before stopping.
      */
@@ -321,7 +324,7 @@ public abstract class Spell {
         castInformation.setTickEvent(spellCore.getTickEvent());
         castInformation.setAfterTicksEvent(spellCore.getAfterAllTicksEvent());
 
-        final SpellTick ticker = new SpellTick(castInformation, tickAmount);
+        final SpellTickRunnable ticker = new SpellTickRunnable(castInformation, tickAmount);
         CrystamaeHistoria.getActiveStorage().getTickingCastables().put(ticker, tickAmount);
         ticker.runTaskTimer(CrystamaeHistoria.getInstance(), 0, period);
     }
@@ -415,5 +418,4 @@ public abstract class Spell {
         OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(player);
         return Slimefun.getProtectionManager().hasPermission(offlinePlayer, location, interaction);
     }
-
 }

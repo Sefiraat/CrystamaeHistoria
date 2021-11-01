@@ -15,6 +15,7 @@ public class ConfigManager {
     private final FileConfiguration blocks;
     private final FileConfiguration stories;
     private final FileConfiguration research;
+    private final FileConfiguration blockColors;
 
     public ConfigManager() {
         this.blocks = getConfig("blocks.yml");
@@ -23,6 +24,8 @@ public class ConfigManager {
         this.stories.options().copyDefaults(true);
         this.research = getConfig("research.yml");
         this.research.options().copyDefaults(true);
+        this.blockColors = getConfig("block_colors.yml");
+        this.blockColors.options().copyDefaults(true);
     }
 
     /**

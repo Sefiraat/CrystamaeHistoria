@@ -12,6 +12,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LightningStrike;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -23,8 +24,12 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
+import org.bukkit.event.entity.EntityInteractEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.player.PlayerEggThrowEvent;
+import org.bukkit.event.player.PlayerInteractEntityEvent;
+import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.weather.LightningStrikeEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -150,10 +155,27 @@ public class SpellEffectListener implements Listener {
     }
 
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
-    public void onMagicSummonChangeBlock(EntityChangeBlockEvent event) {
+    public void onRideRavager(EntityChangeBlockEvent event) {
         NamespacedKey key = Keys.PDC_IS_SPAWN_OWNER;
         if (DataTypeMethods.hasCustom(event.getEntity(), key, PersistentUUIDDataType.TYPE)) {
             event.setCancelled(true);
         }
     }
+
+//    // TODO Will not work until you can teleport entities with passengers
+//    @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
+//    public void onRideRavager(PlayerInteractEntityEvent event) {
+//        NamespacedKey key = Keys.PDC_IS_SPAWN_OWNER;
+//        UUID uuid = DataTypeMethods.getCustom(event.getRightClicked(), key, PersistentUUIDDataType.TYPE);
+//        if (uuid != null && uuid.equals(event.getPlayer().getUniqueId()) && event.getRightClicked().getType() == EntityType.RAVAGER) {
+//            event.getRightClicked().addPassenger(event.getPlayer());
+//        }
+//    }
+
+    @EventHandler
+    public void onPlayerLogout(PlayerQuitEvent event) {
+        CrystamaeHistoria.getActiveStorage().removeFlight(event.getPlayer());
+    }
+
+
 }

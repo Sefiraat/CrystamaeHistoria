@@ -6,13 +6,13 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class SpellTick extends BukkitRunnable {
+public class SpellTickRunnable extends BukkitRunnable {
 
     private final CastInformation castInformation;
     private int numberOfRuns;
 
     @ParametersAreNonnullByDefault
-    public SpellTick(CastInformation castInformation, int numberOfRuns) {
+    public SpellTickRunnable(CastInformation castInformation, int numberOfRuns) {
         this.castInformation = castInformation;
         this.numberOfRuns = numberOfRuns;
     }

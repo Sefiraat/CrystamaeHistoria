@@ -9,14 +9,13 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicSummon;
 import io.github.sefiraat.crystamaehistoria.runnables.RunnableManager;
-import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTick;
+import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTickRunnable;
 import io.github.sefiraat.crystamaehistoria.slimefun.Structure;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.utils.CrystaTag;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import org.apache.commons.lang.Validate;
 import org.bstats.bukkit.Metrics;
-import org.bukkit.entity.Entity;
 import org.bukkit.plugin.PluginManager;
 
 import javax.annotation.Nonnull;
@@ -33,7 +32,7 @@ public class CrystamaeHistoria extends AbstractAddon {
     private StoriesManager storiesManager;
     private ListenerManager listenerManager;
     private RunnableManager runnableManager;
-    private ActiveStorage activeStorage;
+    private SpellMemory spellMemory;
     private EffectManager effectManager;
 
     public CrystamaeHistoria() {
@@ -60,8 +59,8 @@ public class CrystamaeHistoria extends AbstractAddon {
         return instance.storiesManager;
     }
 
-    public static ActiveStorage getActiveStorage() {
-        return instance.activeStorage;
+    public static SpellMemory getActiveStorage() {
+        return instance.spellMemory;
     }
 
     public static EffectManager getEffectManager() {
@@ -78,17 +77,17 @@ public class CrystamaeHistoria extends AbstractAddon {
 
     @Nonnull
     public static Map<MagicProjectile, Pair<CastInformation, Long>> getProjectileMap() {
-        return instance.activeStorage.getProjectileMap();
+        return instance.spellMemory.getProjectileMap();
     }
 
     @Nonnull
     public static Map<UUID, Pair<CastInformation, Long>> getStrikeMap() {
-        return instance.activeStorage.getStrikeMap();
+        return instance.spellMemory.getStrikeMap();
     }
 
     @Nonnull
     public static Map<MagicSummon, Long> getSummonedEntityMap() {
-        return instance.activeStorage.getSummonedEntities();
+        return instance.spellMemory.getSummonedEntities();
     }
 
     @Nonnull
@@ -108,8 +107,8 @@ public class CrystamaeHistoria extends AbstractAddon {
     }
 
     @Nonnull
-    public static Map<SpellTick, Integer> getTickingMap() {
-        return instance.activeStorage.getTickingCastables();
+    public static Map<SpellTickRunnable, Integer> getTickingMap() {
+        return instance.spellMemory.getTickingCastables();
     }
 
     @Override
@@ -125,7 +124,7 @@ public class CrystamaeHistoria extends AbstractAddon {
         this.storiesManager = new StoriesManager();
         this.listenerManager = new ListenerManager();
         this.runnableManager = new RunnableManager();
-        this.activeStorage = new ActiveStorage();
+        this.spellMemory = new SpellMemory();
         this.effectManager = new EffectManager(this);
 
         structure.setup();
@@ -138,7 +137,7 @@ public class CrystamaeHistoria extends AbstractAddon {
 
     @Override
     protected void disable() {
-        activeStorage.clearAll();
+        spellMemory.clearAll();
         saveConfig();
         instance = null;
     }

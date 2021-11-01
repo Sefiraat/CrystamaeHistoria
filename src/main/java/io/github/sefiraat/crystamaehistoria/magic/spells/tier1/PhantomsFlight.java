@@ -1,14 +1,17 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells.tier1;
 
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicSummon;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
-import io.github.sefiraat.crystamaehistoria.utils.mobgoals.FiendGoal;
+import io.github.sefiraat.crystamaehistoria.utils.mobgoals.FlyingPhantomGoal;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.Particle;
+import org.bukkit.entity.Bat;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Phantom;
 import org.jetbrains.annotations.NotNull;
@@ -18,9 +21,10 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class SpawnFiends extends Spell {
+// TODO UNUSED
+public class PhantomsFlight extends Spell {
 
-    public SpawnFiends() {
+    public PhantomsFlight() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 0, false, 50, true)
             .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
@@ -28,45 +32,51 @@ public class SpawnFiends extends Spell {
 
     @ParametersAreNonnullByDefault
     public void cast(CastInformation castInformation) {
-        UUID caster = castInformation.getCaster();
-        Location location = castInformation.getCastLocation();
-        for (int i = 0; i < castInformation.getStaveLevel(); i++) {
-            Location spawnLocation = location.clone().add(
-                ThreadLocalRandom.current().nextDouble(-3, 3),
-                0,
-                ThreadLocalRandom.current().nextDouble(-3, 3)
-            );
-            Phantom phantom = (Phantom) SpellUtils.summonTemporaryMob(
-                EntityType.PHANTOM,
-                caster,
-                spawnLocation,
-                new FiendGoal(caster),
-                180
-            );
-            phantom.setSize(2);
-            phantom.setShouldBurnInDay(false);
-        }
+        final UUID caster = castInformation.getCaster();
+        final Location location = castInformation.getCastLocation();
+        final Location spawnLocation = location.clone().add(
+            ThreadLocalRandom.current().nextDouble(-3, 3),
+            0,
+            ThreadLocalRandom.current().nextDouble(-3, 3)
+        );
+        final MagicSummon magicSummon = SpellUtils.summonTemporaryMob(
+            EntityType.BAT,
+            caster,
+            spawnLocation,
+            new FlyingPhantomGoal(caster),
+            castInformation.getStaveLevel() * 300,
+            this::onTick
+        );
+        Bat bat = (Bat) magicSummon.getMob();
+        bat.setInvisible(true);
+        bat.setInvulnerable(true);
+        bat.addPassenger(castInformation.getCasterAsPlayer());
+    }
+
+    public void onTick(MagicSummon magicSummon) {
+        displayParticleEffect(magicSummon.getMob(), Particle.SPORE_BLOSSOM_AIR, 1, 2);
     }
 
     @Nonnull
     @Override
     public String getId() {
-        return "SPAWN_FIENDS";
+        return "PHANTOMS_FLIGHT";
     }
 
     @Nonnull
     @Override
     public String[] getLore() {
         return new String[]{
-            "Summons 1-5 fiends to attack your enemies.",
-            "Fiends are erratic and do not follow the caster."
+            "Summons a dragon to ride.",
+            "Getting off the dragon will make",
+            "it fly away."
         };
     }
 
     @Nonnull
     @Override
     public Material getMaterial() {
-        return Material.PHANTOM_SPAWN_EGG;
+        return Material.DRAGON_EGG;
     }
 
     @NotNull
@@ -75,7 +85,7 @@ public class SpawnFiends extends Spell {
         return new SpellRecipe(
             1,
             StoryType.ANIMAL,
-            StoryType.VOID,
+            StoryType.CELESTIAL,
             StoryType.PHILOSOPHICAL
         );
     }

@@ -35,9 +35,9 @@ public class RemnantOfWar extends Spell {
         UUID caster = castInformation.getCaster();
         Location location = castInformation.getCastLocation();
         Location spawnLocation = location.clone().add(
-            ThreadLocalRandom.current().nextDouble(-3,3),
+            ThreadLocalRandom.current().nextDouble(-3, 3),
             0,
-            ThreadLocalRandom.current().nextDouble(-3,3)
+            ThreadLocalRandom.current().nextDouble(-3, 3)
         );
         MagicSummon magicSummon = SpellUtils.summonTemporaryMob(
             EntityType.ZOMBIE,

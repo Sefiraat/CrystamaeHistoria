@@ -16,18 +16,18 @@ import java.util.function.Consumer;
 public class SpellCoreBuilder {
 
     // All
-    private final int cooldownSeconds;
+    private final double cooldownSeconds;
     private final double range;
     private final int crystaCost;
     private final boolean cooldownDivided;
     private final boolean rangeMultiplied;
     private final boolean crystaMultiplied;
+    private final Map<PotionEffectType, Pair<Integer, Integer>> positiveEffectPairMap = new HashMap<>();
+    private final Map<PotionEffectType, Pair<Integer, Integer>> negativeEffectPairMap = new HashMap<>();
     private int particleNumber = 1;
-
     // Instant Casts
     private boolean isInstantCast;
     private Consumer<CastInformation> instantCastEvent;
-
     // Projectile Based Spells
     private boolean isProjectileSpell;
     private boolean isProjectileVsEntitySpell;
@@ -41,7 +41,6 @@ public class SpellCoreBuilder {
     private Consumer<CastInformation> projectileHitEvent;
     private Consumer<CastInformation> projectileHitBlockEvent;
     private Consumer<CastInformation> afterProjectileHitEvent;
-
     // Ticking Spells
     private boolean isTickingSpell;
     private int numberOfTicks;
@@ -50,27 +49,22 @@ public class SpellCoreBuilder {
     private boolean tickIntervalMultiplied;
     private Consumer<CastInformation> tickEvent;
     private Consumer<CastInformation> afterAllTicksEvent;
-
     // Damaging Spells
     private boolean isDamagingSpell;
     private double damageAmount;
     private boolean damageMultiplied;
     private double knockbackAmount;
     private boolean knockbackMultiplied;
-
     // Healing Spells
     private boolean isHealingSpell;
     private double healAmount;
     private boolean healMultiplied;
-
     // Affecting spells
     private boolean isEffectingSpell;
-    private final Map<PotionEffectType, Pair<Integer, Integer>> positiveEffectPairMap = new HashMap<>();
-    private final Map<PotionEffectType, Pair<Integer, Integer>> negativeEffectPairMap = new HashMap<>();
     private boolean amplificationMultiplied;
     private boolean effectDurationMultiplied;
 
-    public SpellCoreBuilder(int cooldownSeconds, boolean cooldownDivided, double range, boolean rangeMultiplied, int crystaCost, boolean crystaMultiplied) {
+    public SpellCoreBuilder(double cooldownSeconds, boolean cooldownDivided, double range, boolean rangeMultiplied, int crystaCost, boolean crystaMultiplied) {
         this.cooldownSeconds = cooldownSeconds;
         this.cooldownDivided = cooldownDivided;
         this.range = range;

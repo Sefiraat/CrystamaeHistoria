@@ -7,7 +7,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
-import io.github.sefiraat.crystamaehistoria.utils.mobgoals.BoringGoal;
+import io.github.sefiraat.crystamaehistoria.utils.mobgoals.RidableGroundGoal;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -21,6 +21,8 @@ import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Ravage extends Spell {
+
+    // TODO Riding ravagers removed until Paper patches
 
     public Ravage() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 0, false, 50, true)
@@ -37,15 +39,15 @@ public class Ravage extends Spell {
         final UUID caster = castInformation.getCaster();
         final Location location = castInformation.getCastLocation();
         final Location spawnLocation = location.clone().add(
-            ThreadLocalRandom.current().nextDouble(-3,3),
+            ThreadLocalRandom.current().nextDouble(-3, 3),
             0,
-            ThreadLocalRandom.current().nextDouble(-3,3)
+            ThreadLocalRandom.current().nextDouble(-3, 3)
         );
         final MagicSummon magicSummon = SpellUtils.summonTemporaryMob(
             EntityType.RAVAGER,
             caster,
             spawnLocation,
-            new BoringGoal(caster),
+            new RidableGroundGoal(caster),
             300,
             this::onTick
         );

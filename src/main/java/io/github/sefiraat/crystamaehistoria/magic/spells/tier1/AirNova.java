@@ -12,7 +12,6 @@ import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
-import org.bukkit.potion.PotionEffectType;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
@@ -54,7 +53,7 @@ public class AirNova extends Spell {
                 livingEntity,
                 castInformation.getCaster(),
                 getDamage(castInformation),
-                castInformation.getProjectileLocation().clone().subtract(0, 1,0),
+                castInformation.getProjectileLocation().clone().subtract(0, 1, 0),
                 getKnockback(castInformation)
             );
             displayParticleEffect(livingEntity, Particle.SWEEP_ATTACK, 1, 5);

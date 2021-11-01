@@ -7,11 +7,9 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
-import io.github.sefiraat.crystamaehistoria.utils.mobgoals.BoringGoal;
 import io.github.sefiraat.crystamaehistoria.utils.mobgoals.DeityGoal;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.Particle;
 import org.bukkit.entity.EntityType;
 import org.bukkit.potion.PotionEffectType;
 import org.jetbrains.annotations.NotNull;
@@ -35,9 +33,9 @@ public class Deity extends Spell {
         final UUID caster = castInformation.getCaster();
         final Location location = castInformation.getCastLocation();
         final Location spawnLocation = location.clone().add(
-            ThreadLocalRandom.current().nextDouble(-3,3),
+            ThreadLocalRandom.current().nextDouble(-3, 3),
             0,
-            ThreadLocalRandom.current().nextDouble(-3,3)
+            ThreadLocalRandom.current().nextDouble(-3, 3)
         );
         final MagicSummon magicSummon = SpellUtils.summonTemporaryMob(
             EntityType.GIANT,

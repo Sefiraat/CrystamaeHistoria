@@ -12,7 +12,11 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Break;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Bright;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.CallLightning;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Chaos;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Compass;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Deity;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Gravity;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Hearthstone;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.PhantomsFlight;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EarthNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EndermansVeil;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EtherealFlow;
@@ -49,6 +53,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Teleport;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Tempest;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.TimeCompression;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.TimeDilation;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Tracer;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Vacuum;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.WitherWeather;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.LiquefactionBasinCache;
@@ -72,6 +77,7 @@ public enum SpellType {
     BRIGHT(new Bright()),
     CALL_LIGHTNING(new CallLightning()),
     CHAOS(new Chaos()),
+    COMPASS(new Compass()),
     DEITY(new Deity()),
     EARTH_NOVA(new EarthNova()),
     ENDERMANS_VEIL(new EndermansVeil()),
@@ -81,8 +87,10 @@ public enum SpellType {
     FIRE_NOVA(new FireNova()),
     FLAME_SPRITE(new FlameSprite()),
     FROST_NOVA(new FrostNova()),
+    GRAVITY(new Gravity()),
     HEAL(new Heal()),
     HEALING_MIST(new HealingMist()),
+    HEARTHSTONE(new Hearthstone()),
     HELLSCAPE(new Hellscape()),
     HOLY_COW(new HolyCow()),
     GYROSCOPIC(new Gyroscopic()),
@@ -92,6 +100,7 @@ public enum SpellType {
     LEECH_BOMB(new LeechBomb()),
     LOVE_POTION(new LovePotion()),
     OVIPAROUS(new Oviparous()),
+    PHANTOMS_FLIGHT(new PhantomsFlight()),
     POISON_NOVA(new PoisonNova()),
     PRISM(new Prism()),
     PROTECTORATE(new Protectorate()),
@@ -109,6 +118,7 @@ public enum SpellType {
     TEMPEST(new Tempest()),
     TIME_COMPRESSION(new TimeCompression()),
     TIME_DILATION(new TimeDilation()),
+    TRACER(new Tracer()),
     VACUUM(new Vacuum()),
     WITHER_WEATHER(new WitherWeather());
 
