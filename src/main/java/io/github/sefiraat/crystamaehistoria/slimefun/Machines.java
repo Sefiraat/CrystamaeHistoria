@@ -3,10 +3,15 @@ package io.github.sefiraat.crystamaehistoria.slimefun;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.chroniclerpanel.ChroniclerPanel;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.DummyLiquefactionBasinCrafting;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.LiquefactionBasin;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.LiquefactionBasinCache;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar.RealisationAltar;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.staveconfigurator.StaveConfigurator;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import org.bukkit.Material;
@@ -87,7 +92,14 @@ public class Machines {
             }
         ).register(plugin);
 
-        new StaveConfigurator(
+
+        RecipeItem staveConfiguratorRecipe = new RecipeItem(
+            new ItemStack(Material.COPPER_BLOCK),
+            StoryType.ELEMENTAL, 1,
+            StoryType.MECHANICAL, 1,
+            StoryType.ALCHEMICAL, 1
+        );
+        SlimefunItem staveConfigurator = new StaveConfigurator(
             ItemGroups.MECHANISMS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_STAVE_CONFIGURATOR",
@@ -98,19 +110,11 @@ public class Machines {
                 "to add spell plates into your",
                 "Staves."
             ),
-            RecipeType.ENHANCED_CRAFTING_TABLE,
-            new ItemStack[]{
-                SlimefunItems.COPPER_INGOT,
-                SlimefunItems.COPPER_INGOT,
-                SlimefunItems.COPPER_INGOT,
-                SlimefunItems.CORINTHIAN_BRONZE_INGOT,
-                new ItemStack(Material.AMETHYST_CLUSTER),
-                SlimefunItems.CORINTHIAN_BRONZE_INGOT,
-                CrystamaeHistoria.getStructure().getMaterials().amalgamateIngot.getItem(),
-                Materials.CHARGED_PLATE_T_1.getItem(),
-                CrystamaeHistoria.getStructure().getMaterials().amalgamateIngot.getItem(),
-            }
-        ).register(plugin);
+            DummyLiquefactionBasinCrafting.TYPE,
+            staveConfiguratorRecipe.getDisplayRecipe()
+        );
+        staveConfigurator.register(plugin);
+        LiquefactionBasinCache.addCraftingRecipe(staveConfigurator, staveConfiguratorRecipe);
     }
 
 }

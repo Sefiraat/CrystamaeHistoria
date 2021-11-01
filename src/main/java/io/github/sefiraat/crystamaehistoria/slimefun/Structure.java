@@ -17,8 +17,8 @@ public class Structure {
 
     public Structure() {
         CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
-        this.machines = new Machines(plugin);
         this.materials = new Materials(plugin);
+        this.machines = new Machines(plugin);
         this.tools = new Tools(plugin);
         this.spells = new Spells(plugin);
     }

@@ -19,6 +19,7 @@ import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentPlateDataType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import lombok.Getter;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
@@ -59,7 +60,8 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
     public static final double MAX_VOLUME = 1000;
     protected static final Map<StoryRarity, Integer> RARITY_VALUE_MAP = new EnumMap<>(StoryRarity.class);
     protected static final String CH_LEVEL_PREFIX = "ch_c_lvl:";
-    private static final Map<SpellType, SpellRecipe> RECIPES_SPELL = new HashMap<>();
+    private static final Map<SpellType, RecipeSpell> RECIPES_SPELL = new HashMap<>();
+    private static final Map<SlimefunItem, RecipeItem> RECIPES_ITEMS = new HashMap<>();
 
     static {
         RARITY_VALUE_MAP.put(StoryRarity.COMMON, 1);
@@ -82,8 +84,12 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
         }
     }
 
-    public static void addSpellRecipe(SpellType spellType, SpellRecipe spellRecipe) {
-        RECIPES_SPELL.put(spellType, spellRecipe);
+    public static void addSpellRecipe(SpellType spellType, RecipeSpell recipeSpell) {
+        RECIPES_SPELL.put(spellType, recipeSpell);
+    }
+
+    public static void addCraftingRecipe(SlimefunItem slimefunItem, RecipeItem recipeItem) {
+        RECIPES_ITEMS.put(slimefunItem, recipeItem);
     }
 
     public void setActivePlayer(@Nonnull Player player) {
@@ -105,7 +111,9 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
             } else if (slimefunItem instanceof ChargedPlate) {
                 processChargedPlate(item, (ChargedPlate) slimefunItem);
             } else {
-                rejectItem(item, true);
+                if (!processOtherItem(item)) {
+                    rejectItem(item, true);
+                }
             }
         }
         if (getFillLevel() > 0 && GeneralUtils.testChance(1, 5)) {
@@ -273,17 +281,53 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
         }
     }
 
+    @ParametersAreNonnullByDefault
+    private boolean processOtherItem(Item item) {
+        ItemStack itemStack = item.getItemStack();
+        List<StoryType> typeList = contentMap.entrySet().stream().sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed()).limit(3).map(Map.Entry::getKey).collect(Collectors.toList());
+        List<Integer> amountList = contentMap.entrySet().stream().sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed()).limit(3).map(Map.Entry::getValue).collect(Collectors.toList());
+        if (typeList.size() == 3) {
+            SlimefunItem.getByItem(itemStack);
+            SlimefunItem slimefunItem = getMatchingRecipe(typeList, amountList, itemStack);
+            if (slimefunItem != null) {
+                item.getWorld().dropItem(item.getLocation(), slimefunItem.getItem().clone());
+                if (itemStack.getAmount() > 1) {
+                    itemStack.setAmount(itemStack.getAmount() - 1);
+                } else {
+                    item.remove();
+                }
+                summonCatalystParticles();
+                emptyBasin();
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Nullable
     @ParametersAreNonnullByDefault
     public SpellType getMatchingRecipe(Set<StoryType> set, MagicalPlate magicalPlate) {
         SpellType spellType = null;
-        for (Map.Entry<SpellType, SpellRecipe> recipeEntry : RECIPES_SPELL.entrySet()) {
+        for (Map.Entry<SpellType, RecipeSpell> recipeEntry : RECIPES_SPELL.entrySet()) {
             if (recipeEntry.getValue().recipeMatches(set, magicalPlate.getTier())) {
                 spellType = recipeEntry.getKey();
                 break;
             }
         }
         return spellType;
+    }
+
+    @Nullable
+    @ParametersAreNonnullByDefault
+    public SlimefunItem getMatchingRecipe(List<StoryType> types, List<Integer> amounts, ItemStack itemStack) {
+        SlimefunItem slimefunItem = null;
+        for (Map.Entry<SlimefunItem, RecipeItem> recipeEntry : RECIPES_ITEMS.entrySet()) {
+            if (recipeEntry.getValue().recipeMatches(types, amounts, itemStack)) {
+                slimefunItem = recipeEntry.getKey();
+                break;
+            }
+        }
+        return slimefunItem;
     }
 
     public int getFillLevel() {

@@ -3,7 +3,7 @@ package io.github.sefiraat.crystamaehistoria.slimefun;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.ItemGroups;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.DummyLiquefactionBasin;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.DummyLiquefactionBasinSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import org.bukkit.inventory.ItemStack;
@@ -27,7 +27,7 @@ public class Spells {
     }
 
     private SlimefunItem getSlimefunItem(SpellType spellType) {
-        final Map<StoryType, SlimefunItem> map = CrystamaeHistoria.getStructure().getMaterials().getTypeItemMap();
+        final Map<StoryType, SlimefunItem> map = Materials.DUMMY_CRYSTAL_MAP;
 
         final StoryType type1 = spellType.getSpell().getRecipe().getInput(0);
         final StoryType type2 = spellType.getSpell().getRecipe().getInput(1);
@@ -40,7 +40,7 @@ public class Spells {
         return new SlimefunItem(
             ItemGroups.SPELLS,
             spellType.getSpell().getThemedStack(),
-            DummyLiquefactionBasin.TYPE,
+            DummyLiquefactionBasinSpell.TYPE,
             new ItemStack[]{
                 null, null, null,
                 stack1, stack2, stack3,

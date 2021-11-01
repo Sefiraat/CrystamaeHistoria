@@ -4,7 +4,7 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import org.bukkit.Location;
@@ -82,8 +82,8 @@ public class FireNova extends Spell {
 
     @NotNull
     @Override
-    public SpellRecipe getRecipe() {
-        return new SpellRecipe(
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
             1,
             StoryType.ELEMENTAL,
             StoryType.CELESTIAL,

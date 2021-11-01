@@ -4,6 +4,7 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCore;
+import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.ResearchUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.GuiElements;
@@ -149,7 +150,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         for (int i = 0; i < RECIPE.length; i++) {
             int slot = RECIPE[i];
             StoryType storyType = spellType.getSpell().getRecipe().getInput(i);
-            ItemStack stack = CrystamaeHistoria.getStructure().getMaterials().getTypeItemMap().get(storyType).getItem();
+            ItemStack stack = Materials.DUMMY_CRYSTAL_MAP.get(storyType).getItem();
             menu.replaceExistingItem(slot, stack);
             menu.addMenuClickHandler(slot, ((player, slot2, itemStack, clickAction) -> false));
         }

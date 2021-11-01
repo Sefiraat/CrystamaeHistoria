@@ -24,6 +24,7 @@ public class Keys {
 
     // Recipe Types
     public static final NamespacedKey REALISATION_DUMMY_CRYSTAL = newKey("r_d_c");
+    public static final NamespacedKey LIQUEFACTION_DUMMY_CRYSTAL = newKey("r_d_c");
 
     // PDC
     // Items

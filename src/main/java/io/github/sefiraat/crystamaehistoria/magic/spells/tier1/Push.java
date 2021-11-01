@@ -3,7 +3,7 @@ package io.github.sefiraat.crystamaehistoria.magic.spells.tier1;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -70,8 +70,8 @@ public class Push extends Spell {
 
     @NotNull
     @Override
-    public SpellRecipe getRecipe() {
-        return new SpellRecipe(
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
             1,
             StoryType.MECHANICAL,
             StoryType.HUMAN,

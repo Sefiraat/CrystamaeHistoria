@@ -1,17 +1,14 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells.tier1;
 
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
-import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.jetbrains.annotations.NotNull;
@@ -78,8 +75,8 @@ public class Hearthstone extends Spell {
 
     @NotNull
     @Override
-    public SpellRecipe getRecipe() {
-        return new SpellRecipe(
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
             1,
             StoryType.MECHANICAL,
             StoryType.HUMAN,

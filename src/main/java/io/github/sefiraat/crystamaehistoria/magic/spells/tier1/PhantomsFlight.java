@@ -4,7 +4,7 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicSummon;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import io.github.sefiraat.crystamaehistoria.utils.mobgoals.FlyingPhantomGoal;
@@ -13,7 +13,6 @@ import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Bat;
 import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Phantom;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
@@ -81,8 +80,8 @@ public class PhantomsFlight extends Spell {
 
     @NotNull
     @Override
-    public SpellRecipe getRecipe() {
-        return new SpellRecipe(
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
             1,
             StoryType.ANIMAL,
             StoryType.CELESTIAL,

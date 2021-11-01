@@ -4,7 +4,7 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicSummon;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import io.github.sefiraat.crystamaehistoria.utils.mobgoals.DeityGoal;
@@ -70,8 +70,8 @@ public class Deity extends Spell {
 
     @NotNull
     @Override
-    public SpellRecipe getRecipe() {
-        return new SpellRecipe(
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
             1,
             StoryType.ELEMENTAL,
             StoryType.ANIMAL,

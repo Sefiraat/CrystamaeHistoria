@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.itemgroups;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.stories.StoriedBlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.ResearchUtils;
@@ -157,7 +158,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
             int amount = entry.getValue();
             if (amount > 0) {
                 StoryType type = entry.getKey();
-                ItemStack itemStack = CrystamaeHistoria.getStructure().getMaterials().getTypeItemMap().get(type).getItem().clone();
+                ItemStack itemStack = Materials.DUMMY_CRYSTAL_MAP.get(type).getItem().clone();
                 itemStack.setAmount(entry.getValue());
                 menu.replaceExistingItem(CRYSTAMAE[type.getId() - 1], itemStack);
             }

@@ -3,7 +3,7 @@ package io.github.sefiraat.crystamaehistoria.magic.spells.core;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTickRunnable;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
@@ -59,7 +59,7 @@ public abstract class Spell {
     public abstract Material getMaterial();
 
     @Nonnull
-    public abstract SpellRecipe getRecipe();
+    public abstract RecipeSpell getRecipe();
 
     @Nonnull
     public SlimefunItemStack getThemedStack() {
