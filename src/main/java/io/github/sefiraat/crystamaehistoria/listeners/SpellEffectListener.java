@@ -29,6 +29,7 @@ import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.player.PlayerEggThrowEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.weather.LightningStrikeEvent;
 import org.bukkit.inventory.ItemStack;
 
@@ -171,6 +172,10 @@ public class SpellEffectListener implements Listener {
 //        }
 //    }
 
+    @EventHandler
+    public void onPlayerLogout(PlayerQuitEvent event) {
+        CrystamaeHistoria.getActiveStorage().removeFlight(event.getPlayer());
+    }
 
 
 }

@@ -14,6 +14,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.CallLightning;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Chaos;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Compass;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Deity;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Gravity;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Hearthstone;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.PhantomsFlight;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EarthNova;
@@ -86,6 +87,7 @@ public enum SpellType {
     FIRE_NOVA(new FireNova()),
     FLAME_SPRITE(new FlameSprite()),
     FROST_NOVA(new FrostNova()),
+    GRAVITY(new Gravity()),
     HEAL(new Heal()),
     HEALING_MIST(new HealingMist()),
     HEARTHSTONE(new Hearthstone()),

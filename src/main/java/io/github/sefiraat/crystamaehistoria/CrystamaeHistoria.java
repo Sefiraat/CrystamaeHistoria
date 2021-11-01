@@ -32,7 +32,7 @@ public class CrystamaeHistoria extends AbstractAddon {
     private StoriesManager storiesManager;
     private ListenerManager listenerManager;
     private RunnableManager runnableManager;
-    private ActiveStorage activeStorage;
+    private SpellMemory spellMemory;
     private EffectManager effectManager;
 
     public CrystamaeHistoria() {
@@ -59,8 +59,8 @@ public class CrystamaeHistoria extends AbstractAddon {
         return instance.storiesManager;
     }
 
-    public static ActiveStorage getActiveStorage() {
-        return instance.activeStorage;
+    public static SpellMemory getActiveStorage() {
+        return instance.spellMemory;
     }
 
     public static EffectManager getEffectManager() {
@@ -77,17 +77,17 @@ public class CrystamaeHistoria extends AbstractAddon {
 
     @Nonnull
     public static Map<MagicProjectile, Pair<CastInformation, Long>> getProjectileMap() {
-        return instance.activeStorage.getProjectileMap();
+        return instance.spellMemory.getProjectileMap();
     }
 
     @Nonnull
     public static Map<UUID, Pair<CastInformation, Long>> getStrikeMap() {
-        return instance.activeStorage.getStrikeMap();
+        return instance.spellMemory.getStrikeMap();
     }
 
     @Nonnull
     public static Map<MagicSummon, Long> getSummonedEntityMap() {
-        return instance.activeStorage.getSummonedEntities();
+        return instance.spellMemory.getSummonedEntities();
     }
 
     @Nonnull
@@ -108,7 +108,7 @@ public class CrystamaeHistoria extends AbstractAddon {
 
     @Nonnull
     public static Map<SpellTickRunnable, Integer> getTickingMap() {
-        return instance.activeStorage.getTickingCastables();
+        return instance.spellMemory.getTickingCastables();
     }
 
     @Override
@@ -124,7 +124,7 @@ public class CrystamaeHistoria extends AbstractAddon {
         this.storiesManager = new StoriesManager();
         this.listenerManager = new ListenerManager();
         this.runnableManager = new RunnableManager();
-        this.activeStorage = new ActiveStorage();
+        this.spellMemory = new SpellMemory();
         this.effectManager = new EffectManager(this);
 
         structure.setup();
@@ -137,7 +137,7 @@ public class CrystamaeHistoria extends AbstractAddon {
 
     @Override
     protected void disable() {
-        activeStorage.clearAll();
+        spellMemory.clearAll();
         saveConfig();
         instance = null;
     }
