@@ -19,7 +19,6 @@ import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentPlateDataType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import lombok.Getter;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
@@ -283,9 +282,20 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
 
     @ParametersAreNonnullByDefault
     private boolean processOtherItem(Item item) {
-        ItemStack itemStack = item.getItemStack();
-        List<StoryType> typeList = contentMap.entrySet().stream().sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed()).limit(3).map(Map.Entry::getKey).collect(Collectors.toList());
-        List<Integer> amountList = contentMap.entrySet().stream().sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed()).limit(3).map(Map.Entry::getValue).collect(Collectors.toList());
+        final ItemStack itemStack = item.getItemStack();
+
+        final List<StoryType> typeList = contentMap.entrySet().stream()
+            .sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed())
+            .limit(3)
+            .map(Map.Entry::getKey)
+            .collect(Collectors.toList());
+
+        final List<Integer> amountList = contentMap.entrySet().stream()
+            .sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed())
+            .limit(3)
+            .map(Map.Entry::getValue)
+            .collect(Collectors.toList());
+
         if (typeList.size() == 3) {
             SlimefunItem.getByItem(itemStack);
             SlimefunItem slimefunItem = getMatchingRecipe(typeList, amountList, itemStack);

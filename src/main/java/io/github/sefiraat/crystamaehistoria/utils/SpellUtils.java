@@ -16,7 +16,6 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Mob;
 import org.bukkit.entity.Projectile;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -28,23 +27,54 @@ public class SpellUtils {
 
     // TODO Wrap projectiles in this also
 
-    public static <T extends Mob> MagicSummon summonTemporaryMob(EntityType entityType, UUID caster, Location location, AbstractGoal<T> goal) {
+    public static <T extends Mob> MagicSummon summonTemporaryMob(
+        EntityType entityType,
+        UUID caster,
+        Location location,
+        AbstractGoal<T> goal
+    ) {
         return summonTemporaryMob(entityType, caster, location, goal, 30);
     }
 
-    public static <T extends Mob> MagicSummon summonTemporaryMob(EntityType entityType, UUID caster, Location location, AbstractGoal<T> goal, int timeInSeconds) {
+    public static <T extends Mob> MagicSummon summonTemporaryMob(
+        EntityType entityType,
+        UUID caster,
+        Location location,
+        AbstractGoal<T> goal,
+        int timeInSeconds
+    ) {
         return summonTemporaryMob(entityType, caster, location, goal, timeInSeconds * 1000L, null);
     }
 
-    public static <T extends Mob> MagicSummon summonTemporaryMob(EntityType entityType, UUID caster, Location location, AbstractGoal<T> goal, @Nonnull Consumer<MagicSummon> tickConsumer) {
+    public static <T extends Mob> MagicSummon summonTemporaryMob(
+        EntityType entityType,
+        UUID caster,
+        Location location,
+        AbstractGoal<T> goal,
+        @Nonnull Consumer<MagicSummon> tickConsumer
+    ) {
         return summonTemporaryMob(entityType, caster, location, goal, 30, tickConsumer);
     }
 
-    public static <T extends Mob> MagicSummon summonTemporaryMob(EntityType entityType, UUID caster, Location location, AbstractGoal<T> goal, int timeInSeconds, @Nonnull Consumer<MagicSummon> tickConsumer) {
+    public static <T extends Mob> MagicSummon summonTemporaryMob(
+        EntityType entityType,
+        UUID caster,
+        Location location,
+        AbstractGoal<T> goal,
+        int timeInSeconds,
+        @Nonnull Consumer<MagicSummon> tickConsumer
+    ) {
         return summonTemporaryMob(entityType, caster, location, goal, timeInSeconds * 1000L, tickConsumer);
     }
 
-    private static <T extends Mob> MagicSummon summonTemporaryMob(EntityType entityType, UUID caster, Location location, AbstractGoal<T> goal, long duration, @Nullable Consumer<MagicSummon> tickConsumer) {
+    private static <T extends Mob> MagicSummon summonTemporaryMob(
+        EntityType entityType,
+        UUID caster,
+        Location location,
+        AbstractGoal<T> goal,
+        long duration,
+        @Nullable Consumer<MagicSummon> tickConsumer
+    ) {
         final T mob = (T) location.getWorld().spawnEntity(location, entityType);
         final MagicSummon magicSummon = new MagicSummon(mob.getUniqueId(), caster);
         final MobGoals mobGoals = Bukkit.getMobGoals();
@@ -64,23 +94,49 @@ public class SpellUtils {
         return magicSummon;
     }
 
-    public static MagicProjectile summonMagicProjectile(CastInformation castInformation, EntityType entityType, Location location) {
+    public static MagicProjectile summonMagicProjectile(
+        CastInformation castInformation,
+        EntityType entityType,
+        Location location
+    ) {
         return summonMagicProjectile(castInformation, entityType, location, 5);
     }
 
-    public static MagicProjectile summonMagicProjectile(CastInformation castInformation, EntityType entityType, Location location, int timeInSeconds) {
+    public static MagicProjectile summonMagicProjectile(
+        CastInformation castInformation,
+        EntityType entityType,
+        Location location,
+        int timeInSeconds
+    ) {
         return summonMagicProjectile(castInformation, entityType, location, timeInSeconds * 1000L, null);
     }
 
-    public static MagicProjectile summonMagicProjectile(CastInformation castInformation, EntityType entityType, Location location, @Nonnull Consumer<MagicProjectile> tickConsumer) {
+    public static MagicProjectile summonMagicProjectile(
+        CastInformation castInformation,
+        EntityType entityType,
+        Location location,
+        @Nonnull Consumer<MagicProjectile> tickConsumer
+    ) {
         return summonMagicProjectile(castInformation, entityType, location, 30, tickConsumer);
     }
 
-    public static MagicProjectile summonMagicProjectile(CastInformation castInformation, EntityType entityType, Location location, int timeInSeconds, @Nonnull Consumer<MagicProjectile> tickConsumer) {
+    public static MagicProjectile summonMagicProjectile(
+        CastInformation castInformation,
+        EntityType entityType,
+        Location location,
+        int timeInSeconds,
+        @Nonnull Consumer<MagicProjectile> tickConsumer
+    ) {
         return summonMagicProjectile(castInformation, entityType, location, timeInSeconds * 1000L, tickConsumer);
     }
 
-    private static MagicProjectile summonMagicProjectile(CastInformation castInformation, EntityType entityType, Location location, long duration, @Nullable Consumer<MagicProjectile> tickConsumer) {
+    private static MagicProjectile summonMagicProjectile(
+        CastInformation castInformation,
+        EntityType entityType,
+        Location location,
+        long duration,
+        @Nullable Consumer<MagicProjectile> tickConsumer
+    ) {
         final Projectile projectile = (Projectile) location.getWorld().spawnEntity(location, entityType);
         final MagicProjectile magicProjectile = new MagicProjectile(projectile);
 

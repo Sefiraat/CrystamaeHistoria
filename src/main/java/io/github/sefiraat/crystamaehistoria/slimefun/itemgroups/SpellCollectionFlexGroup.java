@@ -1,9 +1,9 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.itemgroups;
 
-import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCore;
+import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.ResearchUtils;
@@ -63,7 +63,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
     private static final int PROJECTILE_INFO = 42;
     private static final int EFFECTS = 43;
 
-    protected SpellCollectionFlexGroup(NamespacedKey key, ItemStack item) {
+    public SpellCollectionFlexGroup(NamespacedKey key, ItemStack item) {
         super(key, item);
     }
 

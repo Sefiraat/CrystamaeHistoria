@@ -83,7 +83,7 @@ public class Tracer extends Spell {
                 dustOptions,
                 location,
                 livingEntity.getLocation(),
-                0.2
+                1
             );
         }
     }

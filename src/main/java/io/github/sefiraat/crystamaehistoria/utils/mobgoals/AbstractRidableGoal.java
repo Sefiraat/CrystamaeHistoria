@@ -1,6 +1,5 @@
 package io.github.sefiraat.crystamaehistoria.utils.mobgoals;
 
-import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
@@ -30,7 +29,7 @@ public abstract class AbstractRidableGoal<T extends Mob> extends AbstractGoal<T>
             } else {
                 // Non-flying mobs
                 final Block block = destination.getBlock();
-                self.getPathfinder().moveTo(self.getLocation().add(0,0,1));
+                self.getPathfinder().moveTo(self.getLocation().add(0, 0, 1));
 
             }
 

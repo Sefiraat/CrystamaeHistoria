@@ -1,7 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.Stave;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
@@ -10,22 +9,19 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 public class Tools {
 
-    private final CrystamaeHistoria plugin;
+    public static Stave STAVE_BASIC;
+    public static Stave STAVE_ADVANCED;
 
-    @ParametersAreNonnullByDefault
-    public Tools(CrystamaeHistoria p) {
-        this.plugin = p;
-    }
+    public Tools() {
 
-    public void setup() {
-        final ItemStack elementalCrystal = CrystamaeHistoria.getStructure().getMaterials().getCrystalMap().get(StoryRarity.UNIQUE).get(StoryType.ELEMENTAL).getItem();
-        final ItemStack ingot = CrystamaeHistoria.getStructure().getMaterials().amalgamateIngot.getItem();
+        final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
 
-        Stave basic = new Stave(
+        // Basic Stave
+        final ItemStack elementalCrystal = Materials.CRYSTAL_MAP.get(StoryRarity.UNIQUE).get(StoryType.ELEMENTAL).getItem();
+
+        STAVE_BASIC = new Stave(
             ItemGroups.TOOLS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_STAVE_1",
@@ -44,7 +40,10 @@ public class Tools {
             1
         );
 
-        Stave advanced = new Stave(
+        // Advanced Stave
+        final ItemStack ingot = Materials.AMALGAMATE_INGOT.getItem();
+
+        STAVE_ADVANCED = new Stave(
             ItemGroups.TOOLS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_STAVE_2",
@@ -57,13 +56,14 @@ public class Tools {
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
                 ingot, ingot, ingot,
-                ingot, basic.getItem(), ingot,
+                ingot, STAVE_BASIC.getItem().clone(), ingot,
                 ingot, ingot, ingot
             },
             2
         );
 
-        basic.register(plugin);
-        advanced.register(plugin);
+        // Slimefun Registry
+        STAVE_BASIC.register(plugin);
+        STAVE_ADVANCED.register(plugin);
     }
 }

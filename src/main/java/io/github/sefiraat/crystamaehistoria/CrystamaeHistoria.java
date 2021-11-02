@@ -10,7 +10,10 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicSummon;
 import io.github.sefiraat.crystamaehistoria.runnables.RunnableManager;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTickRunnable;
-import io.github.sefiraat.crystamaehistoria.slimefun.Structure;
+import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
+import io.github.sefiraat.crystamaehistoria.slimefun.Machines;
+import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
+import io.github.sefiraat.crystamaehistoria.slimefun.Tools;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.utils.CrystaTag;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
@@ -27,7 +30,6 @@ public class CrystamaeHistoria extends AbstractAddon {
 
     private static CrystamaeHistoria instance;
 
-    private Structure structure;
     private ConfigManager configManager;
     private StoriesManager storiesManager;
     private ListenerManager listenerManager;
@@ -41,10 +43,6 @@ public class CrystamaeHistoria extends AbstractAddon {
 
     public static CrystamaeHistoria getInstance() {
         return instance;
-    }
-
-    public static Structure getStructure() {
-        return instance.structure;
     }
 
     public static ListenerManager getListenerManager() {
@@ -119,7 +117,6 @@ public class CrystamaeHistoria extends AbstractAddon {
         getLogger().info("    Crystamae Historia - By Sefiraat    ");
         getLogger().info("########################################");
 
-        this.structure = new Structure();
         this.configManager = new ConfigManager();
         this.storiesManager = new StoriesManager();
         this.listenerManager = new ListenerManager();
@@ -127,7 +124,7 @@ public class CrystamaeHistoria extends AbstractAddon {
         this.spellMemory = new SpellMemory();
         this.effectManager = new EffectManager(this);
 
-        structure.setup();
+        setupSlimefun();
 
         new Metrics(this, 12065);
 
@@ -141,4 +138,12 @@ public class CrystamaeHistoria extends AbstractAddon {
         saveConfig();
         instance = null;
     }
+
+    private void setupSlimefun() {
+        new ItemGroups();
+        new Materials();
+        new Machines();
+        new Tools();
+    }
+
 }

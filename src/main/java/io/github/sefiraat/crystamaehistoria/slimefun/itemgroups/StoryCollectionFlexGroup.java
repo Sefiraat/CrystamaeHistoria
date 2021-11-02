@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.itemgroups;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.stories.StoriedBlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
@@ -58,7 +59,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         45, 46, 47, 48, 49, 50, 51, 52, 53
     };
 
-    protected StoryCollectionFlexGroup(NamespacedKey key, ItemStack item) {
+    public StoryCollectionFlexGroup(NamespacedKey key, ItemStack item) {
         super(key, item);
     }
 

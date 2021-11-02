@@ -1,11 +1,8 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin;
 
-import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
-import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import lombok.Getter;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -14,7 +11,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Set;
 
 public class RecipeItem {
 
@@ -42,7 +38,7 @@ public class RecipeItem {
         }
         for (StoryType testType : testTypes) {
             int index = storyTypes.indexOf(testType);
-            if (index == -1 || amounts.get(index) < testAmounts.get(i)) {
+            if (index == -1 || amounts.get(index) > testAmounts.get(i)) {
                 return false;
             }
             i++;
@@ -52,9 +48,9 @@ public class RecipeItem {
 
     public ItemStack[] getDisplayRecipe() {
         return new ItemStack[]{
-            null,                       inputItem,                  null,
+            null, inputItem, null,
             getDisplayCrystal(0), getDisplayCrystal(1), getDisplayCrystal(2),
-            null,                       null,                       null
+            null, null, null
         };
     }
 
