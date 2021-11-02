@@ -98,12 +98,19 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
 
     @ParametersAreNonnullByDefault
     public void consumeItems() {
-        Collection<Entity> entities = getWorld().getNearbyEntities(getLocation().clone().add(0.5, 0.5, 0.5), 0.3, 0.3, 0.3, Item.class::isInstance);
+        final Collection<Entity> entities = getWorld().getNearbyEntities(
+            getLocation().clone().add(0.5, 0.5, 0.5),
+            0.3,
+            0.3,
+            0.3,
+            Item.class::isInstance
+        );
+
         for (Entity entity : entities) {
-            Item item = (Item) entity;
-            SlimefunItem slimefunItem = SlimefunItem.getByItem(item.getItemStack());
+            final Item item = (Item) entity;
+            final SlimefunItem slimefunItem = SlimefunItem.getByItem(item.getItemStack());
             if (slimefunItem instanceof Crystal) {
-                Crystal crystal = (Crystal) slimefunItem;
+                final Crystal crystal = (Crystal) slimefunItem;
                 addCrystamae(crystal.getType(), crystal.getRarity(), item);
             } else if (slimefunItem instanceof BlankPlate) {
                 processBlankPlate(item, (BlankPlate) slimefunItem);
@@ -122,16 +129,16 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
 
     @ParametersAreNonnullByDefault
     private void rejectItem(Item item, boolean punish) {
-        double velX = ThreadLocalRandom.current().nextDouble(-0.9, 1.1);
-        double velZ = ThreadLocalRandom.current().nextDouble(-0.9, 1.1);
+        final double velX = ThreadLocalRandom.current().nextDouble(-0.9, 1.1);
+        final double velZ = ThreadLocalRandom.current().nextDouble(-0.9, 1.1);
         item.setVelocity(new Vector(velX, 0.5, velZ));
         // TODO Punishment for incorrect usage
     }
 
     @ParametersAreNonnullByDefault
     private void addCrystamae(StoryType type, StoryRarity rarity, Item item) {
-        int numberInStack = item.getItemStack().getAmount();
-        int amount = LiquefactionBasinCache.RARITY_VALUE_MAP.get(rarity) * numberInStack;
+        final int numberInStack = item.getItemStack().getAmount();
+        final int amount = LiquefactionBasinCache.RARITY_VALUE_MAP.get(rarity) * numberInStack;
         if (getFillLevel() + amount > MAX_VOLUME) {
             rejectItem(item, false);
         } else {
@@ -189,8 +196,8 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
     }
 
     private void clearBlockStorage() {
-        Config c = BlockStorage.getLocationInfo(blockMenu.getLocation());
-        List<String> keys = new ArrayList<>();
+        final Config c = BlockStorage.getLocationInfo(blockMenu.getLocation());
+        final List<String> keys = new ArrayList<>();
         for (String key : c.getKeys()) {
             if (key.startsWith(CH_LEVEL_PREFIX)) {
                 keys.add(key);
@@ -218,11 +225,16 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
 
     @ParametersAreNonnullByDefault
     private void processBlankPlate(Item item, BlankPlate plate) {
-        Set<StoryType> set = contentMap.entrySet().stream().sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed()).limit(3).map(Map.Entry::getKey).collect(Collectors.toSet());
-        ItemStack itemStack = item.getItemStack();
+        final Set<StoryType> set = contentMap.entrySet().stream()
+            .sorted(Map.Entry.<StoryType, Integer>comparingByValue().reversed())
+            .limit(3)
+            .map(Map.Entry::getKey)
+            .collect(Collectors.toSet());
+
+        final ItemStack itemStack = item.getItemStack();
         if (set.size() == 3) {
             SlimefunItem.getByItem(itemStack);
-            SpellType spellType = getMatchingRecipe(set, plate);
+            final SpellType spellType = getMatchingRecipe(set, plate);
             if (spellType != null) {
                 item.getWorld().dropItem(item.getLocation(), ChargedPlate.getChargedPlate(plate.getTier(), spellType, getFillLevel()));
                 if (itemStack.getAmount() > 1) {
@@ -246,7 +258,11 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
     private void processChargedPlate(Item item, ChargedPlate plate) {
         final ItemStack itemStack = item.getItemStack();
         final ItemMeta itemMeta = itemStack.getItemMeta();
-        final InstancePlate instancePlate = DataTypeMethods.getCustom(itemMeta, Keys.PDC_PLATE_STORAGE, PersistentPlateDataType.TYPE);
+        final InstancePlate instancePlate = DataTypeMethods.getCustom(
+            itemMeta,
+            Keys.PDC_PLATE_STORAGE,
+            PersistentPlateDataType.TYPE
+        );
 
         if (instancePlate == null) {
             CrystamaeHistoria.log(
@@ -350,12 +366,28 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
 
     private void summonConsumeParticles() {
         final Location location = getLocation(true).add(0, 0.8, 0);
-        location.getWorld().spawnParticle(Particle.CAMPFIRE_COSY_SMOKE, location, 0, 0.2, 0, 0.2, 0);
+        location.getWorld().spawnParticle(
+            Particle.CAMPFIRE_COSY_SMOKE,
+            location,
+            0,
+            0.2,
+            0,
+            0.2,
+            0
+        );
     }
 
     private void summonBoilingParticles() {
         final Location location = getLocation(true).add(0, 0.8, 0);
-        location.getWorld().spawnParticle(Particle.SMOKE_NORMAL, location, 0, 0.2, 0, 0.5, 0);
+        location.getWorld().spawnParticle(
+            Particle.SMOKE_NORMAL,
+            location,
+            0,
+            0.2,
+            0,
+            0.5,
+            0
+        );
     }
 
     private void summonCatalystParticles() {

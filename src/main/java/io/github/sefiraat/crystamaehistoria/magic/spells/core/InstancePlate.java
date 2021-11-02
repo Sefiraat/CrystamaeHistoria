@@ -67,7 +67,6 @@ public class InstancePlate {
                 spell.castSpell(castInformation);
                 this.crysta -= crystaCost;
                 final long cdSeconds = (long) (spell.getCooldownSeconds(castInformation) * 1000);
-                CrystamaeHistoria.log(Level.WARNING, String.valueOf(cdSeconds));
                 this.cooldown = System.currentTimeMillis() + cdSeconds;
                 return CastResult.CAST_SUCCESS;
             } else {

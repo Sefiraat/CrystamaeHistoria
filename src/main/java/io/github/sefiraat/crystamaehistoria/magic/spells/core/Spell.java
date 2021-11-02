@@ -11,6 +11,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import lombok.Getter;
 import lombok.Setter;
+import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -223,7 +224,8 @@ public abstract class Spell {
         Player player = Bukkit.getPlayer(caster);
         if (player != null
             && hasPermission(caster, block, Interaction.BREAK_BLOCK)
-            && block.getType().getHardness() < 100
+            && block.getType().getHardness() != -1
+            && !BlockStorage.hasBlockInfo(block)
         ) {
             block.breakNaturally(player.getInventory().getItemInMainHand());
             return true;

@@ -13,6 +13,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Bright;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.CallLightning;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Chaos;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Compass;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.CurificationRitual;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Deity;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EarthNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EndermansVeil;
@@ -78,6 +79,7 @@ public enum SpellType {
     CALL_LIGHTNING(new CallLightning()),
     CHAOS(new Chaos()),
     COMPASS(new Compass()),
+    CURIFICATION_RITUAL(new CurificationRitual()),
     DEITY(new Deity()),
     EARTH_NOVA(new EarthNova()),
     ENDERMANS_VEIL(new EndermansVeil()),
