@@ -49,6 +49,9 @@ public abstract class Spell {
     @Getter
     @Setter
     private SpellCore spellCore;
+    @Getter
+    @Setter
+    private boolean enabled;
 
     @Nonnull
     public abstract String getId();

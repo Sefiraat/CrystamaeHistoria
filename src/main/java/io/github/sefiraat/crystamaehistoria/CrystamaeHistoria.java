@@ -125,6 +125,7 @@ public class CrystamaeHistoria extends AbstractAddon {
         this.effectManager = new EffectManager(this);
 
         setupSlimefun();
+        configManager.setupConfigs();
 
         new Metrics(this, 12065);
 

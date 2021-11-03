@@ -266,11 +266,15 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         if (spellCore.isDamagingSpell()) {
             lore.add(damageMessage);
             lore.add(damageMulti);
+        } else {
+            lore.add(passive + "This spell does not damage.");
         }
 
         if (spellCore.isHealingSpell()) {
             lore.add(healMessage);
             lore.add(healMulti);
+        } else {
+            lore.add(passive + "This spell does not heal.");
         }
 
         return new CustomItemStack(
@@ -329,7 +333,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
 
         final String message = MessageFormat.format("{0}Range: {1}{2}", color, passive, spell.getSpellCore().getRange());
         final String multiMessage = MessageFormat.format("{0}Range {1} with stave tier", passive, spell.getSpellCore().isRangeMultiplied() ? "increases" : "doesn't increase");
-        final String noRange = "Not effected by range";
+        final String noRange = passive + "Not effected by range";
 
         if (spell.getSpellCore().getKnockbackAmount() > 0) {
             lore.add(message);
@@ -352,7 +356,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
 
         final String message = MessageFormat.format("{0}Knockback: {1}{2}", color, passive, spell.getSpellCore().getKnockbackAmount());
         final String multiMessage = MessageFormat.format("{0}Amount {1} with stave tier", passive, spell.getSpellCore().isKnockbackMultiplied() ? "increases" : "doesn't increase");
-        final String noKnockback = "No direct knockback";
+        final String noKnockback = passive + "No direct knockback";
 
         if (spell.getSpellCore().getKnockbackAmount() > 0) {
             lore.add(message);

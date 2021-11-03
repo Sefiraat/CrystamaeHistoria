@@ -1,5 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.magic;
 
+import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.config.ConfigManager;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.AirNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.AirSprite;
@@ -63,6 +65,7 @@ import lombok.Getter;
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.Arrays;
 
 public enum SpellType {
 
@@ -125,14 +128,19 @@ public enum SpellType {
     WITHER_WEATHER(new WitherWeather());
 
     @Getter
-    protected static final SpellType[] cachedValues = values();
+    protected static final SpellType[] cachedValues = Arrays.stream(values())
+        .filter(spellType -> spellType.getSpell().isEnabled())
+        .toArray(SpellType[]::new);
     @Getter
     private final Spell spell;
 
     @ParametersAreNonnullByDefault
     SpellType(Spell spell) {
+        spell.setEnabled(CrystamaeHistoria.getConfigManager().spellEnabled(spell));
+        if (spell.isEnabled()) {
+            LiquefactionBasinCache.addSpellRecipe(this, spell.getRecipe());
+        }
         this.spell = spell;
-        LiquefactionBasinCache.addSpellRecipe(this, spell.getRecipe());
     }
 
     @Nullable

@@ -13,7 +13,6 @@ import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 
 @Getter
 public class InstancePlate {
@@ -32,10 +31,8 @@ public class InstancePlate {
     }
 
     public static void setPlateLore(ItemStack itemStack, InstancePlate instancePlate) {
-
-        String magic = instancePlate != null ? ThemeType.toTitleCase(instancePlate.storedSpell.getId()) : "None";
-        String crysta = instancePlate != null ? String.valueOf(instancePlate.crysta) : "0";
-
+        final String magic = instancePlate != null ? ThemeType.toTitleCase(instancePlate.storedSpell.getId()) : "None";
+        final String crysta = instancePlate != null ? String.valueOf(instancePlate.crysta) : "0";
         final String[] lore = new String[]{
             "A magically charged plate storing magic",
             "potential.",
@@ -43,8 +40,9 @@ public class InstancePlate {
             ThemeType.CLICK_INFO.getColor() + "Magic Framework : " + ThemeType.NOTICE.getColor() + magic,
             ThemeType.CLICK_INFO.getColor() + "Stored Crysta : " + ThemeType.NOTICE.getColor() + crysta
         };
-        ChatColor passiveColor = ThemeType.PASSIVE.getColor();
-        List<String> finalLore = new ArrayList<>();
+        final ChatColor passiveColor = ThemeType.PASSIVE.getColor();
+        final List<String> finalLore = new ArrayList<>();
+        final ItemMeta itemMeta = itemStack.getItemMeta();
 
         finalLore.add("");
         for (String s : lore) {
@@ -52,32 +50,42 @@ public class InstancePlate {
         }
         finalLore.add("");
         finalLore.add(ThemeType.applyThemeToString(ThemeType.CLICK_INFO, ThemeType.CRAFTING.getLoreLine()));
-
-        final ItemMeta itemMeta = itemStack.getItemMeta();
         itemMeta.setLore(finalLore);
         itemStack.setItemMeta(itemMeta);
     }
 
     public CastResult tryCastSpell(CastInformation castInformation) {
-        castInformation.setSpellType(storedSpell);
-        Spell spell = storedSpell.getSpell();
-        int crystaCost = spell.getCrystaCost(castInformation);
-        if (crysta >= crystaCost) {
-            if (cooldown <= System.currentTimeMillis()) {
-                spell.castSpell(castInformation);
-                this.crysta -= crystaCost;
-                final long cdSeconds = (long) (spell.getCooldownSeconds(castInformation) * 1000);
-                this.cooldown = System.currentTimeMillis() + cdSeconds;
-                return CastResult.CAST_SUCCESS;
-            } else {
-                return CastResult.ON_COOLDOWN;
-            }
-        } else {
+        final Spell spell = storedSpell.getSpell();
+        final int crystaCost = spell.getCrystaCost(castInformation);
+
+        // Is spell disabled in the spells.yml?
+        if (!CrystamaeHistoria.getConfigManager().spellEnabled(spell)) {
+            return CastResult.SPELL_DISABLED;
+        }
+
+        // Is enough crysta currently stored in the plate?
+        if (crysta < crystaCost) {
             return CastResult.CAST_FAIL_NO_CRYSTA;
         }
+
+        // Is the spell still on cooldown?
+        if (cooldown > System.currentTimeMillis()) {
+            return CastResult.ON_COOLDOWN;
+        }
+
+        castInformation.setSpellType(storedSpell);
+        spell.castSpell(castInformation);
+        this.crysta -= crystaCost;
+        final long cdSeconds = (long) (spell.getCooldownSeconds(castInformation) * 1000);
+        this.cooldown = System.currentTimeMillis() + cdSeconds;
+        return CastResult.CAST_SUCCESS;
     }
 
     public void addCrysta(int amount) {
         this.crysta += amount;
+    }
+
+    public void removeCrysta(int amount) {
+        this.crysta -= amount;
     }
 }
