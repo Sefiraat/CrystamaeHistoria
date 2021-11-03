@@ -90,7 +90,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
     }
 
     private void setupPage(@Nonnull Player p, @Nonnull PlayerProfile profile, @Nonnull SlimefunGuideMode mode, @Nonnull ChestMenu menu, int page) {
-        final List<SpellType> spellTypes = Arrays.asList(SpellType.getCachedValues());
+        final List<SpellType> spellTypes = Arrays.asList(SpellType.getEnabledSpells());
         final int numberOfBlocks = spellTypes.size();
         final int totalPages = (int) Math.ceil(numberOfBlocks / (double) PAGE_SIZE);
         final int start = (page - 1) * PAGE_SIZE;

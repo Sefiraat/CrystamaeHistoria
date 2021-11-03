@@ -79,8 +79,6 @@ public class SpellUtils {
         final MagicSummon magicSummon = new MagicSummon(mob.getUniqueId(), caster);
         final MobGoals mobGoals = Bukkit.getMobGoals();
 
-        mobGoals.removeAllGoals(mob);
-
         if (tickConsumer != null) {
             magicSummon.setTickConsumer(tickConsumer);
         }

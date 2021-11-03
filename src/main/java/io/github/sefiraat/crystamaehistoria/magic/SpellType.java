@@ -33,12 +33,14 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.HealingMist;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Hearthstone;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Hellscape;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.HolyCow;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.ImbueVoid;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.KnowledgeShare;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LavaLake;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LeechBomb;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LovePotion;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Oviparous;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.PhantomsFlight;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.PhilosophersStone;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.PoisonNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Prism;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Protectorate;
@@ -98,6 +100,7 @@ public enum SpellType {
     HEARTHSTONE(new Hearthstone()),
     HELLSCAPE(new Hellscape()),
     HOLY_COW(new HolyCow()),
+    IMBUE_VOID(new ImbueVoid()),
     GYROSCOPIC(new Gyroscopic()),
     HARMONYS_SONATA(new HarmonysSonata()),
     KNOWLEDGE_SHARE(new KnowledgeShare()),
@@ -106,6 +109,7 @@ public enum SpellType {
     LOVE_POTION(new LovePotion()),
     OVIPAROUS(new Oviparous()),
     PHANTOMS_FLIGHT(new PhantomsFlight()),
+    PHILOSOPHERS_STONE(new PhilosophersStone()),
     POISON_NOVA(new PoisonNova()),
     PRISM(new Prism()),
     PROTECTORATE(new Protectorate()),
@@ -128,7 +132,9 @@ public enum SpellType {
     WITHER_WEATHER(new WitherWeather());
 
     @Getter
-    protected static final SpellType[] cachedValues = Arrays.stream(values())
+    protected static final SpellType[] cachedValues = values();
+    @Getter
+    protected static final SpellType[] enabledSpells = Arrays.stream(values())
         .filter(spellType -> spellType.getSpell().isEnabled())
         .toArray(SpellType[]::new);
     @Getter
