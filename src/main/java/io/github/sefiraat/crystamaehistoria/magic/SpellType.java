@@ -54,6 +54,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Shroud;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.SpawnFiends;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Squall;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.StarFall;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.StripMine;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.SummonGolem;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Teleport;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Tempest;
@@ -124,6 +125,7 @@ public enum SpellType {
     SPAWN_FIENDS(new SpawnFiends()),
     SQUALL(new Squall()),
     STAR_FALL(new StarFall()),
+    STRIP_MINE(new StripMine()),
     SUMMON_GOLEM(new SummonGolem()),
     TELEPORT(new Teleport()),
     TEMPEST(new Tempest()),

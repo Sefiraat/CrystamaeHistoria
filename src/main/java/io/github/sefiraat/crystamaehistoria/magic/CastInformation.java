@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
+import org.bukkit.block.BlockFace;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
@@ -34,6 +35,12 @@ public class CastInformation {
     private Block hitBlock;
     @Getter
     @Setter
+    private Block targetedBlockOnCast;
+    @Getter
+    @Setter
+    private BlockFace targetedBlockFaceOnCast;
+    @Getter
+    @Setter
     private Location projectileLocation;
     @Getter
     @Setter
@@ -56,6 +63,8 @@ public class CastInformation {
         this.caster = caster.getUniqueId();
         this.staveLevel = staveLevel;
         this.castLocation = caster.getLocation().clone();
+        this.targetedBlockOnCast = caster.getTargetBlockExact(50);
+        this.targetedBlockFaceOnCast = caster.getTargetBlockFace(50);
     }
 
     public Player getCasterAsPlayer() {
