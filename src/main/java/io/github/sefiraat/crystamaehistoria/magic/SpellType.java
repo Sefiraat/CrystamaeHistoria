@@ -13,6 +13,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Bobulate;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Break;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Bright;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.CallLightning;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Cascada;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Chaos;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Compass;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.CurificationRitual;
@@ -82,6 +83,7 @@ public enum SpellType {
     BREAK(new Break()),
     BRIGHT(new Bright()),
     CALL_LIGHTNING(new CallLightning()),
+    CASCADA(new Cascada()),
     CHAOS(new Chaos()),
     COMPASS(new Compass()),
     CURIFICATION_RITUAL(new CurificationRitual()),
