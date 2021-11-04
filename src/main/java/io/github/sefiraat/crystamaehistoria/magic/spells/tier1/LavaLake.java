@@ -29,7 +29,7 @@ public class LavaLake extends Spell {
         final double size = getRange(castInformation);
         final Block standingBlock = location.getBlock();
 
-        if (hasPermission(castInformation.getCaster(), standingBlock, Interaction.PLACE_BLOCK)
+        if (GeneralUtils.hasPermission(castInformation.getCaster(), standingBlock, Interaction.PLACE_BLOCK)
             && standingBlock.getType() == Material.AIR
         ) {
             standingBlock.setType(Material.NETHER_BRICKS);
@@ -40,7 +40,7 @@ public class LavaLake extends Spell {
         for (double x = -size; x < size; x++) {
             for (double z = -size; z < size; z++) {
                 final Block potentialLava = location.clone().add(x, 0, z).getBlock();
-                if (hasPermission(castInformation.getCaster(), potentialLava, Interaction.PLACE_BLOCK)
+                if (GeneralUtils.hasPermission(castInformation.getCaster(), potentialLava, Interaction.PLACE_BLOCK)
                     && potentialLava.getType() == Material.AIR
                 ) {
                     potentialLava.setType(Material.LAVA);

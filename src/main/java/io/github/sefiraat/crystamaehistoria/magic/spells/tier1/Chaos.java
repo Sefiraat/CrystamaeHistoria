@@ -6,6 +6,8 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -58,11 +60,11 @@ public class Chaos extends Spell {
     }
 
     public void onTick(MagicProjectile magicProjectile) {
-        displayParticleEffect(magicProjectile.getProjectile(), Particle.GLOW, 0.2, 1);
+        ParticleUtils.displayParticleEffect(magicProjectile.getProjectile(), Particle.GLOW, 0.2, 1);
     }
 
     public void onHitEntity(CastInformation castInformation) {
-        damageEntity(
+        GeneralUtils.damageEntity(
             castInformation.getMainTarget(),
             castInformation.getCaster(),
             getDamage(castInformation),
@@ -72,7 +74,7 @@ public class Chaos extends Spell {
     }
 
     public void onHitBlock(CastInformation castInformation) {
-        tryBreakBlock(castInformation.getCaster(), castInformation.getHitBlock());
+        GeneralUtils.tryBreakBlock(castInformation.getCaster(), castInformation.getHitBlock());
     }
 
     @Nonnull

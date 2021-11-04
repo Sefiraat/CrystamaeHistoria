@@ -7,6 +7,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.CrystaTag;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import io.github.thebusybiscuit.slimefun4.utils.tags.SlimefunTag;
@@ -58,7 +59,7 @@ public class PhilosophersStone extends Spell {
     public void cast(CastInformation castInformation) {
         final Player player = castInformation.getCasterAsPlayer();
         final Block block = player.getTargetBlockExact((int) getRange(castInformation));
-        if (hasPermission(player, block, Interaction.BREAK_BLOCK)
+        if (GeneralUtils.hasPermission(player, block, Interaction.BREAK_BLOCK)
             && block.getType().getHardness() != -1
             && !block.getType().isAir()
         ) {

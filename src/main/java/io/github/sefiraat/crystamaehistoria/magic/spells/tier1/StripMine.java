@@ -5,10 +5,10 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
-import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 
@@ -43,8 +43,8 @@ public class StripMine extends Spell {
 
         final Block block = castInformation.getTargetedBlockOnCast().getRelative(xOffset, 0, zOffset);
         final Block blockBelow = block.getRelative(BlockFace.DOWN);
-        if (tryBreakBlock(castInformation.getCaster(), block)) {
-            if (tryBreakBlock(castInformation.getCaster(), blockBelow)
+        if (GeneralUtils.tryBreakBlock(castInformation.getCaster(), block)) {
+            if (GeneralUtils.tryBreakBlock(castInformation.getCaster(), blockBelow)
                 && castInformation.getCurrentTick() % 5 == 0
             ) {
                 blockBelow.setType(Material.TORCH);

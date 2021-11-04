@@ -5,6 +5,8 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -41,8 +43,8 @@ public class Push extends Spell {
         double range = getRange(castInformation);
         for (Entity entity : castLocation.getWorld().getNearbyEntities(castLocation, range, 2, range)) {
             if (entity instanceof LivingEntity && entity.getUniqueId() != castInformation.getCaster()) {
-                pushEntity(castInformation.getCaster(), castLocation, entity, amount);
-                displayParticleEffect(entity, Particle.CRIT, 1, 10);
+                GeneralUtils.pushEntity(castInformation.getCaster(), castLocation, entity, amount);
+                ParticleUtils.displayParticleEffect(entity, Particle.CRIT, 1, 10);
             }
         }
     }

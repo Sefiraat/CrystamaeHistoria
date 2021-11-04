@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import io.github.sefiraat.crystamaehistoria.utils.mobgoals.GolemGoal;
 import org.bukkit.Location;
@@ -58,7 +59,7 @@ public class SummonGolem extends Spell {
         ) {
             mob.teleport(player.getLocation());
         }
-        displayParticleEffect(magicSummon.getMob(), Particle.SLIME, 1, 3);
+        ParticleUtils.displayParticleEffect(magicSummon.getMob(), Particle.SLIME, 1, 3);
     }
 
     @Nonnull

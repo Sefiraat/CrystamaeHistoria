@@ -6,6 +6,8 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -49,14 +51,14 @@ public class AirNova extends Spell {
     @ParametersAreNonnullByDefault
     public void projectileHit(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
-            damageEntity(
+            GeneralUtils.damageEntity(
                 livingEntity,
                 castInformation.getCaster(),
                 getDamage(castInformation),
                 castInformation.getProjectileLocation().clone().subtract(0, 1, 0),
                 getKnockback(castInformation)
             );
-            displayParticleEffect(livingEntity, Particle.SWEEP_ATTACK, 1, 5);
+            ParticleUtils.displayParticleEffect(livingEntity, Particle.SWEEP_ATTACK, 1, 5);
         }
     }
 

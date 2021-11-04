@@ -52,6 +52,17 @@ public class SpellEffectListener implements Listener {
         final Entity hitEntity = event.getHitEntity();
 
         event.setCancelled(true);
+
+        // We don't want magic projectiles to hit their own passengers.
+        List<Entity> passengers = magicProjectile.getProjectile().getPassengers();
+        if (event.getHitEntity() != null && !passengers.isEmpty()) {
+            for (Entity entity : passengers) {
+                if (entity.getUniqueId() == event.getHitEntity().getUniqueId()) {
+                    return;
+                }
+            }
+        }
+
         castInfo.setProjectileLocation(magicProjectile.getLocation());
 
         if (entityHitAllowed(castInfo, hitEntity)) {

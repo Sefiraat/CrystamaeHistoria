@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import org.bukkit.Location;
@@ -75,7 +76,7 @@ public class Animaniacs extends Spell {
             final Location entityLocation = entity.getLocation();
             final EntityType entityType = entity.getType();
             if (CONVERTIBLE_LIST.contains(entityType)
-                && hasPermission(castInformation.getCaster(), entityLocation, Interaction.INTERACT_ENTITY)
+                && GeneralUtils.hasPermission(castInformation.getCaster(), entityLocation, Interaction.INTERACT_ENTITY)
             ) {
                 final EntityType convertTo = CONVERTIBLE_LIST.get(ThreadLocalRandom.current().nextInt(CONVERTIBLE_LIST.size()));
                 final String name = entity.getCustomName();

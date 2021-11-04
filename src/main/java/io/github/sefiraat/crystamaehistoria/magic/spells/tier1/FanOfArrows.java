@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -46,7 +47,7 @@ public class FanOfArrows extends Spell {
 
     @ParametersAreNonnullByDefault
     public void projectileHit(CastInformation castInformation) {
-        damageEntity(castInformation.getMainTarget(), castInformation.getCaster(), getDamage(castInformation));
+        GeneralUtils.damageEntity(castInformation.getMainTarget(), castInformation.getCaster(), getDamage(castInformation));
     }
 
     @Nonnull

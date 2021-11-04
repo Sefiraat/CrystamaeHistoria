@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -34,7 +35,7 @@ public class EndermansVeil extends Spell {
 
             if (teleportToLocation != null) {
                 caster.teleport(teleportToLocation);
-                displayParticleEffect(caster, Particle.END_ROD, 1, 10);
+                ParticleUtils.displayParticleEffect(caster, Particle.END_ROD, 1, 10);
             } else {
                 caster.sendMessage(CrystamaeHistoria.getInstance().getConfig().getString("messages.spells.teleport_no_suitable_location"));
             }

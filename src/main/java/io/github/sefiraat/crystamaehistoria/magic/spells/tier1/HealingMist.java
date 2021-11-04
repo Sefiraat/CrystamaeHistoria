@@ -5,6 +5,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -33,8 +34,8 @@ public class HealingMist extends Spell {
         for (Entity entity : location.getWorld().getNearbyEntities(location, range, range, range, Player.class::isInstance)) {
             Player player = (Player) entity;
             applyPositiveEffects(player, castInformation);
-            displayParticleEffect(player, Particle.HEART, 2, 5);
-            displayParticleEffect(player, Particle.CLOUD, 2, 2);
+            ParticleUtils.displayParticleEffect(player, Particle.HEART, 2, 5);
+            ParticleUtils.displayParticleEffect(player, Particle.CLOUD, 2, 2);
         }
     }
 

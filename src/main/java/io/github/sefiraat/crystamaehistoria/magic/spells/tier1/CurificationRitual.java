@@ -5,13 +5,12 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import org.bukkit.Bukkit;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
-import org.bukkit.entity.Villager;
 import org.bukkit.entity.Zombie;
 import org.bukkit.entity.ZombieVillager;
 import org.jetbrains.annotations.NotNull;
@@ -41,13 +40,13 @@ public class CurificationRitual extends Spell {
         );
         for (Entity entity : zombies) {
             if (entity instanceof ZombieVillager) {
-                displayParticleEffect(entity, Particle.WAX_OFF, 2, 10);
+                ParticleUtils.displayParticleEffect(entity, Particle.WAX_OFF, 2, 10);
                 ZombieVillager zombieVillager = (ZombieVillager) entity;
                 zombieVillager.setConversionTime(100);
                 zombieVillager.setConversionPlayer(caster);
             } else if (entity instanceof Zombie) {
                 Zombie zombie = (Zombie) entity;
-                damageEntity(zombie, castInformation.getCaster(), getDamage(castInformation));
+                GeneralUtils.damageEntity(zombie, castInformation.getCaster(), getDamage(castInformation));
             }
         }
     }

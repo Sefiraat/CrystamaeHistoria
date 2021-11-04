@@ -1,13 +1,13 @@
 package io.github.sefiraat.crystamaehistoria.magic;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.config.ConfigManager;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.AirNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.AirSprite;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.AncientDefence;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Animaniacs;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.AntiPrism;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.BatteringRam;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.BloodMagics;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Bobulate;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Break;
@@ -29,6 +29,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FrostNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Gravity;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Gyroscopic;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.HarmonysSonata;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.HarvestMoon;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Heal;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.HealingMist;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Hearthstone;
@@ -61,6 +62,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Tempest;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.TimeCompression;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.TimeDilation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Tracer;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.TunnelBore;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Vacuum;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.WitherWeather;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.LiquefactionBasinCache;
@@ -79,6 +81,7 @@ public enum SpellType {
     ANCIENT_DEFENCE(new AncientDefence()),
     ANIMANIACS(new Animaniacs()),
     ANTI_PRISM(new AntiPrism()),
+    BATTERING_RAM(new BatteringRam()),
     BLOOD_MAGICS(new BloodMagics()),
     BOBULATE(new Bobulate()),
     BREAK(new Break()),
@@ -106,6 +109,7 @@ public enum SpellType {
     IMBUE_VOID(new ImbueVoid()),
     GYROSCOPIC(new Gyroscopic()),
     HARMONYS_SONATA(new HarmonysSonata()),
+    HARVEST_MOON(new HarvestMoon()),
     KNOWLEDGE_SHARE(new KnowledgeShare()),
     LAVA_LAKE(new LavaLake()),
     LEECH_BOMB(new LeechBomb()),
@@ -132,6 +136,7 @@ public enum SpellType {
     TIME_COMPRESSION(new TimeCompression()),
     TIME_DILATION(new TimeDilation()),
     TRACER(new Tracer()),
+    TUNNEL_BORE(new TunnelBore()),
     VACUUM(new Vacuum()),
     WITHER_WEATHER(new WitherWeather());
 

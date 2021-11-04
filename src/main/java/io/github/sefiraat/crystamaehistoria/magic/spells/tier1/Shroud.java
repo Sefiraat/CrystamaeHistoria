@@ -5,6 +5,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -36,7 +37,7 @@ public class Shroud extends Spell {
             if (entity instanceof LivingEntity && entity.getUniqueId() != castInformation.getCaster()) {
                 LivingEntity livingEntity = (LivingEntity) entity;
                 applyNegativeEffects(livingEntity, castInformation);
-                displayParticleEffect(livingEntity, Particle.SLIME, 2, 2);
+                ParticleUtils.displayParticleEffect(livingEntity, Particle.SLIME, 2, 2);
             }
         }
     }

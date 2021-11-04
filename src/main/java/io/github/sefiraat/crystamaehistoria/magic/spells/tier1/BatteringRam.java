@@ -6,27 +6,25 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
-import io.github.sefiraat.crystamaehistoria.utils.mobgoals.FlyingPhantomGoal;
+import io.github.sefiraat.crystamaehistoria.utils.mobgoals.BatteringRamGoal;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.Particle;
-import org.bukkit.entity.Bat;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Mob;
+import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.UUID;
-import java.util.concurrent.ThreadLocalRandom;
 
-// TODO UNUSED
-public class PhantomsFlight extends Spell {
+public class BatteringRam extends Spell {
 
-    public PhantomsFlight() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 0, false, 50, true)
-            .makeInstantSpell(this::cast);
+    public BatteringRam() {
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 3, true, 50, true)
+            .makeInstantSpell(this::cast)
+            .makeEffectingSpell(true, false);
         setSpellCore(spellCoreBuilder.build());
     }
 
@@ -34,49 +32,42 @@ public class PhantomsFlight extends Spell {
     public void cast(CastInformation castInformation) {
         final UUID caster = castInformation.getCaster();
         final Location location = castInformation.getCastLocation();
-        final Location spawnLocation = location.clone().add(
-            ThreadLocalRandom.current().nextDouble(-3, 3),
-            0,
-            ThreadLocalRandom.current().nextDouble(-3, 3)
-        );
+        final Vector direction = location.getDirection().clone();
+        final int range = (int) getRange(castInformation);
+        direction.setY(0);
+        final Location spawnLocation = location.clone().add(location.getDirection().clone().add(new Vector(0, 1, 0)));
         final MagicSummon magicSummon = SpellUtils.summonTemporaryMob(
-            EntityType.BAT,
+            EntityType.GOAT,
             caster,
             spawnLocation,
-            new FlyingPhantomGoal(caster),
-            castInformation.getStaveLevel() * 300,
-            this::onTick
+            new BatteringRamGoal(caster),
+            range
         );
-        Bat bat = (Bat) magicSummon.getMob();
-        bat.setInvisible(true);
-        bat.setInvulnerable(true);
-        bat.addPassenger(castInformation.getCasterAsPlayer());
-    }
-
-    public void onTick(MagicSummon magicSummon) {
-        ParticleUtils.displayParticleEffect(magicSummon.getMob(), Particle.SPORE_BLOSSOM_AIR, 1, 2);
+        Mob mob = magicSummon.getMob();
+        mob.setGravity(false);
+        mob.setVelocity(location.getDirection().multiply(2));
+        mob.setInvulnerable(true);
     }
 
     @Nonnull
     @Override
     public String getId() {
-        return "PHANTOMS_FLIGHT";
+        return "BATTERING_RAM";
     }
 
     @Nonnull
     @Override
     public String[] getLore() {
         return new String[]{
-            "Summons a dragon to ride.",
-            "Getting off the dragon will make",
-            "it fly away."
+            "Summons a battering ram to decimate",
+            "all in your way."
         };
     }
 
     @Nonnull
     @Override
     public Material getMaterial() {
-        return Material.DRAGON_EGG;
+        return Material.GOAT_SPAWN_EGG;
     }
 
     @NotNull
@@ -84,9 +75,9 @@ public class PhantomsFlight extends Spell {
     public RecipeSpell getRecipe() {
         return new RecipeSpell(
             1,
-            StoryType.ANIMAL,
-            StoryType.CELESTIAL,
-            StoryType.PHILOSOPHICAL
+            StoryType.ELEMENTAL,
+            StoryType.ALCHEMICAL,
+            StoryType.ANIMAL
         );
     }
 

@@ -57,7 +57,7 @@ public class StarFall extends Spell {
     @ParametersAreNonnullByDefault
     public void projectileHits(CastInformation castInformation) {
         for (final LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
-            damageEntity(
+            GeneralUtils.damageEntity(
                 livingEntity,
                 castInformation.getCaster(),
                 getDamage(castInformation),

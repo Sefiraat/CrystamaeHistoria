@@ -5,6 +5,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -53,7 +54,7 @@ public class Quake extends Spell {
             if (entity instanceof LivingEntity && entity.getUniqueId() != castInformation.getCaster()) {
                 LivingEntity livingEntity = (LivingEntity) entity;
                 applyNegativeEffects(livingEntity, castInformation);
-                damageEntity(livingEntity, castInformation.getCaster(), getDamage(castInformation));
+                GeneralUtils.damageEntity(livingEntity, castInformation.getCaster(), getDamage(castInformation));
             }
         }
     }

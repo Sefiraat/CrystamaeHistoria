@@ -5,6 +5,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Material;
@@ -29,7 +30,7 @@ public class Squall extends Spell {
         if (caster != null) {
             caster.getWorld().setThundering(true);
             caster.getWorld().setStorm(true);
-            displayParticleEffect(caster, Particle.ELECTRIC_SPARK, 2, 30);
+            ParticleUtils.displayParticleEffect(caster, Particle.ELECTRIC_SPARK, 2, 30);
             caster.getWorld().playEffect(caster.getLocation(), Effect.BONE_MEAL_USE, 1);
         }
     }

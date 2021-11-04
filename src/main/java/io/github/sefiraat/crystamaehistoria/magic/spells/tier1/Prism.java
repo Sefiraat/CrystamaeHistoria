@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -50,7 +51,7 @@ public class Prism extends Spell {
         }
         PersistentDataAPI.setBoolean(player, Keys.newKey("PRISM"), true);
         applyPositiveEffects(player, castInformation);
-        displayParticleEffect(player, Particle.SPELL, 2, 20);
+        ParticleUtils.displayParticleEffect(player, Particle.SPELL, 2, 20);
     }
 
     @Nonnull

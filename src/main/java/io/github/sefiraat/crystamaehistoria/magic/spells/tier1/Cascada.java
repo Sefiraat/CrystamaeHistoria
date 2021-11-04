@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import org.bukkit.Location;
@@ -55,9 +56,9 @@ public class Cascada extends Spell {
                         final Block block = location.getWorld().getBlockAt(
                             x + location.getBlockX(),
                             y + location.getBlockY(),
-                            z + location.getBlockZ()) ;
+                            z + location.getBlockZ());
                         if (!blocks.contains(block)
-                            && hasPermission(caster, block, Interaction.BREAK_BLOCK)
+                            && GeneralUtils.hasPermission(caster, block, Interaction.BREAK_BLOCK)
                         ) {
                             blocks.add(block);
                         }

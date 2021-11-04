@@ -5,6 +5,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -42,7 +43,7 @@ public class Oviparous extends Spell {
                     Color.fromRGB(190, 170, 115),
                     2F
                 );
-                displayParticleEffect(location, 1, 5, dustOptions);
+                ParticleUtils.displayParticleEffect(location, 1, 5, dustOptions);
                 entity.setVelocity(new Vector(0, 1, 0));
             }
             if (entity instanceof Turtle) {
@@ -55,7 +56,7 @@ public class Oviparous extends Spell {
                         Color.fromRGB(95, 160, 80),
                         2F
                     );
-                    displayParticleEffect(location, 1, 5, dustOptions);
+                    ParticleUtils.displayParticleEffect(location, 1, 5, dustOptions);
                     entity.setVelocity(new Vector(0, 0.5, 0));
                 }
             }

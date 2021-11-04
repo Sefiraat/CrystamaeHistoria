@@ -6,6 +6,8 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -50,13 +52,13 @@ public class FireNova extends Spell {
     @ParametersAreNonnullByDefault
     public void projectileHit(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
-            damageEntity(livingEntity, castInformation.getCaster(), getDamage(castInformation));
+            GeneralUtils.damageEntity(livingEntity, castInformation.getCaster(), getDamage(castInformation));
         }
     }
 
     @ParametersAreNonnullByDefault
     public void afterProjectileHit(CastInformation castInformation) {
-        displayParticleEffect(castInformation.getMainTarget(), Particle.EXPLOSION_NORMAL, 1.0, 5);
+        ParticleUtils.displayParticleEffect(castInformation.getMainTarget(), Particle.EXPLOSION_NORMAL, 1.0, 5);
     }
 
     @Nonnull

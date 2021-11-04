@@ -31,7 +31,7 @@ public class SpellUtils {
         EntityType entityType,
         UUID caster,
         Location location,
-        AbstractGoal<T> goal
+        @Nullable AbstractGoal<T> goal
     ) {
         return summonTemporaryMob(entityType, caster, location, goal, 30);
     }
@@ -40,7 +40,7 @@ public class SpellUtils {
         EntityType entityType,
         UUID caster,
         Location location,
-        AbstractGoal<T> goal,
+        @Nullable AbstractGoal<T> goal,
         int timeInSeconds
     ) {
         return summonTemporaryMob(entityType, caster, location, goal, timeInSeconds * 1000L, null);
@@ -50,7 +50,7 @@ public class SpellUtils {
         EntityType entityType,
         UUID caster,
         Location location,
-        AbstractGoal<T> goal,
+        @Nullable AbstractGoal<T> goal,
         @Nonnull Consumer<MagicSummon> tickConsumer
     ) {
         return summonTemporaryMob(entityType, caster, location, goal, 30, tickConsumer);
@@ -60,7 +60,7 @@ public class SpellUtils {
         EntityType entityType,
         UUID caster,
         Location location,
-        AbstractGoal<T> goal,
+        @Nullable AbstractGoal<T> goal,
         int timeInSeconds,
         @Nonnull Consumer<MagicSummon> tickConsumer
     ) {
@@ -71,7 +71,7 @@ public class SpellUtils {
         EntityType entityType,
         UUID caster,
         Location location,
-        AbstractGoal<T> goal,
+        @Nullable AbstractGoal<T> goal,
         long duration,
         @Nullable Consumer<MagicSummon> tickConsumer
     ) {
@@ -85,9 +85,13 @@ public class SpellUtils {
 
         CrystamaeHistoria.getSummonedEntityMap().put(magicSummon, System.currentTimeMillis() + duration);
         DataTypeMethods.setCustom(mob, Keys.PDC_IS_SPAWN_OWNER, PersistentUUIDDataType.TYPE, caster);
-        goal.setSelf(mob);
 
-        mobGoals.addGoal(mob, 1, goal);
+        if (goal == null) {
+            mobGoals.removeAllGoals(mob);
+        } else {
+            goal.setSelf(mob);
+            mobGoals.addGoal(mob, 1, goal);
+        }
 
         return magicSummon;
     }
