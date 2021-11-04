@@ -3,7 +3,7 @@ package io.github.sefiraat.crystamaehistoria.magic.spells.tier1;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
@@ -29,7 +29,7 @@ public class LavaLake extends Spell {
         final double size = getRange(castInformation);
         final Block standingBlock = location.getBlock();
 
-        if (hasPermission(castInformation.getCaster(), standingBlock, Interaction.PLACE_BLOCK)
+        if (GeneralUtils.hasPermission(castInformation.getCaster(), standingBlock, Interaction.PLACE_BLOCK)
             && standingBlock.getType() == Material.AIR
         ) {
             standingBlock.setType(Material.NETHER_BRICKS);
@@ -40,7 +40,7 @@ public class LavaLake extends Spell {
         for (double x = -size; x < size; x++) {
             for (double z = -size; z < size; z++) {
                 final Block potentialLava = location.clone().add(x, 0, z).getBlock();
-                if (hasPermission(castInformation.getCaster(), potentialLava, Interaction.PLACE_BLOCK)
+                if (GeneralUtils.hasPermission(castInformation.getCaster(), potentialLava, Interaction.PLACE_BLOCK)
                     && potentialLava.getType() == Material.AIR
                 ) {
                     potentialLava.setType(Material.LAVA);
@@ -72,8 +72,8 @@ public class LavaLake extends Spell {
 
     @NotNull
     @Override
-    public SpellRecipe getRecipe() {
-        return new SpellRecipe(
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
             1,
             StoryType.ELEMENTAL,
             StoryType.ALCHEMICAL,

@@ -1,9 +1,10 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.itemgroups;
 
-import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCore;
+import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
+import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.ResearchUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.GuiElements;
@@ -62,7 +63,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
     private static final int PROJECTILE_INFO = 42;
     private static final int EFFECTS = 43;
 
-    protected SpellCollectionFlexGroup(NamespacedKey key, ItemStack item) {
+    public SpellCollectionFlexGroup(NamespacedKey key, ItemStack item) {
         super(key, item);
     }
 
@@ -89,7 +90,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
     }
 
     private void setupPage(@Nonnull Player p, @Nonnull PlayerProfile profile, @Nonnull SlimefunGuideMode mode, @Nonnull ChestMenu menu, int page) {
-        final List<SpellType> spellTypes = Arrays.asList(SpellType.getCachedValues());
+        final List<SpellType> spellTypes = Arrays.asList(SpellType.getEnabledSpells());
         final int numberOfBlocks = spellTypes.size();
         final int totalPages = (int) Math.ceil(numberOfBlocks / (double) PAGE_SIZE);
         final int start = (page - 1) * PAGE_SIZE;
@@ -149,7 +150,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         for (int i = 0; i < RECIPE.length; i++) {
             int slot = RECIPE[i];
             StoryType storyType = spellType.getSpell().getRecipe().getInput(i);
-            ItemStack stack = CrystamaeHistoria.getStructure().getMaterials().getTypeItemMap().get(storyType).getItem();
+            ItemStack stack = Materials.DUMMY_CRYSTAL_MAP.get(storyType).getItem();
             menu.replaceExistingItem(slot, stack);
             menu.addMenuClickHandler(slot, ((player, slot2, itemStack, clickAction) -> false));
         }
@@ -265,11 +266,15 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         if (spellCore.isDamagingSpell()) {
             lore.add(damageMessage);
             lore.add(damageMulti);
+        } else {
+            lore.add(passive + "This spell does not damage.");
         }
 
         if (spellCore.isHealingSpell()) {
             lore.add(healMessage);
             lore.add(healMulti);
+        } else {
+            lore.add(passive + "This spell does not heal.");
         }
 
         return new CustomItemStack(
@@ -328,7 +333,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
 
         final String message = MessageFormat.format("{0}Range: {1}{2}", color, passive, spell.getSpellCore().getRange());
         final String multiMessage = MessageFormat.format("{0}Range {1} with stave tier", passive, spell.getSpellCore().isRangeMultiplied() ? "increases" : "doesn't increase");
-        final String noRange = "Not effected by range";
+        final String noRange = passive + "Not effected by range";
 
         if (spell.getSpellCore().getKnockbackAmount() > 0) {
             lore.add(message);
@@ -351,7 +356,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
 
         final String message = MessageFormat.format("{0}Knockback: {1}{2}", color, passive, spell.getSpellCore().getKnockbackAmount());
         final String multiMessage = MessageFormat.format("{0}Amount {1} with stave tier", passive, spell.getSpellCore().isKnockbackMultiplied() ? "increases" : "doesn't increase");
-        final String noKnockback = "No direct knockback";
+        final String noKnockback = passive + "No direct knockback";
 
         if (spell.getSpellCore().getKnockbackAmount() > 0) {
             lore.add(message);

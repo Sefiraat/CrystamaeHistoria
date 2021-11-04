@@ -3,8 +3,9 @@ package io.github.sefiraat.crystamaehistoria.magic.spells.tier1;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -45,7 +46,7 @@ public class TimeDilation extends Spell {
                 final double x = Math.cos(a) * r;
                 final double z = Math.sin(a) * r;
                 final Location point = location.clone().add(x, y, z);
-                displayParticleEffect(point, 0.1, 1, dustOptions);
+                ParticleUtils.displayParticleEffect(point, 0.1, 1, dustOptions);
             }
         }
         // Effects
@@ -80,8 +81,8 @@ public class TimeDilation extends Spell {
 
     @NotNull
     @Override
-    public SpellRecipe getRecipe() {
-        return new SpellRecipe(
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
             1,
             StoryType.HISTORICAL,
             StoryType.ANIMAL,

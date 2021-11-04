@@ -1,30 +1,33 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.chroniclerpanel.ChroniclerPanel;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.DummyLiquefactionBasinCrafting;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.LiquefactionBasin;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.LiquefactionBasinCache;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar.RealisationAltar;
 import io.github.sefiraat.crystamaehistoria.slimefun.machines.staveconfigurator.StaveConfigurator;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import javax.annotation.ParametersAreNonnullByDefault;
-
 public class Machines {
 
-    private final CrystamaeHistoria plugin;
+    public static ChroniclerPanel CHRONICLER_PANEL;
+    public static RealisationAltar REALISATION_ALTAR;
+    public static LiquefactionBasin LIQUEFACTION_BASIN;
+    public static StaveConfigurator STAVE_CONFIGURATOR;
 
-    @ParametersAreNonnullByDefault
-    public Machines(CrystamaeHistoria p) {
-        this.plugin = p;
-    }
+    public Machines() {
 
-    public void setup() {
-        new ChroniclerPanel(
+        final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
+
+        // Chronicler
+        CHRONICLER_PANEL = new ChroniclerPanel(
             ItemGroups.MECHANISMS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_CHRONICLER_PANEL_1",
@@ -41,9 +44,10 @@ public class Machines {
                 SlimefunItems.CORINTHIAN_BRONZE_INGOT, new ItemStack(Material.AMETHYST_CLUSTER), SlimefunItems.CORINTHIAN_BRONZE_INGOT,
                 SlimefunItems.MAGIC_LUMP_2, SlimefunItems.MAGIC_LUMP_2, SlimefunItems.MAGIC_LUMP_2,
             }
-        ).register(plugin);
+        );
 
-        new RealisationAltar(
+        // Realisation
+        REALISATION_ALTAR = new RealisationAltar(
             ItemGroups.MECHANISMS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_REALISATION_ALTAR_1",
@@ -60,9 +64,10 @@ public class Machines {
                 SlimefunItems.CORINTHIAN_BRONZE_INGOT, new ItemStack(Material.AMETHYST_CLUSTER), SlimefunItems.CORINTHIAN_BRONZE_INGOT,
                 SlimefunItems.MAGIC_LUMP_2, SlimefunItems.TALISMAN_MAGICIAN, SlimefunItems.MAGIC_LUMP_2,
             }
-        ).register(plugin);
+        );
 
-        new LiquefactionBasin(
+        // Liquefaction
+        LIQUEFACTION_BASIN = new LiquefactionBasin(
             ItemGroups.MECHANISMS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_LIQUEFACTION_BASIN_1",
@@ -81,13 +86,21 @@ public class Machines {
                 SlimefunItems.CORINTHIAN_BRONZE_INGOT,
                 new ItemStack(Material.AMETHYST_CLUSTER),
                 SlimefunItems.CORINTHIAN_BRONZE_INGOT,
-                CrystamaeHistoria.getStructure().getMaterials().amalgamateIngot.getItem(),
+                Materials.AMALGAMATE_INGOT.getItem(),
                 SlimefunItems.TALISMAN_MAGICIAN,
-                CrystamaeHistoria.getStructure().getMaterials().amalgamateIngot.getItem(),
+                Materials.AMALGAMATE_INGOT.getItem(),
             }
-        ).register(plugin);
+        );
 
-        new StaveConfigurator(
+
+        // Stave Configurator
+        RecipeItem staveConfiguratorRecipe = new RecipeItem(
+            new ItemStack(Material.COPPER_BLOCK),
+            StoryType.ELEMENTAL, 1,
+            StoryType.MECHANICAL, 1,
+            StoryType.ALCHEMICAL, 1
+        );
+        STAVE_CONFIGURATOR = new StaveConfigurator(
             ItemGroups.MECHANISMS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_STAVE_CONFIGURATOR",
@@ -98,19 +111,18 @@ public class Machines {
                 "to add spell plates into your",
                 "Staves."
             ),
-            RecipeType.ENHANCED_CRAFTING_TABLE,
-            new ItemStack[]{
-                SlimefunItems.COPPER_INGOT,
-                SlimefunItems.COPPER_INGOT,
-                SlimefunItems.COPPER_INGOT,
-                SlimefunItems.CORINTHIAN_BRONZE_INGOT,
-                new ItemStack(Material.AMETHYST_CLUSTER),
-                SlimefunItems.CORINTHIAN_BRONZE_INGOT,
-                CrystamaeHistoria.getStructure().getMaterials().amalgamateIngot.getItem(),
-                Materials.CHARGED_PLATE_T_1.getItem(),
-                CrystamaeHistoria.getStructure().getMaterials().amalgamateIngot.getItem(),
-            }
-        ).register(plugin);
+            DummyLiquefactionBasinCrafting.TYPE,
+            staveConfiguratorRecipe.getDisplayRecipe()
+        );
+
+        // Slimefun Registry
+        CHRONICLER_PANEL.register(plugin);
+        REALISATION_ALTAR.register(plugin);
+        LIQUEFACTION_BASIN.register(plugin);
+        STAVE_CONFIGURATOR.register(plugin);
+
+        // Liquefaction Recipes
+        LiquefactionBasinCache.addCraftingRecipe(STAVE_CONFIGURATOR, staveConfiguratorRecipe);
     }
 
 }

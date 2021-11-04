@@ -1,7 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.runnables.spells;
 
-import io.github.sefiraat.crystamaehistoria.SpellMemory;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.SpellMemory;
 import org.bukkit.scheduler.BukkitRunnable;
 
 public class TemporaryEffectsRunnable extends BukkitRunnable {

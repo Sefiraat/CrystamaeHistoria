@@ -4,9 +4,10 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.CrystaTag;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import io.github.thebusybiscuit.slimefun4.utils.tags.SlimefunTag;
@@ -85,7 +86,7 @@ public class Bobulate extends Spell {
 
                     for (Entity entity : entities) {
                         if (entity instanceof Colorable
-                            && hasPermission(caster, pointLocation, Interaction.INTERACT_ENTITY)
+                            && GeneralUtils.hasPermission(caster, pointLocation, Interaction.INTERACT_ENTITY)
                         ) {
                             final int randomValue = ThreadLocalRandom.current().nextInt(
                                 0,
@@ -101,7 +102,7 @@ public class Bobulate extends Spell {
     }
 
     private void convertBlock(UUID caster, Block block, Tag<Material> tag) {
-        if (hasPermission(caster, block, Interaction.PLACE_BLOCK)) {
+        if (GeneralUtils.hasPermission(caster, block, Interaction.PLACE_BLOCK)) {
             final List<Material> list = tag.getValues().stream().toList();
             final int randomValue = ThreadLocalRandom.current().nextInt(0, list.size());
             block.setType(list.get(randomValue));
@@ -131,8 +132,8 @@ public class Bobulate extends Spell {
 
     @NotNull
     @Override
-    public SpellRecipe getRecipe() {
-        return new SpellRecipe(
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
             1,
             StoryType.MECHANICAL,
             StoryType.ALCHEMICAL,

@@ -3,23 +3,16 @@ package io.github.sefiraat.crystamaehistoria.magic.spells.core;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTickRunnable;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import lombok.Getter;
 import lombok.Setter;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.OfflinePlayer;
-import org.bukkit.Particle;
-import org.bukkit.attribute.Attribute;
-import org.bukkit.attribute.AttributeInstance;
-import org.bukkit.block.Block;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LightningStrike;
 import org.bukkit.entity.LivingEntity;
@@ -30,10 +23,8 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-import org.bukkit.util.Vector;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -41,13 +32,15 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
-import java.util.concurrent.ThreadLocalRandom;
 
 public abstract class Spell {
 
     @Getter
     @Setter
     private SpellCore spellCore;
+    @Getter
+    @Setter
+    private boolean enabled;
 
     @Nonnull
     public abstract String getId();
@@ -59,7 +52,7 @@ public abstract class Spell {
     public abstract Material getMaterial();
 
     @Nonnull
-    public abstract SpellRecipe getRecipe();
+    public abstract RecipeSpell getRecipe();
 
     @Nonnull
     public SlimefunItemStack getThemedStack() {
@@ -173,125 +166,6 @@ public abstract class Spell {
         }
     }
 
-    @ParametersAreNonnullByDefault
-    protected void displayParticleEffect(Entity entity, Particle particle, double rangeRadius) {
-        displayParticleEffect(entity.getLocation(), particle, rangeRadius, 5);
-    }
-
-    @ParametersAreNonnullByDefault
-    protected void displayParticleEffect(Entity entity, Particle particle, double rangeRadius, int numberOfParticles) {
-        displayParticleEffect(entity.getLocation().clone().add(0, 1, 0), particle, rangeRadius, numberOfParticles);
-    }
-
-    @ParametersAreNonnullByDefault
-    protected void displayParticleEffect(Location location, Particle particle, double rangeRadius) {
-        displayParticleEffect(location, particle, rangeRadius, 5);
-    }
-
-    @ParametersAreNonnullByDefault
-    protected void displayParticleEffect(Location location, Particle particle, double rangeRadius, int numberOfParticles) {
-        for (int i = 0; i < numberOfParticles; i++) {
-            double x = ThreadLocalRandom.current().nextDouble(-rangeRadius, rangeRadius + 0.1);
-            double y = ThreadLocalRandom.current().nextDouble(-rangeRadius, rangeRadius + 0.1);
-            double z = ThreadLocalRandom.current().nextDouble(-rangeRadius, rangeRadius + 0.1);
-            location.getWorld().spawnParticle(particle, location.clone().add(x, y, z), 1);
-        }
-    }
-
-    @ParametersAreNonnullByDefault
-    protected void displayParticleEffect(Entity entity, double rangeRadius, int numberOfParticles, Particle.DustOptions dustOptions) {
-        displayParticleEffect(entity.getLocation(), rangeRadius, numberOfParticles, dustOptions);
-    }
-
-    @ParametersAreNonnullByDefault
-    protected void displayParticleEffect(Entity entity, double rangeRadius, Particle.DustOptions dustOptions) {
-        displayParticleEffect(entity.getLocation(), rangeRadius, 5, dustOptions);
-    }
-
-    @ParametersAreNonnullByDefault
-    protected void displayParticleEffect(Location location, double rangeRadius, int numberOfParticles, Particle.DustOptions dustOptions) {
-        for (int i = 0; i < numberOfParticles; i++) {
-            double x = ThreadLocalRandom.current().nextDouble(-rangeRadius, rangeRadius + 0.1);
-            double y = ThreadLocalRandom.current().nextDouble(-rangeRadius, rangeRadius + 0.1);
-            double z = ThreadLocalRandom.current().nextDouble(-rangeRadius, rangeRadius + 0.1);
-            location.getWorld().spawnParticle(Particle.REDSTONE, location.clone().add(x, y, z), 1, dustOptions);
-        }
-    }
-
-    @ParametersAreNonnullByDefault
-    protected boolean tryBreakBlock(UUID caster, Block block) {
-        Player player = Bukkit.getPlayer(caster);
-        if (player != null
-            && hasPermission(caster, block, Interaction.BREAK_BLOCK)
-            && block.getType().getHardness() < 100
-        ) {
-            block.breakNaturally(player.getInventory().getItemInMainHand());
-            return true;
-        }
-        return false;
-    }
-
-    @ParametersAreNonnullByDefault
-    protected boolean pullEntity(UUID caster, Location pullToLocation, Entity pushed, double force) {
-        Vector vector = pushed.getLocation().toVector()
-            .subtract(pullToLocation.toVector())
-            .normalize()
-            .multiply(-force);
-        return pushEntity(caster, vector, pushed);
-    }
-
-    @ParametersAreNonnullByDefault
-    protected boolean pushEntity(UUID caster, Location pushFromLocation, Entity pushed, double force) {
-        Vector vector = pushed.getLocation().toVector()
-            .subtract(pushFromLocation.toVector())
-            .normalize()
-            .multiply(force);
-        return pushEntity(caster, vector, pushed);
-    }
-
-    @ParametersAreNonnullByDefault
-    protected boolean pushEntity(UUID caster, Vector vector, Entity pushed) {
-        Interaction interaction = pushed instanceof Player ? Interaction.ATTACK_PLAYER : Interaction.INTERACT_ENTITY;
-        if (hasPermission(caster, pushed.getLocation(), interaction)) {
-            pushed.setVelocity(vector);
-            return true;
-        }
-        return false;
-    }
-
-    @ParametersAreNonnullByDefault
-    protected boolean damageEntity(LivingEntity livingEntity, UUID caster, double damage) {
-        return damageEntity(livingEntity, caster, damage, null, 0);
-    }
-
-    @ParametersAreNonnullByDefault
-    protected boolean damageEntity(LivingEntity livingEntity, UUID caster, double damage, @Nullable Location knockbackOrigin, double knockbackForce) {
-        Interaction interaction = livingEntity instanceof Player ? Interaction.ATTACK_PLAYER : Interaction.ATTACK_ENTITY;
-        if (hasPermission(caster, livingEntity.getLocation(), interaction)) {
-            Player player = Bukkit.getPlayer(caster);
-            livingEntity.damage(damage, player);
-            if (knockbackOrigin != null && knockbackForce > 0) {
-                pushEntity(caster, knockbackOrigin, livingEntity, knockbackForce);
-            }
-            return true;
-        }
-        return false;
-    }
-
-    /**
-     * Heal the entity by the provided amount
-     *
-     * @param livingEntity The {@link LivingEntity} to heal
-     * @param healAmount   The amount to heal by
-     */
-    @ParametersAreNonnullByDefault
-    protected void healEntity(LivingEntity livingEntity, double healAmount) {
-        AttributeInstance attribute = livingEntity.getAttribute(Attribute.GENERIC_MAX_HEALTH);
-        if (attribute != null) {
-            livingEntity.setHealth(Math.min(attribute.getValue(), livingEntity.getHealth() + healAmount));
-        }
-    }
-
     /**
      * Used to register the projectile's events to the definition and then
      * the projectile/definition to the projectileMap. Used when detecting
@@ -400,22 +274,5 @@ public abstract class Spell {
             }
         }
         return livingEntities;
-    }
-
-    protected boolean hasPermission(Player player, Block block, Interaction interaction) {
-        return hasPermission(player.getUniqueId(), block.getLocation(), interaction);
-    }
-
-    protected boolean hasPermission(Player player, Location location, Interaction interaction) {
-        return hasPermission(player.getUniqueId(), location, interaction);
-    }
-
-    protected boolean hasPermission(UUID player, Block block, Interaction interaction) {
-        return hasPermission(player, block.getLocation(), interaction);
-    }
-
-    protected boolean hasPermission(UUID player, Location location, Interaction interaction) {
-        OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(player);
-        return Slimefun.getProtectionManager().hasPermission(offlinePlayer, location, interaction);
     }
 }

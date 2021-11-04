@@ -3,8 +3,9 @@ package io.github.sefiraat.crystamaehistoria.magic.spells.tier1;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -32,7 +33,7 @@ public class LovePotion extends Spell {
             Animals animals = (Animals) entity;
             if (animals.isAdult() && animals.canBreed()) {
                 animals.setLoveModeTicks(120);
-                displayParticleEffect(entity, Particle.HEART, 1, 5);
+                ParticleUtils.displayParticleEffect(entity, Particle.HEART, 1, 5);
             }
         }
     }
@@ -59,8 +60,8 @@ public class LovePotion extends Spell {
 
     @NotNull
     @Override
-    public SpellRecipe getRecipe() {
-        return new SpellRecipe(
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
             1,
             StoryType.ALCHEMICAL,
             StoryType.ANIMAL,

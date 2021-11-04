@@ -3,9 +3,10 @@ package io.github.sefiraat.crystamaehistoria.magic.spells.tier1;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -39,14 +40,14 @@ public class Protectorate extends Spell {
                 final double x = Math.cos(a) * r;
                 final double z = Math.sin(a) * r;
                 final Location point = location.clone().add(x, y, z);
-                displayParticleEffect(point, Particle.ELECTRIC_SPARK, 0.1, 1);
+                ParticleUtils.displayParticleEffect(point, Particle.ELECTRIC_SPARK, 0.1, 1);
             }
         }
         // Effects
         for (Entity entity : location.getWorld().getNearbyEntities(location, effectRange, effectRange, effectRange)) {
             if (entity instanceof LivingEntity) {
                 PersistentDataAPI.setLong(entity, Keys.PDC_IS_INVULNERABLE, System.currentTimeMillis() + 1050);
-                displayParticleEffect(entity, Particle.VILLAGER_HAPPY, 1, 3);
+                ParticleUtils.displayParticleEffect(entity, Particle.VILLAGER_HAPPY, 1, 3);
             }
         }
     }
@@ -74,8 +75,8 @@ public class Protectorate extends Spell {
 
     @NotNull
     @Override
-    public SpellRecipe getRecipe() {
-        return new SpellRecipe(
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
             1,
             StoryType.MECHANICAL,
             StoryType.HISTORICAL,

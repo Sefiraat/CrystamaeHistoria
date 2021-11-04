@@ -4,8 +4,10 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -53,9 +55,9 @@ public class EarthNova extends Spell {
     @ParametersAreNonnullByDefault
     public void projectileHit(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
-            damageEntity(livingEntity, castInformation.getCaster(), getDamage(castInformation));
+            GeneralUtils.damageEntity(livingEntity, castInformation.getCaster(), getDamage(castInformation));
             applyNegativeEffects(livingEntity, castInformation);
-            displayParticleEffect(livingEntity, Particle.SPORE_BLOSSOM_AIR, 1, 2);
+            ParticleUtils.displayParticleEffect(livingEntity, Particle.SPORE_BLOSSOM_AIR, 1, 2);
         }
     }
 
@@ -82,8 +84,8 @@ public class EarthNova extends Spell {
 
     @NotNull
     @Override
-    public SpellRecipe getRecipe() {
-        return new SpellRecipe(
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
             1,
             StoryType.ELEMENTAL,
             StoryType.MECHANICAL,

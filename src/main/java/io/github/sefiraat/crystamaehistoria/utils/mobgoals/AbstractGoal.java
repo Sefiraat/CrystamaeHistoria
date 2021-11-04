@@ -89,8 +89,9 @@ public abstract class AbstractGoal<T extends Mob> implements Goal<T> {
                     );
 
                     if (!entities.isEmpty()) {
-                        int random = ThreadLocalRandom.current().nextInt(entities.size());
-                        self.setTarget(entities.get(random));
+                        LivingEntity random = entities.get(ThreadLocalRandom.current().nextInt(entities.size()));
+                        self.setTarget(random);
+                        self.attack(random);
                         return;
                     }
                 }
@@ -109,7 +110,6 @@ public abstract class AbstractGoal<T extends Mob> implements Goal<T> {
                 customActions(player);
 
             }
-
         }
     }
 

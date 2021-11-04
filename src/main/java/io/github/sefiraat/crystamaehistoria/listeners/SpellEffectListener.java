@@ -27,8 +27,6 @@ import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntityInteractEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
 import org.bukkit.event.player.PlayerEggThrowEvent;
-import org.bukkit.event.player.PlayerInteractEntityEvent;
-import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.weather.LightningStrikeEvent;
 import org.bukkit.inventory.ItemStack;
@@ -56,6 +54,17 @@ public class SpellEffectListener implements Listener {
         final Entity hitEntity = event.getHitEntity();
 
         event.setCancelled(true);
+
+        // We don't want magic projectiles to hit their own passengers.
+        List<Entity> passengers = magicProjectile.getProjectile().getPassengers();
+        if (event.getHitEntity() != null && !passengers.isEmpty()) {
+            for (Entity entity : passengers) {
+                if (entity.getUniqueId() == event.getHitEntity().getUniqueId()) {
+                    return;
+                }
+            }
+        }
+
         castInfo.setProjectileLocation(magicProjectile.getLocation());
 
         if (entityHitAllowed(castInfo, hitEntity)) {

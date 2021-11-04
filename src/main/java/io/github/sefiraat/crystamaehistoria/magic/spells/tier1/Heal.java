@@ -3,8 +3,10 @@ package io.github.sefiraat.crystamaehistoria.magic.spells.tier1;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -26,8 +28,8 @@ public class Heal extends Spell {
     @ParametersAreNonnullByDefault
     public void cast(CastInformation castInformation) {
         Player caster = Bukkit.getPlayer(castInformation.getCaster());
-        healEntity(caster, getHealAmount(castInformation));
-        displayParticleEffect(caster, Particle.HEART, 2, 10);
+        GeneralUtils.healEntity(caster, getHealAmount(castInformation));
+        ParticleUtils.displayParticleEffect(caster, Particle.HEART, 2, 10);
     }
 
     @Nonnull
@@ -52,8 +54,8 @@ public class Heal extends Spell {
 
     @NotNull
     @Override
-    public SpellRecipe getRecipe() {
-        return new SpellRecipe(
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
             1,
             StoryType.HUMAN,
             StoryType.CELESTIAL,

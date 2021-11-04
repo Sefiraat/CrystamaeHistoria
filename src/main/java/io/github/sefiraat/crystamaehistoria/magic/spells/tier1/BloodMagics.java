@@ -3,8 +3,10 @@ package io.github.sefiraat.crystamaehistoria.magic.spells.tier1;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -42,16 +44,16 @@ public class BloodMagics extends Spell {
                 && entity.getUniqueId() != castInformation.getCaster()
             ) {
                 final LivingEntity livingEntity = (LivingEntity) entity;
-                damageEntity(
+                GeneralUtils.damageEntity(
                     livingEntity,
                     castInformation.getCaster(),
                     getDamage(castInformation)
                 );
-                displayParticleEffect(livingEntity, 2, 10, dustOptions);
+                ParticleUtils.displayParticleEffect(livingEntity, 2, 10, dustOptions);
                 if (iteration <= 5) {
                     if (livingEntity.getHealth() <= 0) {
-                        pushEntity(castInformation.getCaster(), castInformation.getCastLocation(), entity, 5);
-                        displayParticleEffect(livingEntity, 4, 20, dustOptions);
+                        GeneralUtils.pushEntity(castInformation.getCaster(), castInformation.getCastLocation(), entity, 5);
+                        ParticleUtils.displayParticleEffect(livingEntity, 4, 20, dustOptions);
                         entity.remove();
                         castBlood(castInformation, livingEntity.getLocation(), 2, iteration + 1);
                     }
@@ -83,8 +85,8 @@ public class BloodMagics extends Spell {
 
     @NotNull
     @Override
-    public SpellRecipe getRecipe() {
-        return new SpellRecipe(
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
             1,
             StoryType.ALCHEMICAL,
             StoryType.HISTORICAL,

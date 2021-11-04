@@ -1,6 +1,8 @@
 package io.github.sefiraat.crystamaehistoria.config;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.magic.SpellType;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import lombok.Getter;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -16,6 +18,7 @@ public class ConfigManager {
     private final FileConfiguration stories;
     private final FileConfiguration research;
     private final FileConfiguration blockColors;
+    private final FileConfiguration spells;
 
     public ConfigManager() {
         this.blocks = getConfig("blocks.yml");
@@ -26,13 +29,14 @@ public class ConfigManager {
         this.research.options().copyDefaults(true);
         this.blockColors = getConfig("block_colors.yml");
         this.blockColors.options().copyDefaults(true);
+        this.spells = getConfig("spells.yml");
+        this.spells.options().copyDefaults(true);
     }
 
     /**
      * @noinspection ResultOfMethodCallIgnored
      */
     private FileConfiguration getConfig(String fileName) {
-        // Todo remove commented code and add config diff
         CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
         File file = new File(plugin.getDataFolder(), fileName);
         if (!file.exists()) {
@@ -56,4 +60,25 @@ public class ConfigManager {
             exception.printStackTrace();
         }
     }
+
+    public boolean spellEnabled(Spell spell) {
+        return spells.getBoolean(spell.getId());
+    }
+
+    public void setupConfigs() {
+        // Spells
+        for (SpellType spellType : SpellType.getCachedValues()) {
+            Spell spell = spellType.getSpell();
+            if (!spells.contains(spell.getId())) {
+                try {
+                    final File file = new File(CrystamaeHistoria.getInstance().getDataFolder(), "spells.yml");
+                    spells.set(spell.getId(), true);
+                    spells.save(file);
+                } catch (IOException exception) {
+                    exception.printStackTrace();
+                }
+            }
+        }
+    }
+
 }

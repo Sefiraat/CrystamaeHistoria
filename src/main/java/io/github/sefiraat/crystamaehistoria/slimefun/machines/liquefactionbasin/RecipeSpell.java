@@ -6,12 +6,12 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Set;
 
-public class SpellRecipe {
+public class RecipeSpell {
 
     private final int tier;
     private final List<StoryType> storyTypes;
 
-    public SpellRecipe(int tier, StoryType type1, StoryType type2, StoryType type3) {
+    public RecipeSpell(int tier, StoryType type1, StoryType type2, StoryType type3) {
         this.tier = tier;
         this.storyTypes = Arrays.asList(type1, type2, type3);
     }

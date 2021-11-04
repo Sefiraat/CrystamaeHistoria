@@ -52,7 +52,7 @@ public class SpellMemory {
         removeBlocks(true);
         blocksToRemove.clear();
 
-        // Remove all temporary blocks
+        // Remove and disable all players flight
         removeFlight(true);
         playersWithFlight.clear();
     }

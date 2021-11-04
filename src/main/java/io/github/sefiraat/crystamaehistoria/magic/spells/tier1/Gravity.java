@@ -4,14 +4,12 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.SpellRecipe;
+import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Player;
-import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 
@@ -31,7 +29,7 @@ public class Gravity extends Spell {
     public void tick(CastInformation castInformation) {
         Player player = castInformation.getCasterAsPlayer();
         player.setVelocity(player.getLocation().getDirection().add(new Vector(0, 5, 0)));
-        displayParticleEffect(player, Particle.GLOW_SQUID_INK, 2, 10);
+        ParticleUtils.displayParticleEffect(player, Particle.GLOW_SQUID_INK, 2, 10);
     }
 
     @ParametersAreNonnullByDefault
@@ -41,7 +39,7 @@ public class Gravity extends Spell {
         player.setFlying(true);
         long expiry = System.currentTimeMillis() + ((castInformation.getStaveLevel() * 30L) * 1000);
         CrystamaeHistoria.getActiveStorage().getPlayersWithFlight().put(player.getUniqueId(), expiry);
-        displayParticleEffect(player, Particle.FALLING_OBSIDIAN_TEAR, 2, 20);
+        ParticleUtils.displayParticleEffect(player, Particle.FALLING_OBSIDIAN_TEAR, 2, 20);
     }
 
     @Nonnull
@@ -67,8 +65,8 @@ public class Gravity extends Spell {
 
     @NotNull
     @Override
-    public SpellRecipe getRecipe() {
-        return new SpellRecipe(
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
             1,
             StoryType.MECHANICAL,
             StoryType.ALCHEMICAL,
