@@ -82,7 +82,7 @@ public final class ItemGroups {
         )
     );
 
-    public ItemGroups() {
+    public static void setup() {
         final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
 
         // Slimefun Registry

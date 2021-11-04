@@ -1,9 +1,10 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.LiquefactionBasinCache;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin.RecipeItem;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.realisationaltar.DummyRealisationAltar;
+import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
+import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
+import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
+import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.realisationaltar.DummyRealisationAltar;
 import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.BlankPlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.ChargedPlate;
@@ -15,6 +16,8 @@ import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
+import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
@@ -26,12 +29,39 @@ public class Materials {
     public static final Map<StoryType, SlimefunItem> DUMMY_CRYSTAL_MAP = new EnumMap<>(StoryType.class);
     public static final Map<StoryRarity, Map<StoryType, SlimefunItem>> CRYSTAL_MAP = new EnumMap<>(StoryRarity.class);
 
-    public static SlimefunItem INERT_PLATE_T_1;
-    public static SlimefunItem CHARGED_PLATE_T_1;
-    public static SlimefunItem AMALGAMATE_DUST;
-    public static SlimefunItem AMALGAMATE_INGOT;
 
-    public Materials() {
+    @Getter
+    private static SlimefunItem inertPlate;
+    @Getter
+    private static SlimefunItem chargedPlate;
+    @Getter
+    private static SlimefunItem amalgamateDustCommon;
+    @Getter
+    private static SlimefunItem amalgamateIngotCommon;
+    @Getter
+    private static SlimefunItem amalgamateDustUncommon;
+    @Getter
+    private static SlimefunItem amalgamateIngotUncommon;
+    @Getter
+    private static SlimefunItem amalgamateDustRare;
+    @Getter
+    private static SlimefunItem amalgamateIngotRare;
+    @Getter
+    private static SlimefunItem amalgamateDustEpic;
+    @Getter
+    private static SlimefunItem amalgamateIngotEpic;
+    @Getter
+    private static SlimefunItem amalgamateDustMythical;
+    @Getter
+    private static SlimefunItem amalgamateIngotMythical;
+    @Getter
+    private static SlimefunItem amalgamateDustUnique;
+    @Getter
+    private static SlimefunItem amalgamateIngotUnique;
+    @Getter
+    private static SlimefunItem imbuedGlass;
+
+    public static void setup() {
 
         CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
 
@@ -89,7 +119,7 @@ public class Materials {
             StoryType.PHILOSOPHICAL, 10
         );
 
-        INERT_PLATE_T_1 = new BlankPlate(
+        inertPlate = new BlankPlate(
             ItemGroups.TOOLS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_SPELL_PLATE_1",
@@ -106,7 +136,7 @@ public class Materials {
 
 
         // Charged Plate
-        CHARGED_PLATE_T_1 = new ChargedPlate(
+        chargedPlate = new ChargedPlate(
             ItemGroups.TOOLS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_CHARGED_PLATE_1",
@@ -121,14 +151,14 @@ public class Materials {
             1
         );
 
-        // Amalgamate Dust
-        AMALGAMATE_DUST = new SlimefunItem(
+        // Amalgamate Dust Common
+        amalgamateDustCommon = new SlimefunItem(
             ItemGroups.TOOLS,
             ThemeType.themedSlimefunItemStack(
-                "CRY_AMALGAMATE_DUST",
+                "CRY_AMALGAMATE_DUST_COMMON",
                 new ItemStack(Material.GLOWSTONE_DUST),
                 ThemeType.CRAFTING,
-                "Amalgamate Dust",
+                "Amalgamate Dust (Common)",
                 "A dust combining all magic types."
             ),
             RecipeType.MAGIC_WORKBENCH,
@@ -145,30 +175,263 @@ public class Materials {
             }
         );
 
-        // Amalgamate Ingot
-        AMALGAMATE_INGOT = new SlimefunItem(
+        // Amalgamate Dust Uncommon
+        amalgamateDustUncommon = new SlimefunItem(
             ItemGroups.TOOLS,
             ThemeType.themedSlimefunItemStack(
-                "CRY_AMALGAMATE_INGOT",
+                "CRY_AMALGAMATE_DUST_UNCOMMON",
+                new ItemStack(Material.GLOWSTONE_DUST),
+                ThemeType.CRAFTING,
+                "Amalgamate Dust (Uncommon)",
+                "A dust combining all magic types."
+            ),
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                CRYSTAL_MAP.get(StoryRarity.UNCOMMON).get(StoryType.ELEMENTAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.UNCOMMON).get(StoryType.MECHANICAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.UNCOMMON).get(StoryType.ALCHEMICAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.UNCOMMON).get(StoryType.HISTORICAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.UNCOMMON).get(StoryType.HUMAN).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.UNCOMMON).get(StoryType.ANIMAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.UNCOMMON).get(StoryType.CELESTIAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.UNCOMMON).get(StoryType.VOID).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.UNCOMMON).get(StoryType.PHILOSOPHICAL).getItem()
+            }
+        );
+
+        // Amalgamate Dust Rare
+        amalgamateDustRare = new SlimefunItem(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_AMALGAMATE_DUST_RARE",
+                new ItemStack(Material.GLOWSTONE_DUST),
+                ThemeType.CRAFTING,
+                "Amalgamate Dust (Rare)",
+                "A dust combining all magic types."
+            ),
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                CRYSTAL_MAP.get(StoryRarity.RARE).get(StoryType.ELEMENTAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.RARE).get(StoryType.MECHANICAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.RARE).get(StoryType.ALCHEMICAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.RARE).get(StoryType.HISTORICAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.RARE).get(StoryType.HUMAN).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.RARE).get(StoryType.ANIMAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.RARE).get(StoryType.CELESTIAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.RARE).get(StoryType.VOID).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.RARE).get(StoryType.PHILOSOPHICAL).getItem()
+            }
+        );
+
+        // Amalgamate Dust Epic
+        amalgamateDustEpic = new SlimefunItem(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_AMALGAMATE_DUST_EPIC",
+                new ItemStack(Material.GLOWSTONE_DUST),
+                ThemeType.CRAFTING,
+                "Amalgamate Dust (Epic)",
+                "A dust combining all magic types."
+            ),
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                CRYSTAL_MAP.get(StoryRarity.EPIC).get(StoryType.ELEMENTAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.EPIC).get(StoryType.MECHANICAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.EPIC).get(StoryType.ALCHEMICAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.EPIC).get(StoryType.HISTORICAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.EPIC).get(StoryType.HUMAN).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.EPIC).get(StoryType.ANIMAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.EPIC).get(StoryType.CELESTIAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.EPIC).get(StoryType.VOID).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.EPIC).get(StoryType.PHILOSOPHICAL).getItem()
+            }
+        );
+
+        // Amalgamate Dust Mythical
+        amalgamateDustMythical = new SlimefunItem(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_AMALGAMATE_DUST_MYTHICAL",
+                new ItemStack(Material.GLOWSTONE_DUST),
+                ThemeType.CRAFTING,
+                "Amalgamate Dust (Mythical)",
+                "A dust combining all magic types."
+            ),
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                CRYSTAL_MAP.get(StoryRarity.MYTHICAL).get(StoryType.ELEMENTAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.MYTHICAL).get(StoryType.MECHANICAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.MYTHICAL).get(StoryType.ALCHEMICAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.MYTHICAL).get(StoryType.HISTORICAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.MYTHICAL).get(StoryType.HUMAN).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.MYTHICAL).get(StoryType.ANIMAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.MYTHICAL).get(StoryType.CELESTIAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.MYTHICAL).get(StoryType.VOID).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.MYTHICAL).get(StoryType.PHILOSOPHICAL).getItem()
+            }
+        );
+
+        // Amalgamate Dust Unique
+        amalgamateDustUnique = new SlimefunItem(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_AMALGAMATE_DUST_UNIQUE",
+                new ItemStack(Material.GLOWSTONE_DUST),
+                ThemeType.CRAFTING,
+                "Amalgamate Dust (Unique)",
+                "A dust combining all magic types."
+            ),
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                CRYSTAL_MAP.get(StoryRarity.UNIQUE).get(StoryType.ELEMENTAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.UNIQUE).get(StoryType.MECHANICAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.UNIQUE).get(StoryType.ALCHEMICAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.UNIQUE).get(StoryType.HISTORICAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.UNIQUE).get(StoryType.HUMAN).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.UNIQUE).get(StoryType.ANIMAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.UNIQUE).get(StoryType.CELESTIAL).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.UNIQUE).get(StoryType.VOID).getItem(),
+                CRYSTAL_MAP.get(StoryRarity.UNIQUE).get(StoryType.PHILOSOPHICAL).getItem()
+            }
+        );
+
+        // Amalgamate Ingot Common
+        amalgamateIngotCommon = new SlimefunItem(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_AMALGAMATE_INGOT_COMMON",
                 new ItemStack(Material.GOLD_INGOT),
                 ThemeType.CRAFTING,
-                "Amalgamate Ingot",
+                "Amalgamate Ingot (Common)",
                 "An ingot crafted of pure magics."
             ),
             RecipeType.SMELTERY,
             new ItemStack[]{
-                AMALGAMATE_DUST.getItem()
+                amalgamateDustCommon.getItem()
             }
         );
 
+        // Amalgamate Ingot Uncommon
+        amalgamateIngotUncommon = new SlimefunItem(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_AMALGAMATE_INGOT_UNCOMMON",
+                new ItemStack(Material.GOLD_INGOT),
+                ThemeType.CRAFTING,
+                "Amalgamate Ingot (Uncommon)",
+                "An ingot crafted of pure magics."
+            ),
+            RecipeType.SMELTERY,
+            new ItemStack[]{
+                amalgamateDustUncommon.getItem()
+            }
+        );
+
+        // Amalgamate Ingot Rare
+        amalgamateIngotRare = new SlimefunItem(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_AMALGAMATE_INGOT_RARE",
+                new ItemStack(Material.GOLD_INGOT),
+                ThemeType.CRAFTING,
+                "Amalgamate Ingot (Rare)",
+                "An ingot crafted of pure magics."
+            ),
+            RecipeType.SMELTERY,
+            new ItemStack[]{
+                amalgamateDustRare.getItem()
+            }
+        );
+
+        // Amalgamate Ingot Epic
+        amalgamateIngotEpic = new SlimefunItem(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_AMALGAMATE_INGOT_EPIC",
+                new ItemStack(Material.GOLD_INGOT),
+                ThemeType.CRAFTING,
+                "Amalgamate Ingot (Epic)",
+                "An ingot crafted of pure magics."
+            ),
+            RecipeType.SMELTERY,
+            new ItemStack[]{
+                amalgamateDustEpic.getItem()
+            }
+        );
+
+        // Amalgamate Ingot Mythical
+        amalgamateIngotMythical = new SlimefunItem(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_AMALGAMATE_INGOT_MYTHICAL",
+                new ItemStack(Material.GOLD_INGOT),
+                ThemeType.CRAFTING,
+                "Amalgamate Ingot (Mythical)",
+                "An ingot crafted of pure magics."
+            ),
+            RecipeType.SMELTERY,
+            new ItemStack[]{
+                amalgamateDustMythical.getItem()
+            }
+        );
+
+        // Amalgamate Ingot Unique
+        amalgamateIngotUnique = new SlimefunItem(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_AMALGAMATE_INGOT_UNIQUE",
+                new ItemStack(Material.GOLD_INGOT),
+                ThemeType.CRAFTING,
+                "Amalgamate Ingot (Unique)",
+                "An ingot crafted of pure magics."
+            ),
+            RecipeType.SMELTERY,
+            new ItemStack[]{
+                amalgamateDustUnique.getItem()
+            }
+        );
+
+        // Imbued Glass
+        RecipeItem imbuedGlassRecipe = new RecipeItem(
+            new ItemStack(Material.GLASS_PANE),
+            StoryType.ELEMENTAL, 10,
+            StoryType.HUMAN, 10,
+            StoryType.VOID, 10
+        );
+        imbuedGlass = new UnplaceableBlock(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_IMBUED_GLASS",
+                new ItemStack(Material.GLASS_PANE),
+                ThemeType.CRAFTING,
+                "Imbued Glass",
+                "Glass imbued with Crysta that has",
+                "some strange properties."
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            imbuedGlassRecipe.getDisplayRecipe()
+        );
+
         // Slimefun Registry
-        CHARGED_PLATE_T_1.register(CrystamaeHistoria.getInstance());
-        INERT_PLATE_T_1.register(CrystamaeHistoria.getInstance());
-        AMALGAMATE_DUST.register(plugin);
-        AMALGAMATE_INGOT.register(plugin);
+        chargedPlate.register(CrystamaeHistoria.getInstance());
+        inertPlate.register(CrystamaeHistoria.getInstance());
+        amalgamateDustCommon.register(plugin);
+        amalgamateIngotCommon.register(plugin);
+        amalgamateDustUncommon.register(plugin);
+        amalgamateIngotUncommon.register(plugin);
+        amalgamateDustRare.register(plugin);
+        amalgamateIngotRare.register(plugin);
+        amalgamateDustEpic.register(plugin);
+        amalgamateIngotEpic.register(plugin);
+        amalgamateDustMythical.register(plugin);
+        amalgamateIngotMythical.register(plugin);
+        amalgamateDustUnique.register(plugin);
+        amalgamateIngotUnique.register(plugin);
+        imbuedGlass.register(plugin);
 
         // Liquefaction Recipes
-        LiquefactionBasinCache.addCraftingRecipe(INERT_PLATE_T_1, inertRecipeItem);
+        LiquefactionBasinCache.addCraftingRecipe(inertPlate, inertRecipeItem);
+        LiquefactionBasinCache.addCraftingRecipe(imbuedGlass, imbuedGlassRecipe);
 
     }
 }

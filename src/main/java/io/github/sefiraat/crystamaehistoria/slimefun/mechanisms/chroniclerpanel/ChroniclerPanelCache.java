@@ -1,8 +1,8 @@
-package io.github.sefiraat.crystamaehistoria.slimefun.machines.chroniclerpanel;
+package io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.chroniclerpanel;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.runnables.animation.FloatingHeadAnimation;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.AbstractCache;
+import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.AbstractCache;
 import io.github.sefiraat.crystamaehistoria.stories.StoriedBlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.utils.ArmourStandUtils;

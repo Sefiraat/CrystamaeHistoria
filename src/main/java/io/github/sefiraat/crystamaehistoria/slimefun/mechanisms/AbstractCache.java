@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.slimefun.machines;
+package io.github.sefiraat.crystamaehistoria.slimefun.mechanisms;
 
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import lombok.Getter;
