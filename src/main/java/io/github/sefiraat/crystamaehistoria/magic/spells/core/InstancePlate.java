@@ -50,6 +50,7 @@ public class InstancePlate {
         }
         finalLore.add("");
         finalLore.add(ThemeType.applyThemeToString(ThemeType.CLICK_INFO, ThemeType.CRAFTING.getLoreLine()));
+
         itemMeta.setLore(finalLore);
         itemStack.setItemMeta(itemMeta);
     }

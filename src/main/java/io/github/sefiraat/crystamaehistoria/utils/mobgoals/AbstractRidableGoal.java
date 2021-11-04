@@ -30,7 +30,6 @@ public abstract class AbstractRidableGoal<T extends Mob> extends AbstractGoal<T>
                 // Non-flying mobs
                 final Block block = destination.getBlock();
                 self.getPathfinder().moveTo(self.getLocation().add(0, 0, 1));
-
             }
 
 

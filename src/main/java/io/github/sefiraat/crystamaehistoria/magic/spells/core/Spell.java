@@ -275,5 +275,4 @@ public abstract class Spell {
         }
         return livingEntities;
     }
-
 }

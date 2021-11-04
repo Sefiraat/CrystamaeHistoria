@@ -16,6 +16,7 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Mob;
 import org.bukkit.entity.Projectile;
+import org.bukkit.scheduler.BukkitRunnable;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -78,6 +79,8 @@ public class SpellUtils {
         final T mob = (T) location.getWorld().spawnEntity(location, entityType);
         final MagicSummon magicSummon = new MagicSummon(mob.getUniqueId(), caster);
         final MobGoals mobGoals = Bukkit.getMobGoals();
+
+        mobGoals.removeAllGoals(mob);
 
         if (tickConsumer != null) {
             magicSummon.setTickConsumer(tickConsumer);
