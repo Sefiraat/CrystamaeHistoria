@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin;
+package io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin;
 
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;

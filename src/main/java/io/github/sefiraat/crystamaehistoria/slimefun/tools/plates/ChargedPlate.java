@@ -34,7 +34,7 @@ public class ChargedPlate extends MagicalPlate {
     @Nonnull
     @ParametersAreNonnullByDefault
     public static ItemStack getChargedPlate(InstancePlate instancePlate) {
-        ItemStack newPlate = Materials.CHARGED_PLATE_T_1.getItem().clone();
+        ItemStack newPlate = Materials.getChargedPlate().getItem().clone();
         InstancePlate.setPlateLore(newPlate, instancePlate);
         ItemMeta itemMeta = newPlate.getItemMeta();
         DataTypeMethods.setCustom(

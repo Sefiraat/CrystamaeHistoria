@@ -11,7 +11,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicSummon;
 import io.github.sefiraat.crystamaehistoria.runnables.RunnableManager;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTickRunnable;
 import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
-import io.github.sefiraat.crystamaehistoria.slimefun.Machines;
+import io.github.sefiraat.crystamaehistoria.slimefun.Mechanisms;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.slimefun.Tools;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
@@ -141,10 +141,10 @@ public class CrystamaeHistoria extends AbstractAddon {
     }
 
     private void setupSlimefun() {
-        new ItemGroups();
-        new Materials();
-        new Machines();
-        new Tools();
+        ItemGroups.setup();
+        Materials.setup();
+        Mechanisms.setup();
+        Tools.setup();
     }
 
 }

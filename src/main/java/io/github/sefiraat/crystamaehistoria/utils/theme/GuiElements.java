@@ -6,6 +6,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import lombok.experimental.UtilityClass;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.block.BlockFace;
 import org.bukkit.inventory.ItemStack;
 
 import java.text.MessageFormat;
@@ -113,6 +114,14 @@ public class GuiElements {
         return new CustomItemStack(
             Material.RED_STAINED_GLASS_PANE,
             ChatColor.GRAY + "Spell Slot : " + ThemeType.toTitleCase(spellSlot.name())
+        );
+    }
+
+    public static CustomItemStack getDirectionalSlotPane(BlockFace blockFace, boolean active) {
+        Material material = active ? Material.RED_STAINED_GLASS_PANE : Material.GREEN_STAINED_GLASS_PANE;
+        return new CustomItemStack(
+            material,
+            ChatColor.GRAY + "Set direction: " + blockFace.name()
         );
     }
 }

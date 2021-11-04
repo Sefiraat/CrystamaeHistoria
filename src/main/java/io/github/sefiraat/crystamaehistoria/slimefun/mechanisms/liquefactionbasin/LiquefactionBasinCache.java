@@ -1,10 +1,10 @@
-package io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin;
+package io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin;
 
 import de.slikey.effectlib.effect.SphereEffect;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.InstancePlate;
-import io.github.sefiraat.crystamaehistoria.slimefun.machines.DisplayStandHolder;
+import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.DisplayStandHolder;
 import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.BlankPlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.ChargedPlate;
@@ -56,11 +56,12 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
 
     public static final double LOWEST_LEVEL = -1.7;
     public static final double HIGHEST_LEVEL = -1;
-    public static final double MAX_VOLUME = 1000;
     protected static final Map<StoryRarity, Integer> RARITY_VALUE_MAP = new EnumMap<>(StoryRarity.class);
     protected static final String CH_LEVEL_PREFIX = "ch_c_lvl:";
     private static final Map<SpellType, RecipeSpell> RECIPES_SPELL = new HashMap<>();
     private static final Map<SlimefunItem, RecipeItem> RECIPES_ITEMS = new HashMap<>();
+
+    private final double maxVolume;
 
     static {
         RARITY_VALUE_MAP.put(StoryRarity.COMMON, 1);
@@ -74,8 +75,9 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
     private final Map<StoryType, Integer> contentMap = new EnumMap<>(StoryType.class);
 
     @ParametersAreNonnullByDefault
-    public LiquefactionBasinCache(BlockMenu blockMenu) {
+    public LiquefactionBasinCache(BlockMenu blockMenu, double maxVolume) {
         super(blockMenu);
+        this.maxVolume = maxVolume;
 
         final String activePlayerString = BlockStorage.getLocationInfo(blockMenu.getLocation(), Keys.BS_CP_ACTIVE_PLAYER);
         if (activePlayerString != null) {
@@ -139,7 +141,7 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
     private void addCrystamae(StoryType type, StoryRarity rarity, Item item) {
         final int numberInStack = item.getItemStack().getAmount();
         final int amount = LiquefactionBasinCache.RARITY_VALUE_MAP.get(rarity) * numberInStack;
-        if (getFillLevel() + amount > MAX_VOLUME) {
+        if (getFillLevel() + amount > maxVolume) {
             rejectItem(item, false);
         } else {
             if (contentMap.containsKey(type)) {
@@ -211,7 +213,7 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
     @ParametersAreNonnullByDefault
     private void setFillHeight(ArmorStand armorStand) {
         final double diff = HIGHEST_LEVEL - LOWEST_LEVEL;
-        final double incrementAmount = diff / MAX_VOLUME;
+        final double incrementAmount = diff / maxVolume;
         final double amount = incrementAmount * getFillLevel();
         final Location location = blockMenu.getLocation().clone().add(0.5, -1.7 + amount, 0.5);
         armorStand.teleport(location);

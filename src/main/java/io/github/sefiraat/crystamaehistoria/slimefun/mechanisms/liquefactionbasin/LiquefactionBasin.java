@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.slimefun.machines.liquefactionbasin;
+package io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin;
 
 import io.github.mooy1.infinitylib.machines.TickingMenuBlock;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
@@ -28,20 +28,20 @@ public class LiquefactionBasin extends TickingMenuBlock {
     protected static final int[] BACKGROUND_SLOTS = {
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 15, 16, 17, 18, 19, 20, 24, 25, 26, 27, 28, 29, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44
     };
-    protected static final int[] BACKGROUND_INPUT = {
-        12, 13, 14, 21, 23, 30, 31, 32
-    };
     protected static final int INPUT_SLOT = 22;
     protected static final Map<Location, LiquefactionBasinCache> CACHE_MAP = new HashMap<>();
 
+    public final int maxVolume;
+
     @ParametersAreNonnullByDefault
-    public LiquefactionBasin(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
+    public LiquefactionBasin(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, int maxVolume) {
         super(itemGroup, item, recipeType, recipe);
+        this.maxVolume = maxVolume;
         this.addItemHandler(new BlockPlaceHandler(false) {
             @Override
             public void onPlayerPlace(@NotNull BlockPlaceEvent event) {
                 final Location location = event.getBlockPlaced().getLocation();
-                final LiquefactionBasinCache cache = new LiquefactionBasinCache(BlockStorage.getInventory(location));
+                final LiquefactionBasinCache cache = new LiquefactionBasinCache(BlockStorage.getInventory(location), maxVolume);
                 cache.setActivePlayer(event.getPlayer());
                 CACHE_MAP.put(location, cache);
             }
@@ -96,7 +96,7 @@ public class LiquefactionBasin extends TickingMenuBlock {
     protected void onNewInstance(BlockMenu blockMenu, Block b) {
         super.onNewInstance(blockMenu, b);
         if (!CACHE_MAP.containsKey(blockMenu.getLocation())) {
-            LiquefactionBasinCache cache = new LiquefactionBasinCache(blockMenu);
+            LiquefactionBasinCache cache = new LiquefactionBasinCache(blockMenu, this.maxVolume);
             Config c = BlockStorage.getLocationInfo(blockMenu.getLocation());
 
             for (String key : c.getKeys()) {

@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.slimefun.machines.staveconfigurator;
+package io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.staveconfigurator;
 
 import io.github.mooy1.infinitylib.machines.MenuBlock;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.InstancePlate;
