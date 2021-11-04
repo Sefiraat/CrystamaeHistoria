@@ -699,5 +699,4 @@ public class Mechanisms {
         LiquefactionBasinCache.addCraftingRecipe(doomedPlate, doomedPlateRecipe);
         LiquefactionBasinCache.addCraftingRecipe(evisceratingPlate, evisceratingPlateRecipe);
     }
-
 }
