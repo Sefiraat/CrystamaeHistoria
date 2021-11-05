@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria;
 
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicFallingBlock;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicSummon;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTickRunnable;
@@ -23,6 +24,8 @@ public class SpellMemory {
     @Getter
     private final Map<MagicProjectile, Pair<CastInformation, Long>> projectileMap = new HashMap<>();
     @Getter
+    private final Map<MagicFallingBlock, Pair<CastInformation, Long>> fallingBlockMap = new HashMap<>();
+    @Getter
     private final Map<UUID, Pair<CastInformation, Long>> strikeMap = new HashMap<>();
     @Getter
     private final Map<SpellTickRunnable, Integer> tickingCastables = new HashMap<>();
@@ -44,6 +47,10 @@ public class SpellMemory {
         removeProjectiles(true);
         projectileMap.clear();
 
+        // Clear all projectiles created from spells
+        removeFallingBlocks(true);
+        fallingBlockMap.clear();
+
         // Clear all spawned entities created from spells
         removeEntities(true);
         summonedEntities.clear();
@@ -58,13 +65,21 @@ public class SpellMemory {
     }
 
     public void removeProjectiles(boolean forceRemoveAll) {
-        Set<MagicProjectile> set = new HashSet<>(CrystamaeHistoria.getProjectileMap().keySet());
+        Set<MagicProjectile> set = new HashSet<>(projectileMap.keySet());
         for (MagicProjectile magicProjectile : set) {
             long expiry = projectileMap.get(magicProjectile).getSecondValue();
             if (System.currentTimeMillis() > expiry || forceRemoveAll) {
                 magicProjectile.kill();
-            } else {
-                magicProjectile.run();
+            }
+        }
+    }
+
+    public void removeFallingBlocks(boolean forceRemoveAll) {
+        Set<MagicFallingBlock> set = new HashSet<>(fallingBlockMap.keySet());
+        for (MagicFallingBlock magicFallingBlock : set) {
+            long expiry = fallingBlockMap.get(magicFallingBlock).getSecondValue();
+            if (System.currentTimeMillis() > expiry || forceRemoveAll) {
+                magicFallingBlock.kill();
             }
         }
     }

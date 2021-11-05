@@ -2,6 +2,7 @@ package io.github.sefiraat.crystamaehistoria.listeners;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicFallingBlock;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
@@ -13,6 +14,7 @@ import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.FallingBlock;
 import org.bukkit.entity.LightningStrike;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
@@ -82,6 +84,31 @@ public class SpellEffectListener implements Listener {
         }
 
         magicProjectile.kill();
+    }
+
+    @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
+    public void onFallingBlockLands(EntityChangeBlockEvent event) {
+        final Entity entity = event.getEntity();
+
+        if (entity instanceof FallingBlock) {
+            final Optional<MagicFallingBlock> optionalMagicFallingBlock = CrystamaeHistoria.getFallingBlockMap().keySet()
+                .stream()
+                .filter(magicFallingBlock -> magicFallingBlock.matches((FallingBlock) entity))
+                .findFirst();
+
+            if (!optionalMagicFallingBlock.isPresent()) {
+                return;
+            }
+
+            final MagicFallingBlock magicFallingBlock = optionalMagicFallingBlock.get();
+            final CastInformation castInfo = CrystamaeHistoria.getFallingBlockCastInfo(magicFallingBlock);
+
+            event.setCancelled(true);
+            castInfo.setProjectileLocation(magicFallingBlock.getLocation());
+            castInfo.setHitBlock(event.getBlock());
+            castInfo.runProjectileHitBlockEvent();
+            magicFallingBlock.kill();
+        }
     }
 
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)

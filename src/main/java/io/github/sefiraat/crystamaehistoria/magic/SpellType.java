@@ -2,6 +2,7 @@ package io.github.sefiraat.crystamaehistoria.magic;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.AbstractVoid;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.AirNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.AirSprite;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.AncientDefence;
@@ -43,6 +44,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LeechBomb;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LovePotion;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Oviparous;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.PhilosophersStone;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.PlutosDecent;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.PoisonNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Prism;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Protectorate;
@@ -76,6 +78,7 @@ import java.util.Arrays;
 public enum SpellType {
 
     // Tier 1
+    ABSTRACT_VOID(new AbstractVoid()),
     AIR_NOVA(new AirNova()),
     AIR_SPRITE(new AirSprite()),
     ANCIENT_DEFENCE(new AncientDefence()),
@@ -117,6 +120,7 @@ public enum SpellType {
     OVIPAROUS(new Oviparous()),
     PHANTOMS_FLIGHT(new PhantomsFlight()),
     PHILOSOPHERS_STONE(new PhilosophersStone()),
+    PLUTOS_DESCENT(new PlutosDecent()),
     POISON_NOVA(new PoisonNova()),
     PRISM(new Prism()),
     PROTECTORATE(new Protectorate()),
