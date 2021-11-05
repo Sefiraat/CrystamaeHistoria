@@ -92,7 +92,14 @@ public enum ThemeType {
         "Azak",
         "andrewandy",
         "EpicPlayer10",
-        "GentlemanCheesy"
+        "GentlemanCheesy",
+        "ybw0014",
+        "Ashian",
+        "R.I.P",
+        "OOOOMAGAAA",
+        "TerslenK",
+        "FN_FAL",
+        "supertechxter"
     );
     private final ChatColor color;
     private final String loreLine;

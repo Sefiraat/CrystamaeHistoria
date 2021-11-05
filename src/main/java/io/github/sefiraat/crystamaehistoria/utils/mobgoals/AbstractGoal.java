@@ -74,9 +74,9 @@ public abstract class AbstractGoal<T extends Mob> implements Goal<T> {
                         player.getWorld().getNearbyEntitiesByType(
                             getTargetClass(),
                             player.getLocation(),
-                            15,
-                            15,
-                            15,
+                            10,
+                            10,
+                            10,
                             entity -> {
                                 final UUID testOwner = DataTypeMethods.getCustom(entity, Keys.PDC_IS_SPAWN_OWNER, PersistentUUIDDataType.TYPE);
                                 if (testOwner == null) {

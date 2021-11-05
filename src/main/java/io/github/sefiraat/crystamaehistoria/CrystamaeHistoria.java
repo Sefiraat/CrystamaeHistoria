@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.commands.TestSpell;
 import io.github.sefiraat.crystamaehistoria.config.ConfigManager;
 import io.github.sefiraat.crystamaehistoria.listeners.ListenerManager;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicFallingBlock;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicSummon;
 import io.github.sefiraat.crystamaehistoria.runnables.RunnableManager;
@@ -79,6 +80,11 @@ public class CrystamaeHistoria extends AbstractAddon {
     }
 
     @Nonnull
+    public static Map<MagicFallingBlock, Pair<CastInformation, Long>> getFallingBlockMap() {
+        return instance.spellMemory.getFallingBlockMap();
+    }
+
+    @Nonnull
     public static Map<UUID, Pair<CastInformation, Long>> getStrikeMap() {
         return instance.spellMemory.getStrikeMap();
     }
@@ -93,6 +99,14 @@ public class CrystamaeHistoria extends AbstractAddon {
     public static CastInformation getProjectileCastInfo(MagicProjectile magicProjectile) {
         CastInformation castInformation = getProjectileMap().get(magicProjectile).getFirstValue();
         Validate.notNull(castInformation, "Cast information is null, magical projectile spawned incorrectly.");
+        return castInformation;
+    }
+
+    @Nonnull
+    @ParametersAreNonnullByDefault
+    public static CastInformation getFallingBlockCastInfo(MagicFallingBlock magicFallingBlock) {
+        CastInformation castInformation = getFallingBlockMap().get(magicFallingBlock).getFirstValue();
+        Validate.notNull(castInformation, "Cast information is null, magical falling block spawned incorrectly.");
         return castInformation;
     }
 
