@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.runnables.animation;
+package io.github.sefiraat.crystamaehistoria.runnables.spells;
 
 import io.github.sefiraat.crystamaehistoria.utils.ArmourStandUtils;
 import org.bukkit.entity.ArmorStand;

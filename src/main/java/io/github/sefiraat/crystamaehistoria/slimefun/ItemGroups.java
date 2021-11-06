@@ -49,12 +49,21 @@ public final class ItemGroups {
         )
     );
 
-    public static final SubItemGroup SPELLS = new SubItemGroup(
-        Keys.newKey("spells"),
+    public static final SubItemGroup GADGETS = new SubItemGroup(
+        Keys.newKey("gadgets"),
         MAIN,
         new CustomItemStack(
-            new ItemStack(Material.FIRE_CHARGE),
-            ThemeType.MAIN.getColor() + "Magic Spells"
+            new ItemStack(Material.REDSTONE_LAMP),
+            ThemeType.MAIN.getColor() + "Magical Tech and Gadgets"
+        )
+    );
+
+    public static final SubItemGroup MATERIALS = new SubItemGroup(
+        Keys.newKey("materials"),
+        MAIN,
+        new CustomItemStack(
+            new ItemStack(Material.GOLD_INGOT),
+            ThemeType.MAIN.getColor() + "Crystamae Raw Materials"
         )
     );
 

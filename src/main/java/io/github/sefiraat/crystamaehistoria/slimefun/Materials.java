@@ -1,11 +1,11 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.realisationaltar.DummyRealisationAltar;
-import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.BlankPlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.ChargedPlate;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
@@ -29,11 +29,6 @@ public class Materials {
     public static final Map<StoryType, SlimefunItem> DUMMY_CRYSTAL_MAP = new EnumMap<>(StoryType.class);
     public static final Map<StoryRarity, Map<StoryType, SlimefunItem>> CRYSTAL_MAP = new EnumMap<>(StoryRarity.class);
 
-
-    @Getter
-    private static SlimefunItem inertPlate;
-    @Getter
-    private static SlimefunItem chargedPlate;
     @Getter
     private static SlimefunItem amalgamateDustCommon;
     @Getter
@@ -111,49 +106,11 @@ public class Materials {
             }
         }
 
-        // Inert Plate
-        RecipeItem inertRecipeItem = new RecipeItem(
-            SlimefunItems.REINFORCED_PLATE.clone(),
-            StoryType.ELEMENTAL, 10,
-            StoryType.HUMAN, 10,
-            StoryType.PHILOSOPHICAL, 10
-        );
 
-        inertPlate = new BlankPlate(
-            ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_SPELL_PLATE_1",
-                new ItemStack(Material.PAPER),
-                ThemeType.CRAFTING,
-                "Basic Spell Plate",
-                "A blank plate that has the potential to",
-                "store magical energy"
-            ),
-            RecipeType.ORE_WASHER,
-            inertRecipeItem.getDisplayRecipe(),
-            1
-        );
-
-
-        // Charged Plate
-        chargedPlate = new ChargedPlate(
-            ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_CHARGED_PLATE_1",
-                new ItemStack(Material.PAPER),
-                ThemeType.CRAFTING,
-                "Charged Basic Spell Plate",
-                "A magically charged plate storing magic",
-                "potential."
-            ),
-            RecipeType.ORE_WASHER,
-            new ItemStack[]{null, null, null, null, new ItemStack(Material.AMETHYST_CLUSTER), null, null, null, null},
-            1
-        );
 
         // Amalgamate Dust Common
         amalgamateDustCommon = new SlimefunItem(
-            ItemGroups.TOOLS,
+            ItemGroups.MATERIALS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_AMALGAMATE_DUST_COMMON",
                 new ItemStack(Material.GLOWSTONE_DUST),
@@ -177,7 +134,7 @@ public class Materials {
 
         // Amalgamate Dust Uncommon
         amalgamateDustUncommon = new SlimefunItem(
-            ItemGroups.TOOLS,
+            ItemGroups.MATERIALS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_AMALGAMATE_DUST_UNCOMMON",
                 new ItemStack(Material.GLOWSTONE_DUST),
@@ -201,7 +158,7 @@ public class Materials {
 
         // Amalgamate Dust Rare
         amalgamateDustRare = new SlimefunItem(
-            ItemGroups.TOOLS,
+            ItemGroups.MATERIALS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_AMALGAMATE_DUST_RARE",
                 new ItemStack(Material.GLOWSTONE_DUST),
@@ -225,7 +182,7 @@ public class Materials {
 
         // Amalgamate Dust Epic
         amalgamateDustEpic = new SlimefunItem(
-            ItemGroups.TOOLS,
+            ItemGroups.MATERIALS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_AMALGAMATE_DUST_EPIC",
                 new ItemStack(Material.GLOWSTONE_DUST),
@@ -249,7 +206,7 @@ public class Materials {
 
         // Amalgamate Dust Mythical
         amalgamateDustMythical = new SlimefunItem(
-            ItemGroups.TOOLS,
+            ItemGroups.MATERIALS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_AMALGAMATE_DUST_MYTHICAL",
                 new ItemStack(Material.GLOWSTONE_DUST),
@@ -273,7 +230,7 @@ public class Materials {
 
         // Amalgamate Dust Unique
         amalgamateDustUnique = new SlimefunItem(
-            ItemGroups.TOOLS,
+            ItemGroups.MATERIALS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_AMALGAMATE_DUST_UNIQUE",
                 new ItemStack(Material.GLOWSTONE_DUST),
@@ -297,7 +254,7 @@ public class Materials {
 
         // Amalgamate Ingot Common
         amalgamateIngotCommon = new SlimefunItem(
-            ItemGroups.TOOLS,
+            ItemGroups.MATERIALS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_AMALGAMATE_INGOT_COMMON",
                 new ItemStack(Material.GOLD_INGOT),
@@ -313,7 +270,7 @@ public class Materials {
 
         // Amalgamate Ingot Uncommon
         amalgamateIngotUncommon = new SlimefunItem(
-            ItemGroups.TOOLS,
+            ItemGroups.MATERIALS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_AMALGAMATE_INGOT_UNCOMMON",
                 new ItemStack(Material.GOLD_INGOT),
@@ -329,7 +286,7 @@ public class Materials {
 
         // Amalgamate Ingot Rare
         amalgamateIngotRare = new SlimefunItem(
-            ItemGroups.TOOLS,
+            ItemGroups.MATERIALS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_AMALGAMATE_INGOT_RARE",
                 new ItemStack(Material.GOLD_INGOT),
@@ -345,7 +302,7 @@ public class Materials {
 
         // Amalgamate Ingot Epic
         amalgamateIngotEpic = new SlimefunItem(
-            ItemGroups.TOOLS,
+            ItemGroups.MATERIALS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_AMALGAMATE_INGOT_EPIC",
                 new ItemStack(Material.GOLD_INGOT),
@@ -361,7 +318,7 @@ public class Materials {
 
         // Amalgamate Ingot Mythical
         amalgamateIngotMythical = new SlimefunItem(
-            ItemGroups.TOOLS,
+            ItemGroups.MATERIALS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_AMALGAMATE_INGOT_MYTHICAL",
                 new ItemStack(Material.GOLD_INGOT),
@@ -377,7 +334,7 @@ public class Materials {
 
         // Amalgamate Ingot Unique
         amalgamateIngotUnique = new SlimefunItem(
-            ItemGroups.TOOLS,
+            ItemGroups.MATERIALS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_AMALGAMATE_INGOT_UNIQUE",
                 new ItemStack(Material.GOLD_INGOT),
@@ -399,7 +356,7 @@ public class Materials {
             StoryType.VOID, 10
         );
         imbuedGlass = new UnplaceableBlock(
-            ItemGroups.TOOLS,
+            ItemGroups.MATERIALS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_IMBUED_GLASS",
                 new ItemStack(Material.GLASS_PANE),
@@ -413,25 +370,21 @@ public class Materials {
         );
 
         // Slimefun Registry
-        chargedPlate.register(CrystamaeHistoria.getInstance());
-        inertPlate.register(CrystamaeHistoria.getInstance());
         amalgamateDustCommon.register(plugin);
-        amalgamateIngotCommon.register(plugin);
         amalgamateDustUncommon.register(plugin);
-        amalgamateIngotUncommon.register(plugin);
         amalgamateDustRare.register(plugin);
-        amalgamateIngotRare.register(plugin);
         amalgamateDustEpic.register(plugin);
-        amalgamateIngotEpic.register(plugin);
         amalgamateDustMythical.register(plugin);
-        amalgamateIngotMythical.register(plugin);
         amalgamateDustUnique.register(plugin);
+        amalgamateIngotCommon.register(plugin);
+        amalgamateIngotUncommon.register(plugin);
+        amalgamateIngotRare.register(plugin);
+        amalgamateIngotEpic.register(plugin);
+        amalgamateIngotMythical.register(plugin);
         amalgamateIngotUnique.register(plugin);
         imbuedGlass.register(plugin);
 
         // Liquefaction Recipes
-        LiquefactionBasinCache.addCraftingRecipe(inertPlate, inertRecipeItem);
         LiquefactionBasinCache.addCraftingRecipe(imbuedGlass, imbuedGlassRecipe);
-
     }
 }

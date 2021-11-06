@@ -109,18 +109,18 @@ public class StaveConfigurator extends MenuBlock {
         blockMenu.addMenuClickHandler(ADD_PLATES, (player, i, itemStack, clickAction) -> {
             final ItemStack stave = blockMenu.getItemInSlot(STAVE_SLOT);
             final SlimefunItem sfStave = SlimefunItem.getByItem(stave);
-            InstanceStave staveInstance = new InstanceStave(itemStack);
             if (stave != null
                 && sfStave instanceof Stave
                 && !platesEmpty(blockMenu)
                 && staveIsEmpty(stave)
             ) {
+                final InstanceStave staveInstance = new InstanceStave(stave);
+                final ItemMeta staveMeta = stave.getItemMeta();
                 rejectInvalid(blockMenu);
-                ItemMeta itemMeta = stave.getItemMeta();
                 for (SpellSlot spellSlot : SpellSlot.getCashedValues()) {
-                    ItemStack plate = blockMenu.getItemInSlot(getSlot(spellSlot));
+                    final ItemStack plate = blockMenu.getItemInSlot(getSlot(spellSlot));
                     if (plate != null && SlimefunItem.getByItem(plate) instanceof ChargedPlate) {
-                        InstancePlate instancePlate = DataTypeMethods.getCustom(
+                        final InstancePlate instancePlate = DataTypeMethods.getCustom(
                             plate.getItemMeta(),
                             Keys.PDC_PLATE_STORAGE,
                             PersistentPlateDataType.TYPE
@@ -129,12 +129,12 @@ public class StaveConfigurator extends MenuBlock {
                     }
                 }
                 DataTypeMethods.setCustom(
-                    itemMeta,
+                    staveMeta,
                     Keys.PDC_STAVE_STORAGE,
                     PersistentStaveDataType.TYPE,
                     staveInstance.getSpellInstanceMap()
                 );
-                stave.setItemMeta(itemMeta);
+                stave.setItemMeta(staveMeta);
                 staveInstance.buildLore();
                 clearPlates(blockMenu);
             }

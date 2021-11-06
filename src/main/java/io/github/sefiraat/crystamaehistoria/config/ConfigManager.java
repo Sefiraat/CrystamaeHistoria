@@ -16,7 +16,7 @@ public class ConfigManager {
 
     private final FileConfiguration blocks;
     private final FileConfiguration stories;
-    private final FileConfiguration research;
+    private final FileConfiguration playerStats;
     private final FileConfiguration blockColors;
     private final FileConfiguration spells;
 
@@ -25,8 +25,8 @@ public class ConfigManager {
         this.blocks.options().copyDefaults(true);
         this.stories = getConfig("generic-stories.yml");
         this.stories.options().copyDefaults(true);
-        this.research = getConfig("research.yml");
-        this.research.options().copyDefaults(true);
+        this.playerStats = getConfig("player_stats.yml");
+        this.playerStats.options().copyDefaults(true);
         this.blockColors = getConfig("block_colors.yml");
         this.blockColors.options().copyDefaults(true);
         this.spells = getConfig("spells.yml");
@@ -52,15 +52,6 @@ public class ConfigManager {
         return yaml;
     }
 
-    public void saveResearches() {
-        File file = new File(CrystamaeHistoria.getInstance().getDataFolder(), "research.yml");
-        try {
-            research.save(file);
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
-    }
-
     public boolean spellEnabled(Spell spell) {
         return spells.getBoolean(spell.getId());
     }
@@ -81,4 +72,18 @@ public class ConfigManager {
         }
     }
 
+    public void saveAll() {
+        CrystamaeHistoria.getInstance().getLogger().info("Crystamae saving data.");
+        CrystamaeHistoria.getInstance().getConfig().save();
+        saveResearches();
+    }
+
+    private void saveResearches() {
+        File file = new File(CrystamaeHistoria.getInstance().getDataFolder(), "player_stats.yml");
+        try {
+            playerStats.save(file);
+        } catch (IOException exception) {
+            exception.printStackTrace();
+        }
+    }
 }

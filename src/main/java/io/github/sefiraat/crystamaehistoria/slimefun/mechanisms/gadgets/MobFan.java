@@ -1,7 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets;
 
 import io.github.mooy1.infinitylib.machines.TickingMenuBlock;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.SpellSlot;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.GuiElements;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
@@ -17,7 +16,6 @@ import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Entity;
-import org.bukkit.entity.Monster;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
@@ -41,10 +39,6 @@ public class MobFan extends TickingMenuBlock {
 
     @Getter
     private final double range;
-    @Getter
-    private UUID owner;
-    @Getter
-    private BlockFace direction;
 
     @ParametersAreNonnullByDefault
     public MobFan(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, double range) {
@@ -70,9 +64,8 @@ public class MobFan extends TickingMenuBlock {
     @Override
     @ParametersAreNonnullByDefault
     protected void onNewInstance(BlockMenu menu, Block b) {
-        this.owner = UUID.fromString(BlockStorage.getLocationInfo(b.getLocation(), "CH_UUID"));
-        this.direction = BlockFace.valueOf(BlockStorage.getLocationInfo(b.getLocation(), "CH_DIRECTION"));
-        setDirection(menu, this.direction);
+        BlockFace direction = BlockFace.valueOf(BlockStorage.getLocationInfo(b.getLocation(), "CH_DIRECTION"));
+        setDirection(menu, direction);
 
         menu.addMenuClickHandler(SET_NORTH, (player, i, itemStack, clickAction) -> setDirection(menu, BlockFace.NORTH));
         menu.addMenuClickHandler(SET_SOUTH, (player, i, itemStack, clickAction) -> setDirection(menu, BlockFace.SOUTH));
@@ -85,7 +78,6 @@ public class MobFan extends TickingMenuBlock {
 
     @ParametersAreNonnullByDefault
     private boolean setDirection(BlockMenu blockMenu, BlockFace blockFace) {
-        direction = blockFace;
         BlockStorage.addBlockInfo(blockMenu.getBlock(), "CH_DIRECTION", blockFace.name());
 
         blockMenu.replaceExistingItem(SET_UP, GuiElements.getDirectionalSlotPane(BlockFace.UP, false));
@@ -133,14 +125,16 @@ public class MobFan extends TickingMenuBlock {
     @Override
     @ParametersAreNonnullByDefault
     protected void tick(Block block, BlockMenu blockMenu) {
+        BlockFace direction = BlockFace.valueOf(BlockStorage.getLocationInfo(block.getLocation(), "CH_DIRECTION"));
+        UUID owner = UUID.fromString(BlockStorage.getLocationInfo(block.getLocation(), "CH_UUID"));
         if (direction != BlockFace.SELF) {
             Location location = block.getLocation().add(0.5, 0.5, 0.5);
-            for (int i = 0; i < range; i++) {
+            for (int i = 0; i < range + 0.5; i++) {
                 Location offsetLocation = location.clone().add(direction.getDirection().clone().multiply(i));
                 for (Entity entity : block.getWorld().getNearbyEntities(offsetLocation, 0.5, 0.5, 0.5)) {
                     GeneralUtils.pushEntity(
                         owner,
-                        block.getLocation().clone().add(0.5, 0.5, 0.5),
+                        location.clone().add(0, 0.2, 0),
                         entity,
                         1
                     );

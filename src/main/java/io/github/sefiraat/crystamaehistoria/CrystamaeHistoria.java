@@ -6,24 +6,31 @@ import io.github.sefiraat.crystamaehistoria.commands.TestSpell;
 import io.github.sefiraat.crystamaehistoria.config.ConfigManager;
 import io.github.sefiraat.crystamaehistoria.listeners.ListenerManager;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicFallingBlock;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicSummon;
+import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.runnables.RunnableManager;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTickRunnable;
+import io.github.sefiraat.crystamaehistoria.slimefun.Gadgets;
 import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
-import io.github.sefiraat.crystamaehistoria.slimefun.Mechanisms;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
+import io.github.sefiraat.crystamaehistoria.slimefun.Mechanisms;
 import io.github.sefiraat.crystamaehistoria.slimefun.Tools;
+import io.github.sefiraat.crystamaehistoria.stories.StoriedBlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.utils.CrystaTag;
+import io.github.sefiraat.crystamaehistoria.utils.PlayerStatUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import org.apache.commons.lang.Validate;
 import org.bstats.bukkit.Metrics;
+import org.bstats.charts.AdvancedPie;
 import org.bukkit.plugin.PluginManager;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -141,16 +148,60 @@ public class CrystamaeHistoria extends AbstractAddon {
         setupSlimefun();
         configManager.setupConfigs();
 
-        new Metrics(this, 12065);
+        setupBstats();
 
         getAddonCommand().addSub(new TestSpell());
         CrystaTag.getCachedValues();
     }
 
+    private void setupBstats() {
+        Metrics metrics = new Metrics(this, 12065);
+
+        AdvancedPie disabledSpellsChart = new AdvancedPie("disabled_spells", () -> {
+            Map<String, Integer> values = new HashMap<>();
+            for (SpellType spellType : SpellType.getCachedValues()) {
+                Spell spell = spellType.getSpell();
+                values.put(spell.getId(), spell.isEnabled() ? 0 : 1);
+            }
+            return values;
+        });
+
+        AdvancedPie spellsCastChart = new AdvancedPie("spells_cast", () -> {
+            Map<String, Integer> values = new HashMap<>();
+            for (SpellType spellType : SpellType.getCachedValues()) {
+                Spell spell = spellType.getSpell();
+                int timesCast = 0;
+                for (String string : CrystamaeHistoria.getConfigManager().getPlayerStats().getKeys(false)) {
+                    UUID uuid = UUID.fromString(string);
+                    timesCast += PlayerStatUtils.getUsages(uuid, spellType);
+                }
+                values.put(spell.getId(), timesCast);
+            }
+            return values;
+        });
+
+        AdvancedPie storiesChronicled = new AdvancedPie("stories_chronicled", () -> {
+            Map<String, Integer> values = new HashMap<>();
+            for (StoriedBlockDefinition definition : CrystamaeHistoria.getStoriesManager().getStoriedBlockDefinitionMap().values()) {
+                int timesChronicled = 0;
+                for (String string : CrystamaeHistoria.getConfigManager().getPlayerStats().getKeys(false)) {
+                    UUID uuid = UUID.fromString(string);
+                    timesChronicled += PlayerStatUtils.getChronicle(uuid, definition);
+                }
+                values.put(definition.getMaterial().toString(), timesChronicled);
+            }
+            return values;
+        });
+
+        metrics.addCustomChart(disabledSpellsChart);
+        metrics.addCustomChart(spellsCastChart);
+        metrics.addCustomChart(storiesChronicled);
+    }
+
     @Override
     protected void disable() {
         spellMemory.clearAll();
-        saveConfig();
+        configManager.saveAll();
         instance = null;
     }
 
@@ -158,6 +209,7 @@ public class CrystamaeHistoria extends AbstractAddon {
         ItemGroups.setup();
         Materials.setup();
         Mechanisms.setup();
+        Gadgets.setup();
         Tools.setup();
     }
 

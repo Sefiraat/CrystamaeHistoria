@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.runnables.spells;
+package io.github.sefiraat.crystamaehistoria.runnables;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.SpellMemory;
