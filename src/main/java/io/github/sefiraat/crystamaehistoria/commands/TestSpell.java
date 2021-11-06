@@ -23,7 +23,9 @@ public class TestSpell extends SubCommand {
                 return;
             }
             int power = Integer.parseInt(args[1]);
-            SpellType.getById(args[0]).castSpell(new CastInformation((Player) sender, power));
+            if (power <= 5) {
+                SpellType.getById(args[0]).castSpell(new CastInformation((Player) sender, power));
+            }
         }
     }
 

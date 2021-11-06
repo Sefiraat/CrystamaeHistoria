@@ -4,8 +4,8 @@ import de.slikey.effectlib.effect.SphereEffect;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.InstancePlate;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.DisplayStandHolder;
 import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
+import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.DisplayStandHolder;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.BlankPlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.ChargedPlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.MagicalPlate;
@@ -14,7 +14,7 @@ import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.ArmourStandUtils;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
-import io.github.sefiraat.crystamaehistoria.utils.ResearchUtils;
+import io.github.sefiraat.crystamaehistoria.utils.PlayerStatUtils;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentPlateDataType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
@@ -61,8 +61,6 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
     private static final Map<SpellType, RecipeSpell> RECIPES_SPELL = new HashMap<>();
     private static final Map<SlimefunItem, RecipeItem> RECIPES_ITEMS = new HashMap<>();
 
-    private final double maxVolume;
-
     static {
         RARITY_VALUE_MAP.put(StoryRarity.COMMON, 1);
         RARITY_VALUE_MAP.put(StoryRarity.UNCOMMON, 3);
@@ -72,6 +70,7 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
         RARITY_VALUE_MAP.put(StoryRarity.UNIQUE, 2);
     }
 
+    private final double maxVolume;
     private final Map<StoryType, Integer> contentMap = new EnumMap<>(StoryType.class);
 
     @ParametersAreNonnullByDefault
@@ -246,9 +245,9 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
                 }
                 summonCatalystParticles();
                 if (activePlayer != null
-                    && !ResearchUtils.hasUnlockedSpell(activePlayer, spellType)
+                    && !PlayerStatUtils.hasUnlockedSpell(activePlayer, spellType)
                 ) {
-                    ResearchUtils.unlockSpell(activePlayer, spellType);
+                    PlayerStatUtils.unlockSpell(activePlayer, spellType);
                 }
             }
             emptyBasin();

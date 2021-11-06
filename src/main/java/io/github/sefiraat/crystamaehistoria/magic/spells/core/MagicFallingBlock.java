@@ -6,7 +6,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.FallingBlock;
 import org.bukkit.entity.Fireball;
-import org.bukkit.entity.Projectile;
 import org.bukkit.util.Vector;
 
 import javax.annotation.Nonnull;

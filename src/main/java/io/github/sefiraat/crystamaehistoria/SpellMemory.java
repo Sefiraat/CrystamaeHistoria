@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria;
 
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
+import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicFallingBlock;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicSummon;
@@ -13,6 +14,7 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 
+import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -35,6 +37,8 @@ public class SpellMemory {
     private final Map<MagicSummon, Long> summonedEntities = new HashMap<>();
     @Getter
     private final Map<UUID, Long> playersWithFlight = new HashMap<>();
+    @Getter
+    private final Map<SpellType, Integer> spellsCast = new EnumMap<>(SpellType.class);
 
     public void clearAll() {
         // Cancels all outstanding spells being cast
@@ -62,6 +66,9 @@ public class SpellMemory {
         // Remove and disable all players flight
         removeFlight(true);
         playersWithFlight.clear();
+
+        // Clear spells cast amount
+        spellsCast.clear();
     }
 
     public void removeProjectiles(boolean forceRemoveAll) {
