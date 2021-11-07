@@ -5,7 +5,6 @@ import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.realisationaltar
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.realisationaltar.RealisationAltarCache;
 import io.github.sefiraat.crystamaehistoria.stories.Story;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
-import io.github.sefiraat.crystamaehistoria.stories.definition.StoryShardProfile;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import org.bukkit.Material;
@@ -28,16 +27,16 @@ public class CrystalBreakListener implements Listener {
     }
 
     private void handleCrystal(Block block) {
-        BlockPosition blockPosition = new BlockPosition(block);
+        final BlockPosition blockPosition = new BlockPosition(block);
         for (RealisationAltarCache cache : RealisationAltar.getCaches().values()) {
-            Pair<StoryRarity, String> pair = cache.getCrystalStoryMap().get(blockPosition);
+            final Pair<StoryRarity, String> pair = cache.getCrystalStoryMap().remove(blockPosition);
             if (pair != null) {
-                StoryRarity rarity = pair.getFirstValue();
-                String id = pair.getSecondValue();
-                Story story = CrystamaeHistoria.getStoriesManager().getStory(id, rarity);
-                StoryShardProfile shardProfile = story.getStoryShardProfile();
-                shardProfile.dropShards(rarity, block.getLocation());
+                final StoryRarity rarity = pair.getFirstValue();
+                final String id = pair.getSecondValue();
+                final Story story = CrystamaeHistoria.getStoriesManager().getStory(id, rarity);
+                story.getStoryShardProfile().dropShards(rarity, block.getLocation());
             }
+            cache.saveMap();
         }
     }
 

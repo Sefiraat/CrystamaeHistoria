@@ -7,6 +7,7 @@ import io.github.sefiraat.crystamaehistoria.stories.Story;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentStoryChunkDataType;
@@ -51,9 +52,10 @@ public class RealisationAltarCache extends AbstractCache {
             && !StoryUtils.hasRemainingStorySlots(itemStack)
         ) {
             rejectOverage(itemStack);
-            processItem(itemStack);
+            if (processItem(itemStack)) {
+                saveMap();
+            }
         }
-        saveMap();
     }
 
     @ParametersAreNonnullByDefault
@@ -67,7 +69,7 @@ public class RealisationAltarCache extends AbstractCache {
     }
 
     @ParametersAreNonnullByDefault
-    private void processItem(ItemStack itemStack) {
+    private boolean processItem(ItemStack itemStack) {
         if (GeneralUtils.testChance(1, 5)) {
             final List<Story> storyList = StoryUtils.getAllStories(itemStack);
             final int x = ThreadLocalRandom.current().nextInt(-3, 4);
@@ -76,7 +78,7 @@ public class RealisationAltarCache extends AbstractCache {
             if (potentialBlock.getType() == Material.AIR
                 && potentialBlock.getRelative(BlockFace.DOWN).getType().isSolid()
             ) {
-                Story story = storyList.get(0);
+                final Story story = storyList.get(0);
                 potentialBlock.setType(Material.SMALL_AMETHYST_BUD);
                 crystalStoryMap.put(new BlockPosition(potentialBlock.getLocation()), new Pair<>(story.getRarity(), story.getId()));
                 if (StoryUtils.removeStory(itemStack, story) == 0) {
@@ -86,19 +88,21 @@ public class RealisationAltarCache extends AbstractCache {
                 }
                 summonGrowParticles(potentialBlock);
                 summonConsumeParticles(blockMenu.getBlock());
+                return true;
             }
 
         }
+        return false;
     }
 
-    private void saveMap() {
+    public void saveMap() {
         final Chunk chunk = blockMenu.getBlock().getChunk();
         final BlockPosition position = new BlockPosition(blockMenu.getLocation());
         final List<Story> stories = new ArrayList<>();
         for (Map.Entry<BlockPosition, Pair<StoryRarity, String>> entry : crystalStoryMap.entrySet()) {
             Pair<StoryRarity, String> pair = entry.getValue();
-            Story story = CrystamaeHistoria.getStoriesManager().getStory(pair.getSecondValue(), pair.getFirstValue());
-            story.setBlockPosition(new BlockPosition(blockMenu.getLocation().getWorld(), entry.getKey().getPosition()));
+            Story story = CrystamaeHistoria.getStoriesManager().getStory(pair.getSecondValue(), pair.getFirstValue()).copy();
+            story.setBlockPosition(entry.getKey());
             stories.add(story);
         }
         DataTypeMethods.setCustom(chunk, Keys.newKey(String.valueOf(position.getPosition())), PersistentStoryChunkDataType.TYPE, stories);
@@ -148,24 +152,18 @@ public class RealisationAltarCache extends AbstractCache {
     }
 
     private void summonConsumeParticles(Block block) {
-        final Location location = block.getLocation();
-        for (int i = 0; i < 2; i++) {
-            final Location l = location.clone().add(0.5, 1, 0.5);
-            location.getWorld().spawnParticle(Particle.FLASH, l, 0, 0.2, 0, 0.2, 0);
-        }
+        final Location location = block.getLocation().add(0.5, 0.2, 0.5);
+        ParticleUtils.displayParticleEffect(location, Particle.FLASH, 0.4, 2);
     }
 
     private void summonGrowParticles(Block block) {
-        final Location location = block.getLocation();
-        final Location l = location.clone().add(0.5, 0.22, 0.5);
-        location.getWorld().spawnParticle(Particle.CRIMSON_SPORE, l, 0, 0.5, 0, 0.5, 0);
-        location.getWorld().spawnParticle(Particle.SPORE_BLOSSOM_AIR, l, 0, 0.5, 0, 0.5, 0);
+        final Location location = block.getLocation().add(0.5, 0.2, 0.5);
+        ParticleUtils.displayParticleEffect(location, Particle.CRIMSON_SPORE    , 0.4, 3);
     }
 
     private void summonFullyGrownParticles(Block block) {
-        final Location location = block.getLocation();
-        final Location l = location.clone().add(0.5, 0, 0.5);
-        location.getWorld().spawnParticle(Particle.BLOCK_CRACK, l, 0, 0.5, 0, 0.5, 0, Material.BUDDING_AMETHYST.createBlockData());
+        final Location location = block.getLocation().add(0.5, 0.2, 0.5);
+        ParticleUtils.displayParticleEffect(location, Particle.WAX_OFF, 0.4, 3);
     }
 
     protected void kill() {

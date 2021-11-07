@@ -40,6 +40,7 @@ public class ChroniclerPanelCache extends AbstractCache {
     private FloatingHeadAnimation animation;
     private Location blockMiddle;
     private boolean lightDimming = true;
+    private UUID armorStandUUID;
 
     @ParametersAreNonnullByDefault
     public ChroniclerPanelCache(BlockMenu blockMenu) {
@@ -220,17 +221,20 @@ public class ChroniclerPanelCache extends AbstractCache {
 
     @ParametersAreNonnullByDefault
     private ArmorStand getDisplayStand() {
-        final Block block = blockMenu.getBlock();
-        final String uuidString = BlockStorage.getLocationInfo(getLocation(), "ch_display_stand");
-        if (uuidString != null) {
-            final UUID uuid = UUID.fromString(uuidString);
-            return (ArmorStand) Bukkit.getEntity(uuid);
-        } else {
-            final ArmorStand armorStand = (ArmorStand) block.getWorld().spawnEntity(getLocation().add(0.5, -0.6, 0.5), EntityType.ARMOR_STAND);
-            ArmourStandUtils.setDisplay(armorStand);
-            BlockStorage.addBlockInfo(block.getLocation(), "ch_display_stand", armorStand.getUniqueId().toString());
-            return armorStand;
+        if (armorStandUUID == null) {
+            final String uuidString = BlockStorage.getLocationInfo(getLocation(), "ch_display_stand");
+            if (uuidString != null) {
+                armorStandUUID = UUID.fromString(uuidString);
+            } else {
+                final Block block = blockMenu.getBlock();
+                final ArmorStand armorStand = (ArmorStand) block.getWorld().spawnEntity(getLocation().add(0.5, -0.6, 0.5), EntityType.ARMOR_STAND);
+                ArmourStandUtils.setDisplay(armorStand);
+                BlockStorage.addBlockInfo(block.getLocation(), "ch_display_stand", armorStand.getUniqueId().toString());
+                armorStandUUID = armorStand.getUniqueId();
+                return armorStand;
+            }
         }
+        return (ArmorStand) Bukkit.getEntity(armorStandUUID);
     }
 
 }

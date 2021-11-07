@@ -30,7 +30,7 @@ public class ChroniclerPanel extends TickingMenuBlock {
     };
     protected static final int INPUT_SLOT = 22;
 
-    private final Map<Location, ChroniclerPanelCache> caches = new HashMap<>();
+    protected static final Map<Location, ChroniclerPanelCache> CACHES = new HashMap<>();
 
     private final int tier;
 
@@ -44,7 +44,7 @@ public class ChroniclerPanel extends TickingMenuBlock {
                 final Location location = event.getBlockPlaced().getLocation();
                 final ChroniclerPanelCache cache = new ChroniclerPanelCache(BlockStorage.getInventory(location));
                 cache.setActivePlayer(event.getPlayer());
-                caches.put(location, cache);
+                CACHES.put(location, cache);
             }
         });
     }
@@ -59,7 +59,7 @@ public class ChroniclerPanel extends TickingMenuBlock {
     @Override
     @ParametersAreNonnullByDefault
     protected void tick(Block block, BlockMenu blockMenu) {
-        ChroniclerPanelCache cache = ChroniclerPanel.this.caches.get(block.getLocation());
+        ChroniclerPanelCache cache = CACHES.get(block.getLocation());
         if (cache != null) {
             cache.process();
         }
@@ -80,7 +80,7 @@ public class ChroniclerPanel extends TickingMenuBlock {
     protected void onBreak(BlockBreakEvent event, BlockMenu blockMenu) {
         super.onBreak(event, blockMenu);
         Location location = blockMenu.getLocation();
-        ChroniclerPanelCache chroniclerPanelCache = caches.remove(location);
+        ChroniclerPanelCache chroniclerPanelCache = CACHES.remove(location);
         chroniclerPanelCache.kill();
         blockMenu.dropItems(location, INPUT_SLOT);
     }
@@ -89,9 +89,9 @@ public class ChroniclerPanel extends TickingMenuBlock {
     @ParametersAreNonnullByDefault
     protected void onNewInstance(BlockMenu blockMenu, Block b) {
         super.onNewInstance(blockMenu, b);
-        if (!caches.containsKey(blockMenu.getLocation())) {
+        if (!CACHES.containsKey(blockMenu.getLocation())) {
             ChroniclerPanelCache cache = new ChroniclerPanelCache(blockMenu);
-            caches.put(blockMenu.getLocation(), cache);
+            CACHES.put(blockMenu.getLocation(), cache);
         }
     }
 

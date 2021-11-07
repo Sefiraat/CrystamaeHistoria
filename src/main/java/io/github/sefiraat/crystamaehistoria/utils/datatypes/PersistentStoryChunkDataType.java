@@ -72,7 +72,7 @@ public class PersistentStoryChunkDataType implements PersistentDataType<Persiste
             final UUID worldUuid = container.get(Keys.RESOLUTION_STORY_WORLD, PersistentUUIDDataType.TYPE);
             final World world = Bukkit.getWorld(worldUuid);
             final BlockPosition position = new BlockPosition(world, locationLong);
-            final Story story = CrystamaeHistoria.getStoriesManager().getStory(id, rarity);
+            final Story story = CrystamaeHistoria.getStoriesManager().getStory(id, rarity).copy();
             story.setBlockPosition(position);
             list.add(story);
         }

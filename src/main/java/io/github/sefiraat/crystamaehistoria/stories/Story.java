@@ -7,6 +7,7 @@ import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.With;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -19,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 @Getter
-public class Story {
+public class Story implements Cloneable {
 
     @Nonnull
     private final String id;
@@ -48,6 +49,19 @@ public class Story {
         this.storyShardProfile = new StoryShardProfile((List<Integer>) map.get("shards"));
         this.storyStrings = (List<String>) map.get("lore");
         this.author = (String) map.get("author");
+    }
+
+    /**
+     * @noinspection unchecked
+     */
+    @ParametersAreNonnullByDefault
+    private Story(Story story) {
+        this.rarity = story.rarity;
+        this.id = story.getId();
+        this.type = story.type;
+        this.storyShardProfile = story.getStoryShardProfile();
+        this.storyStrings = story.storyStrings;
+        this.author = story.author;
     }
 
     public String getDisplayRarity() {
@@ -96,5 +110,9 @@ public class Story {
         } else {
             return false;
         }
+    }
+
+    public Story copy() {
+        return new Story(this);
     }
 }
