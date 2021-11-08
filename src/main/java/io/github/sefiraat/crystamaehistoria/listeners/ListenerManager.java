@@ -14,6 +14,7 @@ public class ListenerManager {
         addListener(new MaintenanceListener());
         addListener(new RefractingLensListener());
         addListener(new EndermanInhibitorListener());
+        addListener(new MobCandleListener());
     }
 
     private void addListener(Listener listener) {

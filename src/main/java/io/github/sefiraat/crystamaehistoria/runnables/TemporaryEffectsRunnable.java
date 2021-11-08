@@ -16,6 +16,7 @@ public class TemporaryEffectsRunnable extends BukkitRunnable {
         clearTempBlocks(storage);
         removeTempFlight(storage);
         removeInhibitedEndermen(storage);
+        removeSpawnDisabledAreas(storage);
     }
 
     public void clearMagicSummons(SpellMemory storage) {
@@ -40,5 +41,9 @@ public class TemporaryEffectsRunnable extends BukkitRunnable {
 
     public void removeInhibitedEndermen(SpellMemory storage) {
         storage.removeEnderman(false);
+    }
+
+    public void removeSpawnDisabledAreas(SpellMemory storage) {
+        storage.enableSpawningInArea(false);
     }
 }

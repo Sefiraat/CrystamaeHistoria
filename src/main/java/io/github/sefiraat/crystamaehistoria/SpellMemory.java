@@ -13,6 +13,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+import org.bukkit.util.BoundingBox;
 
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -39,6 +40,8 @@ public class SpellMemory {
     private final Map<UUID, Long> playersWithFlight = new HashMap<>();
     @Getter
     private final Map<UUID, Long> inhibitedEndermen = new HashMap<>();
+    @Getter
+    private final Map<BoundingBox, Long> noSpawningAreas = new HashMap<>();
     @Getter
     private final Map<SpellType, Integer> spellsCast = new EnumMap<>(SpellType.class);
 
@@ -72,6 +75,10 @@ public class SpellMemory {
         // Reenable Enderman teleporting
         removeEnderman(true);
         inhibitedEndermen.clear();
+
+        // Reenable Chunk Spawning
+        enableSpawningInArea(true);
+        noSpawningAreas.clear();
 
         // Clear spells cast amount
         spellsCast.clear();
@@ -141,6 +148,16 @@ public class SpellMemory {
         for (Map.Entry<UUID, Long> entry : set) {
             if (forceRemoveAll || entry.getValue() < time) {
                 inhibitedEndermen.remove(entry.getKey());
+            }
+        }
+    }
+
+    public void enableSpawningInArea(boolean forceRemoveAll) {
+        long time = System.currentTimeMillis();
+        final Set<Map.Entry<BoundingBox, Long>> set = new HashSet<>(noSpawningAreas.entrySet());
+        for (Map.Entry<BoundingBox, Long> entry : set) {
+            if (forceRemoveAll || entry.getValue() < time) {
+                noSpawningAreas.remove(entry.getKey());
             }
         }
     }

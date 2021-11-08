@@ -4,6 +4,7 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.CursedEarth;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.EnderInhibitor;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.ExpCollector;
+import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobCandle;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobFan;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobLamp;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobMat;
@@ -54,6 +55,12 @@ public class Gadgets {
     private static EnderInhibitor basicEnderInhibitor;
     @Getter
     private static EnderInhibitor advancedEnderInhibitor;
+    @Getter
+    private static MobCandle dimMobCandle;
+    @Getter
+    private static MobCandle brightMobCandle;
+    @Getter
+    private static MobCandle scintillatingMobCandle;
 
     public static void setup() {
 
@@ -421,6 +428,87 @@ public class Gadgets {
             8
         );
 
+        // Dim Mob Candle
+        RecipeItem dimMobCandleRecipe = new RecipeItem(
+            new ItemStack(Material.BLACK_CANDLE),
+            StoryType.HISTORICAL, 50,
+            StoryType.CELESTIAL, 50,
+            StoryType.ANIMAL, 50
+        );
+        dimMobCandle = new MobCandle(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MOB_CANDLE_1",
+                new ItemStack(Material.BLACK_CANDLE),
+                ThemeType.MECHANISM,
+                "Dim Verache Candle",
+                "This candle stops mobs spawning",
+                "in a radius around it.",
+                "Doesn't last forever.",
+                "",
+                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "16",
+                ThemeType.CLICK_INFO.getColor() + "Duration: " + ThemeType.PASSIVE.getColor() + "2 hour (real time)"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            dimMobCandleRecipe.getDisplayRecipe(),
+            16,
+            7200
+        );
+
+        // Bright Mob Candle
+        RecipeItem brightMobCandleRecipe = new RecipeItem(
+            dimMobCandle.getItem(),
+            StoryType.HISTORICAL, 100,
+            StoryType.CELESTIAL, 100,
+            StoryType.ANIMAL, 100
+        );
+        brightMobCandle = new MobCandle(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MOB_CANDLE_2",
+                new ItemStack(Material.BROWN_CANDLE),
+                ThemeType.MECHANISM,
+                "Bright Verache Candle",
+                "This candle stops mobs spawning",
+                "in a radius around it.",
+                "Doesn't last forever.",
+                "",
+                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "32",
+                ThemeType.CLICK_INFO.getColor() + "Duration: " + ThemeType.PASSIVE.getColor() + "24 hours (real time)"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            brightMobCandleRecipe.getDisplayRecipe(),
+            32,
+            86_400
+        );
+
+        // Scintillating Mob Candle
+        RecipeItem scintillatingMobCandleRecipe = new RecipeItem(
+            brightMobCandle.getItem(),
+            StoryType.HISTORICAL, 200,
+            StoryType.CELESTIAL, 200,
+            StoryType.ANIMAL, 200
+        );
+        scintillatingMobCandle = new MobCandle(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MOB_CANDLE_3",
+                new ItemStack(Material.WHITE_CANDLE),
+                ThemeType.MECHANISM,
+                "Scintillating Verache Candle",
+                "This candle stops mobs spawning",
+                "in a radius around it.",
+                "Doesn't last forever.",
+                "",
+                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "64",
+                ThemeType.CLICK_INFO.getColor() + "Duration: " + ThemeType.PASSIVE.getColor() + "48 Hours (real time)"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            scintillatingMobCandleRecipe.getDisplayRecipe(),
+            64,
+            172_800
+        );
+
         // Slimefun Registry
         abstractionLamp.register(plugin);
         dispersionLamp.register(plugin);
@@ -435,6 +523,9 @@ public class Gadgets {
         infusedExpCollector.register(plugin);
         basicEnderInhibitor.register(plugin);
         advancedEnderInhibitor.register(plugin);
+        dimMobCandle.register(plugin);
+        brightMobCandle.register(plugin);
+        scintillatingMobCandle.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(abstractionLamp, abstractionLampRecipe);
@@ -451,5 +542,9 @@ public class Gadgets {
 
         LiquefactionBasinCache.addCraftingRecipe(basicExpCollector, basicExpCollectorRecipe);
         LiquefactionBasinCache.addCraftingRecipe(infusedExpCollector, infusedExpCollectorRecipe);
+
+        LiquefactionBasinCache.addCraftingRecipe(dimMobCandle, dimMobCandleRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(brightMobCandle, brightMobCandleRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(scintillatingMobCandle, scintillatingMobCandleRecipe);
     }
 }
