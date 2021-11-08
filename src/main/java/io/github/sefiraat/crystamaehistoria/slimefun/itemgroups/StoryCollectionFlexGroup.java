@@ -3,7 +3,7 @@ package io.github.sefiraat.crystamaehistoria.slimefun.itemgroups;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
-import io.github.sefiraat.crystamaehistoria.stories.StoriedBlockDefinition;
+import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.PlayerStatUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.GuiElements;
@@ -86,15 +86,15 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
     }
 
     private void setupPage(@Nonnull Player p, @Nonnull PlayerProfile profile, @Nonnull SlimefunGuideMode mode, @Nonnull ChestMenu menu, int page) {
-        final List<StoriedBlockDefinition> blockDefinitions = new ArrayList<>(CrystamaeHistoria.getStoriesManager().getStoriedBlockDefinitionMap().values());
-        final int numberOfBlocks = CrystamaeHistoria.getStoriesManager().getStoriedBlockDefinitionMap().size();
+        final List<BlockDefinition> blockDefinitions = new ArrayList<>(CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().values());
+        final int numberOfBlocks = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().size();
         final int totalPages = (int) Math.ceil(numberOfBlocks / (double) PAGE_SIZE);
         final int start = (page - 1) * PAGE_SIZE;
         final int end = Math.min(start + PAGE_SIZE, blockDefinitions.size());
 
         blockDefinitions.sort(Comparator.comparing(definition -> definition.getMaterial().name()));
 
-        final List<StoriedBlockDefinition> blockDefinitionSubList = blockDefinitions.subList(start, end);
+        final List<BlockDefinition> blockDefinitionSubList = blockDefinitions.subList(start, end);
 
         reapplyFooter(p, profile, mode, menu, page, totalPages);
 
@@ -109,7 +109,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
             final int slot = i + 9;
 
             if (i + 1 <= blockDefinitionSubList.size()) {
-                final StoriedBlockDefinition definition = blockDefinitionSubList.get(i);
+                final BlockDefinition definition = blockDefinitionSubList.get(i);
                 final boolean researched = PlayerStatUtils.hasUnlockedUniqueStory(p, definition);
 
                 if (mode == SlimefunGuideMode.CHEAT_MODE || researched) {
@@ -129,7 +129,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         }
     }
 
-    private void displayDefinition(@Nonnull Player p, @Nonnull PlayerProfile profile, @Nonnull SlimefunGuideMode mode, @Nonnull ChestMenu menu, int returnPage, @Nonnull StoriedBlockDefinition definition) {
+    private void displayDefinition(@Nonnull Player p, @Nonnull PlayerProfile profile, @Nonnull SlimefunGuideMode mode, @Nonnull ChestMenu menu, int returnPage, @Nonnull BlockDefinition definition) {
         // Back Button
         menu.replaceExistingItem(GUIDE_BACK, ChestMenuUtils.getBackButton(p, Slimefun.getLocalization().getMessage("guide.back.guide")));
         menu.addMenuClickHandler(GUIDE_BACK, (player1, slot, itemStack, clickAction) -> {
@@ -200,7 +200,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         });
     }
 
-    private ItemStack getPoolsItemStack(@Nonnull StoriedBlockDefinition definition) {
+    private ItemStack getPoolsItemStack(@Nonnull BlockDefinition definition) {
         final List<StoryType> storyTypes = definition.getPools();
         final List<String> lore = Arrays.stream(new String[]{
             "When chronicling this item, you",
@@ -219,7 +219,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         );
     }
 
-    private ItemStack getUniqueStoryItemStack(@Nonnull StoriedBlockDefinition definition) {
+    private ItemStack getUniqueStoryItemStack(@Nonnull BlockDefinition definition) {
         return new CustomItemStack(
             definition.getMaterial(),
             ThemeType.MAIN.getColor() + definition.getUnique().getId(),
@@ -227,7 +227,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         );
     }
 
-    private ItemStack getTierItemStack(@Nonnull StoriedBlockDefinition definition) {
+    private ItemStack getTierItemStack(@Nonnull BlockDefinition definition) {
         switch (definition.getTier().tier) {
             case 1:
                 return GuiElements.TIER_INDICATOR_1;

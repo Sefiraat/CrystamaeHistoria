@@ -93,7 +93,11 @@ public class Materials {
                         Skulls.getByType(type).getPlayerHead(),
                         ThemeType.CRYSTAL,
                         theme.getColor() + TextUtils.toTitleCase(rarity.toString() + " " + type.toString()) + " Crystal",
-                        "Magical Crystamae in it's physical form"
+                        "Magical Crystamae in it's physical form",
+                        "Higher tier blocks are more likely to",
+                        "provide rarer Crystal types.",
+                        "",
+                        "Provides " + Crystal.getRarityValueMap().get(rarity) + " Crysta."
                     ),
                     DummyRealisationAltar.TYPE,
                     new ItemStack[]{null, null, null, null, new ItemStack(Material.AMETHYST_CLUSTER), null, null, null, null},
@@ -105,8 +109,6 @@ public class Materials {
                 CRYSTAL_MAP.put(rarity, storyTypeSlimefunItemMap);
             }
         }
-
-
 
         // Amalgamate Dust Common
         amalgamateDustCommon = new SlimefunItem(

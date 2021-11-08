@@ -253,7 +253,7 @@ blocks:
       shards:
 
   - material: ANCIENT_DEBRIS
-    tier: 3
+    tier: 4
     elements:
       - ELEMENTAL
       - ALCHEMICAL
@@ -6998,7 +6998,7 @@ blocks:
       shards:
 
   - material: NETHERITE_BLOCK
-    tier: 4
+    tier: 5
     elements:
       - HUMAN
       - CELESTIAL

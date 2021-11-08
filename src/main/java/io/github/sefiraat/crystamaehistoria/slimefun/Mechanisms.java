@@ -277,7 +277,8 @@ public class Mechanisms {
                 SlimefunItems.REINFORCED_ALLOY_INGOT, new ItemStack(Material.CAULDRON), SlimefunItems.REINFORCED_ALLOY_INGOT,
                 SlimefunItems.REINFORCED_ALLOY_INGOT, SlimefunItems.COMMON_TALISMAN, SlimefunItems.REINFORCED_ALLOY_INGOT
             },
-            500
+            500,
+            Color.fromRGB(150, 150, 150)
         );
 
         // Liquefaction T2
@@ -300,7 +301,8 @@ public class Mechanisms {
                 amalgamateDustRare, liquefactionBasin1.getItem(), amalgamateDustRare,
                 amalgamateDustRare, SlimefunItems.ENCHANTMENT_RUNE, amalgamateDustRare
             },
-            1000
+            1000,
+            Color.fromRGB(195, 195, 150)
         );
 
         // Liquefaction T3
@@ -325,7 +327,8 @@ public class Mechanisms {
             ),
             DummyLiquefactionBasinCrafting.TYPE,
             liquefactionT3Recipe.getDisplayRecipe(),
-            2500
+            2500,
+            Color.fromRGB(215, 200, 110)
         );
 
         // Liquefaction T4
@@ -350,7 +353,8 @@ public class Mechanisms {
             ),
             DummyLiquefactionBasinCrafting.TYPE,
             liquefactionT4Recipe.getDisplayRecipe(),
-            5000
+            5000,
+            Color.fromRGB(240, 220, 26)
         );
 
         // Stave Configurator

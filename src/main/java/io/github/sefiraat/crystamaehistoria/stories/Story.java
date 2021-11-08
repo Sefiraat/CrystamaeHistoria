@@ -7,6 +7,7 @@ import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.With;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.TextComponent;
@@ -33,6 +34,7 @@ public class Story {
     private final StoryShardProfile storyShardProfile;
     @Nonnull
     private final List<String> storyStrings;
+    private final int uniqueTier = 0;
     @Setter
     @Nullable
     private BlockPosition blockPosition;
@@ -48,6 +50,19 @@ public class Story {
         this.storyShardProfile = new StoryShardProfile((List<Integer>) map.get("shards"));
         this.storyStrings = (List<String>) map.get("lore");
         this.author = (String) map.get("author");
+    }
+
+    /**
+     * @noinspection unchecked
+     */
+    @ParametersAreNonnullByDefault
+    private Story(Story story) {
+        this.rarity = story.rarity;
+        this.id = story.getId();
+        this.type = story.type;
+        this.storyShardProfile = story.getStoryShardProfile();
+        this.storyStrings = story.storyStrings;
+        this.author = story.author;
     }
 
     public String getDisplayRarity() {
@@ -76,7 +91,8 @@ public class Story {
             l.add(BaseComponent.toLegacyText(line));
         }
         if (author != null) {
-            l.add(ThemeType.NOTICE.getColor() + "Author : " + author);
+            l.add("");
+            l.add(ThemeType.PASSIVE.getColor() + "Author : " + author);
         }
         return l;
     }
@@ -96,5 +112,9 @@ public class Story {
         } else {
             return false;
         }
+    }
+
+    public Story copy() {
+        return new Story(this);
     }
 }

@@ -3,7 +3,6 @@ package io.github.sefiraat.crystamaehistoria.utils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import lombok.experimental.UtilityClass;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.ArmorStand;
@@ -53,8 +52,6 @@ public class ArmourStandUtils {
     @ParametersAreNonnullByDefault
     public static void panelAnimationStep(ArmorStand armorStand, boolean directionUp) {
         armorStand.setHeadPose(armorStand.getHeadPose().add(0, 0.1, 0));
-        Location location = directionUp ? armorStand.getLocation().add(0, 0.01, 0) : armorStand.getLocation().add(0, -0.01, 0);
-        armorStand.teleport(location);
     }
 
     @ParametersAreNonnullByDefault

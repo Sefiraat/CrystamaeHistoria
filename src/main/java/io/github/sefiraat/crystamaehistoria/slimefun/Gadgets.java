@@ -3,6 +3,7 @@ package io.github.sefiraat.crystamaehistoria.slimefun;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.chroniclerpanel.ChroniclerPanel;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.CursedEarth;
+import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.ExpCollector;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobFan;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobLamp;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobMat;
@@ -48,6 +49,10 @@ public class Gadgets {
     private static MobMat doomedPlate;
     @Getter
     private static MobMat evisceratingPlate;
+    @Getter
+    private static ExpCollector basicExpCollector;
+    @Getter
+    private static ExpCollector infusedExpCollector;
 
     public static void setup() {
 
@@ -285,7 +290,7 @@ public class Gadgets {
             true
         );
 
-        // Doomed Plate
+        // Eviscerating Plate
         RecipeItem evisceratingPlateRecipe = new RecipeItem(
             doomedPlate.getItem(),
             StoryType.ALCHEMICAL, 480,
@@ -312,6 +317,59 @@ public class Gadgets {
             true
         );
 
+        // Basic Exp Collector Plate
+        RecipeItem basicExpCollectorRecipe = new RecipeItem(
+            SlimefunItems.EXP_COLLECTOR,
+            StoryType.MECHANICAL, 150,
+            StoryType.HUMAN, 200,
+            StoryType.ANIMAL, 250
+        );
+        basicExpCollector = new ExpCollector(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_EXP_COLLECTOR_1",
+                new ItemStack(Material.LIGHTNING_ROD),
+                ThemeType.MECHANISM,
+                "Basic Exp Collector",
+                "Infusing the Exp Collector with",
+                "magic now allows it to work",
+                "without electricity and flasks.",
+                "",
+                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "4",
+                ThemeType.CLICK_INFO.getColor() + "Capacity: " + ThemeType.PASSIVE.getColor() + "2500"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            basicExpCollectorRecipe.getDisplayRecipe(),
+            2500,
+            4
+        );
+
+        // Infused Exp Collector Plate
+        RecipeItem infusedExpCollectorRecipe = new RecipeItem(
+            basicExpCollector.getItem(),
+            StoryType.MECHANICAL, 740,
+            StoryType.HUMAN, 560,
+            StoryType.ANIMAL, 885
+        );
+        infusedExpCollector = new ExpCollector(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_EXP_COLLECTOR_2",
+                new ItemStack(Material.LIGHTNING_ROD),
+                ThemeType.MECHANISM,
+                "Infused Exp Collector",
+                "Further infusion has made the",
+                "collector even more powerful.",
+                "",
+                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "8",
+                ThemeType.CLICK_INFO.getColor() + "Capacity: " + ThemeType.PASSIVE.getColor() + "10000"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            infusedExpCollectorRecipe.getDisplayRecipe(),
+            10000,
+            8
+        );
+
         // Slimefun Registry
         abstractionLamp.register(plugin);
         dispersionLamp.register(plugin);
@@ -322,6 +380,8 @@ public class Gadgets {
         searingPlate.register(plugin);
         doomedPlate.register(plugin);
         evisceratingPlate.register(plugin);
+        basicExpCollector.register(plugin);
+        infusedExpCollector.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(abstractionLamp, abstractionLampRecipe);
@@ -335,5 +395,8 @@ public class Gadgets {
         LiquefactionBasinCache.addCraftingRecipe(searingPlate, searingPlateRecipe);
         LiquefactionBasinCache.addCraftingRecipe(doomedPlate, doomedPlateRecipe);
         LiquefactionBasinCache.addCraftingRecipe(evisceratingPlate, evisceratingPlateRecipe);
+
+        LiquefactionBasinCache.addCraftingRecipe(basicExpCollector, basicExpCollectorRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(infusedExpCollector, infusedExpCollectorRecipe);
     }
 }

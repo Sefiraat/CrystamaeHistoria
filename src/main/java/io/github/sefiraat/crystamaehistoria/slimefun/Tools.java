@@ -131,8 +131,12 @@ public class Tools {
                 "This magical lens has glass that can",
                 "the lights of Crysta into it's",
                 "individual elements.",
-                ThemeType.CLICK_INFO.getColor() + "Right Click: " + ThemeType.PASSIVE.getColor() + "Shows the contents",
-                ThemeType.PASSIVE.getColor() + "of a Liquefaction Basin."
+                "",
+                "Right click on a Crystamae Block for",
+                "details if avilable.",
+                ThemeType.CLICK_INFO.getColor() + "Works with;",
+                ThemeType.PASSIVE.getColor() + "Liquefaction Basin",
+                ThemeType.PASSIVE.getColor() + "Exp Collector"
             ),
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{

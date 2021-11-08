@@ -29,10 +29,18 @@ public class StoryShardProfile {
         dropShards(rarity, block.getLocation());
     }
 
+    public void dropShards(StoryRarity rarity, Block block, int multiplier) {
+        dropShards(rarity, block.getLocation(), multiplier);
+    }
+
     public void dropShards(StoryRarity rarity, Location location) {
+        dropShards(rarity, location, 1);
+    }
+
+    public void dropShards(StoryRarity rarity, Location location, int multiplier) {
         for (Map.Entry<StoryType, Integer> entry : shardMap.entrySet()) {
             StoryType storyType = entry.getKey();
-            int amount = entry.getValue();
+            int amount = entry.getValue() * multiplier;
             if (amount > 0) {
                 ItemStack itemStack = Materials.CRYSTAL_MAP.get(rarity).get(storyType).getItem().clone();
                 itemStack.setAmount(amount);

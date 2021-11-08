@@ -5,6 +5,7 @@ import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import lombok.Getter;
+import net.kyori.adventure.text.format.TextColor;
 import net.md_5.bungee.api.ChatColor;
 import org.apache.commons.lang.WordUtils;
 import org.bukkit.Material;
@@ -113,6 +114,10 @@ public enum ThemeType {
         this.color = color;
         this.loreLine = loreLine;
         this.dustOptions = dustOptions;
+    }
+
+    public TextColor getComponentColor() {
+        return TextColor.color(this.getColor().getColor().getRGB());
     }
 
     /**

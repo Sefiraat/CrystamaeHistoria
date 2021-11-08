@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 public class StoriesManager {
 
     @Getter
-    private final Map<Material, StoriedBlockDefinition> storiedBlockDefinitionMap = new EnumMap<>(Material.class);
+    private final Map<Material, BlockDefinition> blockDefinitionMap = new EnumMap<>(Material.class);
     @Getter
     private final Map<Integer, BlockTier> blockTierMap = new HashMap<>();
     @Getter
@@ -208,16 +208,16 @@ public class StoriesManager {
                 final List<StoryType> types = ((List<String>) map.get("elements")).stream()
                     .map(StoryType::getByName)
                     .collect(Collectors.toList());
-                final StoriedBlockDefinition blockDefinition = new StoriedBlockDefinition(
+                final BlockDefinition blockDefinition = new BlockDefinition(
                     material,
                     blockTierMap.get(tier),
                     types,
                     story
                 );
-                storiedBlockDefinitionMap.put(material, blockDefinition);
+                blockDefinitionMap.put(material, blockDefinition);
             }
         }
-        CrystamaeHistoria.log(Level.INFO, "Loaded: " + storiedBlockDefinitionMap.size() + " unique (block) stories.");
+        CrystamaeHistoria.log(Level.INFO, "Loaded: " + blockDefinitionMap.size() + " unique (block) stories.");
     }
 
     @ParametersAreNonnullByDefault
