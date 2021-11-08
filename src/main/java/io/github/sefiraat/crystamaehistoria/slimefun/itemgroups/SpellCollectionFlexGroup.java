@@ -237,17 +237,23 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
     }
 
     private ItemStack getBasicStack(Spell spell) {
+        final SpellCore spellCore = spell.getSpellCore();
         final ChatColor color = ThemeType.CLICK_INFO.getColor();
         final ChatColor passive = ThemeType.PASSIVE.getColor();
 
-        final String crysta = MessageFormat.format("{0}Crysta Cost per Cast: {1}{2}", color, passive, spell.getSpellCore().getCrystaCost());
+        final String crysta = MessageFormat.format("{0}Crysta Cost per Cast: {1}{2}", color, passive, spellCore.getCrystaCost());
+        final String crystaMulti = MessageFormat.format("{0}Crysta cost {1} with stave tier", color, spellCore.isDamageMultiplied() ? "increases" : "doesn't increase");
         final String cooldown = MessageFormat.format("{0}Cooldown (sec) on use: {1}{2}", color, passive, spell.getSpellCore().getCooldownSeconds());
+        final String cooldownDivided = MessageFormat.format("{0}Cooldown {1} with stave tier", color, spellCore.isDamageMultiplied() ? "isn't reduced" : "is reduced");
+
 
         return new CustomItemStack(
             Material.GLOW_BERRIES,
             ThemeType.MAIN.getColor() + "Basic Details",
             crysta,
-            cooldown
+            crystaMulti,
+            cooldown,
+            cooldownDivided
         );
     }
 
@@ -293,8 +299,10 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
 
         final int ticks = spellCore.getNumberOfTicks();
 
+        final String instantCast = MessageFormat.format("{0}Instant: {1}Fires immediately when cast", color, passive);
         final String damagingSpell = MessageFormat.format("{0}Damaging: {1}Will cause damage and/or debuff", color, passive);
         final String healingSpell = MessageFormat.format("{0}Healing: {1}Will heal and/or buff", color, passive);
+        final String effectingSpell = MessageFormat.format("{0}Effecting: {1}Will apply potion effects", color, passive);
         final String tickingSpell1 = MessageFormat.format("{0}Ticking: {1}Effects of this spell will", color, passive);
         final String tickingSpell2 = MessageFormat.format("{0}fire ({1}{2}{3}) times", passive, notice, ticks, passive);
         final String tickingSpell3 = MessageFormat.format("{0}Tick number {1} with stave tier", passive, spellCore.isDamageMultiplied() ? "increases" : "doesn't increase");
@@ -303,11 +311,17 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         final String projectileSpell2 = MessageFormat.format("{0}which, when it hits, may induce", passive);
         final String projectileSpell3 = MessageFormat.format("{0}further effects", passive);
 
+        if (spellCore.isInstantCast()) {
+            lore.add(instantCast);
+        }
         if (spellCore.isDamagingSpell()) {
             lore.add(damagingSpell);
         }
         if (spellCore.isHealingSpell()) {
             lore.add(healingSpell);
+        }
+        if (spellCore.isEffectingSpell()) {
+            lore.add(effectingSpell);
         }
         if (spellCore.isTickingSpell()) {
             lore.add(tickingSpell1);
@@ -426,7 +440,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
                         final String negativeEffectMessage = MessageFormat.format(
                             "{0}{1}: {2}Power ({3}) - Duration ({4})",
                             color,
-                            type.getName(),
+                            ThemeType.toTitleCase(type.getName()),
                             passive,
                             pair.getFirstValue(),
                             pair.getSecondValue()
@@ -443,7 +457,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
                         final String positiveEffectMessage = MessageFormat.format(
                             "{0}{1}: {2}Power ({3}) - Duration ({4})",
                             color,
-                            type.getName(),
+                            ThemeType.toTitleCase(type.getName()),
                             passive,
                             pair.getFirstValue(),
                             pair.getSecondValue()
@@ -460,12 +474,10 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
             lore.add(passive + "Spell has no effects");
         }
 
-
         return new CustomItemStack(
             Material.BREWING_STAND,
             ThemeType.MAIN.getColor() + "Effects",
             lore
         );
     }
-
 }

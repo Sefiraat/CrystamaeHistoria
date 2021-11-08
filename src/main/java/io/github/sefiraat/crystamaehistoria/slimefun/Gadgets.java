@@ -8,6 +8,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobCandl
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobFan;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobLamp;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobMat;
+import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MysteriousTicker;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
@@ -20,6 +21,7 @@ import lombok.Getter;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Color;
 import org.bukkit.Material;
+import org.bukkit.Tag;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 
@@ -61,6 +63,10 @@ public class Gadgets {
     private static MobCandle brightMobCandle;
     @Getter
     private static MobCandle scintillatingMobCandle;
+    @Getter
+    private static MysteriousTicker mysteriousPottedPlant;
+    @Getter
+    private static MysteriousTicker mysteriousPlant;
 
     public static void setup() {
 
@@ -509,6 +515,51 @@ public class Gadgets {
             172_800
         );
 
+        // Mysterious Potted Plant
+        mysteriousPottedPlant = new MysteriousTicker(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MYSTERIOUS_POTTED_PLANT",
+                new ItemStack(Material.FLOWER_POT),
+                ThemeType.MECHANISM,
+                "Mysterious Potted Plant",
+                "Just a pinch of magic can make",
+                "wonderful things happen...",
+                ""
+            ),
+            RecipeType.ENHANCED_CRAFTING_TABLE,
+            new ItemStack[] {
+                null, Materials.getAmalgamateDustRare().getItem(),  null,
+                null, new ItemStack(Material.FLOWER_POT),           null,
+                null, null,                                         null
+            },
+            Tag.FLOWER_POTS.getValues(),
+            15
+        );
+
+        // Mysterious Plant
+        RecipeItem mysteriousPlantRecipe = new RecipeItem(
+            mysteriousPottedPlant.getItem(),
+            StoryType.ELEMENTAL, 25,
+            StoryType.ALCHEMICAL, 25,
+            StoryType.VOID, 25
+        );
+        mysteriousPlant = new MysteriousTicker(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MYSTERIOUS_PLANT",
+                new ItemStack(Material.OXEYE_DAISY),
+                ThemeType.MECHANISM,
+                "Mysterious Plant",
+                "Removing it from that pot took work.",
+                ""
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            mysteriousPlantRecipe.getDisplayRecipe(),
+            Tag.SMALL_FLOWERS.getValues(),
+            15
+        );
+
         // Slimefun Registry
         abstractionLamp.register(plugin);
         dispersionLamp.register(plugin);
@@ -526,6 +577,8 @@ public class Gadgets {
         dimMobCandle.register(plugin);
         brightMobCandle.register(plugin);
         scintillatingMobCandle.register(plugin);
+        mysteriousPottedPlant.register(plugin);
+        mysteriousPlant.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(abstractionLamp, abstractionLampRecipe);
@@ -546,5 +599,7 @@ public class Gadgets {
         LiquefactionBasinCache.addCraftingRecipe(dimMobCandle, dimMobCandleRecipe);
         LiquefactionBasinCache.addCraftingRecipe(brightMobCandle, brightMobCandleRecipe);
         LiquefactionBasinCache.addCraftingRecipe(scintillatingMobCandle, scintillatingMobCandleRecipe);
+
+        LiquefactionBasinCache.addCraftingRecipe(mysteriousPlant, mysteriousPlantRecipe);
     }
 }

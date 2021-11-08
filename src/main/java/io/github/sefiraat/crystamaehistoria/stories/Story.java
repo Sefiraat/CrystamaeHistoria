@@ -91,7 +91,7 @@ public class Story {
         }
         if (author != null) {
             l.add("");
-            l.add(ThemeType.PASSIVE.getColor() + "Author : " + author);
+            l.add(ThemeType.PASSIVE.getColor() + "Author: " + author);
         }
         return l;
     }

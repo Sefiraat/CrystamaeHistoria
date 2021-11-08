@@ -14,6 +14,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.block.Block;
+import org.bukkit.block.data.type.Candle;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
@@ -45,6 +46,14 @@ public class MobCandle extends TickingBlockNoGui {
     protected void onFirstTick(@NotNull Block block, @NotNull SlimefunItem slimefunItem, @NotNull Config config) {
         Long expiry = Long.valueOf(BlockStorage.getLocationInfo(block.getLocation(), "EXPIRY"));
         expiryMap.put(block.getLocation(), expiry);
+        Candle candle = (Candle) block.getBlockData();
+        candle.setLit(true);
+        ParticleUtils.displayParticleEffect(
+            block.getLocation().add(0.5, 0.5, 0.5),
+            Particle.SOUL_FIRE_FLAME,
+            0.5,
+            10
+        );
     }
 
     @Override

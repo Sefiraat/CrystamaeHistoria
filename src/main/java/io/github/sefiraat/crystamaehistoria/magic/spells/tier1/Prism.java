@@ -20,7 +20,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class Prism extends Spell {
 
     public Prism() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(10, true, 0, false, 1, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(25, true, 0, false, 150, true)
             .makeInstantSpell(this::cast)
             .makeEffectingSpell(true, true)
             .addPositiveEffect(PotionEffectType.ABSORPTION, 1, 30)
@@ -28,7 +28,6 @@ public class Prism extends Spell {
             .addPositiveEffect(PotionEffectType.DAMAGE_RESISTANCE, 1, 30)
             .addPositiveEffect(PotionEffectType.DOLPHINS_GRACE, 1, 30)
             .addPositiveEffect(PotionEffectType.FAST_DIGGING, 1, 30)
-            .addPositiveEffect(PotionEffectType.GLOWING, 1, 30)
             .addPositiveEffect(PotionEffectType.HEALTH_BOOST, 1, 30)
             .addPositiveEffect(PotionEffectType.HERO_OF_THE_VILLAGE, 1, 30)
             .addPositiveEffect(PotionEffectType.INCREASE_DAMAGE, 1, 30)
