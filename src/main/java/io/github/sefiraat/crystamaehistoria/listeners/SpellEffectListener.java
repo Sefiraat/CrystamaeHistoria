@@ -208,7 +208,7 @@ public class SpellEffectListener implements Listener {
 
     @EventHandler
     public void onPlayerLogout(PlayerQuitEvent event) {
-        CrystamaeHistoria.getActiveStorage().removeFlight(event.getPlayer());
+        CrystamaeHistoria.getSpellMemory().removeFlight(event.getPlayer());
     }
 
 

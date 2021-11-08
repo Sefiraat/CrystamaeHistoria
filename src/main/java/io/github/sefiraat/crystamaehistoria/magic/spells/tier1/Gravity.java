@@ -38,7 +38,7 @@ public class Gravity extends Spell {
         player.setAllowFlight(true);
         player.setFlying(true);
         long expiry = System.currentTimeMillis() + ((castInformation.getStaveLevel() * 30L) * 1000);
-        CrystamaeHistoria.getActiveStorage().getPlayersWithFlight().put(player.getUniqueId(), expiry);
+        CrystamaeHistoria.getSpellMemory().getPlayersWithFlight().put(player.getUniqueId(), expiry);
         ParticleUtils.displayParticleEffect(player, Particle.FALLING_OBSIDIAN_TEAR, 2, 20);
     }
 

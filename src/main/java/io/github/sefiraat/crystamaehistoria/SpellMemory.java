@@ -38,6 +38,8 @@ public class SpellMemory {
     @Getter
     private final Map<UUID, Long> playersWithFlight = new HashMap<>();
     @Getter
+    private final Map<UUID, Long> inhibitedEndermen = new HashMap<>();
+    @Getter
     private final Map<SpellType, Integer> spellsCast = new EnumMap<>(SpellType.class);
 
     public void clearAll() {
@@ -66,6 +68,10 @@ public class SpellMemory {
         // Remove and disable all players flight
         removeFlight(true);
         playersWithFlight.clear();
+
+        // Reenable Enderman teleporting
+        removeEnderman(true);
+        inhibitedEndermen.clear();
 
         // Clear spells cast amount
         spellsCast.clear();
@@ -125,6 +131,16 @@ public class SpellMemory {
                     player.setFlying(false);
                     playersWithFlight.remove(entry.getKey());
                 }
+            }
+        }
+    }
+
+    public void removeEnderman(boolean forceRemoveAll) {
+        long time = System.currentTimeMillis();
+        final Set<Map.Entry<UUID, Long>> set = new HashSet<>(inhibitedEndermen.entrySet());
+        for (Map.Entry<UUID, Long> entry : set) {
+            if (forceRemoveAll || entry.getValue() < time) {
+                inhibitedEndermen.remove(entry.getKey());
             }
         }
     }

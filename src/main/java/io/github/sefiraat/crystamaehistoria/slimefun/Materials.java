@@ -6,8 +6,6 @@ import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasi
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.realisationaltar.DummyRealisationAltar;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.BlankPlate;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.ChargedPlate;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.Skulls;
@@ -18,12 +16,14 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import lombok.Getter;
+import lombok.experimental.UtilityClass;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.EnumMap;
 import java.util.Map;
 
+@UtilityClass
 public class Materials {
 
     public static final Map<StoryType, SlimefunItem> DUMMY_CRYSTAL_MAP = new EnumMap<>(StoryType.class);
@@ -55,6 +55,10 @@ public class Materials {
     private static SlimefunItem amalgamateIngotUnique;
     @Getter
     private static SlimefunItem imbuedGlass;
+    @Getter
+    private static SlimefunItem uncannyPearl;
+    @Getter
+    private static SlimefunItem gildedPearl;
 
     public static void setup() {
 
@@ -371,6 +375,47 @@ public class Materials {
             imbuedGlassRecipe.getDisplayRecipe()
         );
 
+        // Uncanny Pearl
+        RecipeItem uncannyPearlRecipe = new RecipeItem(
+            new ItemStack(Material.ENDER_PEARL),
+            StoryType.VOID, 25,
+            StoryType.CELESTIAL, 25,
+            StoryType.ALCHEMICAL, 25
+        );
+        uncannyPearl = new UnplaceableBlock(
+            ItemGroups.MATERIALS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_UNCANNY_PEARL",
+                new ItemStack(Material.ENDER_PEARL),
+                ThemeType.CRAFTING,
+                "Uncanny Pearl",
+                "The internal resonance of this pearl",
+                "has been quelled using crysta."
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            uncannyPearlRecipe.getDisplayRecipe()
+        );
+
+        // Guilded Pearl
+        gildedPearl = new UnplaceableBlock(
+            ItemGroups.MATERIALS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_GILDED_PEARL",
+                new ItemStack(Material.ENDER_PEARL),
+                ThemeType.CRAFTING,
+                "Gilded Pearl",
+                "With the pearl quelled, it can",
+                "be safely gilded and used in certain",
+                "crafts."
+            ),
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                SlimefunItems.GILDED_IRON, SlimefunItems.GILDED_IRON, SlimefunItems.GILDED_IRON,
+                SlimefunItems.GILDED_IRON, uncannyPearl.getItem(), SlimefunItems.GILDED_IRON,
+                SlimefunItems.GILDED_IRON, SlimefunItems.GILDED_IRON, SlimefunItems.GILDED_IRON
+            }
+        );
+
         // Slimefun Registry
         amalgamateDustCommon.register(plugin);
         amalgamateDustUncommon.register(plugin);
@@ -385,8 +430,11 @@ public class Materials {
         amalgamateIngotMythical.register(plugin);
         amalgamateIngotUnique.register(plugin);
         imbuedGlass.register(plugin);
+        uncannyPearl.register(plugin);
+        gildedPearl.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(imbuedGlass, imbuedGlassRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(uncannyPearl, uncannyPearlRecipe);
     }
 }

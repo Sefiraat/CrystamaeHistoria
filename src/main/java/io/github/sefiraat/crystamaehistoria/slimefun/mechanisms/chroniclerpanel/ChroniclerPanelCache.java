@@ -33,6 +33,7 @@ import java.util.concurrent.ThreadLocalRandom;
 @Getter
 public class ChroniclerPanelCache extends AbstractCache {
 
+    private final int maxTier;
     @Nullable
     private Material workingOn;
     private boolean working;
@@ -41,7 +42,6 @@ public class ChroniclerPanelCache extends AbstractCache {
     private Location blockMiddle;
     private boolean lightDimming = true;
     private UUID armorStandUUID;
-    private final int maxTier;
 
     @ParametersAreNonnullByDefault
     public ChroniclerPanelCache(BlockMenu blockMenu, int tier) {

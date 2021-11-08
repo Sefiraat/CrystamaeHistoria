@@ -31,7 +31,7 @@ public class SpellTickRunnable extends BukkitRunnable {
     @Override
     public synchronized void cancel() throws IllegalStateException {
         super.cancel();
-        CrystamaeHistoria.getActiveStorage().getTickingCastables().remove(this);
+        CrystamaeHistoria.getSpellMemory().getTickingCastables().remove(this);
     }
 
 }

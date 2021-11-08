@@ -180,7 +180,7 @@ public abstract class Spell {
         castInformation.setProjectileHitEvent(spellCore.getProjectileHitEvent());
         castInformation.setAfterProjectileHitEvent(spellCore.getAfterProjectileHitEvent());
         Long expiry = System.currentTimeMillis() + 1000;
-        CrystamaeHistoria.getActiveStorage().getStrikeMap().put(lightningStrike.getUniqueId(), new Pair<>(castInformation, expiry));
+        CrystamaeHistoria.getSpellMemory().getStrikeMap().put(lightningStrike.getUniqueId(), new Pair<>(castInformation, expiry));
     }
 
     /**
@@ -199,7 +199,7 @@ public abstract class Spell {
         castInformation.setAfterTicksEvent(spellCore.getAfterAllTicksEvent());
 
         final SpellTickRunnable ticker = new SpellTickRunnable(castInformation, tickAmount);
-        CrystamaeHistoria.getActiveStorage().getTickingCastables().put(ticker, tickAmount);
+        CrystamaeHistoria.getSpellMemory().getTickingCastables().put(ticker, tickAmount);
         ticker.runTaskTimer(CrystamaeHistoria.getInstance(), 0, period);
     }
 

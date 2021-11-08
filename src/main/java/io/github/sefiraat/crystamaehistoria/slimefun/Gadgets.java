@@ -1,18 +1,15 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.chroniclerpanel.ChroniclerPanel;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.CursedEarth;
+import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.EnderInhibitor;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.ExpCollector;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobFan;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobLamp;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobMat;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasin;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.realisationaltar.RealisationAltar;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.staveconfigurator.StaveConfigurator;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
@@ -53,6 +50,10 @@ public class Gadgets {
     private static ExpCollector basicExpCollector;
     @Getter
     private static ExpCollector infusedExpCollector;
+    @Getter
+    private static EnderInhibitor basicEnderInhibitor;
+    @Getter
+    private static EnderInhibitor advancedEnderInhibitor;
 
     public static void setup() {
 
@@ -370,6 +371,56 @@ public class Gadgets {
             8
         );
 
+        // Basic Ender Inhibitor
+        basicEnderInhibitor = new EnderInhibitor(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_ENDER_INHIBITOR_1",
+                new ItemStack(Material.REDSTONE_TORCH),
+                ThemeType.MECHANISM,
+                "Basic Ender Inhibitor",
+                "By using an Enderman's own resonance",
+                "against it, we can stop theme teleporting",
+                "for a brief time.",
+                "Duration is extended if still in range.",
+                "",
+                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "4",
+                ThemeType.CLICK_INFO.getColor() + "Duration: " + ThemeType.PASSIVE.getColor() + "2 seconds"
+            ),
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                Materials.getUncannyPearl().getItem(), Materials.getUncannyPearl().getItem(), Materials.getUncannyPearl().getItem(),
+                Materials.getUncannyPearl().getItem(), SlimefunItems.COOLER, Materials.getUncannyPearl().getItem(),
+                Materials.getUncannyPearl().getItem(), Materials.getUncannyPearl().getItem(), Materials.getUncannyPearl().getItem()
+            },
+            4
+        );
+
+        // Advanced Ender Inhibitor
+        advancedEnderInhibitor = new EnderInhibitor(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_ENDER_INHIBITOR_2",
+                new ItemStack(Material.SOUL_TORCH),
+                ThemeType.MECHANISM,
+                "Advanced Ender Inhibitor",
+                "By using an Enderman's own resonance",
+                "against it, we can stop theme teleporting",
+                "for a brief time.",
+                "Duration is extended if still in range.",
+                "",
+                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "8",
+                ThemeType.CLICK_INFO.getColor() + "Duration: " + ThemeType.PASSIVE.getColor() + "2 seconds"
+            ),
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                Materials.getGildedPearl().getItem(), Materials.getGildedPearl().getItem(), Materials.getGildedPearl().getItem(),
+                Materials.getGildedPearl().getItem(), basicEnderInhibitor.getItem(), Materials.getGildedPearl().getItem(),
+                Materials.getGildedPearl().getItem(), Materials.getGildedPearl().getItem(), Materials.getGildedPearl().getItem()
+            },
+            8
+        );
+
         // Slimefun Registry
         abstractionLamp.register(plugin);
         dispersionLamp.register(plugin);
@@ -382,6 +433,8 @@ public class Gadgets {
         evisceratingPlate.register(plugin);
         basicExpCollector.register(plugin);
         infusedExpCollector.register(plugin);
+        basicEnderInhibitor.register(plugin);
+        advancedEnderInhibitor.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(abstractionLamp, abstractionLampRecipe);

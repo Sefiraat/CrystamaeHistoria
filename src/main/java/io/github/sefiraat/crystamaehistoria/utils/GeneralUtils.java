@@ -103,7 +103,7 @@ public final class GeneralUtils {
         long timeUntilRemoval = secondsUntilRemoval * 1000L;
         block.setMetadata("ch", new FixedMetadataValue(CrystamaeHistoria.getInstance(), "y"));
         long removalTime = System.currentTimeMillis() + timeUntilRemoval;
-        CrystamaeHistoria.getActiveStorage().getBlocksToRemove().put(new BlockPosition(block), removalTime);
+        CrystamaeHistoria.getSpellMemory().getBlocksToRemove().put(new BlockPosition(block), removalTime);
     }
 
     public static boolean isRemovableBlock(Block block) {
