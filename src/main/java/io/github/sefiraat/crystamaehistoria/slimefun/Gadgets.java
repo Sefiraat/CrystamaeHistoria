@@ -1,18 +1,17 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.chroniclerpanel.ChroniclerPanel;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.CursedEarth;
+import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.EnderInhibitor;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.ExpCollector;
+import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobCandle;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobFan;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobLamp;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobMat;
+import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MysteriousTicker;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasin;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.realisationaltar.RealisationAltar;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.staveconfigurator.StaveConfigurator;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
@@ -22,6 +21,7 @@ import lombok.Getter;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Color;
 import org.bukkit.Material;
+import org.bukkit.Tag;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 
@@ -53,6 +53,20 @@ public class Gadgets {
     private static ExpCollector basicExpCollector;
     @Getter
     private static ExpCollector infusedExpCollector;
+    @Getter
+    private static EnderInhibitor basicEnderInhibitor;
+    @Getter
+    private static EnderInhibitor advancedEnderInhibitor;
+    @Getter
+    private static MobCandle dimMobCandle;
+    @Getter
+    private static MobCandle brightMobCandle;
+    @Getter
+    private static MobCandle scintillatingMobCandle;
+    @Getter
+    private static MysteriousTicker mysteriousPottedPlant;
+    @Getter
+    private static MysteriousTicker mysteriousPlant;
 
     public static void setup() {
 
@@ -370,6 +384,182 @@ public class Gadgets {
             8
         );
 
+        // Basic Ender Inhibitor
+        basicEnderInhibitor = new EnderInhibitor(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_ENDER_INHIBITOR_1",
+                new ItemStack(Material.REDSTONE_TORCH),
+                ThemeType.MECHANISM,
+                "Basic Ender Inhibitor",
+                "By using an Enderman's own resonance",
+                "against it, we can stop theme teleporting",
+                "for a brief time.",
+                "Duration is extended if still in range.",
+                "",
+                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "4",
+                ThemeType.CLICK_INFO.getColor() + "Duration: " + ThemeType.PASSIVE.getColor() + "2 seconds"
+            ),
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                Materials.getUncannyPearl().getItem(), Materials.getUncannyPearl().getItem(), Materials.getUncannyPearl().getItem(),
+                Materials.getUncannyPearl().getItem(), SlimefunItems.COOLER, Materials.getUncannyPearl().getItem(),
+                Materials.getUncannyPearl().getItem(), Materials.getUncannyPearl().getItem(), Materials.getUncannyPearl().getItem()
+            },
+            4
+        );
+
+        // Advanced Ender Inhibitor
+        advancedEnderInhibitor = new EnderInhibitor(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_ENDER_INHIBITOR_2",
+                new ItemStack(Material.SOUL_TORCH),
+                ThemeType.MECHANISM,
+                "Advanced Ender Inhibitor",
+                "By using an Enderman's own resonance",
+                "against it, we can stop theme teleporting",
+                "for a brief time.",
+                "Duration is extended if still in range.",
+                "",
+                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "8",
+                ThemeType.CLICK_INFO.getColor() + "Duration: " + ThemeType.PASSIVE.getColor() + "2 seconds"
+            ),
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                Materials.getGildedPearl().getItem(), Materials.getGildedPearl().getItem(), Materials.getGildedPearl().getItem(),
+                Materials.getGildedPearl().getItem(), basicEnderInhibitor.getItem(), Materials.getGildedPearl().getItem(),
+                Materials.getGildedPearl().getItem(), Materials.getGildedPearl().getItem(), Materials.getGildedPearl().getItem()
+            },
+            8
+        );
+
+        // Dim Mob Candle
+        RecipeItem dimMobCandleRecipe = new RecipeItem(
+            new ItemStack(Material.BLACK_CANDLE),
+            StoryType.HISTORICAL, 50,
+            StoryType.CELESTIAL, 50,
+            StoryType.ANIMAL, 50
+        );
+        dimMobCandle = new MobCandle(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MOB_CANDLE_1",
+                new ItemStack(Material.BLACK_CANDLE),
+                ThemeType.MECHANISM,
+                "Dim Verache Candle",
+                "This candle stops mobs spawning",
+                "in a radius around it.",
+                "Doesn't last forever.",
+                "",
+                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "16",
+                ThemeType.CLICK_INFO.getColor() + "Duration: " + ThemeType.PASSIVE.getColor() + "2 hour (real time)"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            dimMobCandleRecipe.getDisplayRecipe(),
+            16,
+            7200
+        );
+
+        // Bright Mob Candle
+        RecipeItem brightMobCandleRecipe = new RecipeItem(
+            dimMobCandle.getItem(),
+            StoryType.HISTORICAL, 100,
+            StoryType.CELESTIAL, 100,
+            StoryType.ANIMAL, 100
+        );
+        brightMobCandle = new MobCandle(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MOB_CANDLE_2",
+                new ItemStack(Material.BROWN_CANDLE),
+                ThemeType.MECHANISM,
+                "Bright Verache Candle",
+                "This candle stops mobs spawning",
+                "in a radius around it.",
+                "Doesn't last forever.",
+                "",
+                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "32",
+                ThemeType.CLICK_INFO.getColor() + "Duration: " + ThemeType.PASSIVE.getColor() + "24 hours (real time)"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            brightMobCandleRecipe.getDisplayRecipe(),
+            32,
+            86_400
+        );
+
+        // Scintillating Mob Candle
+        RecipeItem scintillatingMobCandleRecipe = new RecipeItem(
+            brightMobCandle.getItem(),
+            StoryType.HISTORICAL, 200,
+            StoryType.CELESTIAL, 200,
+            StoryType.ANIMAL, 200
+        );
+        scintillatingMobCandle = new MobCandle(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MOB_CANDLE_3",
+                new ItemStack(Material.WHITE_CANDLE),
+                ThemeType.MECHANISM,
+                "Scintillating Verache Candle",
+                "This candle stops mobs spawning",
+                "in a radius around it.",
+                "Doesn't last forever.",
+                "",
+                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "64",
+                ThemeType.CLICK_INFO.getColor() + "Duration: " + ThemeType.PASSIVE.getColor() + "48 Hours (real time)"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            scintillatingMobCandleRecipe.getDisplayRecipe(),
+            64,
+            172_800
+        );
+
+        // Mysterious Potted Plant
+        mysteriousPottedPlant = new MysteriousTicker(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MYSTERIOUS_POTTED_PLANT",
+                new ItemStack(Material.FLOWER_POT),
+                ThemeType.MECHANISM,
+                "Mysterious Potted Plant",
+                "Just a pinch of magic can make",
+                "wonderful things happen...",
+                ""
+            ),
+            RecipeType.ENHANCED_CRAFTING_TABLE,
+            new ItemStack[] {
+                null, Materials.getAmalgamateDustRare().getItem(),  null,
+                null, new ItemStack(Material.FLOWER_POT),           null,
+                null, null,                                         null
+            },
+            Tag.FLOWER_POTS.getValues(),
+            15
+        );
+
+        // Mysterious Plant
+        RecipeItem mysteriousPlantRecipe = new RecipeItem(
+            mysteriousPottedPlant.getItem(),
+            StoryType.ELEMENTAL, 25,
+            StoryType.ALCHEMICAL, 25,
+            StoryType.VOID, 25
+        );
+        mysteriousPlant = new MysteriousTicker(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MYSTERIOUS_PLANT",
+                new ItemStack(Material.OXEYE_DAISY),
+                ThemeType.MECHANISM,
+                "Mysterious Plant",
+                "Removing it from that pot took work.",
+                ""
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            mysteriousPlantRecipe.getDisplayRecipe(),
+            Tag.SMALL_FLOWERS.getValues(),
+            15
+        );
+
         // Slimefun Registry
         abstractionLamp.register(plugin);
         dispersionLamp.register(plugin);
@@ -382,6 +572,13 @@ public class Gadgets {
         evisceratingPlate.register(plugin);
         basicExpCollector.register(plugin);
         infusedExpCollector.register(plugin);
+        basicEnderInhibitor.register(plugin);
+        advancedEnderInhibitor.register(plugin);
+        dimMobCandle.register(plugin);
+        brightMobCandle.register(plugin);
+        scintillatingMobCandle.register(plugin);
+        mysteriousPottedPlant.register(plugin);
+        mysteriousPlant.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(abstractionLamp, abstractionLampRecipe);
@@ -398,5 +595,11 @@ public class Gadgets {
 
         LiquefactionBasinCache.addCraftingRecipe(basicExpCollector, basicExpCollectorRecipe);
         LiquefactionBasinCache.addCraftingRecipe(infusedExpCollector, infusedExpCollectorRecipe);
+
+        LiquefactionBasinCache.addCraftingRecipe(dimMobCandle, dimMobCandleRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(brightMobCandle, brightMobCandleRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(scintillatingMobCandle, scintillatingMobCandleRecipe);
+
+        LiquefactionBasinCache.addCraftingRecipe(mysteriousPlant, mysteriousPlantRecipe);
     }
 }

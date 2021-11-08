@@ -109,7 +109,7 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
                 processChargedPlate(item, (ChargedPlate) slimefunItem);
             } else {
                 if (!processOtherItem(item)) {
-                    rejectItem(item, true);
+                    rejectItem(item);
                 }
             }
         }
@@ -119,11 +119,10 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
     }
 
     @ParametersAreNonnullByDefault
-    private void rejectItem(Item item, boolean punish) {
+    private void rejectItem(Item item) {
         final double velX = ThreadLocalRandom.current().nextDouble(-0.9, 1.1);
         final double velZ = ThreadLocalRandom.current().nextDouble(-0.9, 1.1);
         item.setVelocity(new Vector(velX, 0.5, velZ));
-        // TODO Punishment for incorrect usage
     }
 
     @ParametersAreNonnullByDefault
@@ -131,7 +130,7 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
         final int numberInStack = item.getItemStack().getAmount();
         final int amount = Crystal.getRarityValueMap().get(rarity) * numberInStack;
         if (getFillLevel() + amount > maxVolume) {
-            rejectItem(item, false);
+            rejectItem(item);
         } else {
             if (contentMap.containsKey(type)) {
                 contentMap.put(type, contentMap.get(type) + amount);
@@ -242,7 +241,7 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
             }
             emptyBasin();
         } else {
-            rejectItem(item, true);
+            rejectItem(item);
         }
     }
 
@@ -283,7 +282,7 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
             }
             emptyBasin();
         } else {
-            rejectItem(item, false);
+            rejectItem(item);
         }
     }
 
@@ -306,7 +305,9 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
         if (typeList.size() == 3) {
             SlimefunItem.getByItem(itemStack);
             SlimefunItem slimefunItem = getMatchingRecipe(typeList, amountList, itemStack);
-            if (slimefunItem != null) {
+            if (slimefunItem != null
+                && !slimefunItem.isDisabled()
+            ) {
                 item.getWorld().dropItem(item.getLocation(), slimefunItem.getItem().clone());
                 if (itemStack.getAmount() > 1) {
                     itemStack.setAmount(itemStack.getAmount() - 1);

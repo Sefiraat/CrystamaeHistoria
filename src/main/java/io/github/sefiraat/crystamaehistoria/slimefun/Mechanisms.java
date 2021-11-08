@@ -2,10 +2,6 @@ package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.chroniclerpanel.ChroniclerPanel;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.CursedEarth;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobFan;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobLamp;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobMat;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasin;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
@@ -21,11 +17,7 @@ import lombok.Getter;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Color;
 import org.bukkit.Material;
-import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @UtilityClass
 public class Mechanisms {

@@ -33,10 +33,9 @@ public class LiquefactionBasin extends TickingMenuBlock {
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 15, 16, 17, 18, 19, 20, 24, 25, 26, 27, 28, 29, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44
     };
     protected static final int INPUT_SLOT = 22;
+    public final int maxVolume;
     @Getter
     protected final Map<Location, LiquefactionBasinCache> cacheMap = new HashMap<>();
-
-    public final int maxVolume;
     private final Color color;
 
     @ParametersAreNonnullByDefault

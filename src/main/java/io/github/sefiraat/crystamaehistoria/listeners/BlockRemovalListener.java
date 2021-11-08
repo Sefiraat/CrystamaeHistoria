@@ -45,7 +45,7 @@ public class BlockRemovalListener implements Listener {
         if (GeneralUtils.isRemovableBlock(block)) {
             block.removeMetadata("ch", CrystamaeHistoria.getInstance());
             block.setType(Material.AIR);
-            CrystamaeHistoria.getActiveStorage().stopBlockRemoval(block);
+            CrystamaeHistoria.getSpellMemory().stopBlockRemoval(block);
             return true;
         }
         return false;

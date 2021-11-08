@@ -16,6 +16,7 @@ import java.util.Map;
 public class Crystal extends UnplaceableBlock {
 
     protected static final Map<StoryRarity, Integer> RARITY_VALUE_MAP = new EnumMap<>(StoryRarity.class);
+
     static {
         RARITY_VALUE_MAP.put(StoryRarity.COMMON, 1);
         RARITY_VALUE_MAP.put(StoryRarity.UNCOMMON, 3);

@@ -13,6 +13,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
+import org.bukkit.util.BoundingBox;
 
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -37,6 +38,10 @@ public class SpellMemory {
     private final Map<MagicSummon, Long> summonedEntities = new HashMap<>();
     @Getter
     private final Map<UUID, Long> playersWithFlight = new HashMap<>();
+    @Getter
+    private final Map<UUID, Long> inhibitedEndermen = new HashMap<>();
+    @Getter
+    private final Map<BoundingBox, Long> noSpawningAreas = new HashMap<>();
     @Getter
     private final Map<SpellType, Integer> spellsCast = new EnumMap<>(SpellType.class);
 
@@ -66,6 +71,14 @@ public class SpellMemory {
         // Remove and disable all players flight
         removeFlight(true);
         playersWithFlight.clear();
+
+        // Reenable Enderman teleporting
+        removeEnderman(true);
+        inhibitedEndermen.clear();
+
+        // Reenable Chunk Spawning
+        enableSpawningInArea(true);
+        noSpawningAreas.clear();
 
         // Clear spells cast amount
         spellsCast.clear();
@@ -125,6 +138,26 @@ public class SpellMemory {
                     player.setFlying(false);
                     playersWithFlight.remove(entry.getKey());
                 }
+            }
+        }
+    }
+
+    public void removeEnderman(boolean forceRemoveAll) {
+        long time = System.currentTimeMillis();
+        final Set<Map.Entry<UUID, Long>> set = new HashSet<>(inhibitedEndermen.entrySet());
+        for (Map.Entry<UUID, Long> entry : set) {
+            if (forceRemoveAll || entry.getValue() < time) {
+                inhibitedEndermen.remove(entry.getKey());
+            }
+        }
+    }
+
+    public void enableSpawningInArea(boolean forceRemoveAll) {
+        long time = System.currentTimeMillis();
+        final Set<Map.Entry<BoundingBox, Long>> set = new HashSet<>(noSpawningAreas.entrySet());
+        for (Map.Entry<BoundingBox, Long> entry : set) {
+            if (forceRemoveAll || entry.getValue() < time) {
+                noSpawningAreas.remove(entry.getKey());
             }
         }
     }

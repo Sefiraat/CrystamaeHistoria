@@ -65,7 +65,7 @@ public class CrystamaeHistoria extends AbstractAddon {
         return instance.storiesManager;
     }
 
-    public static SpellMemory getActiveStorage() {
+    public static SpellMemory getSpellMemory() {
         return instance.spellMemory;
     }
 

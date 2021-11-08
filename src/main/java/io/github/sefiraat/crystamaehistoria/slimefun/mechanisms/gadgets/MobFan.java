@@ -12,10 +12,12 @@ import lombok.Getter;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
@@ -132,6 +134,12 @@ public class MobFan extends TickingMenuBlock {
             for (int i = 0; i < range + 0.5; i++) {
                 Location offsetLocation = location.clone().add(direction.getDirection().clone().multiply(i));
                 for (Entity entity : block.getWorld().getNearbyEntities(offsetLocation, 0.5, 0.5, 0.5)) {
+                    if (entity instanceof Player) {
+                        Player player = (Player) entity;
+                        if (player.getGameMode() != GameMode.SURVIVAL) {
+                            return;
+                        }
+                    }
                     GeneralUtils.pushEntity(
                         owner,
                         location.clone().add(0, 0.2, 0),

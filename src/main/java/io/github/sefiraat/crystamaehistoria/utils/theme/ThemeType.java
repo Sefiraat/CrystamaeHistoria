@@ -116,10 +116,6 @@ public enum ThemeType {
         this.dustOptions = dustOptions;
     }
 
-    public TextColor getComponentColor() {
-        return TextColor.color(this.getColor().getColor().getRGB());
-    }
-
     /**
      * Applies the theme color to a given string
      *
@@ -255,6 +251,10 @@ public enum ThemeType {
     public static String getRandomEggName() {
         int rnd = ThreadLocalRandom.current().nextInt(0, EGG_NAMES.size());
         return EGG_NAMES.get(rnd);
+    }
+
+    public TextColor getComponentColor() {
+        return TextColor.color(this.getColor().getColor().getRGB());
     }
 
 }

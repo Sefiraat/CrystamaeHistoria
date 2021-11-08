@@ -8,13 +8,15 @@ public class TemporaryEffectsRunnable extends BukkitRunnable {
 
     @Override
     public void run() {
-        final SpellMemory storage = CrystamaeHistoria.getActiveStorage();
+        final SpellMemory storage = CrystamaeHistoria.getSpellMemory();
 
         clearExpiredProjectiles(storage);
         clearMagicFallingBlocks(storage);
         clearMagicSummons(storage);
         clearTempBlocks(storage);
         removeTempFlight(storage);
+        removeInhibitedEndermen(storage);
+        removeSpawnDisabledAreas(storage);
     }
 
     public void clearMagicSummons(SpellMemory storage) {
@@ -35,5 +37,13 @@ public class TemporaryEffectsRunnable extends BukkitRunnable {
 
     public void removeTempFlight(SpellMemory storage) {
         storage.removeFlight(false);
+    }
+
+    public void removeInhibitedEndermen(SpellMemory storage) {
+        storage.removeEnderman(false);
+    }
+
+    public void removeSpawnDisabledAreas(SpellMemory storage) {
+        storage.enableSpawningInArea(false);
     }
 }
