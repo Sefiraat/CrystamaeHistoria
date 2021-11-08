@@ -84,7 +84,7 @@ public class RealisationAltar extends TickingMenuBlock {
     @ParametersAreNonnullByDefault
     protected void onNewInstance(BlockMenu blockMenu, Block b) {
         super.onNewInstance(blockMenu, b);
-        RealisationAltarCache cache = new RealisationAltarCache(blockMenu);
+        RealisationAltarCache cache = new RealisationAltarCache(blockMenu, this.tier);
         cache.loadMap();
         CACHE_MAP.put(blockMenu.getLocation(), cache);
     }

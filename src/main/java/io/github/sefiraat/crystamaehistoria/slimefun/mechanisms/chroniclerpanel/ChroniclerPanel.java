@@ -29,7 +29,6 @@ public class ChroniclerPanel extends TickingMenuBlock {
         12, 13, 14, 21, 23, 30, 31, 32
     };
     protected static final int INPUT_SLOT = 22;
-
     protected static final Map<Location, ChroniclerPanelCache> CACHES = new HashMap<>();
 
     private final int tier;
@@ -42,7 +41,7 @@ public class ChroniclerPanel extends TickingMenuBlock {
             @Override
             public void onPlayerPlace(@NotNull BlockPlaceEvent event) {
                 final Location location = event.getBlockPlaced().getLocation();
-                final ChroniclerPanelCache cache = new ChroniclerPanelCache(BlockStorage.getInventory(location));
+                final ChroniclerPanelCache cache = new ChroniclerPanelCache(BlockStorage.getInventory(location), tier);
                 cache.setActivePlayer(event.getPlayer());
                 CACHES.put(location, cache);
             }
@@ -90,7 +89,7 @@ public class ChroniclerPanel extends TickingMenuBlock {
     protected void onNewInstance(BlockMenu blockMenu, Block b) {
         super.onNewInstance(blockMenu, b);
         if (!CACHES.containsKey(blockMenu.getLocation())) {
-            ChroniclerPanelCache cache = new ChroniclerPanelCache(blockMenu);
+            ChroniclerPanelCache cache = new ChroniclerPanelCache(blockMenu, this.tier);
             CACHES.put(blockMenu.getLocation(), cache);
         }
     }

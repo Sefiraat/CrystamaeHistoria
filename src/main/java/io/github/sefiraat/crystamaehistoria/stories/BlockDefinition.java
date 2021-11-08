@@ -8,7 +8,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
 @Getter
-public class StoriedBlockDefinition {
+public class BlockDefinition {
 
     private final Material material;
     private final BlockTier tier;
@@ -16,7 +16,7 @@ public class StoriedBlockDefinition {
     private final Story unique;
 
     @ParametersAreNonnullByDefault
-    public StoriedBlockDefinition(Material material, BlockTier tier, List<StoryType> pools, Story unique) {
+    public BlockDefinition(Material material, BlockTier tier, List<StoryType> pools, Story unique) {
         this.material = material;
         this.tier = tier;
         this.pools = pools;

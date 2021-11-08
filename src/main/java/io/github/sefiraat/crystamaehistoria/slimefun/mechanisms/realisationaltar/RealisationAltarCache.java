@@ -2,6 +2,7 @@ package io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.realisationalta
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.AbstractCache;
+import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.stories.Story;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
@@ -25,6 +26,7 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.inventory.ItemStack;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,10 +39,12 @@ public class RealisationAltarCache extends AbstractCache {
 
     @Getter
     private final Map<BlockPosition, Pair<StoryRarity, String>> crystalStoryMap = new HashMap<>();
+    private final int maxTier;
 
     @ParametersAreNonnullByDefault
-    public RealisationAltarCache(BlockMenu blockMenu) {
+    public RealisationAltarCache(BlockMenu blockMenu, int tier) {
         super(blockMenu);
+        this.maxTier = tier + 1;
     }
 
     protected void process() {
@@ -68,29 +72,39 @@ public class RealisationAltarCache extends AbstractCache {
         }
     }
 
+    protected void reject(@Nullable ItemStack itemStack) {
+        if (itemStack != null) {
+            final ItemStack rejectedSpawn = itemStack.clone();
+            itemStack.setAmount(0);
+            blockMenu.getBlock().getWorld().dropItemNaturally(blockMenu.getLocation(), rejectedSpawn);
+        }
+    }
+
     @ParametersAreNonnullByDefault
     private boolean processItem(ItemStack itemStack) {
-        if (GeneralUtils.testChance(1, 5)) {
-            final List<Story> storyList = StoryUtils.getAllStories(itemStack);
-            final int x = ThreadLocalRandom.current().nextInt(-3, 4);
-            final int z = ThreadLocalRandom.current().nextInt(-3, 4);
-            final Block potentialBlock = blockMenu.getBlock().getRelative(x, 0, z);
-            if (potentialBlock.getType() == Material.AIR
-                && potentialBlock.getRelative(BlockFace.DOWN).getType().isSolid()
-            ) {
-                final Story story = storyList.get(0);
-                potentialBlock.setType(Material.SMALL_AMETHYST_BUD);
-                crystalStoryMap.put(new BlockPosition(potentialBlock.getLocation()), new Pair<>(story.getRarity(), story.getId()));
-                if (StoryUtils.removeStory(itemStack, story) == 0) {
-                    itemStack.setAmount(0);
-                } else {
-                    StoriesManager.rebuildStoriedStack(itemStack);
+        final BlockDefinition definition = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().get(itemStack.getType());
+        if (definition.getTier().tier <= this.maxTier) {
+            if (GeneralUtils.testChance(1, 6)) {
+                final int x = ThreadLocalRandom.current().nextInt(-3, 4);
+                final int z = ThreadLocalRandom.current().nextInt(-3, 4);
+                final Block potentialBlock = blockMenu.getBlock().getRelative(x, 0, z);
+                if (potentialBlock.isEmpty() && potentialBlock.getRelative(BlockFace.DOWN).getType().isSolid()) {
+                    final List<Story> storyList = StoryUtils.getAllStories(itemStack);
+                    final Story story = storyList.get(0);
+                    potentialBlock.setType(Material.SMALL_AMETHYST_BUD);
+                    crystalStoryMap.put(new BlockPosition(potentialBlock.getLocation()), new Pair<>(story.getRarity(), story.getId()));
+                    if (StoryUtils.removeStory(itemStack, story) == 0) {
+                        itemStack.setAmount(0);
+                    } else {
+                        StoriesManager.rebuildStoriedStack(itemStack);
+                    }
+                    summonGrowParticles(potentialBlock);
+                    summonConsumeParticles(blockMenu.getBlock());
+                    return true;
                 }
-                summonGrowParticles(potentialBlock);
-                summonConsumeParticles(blockMenu.getBlock());
-                return true;
             }
-
+        } else {
+            reject(itemStack);
         }
         return false;
     }
@@ -158,7 +172,7 @@ public class RealisationAltarCache extends AbstractCache {
 
     private void summonGrowParticles(Block block) {
         final Location location = block.getLocation().add(0.5, 0.2, 0.5);
-        ParticleUtils.displayParticleEffect(location, Particle.CRIMSON_SPORE    , 0.4, 3);
+        ParticleUtils.displayParticleEffect(location, Particle.CRIMSON_SPORE, 0.4, 3);
     }
 
     private void summonFullyGrownParticles(Block block) {

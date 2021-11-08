@@ -18,7 +18,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.slimefun.Mechanisms;
 import io.github.sefiraat.crystamaehistoria.slimefun.Tools;
-import io.github.sefiraat.crystamaehistoria.stories.StoriedBlockDefinition;
+import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.utils.CrystaTag;
 import io.github.sefiraat.crystamaehistoria.utils.PlayerStatUtils;
@@ -182,7 +182,7 @@ public class CrystamaeHistoria extends AbstractAddon {
 
         AdvancedPie storiesChronicled = new AdvancedPie("stories_chronicled", () -> {
             Map<String, Integer> values = new HashMap<>();
-            for (StoriedBlockDefinition definition : CrystamaeHistoria.getStoriesManager().getStoriedBlockDefinitionMap().values()) {
+            for (BlockDefinition definition : CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().values()) {
                 int timesChronicled = 0;
                 for (String string : CrystamaeHistoria.getConfigManager().getPlayerStats().getKeys(false)) {
                     UUID uuid = UUID.fromString(string);

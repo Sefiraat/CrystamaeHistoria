@@ -56,19 +56,9 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
 
     public static final double LOWEST_LEVEL = -1.7;
     public static final double HIGHEST_LEVEL = -1;
-    protected static final Map<StoryRarity, Integer> RARITY_VALUE_MAP = new EnumMap<>(StoryRarity.class);
     protected static final String CH_LEVEL_PREFIX = "ch_c_lvl:";
     private static final Map<SpellType, RecipeSpell> RECIPES_SPELL = new HashMap<>();
     private static final Map<SlimefunItem, RecipeItem> RECIPES_ITEMS = new HashMap<>();
-
-    static {
-        RARITY_VALUE_MAP.put(StoryRarity.COMMON, 1);
-        RARITY_VALUE_MAP.put(StoryRarity.UNCOMMON, 3);
-        RARITY_VALUE_MAP.put(StoryRarity.RARE, 10);
-        RARITY_VALUE_MAP.put(StoryRarity.EPIC, 25);
-        RARITY_VALUE_MAP.put(StoryRarity.MYTHICAL, 50);
-        RARITY_VALUE_MAP.put(StoryRarity.UNIQUE, 2);
-    }
 
     private final double maxVolume;
     private final Map<StoryType, Integer> contentMap = new EnumMap<>(StoryType.class);
@@ -139,7 +129,7 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
     @ParametersAreNonnullByDefault
     private void addCrystamae(StoryType type, StoryRarity rarity, Item item) {
         final int numberInStack = item.getItemStack().getAmount();
-        final int amount = LiquefactionBasinCache.RARITY_VALUE_MAP.get(rarity) * numberInStack;
+        final int amount = Crystal.getRarityValueMap().get(rarity) * numberInStack;
         if (getFillLevel() + amount > maxVolume) {
             rejectItem(item, false);
         } else {

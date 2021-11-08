@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 @Getter
-public class Story implements Cloneable {
+public class Story {
 
     @Nonnull
     private final String id;
@@ -34,6 +34,7 @@ public class Story implements Cloneable {
     private final StoryShardProfile storyShardProfile;
     @Nonnull
     private final List<String> storyStrings;
+    private final int uniqueTier = 0;
     @Setter
     @Nullable
     private BlockPosition blockPosition;
@@ -90,7 +91,8 @@ public class Story implements Cloneable {
             l.add(BaseComponent.toLegacyText(line));
         }
         if (author != null) {
-            l.add(ThemeType.NOTICE.getColor() + "Author : " + author);
+            l.add("");
+            l.add(ThemeType.PASSIVE.getColor() + "Author : " + author);
         }
         return l;
     }

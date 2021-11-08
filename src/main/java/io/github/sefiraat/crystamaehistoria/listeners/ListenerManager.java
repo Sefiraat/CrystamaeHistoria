@@ -12,6 +12,7 @@ public class ListenerManager {
         addListener(new CrystalBreakListener());
         addListener(new BlockRemovalListener());
         addListener(new MaintenanceListener());
+        addListener(new RefractingLensListener());
     }
 
     private void addListener(Listener listener) {

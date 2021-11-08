@@ -3,7 +3,7 @@ package io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.chroniclerpanel
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.FloatingHeadAnimation;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.AbstractCache;
-import io.github.sefiraat.crystamaehistoria.stories.StoriedBlockDefinition;
+import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.utils.ArmourStandUtils;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
@@ -36,15 +36,17 @@ public class ChroniclerPanelCache extends AbstractCache {
     @Nullable
     private Material workingOn;
     private boolean working;
-    private StoriedBlockDefinition storiedBlockDefinition;
+    private BlockDefinition blockDefinition;
     private FloatingHeadAnimation animation;
     private Location blockMiddle;
     private boolean lightDimming = true;
     private UUID armorStandUUID;
+    private final int maxTier;
 
     @ParametersAreNonnullByDefault
-    public ChroniclerPanelCache(BlockMenu blockMenu) {
+    public ChroniclerPanelCache(BlockMenu blockMenu, int tier) {
         super(blockMenu);
+        this.maxTier = tier + 1;
 
         final String workingOnString = BlockStorage.getLocationInfo(blockMenu.getLocation(), Keys.BS_CP_WORKING_ON);
         if (workingOnString != null) {
@@ -58,30 +60,34 @@ public class ChroniclerPanelCache extends AbstractCache {
     }
 
     protected void process() {
-        final Block b = blockMenu.getBlock();
-        final ItemStack i = blockMenu.getItemInSlot(ChroniclerPanel.INPUT_SLOT);
+        final Block block = blockMenu.getBlock();
+        final ItemStack inputItem = blockMenu.getItemInSlot(ChroniclerPanel.INPUT_SLOT);
 
-        if (i != null && i.getType() != Material.AIR && StoryUtils.canBeStoried(i)) {
-            rejectOverage(i);
-            if (!StoryUtils.isStoried(i)) {
-                StoryUtils.makeStoried(i);
+        if (inputItem != null
+            && inputItem.getType() != Material.AIR
+            && (StoryUtils.isStoried(inputItem) || StoryUtils.canBeStoried(inputItem, this.maxTier))
+        ) {
+            rejectOverage(inputItem);
+            if (!StoryUtils.isStoried(inputItem)) {
+                StoryUtils.makeStoried(inputItem);
             }
-            if (StoryUtils.getRemainingStoryAmount(i) > 0) {
+            if (StoryUtils.getRemainingStoryAmount(inputItem) > 0) {
                 // A block is in the Input slot. Does the current item being worked on match the input?
-                final Material m = i.getType();
-                if (!working || workingOn != m) {
+                final Material inputItemType = inputItem.getType();
+                if (!working || workingOn != inputItemType) {
                     // Either not working or workingOn has changed
-                    setWorking(b, m);
+                    setWorking(block, inputItemType);
                     ArmourStandUtils.setDisplayItem(getDisplayStand(), workingOn);
                 } else {
                     // Working with an item in slot while workingOn matches means we can process the item
                     animateLight();
-                    processStack(i);
+                    processStack(inputItem);
                 }
             } else {
                 shutdown();
             }
         } else {
+            reject(inputItem);
             shutdown();
         }
     }
@@ -103,6 +109,14 @@ public class ChroniclerPanelCache extends AbstractCache {
         }
     }
 
+    protected void reject(@Nullable ItemStack itemStack) {
+        if (itemStack != null) {
+            final ItemStack rejectedSpawn = itemStack.clone();
+            itemStack.setAmount(0);
+            blockMenu.getBlock().getWorld().dropItemNaturally(blockMenu.getLocation(), rejectedSpawn);
+        }
+    }
+
     @ParametersAreNonnullByDefault
     protected void setWorking(Block block, Material m) {
         final Block lightBlock = block.getRelative(BlockFace.UP);
@@ -116,7 +130,7 @@ public class ChroniclerPanelCache extends AbstractCache {
             lightBlock.setType(Material.LIGHT);
         }
         startAnimation();
-        storiedBlockDefinition = CrystamaeHistoria.getStoriesManager().getStoriedBlockDefinitionMap().get(m);
+        blockDefinition = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().get(m);
     }
 
     private void startAnimation() {
@@ -152,7 +166,7 @@ public class ChroniclerPanelCache extends AbstractCache {
         // If this block isn't storied, make it storied then add the initial story set
         if (StoryUtils.hasRemainingStorySlots(i)) {
             final int remaining = StoryUtils.getRemainingStoryAmount(i);
-            final int req = storiedBlockDefinition.getTier().chroniclingChance;
+            final int req = blockDefinition.getTier().chroniclingChance;
             if (GeneralUtils.testChance(req, 10000)) {
                 // We can chronicle a story
                 StoryUtils.requestNewStory(i);
@@ -160,10 +174,10 @@ public class ChroniclerPanelCache extends AbstractCache {
                     // That was the last story, unlock unique and set research
                     StoryUtils.requestUniqueStory(i);
                     if (activePlayer != null) {
-                        if (!PlayerStatUtils.hasUnlockedUniqueStory(activePlayer, storiedBlockDefinition)) {
-                            PlayerStatUtils.unlockUniqueStory(activePlayer, storiedBlockDefinition);
+                        if (!PlayerStatUtils.hasUnlockedUniqueStory(activePlayer, blockDefinition)) {
+                            PlayerStatUtils.unlockUniqueStory(activePlayer, blockDefinition);
                         }
-                        PlayerStatUtils.addChronicle(activePlayer, storiedBlockDefinition);
+                        PlayerStatUtils.addChronicle(activePlayer, blockDefinition);
                     }
                 }
                 StoriesManager.rebuildStoriedStack(i);
