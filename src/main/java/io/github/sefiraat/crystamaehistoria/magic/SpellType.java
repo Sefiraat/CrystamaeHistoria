@@ -22,6 +22,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Deity;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EarthNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EasterEgg;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EndermansVeil;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EscapeRope;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EtherealFlow;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FanOfArrows;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FireNova;
@@ -40,6 +41,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Hellscape;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.HolyCow;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.ImbueVoid;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.KnowledgeShare;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Launch;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LavaLake;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LeechBomb;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LovePotion;
@@ -100,6 +102,7 @@ public enum SpellType {
     EARTH_NOVA(new EarthNova()),
     EASTER_EGG(new EasterEgg()),
     ENDERMANS_VEIL(new EndermansVeil()),
+    ESCAPE_ROPE(new EscapeRope()),
     ETHEREAL_FLOW(new EtherealFlow()),
     FAN_OF_ARROWS(new FanOfArrows()),
     FIREBALL(new Fireball()),
@@ -118,6 +121,7 @@ public enum SpellType {
     HARMONYS_SONATA(new HarmonysSonata()),
     HARVEST_MOON(new HarvestMoon()),
     KNOWLEDGE_SHARE(new KnowledgeShare()),
+    LAUNCH(new Launch()),
     LAVA_LAKE(new LavaLake()),
     LEECH_BOMB(new LeechBomb()),
     LOVE_POTION(new LovePotion()),
