@@ -16,6 +16,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Bright;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.CallLightning;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Cascada;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Chaos;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.ChillWind;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Compass;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.CurificationRitual;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Deity;
@@ -96,6 +97,7 @@ public enum SpellType {
     CALL_LIGHTNING(new CallLightning()),
     CASCADA(new Cascada()),
     CHAOS(new Chaos()),
+    CHILL_WIND(new ChillWind()),
     COMPASS(new Compass()),
     CURIFICATION_RITUAL(new CurificationRitual()),
     DEITY(new Deity()),

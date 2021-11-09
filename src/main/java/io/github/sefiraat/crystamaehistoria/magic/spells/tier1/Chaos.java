@@ -52,10 +52,11 @@ public class Chaos extends Spell {
                 .add(new Vector(x, y, 0))
                 .rotateAroundY(-(location.getYaw() * alessioMath));
             final Location pointLocation = location.clone().add(pointVector);
-            final MagicProjectile projectile = SpellUtils.summonMagicProjectile(castInformation, EntityType.SPECTRAL_ARROW, pointLocation, this::onTick);
-
-            projectile.getProjectile().setGravity(false);
-            projectile.setVelocity(location.getDirection(), 1);
+            if (location.getBlock().isEmpty()) {
+                final MagicProjectile projectile = SpellUtils.summonMagicProjectile(castInformation, EntityType.SPECTRAL_ARROW, pointLocation, this::onTick);
+                projectile.getProjectile().setGravity(false);
+                projectile.setVelocity(location.getDirection(), 1);
+            }
         }
     }
 
