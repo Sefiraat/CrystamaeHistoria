@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.magic.spells.core;
+package io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import lombok.Getter;

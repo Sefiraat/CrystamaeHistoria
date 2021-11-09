@@ -13,6 +13,7 @@ public class ListenerManager {
         addListener(new BlockRemovalListener());
         addListener(new MaintenanceListener());
         addListener(new RefractingLensListener());
+        addListener(new ThaumaturgicSaltsListener());
         addListener(new EndermanInhibitorListener());
         addListener(new MobCandleListener());
     }

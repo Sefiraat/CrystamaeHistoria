@@ -528,10 +528,10 @@ public class Gadgets {
                 ""
             ),
             RecipeType.ENHANCED_CRAFTING_TABLE,
-            new ItemStack[] {
-                null, Materials.getAmalgamateDustRare().getItem(),  null,
-                null, new ItemStack(Material.FLOWER_POT),           null,
-                null, null,                                         null
+            new ItemStack[]{
+                null, Materials.getAmalgamateDustRare().getItem(), null,
+                null, new ItemStack(Material.FLOWER_POT), null,
+                null, null, null
             },
             Tag.FLOWER_POTS.getValues(),
             15

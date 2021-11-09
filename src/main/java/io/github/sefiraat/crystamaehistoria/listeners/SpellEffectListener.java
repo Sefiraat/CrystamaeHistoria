@@ -2,8 +2,8 @@ package io.github.sefiraat.crystamaehistoria.listeners;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
-import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicFallingBlock;
-import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
+import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicFallingBlock;
+import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentUUIDDataType;

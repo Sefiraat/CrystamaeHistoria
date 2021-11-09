@@ -8,12 +8,12 @@ import lombok.Getter;
 import net.kyori.adventure.text.format.TextColor;
 import net.md_5.bungee.api.ChatColor;
 import org.apache.commons.lang.WordUtils;
+import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -104,16 +104,11 @@ public enum ThemeType {
     );
     private final ChatColor color;
     private final String loreLine;
-    private final Particle.DustOptions dustOptions;
 
     ThemeType(ChatColor color, String loreLine) {
-        this(color, loreLine, null);
-    }
-
-    ThemeType(ChatColor color, String loreLine, @Nullable Particle.DustOptions dustOptions) {
         this.color = color;
         this.loreLine = loreLine;
-        this.dustOptions = dustOptions;
+
     }
 
     /**
@@ -251,6 +246,17 @@ public enum ThemeType {
     public static String getRandomEggName() {
         int rnd = ThreadLocalRandom.current().nextInt(0, EGG_NAMES.size());
         return EGG_NAMES.get(rnd);
+    }
+
+    public Particle.DustOptions getDustOptions(float size) {
+        return new Particle.DustOptions(
+            Color.fromRGB(
+                color.getColor().getRed(),
+                color.getColor().getGreen(),
+                color.getColor().getBlue()
+            ),
+            size
+        );
     }
 
     public TextColor getComponentColor() {

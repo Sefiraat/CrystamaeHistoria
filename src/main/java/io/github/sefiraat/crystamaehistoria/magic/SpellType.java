@@ -28,6 +28,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Fireball;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FlameSprite;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FrostNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Gravity;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.GrowUp;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Gyroscopic;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.HarmonysSonata;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.HarvestMoon;
@@ -104,6 +105,7 @@ public enum SpellType {
     FLAME_SPRITE(new FlameSprite()),
     FROST_NOVA(new FrostNova()),
     GRAVITY(new Gravity()),
+    GROW_UP(new GrowUp()),
     HEAL(new Heal()),
     HEALING_MIST(new HealingMist()),
     HEARTHSTONE(new Hearthstone()),

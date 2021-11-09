@@ -21,6 +21,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.util.BlockIterator;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -127,13 +128,25 @@ public class MobFan extends TickingMenuBlock {
     @Override
     @ParametersAreNonnullByDefault
     protected void tick(Block block, BlockMenu blockMenu) {
-        BlockFace direction = BlockFace.valueOf(BlockStorage.getLocationInfo(block.getLocation(), "CH_DIRECTION"));
-        UUID owner = UUID.fromString(BlockStorage.getLocationInfo(block.getLocation(), "CH_UUID"));
+        final BlockFace direction = BlockFace.valueOf(BlockStorage.getLocationInfo(block.getLocation(), "CH_DIRECTION"));
+        final UUID owner = UUID.fromString(BlockStorage.getLocationInfo(block.getLocation(), "CH_UUID"));
         if (direction != BlockFace.SELF) {
-            Location location = block.getLocation().add(0.5, 0.5, 0.5);
-            for (int i = 0; i < range + 0.5; i++) {
-                Location offsetLocation = location.clone().add(direction.getDirection().clone().multiply(i));
-                for (Entity entity : block.getWorld().getNearbyEntities(offsetLocation, 0.5, 0.5, 0.5)) {
+            final Location location = block.getLocation();
+            final BlockIterator iterator = new BlockIterator(
+                location.getWorld(),
+                location.toVector().add(direction.getDirection()),
+                direction.getDirection(),
+                0,
+                (int) range
+            );
+
+            while (iterator.hasNext()) {
+                final Block testBlock = iterator.next();
+                if (testBlock.isSolid()) {
+                    break;
+                }
+                final Location testLocation = testBlock.getLocation().add(0.5, 0.5, 0.5);
+                for (Entity entity : block.getWorld().getNearbyEntities(testLocation, 0.5, 0.5, 0.5)) {
                     if (entity instanceof Player) {
                         Player player = (Player) entity;
                         if (player.getGameMode() != GameMode.SURVIVAL) {
@@ -147,7 +160,26 @@ public class MobFan extends TickingMenuBlock {
                         1
                     );
                 }
+
             }
+
+//            for (int i = 0; i < range + 0.5; i++) {
+//                Location offsetLocation = location.clone().add(direction.getDirection().clone().multiply(i));
+//                for (Entity entity : block.getWorld().getNearbyEntities(offsetLocation, 0.5, 0.5, 0.5)) {
+//                    if (entity instanceof Player) {
+//                        Player player = (Player) entity;
+//                        if (player.getGameMode() != GameMode.SURVIVAL) {
+//                            return;
+//                        }
+//                    }
+//                    GeneralUtils.pushEntity(
+//                        owner,
+//                        location.clone().add(0, 0.2, 0),
+//                        entity,
+//                        1
+//                    );
+//                }
+//            }
         }
     }
 
