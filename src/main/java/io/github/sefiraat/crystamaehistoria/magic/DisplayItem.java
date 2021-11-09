@@ -6,6 +6,7 @@ import lombok.Getter;
 import org.bukkit.Location;
 import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.util.Vector;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -25,6 +26,11 @@ public class DisplayItem {
 
     public void registerRemoval(long duration) {
         CrystamaeHistoria.getSpellMemory().getDisplayItems().put(this, System.currentTimeMillis() + duration);
+    }
+
+    public void setVelocity(Vector vector) {
+        this.item.setGravity(true);
+        this.item.setVelocity(vector);
     }
 
     public void kill() {

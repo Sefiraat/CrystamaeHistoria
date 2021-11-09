@@ -12,17 +12,20 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.function.Consumer;
 
 public class MysteriousTicker extends SlimefunItem {
 
     private final Set<Material> materials;
     private final Map<Location, Integer> tickMap = new HashMap<>();
     private final int ticks;
+    private final Consumer<Block> consumer;
 
     @ParametersAreNonnullByDefault
     public MysteriousTicker(ItemGroup category,
@@ -32,9 +35,22 @@ public class MysteriousTicker extends SlimefunItem {
                             Set<Material> tickingMaterials,
                             int tickFrequency
     ) {
+        this(category, item, recipeType, recipe, tickingMaterials, tickFrequency, null);
+    }
+
+    @ParametersAreNonnullByDefault
+    public MysteriousTicker(ItemGroup category,
+                            SlimefunItemStack item,
+                            RecipeType recipeType,
+                            ItemStack[] recipe,
+                            Set<Material> tickingMaterials,
+                            int tickFrequency,
+                            @Nullable Consumer<Block> consumer
+    ) {
         super(category, item, recipeType, recipe);
         this.materials = tickingMaterials;
         this.ticks = tickFrequency;
+        this.consumer = consumer;
         this.addItemHandler(
             new BlockTicker() {
                 @Override
@@ -56,6 +72,9 @@ public class MysteriousTicker extends SlimefunItem {
                         block.setType(
                             materials.toArray(new Material[]{})[ThreadLocalRandom.current().nextInt(materials.size())]
                         );
+                        if (MysteriousTicker.this.consumer != null) {
+                            MysteriousTicker.this.consumer.accept(block);
+                        }
                     } else {
                         currentTick++;
                     }

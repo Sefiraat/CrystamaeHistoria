@@ -20,6 +20,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Compass;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.CurificationRitual;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Deity;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EarthNova;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EasterEgg;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EndermansVeil;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EtherealFlow;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FanOfArrows;
@@ -97,6 +98,7 @@ public enum SpellType {
     CURIFICATION_RITUAL(new CurificationRitual()),
     DEITY(new Deity()),
     EARTH_NOVA(new EarthNova()),
+    EASTER_EGG(new EasterEgg()),
     ENDERMANS_VEIL(new EndermansVeil()),
     ETHEREAL_FLOW(new EtherealFlow()),
     FAN_OF_ARROWS(new FanOfArrows()),

@@ -23,6 +23,7 @@ import java.util.logging.Level;
 public enum CrystaTag implements Tag<Material> {
 
     GLAZED_TERRACOTTA,
+    SPAWN_EGGS,
     CONCRETE_BLOCKS;
 
     @Getter
@@ -32,7 +33,6 @@ public enum CrystaTag implements Tag<Material> {
     private final Set<Material> materialList = EnumSet.noneOf(Material.class);
 
     CrystaTag() {
-        final Set<Material> materials = EnumSet.noneOf(Material.class);
         final String name = this.name().toLowerCase(Locale.ROOT);
         final String fileLocation = "/tags/" + name + ".json";
         final JsonParser parser = new JsonParser();
@@ -45,7 +45,11 @@ public enum CrystaTag implements Tag<Material> {
             for (JsonElement element : object.get("values").getAsJsonArray()) {
                 final String tagString = element.getAsString();
                 final Material material = Material.matchMaterial(tagString);
-                materialList.add(material);
+                if (material != null) {
+                    materialList.add(material);
+                } else {
+                    CrystamaeHistoria.log(Level.WARNING, MessageFormat.format("Error with tag: {0}", tagString));
+                }
             }
 
         } catch (JsonParseException e) {

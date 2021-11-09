@@ -72,7 +72,7 @@ public enum ThemeType {
      * List of names to be given to ArmourStands, invisible but mods and Minimaps can see them :)
      */
     @Nonnull
-    protected static final List<String> EGG_NAMES = Arrays.asList(
+    public static final List<String> EGG_NAMES = Arrays.asList(
         "TheBusyBiscuit",
         "Alessio",
         "Walshy",
@@ -156,7 +156,6 @@ public enum ThemeType {
     /**
      * Gets an ItemStack with a pre-populated lore and name with themed colors.
      *
-     * @param id        The ID for the new {@link ItemStack}
      * @param material  The {@link Material} used to base the {@link ItemStack} on
      * @param themeType The {@link ThemeType} {@link ChatColor} to apply to the {@link ItemStack} name
      * @param name      The name to apply to the {@link ItemStack}

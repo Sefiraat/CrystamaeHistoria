@@ -156,7 +156,7 @@ public class CrystamaeHistoria extends AbstractAddon {
         getAddonCommand().addSub(new OpenSpellCompendium());
         getAddonCommand().addSub(new OpenStoryCompendium());
 
-        //CrystaTag.getCachedValues();
+        CrystaTag.getCachedValues();
     }
 
     private void setupBstats() {

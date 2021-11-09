@@ -16,6 +16,7 @@ public class ListenerManager {
         addListener(new ThaumaturgicSaltsListener());
         addListener(new EndermanInhibitorListener());
         addListener(new MobCandleListener());
+        addListener(new DisplayItemListener());
     }
 
     private void addListener(Listener listener) {
