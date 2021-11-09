@@ -8,7 +8,6 @@ import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasi
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.realisationaltar.RealisationAltar;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.staveconfigurator.StaveConfigurator;
-import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
@@ -53,7 +52,6 @@ public class Mechanisms {
 
         final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
 
-        final ItemStack uniqueVoid = Materials.CRYSTAL_MAP.get(StoryRarity.UNIQUE).get(StoryType.VOID).getItem();
         final ItemStack amalgamateDustRare = Materials.getAmalgamateDustRare().getItem();
         final ItemStack amalgamateIngotUncommon = Materials.getAmalgamateIngotUncommon().getItem();
 
@@ -259,7 +257,8 @@ public class Mechanisms {
                 "Liquefaction Basin (Tier 1)",
                 "The liquefaction basin can take",
                 "Crystals and convert them into their liquid",
-                "Crystamae form. Used for magical crafting",
+                "Crystamae form. Used for magical crafting.",
+                "Danger: Do not break while filled!",
                 "",
                 "Holds up to 500 Liquefied Crysta."
             ),
@@ -283,7 +282,8 @@ public class Mechanisms {
                 "Liquefaction Basin (Tier 2)",
                 "The liquefaction basin can take",
                 "Crystals and convert them into their liquid",
-                "Crystamae form. Used for magical crafting",
+                "Crystamae form. Used for magical crafting.",
+                "Danger: Do not break while filled!",
                 "",
                 "Holds up to 1000 Liquefied Crysta."
             ),
@@ -313,7 +313,8 @@ public class Mechanisms {
                 "Liquefaction Basin (Tier 3)",
                 "The liquefaction basin can take",
                 "Crystals and convert them into their liquid",
-                "Crystamae form. Used for magical crafting",
+                "Crystamae form. Used for magical crafting.",
+                "Danger: Do not break while filled!",
                 "",
                 "Holds up to 2500 Liquefied Crysta."
             ),
@@ -339,7 +340,8 @@ public class Mechanisms {
                 "Liquefaction Basin (Tier 4)",
                 "The liquefaction basin can take",
                 "Crystals and convert them into their liquid",
-                "Crystamae form. Used for magical crafting",
+                "Crystamae form. Used for magical crafting.",
+                "Danger: Do not break while filled!",
                 "",
                 "Holds up to 5000 Liquefied Crysta."
             ),

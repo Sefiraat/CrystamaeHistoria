@@ -59,6 +59,9 @@ public enum CrystaTag implements Tag<Material> {
         namespacedKey = new NamespacedKey(CrystamaeHistoria.getInstance(), name);
     }
 
+    public void setup() {
+        // Just here to load the class during onEnable
+    }
 
     @Override
     public boolean isTagged(@NotNull Material material) {

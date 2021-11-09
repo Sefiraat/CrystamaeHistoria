@@ -12,6 +12,7 @@ import lombok.Getter;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
+import org.bukkit.FluidCollisionMode;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
@@ -21,7 +22,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.util.BlockIterator;
+import org.bukkit.util.RayTraceResult;
+import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -129,24 +131,33 @@ public class MobFan extends TickingMenuBlock {
     @ParametersAreNonnullByDefault
     protected void tick(Block block, BlockMenu blockMenu) {
         final BlockFace direction = BlockFace.valueOf(BlockStorage.getLocationInfo(block.getLocation(), "CH_DIRECTION"));
+        final Vector facingVector = direction.getDirection();
         final UUID owner = UUID.fromString(BlockStorage.getLocationInfo(block.getLocation(), "CH_UUID"));
+
         if (direction != BlockFace.SELF) {
             final Location location = block.getLocation();
-            final BlockIterator iterator = new BlockIterator(
-                location.getWorld(),
-                location.toVector().add(direction.getDirection()),
-                direction.getDirection(),
-                0,
-                (int) range
+            final RayTraceResult result = location.getWorld().rayTraceBlocks(
+                location.add(facingVector),
+                facingVector,
+                range,
+                FluidCollisionMode.ALWAYS,
+                false
             );
 
-            while (iterator.hasNext()) {
-                final Block testBlock = iterator.next();
-                if (testBlock.isSolid()) {
-                    break;
-                }
-                final Location testLocation = testBlock.getLocation().add(0.5, 0.5, 0.5);
-                for (Entity entity : block.getWorld().getNearbyEntities(testLocation, 0.5, 0.5, 0.5)) {
+            if (result == null) {
+                return;
+            }
+
+            double finalRange = range;
+
+            Block foundBlock = result.getHitBlock();
+            if (foundBlock != null) {
+                finalRange = foundBlock.getLocation().distance(block.getLocation());
+            }
+
+            for (int i = 0; i < finalRange + 0.5; i++) {
+                Location offsetLocation = location.clone().add(direction.getDirection().clone().multiply(i));
+                for (Entity entity : block.getWorld().getNearbyEntities(offsetLocation, 0.5, 0.5, 0.5)) {
                     if (entity instanceof Player) {
                         Player player = (Player) entity;
                         if (player.getGameMode() != GameMode.SURVIVAL) {
@@ -155,31 +166,12 @@ public class MobFan extends TickingMenuBlock {
                     }
                     GeneralUtils.pushEntity(
                         owner,
-                        location.clone().add(0, 0.2, 0),
+                        facingVector,
                         entity,
                         1
                     );
                 }
-
             }
-
-//            for (int i = 0; i < range + 0.5; i++) {
-//                Location offsetLocation = location.clone().add(direction.getDirection().clone().multiply(i));
-//                for (Entity entity : block.getWorld().getNearbyEntities(offsetLocation, 0.5, 0.5, 0.5)) {
-//                    if (entity instanceof Player) {
-//                        Player player = (Player) entity;
-//                        if (player.getGameMode() != GameMode.SURVIVAL) {
-//                            return;
-//                        }
-//                    }
-//                    GeneralUtils.pushEntity(
-//                        owner,
-//                        location.clone().add(0, 0.2, 0),
-//                        entity,
-//                        1
-//                    );
-//                }
-//            }
         }
     }
 

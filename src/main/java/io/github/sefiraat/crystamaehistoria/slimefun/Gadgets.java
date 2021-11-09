@@ -4,6 +4,7 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.CursedEarth;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.EnderInhibitor;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.ExpCollector;
+import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.GreenHouseGlass;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobCandle;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobFan;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobLamp;
@@ -69,6 +70,10 @@ public class Gadgets {
     private static MysteriousTicker mysteriousPottedPlant;
     @Getter
     private static MysteriousTicker mysteriousPlant;
+    @Getter
+    private static GreenHouseGlass greenHouseGlass;
+    @Getter
+    private static GreenHouseGlass focusedGreenHouseGlass;
 
     public static void setup() {
 
@@ -76,6 +81,7 @@ public class Gadgets {
 
         final ItemStack uniqueVoid = Materials.CRYSTAL_MAP.get(StoryRarity.UNIQUE).get(StoryType.VOID).getItem();
         final ItemStack amalgamateDustRare = Materials.getAmalgamateDustRare().getItem();
+        final ItemStack amalgamateDustEpic = Materials.getAmalgamateDustEpic().getItem();
 
         // Abstraction Lamp
         RecipeItem abstractionLampRecipe = new RecipeItem(
@@ -526,8 +532,7 @@ public class Gadgets {
                 ThemeType.MECHANISM,
                 "Mysterious Potted Plant",
                 "Just a pinch of magic can make",
-                "wonderful things happen...",
-                ""
+                "wonderful things happen..."
             ),
             RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[]{
@@ -540,7 +545,7 @@ public class Gadgets {
             block -> ParticleUtils.displayParticleEffect(
                 block.getLocation().add(0.5, 0.5, 0.5),
                 Particle.WAX_OFF,
-                0.3 ,
+                0.3,
                 2
             )
         );
@@ -559,8 +564,7 @@ public class Gadgets {
                 new ItemStack(Material.OXEYE_DAISY),
                 ThemeType.MECHANISM,
                 "Mysterious Plant",
-                "Removing it from that pot took work.",
-                ""
+                "Removing it from that pot took work."
             ),
             DummyLiquefactionBasinCrafting.TYPE,
             mysteriousPlantRecipe.getDisplayRecipe(),
@@ -572,6 +576,50 @@ public class Gadgets {
                 0.5,
                 3
             )
+        );
+
+        // Green House Glass
+        greenHouseGlass = new GreenHouseGlass(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_CROP_GLASS_1",
+                new ItemStack(Material.GLASS),
+                ThemeType.MECHANISM,
+                "Greenhouse Glass",
+                "Crops under this glass will grow faster.",
+                "",
+                ThemeType.CLICK_INFO.getColor() + "Rate: " + ThemeType.PASSIVE.getColor() + "5"
+            ),
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                amalgamateDustEpic, new ItemStack(Material.GLASS), amalgamateDustEpic,
+                new ItemStack(Material.GLASS), SlimefunItems.POWER_CRYSTAL, new ItemStack(Material.GLASS),
+                amalgamateDustEpic, new ItemStack(Material.GLASS), amalgamateDustEpic,
+            },
+            5
+        );
+
+        // Focused Green House Glass
+        RecipeItem focusedGreenHouseGlassRecipe = new RecipeItem(
+            mysteriousPottedPlant.getItem(),
+            StoryType.ALCHEMICAL, 15,
+            StoryType.ANIMAL, 40,
+            StoryType.PHILOSOPHICAL, 30
+        );
+        focusedGreenHouseGlass = new GreenHouseGlass(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_CROP_GLASS_2",
+                new ItemStack(Material.YELLOW_STAINED_GLASS),
+                ThemeType.MECHANISM,
+                "Focused Greenhouse Glass",
+                "Crops under this glass will grow faster.",
+                "",
+                ThemeType.CLICK_INFO.getColor() + "Rate: " + ThemeType.PASSIVE.getColor() + "10"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            focusedGreenHouseGlassRecipe.getDisplayRecipe(),
+            10
         );
 
         // Slimefun Registry
@@ -593,6 +641,8 @@ public class Gadgets {
         scintillatingMobCandle.register(plugin);
         mysteriousPottedPlant.register(plugin);
         mysteriousPlant.register(plugin);
+        greenHouseGlass.register(plugin);
+        focusedGreenHouseGlass.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(abstractionLamp, abstractionLampRecipe);
@@ -615,5 +665,7 @@ public class Gadgets {
         LiquefactionBasinCache.addCraftingRecipe(scintillatingMobCandle, scintillatingMobCandleRecipe);
 
         LiquefactionBasinCache.addCraftingRecipe(mysteriousPlant, mysteriousPlantRecipe);
+
+        LiquefactionBasinCache.addCraftingRecipe(focusedGreenHouseGlass, focusedGreenHouseGlassRecipe);
     }
 }

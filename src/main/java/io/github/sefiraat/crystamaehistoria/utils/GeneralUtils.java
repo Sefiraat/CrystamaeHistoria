@@ -150,6 +150,12 @@ public final class GeneralUtils {
     }
 
     @ParametersAreNonnullByDefault
+    public boolean pushEntity(UUID caster, Vector pushVector, Entity pushed, double force) {
+        return pushEntity(caster, pushVector.multiply(force), pushed);
+    }
+
+
+    @ParametersAreNonnullByDefault
     public boolean pushEntity(UUID caster, Location pushFromLocation, Entity pushed, double force) {
         Vector vector = pushed.getLocation().toVector()
             .subtract(pushFromLocation.toVector())

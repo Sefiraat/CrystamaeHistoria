@@ -33,7 +33,7 @@ public class ChillWind extends Spell {
         final Location location = castInformation.getCasterAsPlayer().getLocation().clone().add(0, 1, 0);
         final double range = getRange(castInformation);
         final double effectRange = range * 0.75;
-        final int density = 30;
+        final int density = 20;
         // Particles
         for (double height = 0; height <= Math.PI; height += Math.PI / density) {
             final double r = range * Math.sin(height);

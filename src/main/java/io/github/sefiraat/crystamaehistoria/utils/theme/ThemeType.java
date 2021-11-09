@@ -65,9 +65,6 @@ public enum ThemeType {
     TYPE_VOID(ChatColor.of("#222222"), "Void"),
     TYPE_PHILOSOPHICAL(ChatColor.of("#4d4aa8"), "Philosophical");
 
-    @Getter
-    protected static final ThemeType[] cachedValues = values();
-
     /**
      * List of names to be given to ArmourStands, invisible but mods and Minimaps can see them :)
      */
@@ -102,6 +99,8 @@ public enum ThemeType {
         "FN_FAL",
         "supertechxter"
     );
+    @Getter
+    protected static final ThemeType[] cachedValues = values();
     private final ChatColor color;
     private final String loreLine;
 

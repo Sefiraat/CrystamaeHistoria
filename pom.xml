@@ -114,6 +114,12 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
+            <groupId>com.github.TheBusyBiscuit</groupId>
+            <artifactId>ExoticGarden</artifactId>
+            <version>a2c4b6d</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
             <version>LATEST</version>
