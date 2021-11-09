@@ -3,6 +3,7 @@ package io.github.sefiraat.crystamaehistoria.utils;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import lombok.experimental.UtilityClass;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
@@ -14,8 +15,10 @@ import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.block.Block;
 import org.bukkit.block.TileState;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.util.Vector;
 
@@ -210,4 +213,21 @@ public final class GeneralUtils {
             livingEntity.setHealth(Math.min(attribute.getValue(), livingEntity.getHealth() + healAmount));
         }
     }
+
+    public static Item spawnDisplayItem(ItemStack stack, Location location, String name) {
+        final Item item = location.getWorld().dropItem(
+            location,
+            stack
+        );
+        PersistentDataAPI.setBoolean(item, Keys.PDC_IS_DISPLAY_ITEM, true);
+        item.setCustomName(name);
+        item.setCustomNameVisible(true);
+        item.setGravity(false);
+        item.setVelocity(new Vector(0, 0, 0));
+        item.setCanPlayerPickup(false);
+        item.setPickupDelay(999999);
+        return item;
+    }
+
+
 }

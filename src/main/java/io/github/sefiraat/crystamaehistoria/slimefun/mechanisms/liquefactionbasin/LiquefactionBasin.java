@@ -66,7 +66,6 @@ public class LiquefactionBasin extends TickingMenuBlock {
         LiquefactionBasinCache cache = LiquefactionBasin.this.cacheMap.get(block.getLocation());
         if (cache != null) {
             cache.consumeItems();
-            cache.syncBlock();
             Particle.DustOptions dustOptions = new Particle.DustOptions(color, 1);
             ParticleUtils.displayParticleEffect(block.getLocation(), 1, 4, dustOptions);
         }
@@ -78,7 +77,6 @@ public class LiquefactionBasin extends TickingMenuBlock {
     @Override
     @ParametersAreNonnullByDefault
     protected void setup(BlockMenuPreset blockMenuPreset) {
-        // TODO Replace handler with method closing inv and displaying contents (if holding item)
         blockMenuPreset.addMenuOpeningHandler(HumanEntity::closeInventory);
         blockMenuPreset.drawBackground(BACKGROUND_SLOTS);
     }

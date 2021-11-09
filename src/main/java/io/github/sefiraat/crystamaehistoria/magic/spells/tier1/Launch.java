@@ -5,57 +5,48 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
-import org.bukkit.Location;
 import org.bukkit.Material;
-import org.bukkit.Particle;
-import org.bukkit.entity.Animals;
-import org.bukkit.entity.Breedable;
-import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class LovePotion extends Spell {
+public class Launch extends Spell {
 
-    public LovePotion() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(60, true, 5, true, 50, true)
+    public Launch() {
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(60, false, 5, true, 30, true)
             .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
     }
 
     @ParametersAreNonnullByDefault
     public void cast(CastInformation castInformation) {
-        Location casterLocation = castInformation.getCastLocation();
-        double range = getRange(castInformation);
-        for (Entity entity : casterLocation.getWorld().getNearbyEntities(casterLocation, range, range, range, Breedable.class::isInstance)) {
-            Animals animals = (Animals) entity;
-            if (animals.isAdult() && animals.canBreed()) {
-                animals.setLoveModeTicks(120);
-                ParticleUtils.displayParticleEffect(entity, Particle.HEART, 1, 5);
-            }
+        Player player = castInformation.getCasterAsPlayer();
+        if (player != null) {
+            player.setVelocity(player.getEyeLocation().getDirection().multiply(getRange(castInformation)));
         }
     }
 
     @Nonnull
     @Override
     public String getId() {
-        return "LOVE_POTION";
+        return "LAUNCH";
     }
 
     @Nonnull
     @Override
     public String[] getLore() {
         return new String[]{
-            "All nearby breedable entities get... friendly"
+            "Launches the caster in the facing direction.",
+            "Offers no protection!"
         };
     }
 
     @Nonnull
     @Override
     public Material getMaterial() {
-        return Material.POTION;
+        return Material.BRAIN_CORAL;
     }
 
     @NotNull
@@ -63,9 +54,9 @@ public class LovePotion extends Spell {
     public RecipeSpell getRecipe() {
         return new RecipeSpell(
             1,
-            StoryType.ALCHEMICAL,
-            StoryType.ANIMAL,
-            StoryType.CELESTIAL
+            StoryType.MECHANICAL,
+            StoryType.CELESTIAL,
+            StoryType.VOID
         );
     }
 }

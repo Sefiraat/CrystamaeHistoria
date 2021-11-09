@@ -2,15 +2,17 @@ package io.github.sefiraat.crystamaehistoria;
 
 import de.slikey.effectlib.EffectManager;
 import io.github.mooy1.infinitylib.core.AbstractAddon;
+import io.github.sefiraat.crystamaehistoria.commands.OpenSpellCompendium;
+import io.github.sefiraat.crystamaehistoria.commands.OpenStoryCompendium;
 import io.github.sefiraat.crystamaehistoria.commands.TestSpell;
 import io.github.sefiraat.crystamaehistoria.config.ConfigManager;
 import io.github.sefiraat.crystamaehistoria.listeners.ListenerManager;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
-import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicFallingBlock;
-import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
-import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicSummon;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
+import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicFallingBlock;
+import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicProjectile;
+import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicSummon;
 import io.github.sefiraat.crystamaehistoria.runnables.RunnableManager;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTickRunnable;
 import io.github.sefiraat.crystamaehistoria.slimefun.Gadgets;
@@ -151,6 +153,9 @@ public class CrystamaeHistoria extends AbstractAddon {
         setupBstats();
 
         getAddonCommand().addSub(new TestSpell());
+        getAddonCommand().addSub(new OpenSpellCompendium());
+        getAddonCommand().addSub(new OpenStoryCompendium());
+
         CrystaTag.getCachedValues();
     }
 

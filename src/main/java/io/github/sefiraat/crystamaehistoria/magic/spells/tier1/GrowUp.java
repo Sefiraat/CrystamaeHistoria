@@ -9,18 +9,19 @@ import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
-import org.bukkit.entity.Animals;
-import org.bukkit.entity.Breedable;
+import org.bukkit.entity.Ageable;
 import org.bukkit.entity.Entity;
+import org.bukkit.entity.Phantom;
+import org.bukkit.entity.Slime;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class LovePotion extends Spell {
+public class GrowUp extends Spell {
 
-    public LovePotion() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(60, true, 5, true, 50, true)
+    public GrowUp() {
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(360, false, 5, true, 120, true)
             .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
     }
@@ -29,11 +30,19 @@ public class LovePotion extends Spell {
     public void cast(CastInformation castInformation) {
         Location casterLocation = castInformation.getCastLocation();
         double range = getRange(castInformation);
-        for (Entity entity : casterLocation.getWorld().getNearbyEntities(casterLocation, range, range, range, Breedable.class::isInstance)) {
-            Animals animals = (Animals) entity;
-            if (animals.isAdult() && animals.canBreed()) {
-                animals.setLoveModeTicks(120);
-                ParticleUtils.displayParticleEffect(entity, Particle.HEART, 1, 5);
+        for (Entity entity : casterLocation.getWorld().getNearbyEntities(casterLocation, range, range, range)) {
+            if (entity instanceof Ageable) {
+                Ageable ageable = (Ageable) entity;
+                if (!ageable.isAdult()) {
+                    ageable.setAdult();
+                    ParticleUtils.displayParticleEffect(entity, Particle.SCRAPE, 1, 3);
+                }
+            } else if (entity instanceof Slime) {
+                Slime slime = (Slime) entity;
+                slime.setSize(slime.getSize() + 1);
+            } else if (entity instanceof Phantom) {
+                Phantom phantom = (Phantom) entity;
+                phantom.setSize(phantom.getSize() + 1);
             }
         }
     }
@@ -41,21 +50,21 @@ public class LovePotion extends Spell {
     @Nonnull
     @Override
     public String getId() {
-        return "LOVE_POTION";
+        return "GROW_UP";
     }
 
     @Nonnull
     @Override
     public String[] getLore() {
         return new String[]{
-            "All nearby breedable entities get... friendly"
+            "Makes things grow up, and not just babies!"
         };
     }
 
     @Nonnull
     @Override
     public Material getMaterial() {
-        return Material.POTION;
+        return Material.SLIME_BLOCK;
     }
 
     @NotNull
@@ -63,9 +72,9 @@ public class LovePotion extends Spell {
     public RecipeSpell getRecipe() {
         return new RecipeSpell(
             1,
-            StoryType.ALCHEMICAL,
+            StoryType.MECHANICAL,
             StoryType.ANIMAL,
-            StoryType.CELESTIAL
+            StoryType.VOID
         );
     }
 }

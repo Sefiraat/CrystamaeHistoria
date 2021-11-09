@@ -11,10 +11,22 @@ public enum CastResult {
 
     @Getter
     protected static final CastResult[] cachedValues = values();
-    @Getter
     private final String message;
 
     CastResult(String message) {
         this.message = message;
     }
+
+    public String getMessage() {
+        return getMessage(null);
+    }
+
+    public String getMessage(String detail) {
+        if (detail == null) {
+            return message;
+        } else {
+            return message + ": " + detail;
+        }
+    }
+
 }

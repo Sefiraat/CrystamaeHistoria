@@ -14,6 +14,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasi
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
@@ -21,6 +22,7 @@ import lombok.Getter;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Color;
 import org.bukkit.Material;
+import org.bukkit.Particle;
 import org.bukkit.Tag;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
@@ -528,13 +530,19 @@ public class Gadgets {
                 ""
             ),
             RecipeType.ENHANCED_CRAFTING_TABLE,
-            new ItemStack[] {
-                null, Materials.getAmalgamateDustRare().getItem(),  null,
-                null, new ItemStack(Material.FLOWER_POT),           null,
-                null, null,                                         null
+            new ItemStack[]{
+                null, Materials.getAmalgamateDustRare().getItem(), null,
+                null, new ItemStack(Material.FLOWER_POT), null,
+                null, null, null
             },
             Tag.FLOWER_POTS.getValues(),
-            15
+            15,
+            block -> ParticleUtils.displayParticleEffect(
+                block.getLocation().add(0.5, 0.5, 0.5),
+                Particle.WAX_OFF,
+                0.3 ,
+                2
+            )
         );
 
         // Mysterious Plant
@@ -557,7 +565,13 @@ public class Gadgets {
             DummyLiquefactionBasinCrafting.TYPE,
             mysteriousPlantRecipe.getDisplayRecipe(),
             Tag.SMALL_FLOWERS.getValues(),
-            15
+            15,
+            block -> ParticleUtils.displayParticleEffect(
+                block.getLocation().add(0.5, 0.5, 0.5),
+                Particle.WATER_SPLASH,
+                0.5,
+                3
+            )
         );
 
         // Slimefun Registry

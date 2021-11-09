@@ -29,13 +29,11 @@ import org.bukkit.Particle;
 import org.bukkit.entity.ArmorStand;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Item;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
 import org.bukkit.util.Vector;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.awt.Color;
@@ -82,11 +80,6 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
         RECIPES_ITEMS.put(slimefunItem, recipeItem);
     }
 
-    public void setActivePlayer(@Nonnull Player player) {
-        this.activePlayer = player.getUniqueId();
-        BlockStorage.addBlockInfo(this.blockMenu.getBlock(), Keys.BS_CP_ACTIVE_PLAYER, player.getUniqueId().toString());
-    }
-
     @ParametersAreNonnullByDefault
     public void consumeItems() {
         final Collection<Entity> entities = getWorld().getNearbyEntities(
@@ -112,6 +105,7 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
                     rejectItem(item);
                 }
             }
+            syncBlock();
         }
         if (getFillLevel() > 0 && GeneralUtils.testChance(1, 5)) {
             summonBoilingParticles();
@@ -177,7 +171,7 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
         }
     }
 
-    private void emptyBasin() {
+    public void emptyBasin() {
         contentMap.clear();
         clearBlockStorage();
         ArmorStand armorStand = getDisplayStand();

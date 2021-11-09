@@ -8,6 +8,8 @@ import org.bukkit.util.Vector;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class ParticleUtils {
@@ -94,6 +96,29 @@ public class ParticleUtils {
             currentPoint += space;
             startVector.add(vector);
         }
+    }
+
+    public static List<Location> getLine(Location start, Location end, double space) {
+        final double distance = start.distance(end);
+        double currentPoint = 0;
+        final Vector startVector = start.toVector();
+        final Vector endVector = end.toVector();
+        final Vector vector = endVector.clone().subtract(startVector).normalize().multiply(space);
+
+        List<Location> locations = new ArrayList<>();
+
+        while (currentPoint < distance) {
+            locations.add(new Location(
+                start.getWorld(),
+                startVector.getX(),
+                startVector.getY(),
+                startVector.getZ()
+            ));
+
+            currentPoint += space;
+            startVector.add(vector);
+        }
+        return locations;
     }
 
     public static void drawCube(Particle particle, Location corner1, Location corner2, double space) {

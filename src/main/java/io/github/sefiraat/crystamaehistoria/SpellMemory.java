@@ -1,10 +1,10 @@
 package io.github.sefiraat.crystamaehistoria;
 
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
-import io.github.sefiraat.crystamaehistoria.magic.SpellType;
-import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicFallingBlock;
-import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicProjectile;
-import io.github.sefiraat.crystamaehistoria.magic.spells.core.MagicSummon;
+import io.github.sefiraat.crystamaehistoria.magic.DisplayItem;
+import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicFallingBlock;
+import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicProjectile;
+import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicSummon;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTickRunnable;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
@@ -15,7 +15,6 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.util.BoundingBox;
 
-import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -43,7 +42,7 @@ public class SpellMemory {
     @Getter
     private final Map<BoundingBox, Long> noSpawningAreas = new HashMap<>();
     @Getter
-    private final Map<SpellType, Integer> spellsCast = new EnumMap<>(SpellType.class);
+    private final Map<DisplayItem, Long> displayItems = new HashMap<>();
 
     public void clearAll() {
         // Cancels all outstanding spells being cast
@@ -76,12 +75,14 @@ public class SpellMemory {
         removeEnderman(true);
         inhibitedEndermen.clear();
 
-        // Reenable Chunk Spawning
+        // Re-enable Chunk Spawning
         enableSpawningInArea(true);
         noSpawningAreas.clear();
 
-        // Clear spells cast amount
-        spellsCast.clear();
+        // Remove Floating display items
+        removeDisplayItems(true);
+        displayItems.clear();
+
     }
 
     public void removeProjectiles(boolean forceRemoveAll) {
@@ -158,6 +159,17 @@ public class SpellMemory {
         for (Map.Entry<BoundingBox, Long> entry : set) {
             if (forceRemoveAll || entry.getValue() < time) {
                 noSpawningAreas.remove(entry.getKey());
+            }
+        }
+    }
+
+    public void removeDisplayItems(boolean forceRemoveAll) {
+        long time = System.currentTimeMillis();
+        final Set<Map.Entry<DisplayItem, Long>> set = new HashSet<>(displayItems.entrySet());
+        for (Map.Entry<DisplayItem, Long> entry : set) {
+            if (forceRemoveAll || entry.getValue() < time) {
+                entry.getKey().kill();
+                displayItems.remove(entry.getKey());
             }
         }
     }

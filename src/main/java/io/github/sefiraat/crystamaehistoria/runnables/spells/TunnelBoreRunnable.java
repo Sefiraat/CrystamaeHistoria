@@ -30,8 +30,8 @@ public class TunnelBoreRunnable extends BukkitRunnable {
 
     @Override
     public synchronized void cancel() throws IllegalStateException {
-        super.cancel();
         bore.remove();
+        super.cancel();
     }
 
     @Override
@@ -61,7 +61,7 @@ public class TunnelBoreRunnable extends BukkitRunnable {
             }
 
             ParticleUtils.displayParticleEffect(bore, Particle.FALLING_LAVA, radius, 10);
-            iterations--;
         }
+        iterations--;
     }
 }

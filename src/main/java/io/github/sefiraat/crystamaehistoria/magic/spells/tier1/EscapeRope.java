@@ -9,53 +9,49 @@ import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
-import org.bukkit.entity.Animals;
-import org.bukkit.entity.Breedable;
-import org.bukkit.entity.Entity;
+import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 
-public class LovePotion extends Spell {
+public class EscapeRope extends Spell {
 
-    public LovePotion() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(60, true, 5, true, 50, true)
+    public EscapeRope() {
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(3600, true, 0, false, 30, false)
             .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
     }
 
     @ParametersAreNonnullByDefault
     public void cast(CastInformation castInformation) {
-        Location casterLocation = castInformation.getCastLocation();
-        double range = getRange(castInformation);
-        for (Entity entity : casterLocation.getWorld().getNearbyEntities(casterLocation, range, range, range, Breedable.class::isInstance)) {
-            Animals animals = (Animals) entity;
-            if (animals.isAdult() && animals.canBreed()) {
-                animals.setLoveModeTicks(120);
-                ParticleUtils.displayParticleEffect(entity, Particle.HEART, 1, 5);
-            }
-        }
+        Player player = castInformation.getCasterAsPlayer();
+        Location location = player.getLocation();
+        Location teleportTo = location.getWorld().getHighestBlockAt(location).getLocation().add(0, 2, 0);
+        player.teleportAsync(teleportTo);
+        ParticleUtils.displayParticleEffect(location, Particle.NOTE, 1, 5);
+        ParticleUtils.displayParticleEffect(teleportTo, Particle.NOTE, 1, 5);
     }
 
     @Nonnull
     @Override
     public String getId() {
-        return "LOVE_POTION";
+        return "ESCAPE_ROPE";
     }
 
     @Nonnull
     @Override
     public String[] getLore() {
         return new String[]{
-            "All nearby breedable entities get... friendly"
+            "Teleports you to the highest possible",
+            "point if possible."
         };
     }
 
     @Nonnull
     @Override
     public Material getMaterial() {
-        return Material.POTION;
+        return Material.LEAD;
     }
 
     @NotNull
@@ -63,9 +59,9 @@ public class LovePotion extends Spell {
     public RecipeSpell getRecipe() {
         return new RecipeSpell(
             1,
-            StoryType.ALCHEMICAL,
-            StoryType.ANIMAL,
-            StoryType.CELESTIAL
+            StoryType.HISTORICAL,
+            StoryType.CELESTIAL,
+            StoryType.VOID
         );
     }
 }

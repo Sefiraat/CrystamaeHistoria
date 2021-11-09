@@ -17,6 +17,6 @@ public class RunnableManager {
         this.temporaryEffectsRunnable.runTaskTimer(plugin, 1, 20);
 
         this.saveConfigRunnable = new SaveConfigRunnable();
-        this.saveConfigRunnable.runTaskTimer(plugin, 1, 1200);
+        this.saveConfigRunnable.runTaskTimer(plugin, 1, 12000);
     }
 }

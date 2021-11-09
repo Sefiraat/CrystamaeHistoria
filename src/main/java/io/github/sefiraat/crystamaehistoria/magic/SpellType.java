@@ -16,11 +16,14 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Bright;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.CallLightning;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Cascada;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Chaos;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.ChillWind;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Compass;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.CurificationRitual;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Deity;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EarthNova;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EasterEgg;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EndermansVeil;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EscapeRope;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.EtherealFlow;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FanOfArrows;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FireNova;
@@ -28,6 +31,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Fireball;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FlameSprite;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.FrostNova;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Gravity;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.GrowUp;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Gyroscopic;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.HarmonysSonata;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.HarvestMoon;
@@ -38,6 +42,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Hellscape;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.HolyCow;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.ImbueVoid;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.KnowledgeShare;
+import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Launch;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LavaLake;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LeechBomb;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.LovePotion;
@@ -92,11 +97,14 @@ public enum SpellType {
     CALL_LIGHTNING(new CallLightning()),
     CASCADA(new Cascada()),
     CHAOS(new Chaos()),
+    CHILL_WIND(new ChillWind()),
     COMPASS(new Compass()),
     CURIFICATION_RITUAL(new CurificationRitual()),
     DEITY(new Deity()),
     EARTH_NOVA(new EarthNova()),
+    EASTER_EGG(new EasterEgg()),
     ENDERMANS_VEIL(new EndermansVeil()),
+    ESCAPE_ROPE(new EscapeRope()),
     ETHEREAL_FLOW(new EtherealFlow()),
     FAN_OF_ARROWS(new FanOfArrows()),
     FIREBALL(new Fireball()),
@@ -104,6 +112,7 @@ public enum SpellType {
     FLAME_SPRITE(new FlameSprite()),
     FROST_NOVA(new FrostNova()),
     GRAVITY(new Gravity()),
+    GROW_UP(new GrowUp()),
     HEAL(new Heal()),
     HEALING_MIST(new HealingMist()),
     HEARTHSTONE(new Hearthstone()),
@@ -114,6 +123,7 @@ public enum SpellType {
     HARMONYS_SONATA(new HarmonysSonata()),
     HARVEST_MOON(new HarvestMoon()),
     KNOWLEDGE_SHARE(new KnowledgeShare()),
+    LAUNCH(new Launch()),
     LAVA_LAKE(new LavaLake()),
     LEECH_BOMB(new LeechBomb()),
     LOVE_POTION(new LovePotion()),
