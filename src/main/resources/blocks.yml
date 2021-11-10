@@ -198,59 +198,73 @@ blocks:
       shards: [ 2,0,0,1,1,0,0,0,0 ]
 
   - material: ACTIVATOR_RAIL
-    tier: 1
+    tier: 3
     elements:
-      -
+      - MECHANICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Activate!
+      type: MECHANICAL
       lore:
-        -
-      shards:
+        - Nothing provides more of a rush than
+        - the cracking of a cart over this track.
+        - A singular purpose with an extatic
+        - result.
+      shards: [ 0,2,0,0,1,0,0,0,0 ]
 
   - material: ALLIUM
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Sweet Smell (Allium)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A wafting fragrance to quell the most
+        - vicious of temprements.
+      shards: [ 1,0,0,0,0,1,0,0,0 ]
 
   - material: AMETHYST_BLOCK
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Glittering Spirit
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - A glittering, scattering spirit residing
+        - within the resonance of this crystal
+      shards: [ 2,0,1,1,0,0,0,0,0 ]
 
   - material: AMETHYST_CLUSTER
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - HISTORICAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Looks Familiar?
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Something about this crystal feels familiar.
+        - Feels receptive to magic, but...
+      shards: [ 1,0,1,1,0,0,0,0,1 ]
 
   - material: AMETHYST_SHARD
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HISTORICAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Chipped Perfection
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - A shattered dream taken, a myriad
+        - of broken shards shaken
+      shards: [ 1,0,1,0,0,0,0,0,0 ]
 
   - material: ANCIENT_DEBRIS
     tier: 4
@@ -400,13 +414,15 @@ blocks:
   - material: AZURE_BLUET
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Sweet Smell (Azure Bluet)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A wafting fragrance to quell the most
+        - vicious of temprements.
+      shards: [ 1,0,0,0,0,1,0,0,0 ]
 
   - material: BAKED_POTATO
     tier: 1
@@ -1098,13 +1114,15 @@ blocks:
   - material: BLUE_ORCHID
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Sweet Smell (Blue Orchid)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A wafting fragrance to quell the most
+        - vicious of temprements.
+      shards: [ 1,0,0,0,0,1,0,0,0 ]
 
   - material: BLUE_STAINED_GLASS
     tier: 1
@@ -2318,13 +2336,15 @@ blocks:
   - material: CORNFLOWER
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Sweet Smell (Cornflower)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A wafting fragrance to quell the most
+        - vicious of temprements.
+      shards: [ 1,0,0,0,0,1,0,0,0 ]
 
   - material: CRACKED_DEEPSLATE_BRICKS
     tier: 1
@@ -2862,13 +2882,15 @@ blocks:
   - material: DANDELION
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Sweet Smell (Dandilion)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A wafting fragrance to quell the most
+        - vicious of temprements.
+      shards: [ 1,0,0,0,0,1,0,0,0 ]
 
   - material: DARK_OAK_BOAT
     tier: 1
@@ -6222,24 +6244,28 @@ blocks:
   - material: LILAC
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Sweet Smell (Lilac)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A wafting fragrance to quell the most
+        - vicious of temprements.
+      shards: [ 1,0,0,0,0,1,0,0,0 ]
 
   - material: LILY_OF_THE_VALLEY
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Sweet Smell (Lily of the Valley)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A wafting fragrance to quell the most
+        - vicious of temprements.
+      shards: [ 1,0,0,0,0,1,1,0,0 ]
 
   - material: LILY_PAD
     tier: 1
@@ -7625,13 +7651,15 @@ blocks:
   - material: ORANGE_TULIP
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Sweet Smell (Orange Tulip)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A wafting fragrance to quell the most
+        - vicious of temprements.
+      shards: [ 1,0,0,0,0,1,0,0,0 ]
 
   - material: ORANGE_WOOL
     tier: 2
@@ -7651,13 +7679,15 @@ blocks:
   - material: OXEYE_DAISY
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Sweet Smell (Oxeye Daisy)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A wafting fragrance to quell the most
+        - vicious of temprements.
+      shards: [ 1,0,0,0,0,1,0,0,0 ]
 
   - material: OXIDIZED_COPPER
     tier: 1
@@ -7739,13 +7769,15 @@ blocks:
   - material: PEONY
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Sweet Smell (Peony)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A wafting fragrance to quell the most
+        - vicious of temprements.
+      shards: [ 1,0,0,0,0,1,0,0,0 ]
 
   - material: PETRIFIED_OAK_SLAB
     tier: 1
@@ -7904,13 +7936,15 @@ blocks:
   - material: PINK_TULIP
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Sweet Smell (Pink Tulip)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A wafting fragrance to quell the most
+        - vicious of temprements.
+      shards: [ 1,0,0,0,0,1,0,0,0 ]
 
   - material: PINK_WOOL
     tier: 2
@@ -8264,13 +8298,15 @@ blocks:
   - material: POPPY
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Sweet Smell (Poppy)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A wafting fragrance to quell the most
+        - vicious of temprements.
+      shards: [ 1,0,0,0,0,1,0,0,0 ]
 
   - material: PORKCHOP
     tier: 1
@@ -9156,13 +9192,15 @@ blocks:
   - material: RED_TULIP
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Sweet Smell (Red Tulip)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A wafting fragrance to quell the most
+        - vicious of temprements.
+      shards: [ 1,0,0,0,0,1,0,0,0 ]
 
   - material: RED_WOOL
     tier: 2
@@ -9225,13 +9263,15 @@ blocks:
   - material: ROSE_BUSH
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Sweet Smell (Rose Bush)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A wafting fragrance to quell the most
+        - vicious of temprements.
+      shards: [ 1,0,0,0,0,1,0,0,0 ]
 
   - material: ROTTEN_FLESH
     tier: 1
@@ -10477,13 +10517,15 @@ blocks:
   - material: SUNFLOWER
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Sweet Smell (Sunflower)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A wafting fragrance to quell the most
+        - vicious of temprements.
+      shards: [ 1,0,0,0,0,1,0,0,0 ]
 
   - material: SUSPICIOUS_STEW
     tier: 1
@@ -11369,13 +11411,15 @@ blocks:
   - material: WHITE_TULIP
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Sweet Smell (White Tulip)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A wafting fragrance to quell the most
+        - vicious of temprements.
+      shards: [ 1,0,0,0,0,1,0,0,0 ]
 
   - material: WHITE_WOOL
     tier: 2
@@ -11392,15 +11436,16 @@ blocks:
       author: OOOOMAGAAA
 
   - material: WITHER_ROSE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Not-so-sweet Smell
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A wafting fragrance to quell... everything.
+      shards: [ 1,0,0,0,0,1,0,0,0 ]
 
   - material: WITHER_SKELETON_SKULL
     tier: 1

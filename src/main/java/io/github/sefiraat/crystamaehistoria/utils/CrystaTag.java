@@ -34,11 +34,12 @@ public enum CrystaTag implements Tag<Material> {
     CrystaTag() {
         final String name = this.name().toLowerCase(Locale.ROOT);
         final String fileLocation = "/tags/" + name + ".json";
+        final JsonParser parser = new JsonParser();
 
         try {
             final InputStream stream = CrystamaeHistoria.class.getResourceAsStream(fileLocation);
             final JsonReader reader = new JsonReader(new InputStreamReader(stream));
-            final JsonObject object = (JsonObject) JsonParser.parseReader(reader);
+            final JsonObject object = (JsonObject) parser.parse(reader);
 
             for (JsonElement element : object.get("values").getAsJsonArray()) {
                 final String tagString = element.getAsString();

@@ -55,7 +55,7 @@ public class Chaos extends Spell {
             if (location.getBlock().isEmpty()) {
                 final MagicProjectile projectile = SpellUtils.summonMagicProjectile(castInformation, EntityType.SPECTRAL_ARROW, pointLocation, this::onTick);
                 projectile.getProjectile().setGravity(false);
-                projectile.setVelocity(location.getDirection(), 1);
+                projectile.setVelocity(caster.getEyeLocation().getDirection(), 1);
             }
         }
     }
