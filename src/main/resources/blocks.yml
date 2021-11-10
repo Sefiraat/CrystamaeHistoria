@@ -236,7 +236,7 @@ blocks:
       lore:
         - A glittering, scattering spirit residing
         - within the resonance of this crystal
-      shards: [2,0,1,1,0,0,0,0,0]
+      shards: [ 2,0,1,1,0,0,0,0,0 ]
 
   - material: AMETHYST_CLUSTER
     tier: 2
@@ -250,7 +250,7 @@ blocks:
       lore:
         - Something about this crystal feels familiar.
         - Feels receptive to magic, but...
-      shards: [1,0,1,1,0,0,0,0,1]
+      shards: [ 1,0,1,1,0,0,0,0,1 ]
 
   - material: AMETHYST_SHARD
     tier: 1
@@ -260,10 +260,11 @@ blocks:
       - PHILOSOPHICAL
     story:
       name: Chipped Perfection
-      type:
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - A shattered dream taken, a myriad
+        - of broken shards shaken
+      shards: [ 1,0,1,0,0,0,0,0,0 ]
 
   - material: ANCIENT_DEBRIS
     tier: 4
