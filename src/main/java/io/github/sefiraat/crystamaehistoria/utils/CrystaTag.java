@@ -18,7 +18,6 @@ import java.text.MessageFormat;
 import java.util.EnumSet;
 import java.util.Locale;
 import java.util.Set;
-import java.util.logging.Level;
 
 public enum CrystaTag implements Tag<Material> {
 
@@ -35,12 +34,11 @@ public enum CrystaTag implements Tag<Material> {
     CrystaTag() {
         final String name = this.name().toLowerCase(Locale.ROOT);
         final String fileLocation = "/tags/" + name + ".json";
-        final JsonParser parser = new JsonParser();
 
         try {
             final InputStream stream = CrystamaeHistoria.class.getResourceAsStream(fileLocation);
             final JsonReader reader = new JsonReader(new InputStreamReader(stream));
-            final JsonObject object = (JsonObject) parser.parse(reader);
+            final JsonObject object = (JsonObject) JsonParser.parseReader(reader);
 
             for (JsonElement element : object.get("values").getAsJsonArray()) {
                 final String tagString = element.getAsString();
@@ -48,14 +46,16 @@ public enum CrystaTag implements Tag<Material> {
                 if (material != null) {
                     materialList.add(material);
                 } else {
-                    CrystamaeHistoria.log(Level.WARNING, MessageFormat.format("Error with tag: {0}", tagString));
+                    CrystamaeHistoria.getInstance().getLogger().warning(
+                        MessageFormat.format("Error with tag: {0}", tagString)
+                    );
                 }
             }
-
         } catch (JsonParseException e) {
-            CrystamaeHistoria.log(Level.WARNING, MessageFormat.format("Error with tag: {0}", fileLocation));
+            CrystamaeHistoria.getInstance().getLogger().warning(
+                MessageFormat.format("Error with tag: {0}", fileLocation)
+            );
         }
-
         namespacedKey = new NamespacedKey(CrystamaeHistoria.getInstance(), name);
     }
 

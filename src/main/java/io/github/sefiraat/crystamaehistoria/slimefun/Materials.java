@@ -26,8 +26,8 @@ import java.util.Map;
 @UtilityClass
 public class Materials {
 
-    public static final Map<StoryType, SlimefunItem> DUMMY_CRYSTAL_MAP = new EnumMap<>(StoryType.class);
-    public static final Map<StoryRarity, Map<StoryType, SlimefunItem>> CRYSTAL_MAP = new EnumMap<>(StoryRarity.class);
+    protected static final Map<StoryType, SlimefunItem> DUMMY_CRYSTAL_MAP = new EnumMap<>(StoryType.class);
+    protected static final Map<StoryRarity, Map<StoryType, SlimefunItem>> CRYSTAL_MAP = new EnumMap<>(StoryRarity.class);
 
     @Getter
     private static SlimefunItem amalgamateDustCommon;
@@ -436,5 +436,13 @@ public class Materials {
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(imbuedGlass, imbuedGlassRecipe);
         LiquefactionBasinCache.addCraftingRecipe(uncannyPearl, uncannyPearlRecipe);
+    }
+
+    public static Map<StoryType, SlimefunItem> getDummyCrystalMap() {
+        return DUMMY_CRYSTAL_MAP;
+    }
+
+    public static Map<StoryRarity, Map<StoryType, SlimefunItem>> getCrystalMap() {
+        return CRYSTAL_MAP;
     }
 }

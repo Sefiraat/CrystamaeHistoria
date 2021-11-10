@@ -29,7 +29,7 @@ import java.util.Map;
 
 public class Tracer extends Spell {
 
-    public static final Map<String, Color> COLOR_MAP = new LinkedHashMap<>();
+    protected static final Map<String, Color> COLOR_MAP = new LinkedHashMap<>();
 
     static {
         COLOR_MAP.put("player", Color.fromRGB(255, 255, 255));

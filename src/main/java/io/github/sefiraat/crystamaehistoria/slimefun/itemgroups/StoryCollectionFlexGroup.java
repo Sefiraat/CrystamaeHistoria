@@ -159,7 +159,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
             int amount = entry.getValue();
             if (amount > 0) {
                 StoryType type = entry.getKey();
-                ItemStack itemStack = Materials.DUMMY_CRYSTAL_MAP.get(type).getItem().clone();
+                ItemStack itemStack = Materials.getDummyCrystalMap().get(type).getItem().clone();
                 itemStack.setAmount(entry.getValue());
                 menu.replaceExistingItem(CRYSTAMAE[type.getId() - 1], itemStack);
             }

@@ -52,16 +52,16 @@ public class Cascada extends Spell {
         for (int y = -range; y < range; y++) {
             for (int x = -range; x < range; x++) {
                 for (int z = -range; z < range; z++) {
-                    if (Math.sqrt((double) (x * x) + (y * y) + (z * z)) <= range) {
-                        final Block block = location.getWorld().getBlockAt(
-                            x + location.getBlockX(),
-                            y + location.getBlockY(),
-                            z + location.getBlockZ());
-                        if (!blocks.contains(block)
-                            && GeneralUtils.hasPermission(caster, block, Interaction.BREAK_BLOCK)
-                        ) {
-                            blocks.add(block);
-                        }
+                    if (Math.sqrt((double) (x * x) + (y * y) + (z * z)) > range) {
+                        continue;
+                    }
+
+                    final Block block = location.getWorld().getBlockAt(
+                        x + location.getBlockX(),
+                        y + location.getBlockY(),
+                        z + location.getBlockZ());
+                    if (!blocks.contains(block) && GeneralUtils.hasPermission(caster, block, Interaction.BREAK_BLOCK)) {
+                        blocks.add(block);
                     }
                 }
             }

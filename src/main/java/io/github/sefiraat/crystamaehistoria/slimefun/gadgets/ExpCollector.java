@@ -29,6 +29,9 @@ import java.util.UUID;
 
 public class ExpCollector extends TickingMenuBlock {
 
+    protected static final String ID_UUID = "CH_UUID";
+    protected static final String ID_VOLUME = "EXP_VOLUME";
+
     protected static final int[] BACKGROUND_SLOTS = {
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 15, 16, 17, 18, 19, 20, 24, 25, 26, 27, 28, 29, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44
     };
@@ -64,9 +67,9 @@ public class ExpCollector extends TickingMenuBlock {
     @ParametersAreNonnullByDefault
     protected void onPlace(BlockPlaceEvent e, Block b) {
         final UUID uuid = e.getPlayer().getUniqueId();
-        BlockStorage.addBlockInfo(b, "CH_UUID", uuid.toString());
+        BlockStorage.addBlockInfo(b, ID_UUID, uuid.toString());
         blockOwnerMap.put(b.getLocation(), uuid);
-        BlockStorage.addBlockInfo(b, "EXP_VOLUME", String.valueOf(0));
+        BlockStorage.addBlockInfo(b, ID_VOLUME, String.valueOf(0));
         volumeMap.put(b.getLocation(), 0);
     }
 
@@ -101,7 +104,7 @@ public class ExpCollector extends TickingMenuBlock {
     }
 
     private void syncValue(Block block) {
-        BlockStorage.addBlockInfo(block, "EXP_VOLUME", String.valueOf(volumeMap.get(block.getLocation())));
+        BlockStorage.addBlockInfo(block, ID_VOLUME, String.valueOf(volumeMap.get(block.getLocation())));
     }
 
     @Override
@@ -114,11 +117,11 @@ public class ExpCollector extends TickingMenuBlock {
     @ParametersAreNonnullByDefault
     protected void onNewInstance(BlockMenu menu, Block block) {
         Location location = block.getLocation();
-        String owner = BlockStorage.getLocationInfo(location, "CH_UUID");
+        String owner = BlockStorage.getLocationInfo(location, ID_UUID);
         if (owner != null) {
             blockOwnerMap.put(location, UUID.fromString(owner));
         }
-        String volumeString = BlockStorage.getLocationInfo(location, "EXP_VOLUME");
+        String volumeString = BlockStorage.getLocationInfo(location, ID_VOLUME);
         if (volumeString != null) {
             volumeMap.put(location, Integer.parseInt(volumeString));
         }

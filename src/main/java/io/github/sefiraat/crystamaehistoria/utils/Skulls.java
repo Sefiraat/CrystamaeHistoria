@@ -11,8 +11,6 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public enum Skulls {
 
-    // TODO Replace with heads from Cheesy
-
     CRYSTAL_ELEMENTAL("3b16a4c438f90e2193ae9877c4ec5d2a13c2bc679c113131ac98684e326c402f", StoryType.ELEMENTAL),
     CRYSTAL_MECHANICAL("789f76df5f41dc45df1c1f2aa4acd286a7842fff774c073c27c3f2dda5fe2aa0", StoryType.MECHANICAL),
     CRYSTAL_ALCHEMICAL("9caa807ee0b46a5031877438bc4ee5bcc202177b2b2e6fb0e3416438097d9266", StoryType.ALCHEMICAL),

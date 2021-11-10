@@ -2,14 +2,17 @@ package io.github.sefiraat.crystamaehistoria.utils.mobgoals;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import org.bukkit.block.Block;
 import org.bukkit.entity.Mob;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
 
 import java.util.UUID;
 
-// TODO UNUSED
+/**
+ * Unused currently until the finer details around mob's facing direction can be sorted out.
+ *
+ * @param <T> The mod type to use this goal.
+ */
 public abstract class AbstractRidableGoal<T extends Mob> extends AbstractGoal<T> {
 
     protected AbstractRidableGoal(UUID owningPlayer) {
@@ -28,7 +31,6 @@ public abstract class AbstractRidableGoal<T extends Mob> extends AbstractGoal<T>
                 self.setVelocity(eyeDirection.clone().multiply(getSpeed()));
             } else {
                 // Non-flying mobs
-                final Block block = destination.getBlock();
                 self.getPathfinder().moveTo(self.getLocation().add(0, 0, 1));
             }
 

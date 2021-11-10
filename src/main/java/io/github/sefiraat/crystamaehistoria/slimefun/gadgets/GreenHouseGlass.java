@@ -3,6 +3,7 @@ package io.github.sefiraat.crystamaehistoria.slimefun.gadgets;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.TickingBlockNoGui;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
+import io.github.sefiraat.crystamaehistoria.utils.TimePeriod;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -45,7 +46,7 @@ public class GreenHouseGlass extends TickingBlockNoGui {
 
     @Override
     protected void onTick(@NotNull Block block, @NotNull SlimefunItem slimefunItem, @NotNull Config config) {
-        if (!GeneralUtils.testChance(this.rate, 100)) {
+        if (!GeneralUtils.testChance(this.rate, 100) || TimePeriod.isLight(block.getWorld())) {
             return;
         }
 

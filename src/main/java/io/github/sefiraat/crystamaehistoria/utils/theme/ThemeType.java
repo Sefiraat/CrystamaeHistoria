@@ -70,7 +70,7 @@ public enum ThemeType {
      * List of names to be given to ArmourStands, invisible but mods and Minimaps can see them :)
      */
     @Nonnull
-    public static final List<String> EGG_NAMES = Arrays.asList(
+    protected static final List<String> EGG_NAMES = Arrays.asList(
         "TheBusyBiscuit",
         "Alessio",
         "Walshy",
@@ -100,6 +100,7 @@ public enum ThemeType {
         "FN_FAL",
         "supertechxter"
     );
+
     @Getter
     protected static final ThemeType[] cachedValues = values();
     private final ChatColor color;
@@ -245,6 +246,11 @@ public enum ThemeType {
     public static String getRandomEggName() {
         int rnd = ThreadLocalRandom.current().nextInt(0, EGG_NAMES.size());
         return EGG_NAMES.get(rnd);
+    }
+
+    @Nonnull
+    public static List<String> getEggNames() {
+        return EGG_NAMES;
     }
 
     public Particle.DustOptions getDustOptions(float size) {

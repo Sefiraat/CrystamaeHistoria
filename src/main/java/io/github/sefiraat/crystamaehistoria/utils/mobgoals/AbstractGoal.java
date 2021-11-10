@@ -62,55 +62,55 @@ public abstract class AbstractGoal<T extends Mob> implements Goal<T> {
     public void tick() {
         final Player player = removeOffline();
 
-        if (player != null) {
-            if (self.getTarget() != null && self.getTarget().equals(player)) {
-                self.setTarget(null);
+        if (player == null || (self.getTarget() != null && self.getTarget().equals(player))) {
+            self.setTarget(null);
+            return;
+        }
+
+        if (!getTickCondition() || (self.getTarget() != null && !self.getTarget().isDead())) {
+            return;
+        }
+
+        if (getTargetsEnemies()) {
+            final List<LivingEntity> entities = new ArrayList<>(
+                player.getWorld().getNearbyEntitiesByType(
+                    getTargetClass(),
+                    player.getLocation(),
+                    10,
+                    10,
+                    10,
+                    entity -> {
+                        final UUID testOwner = DataTypeMethods.getCustom(entity, Keys.PDC_IS_SPAWN_OWNER, PersistentUUIDDataType.TYPE);
+                        if (testOwner == null) {
+                            return true;
+                        } else {
+                            return !testOwner.equals(owner);
+                        }
+                    }
+                )
+            );
+
+            if (!entities.isEmpty()) {
+                LivingEntity random = entities.get(ThreadLocalRandom.current().nextInt(entities.size()));
+                self.setTarget(random);
+                self.attack(random);
                 return;
             }
-
-            if (getTickCondition() && (self.getTarget() == null || self.getTarget().isDead())) {
-                if (getTargetsEnemies()) {
-                    final List<LivingEntity> entities = new ArrayList<>(
-                        player.getWorld().getNearbyEntitiesByType(
-                            getTargetClass(),
-                            player.getLocation(),
-                            10,
-                            10,
-                            10,
-                            entity -> {
-                                final UUID testOwner = DataTypeMethods.getCustom(entity, Keys.PDC_IS_SPAWN_OWNER, PersistentUUIDDataType.TYPE);
-                                if (testOwner == null) {
-                                    return true;
-                                } else {
-                                    return !testOwner.equals(owner);
-                                }
-                            }
-                        )
-                    );
-
-                    if (!entities.isEmpty()) {
-                        LivingEntity random = entities.get(ThreadLocalRandom.current().nextInt(entities.size()));
-                        self.setTarget(random);
-                        self.attack(random);
-                        return;
-                    }
-                }
-
-                if (getFollowsPlayer()
-                    && self.getLocation().distance(player.getLocation()) > getStayNearDistance()
-                ) {
-                    final Location location = player.getLocation().clone().add(
-                        ThreadLocalRandom.current().nextDouble(-1.5, 1.5),
-                        0,
-                        ThreadLocalRandom.current().nextDouble(-1.5, 1.5)
-                    );
-                    self.getPathfinder().moveTo(location);
-                }
-
-                customActions(player);
-
-            }
         }
+
+        if (getFollowsPlayer()
+            && self.getLocation().distance(player.getLocation()) > getStayNearDistance()
+        ) {
+            final Location location = player.getLocation().clone().add(
+                ThreadLocalRandom.current().nextDouble(-1.5, 1.5),
+                0,
+                ThreadLocalRandom.current().nextDouble(-1.5, 1.5)
+            );
+            self.getPathfinder().moveTo(location);
+        }
+
+        customActions(player);
+
     }
 
     public void customActions(Player player) {

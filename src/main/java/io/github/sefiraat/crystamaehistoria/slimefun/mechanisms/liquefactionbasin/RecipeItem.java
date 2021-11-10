@@ -55,7 +55,7 @@ public class RecipeItem {
     }
 
     public ItemStack getDisplayCrystal(int index) {
-        ItemStack itemStack = Materials.DUMMY_CRYSTAL_MAP.get(storyTypes.get(index)).getItem().clone();
+        ItemStack itemStack = Materials.getDummyCrystalMap().get(storyTypes.get(index)).getItem().clone();
         ItemMeta itemMeta = itemStack.getItemMeta();
         List<String> list = new ArrayList<>();
         list.add(ThemeType.CLICK_INFO.getColor() + "Minimum amount: " + ThemeType.PASSIVE.getColor() + amounts.get(index));

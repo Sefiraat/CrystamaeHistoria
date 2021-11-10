@@ -62,7 +62,7 @@ public class RefractingLensListener implements Listener {
         for (Map.Entry<StoryType, Integer> entry : cacheMap.entrySet()) {
             final Integer integer = entry.getValue();
             final StoryType storyType = entry.getKey();
-            final ItemStack itemStack = Materials.DUMMY_CRYSTAL_MAP.get(storyType).getItem().clone();
+            final ItemStack itemStack = Materials.getDummyCrystalMap().get(storyType).getItem().clone();
             final double xOffset = (space * xPos) - evenOffset;
 
             final Vector pointVector = new Vector(xOffset, 0, 0)

@@ -53,6 +53,7 @@ public class Bobulate extends Spell {
         final Location location = castInformation.getProjectileLocation();
         final double range = getProjectileAoe(castInformation);
         final int density = 50;
+
         for (double height = 0; height <= Math.PI; height += Math.PI / density) {
             for (int i = 0; i < range; i++) {
                 final double r = i * Math.sin(height);
@@ -63,45 +64,48 @@ public class Bobulate extends Spell {
                     final Location pointLocation = location.clone().add(x, y, z);
                     final Block block = pointLocation.getBlock();
                     final Material material = block.getType();
-                    final Collection<Entity> entities = pointLocation.getWorld().getNearbyEntities(
-                        pointLocation,
-                        0.5,
-                        0.5,
-                        0.5
-                    );
 
                     if (Tag.WOOL.isTagged(material)) {
-                        convertBlock(caster, block, Tag.WOOL);
+                        processBlock(caster, block, Tag.WOOL);
                     } else if (SlimefunTag.TERRACOTTA.isTagged(material)) {
-                        convertBlock(caster, block, SlimefunTag.TERRACOTTA);
+                        processBlock(caster, block, SlimefunTag.TERRACOTTA);
                     } else if (CrystaTag.GLAZED_TERRACOTTA.isTagged(material)) {
-                        convertBlock(caster, block, CrystaTag.GLAZED_TERRACOTTA);
+                        processBlock(caster, block, CrystaTag.GLAZED_TERRACOTTA);
                     } else if (SlimefunTag.CONCRETE_POWDERS.isTagged(material)) {
-                        convertBlock(caster, block, SlimefunTag.CONCRETE_POWDERS);
+                        processBlock(caster, block, SlimefunTag.CONCRETE_POWDERS);
                     } else if (CrystaTag.CONCRETE_BLOCKS.isTagged(material)) {
-                        convertBlock(caster, block, CrystaTag.CONCRETE_BLOCKS);
+                        processBlock(caster, block, CrystaTag.CONCRETE_BLOCKS);
                     } else if (Tag.CARPETS.isTagged(material)) {
-                        convertBlock(caster, block, Tag.CARPETS);
+                        processBlock(caster, block, Tag.CARPETS);
                     }
-
-                    for (Entity entity : entities) {
-                        if (entity instanceof Colorable
-                            && GeneralUtils.hasPermission(caster, pointLocation, Interaction.INTERACT_ENTITY)
-                        ) {
-                            final int randomValue = ThreadLocalRandom.current().nextInt(
-                                0,
-                                (int) Arrays.stream(DyeColor.values()).count()
-                            );
-                            ((Colorable) entity).setColor(DyeColor.values()[randomValue]);
-                        }
-                    }
-
                 }
+            }
+        }
+        processEntities(location, caster);
+    }
+
+    private void processEntities(Location location, UUID caster) {
+        final Collection<Entity> entities = location.getWorld().getNearbyEntities(
+            location,
+            0.5,
+            0.5,
+            0.5
+        );
+
+        for (Entity entity : entities) {
+            if (entity instanceof Colorable
+                && GeneralUtils.hasPermission(caster, entity.getLocation(), Interaction.INTERACT_ENTITY)
+            ) {
+                final int randomValue = ThreadLocalRandom.current().nextInt(
+                    0,
+                    (int) Arrays.stream(DyeColor.values()).count()
+                );
+                ((Colorable) entity).setColor(DyeColor.values()[randomValue]);
             }
         }
     }
 
-    private void convertBlock(UUID caster, Block block, Tag<Material> tag) {
+    private void processBlock(UUID caster, Block block, Tag<Material> tag) {
         if (GeneralUtils.hasPermission(caster, block, Interaction.PLACE_BLOCK)) {
             final List<Material> list = tag.getValues().stream().toList();
             final int randomValue = ThreadLocalRandom.current().nextInt(0, list.size());

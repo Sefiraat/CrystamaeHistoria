@@ -45,8 +45,8 @@ public class HarvestMoon extends Spell {
 
         // Bonemealing
         for (int i = 0; i < castInformation.getStaveLevel() * 3; i++) {
-            final int x = (int) ThreadLocalRandom.current().nextDouble(-range, range);
-            final int z = (int) ThreadLocalRandom.current().nextDouble(-range, range);
+            final int x = ThreadLocalRandom.current().nextInt((int) -range, (int) range);
+            final int z = ThreadLocalRandom.current().nextInt((int) -range, (int) range);
             final Block potentialBlock = location.add(x, 0, z).getBlock();
             if (Tag.CROPS.isTagged(potentialBlock.getType())) {
                 potentialBlock.applyBoneMeal(BlockFace.UP);

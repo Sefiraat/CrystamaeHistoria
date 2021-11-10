@@ -587,6 +587,7 @@ public class Gadgets {
                 ThemeType.GADGET,
                 "Greenhouse Glass",
                 "Crops under this glass will grow faster.",
+                "Works during the day in light worlds only.",
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Rate: " + ThemeType.PASSIVE.getColor() + "5"
             ),
@@ -614,6 +615,7 @@ public class Gadgets {
                 ThemeType.GADGET,
                 "Focused Greenhouse Glass",
                 "Crops under this glass will grow faster.",
+                "Works during the day in light worlds only.",
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Rate: " + ThemeType.PASSIVE.getColor() + "10"
             ),

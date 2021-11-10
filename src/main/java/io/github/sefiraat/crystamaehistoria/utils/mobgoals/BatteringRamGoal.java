@@ -23,11 +23,10 @@ public class BatteringRamGoal extends AbstractGoal<Goat> {
 
     @Override
     public void tick() {
-
         double velX = Math.abs(self.getVelocity().getX());
         double velZ = Math.abs(self.getVelocity().getZ());
-        if (self.isOnGround() || (velX < 0.1 && velZ < 0.1)
-        ) {
+
+        if (self.isOnGround() || (velX < 0.1 && velZ < 0.1)) {
             ParticleUtils.displayParticleEffect(self, Particle.VILLAGER_ANGRY, 1, 5);
             self.remove();
             return;
