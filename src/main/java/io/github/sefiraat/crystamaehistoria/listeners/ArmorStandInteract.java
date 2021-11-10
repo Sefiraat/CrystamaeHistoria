@@ -16,8 +16,10 @@ public class ArmorStandInteract implements Listener {
 
     @EventHandler
     public void onArmorDispense(BlockDispenseArmorEvent e) {
-        if (e.getTargetEntity() instanceof ArmorStand) {
-            if (ArmourStandUtils.isDisplayStand((ArmorStand) e.getTargetEntity())) e.setCancelled(true);
+        if (e.getTargetEntity() instanceof ArmorStand
+            && ArmourStandUtils.isDisplayStand((ArmorStand) e.getTargetEntity())
+        ) {
+            e.setCancelled(true);
         }
     }
 }

@@ -69,7 +69,6 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Tempest;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.TimeCompression;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.TimeDilation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Tracer;
-import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.TunnelBore;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Vacuum;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.WitherWeather;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
@@ -150,7 +149,6 @@ public enum SpellType {
     TIME_COMPRESSION(new TimeCompression()),
     TIME_DILATION(new TimeDilation()),
     TRACER(new Tracer()),
-    TUNNEL_BORE(new TunnelBore()),
     VACUUM(new Vacuum()),
     WITHER_WEATHER(new WitherWeather());
 

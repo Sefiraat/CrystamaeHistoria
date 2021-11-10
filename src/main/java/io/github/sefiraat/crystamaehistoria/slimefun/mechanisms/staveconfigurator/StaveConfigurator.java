@@ -81,28 +81,31 @@ public class StaveConfigurator extends MenuBlock {
             rejectItems(blockMenu);
             final ItemStack stave = blockMenu.getItemInSlot(STAVE_SLOT);
             final SlimefunItem sfStave = SlimefunItem.getByItem(stave);
-            if (stave != null && sfStave instanceof Stave) {
-                final InstanceStave staveInstance = new InstanceStave(stave);
-                final Map<SpellSlot, InstancePlate> map = staveInstance.getSpellInstanceMap();
-                if (map != null) {
-                    for (Map.Entry<SpellSlot, InstancePlate> entry : map.entrySet()) {
-                        final SpellSlot spellSlot = entry.getKey();
-                        final InstancePlate instancePlate = map.get(spellSlot);
-                        final ItemStack plate = ChargedPlate.getChargedPlate(instancePlate);
-                        blockMenu.replaceExistingItem(getSlot(spellSlot), plate);
-                    }
-                }
-                staveInstance.getSpellInstanceMap().clear();
-                ItemMeta itemMeta = stave.getItemMeta();
-                DataTypeMethods.setCustom(
-                    itemMeta,
-                    Keys.PDC_STAVE_STORAGE,
-                    PersistentStaveDataType.TYPE,
-                    staveInstance.getSpellInstanceMap()
-                );
-                stave.setItemMeta(itemMeta);
-                staveInstance.buildLore();
+
+            if (stave == null || !(sfStave instanceof Stave)) {
+                return false;
             }
+
+            final InstanceStave staveInstance = new InstanceStave(stave);
+            final Map<SpellSlot, InstancePlate> map = staveInstance.getSpellInstanceMap();
+            if (map != null) {
+                for (Map.Entry<SpellSlot, InstancePlate> entry : map.entrySet()) {
+                    final SpellSlot spellSlot = entry.getKey();
+                    final InstancePlate instancePlate = map.get(spellSlot);
+                    final ItemStack plate = ChargedPlate.getChargedPlate(instancePlate);
+                    blockMenu.replaceExistingItem(getSlot(spellSlot), plate);
+                }
+            }
+            staveInstance.getSpellInstanceMap().clear();
+            ItemMeta itemMeta = stave.getItemMeta();
+            DataTypeMethods.setCustom(
+                itemMeta,
+                Keys.PDC_STAVE_STORAGE,
+                PersistentStaveDataType.TYPE,
+                staveInstance.getSpellInstanceMap()
+            );
+            stave.setItemMeta(itemMeta);
+            staveInstance.buildLore();
             return false;
         });
 

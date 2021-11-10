@@ -33,7 +33,7 @@ public class EasterEgg extends Spell {
     @ParametersAreNonnullByDefault
     public void cast(CastInformation castInformation) {
         Location location = castInformation.getCastLocation().add(0, 1, 0);
-        for (String string : ThemeType.EGG_NAMES) {
+        for (String string : ThemeType.getEggNames()) {
             final List<Material> list = CrystaTag.SPAWN_EGGS.getValues().stream().toList();
             final int randomValue = ThreadLocalRandom.current().nextInt(0, list.size());
             DisplayItem displayItem = new DisplayItem(

@@ -34,6 +34,7 @@ public enum ThemeType {
     CRYSTAL(ChatColor.of("#dbcea9"), "Crystal"),
     MACHINE(ChatColor.of("#3295a8"), "Machine"),
     MECHANISM(ChatColor.of("#3295a8"), "Mechanism"),
+    GADGET(ChatColor.of("#8732a8"), "Gadget"),
     CHEST(ChatColor.of("#b89b1c"), "Chest"),
     DROP(ChatColor.of("#bf307f"), "Rare Drop"),
     BASE(ChatColor.of("#9e9e9e"), "Base Resource"),
@@ -65,14 +66,11 @@ public enum ThemeType {
     TYPE_VOID(ChatColor.of("#222222"), "Void"),
     TYPE_PHILOSOPHICAL(ChatColor.of("#4d4aa8"), "Philosophical");
 
-    @Getter
-    protected static final ThemeType[] cachedValues = values();
-
     /**
      * List of names to be given to ArmourStands, invisible but mods and Minimaps can see them :)
      */
     @Nonnull
-    public static final List<String> EGG_NAMES = Arrays.asList(
+    protected static final List<String> EGG_NAMES = Arrays.asList(
         "TheBusyBiscuit",
         "Alessio",
         "Walshy",
@@ -102,6 +100,9 @@ public enum ThemeType {
         "FN_FAL",
         "supertechxter"
     );
+
+    @Getter
+    protected static final ThemeType[] cachedValues = values();
     private final ChatColor color;
     private final String loreLine;
 
@@ -245,6 +246,11 @@ public enum ThemeType {
     public static String getRandomEggName() {
         int rnd = ThreadLocalRandom.current().nextInt(0, EGG_NAMES.size());
         return EGG_NAMES.get(rnd);
+    }
+
+    @Nonnull
+    public static List<String> getEggNames() {
+        return EGG_NAMES;
     }
 
     public Particle.DustOptions getDustOptions(float size) {

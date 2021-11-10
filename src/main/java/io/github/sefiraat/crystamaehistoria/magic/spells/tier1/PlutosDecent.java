@@ -18,8 +18,18 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class PlutosDecent extends Spell {
+
+    protected static final List<Material> MATERIALS = new ArrayList<>();
+
+    static {
+        MATERIALS.add(Material.BLACKSTONE_SLAB);
+        MATERIALS.add(Material.BLACKSTONE_STAIRS);
+        MATERIALS.add(Material.BLACKSTONE_WALL);
+        MATERIALS.add(Material.CRACKED_POLISHED_BLACKSTONE_BRICKS);
+    }
 
     public PlutosDecent() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(25, false, 60, false, 75, true)
@@ -65,7 +75,7 @@ public class PlutosDecent extends Spell {
             MagicFallingBlock magicFallingBlock = SpellUtils.summonMagicFallingBlock(
                 castInformation,
                 block.getLocation().add(0, 40, 0),
-                Material.BLACKSTONE_STAIRS,
+                MATERIALS.get(ThreadLocalRandom.current().nextInt(MATERIALS.size())),
                 5
             );
             magicFallingBlock.setVelocity(block.getLocation(), 2);

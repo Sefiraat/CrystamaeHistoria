@@ -3,7 +3,6 @@ package io.github.sefiraat.crystamaehistoria.listeners;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.CastResult;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.InstanceStave;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MysteriousTicker;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.SpellSlot;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.Stave;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
@@ -11,19 +10,16 @@ import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentStaveDataType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import net.md_5.bungee.api.ChatMessageType;
 import net.md_5.bungee.api.chat.TextComponent;
-import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-public class PlayerInteract implements Listener {
+public class SpellCastListener implements Listener {
 
     @EventHandler
     public void onInteract(PlayerInteractEvent e) {
@@ -49,7 +45,7 @@ public class PlayerInteract implements Listener {
                 );
                 stack.setItemMeta(itemMeta);
                 staveInstance.buildLore();
-                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(
+                player.sendMessage(ChatMessageType.ACTION_BAR, new TextComponent(
                     ThemeType.SUCCESS.getColor() + "Casting spell: " + castInformation.getSpellType().getId()
                 ));
             } else {
@@ -59,16 +55,4 @@ public class PlayerInteract implements Listener {
             }
         }
     }
-
-    @EventHandler
-    public void onDontTouchMyCrap(PlayerInteractEvent e) {
-        Block block = e.getClickedBlock();
-        if (e.getAction() == Action.RIGHT_CLICK_BLOCK && block != null) {
-            SlimefunItem slimefunItem = BlockStorage.check(block);
-            if (slimefunItem instanceof MysteriousTicker) {
-                e.setCancelled(true);
-            }
-        }
-    }
-
 }

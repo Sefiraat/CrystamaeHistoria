@@ -1,14 +1,8 @@
 package io.github.sefiraat.crystamaehistoria.commands;
 
 import io.github.mooy1.infinitylib.commands.SubCommand;
-import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
-import io.github.sefiraat.crystamaehistoria.magic.SpellType;
-import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
-import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.SpellCollectionFlexGroup;
-import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.player.PlayerProfile;
-import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuide;
 import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
@@ -39,6 +33,6 @@ public class OpenSpellCompendium extends SubCommand {
     @Override
     @ParametersAreNonnullByDefault
     protected void complete(CommandSender commandSender, String[] strings, List<String> list) {
-
+        // Not required
     }
 }

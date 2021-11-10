@@ -95,12 +95,26 @@ public class LiquefactionBasin extends TickingMenuBlock {
     @ParametersAreNonnullByDefault
     protected void onBreak(BlockBreakEvent event, BlockMenu blockMenu) {
         super.onBreak(event, blockMenu);
-        Location location = blockMenu.getLocation();
-        LiquefactionBasinCache liquefactionBasinCache = cacheMap.remove(location);
+
+        final Location location = blockMenu.getLocation();
+        final LiquefactionBasinCache liquefactionBasinCache = cacheMap.remove(location);
+
+        boolean punish = false;
+
         if (liquefactionBasinCache != null) {
             liquefactionBasinCache.kill(location);
+            punish = liquefactionBasinCache.getFillLevel() > 0;
         }
         blockMenu.dropItems(location, INPUT_SLOT);
+        if (punish) {
+            blockMenu.getLocation().getWorld().createExplosion(
+                event.getPlayer(),
+                event.getBlock().getLocation(),
+                2,
+                true,
+                false
+            );
+        }
     }
 
     @Override

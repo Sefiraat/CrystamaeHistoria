@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.RefactingLens;
@@ -60,7 +61,7 @@ public class Tools {
                 "A blank plate that has the potential to",
                 "store magical energy"
             ),
-            RecipeType.ORE_WASHER,
+            DummyLiquefactionBasinCrafting.TYPE,
             inertPlateRecipe.getDisplayRecipe(),
             1
         );
@@ -77,7 +78,7 @@ public class Tools {
                 "A magically charged plate storing magic",
                 "potential."
             ),
-            RecipeType.ORE_WASHER,
+            DummyLiquefactionBasinCrafting.TYPE,
             new ItemStack[]{null, null, null, null, new ItemStack(Material.AMETHYST_CLUSTER), null, null, null, null},
             1
         );

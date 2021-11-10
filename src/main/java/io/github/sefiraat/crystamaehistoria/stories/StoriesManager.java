@@ -15,12 +15,12 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
 import java.util.stream.Collectors;
 
 public class StoriesManager {
@@ -217,7 +217,9 @@ public class StoriesManager {
                 blockDefinitionMap.put(material, blockDefinition);
             }
         }
-        CrystamaeHistoria.log(Level.INFO, "Loaded: " + blockDefinitionMap.size() + " unique (block) stories.");
+        CrystamaeHistoria.getInstance().getLogger().info(
+            MessageFormat.format("Loaded: {0} unique (block) stories.", blockDefinitionMap.size())
+        );
     }
 
     @ParametersAreNonnullByDefault

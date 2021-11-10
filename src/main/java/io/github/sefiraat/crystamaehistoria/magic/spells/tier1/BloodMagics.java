@@ -50,13 +50,11 @@ public class BloodMagics extends Spell {
                     getDamage(castInformation)
                 );
                 ParticleUtils.displayParticleEffect(livingEntity, 2, 10, dustOptions);
-                if (iteration <= 5) {
-                    if (livingEntity.getHealth() <= 0) {
-                        GeneralUtils.pushEntity(castInformation.getCaster(), castInformation.getCastLocation(), entity, 5);
-                        ParticleUtils.displayParticleEffect(livingEntity, 4, 20, dustOptions);
-                        entity.remove();
-                        castBlood(castInformation, livingEntity.getLocation(), 2, iteration + 1);
-                    }
+                if (iteration <= 5 && livingEntity.getHealth() <= 0) {
+                    GeneralUtils.pushEntity(castInformation.getCaster(), castInformation.getCastLocation(), entity, 5);
+                    ParticleUtils.displayParticleEffect(livingEntity, 4, 20, dustOptions);
+                    entity.remove();
+                    castBlood(castInformation, livingEntity.getLocation(), 2, iteration + 1);
                 }
             }
         }

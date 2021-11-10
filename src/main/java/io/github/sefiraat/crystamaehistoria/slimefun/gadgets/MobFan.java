@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets;
+package io.github.sefiraat.crystamaehistoria.slimefun.gadgets;
 
 import io.github.mooy1.infinitylib.machines.TickingMenuBlock;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
@@ -12,6 +12,7 @@ import lombok.Getter;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
+import org.bukkit.FluidCollisionMode;
 import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
@@ -21,7 +22,8 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.util.BlockIterator;
+import org.bukkit.util.RayTraceResult;
+import org.bukkit.util.Vector;
 import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -29,6 +31,9 @@ import java.util.List;
 import java.util.UUID;
 
 public class MobFan extends TickingMenuBlock {
+
+    protected static final String ID_DIRECTION = "CH_DIRECTION";
+    protected static final String ID_UUID = "CH_UUID";
 
     protected static final int[] BACKGROUND_SLOTS = {
         0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 15, 16, 17, 18, 19, 20, 21, 23, 25, 26, 27, 28, 30, 31, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44
@@ -51,8 +56,8 @@ public class MobFan extends TickingMenuBlock {
             new BlockPlaceHandler(false) {
                 @Override
                 public void onPlayerPlace(@NotNull BlockPlaceEvent event) {
-                    BlockStorage.addBlockInfo(event.getBlock(), "CH_UUID", event.getPlayer().getUniqueId().toString());
-                    BlockStorage.addBlockInfo(event.getBlock(), "CH_DIRECTION", BlockFace.SELF.name());
+                    BlockStorage.addBlockInfo(event.getBlock(), ID_UUID, event.getPlayer().getUniqueId().toString());
+                    BlockStorage.addBlockInfo(event.getBlock(), ID_DIRECTION, BlockFace.SELF.name());
                 }
             },
             new BlockBreakHandler(false, false) {
@@ -67,7 +72,7 @@ public class MobFan extends TickingMenuBlock {
     @Override
     @ParametersAreNonnullByDefault
     protected void onNewInstance(BlockMenu menu, Block b) {
-        BlockFace direction = BlockFace.valueOf(BlockStorage.getLocationInfo(b.getLocation(), "CH_DIRECTION"));
+        BlockFace direction = BlockFace.valueOf(BlockStorage.getLocationInfo(b.getLocation(), ID_DIRECTION));
         setDirection(menu, direction);
 
         menu.addMenuClickHandler(SET_NORTH, (player, i, itemStack, clickAction) -> setDirection(menu, BlockFace.NORTH));
@@ -81,7 +86,7 @@ public class MobFan extends TickingMenuBlock {
 
     @ParametersAreNonnullByDefault
     private boolean setDirection(BlockMenu blockMenu, BlockFace blockFace) {
-        BlockStorage.addBlockInfo(blockMenu.getBlock(), "CH_DIRECTION", blockFace.name());
+        BlockStorage.addBlockInfo(blockMenu.getBlock(), ID_DIRECTION, blockFace.name());
 
         blockMenu.replaceExistingItem(SET_UP, GuiElements.getDirectionalSlotPane(BlockFace.UP, false));
         blockMenu.replaceExistingItem(SET_DOWN, GuiElements.getDirectionalSlotPane(BlockFace.DOWN, false));
@@ -128,58 +133,50 @@ public class MobFan extends TickingMenuBlock {
     @Override
     @ParametersAreNonnullByDefault
     protected void tick(Block block, BlockMenu blockMenu) {
-        final BlockFace direction = BlockFace.valueOf(BlockStorage.getLocationInfo(block.getLocation(), "CH_DIRECTION"));
-        final UUID owner = UUID.fromString(BlockStorage.getLocationInfo(block.getLocation(), "CH_UUID"));
-        if (direction != BlockFace.SELF) {
-            final Location location = block.getLocation();
-            final BlockIterator iterator = new BlockIterator(
-                location.getWorld(),
-                location.toVector().add(direction.getDirection()),
-                direction.getDirection(),
-                0,
-                (int) range
-            );
+        final BlockFace direction = BlockFace.valueOf(BlockStorage.getLocationInfo(block.getLocation(), ID_DIRECTION));
+        final Vector facingVector = direction.getDirection();
+        final UUID owner = UUID.fromString(BlockStorage.getLocationInfo(block.getLocation(), ID_UUID));
 
-            while (iterator.hasNext()) {
-                final Block testBlock = iterator.next();
-                if (testBlock.isSolid()) {
-                    break;
-                }
-                final Location testLocation = testBlock.getLocation().add(0.5, 0.5, 0.5);
-                for (Entity entity : block.getWorld().getNearbyEntities(testLocation, 0.5, 0.5, 0.5)) {
-                    if (entity instanceof Player) {
-                        Player player = (Player) entity;
-                        if (player.getGameMode() != GameMode.SURVIVAL) {
-                            return;
-                        }
+        if (direction == BlockFace.SELF) {
+            return;
+        }
+
+        final Location location = block.getLocation();
+        final RayTraceResult result = location.getWorld().rayTraceBlocks(
+            location.add(facingVector),
+            facingVector,
+            range,
+            FluidCollisionMode.ALWAYS,
+            false
+        );
+
+        if (result == null) {
+            return;
+        }
+
+        double finalRange = range;
+
+        Block foundBlock = result.getHitBlock();
+        if (foundBlock != null) {
+            finalRange = foundBlock.getLocation().distance(block.getLocation());
+        }
+
+        for (int i = 0; i < finalRange + 0.5; i++) {
+            Location offsetLocation = location.clone().add(direction.getDirection().clone().multiply(i));
+            for (Entity entity : block.getWorld().getNearbyEntities(offsetLocation, 0.5, 0.5, 0.5)) {
+                if (entity instanceof Player) {
+                    Player player = (Player) entity;
+                    if (player.getGameMode() != GameMode.SURVIVAL) {
+                        return;
                     }
-                    GeneralUtils.pushEntity(
-                        owner,
-                        location.clone().add(0, 0.2, 0),
-                        entity,
-                        1
-                    );
                 }
-
+                GeneralUtils.pushEntity(
+                    owner,
+                    facingVector,
+                    entity,
+                    1
+                );
             }
-
-//            for (int i = 0; i < range + 0.5; i++) {
-//                Location offsetLocation = location.clone().add(direction.getDirection().clone().multiply(i));
-//                for (Entity entity : block.getWorld().getNearbyEntities(offsetLocation, 0.5, 0.5, 0.5)) {
-//                    if (entity instanceof Player) {
-//                        Player player = (Player) entity;
-//                        if (player.getGameMode() != GameMode.SURVIVAL) {
-//                            return;
-//                        }
-//                    }
-//                    GeneralUtils.pushEntity(
-//                        owner,
-//                        location.clone().add(0, 0.2, 0),
-//                        entity,
-//                        1
-//                    );
-//                }
-//            }
         }
     }
 

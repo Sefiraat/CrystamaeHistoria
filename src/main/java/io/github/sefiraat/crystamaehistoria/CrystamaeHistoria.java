@@ -22,7 +22,6 @@ import io.github.sefiraat.crystamaehistoria.slimefun.Mechanisms;
 import io.github.sefiraat.crystamaehistoria.slimefun.Tools;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
-import io.github.sefiraat.crystamaehistoria.utils.CrystaTag;
 import io.github.sefiraat.crystamaehistoria.utils.PlayerStatUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import org.apache.commons.lang.Validate;
@@ -155,8 +154,6 @@ public class CrystamaeHistoria extends AbstractAddon {
         getAddonCommand().addSub(new TestSpell());
         getAddonCommand().addSub(new OpenSpellCompendium());
         getAddonCommand().addSub(new OpenStoryCompendium());
-
-        CrystaTag.getCachedValues();
     }
 
     private void setupBstats() {
@@ -217,5 +214,4 @@ public class CrystamaeHistoria extends AbstractAddon {
         Gadgets.setup();
         Tools.setup();
     }
-
 }

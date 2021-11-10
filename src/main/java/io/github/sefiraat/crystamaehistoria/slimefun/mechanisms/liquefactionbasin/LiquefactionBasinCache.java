@@ -46,7 +46,6 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
-import java.util.logging.Level;
 import java.util.stream.Collectors;
 
 @Getter
@@ -249,10 +248,9 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
         );
 
         if (instancePlate == null) {
-            CrystamaeHistoria.log(
-                Level.SEVERE,
-                "The charged plate used has not been configured correctly. /sf cheat charged plates will not" +
-                    " work in the Liquefaction Basin. If this is not the case, please raises an issue."
+            CrystamaeHistoria.getInstance().getLogger().warning(
+                "The charged plate used has not been configured correctly. /sf cheat charged plates will not " +
+                    "work in the Liquefaction Basin. If this is not the case, please raises an issue."
             );
             item.remove();
             return;

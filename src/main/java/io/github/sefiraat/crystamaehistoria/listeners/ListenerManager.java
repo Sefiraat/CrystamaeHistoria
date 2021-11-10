@@ -7,7 +7,7 @@ public class ListenerManager {
 
     public ListenerManager() {
         addListener(new ArmorStandInteract());
-        addListener(new PlayerInteract());
+        addListener(new SpellCastListener());
         addListener(new SpellEffectListener());
         addListener(new CrystalBreakListener());
         addListener(new BlockRemovalListener());
@@ -17,6 +17,7 @@ public class ListenerManager {
         addListener(new EndermanInhibitorListener());
         addListener(new MobCandleListener());
         addListener(new DisplayItemListener());
+        addListener(new MiscListener());
     }
 
     private void addListener(Listener listener) {

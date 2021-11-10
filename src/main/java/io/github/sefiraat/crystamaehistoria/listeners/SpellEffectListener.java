@@ -26,7 +26,6 @@ import org.bukkit.event.entity.EntityChangeBlockEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.ProjectileHitEvent;
-import org.bukkit.event.player.PlayerEggThrowEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 import org.bukkit.event.weather.LightningStrikeEvent;
 import org.bukkit.inventory.ItemStack;
@@ -106,13 +105,6 @@ public class SpellEffectListener implements Listener {
             castInfo.setHitBlock(event.getBlock());
             castInfo.runProjectileHitBlockEvent();
             magicFallingBlock.kill();
-        }
-    }
-
-    @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
-    public void onEggThrow(PlayerEggThrowEvent event) {
-        if (CrystamaeHistoria.getProjectileMap().containsKey(event.getEgg().getUniqueId())) {
-            event.setHatching(false);
         }
     }
 

@@ -48,7 +48,6 @@ public class Gyroscopic extends Spell {
                 && GeneralUtils.hasPermission(castInformation.getCaster(), entity.getLocation(), Interaction.INTERACT_ENTITY)
                 && entity.getUniqueId() != castInformation.getCaster()
             ) {
-                // Todo mobs dont spin?
                 Location newLocation = entity.getLocation().clone();
                 newLocation.setYaw(entity.getLocation().getYaw() + 10F);
                 entity.teleport(newLocation);

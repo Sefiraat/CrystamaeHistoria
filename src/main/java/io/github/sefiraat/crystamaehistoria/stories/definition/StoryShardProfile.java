@@ -42,7 +42,7 @@ public class StoryShardProfile {
             StoryType storyType = entry.getKey();
             int amount = entry.getValue() * multiplier;
             if (amount > 0) {
-                ItemStack itemStack = Materials.CRYSTAL_MAP.get(rarity).get(storyType).getItem().clone();
+                ItemStack itemStack = Materials.getCrystalMap().get(rarity).get(storyType).getItem().clone();
                 itemStack.setAmount(amount);
                 location.getWorld().dropItemNaturally(location, itemStack);
             }

@@ -33,7 +33,6 @@ public class Story {
     private final StoryShardProfile storyShardProfile;
     @Nonnull
     private final List<String> storyStrings;
-    private final int uniqueTier = 0;
     @Setter
     @Nullable
     private BlockPosition blockPosition;

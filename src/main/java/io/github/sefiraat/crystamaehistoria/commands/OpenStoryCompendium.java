@@ -33,6 +33,6 @@ public class OpenStoryCompendium extends SubCommand {
     @Override
     @ParametersAreNonnullByDefault
     protected void complete(CommandSender commandSender, String[] strings, List<String> list) {
-
+        // Not required
     }
 }

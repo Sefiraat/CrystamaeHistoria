@@ -1,5 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.utils;
 
+import lombok.experimental.UtilityClass;
 import org.bukkit.Location;
 import org.bukkit.Particle;
 import org.bukkit.World;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+@UtilityClass
 public class ParticleUtils {
 
     @ParametersAreNonnullByDefault

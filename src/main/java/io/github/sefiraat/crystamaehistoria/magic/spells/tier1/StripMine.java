@@ -43,12 +43,11 @@ public class StripMine extends Spell {
 
         final Block block = castInformation.getTargetedBlockOnCast().getRelative(xOffset, 0, zOffset);
         final Block blockBelow = block.getRelative(BlockFace.DOWN);
-        if (GeneralUtils.tryBreakBlock(castInformation.getCaster(), block)) {
-            if (GeneralUtils.tryBreakBlock(castInformation.getCaster(), blockBelow)
-                && castInformation.getCurrentTick() % 5 == 0
-            ) {
-                blockBelow.setType(Material.TORCH);
-            }
+        if (GeneralUtils.tryBreakBlock(castInformation.getCaster(), block)
+            && GeneralUtils.tryBreakBlock(castInformation.getCaster(), blockBelow)
+            && castInformation.getCurrentTick() % 5 == 0
+        ) {
+            blockBelow.setType(Material.TORCH);
         }
     }
 
