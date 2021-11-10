@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets;
+package io.github.sefiraat.crystamaehistoria.slimefun.gadgets;
 
 import io.github.mooy1.infinitylib.machines.TickingMenuBlock;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;

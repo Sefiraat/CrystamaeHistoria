@@ -150,7 +150,6 @@ public enum SpellType {
     TIME_COMPRESSION(new TimeCompression()),
     TIME_DILATION(new TimeDilation()),
     TRACER(new Tracer()),
-    TUNNEL_BORE(new TunnelBore()),
     VACUUM(new Vacuum()),
     WITHER_WEATHER(new WitherWeather());
 

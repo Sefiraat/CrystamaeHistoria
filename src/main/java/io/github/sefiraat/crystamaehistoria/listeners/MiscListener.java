@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.listeners;
 
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MysteriousTicker;
+import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MysteriousTicker;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.block.Block;

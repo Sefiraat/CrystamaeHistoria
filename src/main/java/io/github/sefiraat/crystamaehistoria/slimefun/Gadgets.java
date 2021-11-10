@@ -1,15 +1,15 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.CursedEarth;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.EnderInhibitor;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.ExpCollector;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.GreenHouseGlass;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobCandle;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobFan;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobLamp;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MobMat;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.MysteriousTicker;
+import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.CursedEarth;
+import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.EnderInhibitor;
+import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.ExpCollector;
+import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.GreenHouseGlass;
+import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobCandle;
+import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobFan;
+import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobLamp;
+import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobMat;
+import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MysteriousTicker;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
@@ -95,7 +95,7 @@ public class Gadgets {
             ThemeType.themedSlimefunItemStack(
                 "CRY_MOB_LAMP_1",
                 new ItemStack(Material.LANTERN),
-                ThemeType.MECHANISM,
+                ThemeType.GADGET,
                 "Abstraction Lamp",
                 "The abstraction lamp will push all",
                 "nearby mobs away from it.",
@@ -121,7 +121,7 @@ public class Gadgets {
             ThemeType.themedSlimefunItemStack(
                 "CRY_MOB_LAMP_2",
                 new ItemStack(Material.SOUL_LANTERN),
-                ThemeType.MECHANISM,
+                ThemeType.GADGET,
                 "Dispersion Lamp",
                 "The dispersion lamp will push all",
                 "nearby mobs away from it.",
@@ -147,7 +147,7 @@ public class Gadgets {
             ThemeType.themedSlimefunItemStack(
                 "CRY_MOB_FAN_1",
                 new ItemStack(Material.REDSTONE_LAMP),
-                ThemeType.MECHANISM,
+                ThemeType.GADGET,
                 "Inversion Vacuum",
                 "Creates a magically induced vacuum",
                 "that pulls entities away from the",
@@ -172,7 +172,7 @@ public class Gadgets {
             ThemeType.themedSlimefunItemStack(
                 "CRY_MOB_FAN_2",
                 new ItemStack(Material.NOTE_BLOCK),
-                ThemeType.MECHANISM,
+                ThemeType.GADGET,
                 "Antipodal Vacuum",
                 "Creates a magically induced vacuum",
                 "that pulls entities away from the",
@@ -200,7 +200,7 @@ public class Gadgets {
             ThemeType.themedSlimefunItemStack(
                 "CRY_MOB_DIRT_1",
                 new ItemStack(Material.BROWN_WOOL),
-                ThemeType.MECHANISM,
+                ThemeType.GADGET,
                 "Cursed Earth",
                 "Dark magics seep from this dirt giving",
                 "a very ominous vibe!",
@@ -241,7 +241,7 @@ public class Gadgets {
             ThemeType.themedSlimefunItemStack(
                 "CRY_MOB_DIRT_2",
                 new ItemStack(Material.BLACK_WOOL),
-                ThemeType.MECHANISM,
+                ThemeType.GADGET,
                 "Dreadful Dirt",
                 "Dark magics seep from this dirt giving",
                 "a very ominous vibe!",
@@ -270,7 +270,7 @@ public class Gadgets {
             ThemeType.themedSlimefunItemStack(
                 "CRY_MOB_PLATE_1",
                 new ItemStack(Material.CRIMSON_PRESSURE_PLATE),
-                ThemeType.MECHANISM,
+                ThemeType.GADGET,
                 "Searing Plate",
                 "A plate that is magically super-heated.",
                 "Anything standing on this plate gets",
@@ -297,7 +297,7 @@ public class Gadgets {
             ThemeType.themedSlimefunItemStack(
                 "CRY_MOB_PLATE_2",
                 new ItemStack(Material.WARPED_PRESSURE_PLATE),
-                ThemeType.MECHANISM,
+                ThemeType.GADGET,
                 "Doomed Plate",
                 "A plate that is magically super-heated.",
                 "Anything standing on this plate gets",
@@ -324,7 +324,7 @@ public class Gadgets {
             ThemeType.themedSlimefunItemStack(
                 "CRY_MOB_PLATE_3",
                 new ItemStack(Material.POLISHED_BLACKSTONE_PRESSURE_PLATE),
-                ThemeType.MECHANISM,
+                ThemeType.GADGET,
                 "Eviscerating Plate",
                 "A plate that is magically super-heated.",
                 "Anything standing on this plate gets",
@@ -351,7 +351,7 @@ public class Gadgets {
             ThemeType.themedSlimefunItemStack(
                 "CRY_EXP_COLLECTOR_1",
                 new ItemStack(Material.LIGHTNING_ROD),
-                ThemeType.MECHANISM,
+                ThemeType.GADGET,
                 "Basic Exp Collector",
                 "Infusing the Exp Collector with",
                 "magic now allows it to work",
@@ -398,7 +398,7 @@ public class Gadgets {
             ThemeType.themedSlimefunItemStack(
                 "CRY_ENDER_INHIBITOR_1",
                 new ItemStack(Material.REDSTONE_TORCH),
-                ThemeType.MECHANISM,
+                ThemeType.GADGET,
                 "Basic Ender Inhibitor",
                 "By using an Enderman's own resonance",
                 "against it, we can stop theme teleporting",
@@ -423,7 +423,7 @@ public class Gadgets {
             ThemeType.themedSlimefunItemStack(
                 "CRY_ENDER_INHIBITOR_2",
                 new ItemStack(Material.SOUL_TORCH),
-                ThemeType.MECHANISM,
+                ThemeType.GADGET,
                 "Advanced Ender Inhibitor",
                 "By using an Enderman's own resonance",
                 "against it, we can stop theme teleporting",
@@ -454,7 +454,7 @@ public class Gadgets {
             ThemeType.themedSlimefunItemStack(
                 "CRY_MOB_CANDLE_1",
                 new ItemStack(Material.BLACK_CANDLE),
-                ThemeType.MECHANISM,
+                ThemeType.GADGET,
                 "Dim Verache Candle",
                 "This candle stops mobs spawning",
                 "in a radius around it.",
@@ -481,7 +481,7 @@ public class Gadgets {
             ThemeType.themedSlimefunItemStack(
                 "CRY_MOB_CANDLE_2",
                 new ItemStack(Material.BROWN_CANDLE),
-                ThemeType.MECHANISM,
+                ThemeType.GADGET,
                 "Bright Verache Candle",
                 "This candle stops mobs spawning",
                 "in a radius around it.",
@@ -508,7 +508,7 @@ public class Gadgets {
             ThemeType.themedSlimefunItemStack(
                 "CRY_MOB_CANDLE_3",
                 new ItemStack(Material.WHITE_CANDLE),
-                ThemeType.MECHANISM,
+                ThemeType.GADGET,
                 "Scintillating Verache Candle",
                 "This candle stops mobs spawning",
                 "in a radius around it.",
@@ -529,7 +529,7 @@ public class Gadgets {
             ThemeType.themedSlimefunItemStack(
                 "CRY_MYSTERIOUS_POTTED_PLANT",
                 new ItemStack(Material.FLOWER_POT),
-                ThemeType.MECHANISM,
+                ThemeType.GADGET,
                 "Mysterious Potted Plant",
                 "Just a pinch of magic can make",
                 "wonderful things happen..."
@@ -562,7 +562,7 @@ public class Gadgets {
             ThemeType.themedSlimefunItemStack(
                 "CRY_MYSTERIOUS_PLANT",
                 new ItemStack(Material.OXEYE_DAISY),
-                ThemeType.MECHANISM,
+                ThemeType.GADGET,
                 "Mysterious Plant",
                 "Removing it from that pot took work."
             ),
@@ -584,7 +584,7 @@ public class Gadgets {
             ThemeType.themedSlimefunItemStack(
                 "CRY_CROP_GLASS_1",
                 new ItemStack(Material.GLASS),
-                ThemeType.MECHANISM,
+                ThemeType.GADGET,
                 "Greenhouse Glass",
                 "Crops under this glass will grow faster.",
                 "",
@@ -611,7 +611,7 @@ public class Gadgets {
             ThemeType.themedSlimefunItemStack(
                 "CRY_CROP_GLASS_2",
                 new ItemStack(Material.YELLOW_STAINED_GLASS),
-                ThemeType.MECHANISM,
+                ThemeType.GADGET,
                 "Focused Greenhouse Glass",
                 "Crops under this glass will grow faster.",
                 "",

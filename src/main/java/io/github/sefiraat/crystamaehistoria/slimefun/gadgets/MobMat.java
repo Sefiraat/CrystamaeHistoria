@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets;
+package io.github.sefiraat.crystamaehistoria.slimefun.gadgets;
 
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.TickingBlockNoGui;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;

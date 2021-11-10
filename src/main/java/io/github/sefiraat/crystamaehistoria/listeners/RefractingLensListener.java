@@ -2,7 +2,7 @@ package io.github.sefiraat.crystamaehistoria.listeners;
 
 import io.github.sefiraat.crystamaehistoria.magic.DisplayItem;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.gadgets.ExpCollector;
+import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.ExpCollector;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasin;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.RefactingLens;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;

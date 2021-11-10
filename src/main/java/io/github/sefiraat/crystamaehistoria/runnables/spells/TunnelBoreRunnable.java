@@ -14,6 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Removed due to issues. Will be replaced with a raycast version of the same spell.
+ * Given the powerful nature of the spell, I want this to await tier 2 spells first.
+ */
 public class TunnelBoreRunnable extends BukkitRunnable {
 
     private final LivingEntity bore;
