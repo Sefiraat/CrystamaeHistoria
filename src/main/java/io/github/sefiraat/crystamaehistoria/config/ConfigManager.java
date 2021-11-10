@@ -3,6 +3,7 @@ package io.github.sefiraat.crystamaehistoria.config;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
+import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import lombok.Getter;
 import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -56,7 +57,7 @@ public class ConfigManager {
         return spells.getBoolean(spell.getId());
     }
 
-    public void setupConfigs() {
+    public void loadConfig() {
         // Spells
         for (SpellType spellType : SpellType.getCachedValues()) {
             Spell spell = spellType.getSpell();
@@ -68,6 +69,11 @@ public class ConfigManager {
                 } catch (IOException exception) {
                     exception.printStackTrace();
                 }
+            }
+            boolean enabled = spells.getBoolean(spell.getId());
+            spell.setEnabled(enabled);
+            if (enabled) {
+                LiquefactionBasinCache.addSpellRecipe(spellType, spell.getRecipe());
             }
         }
     }

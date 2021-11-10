@@ -155,18 +155,12 @@ public enum SpellType {
     @Getter
     protected static final SpellType[] cachedValues = values();
     @Getter
-    protected static final SpellType[] enabledSpells = Arrays.stream(values())
-        .filter(spellType -> spellType.getSpell().isEnabled())
-        .toArray(SpellType[]::new);
+    protected static SpellType[] enabledSpells;
     @Getter
     private final Spell spell;
 
     @ParametersAreNonnullByDefault
     SpellType(Spell spell) {
-        spell.setEnabled(CrystamaeHistoria.getConfigManager().spellEnabled(spell));
-        if (spell.isEnabled()) {
-            LiquefactionBasinCache.addSpellRecipe(this, spell.getRecipe());
-        }
         this.spell = spell;
     }
 
@@ -194,6 +188,12 @@ public enum SpellType {
     @ParametersAreNonnullByDefault
     public void cast(CastInformation castInformation) {
         this.spell.castSpell(castInformation);
+    }
+
+    public static void setupEnabledSpells() {
+        enabledSpells = Arrays.stream(values())
+            .filter(spellType -> spellType.getSpell().isEnabled())
+            .toArray(SpellType[]::new);
     }
 
 }

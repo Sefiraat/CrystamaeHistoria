@@ -146,8 +146,11 @@ public class CrystamaeHistoria extends AbstractAddon {
         this.spellMemory = new SpellMemory();
         this.effectManager = new EffectManager(this);
 
+        configManager.loadConfig();
+
+        SpellType.setupEnabledSpells();
+
         setupSlimefun();
-        configManager.setupConfigs();
 
         setupBstats();
 
