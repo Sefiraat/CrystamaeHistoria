@@ -198,24 +198,30 @@ public class StoriesManager {
         for (Map<String, Object> map : blockList) {
             final Map<String, Object> storyMap = (Map<String, Object>) map.get("story");
             final String name = (String) storyMap.get("name");
-            if (name != null) {
-                final Story story = new Story(storyMap, StoryRarity.UNIQUE);
+            final String materialString = (String) map.get("material");
+            final Material material = Material.getMaterial(materialString);
 
-                storyMapUnique.put(story.getId(), story);
-
-                final int tier = (int) map.get("tier");
-                final Material material = Material.getMaterial((String) map.get("material"));
-                final List<StoryType> types = ((List<String>) map.get("elements")).stream()
-                    .map(StoryType::getByName)
-                    .collect(Collectors.toList());
-                final BlockDefinition blockDefinition = new BlockDefinition(
-                    material,
-                    blockTierMap.get(tier),
-                    types,
-                    story
+            if (name == null || material == null) {
+                String reason = name == null ? "No story name" : "Material doesn't exist";
+                CrystamaeHistoria.getInstance().getLogger().info(
+                    MessageFormat.format("Unable to load story : {0} : Reason : {1}", materialString, reason)
                 );
-                blockDefinitionMap.put(material, blockDefinition);
+                continue;
             }
+
+            final Story story = new Story(storyMap, StoryRarity.UNIQUE);
+            final int tier = (int) map.get("tier");
+            final List<StoryType> types = ((List<String>) map.get("elements")).stream()
+                .map(StoryType::getByName)
+                .collect(Collectors.toList());
+            final BlockDefinition blockDefinition = new BlockDefinition(
+                material,
+                blockTierMap.get(tier),
+                types,
+                story
+            );
+            blockDefinitionMap.put(material, blockDefinition);
+            storyMapUnique.put(story.getId(), story);
         }
         CrystamaeHistoria.getInstance().getLogger().info(
             MessageFormat.format("Loaded: {0} unique (block) stories.", blockDefinitionMap.size())

@@ -336,56 +336,68 @@ blocks:
       shards: [ 0,0,0,1,1,0,1,0,0 ]
 
   - material: ANVIL
-    tier: 1
+    tier: 3
     elements:
-      -
+      - MECHANICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Hammer Time!
+      type: MECHANICAL
       lore:
-        -
-      shards:
+        - The essence of every tool that
+        - has touched the anvil imparts
+        - a part of itself to the anvil.
+      shards: [ 0,2,0,0,1,0,0,0,0 ]
 
   - material: APPLE
     tier: 1
     elements:
-      -
+      - ALCHEMICAL
+      - ANIMAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Just one a day
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - Keeps the doctor away!
+      shards: [ 0,0,1,0,1,1,1,0,0 ]
 
   - material: ARMOR_STAND
-    tier: 1
+    tier: 2
     elements:
-      -
+      - MECHANICAL
+      - VOID
     story:
-      name:
-      type:
+      name: Boiling Resentment
+      type: VOID
       lore:
-        -
-      shards:
+        - Not able to move, used, manipulated and
+        - forced to have blocks in it's head. The
+        - resentment builds until it can take no
+        - more.
+      shards: [ 0,1,0,0,1,0,0,1,0 ]
 
   - material: ARROW
     tier: 1
     elements:
-      -
+      - MECHANICAL
+      - VOID
     story:
-      name:
-      type:
+      name: Piercing Through
+      type: VOID
       lore:
-        -
-      shards:
+        - Memories of flying through air give
+        - this spirit solice. Ripping through
+        - flesh is just a bonus.
+      shards: [ 0,1,0,0,0,0,0,1,0 ]
 
   - material: AXOLOTL_BUCKET
-    tier: 1
+    tier: 2
     elements:
       - HUMAN
       - ANIMAL
     story:
-      name: Small but Cosy!
+      name: Small but Cosy! (Axolotl)
       type: ANIMAL
       lore:
         - Even though most organisms hate
@@ -395,15 +407,18 @@ blocks:
       author: Seggan
 
   - material: AZALEA
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Blooming Potential
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - Such a small point of force with the
+        - potential to become comthing mighty
+        - and strong.
+      shards: [ 1,0,1,0,0,0,1,0,0 ]
 
   - material: AZALEA_LEAVES
     tier: 1
@@ -433,59 +448,55 @@ blocks:
       shards: [ 1,0,0,0,0,1,0,0,0 ]
 
   - material: BAKED_POTATO
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
+      - VOID
     story:
-      name:
-      type:
+      name: Hot Potato, Hot Potato
+      type: VOID
       lore:
-        -
-      shards:
+        - Cold Spaghetti, Cold Spaghetti
+      shards: [ 0,0,0,0,1,1,0,1,0 ]
 
   - material: BAMBOO
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Jeff's Hunger
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Jeff's go-to snack, abundant and rich
+      shards: [ 1,1,0,1,0,1,0,0,0 ]
 
   - material: BARREL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: No Fish
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
-
-  - material: BARRIER
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
+        - Used through time to store fish and
+        - no cared enough to notice, it cannnot
+        - stand the smell!
+      shards: [ 0,1,0,0,1,0,0,0,2 ]
 
   - material: BASALT
     tier: 1
     elements:
-      -
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Chill Out!
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - Once a volcanic force, this block
+        - had to undergo an extreme cooling
+        - that calmed both mind and 'body'
+      shards: [ 1,0,0,1,0,0,0,0,1 ]
 
   - material: BEACON
     tier: 1
@@ -522,79 +533,97 @@ blocks:
   - material: BEEF
     tier: 1
     elements:
-      -
+      - ANIMAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Raw (Beef)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Packed with unused potential.
+        - Longs for nothing more than a
+        - nice fire
+      shards: [ 0,0,0,0,1,1,0,0,1 ]
 
   - material: BEEHIVE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Home sweet home
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - The magical resonance from this
+        - block is bolstered with the life
+        - kept inside.
+      shards: [ 0,0,1,0,0,2,0,0,0 ]
 
   - material: BEETROOT
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ANIMAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Farmers Delight (Beetroot)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With every sprout, leaf and root this
+        - item gives joy and nourishment to all
+      shards: [ 0,0,0,0,1,1,1,0,0 ]
 
   - material: BEETROOT_SEEDS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Untapped Potential (Beetroot)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Busting with innate magic drawn in
+        - due to the raw and untapped potential
+        - of this seed.
+      shards: [ 0,0,0,0,1,1,1,0,0 ]
 
   - material: BEETROOT_SOUP
     tier: 1
     elements:
-      -
+      - HUMAN
     story:
-      name:
-      type:
+      name: Hearty (Beetroot)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Warming to both body and soul.
+        - Infers it's latent crysta to those
+        - drinking it.
+      shards: [ 0,0,0,0,2,1,0,0,0 ]
 
   - material: BEE_NEST
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Home sweet home
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - The magical resonance from this
+        - block is bolstered with the life
+        - kept inside.
+      shards: [ 0,0,1,0,1,2,0,0,0 ]
 
   - material: BELL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
     story:
-      name:
-      type:
+      name: Call to Arms
+      type: HUMAN
       lore:
-        -
-      shards:
+        - The bell eagerly awaits the moment
+        - when it is finally struck so it can
+        - shout it's call to all around.
+      shards: [ 0,1,0,1,1,0,0,0,0 ]
 
   - material: BIG_DRIPLEAF
     tier: 1
@@ -1674,13 +1703,16 @@ blocks:
   - material: CARROT
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ANIMAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Farmers Delight (Beetroot)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With every sprout, leaf and root this
+        - item gives joy and nourishment to all
+      shards: [ 0,0,0,0,1,1,1,0,0 ]
 
   - material: CARROT_ON_A_STICK
     tier: 1
@@ -1828,13 +1860,16 @@ blocks:
   - material: CHICKEN
     tier: 1
     elements:
-      -
+      - ANIMAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Raw (Chicken)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Packed with unused potential.
+        - Longs for nothing more than a
+        - nice fire
+      shards: [ 0,0,0,0,1,1,0,0,1 ]
 
   - material: CHIPPED_ANVIL
     tier: 1
@@ -2017,15 +2052,18 @@ blocks:
       shards:
 
   - material: COAL_ORE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: A Humble Soul
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - It's hard to be humble when
+        - you are as popular as coal
+      shards: [ 1,0,1,0,0,0,0,1,1 ]
+      author: R.I.P
 
   - material: COARSE_DIRT
     tier: 1
@@ -2156,35 +2194,45 @@ blocks:
   - material: COCOA_BEANS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ANIMAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Farmers Delight (Cocoa)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With every sprout, leaf and root this
+        - item gives joy and nourishment to all
+      shards: [ 0,0,0,0,1,1,1,0,0 ]
 
   - material: COD
     tier: 1
     elements:
-      -
+      - ANIMAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Raw (Cod)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Packed with unused potential.
+        - Longs for nothing more than a
+        - nice fire
+      shards: [ 0,0,0,0,1,1,0,0,1 ]
 
   - material: COD_BUCKET
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Small but Cosy! (Cod)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Even though most organisms hate
+        - being locked up, the cod
+        - loves it.. for now
+      shards: [ 1,0,0,0,1,1,0,0,0 ]
+      author: Seggan
 
   - material: COMMAND_BLOCK
     tier: 1
@@ -2255,79 +2303,93 @@ blocks:
   - material: COOKED_BEEF
     tier: 1
     elements:
-      -
+      - ANIMAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Protein (Beef)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A core staple to any minecraft diet.
+        - Finds happiness in providing sustenance
+      shards: [ 0,0,0,0,1,2,0,0,0 ]
 
   - material: COOKED_CHICKEN
     tier: 1
     elements:
-      -
+      - ANIMAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Protein (Chicken)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A core staple to any minecraft diet.
+        - Finds happiness in providing sustenance
+      shards: [ 0,0,0,0,1,2,0,0,0 ]
 
   - material: COOKED_COD
     tier: 1
     elements:
-      -
+      - ANIMAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Protein (Cod)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A core staple to any minecraft diet.
+        - Finds happiness in providing sustenance
+      shards: [ 0,0,0,0,1,2,0,0,0 ]
 
   - material: COOKED_MUTTON
     tier: 1
     elements:
-      -
+      - ANIMAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Protein (Mutton)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A core staple to any minecraft diet.
+        - Finds happiness in providing sustenance
+      shards: [ 0,0,0,0,1,2,0,0,0 ]
 
   - material: COOKED_PORKCHOP
     tier: 1
     elements:
-      -
+      - ANIMAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Protein (Pork)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A core staple to any minecraft diet.
+        - Finds happiness in providing sustenance
+      shards: [ 0,0,0,0,1,2,0,0,0 ]
 
   - material: COOKED_RABBIT
     tier: 1
     elements:
-      -
+      - ANIMAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Protein (Rabbit)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A core staple to any minecraft diet.
+        - Finds happiness in providing sustenance
+      shards: [ 0,0,0,0,1,2,0,0,0 ]
 
   - material: COOKED_SALMON
     tier: 1
     elements:
-      -
+      - ANIMAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Protein (Salmon)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - A core staple to any minecraft diet.
+        - Finds happiness in providing sustenance
+      shards: [ 0,0,0,0,1,2,0,0,0 ]
 
   - material: COOKIE
     tier: 1
@@ -3417,15 +3479,18 @@ blocks:
       shards:
 
   - material: DEEPSLATE_COAL_ORE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: A Humble Soul (Deepslate)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - It's hard to be humble when
+        - you are as popular as coal
+      shards: [ 1,0,1,0,0,0,0,1,1 ]
+      author: R.I.P
 
   - material: DEEPSLATE_COPPER_ORE
     tier: 1
@@ -3439,15 +3504,20 @@ blocks:
       shards:
 
   - material: DEEPSLATE_DIAMOND_ORE
-    tier: 1
+    tier: 3
     elements:
-      -
+      - ELEMENTAL
+      - CELESTIAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Attractive Proposition
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - A block that cant help but to draw
+        - others to it. It's something forbidden,
+        - a challenge and desired.
+      shards: [ 2,0,0,1,0,0,1,0,0 ]
+      author: R.I.P
 
   - material: DEEPSLATE_EMERALD_ORE
     tier: 1
@@ -3659,15 +3729,20 @@ blocks:
       shards:
 
   - material: DIAMOND_ORE
-    tier: 1
+    tier: 3
     elements:
-      -
+      - ELEMENTAL
+      - CELESTIAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: A Supreme Glow
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - With hard work, it can be yours
+        - but not yet. Hold the potential for
+        - a glow brighter than the glow squid
+      shards: [ 2,0,0,1,0,0,1,0,0 ]
+      author: R.I.P
 
   - material: DIAMOND_PICKAXE
     tier: 1
@@ -3974,15 +4049,20 @@ blocks:
       author: OOOOMAGAAA
 
   - material: ENDER_CHEST
-    tier: 1
+    tier: 4
     elements:
-      -
+      - VOID
+      - MECHNICAL
     story:
-      name:
-      type:
+      name: A Not-Endless Void
+      type: VOID
       lore:
-        -
-      shards:
+        - This chest seems to hold the power
+        - of teleportation if when two are
+        - placed. It feels like a void but
+        - it always gets full
+      shards: [ 0,1,0,0,0,0,0,2,1 ]
+      author: supertechxter
 
   - material: ENDER_EYE
     tier: 1
@@ -6686,24 +6766,30 @@ blocks:
   - material: MELON
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ANIMAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Farmers Delight (Melon)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With every sprout, leaf and root this
+        - item gives joy and nourishment to all
+      shards: [ 0,0,0,0,1,1,1,0,0 ]
 
   - material: MELON_SEEDS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Untapped Potential (Melon)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Busting with innate magic drawn in
+        - due to the raw and untapped potential
+        - of this seed.
+      shards: [ 0,0,0,0,1,1,1,0,0 ]
 
   - material: MELON_SLICE
     tier: 1
@@ -6889,13 +6975,16 @@ blocks:
   - material: MUSHROOM_STEW
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Hearty (Mushroom)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Warming to both body and soul.
+        - Infers it's latent crysta to those
+        - drinking it.
+      shards: [ 0,0,0,0,2,1,0,0,0 ]
 
   - material: MUSIC_DISC_11
     tier: 1
@@ -7043,13 +7132,16 @@ blocks:
   - material: MUTTON
     tier: 1
     elements:
-      -
+      - ANIMAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Raw (Mutton)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Packed with unused potential.
+        - Longs for nothing more than a
+        - nice fire
+      shards: [ 0,0,0,0,1,1,0,0,1 ]
 
   - material: MYCELIUM
     tier: 1
@@ -7374,15 +7466,18 @@ blocks:
       shards:
 
   - material: NOTE_BLOCK
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Without
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - A life without music would
+        - hardly be a life at all
+      shards: [ 0,1,0,0,1,0,0,0,1 ]
 
   - material: OAK_BOAT
     tier: 1
@@ -8127,70 +8222,87 @@ blocks:
       shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: POLISHED_BASALT
-    tier: 1
+    tier: 2
     elements:
-      -
+      - MECHANICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Time to Gleam (Basalt)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With a bit of love, any block can
+        - be made beautiful. Even those block
+        - left behind are drawn to the fore.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: POLISHED_BLACKSTONE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - MECHANICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Time to Gleam (Blackstone)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With a bit of love, any block can
+        - be made beautiful. Even those block
+        - left behind are drawn to the fore.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: POLISHED_BLACKSTONE_BRICKS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - MECHANICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Time to Gleam (Blackstone Bricks)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With a bit of love, any block can
+        - be made beautiful. Even those block
+        - left behind are drawn to the fore.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: POLISHED_BLACKSTONE_BRICK_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Polished Blackstone Brick)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: POLISHED_BLACKSTONE_BRICK_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Polished Blackstone Brick)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: POLISHED_BLACKSTONE_BRICK_WALL
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Beating down the walls (Polished Blackstone Brick)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Protecting for years working to keep
+        - those inside save and sound.
+      shards: [ 0,0,0,1,1,0,1,0,0 ]
 
   - material: POLISHED_BLACKSTONE_BUTTON
     tier: 1
@@ -8207,13 +8319,15 @@ blocks:
   - material: POLISHED_BLACKSTONE_PRESSURE_PLATE
     tier: 1
     elements:
-      -
+      - MECHANICAL
+      - VOID
     story:
-      name:
-      type:
+      name: Under Pressure (Polished Blackstone)
+      type: VOID
       lore:
-        -
-      shards:
+        - Being walked all over will drop any
+        - spirit.
+      shards: [ 0,2,0,0,1,0,0,1,0 ]
 
   - material: POLISHED_BLACKSTONE_SLAB
     tier: 1
@@ -8407,25 +8521,30 @@ blocks:
   - material: PORKCHOP
     tier: 1
     elements:
-      -
+      - ANIMAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Raw (Pork)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Packed with unused potential.
+        - Longs for nothing more than a
+        - nice fire
+      shards: [ 0,0,0,0,1,1,0,0,1 ]
 
   - material: POTATO
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ANIMAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Farmers Delight (Potato)
+      type: HUMAN
       lore:
-        -
-      shards:
-
+        - With every sprout, leaf and root this
+        - item gives joy and nourishment to all
+      shards: [ 0,0,0,0,1,1,1,0,0 ]
   - material: POTION
     tier: 1
     elements:
@@ -8570,26 +8689,33 @@ blocks:
       shards:
 
   - material: PUFFERFISH_BUCKET
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Small but Cosy! (Pufferfish)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Even though most organisms hate
+        - being locked up, the pufferfish
+        - loves it.. for now
+      shards: [ 1,0,0,0,1,1,0,0,0 ]
+      author: Seggan
 
   - material: PUMPKIN
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ANIMAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Farmers Delight (Pumpkin)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With every sprout, leaf and root this
+        - item gives joy and nourishment to all
+      shards: [ 0,0,0,0,1,1,1,0,0 ]
 
   - material: PUMPKIN_PIE
     tier: 1
@@ -8605,13 +8731,16 @@ blocks:
   - material: PUMPKIN_SEEDS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Untapped Potential (Pumpkin)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Busting with innate magic drawn in
+        - due to the raw and untapped potential
+        - of this seed.
+      shards: [ 0,0,0,0,1,1,1,0,0 ]
 
   - material: PURPLE_BANNER
     tier: 1
@@ -8866,24 +8995,31 @@ blocks:
   - material: RABBIT
     tier: 1
     elements:
-      -
+      - ANIMAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Raw (Rabbit)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Packed with unused potential.
+        - Longs for nothing more than a
+        - nice fire
+      shards: [ 0,0,0,0,1,1,0,0,1 ]
 
   - material: RABBIT_FOOT
-    tier: 1
+    tier: 2
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Feeling Lucky
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - It's unknown how or why, but a
+        - rabbit's foot draws in nearby
+        - crystamae to form literal luck for
+        - the holder
+      shards: [ 0,0,0,0,0,1,2,0,1 ]
 
   - material: RABBIT_HIDE
     tier: 1
@@ -8899,13 +9035,16 @@ blocks:
   - material: RABBIT_STEW
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Hearty (Rabbit)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Warming to both body and soul.
+        - Infers it's latent crysta to those
+        - drinking it.
+      shards: [ 0,0,0,0,2,1,0,0,0 ]
 
   - material: RAIL
     tier: 1
@@ -9410,24 +9549,30 @@ blocks:
   - material: SALMON
     tier: 1
     elements:
-      -
+      - ANIMAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Raw (Salmon)
+      type: ANIMAL
       lore:
-        -
-      shards:
-
+        - Packed with unused potential.
+        - Longs for nothing more than a
+        - nice fire
+      shards: [ 0,0,0,0,1,1,0,0,1 ]
   - material: SALMON_BUCKET
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Small but Cosy! (Salmon)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Even though most organisms hate
+        - being locked up, the salmon
+        - loves it.. for now
+      shards: [ 1,0,0,0,1,1,0,0,0 ]
+      author: Seggan
 
   - material: SAND
     tier: 1
@@ -10677,26 +10822,30 @@ blocks:
       shards: [ 1,0,0,0,0,1,0,0,0 ]
 
   - material: SUSPICIOUS_STEW
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
     story:
-      name:
-      type:
+      name: Not-so-Hearty
+      type: HUMAN
       lore:
-        -
-      shards:
+        - An irratic spirit that lets out a
+        - deluge of magics when consumed.
+      shards: [ 0,0,0,0,2,1,0,0,0 ]
 
   - material: SWEET_BERRIES
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ANIMAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Farmers Delight (Sweet Berries)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With every sprout, leaf and root this
+        - item gives joy and nourishment to all
+      shards: [ 0,0,0,0,1,1,1,0,0 ]
 
   - material: TALL_GRASS
     tier: 1
@@ -10845,16 +10994,20 @@ blocks:
         -
       shards:
 
-  - material: TROPICAL_FISH_BUCKET
-    tier: 1
+  - material: COD_BUCKET
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Small but Cosy! (Tropical Fish)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Even though most organisms hate
+        - being locked up, the tropical fish
+        - loves it.. for now
+      shards: [ 1,0,0,0,1,1,0,0,0 ]
+      author: Seggan
 
   - material: TUBE_CORAL
     tier: 1
@@ -11417,24 +11570,30 @@ blocks:
   - material: WHEAT
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ANIMAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Farmers Delight (Wheat)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - With every sprout, leaf and root this
+        - item gives joy and nourishment to all
+      shards: [ 0,0,0,0,1,1,1,0,0 ]
 
   - material: WHEAT_SEEDS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Untapped Potential (Wheat)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Busting with innate magic drawn in
+        - due to the raw and untapped potential
+        - of this seed.
+      shards: [ 0,0,0,0,1,1,1,0,0 ]
 
   - material: WHITE_BANNER
     tier: 1
