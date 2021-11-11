@@ -14,7 +14,6 @@ import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -67,13 +66,13 @@ public class Vacuum extends Spell {
         };
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public Material getMaterial() {
         return Material.FISHING_ROD;
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public RecipeSpell getRecipe() {
         return new RecipeSpell(

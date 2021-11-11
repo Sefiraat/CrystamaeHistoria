@@ -12,7 +12,6 @@ import org.bukkit.Particle;
 import org.bukkit.Tag;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -77,7 +76,7 @@ public class HarvestMoon extends Spell {
         return Material.WHEAT;
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public RecipeSpell getRecipe() {
         return new RecipeSpell(

@@ -13,10 +13,9 @@ import org.bukkit.block.Block;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.List;
 
 public abstract class TickingBlockNoGui extends SlimefunItem {
@@ -59,7 +58,7 @@ public abstract class TickingBlockNoGui extends SlimefunItem {
             },
             new BlockPlaceHandler(false) {
                 @Override
-                public void onPlayerPlace(@NotNull BlockPlaceEvent event) {
+                public void onPlayerPlace(@Nonnull BlockPlaceEvent event) {
                     onPlace(event);
                 }
             },

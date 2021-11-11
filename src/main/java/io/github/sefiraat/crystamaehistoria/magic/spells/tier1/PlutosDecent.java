@@ -13,7 +13,6 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import java.util.ArrayList;
@@ -131,7 +130,7 @@ public class PlutosDecent extends Spell {
         return Material.COBBLED_DEEPSLATE;
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public RecipeSpell getRecipe() {
         return new RecipeSpell(

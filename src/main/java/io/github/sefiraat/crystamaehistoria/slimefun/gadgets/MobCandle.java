@@ -19,8 +19,8 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.BoundingBox;
-import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
 import java.util.List;
@@ -43,7 +43,7 @@ public class MobCandle extends TickingBlockNoGui {
     }
 
     @Override
-    protected void onFirstTick(@NotNull Block block, @NotNull SlimefunItem slimefunItem, @NotNull Config config) {
+    protected void onFirstTick(@Nonnull Block block, @Nonnull SlimefunItem slimefunItem, @Nonnull Config config) {
         Long expiry = Long.valueOf(BlockStorage.getLocationInfo(block.getLocation(), "EXPIRY"));
         expiryMap.put(block.getLocation(), expiry);
         Candle candle = (Candle) block.getBlockData();
@@ -57,7 +57,7 @@ public class MobCandle extends TickingBlockNoGui {
     }
 
     @Override
-    protected void onTick(@NotNull Block block, @NotNull SlimefunItem slimefunItem, @NotNull Config config) {
+    protected void onTick(@Nonnull Block block, @Nonnull SlimefunItem slimefunItem, @Nonnull Config config) {
         Location location = block.getLocation();
         BoundingBox boundingBox = new BoundingBox(
             location.getX() - radius,
@@ -82,14 +82,14 @@ public class MobCandle extends TickingBlockNoGui {
     }
 
     @Override
-    protected void onPlace(@NotNull BlockPlaceEvent event) {
+    protected void onPlace(@Nonnull BlockPlaceEvent event) {
         Long expiry = System.currentTimeMillis() + (duration * 1000L);
         BlockStorage.addBlockInfo(event.getBlock(), "EXPIRY", String.valueOf(expiry));
         expiryMap.put(event.getBlock().getLocation(), expiry);
     }
 
     @Override
-    protected void onBreak(@NotNull BlockBreakEvent blockBreakEvent, @NotNull ItemStack itemStack, @NotNull List<ItemStack> list) {
+    protected void onBreak(@Nonnull BlockBreakEvent blockBreakEvent, @Nonnull ItemStack itemStack, @Nonnull List<ItemStack> list) {
         BlockStorage.clearBlockInfo(blockBreakEvent.getBlock());
     }
 }

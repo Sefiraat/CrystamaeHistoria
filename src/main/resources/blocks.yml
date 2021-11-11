@@ -297,35 +297,43 @@ blocks:
   - material: ANDESITE_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Andesite)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: ANDESITE_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Andesite)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: ANDESITE_WALL
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Beating down the walls (Andesite)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Protecting for years working to keep
+        - those inside save and sound.
+      shards: [ 0,0,0,1,1,0,1,0,0 ]
 
   - material: ANVIL
     tier: 1
@@ -813,35 +821,43 @@ blocks:
   - material: BLACKSTONE_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Blackstone)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: BLACKSTONE_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Blackstone)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: BLACKSTONE_WALL
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Beating down the walls (Blackstone)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Protecting for years working to keep
+        - those inside save and sound.
+      shards: [ 0,0,0,1,1,0,1,0,0 ]
 
   - material: BLACK_BANNER
     tier: 1
@@ -1338,35 +1354,43 @@ blocks:
   - material: BRICK_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Brick)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: BRICK_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Brick)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: BRICK_WALL
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Beating down the walls (Brick)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Protecting for years working to keep
+        - those inside save and sound.
+      shards: [ 0,0,0,1,1,0,1,0,0 ]
 
   - material: BROWN_BANNER
     tier: 1
@@ -2028,35 +2052,43 @@ blocks:
   - material: COBBLED_DEEPSLATE_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Cobbled Deepslate)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: COBBLED_DEEPSLATE_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Cobbled Deepslate)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: COBBLED_DEEPSLATE_WALL
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Beating down the walls (Cobbled Deepslate)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Protecting for years working to keep
+        - those inside save and sound.
+      shards: [ 0,0,0,1,1,0,1,0,0 ]
 
   - material: COBBLESTONE
     tier: 1
@@ -2072,35 +2104,43 @@ blocks:
   - material: COBBLESTONE_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Cobblestone)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: COBBLESTONE_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Andesite)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: COBBLESTONE_WALL
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Beating down the walls (Cobblestone)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Protecting for years working to keep
+        - those inside save and sound.
+      shards: [ 0,0,0,1,1,0,1,0,0 ]
 
   - material: COBWEB
     tier: 1
@@ -3677,35 +3717,43 @@ blocks:
   - material: DIORITE_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Diorite)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: DIORITE_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Diorite)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: DIORITE_WALL
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Beating down the walls (Diorite)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Protecting for years working to keep
+        - those inside save and sound.
+      shards: [ 0,0,0,1,1,0,1,0,0 ]
 
   - material: DIRT
     tier: 1
@@ -4679,35 +4727,43 @@ blocks:
   - material: GRANITE_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Granite)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: GRANITE_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Granite)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: GRANITE_WALL
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Beating down the walls (Granite)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Protecting for years working to keep
+        - those inside save and sound.
+      shards: [ 0,0,0,1,1,0,1,0,0 ]
 
   - material: GRASS
     tier: 1
@@ -6707,35 +6763,43 @@ blocks:
   - material: MOSSY_COBBLESTONE_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Mossy Cobblestone)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: MOSSY_COBBLESTONE_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Mossy Cobblestone)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: MOSSY_COBBLESTONE_WALL
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Beating down the walls (Mossy Cobblestone)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Protecting for years working to keep
+        - those inside save and sound.
+      shards: [ 0,0,0,1,1,0,1,0,0 ]
 
   - material: MOSSY_STONE_BRICKS
     tier: 1
@@ -6751,35 +6815,43 @@ blocks:
   - material: MOSSY_STONE_BRICK_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Mossy Stone Brick)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: MOSSY_STONE_BRICK_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Mossy Stone Brick)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: MOSSY_STONE_BRICK_WALL
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Beating down the walls (Mossy Stone Brick)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Protecting for years working to keep
+        - those inside save and sound.
+      shards: [ 0,0,0,1,1,0,1,0,0 ]
 
   - material: MOSS_BLOCK
     tier: 1
@@ -7196,35 +7268,44 @@ blocks:
   - material: NETHER_BRICK_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
+      - VOID
     story:
-      name:
-      type:
+      name: Half Pint (Nether Brick)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,1,0 ]
 
   - material: NETHER_BRICK_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Nether Brick)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: NETHER_BRICK_WALL
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Beating down the walls (Nether Brick)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Protecting for years working to keep
+        - those inside save and sound.
+      shards: [ 0,0,0,1,1,0,1,0,0 ]
 
   - material: NETHER_GOLD_ORE
     tier: 1
@@ -7779,17 +7860,6 @@ blocks:
         - vicious of temprements.
       shards: [ 1,0,0,0,0,1,0,0,0 ]
 
-  - material: PETRIFIED_OAK_SLAB
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: PHANTOM_MEMBRANE
     tier: 1
     elements:
@@ -8031,24 +8101,30 @@ blocks:
   - material: POLISHED_ANDESITE_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Polished Andesite)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: POLISHED_ANDESITE_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Polished Andesite)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: POLISHED_BASALT
     tier: 1
@@ -8142,35 +8218,43 @@ blocks:
   - material: POLISHED_BLACKSTONE_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Polished Blackstone)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: POLISHED_BLACKSTONE_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Polished Blackstone)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: POLISHED_BLACKSTONE_WALL
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Beating down the walls (Polished Blackstone)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Protecting for years working to keep
+        - those inside save and sound.
+      shards: [ 0,0,0,1,1,0,1,0,0 ]
 
   - material: POLISHED_DEEPSLATE
     tier: 1
@@ -8231,24 +8315,30 @@ blocks:
   - material: POLISHED_DIORITE_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Polished Diorite)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: POLISHED_DIORITE_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Polished Diorite)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: POLISHED_GRANITE
     tier: 2
@@ -8265,24 +8355,30 @@ blocks:
   - material: POLISHED_GRANITE_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Polished Granite)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: POLISHED_GRANITE_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Polished Granite)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: POPPED_CHORUS_FRUIT
     tier: 1
@@ -9071,35 +9167,43 @@ blocks:
   - material: RED_NETHER_BRICK_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Red Nether Brick)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: RED_NETHER_BRICK_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Red Nether Brick)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: RED_NETHER_BRICK_WALL
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Beating down the walls (Red Nether Brick)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Protecting for years working to keep
+        - those inside save and sound.
+      shards: [ 0,0,0,1,1,0,1,0,0 ]
 
   - material: RED_SAND
     tier: 1
@@ -9126,35 +9230,43 @@ blocks:
   - material: RED_SANDSTONE_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Red Sandstone)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: RED_SANDSTONE_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Red Sandstone)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: RED_SANDSTONE_WALL
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Beating down the walls (Red Sandstone)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Protecting for years working to keep
+        - those inside save and sound.
+      shards: [ 0,0,0,1,1,0,1,0,0 ]
 
   - material: RED_STAINED_GLASS
     tier: 1
@@ -9342,35 +9454,43 @@ blocks:
   - material: SANDSTONE_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Sandstone)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: SANDSTONE_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Sandstone)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: SANDSTONE_WALL
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Beating down the walls (Sandstone)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Protecting for years working to keep
+        - those inside save and sound.
+      shards: [ 0,0,0,1,1,0,1,0,0 ]
 
   - material: SCAFFOLDING
     tier: 1
@@ -9628,24 +9748,30 @@ blocks:
   - material: SMOOTH_RED_SANDSTONE_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Smooth Red Sandstone)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: SMOOTH_RED_SANDSTONE_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Smooth Red Sandstone)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: SMOOTH_SANDSTONE
     tier: 1
@@ -9661,24 +9787,30 @@ blocks:
   - material: SMOOTH_SANDSTONE_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Smooth Sandstone)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: SMOOTH_SANDSTONE_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Smooth Sandstone)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: SMOOTH_STONE
     tier: 1
@@ -9694,13 +9826,16 @@ blocks:
   - material: SMOOTH_STONE_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Smooth Stone)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: SNOW
     tier: 1
@@ -10147,35 +10282,43 @@ blocks:
   - material: STONE_BRICK_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Stone Brick)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: STONE_BRICK_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Stone Brick)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: STONE_BRICK_WALL
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Beating down the walls (Stone Brick)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Protecting for years working to keep
+        - those inside save and sound.
+      shards: [ 0,0,0,1,1,0,1,0,0 ]
 
   - material: STONE_BUTTON
     tier: 1
@@ -10239,24 +10382,30 @@ blocks:
   - material: STONE_SLAB
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Half Pint (Stone)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Half as big, and twice-so unappreciated
+        - this little fellow protects you from
+        - mobs day in and day out.
+      shards: [ 1,1,0,0,1,0,0,0,0 ]
 
   - material: STONE_STAIRS
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Rising on up (Stone)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Every step is either an incline to
+        - future glory or a possible descent
+        - into further madness...
+      shards: [ 0,1,0,0,1,0,0,1,1 ]
 
   - material: STONE_SWORD
     tier: 1

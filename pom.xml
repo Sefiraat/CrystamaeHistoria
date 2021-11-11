@@ -120,12 +120,6 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.jetbrains</groupId>
-            <artifactId>annotations</artifactId>
-            <version>LATEST</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
             <groupId>io.github.mooy1</groupId>
             <artifactId>InfinityLib</artifactId>
             <version>LATEST</version>

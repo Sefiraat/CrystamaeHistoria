@@ -17,7 +17,6 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.Turtle;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -83,7 +82,7 @@ public class Oviparous extends Spell {
         return Material.EGG;
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public RecipeSpell getRecipe() {
         return new RecipeSpell(

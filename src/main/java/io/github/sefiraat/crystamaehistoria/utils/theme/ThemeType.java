@@ -35,6 +35,7 @@ public enum ThemeType {
     MACHINE(ChatColor.of("#3295a8"), "Machine"),
     MECHANISM(ChatColor.of("#3295a8"), "Mechanism"),
     GADGET(ChatColor.of("#8732a8"), "Gadget"),
+    GUIDE(ChatColor.of("#444444"), "Guide"),
     CHEST(ChatColor.of("#b89b1c"), "Chest"),
     DROP(ChatColor.of("#bf307f"), "Rare Drop"),
     BASE(ChatColor.of("#9e9e9e"), "Base Resource"),

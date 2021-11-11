@@ -22,8 +22,8 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.RayTraceResult;
-import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
 import java.util.List;
@@ -45,7 +45,7 @@ public class GreenHouseGlass extends TickingBlockNoGui {
     }
 
     @Override
-    protected void onTick(@NotNull Block block, @NotNull SlimefunItem slimefunItem, @NotNull Config config) {
+    protected void onTick(@Nonnull Block block, @Nonnull SlimefunItem slimefunItem, @Nonnull Config config) {
         if (!GeneralUtils.testChance(this.rate, 100) || TimePeriod.isLight(block.getWorld())) {
             return;
         }
@@ -84,7 +84,7 @@ public class GreenHouseGlass extends TickingBlockNoGui {
     }
 
     @Override
-    protected void onFirstTick(@NotNull Block block, @NotNull SlimefunItem slimefunItem, @NotNull Config config) {
+    protected void onFirstTick(@Nonnull Block block, @Nonnull SlimefunItem slimefunItem, @Nonnull Config config) {
         blockOwnerMap.put(
             block.getLocation(),
             UUID.fromString(BlockStorage.getLocationInfo(block.getLocation(), "CH_UUID"))
@@ -92,14 +92,14 @@ public class GreenHouseGlass extends TickingBlockNoGui {
     }
 
     @Override
-    protected void onPlace(@NotNull BlockPlaceEvent event) {
+    protected void onPlace(@Nonnull BlockPlaceEvent event) {
         final UUID uuid = event.getPlayer().getUniqueId();
         BlockStorage.addBlockInfo(event.getBlock(), "CH_UUID", uuid.toString());
         blockOwnerMap.put(event.getBlock().getLocation(), uuid);
     }
 
     @Override
-    protected void onBreak(@NotNull BlockBreakEvent blockBreakEvent, @NotNull ItemStack itemStack, @NotNull List<ItemStack> list) {
+    protected void onBreak(@Nonnull BlockBreakEvent blockBreakEvent, @Nonnull ItemStack itemStack, @Nonnull List<ItemStack> list) {
         // No on break
     }
 }

@@ -10,7 +10,6 @@ import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.util.Vector;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -72,7 +71,7 @@ public class StripMine extends Spell {
         return Material.MINECART;
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public RecipeSpell getRecipe() {
         return new RecipeSpell(

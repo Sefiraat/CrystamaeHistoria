@@ -4,13 +4,15 @@ import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import lombok.experimental.UtilityClass;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
+@UtilityClass
 public class DummyRealisationAltar {
 
     public static final SlimefunItemStack STACK = ThemeType.themedSlimefunItemStack(
-        "CRY_CHRONICLER_PANEL_DUMMY_CRYSTAL",
+        "CRY_REALISATION_ALTAR_DUMMY_CRYSTAL",
         new ItemStack(Material.CHISELED_DEEPSLATE),
         ThemeType.MECHANISM,
         "Realisation Altar",
@@ -20,10 +22,4 @@ public class DummyRealisationAltar {
         "produce crystals."
     );
     public static final RecipeType TYPE = new RecipeType(Keys.REALISATION_DUMMY_CRYSTAL, STACK);
-
-    private DummyRealisationAltar() {
-        throw new IllegalStateException("Utility class");
-    }
-
-
 }

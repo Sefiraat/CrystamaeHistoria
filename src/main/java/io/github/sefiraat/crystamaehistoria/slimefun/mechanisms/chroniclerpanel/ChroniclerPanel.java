@@ -14,8 +14,8 @@ import org.bukkit.block.Block;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +39,7 @@ public class ChroniclerPanel extends TickingMenuBlock {
         this.tier = tier;
         this.addItemHandler(new BlockPlaceHandler(false) {
             @Override
-            public void onPlayerPlace(@NotNull BlockPlaceEvent event) {
+            public void onPlayerPlace(@Nonnull BlockPlaceEvent event) {
                 final Location location = event.getBlockPlaced().getLocation();
                 final ChroniclerPanelCache cache = new ChroniclerPanelCache(BlockStorage.getInventory(location), tier);
                 cache.setActivePlayer(event.getPlayer());

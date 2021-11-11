@@ -7,7 +7,6 @@ import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasi
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -49,7 +48,7 @@ public class Launch extends Spell {
         return Material.BRAIN_CORAL;
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public RecipeSpell getRecipe() {
         return new RecipeSpell(

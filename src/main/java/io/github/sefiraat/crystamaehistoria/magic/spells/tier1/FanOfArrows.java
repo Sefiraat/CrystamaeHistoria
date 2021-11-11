@@ -11,7 +11,6 @@ import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -40,8 +39,10 @@ public class FanOfArrows extends Spell {
             int dz = (int) (sizeEnd * Math.sin(angle));
             Location spawn = middle.clone().add(sx, 0, sz);
             Location destination = middle.clone().add(dx, 5, dz);
-            MagicProjectile magicProjectile = SpellUtils.summonMagicProjectile(castInformation, EntityType.ARROW, spawn);
-            magicProjectile.setVelocity(destination, 1);
+            if (spawn.getBlock().isEmpty()) {
+                MagicProjectile magicProjectile = SpellUtils.summonMagicProjectile(castInformation, EntityType.ARROW, spawn);
+                magicProjectile.setVelocity(destination, 1);
+            }
         }
     }
 
@@ -71,7 +72,7 @@ public class FanOfArrows extends Spell {
         return Material.SPECTRAL_ARROW;
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public RecipeSpell getRecipe() {
         return new RecipeSpell(

@@ -23,8 +23,16 @@ public class Keys {
     public static final String PANEL_STAND_PREFIX = "CH_PANEL_";
 
     // Recipe Types
+    public static final NamespacedKey GUIDE_ONLY = newKey("guide");
+    public static final NamespacedKey GUIDE_MAKE_SPELL = newKey("guide_make_spell");
+    public static final NamespacedKey GUIDE_RECHARGE_SPELL = newKey("guide_recharge_spell");
+    public static final NamespacedKey GUIDE_STAVE_CONFIGURATOR = newKey("guide_stave");
+    public static final NamespacedKey GUIDE_LIQUEFACTION = newKey("guide_liquefaction");
+    public static final NamespacedKey GUIDE_REALISATION = newKey("guide_realisation");
+
     public static final NamespacedKey REALISATION_DUMMY_CRYSTAL = newKey("r_d_c");
-    public static final NamespacedKey LIQUEFACTION_DUMMY_CRYSTAL = newKey("r_d_c");
+    public static final NamespacedKey LIQUEFACTION_DUMMY_CRAFTING = newKey("l_d_c");
+    public static final NamespacedKey LIQUEFACTION_DUMMY_SPELL = newKey("l_d_s");
 
     // PDC
     // Items
