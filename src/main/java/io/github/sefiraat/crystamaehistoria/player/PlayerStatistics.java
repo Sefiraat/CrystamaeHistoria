@@ -1,14 +1,20 @@
-package io.github.sefiraat.crystamaehistoria.utils;
+package io.github.sefiraat.crystamaehistoria.player;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
+import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
+import org.bukkit.Material;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
+import javax.annotation.Nonnull;
 import java.text.MessageFormat;
+import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
-public class PlayerStatUtils {
+public class PlayerStatistics {
 
     public static void unlockSpell(Player player, SpellType spellType) {
         unlockSpell(player.getUniqueId(), spellType);
@@ -62,7 +68,11 @@ public class PlayerStatUtils {
     }
 
     public static boolean hasUnlockedUniqueStory(UUID player, BlockDefinition definition) {
-        String path = MessageFormat.format("{0}.{1}.{2}.Unlocked", player, StatType.STORY, definition.getMaterial());
+        return hasUnlockedUniqueStory(player, definition.getMaterial());
+    }
+
+    public static boolean hasUnlockedUniqueStory(UUID player, Material material) {
+        String path = MessageFormat.format("{0}.{1}.{2}.Unlocked", player, StatType.STORY, material);
         return CrystamaeHistoria.getConfigManager().getPlayerStats().getBoolean(path);
     }
 
@@ -84,6 +94,76 @@ public class PlayerStatUtils {
     public static int getChronicle(UUID player, BlockDefinition definition) {
         String path = MessageFormat.format("{0}.{1}.{2}.Times_Chronicled", player, StatType.STORY, definition.getMaterial());
         return CrystamaeHistoria.getConfigManager().getPlayerStats().getInt(path);
+    }
+
+    /**
+     * @noinspection unchecked
+     */
+    public static int getStoriesUnlocked(@Nonnull UUID uuid) {
+        final FileConfiguration blocks = CrystamaeHistoria.getConfigManager().getBlocks();
+        final List<Map<String, Object>> blockList = (List<Map<String, Object>>) blocks.getList("blocks");
+        int unlocked = 0;
+        for (Map<String, Object> map : blockList) {
+            final String materialString = (String) map.get("material");
+            final Material material = Material.getMaterial(materialString);
+            if (hasUnlockedUniqueStory(uuid, material)) unlocked++;
+        }
+        return unlocked;
+    }
+
+    /**
+     * @noinspection unchecked
+     */
+    public static StoryRank getStoryRank(@Nonnull UUID uuid) {
+        final FileConfiguration blocks = CrystamaeHistoria.getConfigManager().getBlocks();
+        final List<Map<String, Object>> blockList = (List<Map<String, Object>>) blocks.getList("blocks");
+        int total = blockList.size();
+        int unlocked = getStoriesUnlocked(uuid);
+        return StoryRank.getByPercent(((double) unlocked / total) * 100);
+    }
+
+    public static String getStoryRankString(@Nonnull UUID uuid) {
+        final FileConfiguration blocks = CrystamaeHistoria.getConfigManager().getBlocks();
+        final List<Map<String, Object>> blockList = (List<Map<String, Object>>) blocks.getList("blocks");
+        int total = blockList.size();
+        int unlocked = getStoriesUnlocked(uuid);
+        StoryRank storyRank = StoryRank.getByPercent(((double) unlocked / total) * 100);
+        return MessageFormat.format(
+            "{0}Chronicler Rank: {1}{2}{0} ({3}/{4})",
+            ThemeType.PASSIVE.getColor(),
+            storyRank.theme.getColor(),
+            storyRank.theme.getLoreLine(),
+            unlocked,
+            total
+        );
+    }
+
+    public static int getSpellsUnlocked(@Nonnull UUID uuid) {
+        int unlocked = 0;
+        for (SpellType spellType : SpellType.getEnabledSpells()) {
+            if (hasUnlockedSpell(uuid, spellType)) unlocked++;
+        }
+        return unlocked;
+    }
+
+    public static SpellRank getSpellRank(@Nonnull UUID uuid) {
+        int total = SpellType.getEnabledSpells().length;
+        int unlocked = getSpellsUnlocked(uuid);
+        return SpellRank.getByPercent(((double) unlocked / total) * 100);
+    }
+
+    public static String getSpellRankString(@Nonnull UUID uuid) {
+        int total = SpellType.getEnabledSpells().length;
+        int unlocked = getSpellsUnlocked(uuid);
+        SpellRank spellRank = SpellRank.getByPercent(((double) unlocked / total) * 100);
+        return MessageFormat.format(
+            "{0}Crystamae Rank: {1}{2}{0} ({3}/{4})",
+            ThemeType.PASSIVE.getColor(),
+            spellRank.theme.getColor(),
+            spellRank.theme.getLoreLine(),
+            unlocked,
+            total
+        );
     }
 
     enum StatType {

@@ -4,7 +4,7 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.CastResult;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
-import io.github.sefiraat.crystamaehistoria.utils.PlayerStatUtils;
+import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import lombok.Getter;
 import lombok.Setter;
@@ -80,7 +80,7 @@ public class InstancePlate {
         this.crysta -= crystaCost;
         final long cdSeconds = (long) (spell.getCooldownSeconds(castInformation) * 1000);
         this.cooldown = System.currentTimeMillis() + cdSeconds;
-        PlayerStatUtils.addUsage(castInformation.getCaster(), storedSpell);
+        PlayerStatistics.addUsage(castInformation.getCaster(), storedSpell);
         return CastResult.CAST_SUCCESS;
     }
 

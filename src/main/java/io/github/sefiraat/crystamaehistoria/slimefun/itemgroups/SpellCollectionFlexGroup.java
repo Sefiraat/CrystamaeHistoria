@@ -3,10 +3,10 @@ package io.github.sefiraat.crystamaehistoria.slimefun.itemgroups;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCore;
+import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import io.github.sefiraat.crystamaehistoria.utils.PlayerStatUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.GuiElements;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.FlexItemGroup;
@@ -114,7 +114,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
 
             if (i + 1 <= spellTypeSubList.size()) {
                 final SpellType spellType = spellTypeSubList.get(i);
-                final boolean researched = PlayerStatUtils.hasUnlockedSpell(p, spellType);
+                final boolean researched = PlayerStatistics.hasUnlockedSpell(p, spellType);
 
                 if (mode == SlimefunGuideMode.CHEAT_MODE || researched) {
                     menu.replaceExistingItem(slot, new ItemStack(spellType.getSpell().getThemedStack()));

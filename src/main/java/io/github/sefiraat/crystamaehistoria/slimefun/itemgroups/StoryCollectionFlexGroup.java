@@ -1,11 +1,11 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.itemgroups;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import io.github.sefiraat.crystamaehistoria.utils.PlayerStatUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.GuiElements;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.FlexItemGroup;
@@ -110,7 +110,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
 
             if (i + 1 <= blockDefinitionSubList.size()) {
                 final BlockDefinition definition = blockDefinitionSubList.get(i);
-                final boolean researched = PlayerStatUtils.hasUnlockedUniqueStory(p, definition);
+                final boolean researched = PlayerStatistics.hasUnlockedUniqueStory(p, definition);
 
                 if (mode == SlimefunGuideMode.CHEAT_MODE || researched) {
                     menu.replaceExistingItem(slot, GuiElements.getUniqueStoryIcon(definition.getMaterial()));

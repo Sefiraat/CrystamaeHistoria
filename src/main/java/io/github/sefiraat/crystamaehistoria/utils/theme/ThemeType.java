@@ -65,7 +65,23 @@ public enum ThemeType {
     TYPE_ANIMAL(ChatColor.of("#701ae8"), "Animal"),
     TYPE_CELESTIAL(ChatColor.of("#ffffff"), "Celestial"),
     TYPE_VOID(ChatColor.of("#222222"), "Void"),
-    TYPE_PHILOSOPHICAL(ChatColor.of("#4d4aa8"), "Philosophical");
+    TYPE_PHILOSOPHICAL(ChatColor.of("#4d4aa8"), "Philosophical"),
+    RANK_SPELL_APPRENTICE(ChatColor.of("#cdbfff"), "Apprentice"),
+    RANK_SPELL_MAGE(ChatColor.of("#b5a1ff"), "Mage"),
+    RANK_SPELL_WIZARD(ChatColor.of("#9d82ff"), "Wizard"),
+    RANK_SPELL_CONJURER(ChatColor.of("#8969ff"), "Conjurer"),
+    RANK_SPELL_SORCERER(ChatColor.of("#6f47ff"), "Sorcerer"),
+    RANK_SPELL_MAGI(ChatColor.of("#5729ff"), "Magi"),
+    RANK_SPELL_MASTER_MAGI(ChatColor.of("#3d08ff"), "Master Magi"),
+    RANK_SPELL_GRANDMASTER_MAGI(ChatColor.of("#6b08ff"), "Grandmaster Magi"),
+    RANK_STORY_PUPIL(ChatColor.of("#eeffa8"), "Pupil"),
+    RANK_STORY_STUDENT(ChatColor.of("#e7ff82"), "Student"),
+    RANK_STORY_RESEARCHER(ChatColor.of("#e0ff5e"), "Researcher"),
+    RANK_STORY_READER(ChatColor.of("#d8ff33"), "Reader"),
+    RANK_STORY_LECTURER(ChatColor.of("#ceff00"), "Lecturer"),
+    RANK_STORY_PROFESSOR(ChatColor.of("#99ff00"), "Professor"),
+    RANK_STORY_ADJUNCT_PROFESSOR(ChatColor.of("#6aff00"), "Adjunct Professor"),
+    RANK_STORY_EMERITUS_PROFESSOR(ChatColor.of("#33ff00"), "Emeritus Professor");
 
     /**
      * List of names to be given to ArmourStands, invisible but mods and Minimaps can see them :)

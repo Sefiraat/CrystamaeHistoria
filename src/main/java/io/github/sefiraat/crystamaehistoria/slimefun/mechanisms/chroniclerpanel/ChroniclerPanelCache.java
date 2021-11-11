@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.chroniclerpanel;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.FloatingHeadAnimation;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.AbstractCache;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
@@ -8,7 +9,6 @@ import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.utils.ArmourStandUtils;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
-import io.github.sefiraat.crystamaehistoria.utils.PlayerStatUtils;
 import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
 import lombok.Getter;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
@@ -174,10 +174,10 @@ public class ChroniclerPanelCache extends AbstractCache {
                     // That was the last story, unlock unique and set research
                     StoryUtils.requestUniqueStory(i);
                     if (activePlayer != null) {
-                        if (!PlayerStatUtils.hasUnlockedUniqueStory(activePlayer, blockDefinition)) {
-                            PlayerStatUtils.unlockUniqueStory(activePlayer, blockDefinition);
+                        if (!PlayerStatistics.hasUnlockedUniqueStory(activePlayer, blockDefinition)) {
+                            PlayerStatistics.unlockUniqueStory(activePlayer, blockDefinition);
                         }
-                        PlayerStatUtils.addChronicle(activePlayer, blockDefinition);
+                        PlayerStatistics.addChronicle(activePlayer, blockDefinition);
                     }
                 }
                 StoriesManager.rebuildStoriedStack(i);
