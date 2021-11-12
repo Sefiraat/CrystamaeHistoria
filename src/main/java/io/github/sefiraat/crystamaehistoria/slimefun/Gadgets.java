@@ -378,7 +378,7 @@ public class Gadgets {
             ThemeType.themedSlimefunItemStack(
                 "CRY_EXP_COLLECTOR_2",
                 new ItemStack(Material.LIGHTNING_ROD),
-                ThemeType.MECHANISM,
+                ThemeType.GADGET,
                 "Infused Exp Collector",
                 "Further infusion has made the",
                 "collector even more powerful.",

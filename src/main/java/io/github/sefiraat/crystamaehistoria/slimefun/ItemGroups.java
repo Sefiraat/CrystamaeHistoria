@@ -3,10 +3,12 @@ package io.github.sefiraat.crystamaehistoria.slimefun;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.DummyGuideOnly;
 import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.DummyItemGroup;
+import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.MainFlexGroup;
 import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.SpellCollectionFlexGroup;
 import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.StoryCollectionFlexGroup;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
+import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.NestedItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.SubItemGroup;
@@ -18,56 +20,57 @@ import org.bukkit.inventory.ItemStack;
 @UtilityClass
 public final class ItemGroups {
 
-    public static final NestedItemGroup MAIN = new NestedItemGroup(
+    public static final DummyItemGroup DUMMY_ITEM_GROUP = new DummyItemGroup(
+        Keys.newKey("dummy"),
+        new CustomItemStack(
+            new ItemStack(Material.FIRE_CHARGE),
+            ThemeType.MAIN.getColor() + "Dummy Crystamae Historia"
+        )
+    );
+    public static final MainFlexGroup MAIN = new MainFlexGroup(
         Keys.newKey("main"),
         new CustomItemStack(
             new ItemStack(Material.AMETHYST_CLUSTER),
             ThemeType.MAIN.getColor() + "Crystamae Historia"
         )
     );
-    public static final SubItemGroup MECHANISMS = new SubItemGroup(
+    public static final DummyItemGroup MECHANISMS = new DummyItemGroup(
         Keys.newKey("mechanisms"),
-        MAIN,
         new CustomItemStack(
             new ItemStack(Material.DEEPSLATE_TILE_SLAB),
             ThemeType.MAIN.getColor() + "Historia Mechanisms"
         )
     );
-    public static final SubItemGroup CRYSTALS = new SubItemGroup(
+    public static final DummyItemGroup CRYSTALS = new DummyItemGroup(
         Keys.newKey("crystals"),
-        MAIN,
         new CustomItemStack(
             new ItemStack(Material.AMETHYST_CLUSTER),
             ThemeType.MAIN.getColor() + "Historia Crystals"
         )
     );
-    public static final SubItemGroup TOOLS = new SubItemGroup(
+    public static final DummyItemGroup TOOLS = new DummyItemGroup(
         Keys.newKey("tools"),
-        MAIN,
         new CustomItemStack(
             new ItemStack(Material.STICK),
-            ThemeType.MAIN.getColor() + "Historia Staves and Materials"
+            ThemeType.MAIN.getColor() + "Historia Staves and Tool"
         )
     );
-    public static final SubItemGroup GADGETS = new SubItemGroup(
+    public static final DummyItemGroup GADGETS = new DummyItemGroup(
         Keys.newKey("gadgets"),
-        MAIN,
         new CustomItemStack(
             new ItemStack(Material.REDSTONE_LAMP),
             ThemeType.MAIN.getColor() + "Magical Tech and Gadgets"
         )
     );
-    public static final SubItemGroup MATERIALS = new SubItemGroup(
+    public static final DummyItemGroup MATERIALS = new DummyItemGroup(
         Keys.newKey("materials"),
-        MAIN,
         new CustomItemStack(
             new ItemStack(Material.GOLD_INGOT),
             ThemeType.MAIN.getColor() + "Crystamae Raw Materials"
         )
     );
-    public static final SubItemGroup GUIDE = new SubItemGroup(
+    public static final DummyItemGroup GUIDE = new DummyItemGroup(
         Keys.newKey("guide"),
-        MAIN,
         new CustomItemStack(
             new ItemStack(Material.BOOK),
             ThemeType.MAIN.getColor() + "Crystamae Misc Guides"
@@ -87,13 +90,7 @@ public final class ItemGroups {
             ThemeType.MAIN.getColor() + "Spell Collection"
         )
     );
-    public static final DummyItemGroup DUMMY_ITEM_GROUP = new DummyItemGroup(
-        Keys.newKey("dummy"),
-        new CustomItemStack(
-            new ItemStack(Material.FIRE_CHARGE),
-            ThemeType.MAIN.getColor() + "Dummy Crystamae Historia"
-        )
-    );
+
 
     public static void setup() {
         final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
@@ -231,8 +228,9 @@ public final class ItemGroups {
         );
 
         // Slimefun Registry
-        ItemGroups.STORY_COLLECTION.register(plugin);
-        ItemGroups.SPELL_COLLECTION.register(plugin);
+        ItemGroups.MAIN.register(plugin);
+        //ItemGroups.STORY_COLLECTION.register(plugin);
+        //ItemGroups.SPELL_COLLECTION.register(plugin);
 
         guideChronicler.register(plugin);
         guideRealisation.register(plugin);

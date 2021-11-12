@@ -268,5 +268,4 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
             lore
         );
     }
-
 }

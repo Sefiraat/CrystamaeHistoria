@@ -991,48 +991,60 @@ blocks:
       shards: [1,0,2,0,1,0,0,0,0]
 
   - material: BLACK_GLAZED_TERRACOTTA
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Non-Stick (Black)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - A complex composition allows this block
+        - to slide against others with ease making
+        - Glazed Terracotta a common find in elevators.
+      shards: [1,0,0,0,1,0,1,0,0]
 
   - material: BLACK_STAINED_GLASS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Black)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: BLACK_STAINED_GLASS_PANE
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Black Pane)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: BLACK_TERRACOTTA
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Sculptur's Delight (Black)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Having the potential to be shaped into any
+        - form and yet always ending up being a cube
+        - makes for a disheartened spirit.
+      shards: [ 1,0,0,0,2,0,0,0,1 ]
 
   - material: BLACK_WOOL
     tier: 2
@@ -1182,15 +1194,18 @@ blocks:
       shards: [1,0,2,0,1,0,0,0,0]
 
   - material: BLUE_GLAZED_TERRACOTTA
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Non-Stick (Blue)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - A complex composition allows this block
+        - to slide against others with ease making
+        - Glazed Terracotta a common find in elevators.
+      shards: [1,0,0,0,1,0,1,0,0]
 
   - material: BLUE_ICE
     tier: 1
@@ -1217,37 +1232,46 @@ blocks:
       shards: [ 1,0,0,0,0,1,0,0,0 ]
 
   - material: BLUE_STAINED_GLASS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Blue)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: BLUE_STAINED_GLASS_PANE
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Blue Pane)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: BLUE_TERRACOTTA
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Sculptur's Delight (Blue)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Having the potential to be shaped into any
+        - form and yet always ending up being a cube
+        - makes for a disheartened spirit.
+      shards: [ 1,0,0,0,2,0,0,0,1 ]
 
   - material: BLUE_WOOL
     tier: 2
@@ -1568,15 +1592,18 @@ blocks:
       shards: [1,0,2,0,1,0,0,0,0]
 
   - material: BROWN_GLAZED_TERRACOTTA
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Non-Stick (Brown)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - A complex composition allows this block
+        - to slide against others with ease making
+        - Glazed Terracotta a common find in elevators.
+      shards: [1,0,0,0,1,0,1,0,0]
 
   - material: BROWN_MUSHROOM
     tier: 1
@@ -1601,37 +1628,46 @@ blocks:
       shards:
 
   - material: BROWN_STAINED_GLASS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Brown)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: BROWN_STAINED_GLASS_PANE
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Brown Pane)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: BROWN_TERRACOTTA
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Sculptur's Delight (Brown)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Having the potential to be shaped into any
+        - form and yet always ending up being a cube
+        - makes for a disheartened spirit.
+      shards: [ 1,0,0,0,2,0,0,0,1 ]
 
   - material: BROWN_WOOL
     tier: 2
@@ -3007,48 +3043,60 @@ blocks:
       shards: [1,0,2,0,1,0,0,0,0]
 
   - material: CYAN_GLAZED_TERRACOTTA
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Non-Stick (Cyan)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - A complex composition allows this block
+        - to slide against others with ease making
+        - Glazed Terracotta a common find in elevators.
+      shards: [1,0,0,0,1,0,1,0,0]
 
   - material: CYAN_STAINED_GLASS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Cyan)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: CYAN_STAINED_GLASS_PANE
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Cyan Pane)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: CYAN_TERRACOTTA
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Sculptur's Delight (Cyan)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Having the potential to be shaped into any
+        - form and yet always ending up being a cube
+        - makes for a disheartened spirit.
+      shards: [ 1,0,0,0,2,0,0,0,1 ]
 
   - material: CYAN_WOOL
     tier: 2
@@ -5075,48 +5123,60 @@ blocks:
       shards: [1,0,2,0,1,0,0,0,0]
 
   - material: GRAY_GLAZED_TERRACOTTA
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Non-Stick (Gray)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - A complex composition allows this block
+        - to slide against others with ease making
+        - Glazed Terracotta a common find in elevators.
+      shards: [1,0,0,0,1,0,1,0,0]
 
   - material: GRAY_STAINED_GLASS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Gray)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: GRAY_STAINED_GLASS_PANE
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Gray Pane)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: GRAY_TERRACOTTA
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Sculptur's Delight (Gray)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Having the potential to be shaped into any
+        - form and yet always ending up being a cube
+        - makes for a disheartened spirit.
+      shards: [ 1,0,0,0,2,0,0,0,1 ]
 
   - material: GRAY_WOOL
     tier: 2
@@ -5230,49 +5290,62 @@ blocks:
         - magic from this process can be found
         - everywhere
       shards: [1,0,2,0,1,0,0,0,0]
+
   - material: GREEN_GLAZED_TERRACOTTA
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Non-Stick (Green)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - A complex composition allows this block
+        - to slide against others with ease making
+        - Glazed Terracotta a common find in elevators.
+      shards: [1,0,0,0,1,0,1,0,0]
 
   - material: GREEN_STAINED_GLASS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Green)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: GREEN_STAINED_GLASS_PANE
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Green Pane)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: GREEN_TERRACOTTA
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Sculptur's Delight (Green)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Having the potential to be shaped into any
+        - form and yet always ending up being a cube
+        - makes for a disheartened spirit.
+      shards: [ 1,0,0,0,2,0,0,0,1 ]
 
   - material: GREEN_WOOL
     tier: 2
@@ -6327,7 +6400,7 @@ blocks:
       shards: [1,0,2,0,1,0,0,0,0]
 
   - material: LIGHT_BLUE_GLAZED_TERRACOTTA
-    tier: 1
+    tier: 2
     elements:
       - HUMAN
       - PHILOSOPHICAL
@@ -6342,37 +6415,46 @@ blocks:
       author: Seggan
 
   - material: LIGHT_BLUE_STAINED_GLASS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Light Blue)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: LIGHT_BLUE_STAINED_GLASS_PANE
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Light Blue Pane)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: LIGHT_BLUE_TERRACOTTA
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Sculptur's Delight (Light Blue)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Having the potential to be shaped into any
+        - form and yet always ending up being a cube
+        - makes for a disheartened spirit.
+      shards: [ 1,0,0,0,2,0,0,0,1 ]
 
   - material: LIGHT_BLUE_WOOL
     tier: 2
@@ -6488,48 +6570,60 @@ blocks:
       shards: [1,0,2,0,1,0,0,0,0]
 
   - material: LIGHT_GRAY_GLAZED_TERRACOTTA
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Non-Stick (Light Gray)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - A complex composition allows this block
+        - to slide against others with ease making
+        - Glazed Terracotta a common find in elevators.
+      shards: [1,0,0,0,1,0,1,0,0]
 
   - material: LIGHT_GRAY_STAINED_GLASS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Light Gray)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: LIGHT_GRAY_STAINED_GLASS_PANE
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Light Gray Pane)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: LIGHT_GRAY_TERRACOTTA
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Sculptur's Delight (Light Gray)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Having the potential to be shaped into any
+        - form and yet always ending up being a cube
+        - makes for a disheartened spirit.
+      shards: [ 1,0,0,0,2,0,0,0,1 ]
 
   - material: LIGHT_GRAY_WOOL
     tier: 2
@@ -6697,48 +6791,60 @@ blocks:
       shards: [1,0,2,0,1,0,0,0,0]
 
   - material: LIME_GLAZED_TERRACOTTA
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Non-Stick (Lime)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - A complex composition allows this block
+        - to slide against others with ease making
+        - Glazed Terracotta a common find in elevators.
+      shards: [1,0,0,0,1,0,1,0,0]
 
   - material: LIME_STAINED_GLASS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Lime)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: LIME_STAINED_GLASS_PANE
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Lime Pane)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: LIME_TERRACOTTA
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Sculptur's Delight (Lime)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Having the potential to be shaped into any
+        - form and yet always ending up being a cube
+        - makes for a disheartened spirit.
+      shards: [ 1,0,0,0,2,0,0,0,1 ]
 
   - material: LIME_WOOL
     tier: 2
@@ -6888,48 +6994,60 @@ blocks:
       shards: [1,0,2,0,1,0,0,0,0]
 
   - material: MAGENTA_GLAZED_TERRACOTTA
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Non-Stick (Magenta)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - A complex composition allows this block
+        - to slide against others with ease making
+        - Glazed Terracotta a common find in elevators.
+      shards: [1,0,0,0,1,0,1,0,0]
 
   - material: MAGENTA_STAINED_GLASS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Magenta)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: MAGENTA_STAINED_GLASS_PANE
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Magenta Pane)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: MAGENTA_TERRACOTTA
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Sculptur's Delight (Magenta)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Having the potential to be shaped into any
+        - form and yet always ending up being a cube
+        - makes for a disheartened spirit.
+      shards: [ 1,0,0,0,2,0,0,0,1 ]
 
   - material: MAGENTA_WOOL
     tier: 2
@@ -8034,48 +8152,60 @@ blocks:
       shards: [1,0,2,0,1,0,0,0,0]
 
   - material: ORANGE_GLAZED_TERRACOTTA
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Non-Stick (Orange)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - A complex composition allows this block
+        - to slide against others with ease making
+        - Glazed Terracotta a common find in elevators.
+      shards: [1,0,0,0,1,0,1,0,0]
 
   - material: ORANGE_STAINED_GLASS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Orange)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: ORANGE_STAINED_GLASS_PANE
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Orange Pane)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: ORANGE_TERRACOTTA
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Sculptur's Delight (Orange)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Having the potential to be shaped into any
+        - form and yet always ending up being a cube
+        - makes for a disheartened spirit.
+      shards: [ 1,0,0,0,2,0,0,0,1 ]
 
   - material: ORANGE_TULIP
     tier: 1
@@ -8330,48 +8460,60 @@ blocks:
       shards: [1,0,2,0,1,0,0,0,0]
 
   - material: PINK_GLAZED_TERRACOTTA
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Non-Stick (Pink)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - A complex composition allows this block
+        - to slide against others with ease making
+        - Glazed Terracotta a common find in elevators.
+      shards: [1,0,0,0,1,0,1,0,0]
 
   - material: PINK_STAINED_GLASS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Pink)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: PINK_STAINED_GLASS_PANE
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Pink Pane)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: PINK_TERRACOTTA
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Sculptur's Delight (Pink)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Having the potential to be shaped into any
+        - form and yet always ending up being a cube
+        - makes for a disheartened spirit.
+      shards: [ 1,0,0,0,2,0,0,0,1 ]
 
   - material: PINK_TULIP
     tier: 1
@@ -9117,48 +9259,60 @@ blocks:
       shards: [1,0,2,0,1,0,0,0,0]
 
   - material: PURPLE_GLAZED_TERRACOTTA
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Non-Stick (Purple)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - A complex composition allows this block
+        - to slide against others with ease making
+        - Glazed Terracotta a common find in elevators.
+      shards: [1,0,0,0,1,0,1,0,0]
 
   - material: PURPLE_STAINED_GLASS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Purple)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: PURPLE_STAINED_GLASS_PANE
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Purple Pane)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: PURPLE_TERRACOTTA
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Sculptur's Delight (Purple)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Having the potential to be shaped into any
+        - form and yet always ending up being a cube
+        - makes for a disheartened spirit.
+      shards: [ 1,0,0,0,2,0,0,0,1 ]
 
   - material: PURPLE_WOOL
     tier: 2
@@ -9579,15 +9733,18 @@ blocks:
       shards: [1,0,2,0,1,0,0,0,0]
 
   - material: RED_GLAZED_TERRACOTTA
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Non-Stick (Red)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - A complex composition allows this block
+        - to slide against others with ease making
+        - Glazed Terracotta a common find in elevators.
+      shards: [1,0,0,0,1,0,1,0,0]
 
   - material: RED_MUSHROOM
     tier: 1
@@ -9727,37 +9884,46 @@ blocks:
       shards: [ 0,0,0,1,1,0,1,0,0 ]
 
   - material: RED_STAINED_GLASS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Red)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: RED_STAINED_GLASS_PANE
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Red Pane)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: RED_TERRACOTTA
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Sculptur's Delight (Red)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Having the potential to be shaped into any
+        - form and yet always ending up being a cube
+        - makes for a disheartened spirit.
+      shards: [ 1,0,0,0,2,0,0,0,1 ]
 
   - material: RED_TULIP
     tier: 1
@@ -11191,13 +11357,16 @@ blocks:
   - material: TERRACOTTA
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Sculptur's Delight
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Having the potential to be shaped into any
+        - form and yet always ending up being a cube
+        - makes for a disheartened spirit.
+      shards: [ 1,0,0,0,2,0,0,0,1 ]
 
   - material: TINTED_GLASS
     tier: 1
@@ -12014,48 +12183,60 @@ blocks:
       shards: [1,0,2,0,1,0,0,0,0]
 
   - material: WHITE_GLAZED_TERRACOTTA
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Non-Stick (White)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - A complex composition allows this block
+        - to slide against others with ease making
+        - Glazed Terracotta a common find in elevators.
+      shards: [1,0,0,0,1,0,1,0,0]
 
   - material: WHITE_STAINED_GLASS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (White)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: WHITE_STAINED_GLASS_PANE
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (White Pane)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: WHITE_TERRACOTTA
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Sculptur's Delight (White)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Having the potential to be shaped into any
+        - form and yet always ending up being a cube
+        - makes for a disheartened spirit.
+      shards: [ 1,0,0,0,2,0,0,0,1 ]
 
   - material: WHITE_TULIP
     tier: 1
@@ -12283,48 +12464,60 @@ blocks:
       shards: [1,0,2,0,1,0,0,0,0]
 
   - material: YELLOW_GLAZED_TERRACOTTA
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Non-Stick (Yellow)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - A complex composition allows this block
+        - to slide against others with ease making
+        - Glazed Terracotta a common find in elevators.
+      shards: [1,0,0,0,1,0,1,0,0]
 
   - material: YELLOW_STAINED_GLASS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Yellow)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: YELLOW_STAINED_GLASS_PANE
     tier: 1
     elements:
-      -
+      - CELESTIAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Prism (Yellow Pane)
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - While this block has no innate magic
+        - itself, there is a special magic these
+        - blocks provide to those witnessing them
+      shards: [0,1,1,0,1,0,1,0,0]
 
   - material: YELLOW_TERRACOTTA
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Sculptur's Delight (Yellow)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Having the potential to be shaped into any
+        - form and yet always ending up being a cube
+        - makes for a disheartened spirit.
+      shards: [ 1,0,0,0,2,0,0,0,1 ]
 
   - material: YELLOW_WOOL
     tier: 2

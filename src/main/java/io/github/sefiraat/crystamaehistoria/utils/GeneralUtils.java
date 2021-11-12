@@ -19,6 +19,7 @@ import org.bukkit.entity.Item;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.util.Vector;
 
@@ -233,5 +234,31 @@ public final class GeneralUtils {
         item.setCanPlayerPickup(false);
         item.setPickupDelay(999999);
         return item;
+    }
+
+    /**
+     * Heal the entity by the provided amount
+     *
+     * @param itemStack           The {@link LivingEntity} to heal
+     * @param durationInSeconds   The amount to heal by
+     */
+    @ParametersAreNonnullByDefault
+    public static void putOnCooldown(ItemStack itemStack, int durationInSeconds) {
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        PersistentDataAPI.setLong(itemMeta, Keys.PDC_ON_COOLDOWN, System.currentTimeMillis() + (durationInSeconds * 1000L));
+        itemStack.setItemMeta(itemMeta);
+    }
+
+    /**
+     * Heal the entity by the provided amount
+     *
+     * @param itemStack           The {@link LivingEntity} to heal
+     */
+    @ParametersAreNonnullByDefault
+    public static boolean isOnCooldown(ItemStack itemStack) {
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        long cooldownUntil = PersistentDataAPI.getLong(itemMeta, Keys.PDC_ON_COOLDOWN, 0);
+        boolean onCooldown = System.currentTimeMillis() < cooldownUntil;
+        return onCooldown;
     }
 }

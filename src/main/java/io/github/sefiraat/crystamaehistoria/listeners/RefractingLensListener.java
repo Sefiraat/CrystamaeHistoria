@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.ExpCollector;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasin;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.RefactingLens;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
@@ -18,6 +19,7 @@ import org.bukkit.Particle;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -28,7 +30,7 @@ import java.util.Map;
 
 public class RefractingLensListener implements Listener {
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.LOW, ignoreCancelled = true)
     public void onInteract(PlayerInteractEvent e) {
         final Player player = e.getPlayer();
         final SlimefunItem slimefunItem = SlimefunItem.getByItem(player.getInventory().getItemInMainHand());
@@ -38,6 +40,7 @@ public class RefractingLensListener implements Listener {
             && slimefunItem instanceof RefactingLens
         ) {
             e.setCancelled(true);
+            GeneralUtils.putOnCooldown(player.getInventory().getItemInMainHand(), 3);
             SlimefunItem item = BlockStorage.check(block);
             if (item instanceof LiquefactionBasin) {
                 liquefactionBasin(player, item, block);

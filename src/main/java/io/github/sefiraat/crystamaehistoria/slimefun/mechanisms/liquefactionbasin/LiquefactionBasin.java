@@ -67,7 +67,7 @@ public class LiquefactionBasin extends TickingMenuBlock {
         if (cache != null) {
             cache.consumeItems();
             Particle.DustOptions dustOptions = new Particle.DustOptions(color, 1);
-            ParticleUtils.displayParticleEffect(block.getLocation(), 1, 4, dustOptions);
+            ParticleUtils.displayParticleEffect(block.getLocation().add(0.5, 0.5, 0.5), 1, 4, dustOptions);
         }
         if (block.getType() != Material.CAULDRON) {
             block.setType(Material.CAULDRON);
