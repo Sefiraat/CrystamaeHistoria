@@ -4,6 +4,7 @@ import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCore;
 import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
+import io.github.sefiraat.crystamaehistoria.player.SpellRank;
 import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
@@ -39,6 +40,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
     private static final int PAGE_SIZE = 36;
 
     private static final int GUIDE_BACK = 1;
+    private static final int GUIDE_STATS = 7;
 
     private static final int PAGE_PREVIOUS = 46;
     private static final int PAGE_NEXT = 52;
@@ -89,7 +91,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         chestMenu.open(p);
     }
 
-    private void setupPage(@Nonnull Player p, @Nonnull PlayerProfile profile, @Nonnull SlimefunGuideMode mode, @Nonnull ChestMenu menu, int page) {
+    private void setupPage(@Nonnull Player player, @Nonnull PlayerProfile profile, @Nonnull SlimefunGuideMode mode, @Nonnull ChestMenu menu, int page) {
         final List<SpellType> spellTypes = Arrays.asList(SpellType.getEnabledSpells());
         final int numberOfBlocks = spellTypes.size();
         final int totalPages = (int) Math.ceil(numberOfBlocks / (double) PAGE_SIZE);
@@ -100,21 +102,25 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
 
         final List<SpellType> spellTypeSubList = spellTypes.subList(start, end);
 
-        reapplyFooter(p, profile, mode, menu, page, totalPages);
+        reapplyFooter(player, profile, mode, menu, page, totalPages);
 
         // Back
-        menu.replaceExistingItem(GUIDE_BACK, ChestMenuUtils.getBackButton(p, Slimefun.getLocalization().getMessage("guide.back.guide")));
+        menu.replaceExistingItem(GUIDE_BACK, ChestMenuUtils.getBackButton(player, Slimefun.getLocalization().getMessage("guide.back.guide")));
         menu.addMenuClickHandler(GUIDE_BACK, (player1, slot, itemStack, clickAction) -> {
             SlimefunGuide.openItemGroup(profile, ItemGroups.MAIN, mode, 1);
             return false;
         });
+
+        // Stats
+        menu.replaceExistingItem(GUIDE_STATS, getStatsStack(player));
+        menu.addMenuClickHandler(GUIDE_STATS, (player1, slot, itemStack, clickAction) -> false);
 
         for (int i = 0; i < 36; i++) {
             final int slot = i + 9;
 
             if (i + 1 <= spellTypeSubList.size()) {
                 final SpellType spellType = spellTypeSubList.get(i);
-                final boolean researched = PlayerStatistics.hasUnlockedSpell(p, spellType);
+                final boolean researched = PlayerStatistics.hasUnlockedSpell(player, spellType);
 
                 if (mode == SlimefunGuideMode.CHEAT_MODE || researched) {
                     menu.replaceExistingItem(slot, new ItemStack(spellType.getSpell().getThemedStack()));
@@ -477,6 +483,22 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         return new CustomItemStack(
             Material.BREWING_STAND,
             ThemeType.MAIN.getColor() + "Effects",
+            lore
+        );
+    }
+
+    private ItemStack getStatsStack(Player player) {
+        final ChatColor color = ThemeType.CLICK_INFO.getColor();
+        final ChatColor passive = ThemeType.PASSIVE.getColor();
+        final List<String> lore = new ArrayList<>();
+        final SpellRank spellRank = PlayerStatistics.getSpellRank(player.getUniqueId());
+
+        lore.add(MessageFormat.format("{0}Spells Unlocked: {1}{2}", color, passive, PlayerStatistics.getSpellsUnlocked(player.getUniqueId())));
+        lore.add(MessageFormat.format("{0}Rank: {1}{2}", color, spellRank.getTheme().getColor(), spellRank.getTheme().getLoreLine()));
+
+        return new CustomItemStack(
+            Material.TARGET,
+            ThemeType.MAIN.getColor() + "Spell Statistics",
             lore
         );
     }

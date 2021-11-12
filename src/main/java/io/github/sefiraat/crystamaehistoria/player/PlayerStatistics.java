@@ -5,11 +5,13 @@ import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import org.bukkit.Material;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
 import java.text.MessageFormat;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
@@ -96,17 +98,13 @@ public class PlayerStatistics {
         return CrystamaeHistoria.getConfigManager().getPlayerStats().getInt(path);
     }
 
-    /**
-     * @noinspection unchecked
-     */
     public static int getStoriesUnlocked(@Nonnull UUID uuid) {
-        final FileConfiguration blocks = CrystamaeHistoria.getConfigManager().getBlocks();
-        final List<Map<String, Object>> blockList = (List<Map<String, Object>>) blocks.getList("blocks");
+        String path = MessageFormat.format("{0}.{1}", uuid, StatType.STORY);
+        ConfigurationSection section = CrystamaeHistoria.getConfigManager().getPlayerStats().getConfigurationSection(path);
         int unlocked = 0;
-        for (Map<String, Object> map : blockList) {
-            final String materialString = (String) map.get("material");
-            final Material material = Material.getMaterial(materialString);
-            if (hasUnlockedUniqueStory(uuid, material)) unlocked++;
+        for (String story : section.getKeys(false)) {
+            String storyPath = MessageFormat.format("{0}.{1}.{2}.Unlocked", uuid, StatType.STORY, story);
+            if (CrystamaeHistoria.getConfigManager().getPlayerStats().getBoolean(storyPath)) unlocked++;
         }
         return unlocked;
     }
@@ -125,23 +123,26 @@ public class PlayerStatistics {
     public static String getStoryRankString(@Nonnull UUID uuid) {
         final FileConfiguration blocks = CrystamaeHistoria.getConfigManager().getBlocks();
         final List<Map<String, Object>> blockList = (List<Map<String, Object>>) blocks.getList("blocks");
-        int total = blockList.size();
+        int total = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().size();
         int unlocked = getStoriesUnlocked(uuid);
         StoryRank storyRank = StoryRank.getByPercent(((double) unlocked / total) * 100);
         return MessageFormat.format(
             "{0}Chronicler Rank: {1}{2}{0} ({3}/{4})",
             ThemeType.PASSIVE.getColor(),
-            storyRank.theme.getColor(),
-            storyRank.theme.getLoreLine(),
+            storyRank.getTheme().getColor(),
+            storyRank.getTheme().getLoreLine(),
             unlocked,
             total
         );
     }
 
     public static int getSpellsUnlocked(@Nonnull UUID uuid) {
+        String path = MessageFormat.format("{0}.{1}", uuid, StatType.SPELL);
+        ConfigurationSection section = CrystamaeHistoria.getConfigManager().getPlayerStats().getConfigurationSection(path);
         int unlocked = 0;
-        for (SpellType spellType : SpellType.getEnabledSpells()) {
-            if (hasUnlockedSpell(uuid, spellType)) unlocked++;
+        for (String spell : section.getKeys(false)) {
+            String storyPath = MessageFormat.format("{0}.{1}.{2}.Unlocked", uuid, StatType.SPELL, spell);
+            if (CrystamaeHistoria.getConfigManager().getPlayerStats().getBoolean(storyPath)) unlocked++;
         }
         return unlocked;
     }
@@ -159,8 +160,8 @@ public class PlayerStatistics {
         return MessageFormat.format(
             "{0}Crystamae Rank: {1}{2}{0} ({3}/{4})",
             ThemeType.PASSIVE.getColor(),
-            spellRank.theme.getColor(),
-            spellRank.theme.getLoreLine(),
+            spellRank.getTheme().getColor(),
+            spellRank.getTheme().getLoreLine(),
             unlocked,
             total
         );

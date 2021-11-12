@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.player;
 
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
+import lombok.Getter;
 
 public enum StoryRank {
 
@@ -13,8 +14,9 @@ public enum StoryRank {
     STUDENT(10, ThemeType.RANK_STORY_STUDENT),
     PUPIL(0, ThemeType.RANK_STORY_PUPIL);
 
-    final double percentRequired;
-    final ThemeType theme;
+    private final double percentRequired;
+    @Getter
+    private final ThemeType theme;
 
     StoryRank(double percentRequired, ThemeType themeType) {
         this.percentRequired = percentRequired;

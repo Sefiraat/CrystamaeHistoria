@@ -979,13 +979,16 @@ blocks:
   - material: BLACK_DYE
     tier: 1
     elements:
-      -
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: The Gamut (Black)
+      type: ALCHEMICAL
       lore:
-        -
-      shards:
+        - Dye's singular purpose is to bring
+        - color to a dull world. The eminating
+        - magic from this process can be found
+        - everywhere
+      shards: [1,0,2,0,1,0,0,0,0]
 
   - material: BLACK_GLAZED_TERRACOTTA
     tier: 1
@@ -1167,13 +1170,16 @@ blocks:
   - material: BLUE_DYE
     tier: 1
     elements:
-      -
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: The Gamut (Blue)
+      type: ALCHEMICAL
       lore:
-        -
-      shards:
+        - Dye's singular purpose is to bring
+        - color to a dull world. The eminating
+        - magic from this process can be found
+        - everywhere
+      shards: [1,0,2,0,1,0,0,0,0]
 
   - material: BLUE_GLAZED_TERRACOTTA
     tier: 1
@@ -1550,13 +1556,16 @@ blocks:
   - material: BROWN_DYE
     tier: 1
     elements:
-      -
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: The Gamut (Brown)
+      type: ALCHEMICAL
       lore:
-        -
-      shards:
+        - Dye's singular purpose is to bring
+        - color to a dull world. The eminating
+        - magic from this process can be found
+        - everywhere
+      shards: [1,0,2,0,1,0,0,0,0]
 
   - material: BROWN_GLAZED_TERRACOTTA
     tier: 1
@@ -2986,13 +2995,16 @@ blocks:
   - material: CYAN_DYE
     tier: 1
     elements:
-      -
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: The Gamut (Cyan)
+      type: ALCHEMICAL
       lore:
-        -
-      shards:
+        - Dye's singular purpose is to bring
+        - color to a dull world. The eminating
+        - magic from this process can be found
+        - everywhere
+      shards: [1,0,2,0,1,0,0,0,0]
 
   - material: CYAN_GLAZED_TERRACOTTA
     tier: 1
@@ -5051,13 +5063,16 @@ blocks:
   - material: GRAY_DYE
     tier: 1
     elements:
-      -
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: The Gamut (Gray)
+      type: ALCHEMICAL
       lore:
-        -
-      shards:
+        - Dye's singular purpose is to bring
+        - color to a dull world. The eminating
+        - magic from this process can be found
+        - everywhere
+      shards: [1,0,2,0,1,0,0,0,0]
 
   - material: GRAY_GLAZED_TERRACOTTA
     tier: 1
@@ -5205,14 +5220,16 @@ blocks:
   - material: GREEN_DYE
     tier: 1
     elements:
-      -
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: The Gamut (Green)
+      type: ALCHEMICAL
       lore:
-        -
-      shards:
-
+        - Dye's singular purpose is to bring
+        - color to a dull world. The eminating
+        - magic from this process can be found
+        - everywhere
+      shards: [1,0,2,0,1,0,0,0,0]
   - material: GREEN_GLAZED_TERRACOTTA
     tier: 1
     elements:
@@ -6298,13 +6315,16 @@ blocks:
   - material: LIGHT_BLUE_DYE
     tier: 1
     elements:
-      -
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: The Gamut (Light Blue)
+      type: ALCHEMICAL
       lore:
-        -
-      shards:
+        - Dye's singular purpose is to bring
+        - color to a dull world. The eminating
+        - magic from this process can be found
+        - everywhere
+      shards: [1,0,2,0,1,0,0,0,0]
 
   - material: LIGHT_BLUE_GLAZED_TERRACOTTA
     tier: 1
@@ -6456,13 +6476,16 @@ blocks:
   - material: LIGHT_GRAY_DYE
     tier: 1
     elements:
-      -
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: The Gamut (Light Gray)
+      type: ALCHEMICAL
       lore:
-        -
-      shards:
+        - Dye's singular purpose is to bring
+        - color to a dull world. The eminating
+        - magic from this process can be found
+        - everywhere
+      shards: [1,0,2,0,1,0,0,0,0]
 
   - material: LIGHT_GRAY_GLAZED_TERRACOTTA
     tier: 1
@@ -6662,13 +6685,16 @@ blocks:
   - material: LIME_DYE
     tier: 1
     elements:
-      -
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: The Gamut (Lime)
+      type: ALCHEMICAL
       lore:
-        -
-      shards:
+        - Dye's singular purpose is to bring
+        - color to a dull world. The eminating
+        - magic from this process can be found
+        - everywhere
+      shards: [1,0,2,0,1,0,0,0,0]
 
   - material: LIME_GLAZED_TERRACOTTA
     tier: 1
@@ -6850,13 +6876,16 @@ blocks:
   - material: MAGENTA_DYE
     tier: 1
     elements:
-      -
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: The Gamut (Magenta)
+      type: ALCHEMICAL
       lore:
-        -
-      shards:
+        - Dye's singular purpose is to bring
+        - color to a dull world. The eminating
+        - magic from this process can be found
+        - everywhere
+      shards: [1,0,2,0,1,0,0,0,0]
 
   - material: MAGENTA_GLAZED_TERRACOTTA
     tier: 1
@@ -7993,13 +8022,16 @@ blocks:
   - material: ORANGE_DYE
     tier: 1
     elements:
-      -
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: The Gamut (Orange)
+      type: ALCHEMICAL
       lore:
-        -
-      shards:
+        - Dye's singular purpose is to bring
+        - color to a dull world. The eminating
+        - magic from this process can be found
+        - everywhere
+      shards: [1,0,2,0,1,0,0,0,0]
 
   - material: ORANGE_GLAZED_TERRACOTTA
     tier: 1
@@ -8286,13 +8318,16 @@ blocks:
   - material: PINK_DYE
     tier: 1
     elements:
-      -
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: The Gamut (Pink)
+      type: ALCHEMICAL
       lore:
-        -
-      shards:
+        - Dye's singular purpose is to bring
+        - color to a dull world. The eminating
+        - magic from this process can be found
+        - everywhere
+      shards: [1,0,2,0,1,0,0,0,0]
 
   - material: PINK_GLAZED_TERRACOTTA
     tier: 1
@@ -9070,13 +9105,16 @@ blocks:
   - material: PURPLE_DYE
     tier: 1
     elements:
-      -
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: The Gamut (Purple)
+      type: ALCHEMICAL
       lore:
-        -
-      shards:
+        - Dye's singular purpose is to bring
+        - color to a dull world. The eminating
+        - magic from this process can be found
+        - everywhere
+      shards: [1,0,2,0,1,0,0,0,0]
 
   - material: PURPLE_GLAZED_TERRACOTTA
     tier: 1
@@ -9529,13 +9567,16 @@ blocks:
   - material: RED_DYE
     tier: 1
     elements:
-      -
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: The Gamut (Red)
+      type: ALCHEMICAL
       lore:
-        -
-      shards:
+        - Dye's singular purpose is to bring
+        - color to a dull world. The eminating
+        - magic from this process can be found
+        - everywhere
+      shards: [1,0,2,0,1,0,0,0,0]
 
   - material: RED_GLAZED_TERRACOTTA
     tier: 1
@@ -11961,13 +12002,16 @@ blocks:
   - material: WHITE_DYE
     tier: 1
     elements:
-      -
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: The Gamut (White)
+      type: ALCHEMICAL
       lore:
-        -
-      shards:
+        - Dye's singular purpose is to bring
+        - color to a dull world. The eminating
+        - magic from this process can be found
+        - everywhere
+      shards: [1,0,2,0,1,0,0,0,0]
 
   - material: WHITE_GLAZED_TERRACOTTA
     tier: 1
@@ -12227,13 +12271,16 @@ blocks:
   - material: YELLOW_DYE
     tier: 1
     elements:
-      -
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: The Gamut (Yellow)
+      type: ALCHEMICAL
       lore:
-        -
-      shards:
+        - Dye's singular purpose is to bring
+        - color to a dull world. The eminating
+        - magic from this process can be found
+        - everywhere
+      shards: [1,0,2,0,1,0,0,0,0]
 
   - material: YELLOW_GLAZED_TERRACOTTA
     tier: 1

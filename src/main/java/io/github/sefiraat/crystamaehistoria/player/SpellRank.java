@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.player;
 
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
+import lombok.Getter;
 
 public enum SpellRank {
 
@@ -13,8 +14,9 @@ public enum SpellRank {
     MAGE(10, ThemeType.RANK_SPELL_MAGE),
     APPRENTICE(0, ThemeType.RANK_SPELL_APPRENTICE);
 
-    final double percentRequired;
-    final ThemeType theme;
+    private final double percentRequired;
+    @Getter
+    private final ThemeType theme;
 
     SpellRank(double percentRequired, ThemeType themeType) {
         this.percentRequired = percentRequired;
