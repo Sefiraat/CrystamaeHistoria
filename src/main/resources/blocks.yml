@@ -626,15 +626,18 @@ blocks:
       shards: [ 0,1,0,1,1,0,0,0,0 ]
 
   - material: BIG_DRIPLEAF
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Trying Hard
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - The dripleaf tries it's absolute
+        - best to keep itself up though it
+        - nearly always fails.
+      shards: [ 1,0,0,0,0,1,1,0,1 ]
 
   - material: BIRCH_BOAT
     tier: 1
@@ -889,70 +892,89 @@ blocks:
       shards: [ 0,0,0,1,1,0,1,0,0 ]
 
   - material: BLACK_BANNER
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Flying Free (Black)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Flying proud day after day for
+        - years and years displaying pride.
+      shards: [ 0,0,0,1,1,0,1,1,0 ]
 
   - material: BLACK_BED
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: A Good Night (Black)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - It's commonly thought that a persons
+        - internal magics are recharged during
+        - sleep.
+      shards: [ 0,0,0,0,2,0,0,1,1 ]
 
   - material: BLACK_CANDLE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: A Constant Drive (Black)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Burning bright for as long as possible
+        - the candle tries so hard as often feels
+        - burnt out.
+      shards: [ 1,0,1,1,1,0,0,0,0 ]
 
   - material: BLACK_CARPET
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Trampled (Black)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Trampled on a daily basis, the carpet
+        - is knows no better and gets it's enjoyment
+        - where possible.
+      shards: [ 0,1,0,0,1,0,0,0,1 ]
 
   - material: BLACK_CONCRETE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Future Proof (Black)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - A block able to withstand the test
+        - of time. Concrete is stable, sturdy
+        - and forever more.
+      shards: [ 0,1,0,1,1,0,0,1,1 ]
 
   - material: BLACK_CONCRETE_POWDER
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Self Identification (Black)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Being a blend of other distinct blocks
+        - can wreak havok on a spirit's identity.
+        - Concrete longs for just a drop of water
+        - so it can become itself!
+      shards: [ 1,0,1,0,1,0,0,0,1 ]
 
   - material: BLACK_DYE
     tier: 1
@@ -1058,70 +1080,89 @@ blocks:
       shards:
 
   - material: BLUE_BANNER
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Flying Free (Blue)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Flying proud day after day for
+        - years and years displaying pride.
+      shards: [ 0,0,0,1,1,0,1,1,0 ]
 
   - material: BLUE_BED
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: A Good Night (Blue)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - It's commonly thought that a persons
+        - internal magics are recharged during
+        - sleep.
+      shards: [ 0,0,0,0,2,0,0,1,1 ]
 
   - material: BLUE_CANDLE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: A Constant Drive (Blue)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Burning bright for as long as possible
+        - the candle tries so hard as often feels
+        - burnt out.
+      shards: [ 1,0,1,1,1,0,0,0,0 ]
 
   - material: BLUE_CARPET
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Trampled (Blue)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Trampled on a daily basis, the carpet
+        - is knows no better and gets it's enjoyment
+        - where possible.
+      shards: [ 0,1,0,0,1,0,0,0,1 ]
 
   - material: BLUE_CONCRETE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Future Proof (Blue)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - A block able to withstand the test
+        - of time. Concrete is stable, sturdy
+        - and forever more.
+      shards: [ 0,1,0,1,1,0,0,1,1 ]
 
   - material: BLUE_CONCRETE_POWDER
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Self Identification (Blue)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Being a blend of other distinct blocks
+        - can wreak havok on a spirit's identity.
+        - Concrete longs for just a drop of water
+        - so it can become itself!
+      shards: [ 1,0,1,0,1,0,0,0,1 ]
 
   - material: BLUE_DYE
     tier: 1
@@ -1422,70 +1463,89 @@ blocks:
       shards: [ 0,0,0,1,1,0,1,0,0 ]
 
   - material: BROWN_BANNER
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Flying Free (Brown)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Flying proud day after day for
+        - years and years displaying pride.
+      shards: [ 0,0,0,1,1,0,1,1,0 ]
 
   - material: BROWN_BED
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: A Good Night (Brown)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - It's commonly thought that a persons
+        - internal magics are recharged during
+        - sleep.
+      shards: [ 0,0,0,0,2,0,0,1,1 ]
 
   - material: BROWN_CANDLE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: A Constant Drive (Brown)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Burning bright for as long as possible
+        - the candle tries so hard as often feels
+        - burnt out.
+      shards: [ 1,0,1,1,1,0,0,0,0 ]
 
   - material: BROWN_CARPET
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Trampled (Brown)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Trampled on a daily basis, the carpet
+        - is knows no better and gets it's enjoyment
+        - where possible.
+      shards: [ 0,1,0,0,1,0,0,0,1 ]
 
   - material: BROWN_CONCRETE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Future Proof (Brown)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - A block able to withstand the test
+        - of time. Concrete is stable, sturdy
+        - and forever more.
+      shards: [ 0,1,0,1,1,0,0,1,1 ]
 
   - material: BROWN_CONCRETE_POWDER
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Self Identification (Brown)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Being a blend of other distinct blocks
+        - can wreak havok on a spirit's identity.
+        - Concrete longs for just a drop of water
+        - so it can become itself!
+      shards: [ 1,0,1,0,1,0,0,0,1 ]
 
   - material: BROWN_DYE
     tier: 1
@@ -1690,15 +1750,19 @@ blocks:
       shards:
 
   - material: CANDLE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: A Constant Drive
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Burning bright for as long as possible
+        - the candle tries so hard as often feels
+        - burnt out.
+      shards: [ 1,0,1,1,1,0,0,0,0 ]
 
   - material: CARROT
     tier: 1
@@ -2835,70 +2899,89 @@ blocks:
       shards:
 
   - material: CYAN_BANNER
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Flying Free (Cyan)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Flying proud day after day for
+        - years and years displaying pride.
+      shards: [ 0,0,0,1,1,0,1,1,0 ]
 
   - material: CYAN_BED
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: A Good Night (Cyan)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - It's commonly thought that a persons
+        - internal magics are recharged during
+        - sleep.
+      shards: [ 0,0,0,0,2,0,0,1,1 ]
 
   - material: CYAN_CANDLE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: A Constant Drive (Cyan)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Burning bright for as long as possible
+        - the candle tries so hard as often feels
+        - burnt out.
+      shards: [ 1,0,1,1,1,0,0,0,0 ]
 
   - material: CYAN_CARPET
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Trampled (Cyan)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Trampled on a daily basis, the carpet
+        - is knows no better and gets it's enjoyment
+        - where possible.
+      shards: [ 0,1,0,0,1,0,0,0,1 ]
 
   - material: CYAN_CONCRETE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Future Proof (Cyan)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - A block able to withstand the test
+        - of time. Concrete is stable, sturdy
+        - and forever more.
+      shards: [ 0,1,0,1,1,0,0,1,1 ]
 
   - material: CYAN_CONCRETE_POWDER
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Self Identification (Cyan)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Being a blend of other distinct blocks
+        - can wreak havok on a spirit's identity.
+        - Concrete longs for just a drop of water
+        - so it can become itself!
+      shards: [ 1,0,1,0,1,0,0,0,1 ]
 
   - material: CYAN_DYE
     tier: 1
@@ -4881,70 +4964,89 @@ blocks:
       shards:
 
   - material: GRAY_BANNER
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Flying Free (Gray)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Flying proud day after day for
+        - years and years displaying pride.
+      shards: [ 0,0,0,1,1,0,1,1,0 ]
 
   - material: GRAY_BED
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: A Good Night (Gray)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - It's commonly thought that a persons
+        - internal magics are recharged during
+        - sleep.
+      shards: [ 0,0,0,0,2,0,0,1,1 ]
 
   - material: GRAY_CANDLE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: A Constant Drive (Gray)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Burning bright for as long as possible
+        - the candle tries so hard as often feels
+        - burnt out.
+      shards: [ 1,0,1,1,1,0,0,0,0 ]
 
   - material: GRAY_CARPET
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Trampled (Gray)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Trampled on a daily basis, the carpet
+        - is knows no better and gets it's enjoyment
+        - where possible.
+      shards: [ 0,1,0,0,1,0,0,0,1 ]
 
   - material: GRAY_CONCRETE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Future Proof (Gray)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - A block able to withstand the test
+        - of time. Concrete is stable, sturdy
+        - and forever more.
+      shards: [ 0,1,0,1,1,0,0,1,1 ]
 
   - material: GRAY_CONCRETE_POWDER
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Self Identification (Gray)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Being a blend of other distinct blocks
+        - can wreak havok on a spirit's identity.
+        - Concrete longs for just a drop of water
+        - so it can become itself!
+      shards: [ 1,0,1,0,1,0,0,0,1 ]
 
   - material: GRAY_DYE
     tier: 1
@@ -5016,70 +5118,89 @@ blocks:
       author: OOOOMAGAAA
 
   - material: GREEN_BANNER
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Flying Free (Green)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Flying proud day after day for
+        - years and years displaying pride.
+      shards: [ 0,0,0,1,1,0,1,1,0 ]
 
   - material: GREEN_BED
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: A Good Night (Green)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - It's commonly thought that a persons
+        - internal magics are recharged during
+        - sleep.
+      shards: [ 0,0,0,0,2,0,0,1,1 ]
 
   - material: GREEN_CANDLE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: A Constant Drive (Green)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Burning bright for as long as possible
+        - the candle tries so hard as often feels
+        - burnt out.
+      shards: [ 1,0,1,1,1,0,0,0,0 ]
 
   - material: GREEN_CARPET
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Trampled (Green)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Trampled on a daily basis, the carpet
+        - is knows no better and gets it's enjoyment
+        - where possible.
+      shards: [ 0,1,0,0,1,0,0,0,1 ]
 
   - material: GREEN_CONCRETE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Future Proof (Green)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - A block able to withstand the test
+        - of time. Concrete is stable, sturdy
+        - and forever more.
+      shards: [ 0,1,0,1,1,0,0,1,1 ]
 
   - material: GREEN_CONCRETE_POWDER
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Self Identification (Green)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Being a blend of other distinct blocks
+        - can wreak havok on a spirit's identity.
+        - Concrete longs for just a drop of water
+        - so it can become itself!
+      shards: [ 1,0,1,0,1,0,0,0,1 ]
 
   - material: GREEN_DYE
     tier: 1
@@ -6090,70 +6211,89 @@ blocks:
       shards:
 
   - material: LIGHT_BLUE_BANNER
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Flying Free (Light Blue)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Flying proud day after day for
+        - years and years displaying pride.
+      shards: [ 0,0,0,1,1,0,1,1,0 ]
 
   - material: LIGHT_BLUE_BED
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: A Good Night (Light Blue)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - It's commonly thought that a persons
+        - internal magics are recharged during
+        - sleep.
+      shards: [ 0,0,0,0,2,0,0,1,1 ]
 
   - material: LIGHT_BLUE_CANDLE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: A Constant Drive (Light Blue)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Burning bright for as long as possible
+        - the candle tries so hard as often feels
+        - burnt out.
+      shards: [ 1,0,1,1,1,0,0,0,0 ]
 
   - material: LIGHT_BLUE_CARPET
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Trampled (Light Blue)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Trampled on a daily basis, the carpet
+        - is knows no better and gets it's enjoyment
+        - where possible.
+      shards: [ 0,1,0,0,1,0,0,0,1 ]
 
   - material: LIGHT_BLUE_CONCRETE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Future Proof (Light Blue)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - A block able to withstand the test
+        - of time. Concrete is stable, sturdy
+        - and forever more.
+      shards: [ 0,1,0,1,1,0,0,1,1 ]
 
   - material: LIGHT_BLUE_CONCRETE_POWDER
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Self Identification (Light Blue)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Being a blend of other distinct blocks
+        - can wreak havok on a spirit's identity.
+        - Concrete longs for just a drop of water
+        - so it can become itself!
+      shards: [ 1,0,1,0,1,0,0,0,1 ]
 
   - material: LIGHT_BLUE_DYE
     tier: 1
@@ -6229,70 +6369,89 @@ blocks:
       author: OOOOMAGAAA
 
   - material: LIGHT_GRAY_BANNER
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Flying Free (Light Gray)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Flying proud day after day for
+        - years and years displaying pride.
+      shards: [ 0,0,0,1,1,0,1,1,0 ]
 
   - material: LIGHT_GRAY_BED
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: A Good Night (Light Gray)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - It's commonly thought that a persons
+        - internal magics are recharged during
+        - sleep.
+      shards: [ 0,0,0,0,2,0,0,1,1 ]
 
   - material: LIGHT_GRAY_CANDLE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: A Constant Drive (Light Gray)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Burning bright for as long as possible
+        - the candle tries so hard as often feels
+        - burnt out.
+      shards: [ 1,0,1,1,1,0,0,0,0 ]
 
   - material: LIGHT_GRAY_CARPET
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Trampled (Light Gray)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Trampled on a daily basis, the carpet
+        - is knows no better and gets it's enjoyment
+        - where possible.
+      shards: [ 0,1,0,0,1,0,0,0,1 ]
 
   - material: LIGHT_GRAY_CONCRETE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Future Proof (Light Gray)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - A block able to withstand the test
+        - of time. Concrete is stable, sturdy
+        - and forever more.
+      shards: [ 0,1,0,1,1,0,0,1,1 ]
 
   - material: LIGHT_GRAY_CONCRETE_POWDER
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Self Identification (Light Gray)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Being a blend of other distinct blocks
+        - can wreak havok on a spirit's identity.
+        - Concrete longs for just a drop of water
+        - so it can become itself!
+      shards: [ 1,0,1,0,1,0,0,0,1 ]
 
   - material: LIGHT_GRAY_DYE
     tier: 1
@@ -6362,6 +6521,7 @@ blocks:
         - bed or carpet.
       shards: [ 0,0,1,0,0,2,0,0,0 ]
       author: OOOOMAGAAA
+
   - material: LIGHT_WEIGHTED_PRESSURE_PLATE
     tier: 2
     elements:
@@ -6415,70 +6575,89 @@ blocks:
       shards:
 
   - material: LIME_BANNER
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Flying Free (Lime)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Flying proud day after day for
+        - years and years displaying pride.
+      shards: [ 0,0,0,1,1,0,1,1,0 ]
 
   - material: LIME_BED
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: A Good Night (Lime)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - It's commonly thought that a persons
+        - internal magics are recharged during
+        - sleep.
+      shards: [ 0,0,0,0,2,0,0,1,1 ]
 
   - material: LIME_CANDLE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: A Constant Drive (Lime)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Burning bright for as long as possible
+        - the candle tries so hard as often feels
+        - burnt out.
+      shards: [ 1,0,1,1,1,0,0,0,0 ]
 
   - material: LIME_CARPET
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Trampled (Lime)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Trampled on a daily basis, the carpet
+        - is knows no better and gets it's enjoyment
+        - where possible.
+      shards: [ 0,1,0,0,1,0,0,0,1 ]
 
   - material: LIME_CONCRETE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Future Proof (Lime)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - A block able to withstand the test
+        - of time. Concrete is stable, sturdy
+        - and forever more.
+      shards: [ 0,1,0,1,1,0,0,1,1 ]
 
   - material: LIME_CONCRETE_POWDER
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Self Identification (Lime)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Being a blend of other distinct blocks
+        - can wreak havok on a spirit's identity.
+        - Concrete longs for just a drop of water
+        - so it can become itself!
+      shards: [ 1,0,1,0,1,0,0,0,1 ]
 
   - material: LIME_DYE
     tier: 1
@@ -6584,70 +6763,89 @@ blocks:
       shards:
 
   - material: MAGENTA_BANNER
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Flying Free (Magenta)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Flying proud day after day for
+        - years and years displaying pride.
+      shards: [ 0,0,0,1,1,0,1,1,0 ]
 
   - material: MAGENTA_BED
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: A Good Night (Magenta)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - It's commonly thought that a persons
+        - internal magics are recharged during
+        - sleep.
+      shards: [ 0,0,0,0,2,0,0,1,1 ]
 
   - material: MAGENTA_CANDLE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: A Constant Drive (Magenta)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Burning bright for as long as possible
+        - the candle tries so hard as often feels
+        - burnt out.
+      shards: [ 1,0,1,1,1,0,0,0,0 ]
 
   - material: MAGENTA_CARPET
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Trampled (Magenta)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Trampled on a daily basis, the carpet
+        - is knows no better and gets it's enjoyment
+        - where possible.
+      shards: [ 0,1,0,0,1,0,0,0,1 ]
 
   - material: MAGENTA_CONCRETE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Future Proof (Magenta)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - A block able to withstand the test
+        - of time. Concrete is stable, sturdy
+        - and forever more.
+      shards: [ 0,1,0,1,1,0,0,1,1 ]
 
   - material: MAGENTA_CONCRETE_POWDER
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Self Identification (Magenta)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Being a blend of other distinct blocks
+        - can wreak havok on a spirit's identity.
+        - Concrete longs for just a drop of water
+        - so it can become itself!
+      shards: [ 1,0,1,0,1,0,0,0,1 ]
 
   - material: MAGENTA_DYE
     tier: 1
@@ -6953,13 +7151,17 @@ blocks:
   - material: MOSS_CARPET
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Trampled (Moss)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Trampled on a daily basis, the carpet
+        - is knows no better and gets it's enjoyment
+        - where possible.
+      shards: [ 1,1,0,0,1,0,0,0,1 ]
 
   - material: MUSHROOM_STEM
     tier: 1
@@ -7704,70 +7906,89 @@ blocks:
       author: TerslenK
 
   - material: ORANGE_BANNER
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Flying Free (Orange)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Flying proud day after day for
+        - years and years displaying pride.
+      shards: [ 0,0,0,1,1,0,1,1,0 ]
 
   - material: ORANGE_BED
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: A Good Night (Orange)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - It's commonly thought that a persons
+        - internal magics are recharged during
+        - sleep.
+      shards: [ 0,0,0,0,2,0,0,1,1 ]
 
   - material: ORANGE_CANDLE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: A Constant Drive (Orange)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Burning bright for as long as possible
+        - the candle tries so hard as often feels
+        - burnt out.
+      shards: [ 1,0,1,1,1,0,0,0,0 ]
 
   - material: ORANGE_CARPET
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Trampled (Orange)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Trampled on a daily basis, the carpet
+        - is knows no better and gets it's enjoyment
+        - where possible.
+      shards: [ 0,1,0,0,1,0,0,0,1 ]
 
   - material: ORANGE_CONCRETE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Future Proof (Orange)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - A block able to withstand the test
+        - of time. Concrete is stable, sturdy
+        - and forever more.
+      shards: [ 0,1,0,1,1,0,0,1,1 ]
 
   - material: ORANGE_CONCRETE_POWDER
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Self Identification (Orange)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Being a blend of other distinct blocks
+        - can wreak havok on a spirit's identity.
+        - Concrete longs for just a drop of water
+        - so it can become itself!
+      shards: [ 1,0,1,0,1,0,0,0,1 ]
 
   - material: ORANGE_DYE
     tier: 1
@@ -7978,70 +8199,89 @@ blocks:
       shards:
 
   - material: PINK_BANNER
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Flying Free (Pink)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Flying proud day after day for
+        - years and years displaying pride.
+      shards: [ 0,0,0,1,1,0,1,1,0 ]
 
   - material: PINK_BED
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: A Good Night (Pink)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - It's commonly thought that a persons
+        - internal magics are recharged during
+        - sleep.
+      shards: [ 0,0,0,0,2,0,0,1,1 ]
 
   - material: PINK_CANDLE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: A Constant Drive (Pink)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Burning bright for as long as possible
+        - the candle tries so hard as often feels
+        - burnt out.
+      shards: [ 1,0,1,1,1,0,0,0,0 ]
 
   - material: PINK_CARPET
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Trampled (Pink)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Trampled on a daily basis, the carpet
+        - is knows no better and gets it's enjoyment
+        - where possible.
+      shards: [ 0,1,0,0,1,0,0,0,1 ]
 
   - material: PINK_CONCRETE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Future Proof (Pink)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - A block able to withstand the test
+        - of time. Concrete is stable, sturdy
+        - and forever more.
+      shards: [ 0,1,0,1,1,0,0,1,1 ]
 
   - material: PINK_CONCRETE_POWDER
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Self Identification (Pink)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Being a blend of other distinct blocks
+        - can wreak havok on a spirit's identity.
+        - Concrete longs for just a drop of water
+        - so it can become itself!
+      shards: [ 1,0,1,0,1,0,0,0,1 ]
 
   - material: PINK_DYE
     tier: 1
@@ -8743,70 +8983,89 @@ blocks:
       shards: [ 0,0,0,0,1,1,1,0,0 ]
 
   - material: PURPLE_BANNER
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Flying Free (Purple)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Flying proud day after day for
+        - years and years displaying pride.
+      shards: [ 0,0,0,1,1,0,1,1,0 ]
 
   - material: PURPLE_BED
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: A Good Night (Purple)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - It's commonly thought that a persons
+        - internal magics are recharged during
+        - sleep.
+      shards: [ 0,0,0,0,2,0,0,1,1 ]
 
   - material: PURPLE_CANDLE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: A Constant Drive (Purple)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Burning bright for as long as possible
+        - the candle tries so hard as often feels
+        - burnt out.
+      shards: [ 1,0,1,1,1,0,0,0,0 ]
 
   - material: PURPLE_CARPET
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Trampled (Purple)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Trampled on a daily basis, the carpet
+        - is knows no better and gets it's enjoyment
+        - where possible.
+      shards: [ 0,1,0,0,1,0,0,0,1 ]
 
   - material: PURPLE_CONCRETE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Future Proof (Purple)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - A block able to withstand the test
+        - of time. Concrete is stable, sturdy
+        - and forever more.
+      shards: [ 0,1,0,1,1,0,0,1,1 ]
 
   - material: PURPLE_CONCRETE_POWDER
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Self Identification (Purple)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Being a blend of other distinct blocks
+        - can wreak havok on a spirit's identity.
+        - Concrete longs for just a drop of water
+        - so it can become itself!
+      shards: [ 1,0,1,0,1,0,0,0,1 ]
 
   - material: PURPLE_DYE
     tier: 1
@@ -9183,70 +9442,89 @@ blocks:
       shards:
 
   - material: RED_BANNER
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Flying Free (Red)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Flying proud day after day for
+        - years and years displaying pride.
+      shards: [ 0,0,0,1,1,0,1,1,0 ]
 
   - material: RED_BED
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: A Good Night (Red)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - It's commonly thought that a persons
+        - internal magics are recharged during
+        - sleep.
+      shards: [ 0,0,0,0,2,0,0,1,1 ]
 
   - material: RED_CANDLE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: A Constant Drive (Red)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Burning bright for as long as possible
+        - the candle tries so hard as often feels
+        - burnt out.
+      shards: [ 1,0,1,1,1,0,0,0,0 ]
 
   - material: RED_CARPET
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Trampled (Red)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Trampled on a daily basis, the carpet
+        - is knows no better and gets it's enjoyment
+        - where possible.
+      shards: [ 0,1,0,0,1,0,0,0,1 ]
 
   - material: RED_CONCRETE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Future Proof (Red)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - A block able to withstand the test
+        - of time. Concrete is stable, sturdy
+        - and forever more.
+      shards: [ 0,1,0,1,1,0,0,1,1 ]
 
   - material: RED_CONCRETE_POWDER
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Self Identification (Red)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Being a blend of other distinct blocks
+        - can wreak havok on a spirit's identity.
+        - Concrete longs for just a drop of water
+        - so it can become itself!
+      shards: [ 1,0,1,0,1,0,0,0,1 ]
 
   - material: RED_DYE
     tier: 1
@@ -11596,70 +11874,89 @@ blocks:
       shards: [ 0,0,0,0,1,1,1,0,0 ]
 
   - material: WHITE_BANNER
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Flying Free (White)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Flying proud day after day for
+        - years and years displaying pride.
+      shards: [ 0,0,0,1,1,0,1,1,0 ]
 
   - material: WHITE_BED
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: A Good Night (White)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - It's commonly thought that a persons
+        - internal magics are recharged during
+        - sleep.
+      shards: [ 0,0,0,0,2,0,0,1,1 ]
 
   - material: WHITE_CANDLE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: A Constant Drive (White)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Burning bright for as long as possible
+        - the candle tries so hard as often feels
+        - burnt out.
+      shards: [ 1,0,1,1,1,0,0,0,0 ]
 
   - material: WHITE_CARPET
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Trampled (White)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Trampled on a daily basis, the carpet
+        - is knows no better and gets it's enjoyment
+        - where possible.
+      shards: [ 0,1,0,0,1,0,0,0,1 ]
 
   - material: WHITE_CONCRETE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Future Proof (White)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - A block able to withstand the test
+        - of time. Concrete is stable, sturdy
+        - and forever more.
+      shards: [ 0,1,0,1,1,0,0,1,1 ]
 
   - material: WHITE_CONCRETE_POWDER
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Self Identification (White)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Being a blend of other distinct blocks
+        - can wreak havok on a spirit's identity.
+        - Concrete longs for just a drop of water
+        - so it can become itself!
+      shards: [ 1,0,1,0,1,0,0,0,1 ]
 
   - material: WHITE_DYE
     tier: 1
@@ -11844,70 +12141,88 @@ blocks:
       shards:
 
   - material: YELLOW_BANNER
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Flying Free (Yellow)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Flying proud day after day for
+        - years and years displaying pride.
+      shards: [ 0,0,0,1,1,0,1,1,0 ]
 
   - material: YELLOW_BED
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: A Good Night (Yellow)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
-
+        - It's commonly thought that a persons
+        - internal magics are recharged during
+        - sleep.
+      shards: [ 0,0,0,0,2,0,0,1,1 ]
   - material: YELLOW_CANDLE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: A Constant Drive (Yellow)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Burning bright for as long as possible
+        - the candle tries so hard as often feels
+        - burnt out.
+      shards: [ 1,0,1,1,1,0,0,0,0 ]
 
   - material: YELLOW_CARPET
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Trampled (Yellow)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Trampled on a daily basis, the carpet
+        - is knows no better and gets it's enjoyment
+        - where possible.
+      shards: [ 0,1,0,0,1,0,0,0,1 ]
 
   - material: YELLOW_CONCRETE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - HISTORICAL
     story:
-      name:
-      type:
+      name: Future Proof (Yellow)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - A block able to withstand the test
+        - of time. Concrete is stable, sturdy
+        - and forever more.
+      shards: [ 0,1,0,1,1,0,0,1,1 ]
 
   - material: YELLOW_CONCRETE_POWDER
     tier: 1
     elements:
-      -
+      - HUMAN
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Self Identification (Yellow)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Being a blend of other distinct blocks
+        - can wreak havok on a spirit's identity.
+        - Concrete longs for just a drop of water
+        - so it can become itself!
+      shards: [ 1,0,1,0,1,0,0,0,1 ]
 
   - material: YELLOW_DYE
     tier: 1
