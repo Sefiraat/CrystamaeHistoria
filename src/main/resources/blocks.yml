@@ -1062,37 +1062,45 @@ blocks:
       author: OOOOMAGAAA
 
   - material: BLAST_FURNACE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - MECHANICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: What a Blast
+      type: MECHANICAL
       lore:
-        -
-      shards:
+        - A furnace dreams day in, day out, of
+        - being promoted. The Blast Furnace is
+        - a Furnace's dream.
+      shards: [0,1,0,0,1,0,0,1,0]
 
   - material: BLAZE_POWDER
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - VOID
     story:
-      name:
-      type:
+      name: Powdered Spirit
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - While a deplorable action, taking the spirit
+        - of a creature and grinding down to it's essence
+        - gives cheap and easy access to it's magics.
+      shards: [1,0,1,0,0,1,0,1,0]
 
   - material: BLAZE_ROD
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - VOID
     story:
-      name:
-      type:
+      name: In a Blaze of Glory
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - A Blaze Rod is directly imbued with the
+        - ferocity of the blaze's last strike.
+      shards: [1,0,0,0,0,1,0,1,0]
 
   - material: BLUE_BANNER
     tier: 2
@@ -1208,15 +1216,19 @@ blocks:
       shards: [1,0,0,0,1,0,1,0,0]
 
   - material: BLUE_ICE
-    tier: 1
+    tier: 3
     elements:
-      -
+      - ELEMENTAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Slip'n'Slide (Blue Ice)
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - During formation, the spirit of this block
+        - wished for nothing more than to see people
+        - slip along it's face. Blue Ice was born
+        - from this sadistic desire.
+      shards: [3,0,1,0,0,0,0,0,0]
 
   - material: BLUE_ORCHID
     tier: 1
@@ -1291,13 +1303,17 @@ blocks:
   - material: BONE
     tier: 1
     elements:
-      -
+      - ANIMAL
+      - VOID
     story:
-      name:
-      type:
+      name: Fractured
+      type: VOID
       lore:
-        -
-      shards:
+        - Most commonly, magics drawn from bone
+        - are for necromancy purposes but so long
+        - as the source is pure and the use for good,
+        - the magics will be pure as well.
+      shards: [0,0,1,0,0,1,0,1,0]
 
   - material: BONE_BLOCK
     tier: 2
@@ -1327,15 +1343,18 @@ blocks:
       author: Jack and the Beanstalk?
 
   - material: BOOK
-    tier: 1
+    tier: 2
     elements:
-      -
+      - PHILOSOPHICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Learned
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - A flahs of insight gained while learning
+        - directly translates into Crystamae stored
+        - within the source book.
+      shards: [0,0,0,1,1,0,0,0,1]
 
   - material: BOOKSHELF
     tier: 2
@@ -1353,103 +1372,126 @@ blocks:
       author: OOOOMAGAAA
 
   - material: BOW
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: The Sharpshooter
+      type: HUMAN
       lore:
-        -
-      shards:
+        - You Don't Think They Need Me?
+      shards: [0,1,0,0,1,1,0,0,0]
 
   - material: BOWL
     tier: 1
     elements:
-      -
+      - HUMAN
+      - PHILOSOPHICAL
     story:
-      name:
-      type:
+      name: Feeling Empty
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - It's one purpose being unfulfilled means
+        - the magic from this spirit wanes slowly
+        - over time.
+      shards: [0,0,0,0,1,0,0,0,1]
 
   - material: BRAIN_CORAL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Biodiverse (Brain)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Providing a home for a wide variety
+        - of warm-sea creatures gives purpose and
+        - sight to an otherwise bromidic spirit.
+      shards: [0,0,1,1,0,1,1,0,0]
 
   - material: BRAIN_CORAL_BLOCK
-    tier: 1
+    tier: 2
     elements:
-      -
+      - PHILOSOPHICAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Be'reef't (Brain)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Ripped from it's habitat and molded into
+        - an unatural form for human purposes.
+        - This is a spirit ripped asunder.
+      shards: [0,0,0,1,0,0,1,0,1]
 
   - material: BRAIN_CORAL_FAN
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Biodiverse (Brain Fan)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Providing a home for a wide variety
+        - of warm-sea creatures gives purpose and
+        - sight to an otherwise bromidic spirit.
+      shards: [0,0,1,1,0,1,1,0,0]
 
   - material: BREAD
     tier: 1
     elements:
-      -
+      - HUMAN
     story:
-      name:
-      type:
+      name: Square
+      type: HUMAN
       lore:
-        -
-      shards:
+        - A hearty but simple meal suitable for
+        - all. Bread delights from filling the
+        - stomachs of those in need.
+      shards: [0,0,0,0,2,0,1,0,0]
 
   - material: BREWING_STAND
-    tier: 1
+    tier: 3
     elements:
-      -
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: Alchemically Imbued
+      type: ALCHEMICAL
       lore:
-        -
-      shards:
+        - After years of use, the brewing stand
+        - is imbued with such storng alchemical
+        - crystamae it's brimming near to burst.
+      shards: [0,0,3,0,0,0,0,0,0]
 
   - material: BRICK
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Before
+      type: HUMAN
       lore:
-        -
-      shards:
+        - While not much on it's own, the potential
+        - within this item is so large that the magics
+        - from it's possible forms ripple back through
+        - time.
+      shards: [0,1,0,1,1,0,0,0,0]
 
   - material: BRICKS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: Dirt Hut Upgrade
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Enough to make near-any house a home,
+        - bricks are the staple to a modern comfort.
+      shards: [0,1,0,1,1,0,1,0,0]
 
   - material: BRICK_SLAB
     tier: 1
@@ -1606,26 +1648,31 @@ blocks:
       shards: [1,0,0,0,1,0,1,0,0]
 
   - material: BROWN_MUSHROOM
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Fungal Frugility (Brown)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - While slow, it's strength lies in it's
+        - simplicity and ability to thrive almost
+        - anywhere.
+      shards: [0,0,1,1,0,1,0,0,0]
 
   - material: BROWN_MUSHROOM_BLOCK
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Giganticism (Brown)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Through an odd quirk of nature, a mushroom
+        - can have it's entire crystamae deposit ignited
+        - within a single moment allowing something small
+        - to grow into something giant.
+      shards: [0,0,1,1,0,1,0,0,0]
 
   - material: BROWN_STAINED_GLASS
     tier: 2
@@ -1685,48 +1732,59 @@ blocks:
       author: OOOOMAGAAA
 
   - material: BUBBLE_CORAL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Biodiverse (Bubble)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Providing a home for a wide variety
+        - of warm-sea creatures gives purpose and
+        - sight to an otherwise bromidic spirit.
+      shards: [0,0,1,1,0,1,1,0,0]
 
   - material: BUBBLE_CORAL_BLOCK
-    tier: 1
+    tier: 2
     elements:
-      -
+      - PHILOSOPHICAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Be'reef't (Bubble)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Ripped from it's habitat and molded into
+        - an unatural form for human purposes.
+        - This is a spirit ripped asunder.
+      shards: [0,0,0,1,0,0,1,0,1]
 
   - material: BUBBLE_CORAL_FAN
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Biodiverse (Bubble Fan)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Providing a home for a wide variety
+        - of warm-sea creatures gives purpose and
+        - sight to an otherwise bromidic spirit.
+      shards: [0,0,1,1,0,1,1,0,0]
 
   - material: BUCKET
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - VOID
     story:
-      name:
-      type:
+      name: Sturdy (Empty)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Persistent, constant and driven to
+        - hold anything the user needs.
+      shards: [0,1,0,0,2,0,0,1,0]
 
   - material: BUDDING_AMETHYST
     tier: 1
@@ -3382,68 +3440,86 @@ blocks:
   - material: DEAD_BRAIN_CORAL
     tier: 1
     elements:
-      -
+      - VOID
     story:
-      name:
-      type:
+      name: Ecological Collapse (Brain)
+      type: VOID
       lore:
-        -
-      shards:
+        - With over half of all coral already
+        - dead and gone; simply put, more must
+        - be done.
+      shards: [0,0,0,0,0,0,0,2,0]
+      author: https://bit.ly/3kDl9jF
 
   - material: DEAD_BRAIN_CORAL_BLOCK
     tier: 1
     elements:
-      -
+      - VOID
     story:
-      name:
-      type:
+      name: Ecological Collapse (Brain Block)
+      type: VOID
       lore:
-        -
-      shards:
+        - With over half of all coral already
+        - dead and gone; simply put, more must
+        - be done.
+      shards: [0,0,0,0,0,0,0,2,0]
+      author: https://bit.ly/3kDl9jF
 
   - material: DEAD_BRAIN_CORAL_FAN
     tier: 1
     elements:
-      -
+      - VOID
     story:
-      name:
-      type:
+      name: Ecological Collapse (Brain Fan)
+      type: VOID
       lore:
-        -
-      shards:
+        - With over half of all coral already
+        - dead and gone; simply put, more must
+        - be done.
+      shards: [0,0,0,0,0,0,0,2,0]
+      author: https://bit.ly/3kDl9jF
 
   - material: DEAD_BUBBLE_CORAL
     tier: 1
     elements:
-      -
+      - VOID
     story:
-      name:
-      type:
+      name: Ecological Collapse (Bubble)
+      type: VOID
       lore:
-        -
-      shards:
+        - With over half of all coral already
+        - dead and gone; simply put, more must
+        - be done.
+      shards: [0,0,0,0,0,0,0,2,0]
+      author: https://bit.ly/3kDl9jF
 
   - material: DEAD_BUBBLE_CORAL_BLOCK
     tier: 1
     elements:
-      -
+      - VOID
     story:
-      name:
-      type:
+      name: Ecological Collapse (Bubble Block)
+      type: VOID
       lore:
-        -
-      shards:
+        - With over half of all coral already
+        - dead and gone; simply put, more must
+        - be done.
+      shards: [0,0,0,0,0,0,0,2,0]
+      author: https://bit.ly/3kDl9jF
 
   - material: DEAD_BUBBLE_CORAL_FAN
     tier: 1
     elements:
-      -
+      - VOID
     story:
-      name:
-      type:
+      name: Ecological Collapse (Bubble Fan)
+      type: VOID
       lore:
-        -
-      shards:
+        - With over half of all coral already
+        - dead and gone; simply put, more must
+        - be done.
+      shards: [0,0,0,0,0,0,0,2,0]
+      author: https://bit.ly/3kDl9jF
 
   - material: DEAD_BUSH
     tier: 1
@@ -3459,112 +3535,128 @@ blocks:
   - material: DEAD_FIRE_CORAL
     tier: 1
     elements:
-      -
+      - VOID
     story:
-      name:
-      type:
+      name: Ecological Collapse (Fire)
+      type: VOID
       lore:
-        -
-      shards:
+        - With over half of all coral already
+        - dead and gone; simply put, more must
+        - be done.
+      shards: [0,0,0,0,0,0,0,2,0]
+      author: https://bit.ly/3kDl9jF
 
   - material: DEAD_FIRE_CORAL_BLOCK
     tier: 1
     elements:
-      -
+      - VOID
     story:
-      name:
-      type:
+      name: Ecological Collapse (Fire Block)
+      type: VOID
       lore:
-        -
-      shards:
+        - With over half of all coral already
+        - dead and gone; simply put, more must
+        - be done.
+      shards: [0,0,0,0,0,0,0,2,0]
+      author: https://bit.ly/3kDl9jF
 
   - material: DEAD_FIRE_CORAL_FAN
     tier: 1
     elements:
-      -
+      - VOID
     story:
-      name:
-      type:
+      name: Ecological Collapse (Fire Fan)
+      type: VOID
       lore:
-        -
-      shards:
+        - With over half of all coral already
+        - dead and gone; simply put, more must
+        - be done.
+      shards: [0,0,0,0,0,0,0,2,0]
+      author: https://bit.ly/3kDl9jF
 
   - material: DEAD_HORN_CORAL
     tier: 1
     elements:
-      -
+      - VOID
     story:
-      name:
-      type:
+      name: Ecological Collapse (Horn)
+      type: VOID
       lore:
-        -
-      shards:
+        - With over half of all coral already
+        - dead and gone; simply put, more must
+        - be done.
+      shards: [0,0,0,0,0,0,0,2,0]
+      author: https://bit.ly/3kDl9jF
 
   - material: DEAD_HORN_CORAL_BLOCK
     tier: 1
     elements:
-      -
+      - VOID
     story:
-      name:
-      type:
+      name: Ecological Collapse (Horn Block)
+      type: VOID
       lore:
-        -
-      shards:
+        - With over half of all coral already
+        - dead and gone; simply put, more must
+        - be done.
+      shards: [0,0,0,0,0,0,0,2,0]
+      author: https://bit.ly/3kDl9jF
 
   - material: DEAD_HORN_CORAL_FAN
     tier: 1
     elements:
-      -
+      - VOID
     story:
-      name:
-      type:
+      name: Ecological Collapse (Horn Fan)
+      type: VOID
       lore:
-        -
-      shards:
+        - With over half of all coral already
+        - dead and gone; simply put, more must
+        - be done.
+      shards: [0,0,0,0,0,0,0,2,0]
+      author: https://bit.ly/3kDl9jF
 
   - material: DEAD_TUBE_CORAL
     tier: 1
     elements:
-      -
+      - VOID
     story:
-      name:
-      type:
+      name: Ecological Collapse (Tube)
+      type: VOID
       lore:
-        -
-      shards:
+        - With over half of all coral already
+        - dead and gone; simply put, more must
+        - be done.
+      shards: [0,0,0,0,0,0,0,2,0]
+      author: https://bit.ly/3kDl9jF
 
   - material: DEAD_TUBE_CORAL_BLOCK
     tier: 1
     elements:
-      -
+      - VOID
     story:
-      name:
-      type:
+      name: Ecological Collapse (Tube Block)
+      type: VOID
       lore:
-        -
-      shards:
+        - With over half of all coral already
+        - dead and gone; simply put, more must
+        - be done.
+      shards: [0,0,0,0,0,0,0,2,0]
+      author: https://bit.ly/3kDl9jF
 
   - material: DEAD_TUBE_CORAL_FAN
     tier: 1
     elements:
-      -
+      - VOID
     story:
-      name:
-      type:
+      name: Ecological Collapse (Tube Fan)
+      type: VOID
       lore:
-        -
-      shards:
-
-  - material: DEBUG_STICK
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
+        - With over half of all coral already
+        - dead and gone; simply put, more must
+        - be done.
+      shards: [0,0,0,0,0,0,0,2,0]
+      author: https://bit.ly/3kDl9jF
 
   - material: DEEPSLATE
     tier: 1
@@ -4470,37 +4562,46 @@ blocks:
       shards:
 
   - material: FIRE_CORAL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Biodiverse (Fire)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Providing a home for a wide variety
+        - of warm-sea creatures gives purpose and
+        - sight to an otherwise bromidic spirit.
+      shards: [0,0,1,1,0,1,1,0,0]
 
   - material: FIRE_CORAL_BLOCK
-    tier: 1
+    tier: 2
     elements:
-      -
+      - PHILOSOPHICAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Be'reef't (Fire)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Ripped from it's habitat and molded into
+        - an unatural form for human purposes.
+        - This is a spirit ripped asunder.
+      shards: [0,0,0,1,0,0,1,0,1]
 
   - material: FIRE_CORAL_FAN
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Biodiverse (Fire Fan)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Providing a home for a wide variety
+        - of warm-sea creatures gives purpose and
+        - sight to an otherwise bromidic spirit.
+      shards: [0,0,1,1,0,1,1,0,0]
 
   - material: FISHING_ROD
     tier: 1
@@ -5499,125 +5600,166 @@ blocks:
       shards:
 
   - material: HORN_CORAL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Biodiverse (Horn)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Providing a home for a wide variety
+        - of warm-sea creatures gives purpose and
+        - sight to an otherwise bromidic spirit.
+      shards: [0,0,1,1,0,1,1,0,0]
 
   - material: HORN_CORAL_BLOCK
-    tier: 1
+    tier: 2
     elements:
-      -
+      - PHILOSOPHICAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Be'reef't (Horn)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Ripped from it's habitat and molded into
+        - an unatural form for human purposes.
+        - This is a spirit ripped asunder.
+      shards: [0,0,0,1,0,0,1,0,1]
 
   - material: HORN_CORAL_FAN
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Biodiverse (Horn Fan)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Providing a home for a wide variety
+        - of warm-sea creatures gives purpose and
+        - sight to an otherwise bromidic spirit.
+      shards: [0,0,1,1,0,1,1,0,0]
 
   - material: ICE
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Slip'n'Slide
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - During formation, the spirit of this block
+        - wished for nothing more than to see people
+        - slip along it's face. Blue Ice was born
+        - from this sadistic desire.
+      shards: [1,0,1,0,0,0,0,0,0]
 
   - material: INFESTED_CHISELED_STONE_BRICKS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - VOID
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Infested (Chiseled Stone)
+      type: VOId
       lore:
-        -
-      shards:
+        - Bursting with the potential of the
+        - parasitic dweller. The magics of this
+        - block are drained over time to feed it's
+        - needs.
+      shards: [0,0,0,1,0,1,0,1,0]
 
   - material: INFESTED_COBBLESTONE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - VOID
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Infested (Cobblestone)
+      type: VOId
       lore:
-        -
-      shards:
+        - Bursting with the potential of the
+        - parasitic dweller. The magics of this
+        - block are drained over time to feed it's
+        - needs.
+      shards: [0,0,0,1,0,1,0,1,0]
 
   - material: INFESTED_CRACKED_STONE_BRICKS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - VOID
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Infested (Cracked Stone)
+      type: VOId
       lore:
-        -
-      shards:
+        - Bursting with the potential of the
+        - parasitic dweller. The magics of this
+        - block are drained over time to feed it's
+        - needs.
+      shards: [0,0,0,1,0,1,0,1,0]
 
   - material: INFESTED_DEEPSLATE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - VOID
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Infested (Deepslate)
+      type: VOId
       lore:
-        -
-      shards:
+        - Bursting with the potential of the
+        - parasitic dweller. The magics of this
+        - block are drained over time to feed it's
+        - needs.
+      shards: [0,0,0,1,0,1,0,1,0]
 
   - material: INFESTED_MOSSY_STONE_BRICKS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - VOID
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Infested (Mossy Stone)
+      type: VOId
       lore:
-        -
-      shards:
+        - Bursting with the potential of the
+        - parasitic dweller. The magics of this
+        - block are drained over time to feed it's
+        - needs.
+      shards: [0,0,0,1,0,1,0,1,0]
 
   - material: INFESTED_STONE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - VOID
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Infested (Stone)
+      type: VOId
       lore:
-        -
-      shards:
+        - Bursting with the potential of the
+        - parasitic dweller. The magics of this
+        - block are drained over time to feed it's
+        - needs.
+      shards: [0,0,0,1,0,1,0,1,0]
 
   - material: INFESTED_STONE_BRICKS
-    tier: 1
+    tier: 2
     elements:
-      -
+      - VOID
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Infested (Stone Bricks)
+      type: VOId
       lore:
-        -
-      shards:
+        - Bursting with the potential of the
+        - parasitic dweller. The magics of this
+        - block are drained over time to feed it's
+        - needs.
+      shards: [0,0,0,1,0,1,0,1,0]
 
   - material: INK_SAC
     tier: 1
@@ -5839,17 +5981,6 @@ blocks:
       shards:
 
   - material: JACK_O_LANTERN
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: JIGSAW
     tier: 1
     elements:
       -
@@ -6169,15 +6300,18 @@ blocks:
       shards:
 
   - material: LAVA_BUCKET
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
+      - VOID
     story:
-      name:
-      type:
+      name: Sturdy (Lava)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Persistent, constant and driven to
+        - hold anything the user needs.
+      shards: [1,1,0,0,2,0,0,1,0]
 
   - material: LEAD
     tier: 1
@@ -7148,15 +7282,18 @@ blocks:
       shards:
 
   - material: MILK_BUCKET
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - VOID
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Sturdy (Milk)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Persistent, constant and driven to
+        - hold anything the user needs.
+      shards: [0,1,0,0,2,1,0,1,0]
 
   - material: MINECART
     tier: 1
@@ -7311,15 +7448,18 @@ blocks:
       shards: [ 1,1,0,0,1,0,0,0,1 ]
 
   - material: MUSHROOM_STEM
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Giganticism (Stem)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Through an odd quirk of nature, a mushroom
+        - can have it's entire crystamae deposit ignited
+        - within a single moment allowing something small
+        - to grow into something giant.
+      shards: [0,0,1,1,0,1,0,0,0]
 
   - material: MUSHROOM_STEW
     tier: 1
@@ -8293,15 +8433,19 @@ blocks:
       shards:
 
   - material: PACKED_ICE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Slip'n'Slide (Packed Ice)
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - During formation, the spirit of this block
+        - wished for nothing more than to see people
+        - slip along it's face. Blue Ice was born
+        - from this sadistic desire.
+      shards: [2,0,1,0,0,0,0,0,0]
 
   - material: PAINTING
     tier: 1
@@ -8974,15 +9118,18 @@ blocks:
       shards:
 
   - material: POWDER_SNOW_BUCKET
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - VOID
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Sturdy (Snow)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Persistent, constant and driven to
+        - hold anything the user needs.
+      shards: [0,1,0,0,2,0,1,1,0]
 
   - material: POWERED_RAIL
     tier: 1
@@ -9747,26 +9894,31 @@ blocks:
       shards: [1,0,0,0,1,0,1,0,0]
 
   - material: RED_MUSHROOM
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Fungal Frugility (Red)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - While slow, it's strength lies in it's
+        - simplicity and ability to thrive almost
+        - anywhere.
+      shards: [0,0,1,1,0,1,0,0,0]
 
   - material: RED_MUSHROOM_BLOCK
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Giganticism (Red)
+      type: ANIMAL
       lore:
-        -
-      shards:
+        - Through an odd quirk of nature, a mushroom
+        - can have it's entire crystamae deposit ignited
+        - within a single moment allowing something small
+        - to grow into something giant.
+      shards: [0,0,1,1,0,1,0,0,0]
 
   - material: RED_NETHER_BRICKS
     tier: 1
@@ -10310,15 +10462,19 @@ blocks:
       shards:
 
   - material: SMOKER
-    tier: 1
+    tier: 2
     elements:
-      -
+      - MECHANICAL
+      - HUMAN
+      - ANIMAL
     story:
-      name:
-      type:
+      name: Get Smoked
+      type: MECHANICAL
       lore:
-        -
-      shards:
+        - A furnace dreams day in, day out, of
+        - being promoted. The Smoker is
+        - a Furnace's dream.
+      shards: [0,1,0,0,1,1,0,0,0]
 
   - material: SMOOTH_BASALT
     tier: 1
@@ -11498,37 +11654,46 @@ blocks:
       author: Seggan
 
   - material: TUBE_CORAL
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Biodiverse (Tube)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Providing a home for a wide variety
+        - of warm-sea creatures gives purpose and
+        - sight to an otherwise bromidic spirit.
+      shards: [0,0,1,1,0,1,1,0,0]
 
   - material: TUBE_CORAL_BLOCK
-    tier: 1
+    tier: 2
     elements:
-      -
+      - PHILOSOPHICAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Be'reef't (Tube)
+      type: PHILOSOPHICAL
       lore:
-        -
-      shards:
+        - Ripped from it's habitat and molded into
+        - an unatural form for human purposes.
+        - This is a spirit ripped asunder.
+      shards: [0,0,0,1,0,0,1,0,1]
 
   - material: TUBE_CORAL_FAN
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HISTORICAL
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Biodiverse (Tube Fan)
+      type: HISTORICAL
       lore:
-        -
-      shards:
+        - Providing a home for a wide variety
+        - of warm-sea creatures gives purpose and
+        - sight to an otherwise bromidic spirit.
+      shards: [0,0,1,1,0,1,1,0,0]
 
   - material: TUFF
     tier: 1
@@ -11801,15 +11966,18 @@ blocks:
       shards:
 
   - material: WATER_BUCKET
-    tier: 1
+    tier: 2
     elements:
-      -
+      - HUMAN
+      - VOID
+      - ELEMENTAL
     story:
-      name:
-      type:
+      name: Sturdy (Water)
+      type: HUMAN
       lore:
-        -
-      shards:
+        - Persistent, constant and driven to
+        - hold anything the user needs.
+      shards: [1,1,0,0,2,0,0,1,0]
 
   - material: WAXED_COPPER_BLOCK
     tier: 1
