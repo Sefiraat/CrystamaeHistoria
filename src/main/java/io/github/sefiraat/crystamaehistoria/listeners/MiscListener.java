@@ -4,12 +4,14 @@ import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MysteriousTicker;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
+import org.bukkit.inventory.ItemStack;
 
 public class MiscListener implements Listener {
 
@@ -26,9 +28,11 @@ public class MiscListener implements Listener {
 
     @EventHandler(priority = EventPriority.LOWEST)
     public void checkCooldown(PlayerInteractEvent event) {
-        if ((event.getAction() == Action.RIGHT_CLICK_AIR
+        ItemStack itemStack = event.getPlayer().getInventory().getItemInMainHand();
+        if (itemStack.getType() != Material.AIR
+            && (event.getAction() == Action.RIGHT_CLICK_AIR
             || event.getAction() == Action.RIGHT_CLICK_BLOCK)
-            && GeneralUtils.isOnCooldown(event.getPlayer().getInventory().getItemInMainHand())
+            && GeneralUtils.isOnCooldown(itemStack)
         ) {
             event.setCancelled(true);
         }
