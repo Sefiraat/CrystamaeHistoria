@@ -108,7 +108,6 @@ public class LiquefactionBasin extends TickingMenuBlock {
         blockMenu.dropItems(location, INPUT_SLOT);
         if (punish) {
             blockMenu.getLocation().getWorld().createExplosion(
-                event.getPlayer(),
                 event.getBlock().getLocation(),
                 2,
                 true,
