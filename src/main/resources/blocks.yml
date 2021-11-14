@@ -1786,71 +1786,58 @@ blocks:
         - hold anything the user needs.
       shards: [0,1,0,0,2,0,0,1,0]
 
-  - material: BUDDING_AMETHYST
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
-  - material: BUNDLE
-    tier: 1
-    elements:
-      -
-    story:
-      name:
-      type:
-      lore:
-        -
-      shards:
-
   - material: CACTUS
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - VOID
     story:
-      name:
-      type:
+      name: Getting to the point
+      type: VOID
       lore:
-        -
-      shards:
+        - While drawn to the pain of others, the
+        - cactus knows harm is, at the core, a bad
+        - thing so does as little as possible.
+      shards: [1,0,0,0,0,1,0,1,0]
 
   - material: CAKE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - CELESTIAL
     story:
-      name:
-      type:
+      name: Piece of...
+      type: CELESTIAL
       lore:
-        -
-      shards:
+        - Wait, is it his birthday already?
+      shards: [0,0,0,1,1,0,2,0,0]
 
   - material: CALCITE
     tier: 1
     elements:
-      -
+      - ELEMENTAL
+      - ALCHEMICAL
     story:
-      name:
-      type:
+      name: Boredom
+      type: ALCHEMICAL
       lore:
-        -
-      shards:
+        - Imagine having literally no uses other than
+        - to be put back down. It's a wonder Calcite
+        - has any Crysta at all.
+      shards: [1,0,1,0,0,0,0,0,0]
 
   - material: CAMPFIRE
-    tier: 1
+    tier: 2
     elements:
-      -
+      - ELEMENTAL
+      - HUMAN
     story:
-      name:
-      type:
+      name: A Leap Forward
+      type: ELEMENTAL
       lore:
-        -
-      shards:
+        - The discovery of fire is the pivotal
+        - event that led to sentience and with
+        - sentience came the spirits behind magic
+      shards: [2,0,0,0,1,0,0,0,0]
 
   - material: CANDLE
     tier: 2
