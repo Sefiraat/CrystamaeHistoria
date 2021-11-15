@@ -9,8 +9,11 @@ import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 
 @Getter
 public class ConfigManager {
@@ -22,35 +25,42 @@ public class ConfigManager {
     private final FileConfiguration spells;
 
     public ConfigManager() {
-        this.blocks = getConfig("blocks.yml");
-        this.blocks.options().copyDefaults(true);
-        this.stories = getConfig("generic-stories.yml");
-        this.stories.options().copyDefaults(true);
-        this.playerStats = getConfig("player_stats.yml");
-        this.playerStats.options().copyDefaults(true);
-        this.blockColors = getConfig("block_colors.yml");
-        this.blockColors.options().copyDefaults(true);
-        this.spells = getConfig("spells.yml");
-        this.spells.options().copyDefaults(true);
+        this.blocks = getConfig("blocks.yml", true);
+        this.stories = getConfig("generic-stories.yml", true);
+        this.playerStats = getConfig("player_stats.yml", false);
+        this.blockColors = getConfig("block_colors.yml", false);
+        this.spells = getConfig("spells.yml", false);
     }
 
     /**
      * @noinspection ResultOfMethodCallIgnored
      */
-    private FileConfiguration getConfig(String fileName) {
-        CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
-        File file = new File(plugin.getDataFolder(), fileName);
+    private FileConfiguration getConfig(String fileName, boolean updateWithDefaults) {
+        final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
+        final File file = new File(plugin.getDataFolder(), fileName);
         if (!file.exists()) {
             file.getParentFile().mkdirs();
             plugin.saveResource(fileName, true);
         }
-        YamlConfiguration yaml = new YamlConfiguration();
+        final FileConfiguration config = new YamlConfiguration();
         try {
-            yaml.load(file);
+            config.load(file);
+            if (updateWithDefaults) {
+                updateConfig(config, file, fileName);
+            }
         } catch (IOException | InvalidConfigurationException e) {
             e.printStackTrace();
         }
-        return yaml;
+        return config;
+    }
+
+    private void updateConfig(FileConfiguration config, File file, String fileName) throws IOException {
+        final InputStream inputStream = CrystamaeHistoria.getInstance().getResource(fileName);
+        final BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+        final YamlConfiguration defaults = YamlConfiguration.loadConfiguration(reader);
+        config.addDefaults(defaults);
+        config.options().copyDefaults(true);
+        config.save(file);
     }
 
     public boolean spellEnabled(Spell spell) {

@@ -109,20 +109,13 @@ public class PlayerStatistics {
         return unlocked;
     }
 
-    /**
-     * @noinspection unchecked
-     */
     public static StoryRank getStoryRank(@Nonnull UUID uuid) {
-        final FileConfiguration blocks = CrystamaeHistoria.getConfigManager().getBlocks();
-        final List<Map<String, Object>> blockList = (List<Map<String, Object>>) blocks.getList("blocks");
-        int total = blockList.size();
-        int unlocked = getStoriesUnlocked(uuid);
+        int total = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().size();
+        final int unlocked = getStoriesUnlocked(uuid);
         return StoryRank.getByPercent(((double) unlocked / total) * 100);
     }
 
     public static String getStoryRankString(@Nonnull UUID uuid) {
-        final FileConfiguration blocks = CrystamaeHistoria.getConfigManager().getBlocks();
-        final List<Map<String, Object>> blockList = (List<Map<String, Object>>) blocks.getList("blocks");
         int total = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().size();
         int unlocked = getStoriesUnlocked(uuid);
         StoryRank storyRank = StoryRank.getByPercent(((double) unlocked / total) * 100);
