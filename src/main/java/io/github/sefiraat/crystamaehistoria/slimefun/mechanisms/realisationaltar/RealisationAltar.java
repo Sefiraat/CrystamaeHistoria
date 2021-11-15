@@ -1,18 +1,23 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.realisationaltar;
 
 import io.github.mooy1.infinitylib.machines.TickingMenuBlock;
+import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.chroniclerpanel.ChroniclerPanelCache;
 import io.github.sefiraat.crystamaehistoria.utils.theme.GuiElements;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.core.handlers.BlockPlaceHandler;
 import lombok.Getter;
+import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
 import java.util.Map;
@@ -27,7 +32,7 @@ public class RealisationAltar extends TickingMenuBlock {
     };
     protected static final int INPUT_SLOT = 22;
 
-    protected static final Map<Location, RealisationAltarCache> CACHE_MAP = new HashMap<>();
+    protected static final Map<Location, RealisationAltarCache> CACHES = new HashMap<>();
 
     @Getter
     private final int tier;
@@ -36,16 +41,25 @@ public class RealisationAltar extends TickingMenuBlock {
     public RealisationAltar(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, int tier) {
         super(itemGroup, item, recipeType, recipe);
         this.tier = tier;
+        this.addItemHandler(new BlockPlaceHandler(false) {
+            @Override
+            public void onPlayerPlace(@Nonnull BlockPlaceEvent event) {
+                final Location location = event.getBlockPlaced().getLocation();
+                final RealisationAltarCache cache = new RealisationAltarCache(BlockStorage.getInventory(location), tier);
+                cache.setActivePlayer(event.getPlayer());
+                CACHES.put(location, cache);
+            }
+        });
     }
 
     public static Map<Location, RealisationAltarCache> getCaches() {
-        return CACHE_MAP;
+        return CACHES;
     }
 
     @Override
     @ParametersAreNonnullByDefault
     protected void tick(Block block, BlockMenu blockMenu) {
-        RealisationAltarCache cache = RealisationAltar.CACHE_MAP.get(block.getLocation());
+        RealisationAltarCache cache = RealisationAltar.CACHES.get(block.getLocation());
         if (cache != null) {
             cache.process();
         }
@@ -73,7 +87,7 @@ public class RealisationAltar extends TickingMenuBlock {
     protected void onBreak(BlockBreakEvent event, BlockMenu blockMenu) {
         super.onBreak(event, blockMenu);
         Location location = blockMenu.getLocation();
-        RealisationAltarCache realisationAltarCache = CACHE_MAP.remove(location);
+        RealisationAltarCache realisationAltarCache = CACHES.remove(location);
         if (realisationAltarCache != null) {
             realisationAltarCache.kill();
         }
@@ -84,14 +98,15 @@ public class RealisationAltar extends TickingMenuBlock {
     @ParametersAreNonnullByDefault
     protected void onNewInstance(BlockMenu blockMenu, Block b) {
         super.onNewInstance(blockMenu, b);
-        RealisationAltarCache cache = new RealisationAltarCache(blockMenu, this.tier);
-        cache.loadMap();
-        CACHE_MAP.put(blockMenu.getLocation(), cache);
+        if (!CACHES.containsKey(blockMenu.getLocation())) {
+            RealisationAltarCache cache = new RealisationAltarCache(blockMenu, this.tier);
+            cache.loadMap();
+            CACHES.put(blockMenu.getLocation(), cache);
+        }
     }
 
     @Override
     protected boolean synchronous() {
         return true;
     }
-
 }

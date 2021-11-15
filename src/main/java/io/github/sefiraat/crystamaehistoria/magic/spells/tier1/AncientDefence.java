@@ -10,7 +10,6 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -66,7 +65,7 @@ public class AncientDefence extends Spell {
         return Material.CRYING_OBSIDIAN;
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public RecipeSpell getRecipe() {
         return new RecipeSpell(

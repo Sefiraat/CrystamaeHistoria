@@ -20,7 +20,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -81,14 +80,14 @@ public class MobMat extends TickingBlockNoGui {
     }
 
     @Override
-    protected void onPlace(@NotNull BlockPlaceEvent event) {
+    protected void onPlace(@Nonnull BlockPlaceEvent event) {
         final UUID uuid = event.getPlayer().getUniqueId();
         BlockStorage.addBlockInfo(event.getBlock(), "CH_UUID", uuid.toString());
         blockOwnerMap.put(event.getBlock().getLocation(), uuid);
     }
 
     @Override
-    protected void onBreak(@NotNull BlockBreakEvent blockBreakEvent, @NotNull ItemStack itemStack, @NotNull List<ItemStack> list) {
+    protected void onBreak(@Nonnull BlockBreakEvent blockBreakEvent, @Nonnull ItemStack itemStack, @Nonnull List<ItemStack> list) {
         BlockStorage.clearBlockInfo(blockBreakEvent.getBlock());
     }
 }

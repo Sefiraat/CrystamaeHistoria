@@ -185,23 +185,23 @@ public class StoryUtils {
 
     @ParametersAreNonnullByDefault
     public static void requestNewStory(ItemStack itemstack) {
-        final StoriesManager m = CrystamaeHistoria.getStoriesManager();
-        final BlockDefinition s = m.getBlockDefinitionMap().get(itemstack.getType());
-        final BlockTier t = s.getTier();
-        final StoryChances c = t.storyChances;
-        final List<StoryType> p = s.getPools();
+        final StoriesManager manager = CrystamaeHistoria.getStoriesManager();
+        final BlockDefinition definition = manager.getBlockDefinitionMap().get(itemstack.getType());
+        final BlockTier tier = definition.getTier();
+        final StoryChances chance = tier.storyChances;
+        final List<StoryType> pool = definition.getPools();
         int rnd = ThreadLocalRandom.current().nextInt(1, 101);
 
-        if (rnd <= c.mythical) {
-            addStory(itemstack, p, m.getStoryMapMythical());
-        } else if (rnd <= c.epic) {
-            addStory(itemstack, p, m.getStoryMapEpic());
-        } else if (rnd <= c.rare) {
-            addStory(itemstack, p, m.getStoryMapRare());
-        } else if (rnd <= c.uncommon) {
-            addStory(itemstack, p, m.getStoryMapUncommon());
+        if (rnd <= chance.mythical) {
+            addStory(itemstack, pool, manager.getStoryMapMythical());
+        } else if (rnd <= chance.epic) {
+            addStory(itemstack, pool, manager.getStoryMapEpic());
+        } else if (rnd <= chance.rare) {
+            addStory(itemstack, pool, manager.getStoryMapRare());
+        } else if (rnd <= chance.uncommon) {
+            addStory(itemstack, pool, manager.getStoryMapUncommon());
         } else {
-            addStory(itemstack, p, m.getStoryMapCommon());
+            addStory(itemstack, pool, manager.getStoryMapCommon());
         }
     }
 

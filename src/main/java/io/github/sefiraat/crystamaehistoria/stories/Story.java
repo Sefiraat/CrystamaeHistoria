@@ -10,10 +10,13 @@ import lombok.Setter;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.chat.BaseComponent;
 import net.md_5.bungee.api.chat.TextComponent;
+import org.apache.commons.lang.Validate;
+import org.bukkit.configuration.ConfigurationSection;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -38,21 +41,30 @@ public class Story {
     private BlockPosition blockPosition;
 
     /**
-     * @noinspection unchecked
+     * @noinspection ConstantConditions
      */
     @ParametersAreNonnullByDefault
-    public Story(Map<String, Object> map, StoryRarity storyRarity) {
+    public Story(ConfigurationSection section, StoryRarity storyRarity) {
+        final List<Integer> shards = section.getIntegerList("shards");
+
+        this.id = section.getString("name");
+
+        Validate.notNull(
+            shards,
+            MessageFormat.format("The following story does not have a shard profile: {0}", this.id)
+        );
+        Validate.isTrue(
+            shards.size() == 9,
+            MessageFormat.format("The following story does not have a correctly setup shard profile: {0}", this.id)
+        );
+
         this.rarity = storyRarity;
-        this.id = (String) map.get("name");
-        this.type = StoryType.getByName((String) map.get("type"));
-        this.storyShardProfile = new StoryShardProfile((List<Integer>) map.get("shards"));
-        this.storyStrings = (List<String>) map.get("lore");
-        this.author = (String) map.get("author");
+        this.type = StoryType.getByName(section.getString("type"));
+        this.storyShardProfile = new StoryShardProfile(section.getIntegerList("shards"));
+        this.storyStrings = section.getStringList("lore");
+        this.author = section.getString("author");
     }
 
-    /**
-     * @noinspection unchecked
-     */
     @ParametersAreNonnullByDefault
     private Story(Story story) {
         this.rarity = story.rarity;

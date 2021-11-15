@@ -2,6 +2,7 @@ package io.github.sefiraat.crystamaehistoria;
 
 import de.slikey.effectlib.EffectManager;
 import io.github.mooy1.infinitylib.core.AbstractAddon;
+import io.github.sefiraat.crystamaehistoria.commands.GetRanks;
 import io.github.sefiraat.crystamaehistoria.commands.OpenSpellCompendium;
 import io.github.sefiraat.crystamaehistoria.commands.OpenStoryCompendium;
 import io.github.sefiraat.crystamaehistoria.commands.TestSpell;
@@ -13,6 +14,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicFallingBlock;
 import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicSummon;
+import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.runnables.RunnableManager;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTickRunnable;
 import io.github.sefiraat.crystamaehistoria.slimefun.Gadgets;
@@ -22,7 +24,6 @@ import io.github.sefiraat.crystamaehistoria.slimefun.Mechanisms;
 import io.github.sefiraat.crystamaehistoria.slimefun.Tools;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
-import io.github.sefiraat.crystamaehistoria.utils.PlayerStatUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import org.apache.commons.lang.Validate;
 import org.bstats.bukkit.Metrics;
@@ -157,6 +158,7 @@ public class CrystamaeHistoria extends AbstractAddon {
         getAddonCommand().addSub(new TestSpell());
         getAddonCommand().addSub(new OpenSpellCompendium());
         getAddonCommand().addSub(new OpenStoryCompendium());
+        getAddonCommand().addSub(new GetRanks());
     }
 
     private void setupBstats() {
@@ -178,7 +180,7 @@ public class CrystamaeHistoria extends AbstractAddon {
                 int timesCast = 0;
                 for (String string : CrystamaeHistoria.getConfigManager().getPlayerStats().getKeys(false)) {
                     UUID uuid = UUID.fromString(string);
-                    timesCast += PlayerStatUtils.getUsages(uuid, spellType);
+                    timesCast += PlayerStatistics.getUsages(uuid, spellType);
                 }
                 values.put(spell.getId(), timesCast);
             }
@@ -191,7 +193,7 @@ public class CrystamaeHistoria extends AbstractAddon {
                 int timesChronicled = 0;
                 for (String string : CrystamaeHistoria.getConfigManager().getPlayerStats().getKeys(false)) {
                     UUID uuid = UUID.fromString(string);
-                    timesChronicled += PlayerStatUtils.getChronicle(uuid, definition);
+                    timesChronicled += PlayerStatistics.getChronicle(uuid, definition);
                 }
                 values.put(definition.getMaterial().toString(), timesChronicled);
             }

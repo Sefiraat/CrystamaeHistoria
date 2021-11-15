@@ -12,7 +12,6 @@ import org.bukkit.Particle;
 import org.bukkit.entity.Animals;
 import org.bukkit.entity.Breedable;
 import org.bukkit.entity.Entity;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -58,7 +57,7 @@ public class LovePotion extends Spell {
         return Material.POTION;
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public RecipeSpell getRecipe() {
         return new RecipeSpell(

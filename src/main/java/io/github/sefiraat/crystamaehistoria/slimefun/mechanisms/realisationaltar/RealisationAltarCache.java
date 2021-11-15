@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.realisationaltar;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.AbstractCache;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
@@ -16,6 +17,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import lombok.Getter;
+import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import org.bukkit.Chunk;
 import org.bukkit.Location;
@@ -33,6 +35,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class RealisationAltarCache extends AbstractCache {
@@ -45,6 +48,11 @@ public class RealisationAltarCache extends AbstractCache {
     public RealisationAltarCache(BlockMenu blockMenu, int tier) {
         super(blockMenu);
         this.maxTier = tier + 1;
+
+        final String activePlayerString = BlockStorage.getLocationInfo(blockMenu.getLocation(), Keys.BS_CP_ACTIVE_PLAYER);
+        if (activePlayerString != null) {
+            this.activePlayer = UUID.fromString(activePlayerString);
+        }
     }
 
     protected void process() {
@@ -94,6 +102,7 @@ public class RealisationAltarCache extends AbstractCache {
                     potentialBlock.setType(Material.SMALL_AMETHYST_BUD);
                     crystalStoryMap.put(new BlockPosition(potentialBlock.getLocation()), new Pair<>(story.getRarity(), story.getId()));
                     if (StoryUtils.removeStory(itemStack, story) == 0) {
+                        PlayerStatistics.addRealisation(activePlayer, definition);
                         itemStack.setAmount(0);
                     } else {
                         StoriesManager.rebuildStoriedStack(itemStack);

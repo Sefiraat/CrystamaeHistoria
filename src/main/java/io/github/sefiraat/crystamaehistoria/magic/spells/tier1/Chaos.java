@@ -13,10 +13,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
+import org.bukkit.block.Block;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.util.Vector;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -52,10 +52,13 @@ public class Chaos extends Spell {
                 .add(new Vector(x, y, 0))
                 .rotateAroundY(-(location.getYaw() * alessioMath));
             final Location pointLocation = location.clone().add(pointVector);
-            if (location.getBlock().isEmpty()) {
+            final Block block = pointLocation.getBlock();
+            if (pointLocation.getBlock().isEmpty()) {
                 final MagicProjectile projectile = SpellUtils.summonMagicProjectile(castInformation, EntityType.SPECTRAL_ARROW, pointLocation, this::onTick);
                 projectile.getProjectile().setGravity(false);
                 projectile.setVelocity(caster.getEyeLocation().getDirection(), 1);
+            } else {
+                GeneralUtils.tryBreakBlock(castInformation.getCaster(), block);
             }
         }
     }
@@ -100,7 +103,7 @@ public class Chaos extends Spell {
         return Material.SOUL_LANTERN;
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public RecipeSpell getRecipe() {
         return new RecipeSpell(

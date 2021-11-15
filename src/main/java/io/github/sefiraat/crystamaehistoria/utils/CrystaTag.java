@@ -10,8 +10,8 @@ import lombok.Getter;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Tag;
-import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.text.MessageFormat;
@@ -65,17 +65,17 @@ public enum CrystaTag implements Tag<Material> {
     }
 
     @Override
-    public boolean isTagged(@NotNull Material material) {
+    public boolean isTagged(@Nonnull Material material) {
         return materialList.contains(material);
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public Set<Material> getValues() {
         return materialList;
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public NamespacedKey getKey() {
         return this.namespacedKey;

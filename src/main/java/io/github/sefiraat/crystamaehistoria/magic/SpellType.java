@@ -1,6 +1,5 @@
 package io.github.sefiraat.crystamaehistoria.magic;
 
-import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.AbstractVoid;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.AirNova;
@@ -71,7 +70,6 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.TimeDilation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Tracer;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.Vacuum;
 import io.github.sefiraat.crystamaehistoria.magic.spells.tier1.WitherWeather;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import lombok.Getter;
 
 import javax.annotation.Nonnull;
@@ -175,6 +173,12 @@ public enum SpellType {
         return null;
     }
 
+    public static void setupEnabledSpells() {
+        enabledSpells = Arrays.stream(values())
+            .filter(spellType -> spellType.getSpell().isEnabled())
+            .toArray(SpellType[]::new);
+    }
+
     @Nonnull
     public String getId() {
         return spell.getId();
@@ -188,12 +192,6 @@ public enum SpellType {
     @ParametersAreNonnullByDefault
     public void cast(CastInformation castInformation) {
         this.spell.castSpell(castInformation);
-    }
-
-    public static void setupEnabledSpells() {
-        enabledSpells = Arrays.stream(values())
-            .filter(spellType -> spellType.getSpell().isEnabled())
-            .toArray(SpellType[]::new);
     }
 
 }

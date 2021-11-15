@@ -10,6 +10,7 @@ import lombok.Getter;
 import net.md_5.bungee.api.chat.TextComponent;
 import org.apache.commons.lang.Validate;
 import org.bukkit.Material;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -154,68 +155,84 @@ public class StoriesManager {
         );
     }
 
-    /**
-     * @noinspection unchecked
-     */
     private void fillStories() {
         FileConfiguration stories = CrystamaeHistoria.getConfigManager().getStories();
 
-        List<Map<String, Object>> common = (List<Map<String, Object>>) stories.getList("common");
+        ConfigurationSection common = stories.getConfigurationSection("COMMON");
         Validate.notNull(common, "Common story configuration is not found, changed or deleted.");
         fillMap(storyMapCommon, common, StoryRarity.COMMON);
 
-        List<Map<String, Object>> uncommon = (List<Map<String, Object>>) stories.getList("uncommon");
+        ConfigurationSection uncommon = stories.getConfigurationSection("UNCOMMON");
         Validate.notNull(uncommon, "Uncommon story configuration is not found, changed or deleted.");
         fillMap(storyMapUncommon, uncommon, StoryRarity.UNCOMMON);
 
-        List<Map<String, Object>> rare = (List<Map<String, Object>>) stories.getList("rare");
+        ConfigurationSection rare = stories.getConfigurationSection("RARE");
         Validate.notNull(rare, "Rare story configuration is not found, changed or deleted.");
         fillMap(storyMapRare, rare, StoryRarity.RARE);
 
-        List<Map<String, Object>> epic = (List<Map<String, Object>>) stories.getList("epic");
+        ConfigurationSection epic = stories.getConfigurationSection("EPIC");
         Validate.notNull(epic, "Epic story configuration is not found, changed or deleted.");
         fillMap(storyMapEpic, epic, StoryRarity.EPIC);
 
-        List<Map<String, Object>> mythical = (List<Map<String, Object>>) stories.getList("mythical");
+        ConfigurationSection mythical = stories.getConfigurationSection("MYTHICAL");
         Validate.notNull(mythical, "Mythical story configuration is not found, changed or deleted.");
         fillMap(storyMapMythical, mythical, StoryRarity.MYTHICAL);
     }
 
     @ParametersAreNonnullByDefault
-    private void fillMap(Map<String, Story> map, List<Map<String, Object>> list, StoryRarity rarity) {
-        for (Map<String, Object> storyDefinition : list) {
-            Story story = new Story(storyDefinition, rarity);
+    private void fillMap(Map<String, Story> map, ConfigurationSection section, StoryRarity rarity) {
+        for (String key : section.getKeys(false)) {
+            ConfigurationSection storySection = section.getConfigurationSection(key);
+            Validate.notNull(storySection, "Section is null, this doesn't make sense so don't worry.");
+            Story story = new Story(storySection, rarity);
             map.put(story.getId(), story);
         }
     }
 
-    /**
-     * @noinspection unchecked
-     */
     private void fillBlockDefinitions() {
         final FileConfiguration blocks = CrystamaeHistoria.getConfigManager().getBlocks();
-        final List<Map<String, Object>> blockList = (List<Map<String, Object>>) blocks.getList("blocks");
-        for (Map<String, Object> map : blockList) {
-            final Map<String, Object> storyMap = (Map<String, Object>) map.get("story");
-            final String name = (String) storyMap.get("name");
-            if (name != null) {
-                final Story story = new Story(storyMap, StoryRarity.UNIQUE);
+        for (String key : blocks.getKeys(false)) {
+            final ConfigurationSection wholeSection = blocks.getConfigurationSection(key);
+            Validate.notNull(wholeSection, "Section is null, this doesn't make sense so don't worry.");
+            final ConfigurationSection storySection = wholeSection.getConfigurationSection("story");
 
-                storyMapUnique.put(story.getId(), story);
-
-                final int tier = (int) map.get("tier");
-                final Material material = Material.getMaterial((String) map.get("material"));
-                final List<StoryType> types = ((List<String>) map.get("elements")).stream()
-                    .map(StoryType::getByName)
-                    .collect(Collectors.toList());
-                final BlockDefinition blockDefinition = new BlockDefinition(
-                    material,
-                    blockTierMap.get(tier),
-                    types,
-                    story
+            if (storySection == null) {
+                CrystamaeHistoria.getInstance().getLogger().info(
+                    MessageFormat.format("Ignoring a block with a missing story section -> {0}", key)
                 );
-                blockDefinitionMap.put(material, blockDefinition);
+                continue;
             }
+
+            final String name = storySection.getString("name");
+            final Material material = Material.getMaterial(key);
+
+            if (name == null) {
+                CrystamaeHistoria.getInstance().getLogger().info(
+                    MessageFormat.format("Ignoring a story without a name -> {0}", key)
+                );
+                continue;
+            }
+
+            if (material == null) {
+                CrystamaeHistoria.getInstance().getLogger().info(
+                    MessageFormat.format("Ignoring a story with an invalid material -> {0}", key)
+                );
+                continue;
+            }
+
+            final Story story = new Story(storySection, StoryRarity.UNIQUE);
+            final int tier = wholeSection.getInt("tier");
+            final List<StoryType> types = wholeSection.getStringList("elements").stream()
+                .map(StoryType::getByName)
+                .collect(Collectors.toList());
+            final BlockDefinition blockDefinition = new BlockDefinition(
+                material,
+                blockTierMap.get(tier),
+                types,
+                story
+            );
+            blockDefinitionMap.put(material, blockDefinition);
+            storyMapUnique.put(story.getId(), story);
         }
         CrystamaeHistoria.getInstance().getLogger().info(
             MessageFormat.format("Loaded: {0} unique (block) stories.", blockDefinitionMap.size())

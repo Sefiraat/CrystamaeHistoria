@@ -4,6 +4,7 @@ import de.slikey.effectlib.effect.SphereEffect;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.InstancePlate;
+import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.DisplayStandHolder;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.BlankPlate;
@@ -14,7 +15,6 @@ import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.ArmourStandUtils;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
-import io.github.sefiraat.crystamaehistoria.utils.PlayerStatUtils;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentPlateDataType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
@@ -227,9 +227,9 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
                 }
                 summonCatalystParticles();
                 if (activePlayer != null
-                    && !PlayerStatUtils.hasUnlockedSpell(activePlayer, spellType)
+                    && !PlayerStatistics.hasUnlockedSpell(activePlayer, spellType)
                 ) {
-                    PlayerStatUtils.unlockSpell(activePlayer, spellType);
+                    PlayerStatistics.unlockSpell(activePlayer, spellType);
                 }
             }
             emptyBasin();

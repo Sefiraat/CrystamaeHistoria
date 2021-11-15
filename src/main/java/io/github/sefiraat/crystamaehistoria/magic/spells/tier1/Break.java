@@ -9,7 +9,6 @@ import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -49,7 +48,7 @@ public class Break extends Spell {
         return Material.CRACKED_STONE_BRICKS;
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public RecipeSpell getRecipe() {
         return new RecipeSpell(

@@ -21,8 +21,8 @@ import org.bukkit.entity.HumanEntity;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
 import java.util.Map;
@@ -51,7 +51,7 @@ public class LiquefactionBasin extends TickingMenuBlock {
         this.color = color;
         this.addItemHandler(new BlockPlaceHandler(false) {
             @Override
-            public void onPlayerPlace(@NotNull BlockPlaceEvent event) {
+            public void onPlayerPlace(@Nonnull BlockPlaceEvent event) {
                 final Location location = event.getBlockPlaced().getLocation();
                 final LiquefactionBasinCache cache = new LiquefactionBasinCache(BlockStorage.getInventory(location), maxVolume);
                 cache.setActivePlayer(event.getPlayer());
@@ -67,7 +67,7 @@ public class LiquefactionBasin extends TickingMenuBlock {
         if (cache != null) {
             cache.consumeItems();
             Particle.DustOptions dustOptions = new Particle.DustOptions(color, 1);
-            ParticleUtils.displayParticleEffect(block.getLocation(), 1, 4, dustOptions);
+            ParticleUtils.displayParticleEffect(block.getLocation().add(0.5, 0.5, 0.5), 1, 4, dustOptions);
         }
         if (block.getType() != Material.CAULDRON) {
             block.setType(Material.CAULDRON);
@@ -108,7 +108,6 @@ public class LiquefactionBasin extends TickingMenuBlock {
         blockMenu.dropItems(location, INPUT_SLOT);
         if (punish) {
             blockMenu.getLocation().getWorld().createExplosion(
-                event.getPlayer(),
                 event.getBlock().getLocation(),
                 2,
                 true,
