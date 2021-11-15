@@ -1868,147 +1868,170 @@ CARROT:
     shards: [ 0,0,0,0,1,1,1,0,0 ]
 
 CARROT_ON_A_STICK:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: A Great Incentive (Carrot)
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - Slowly draws magical power from the creatures
+      - that this item attracts.
+    shards: [0,0,0,0,1,1,0,0,1]
 
 CARTOGRAPHY_TABLE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Drawn Exploration
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Dreaming of seeing the far corners of the
+      - worlds, this block has to sit and live
+      - through the acheivments of others.
+    shards: [0,0,0,1,2,0,0,0,1]
 
 CARVED_PUMPKIN:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - ANIMAL
   story:
-    name:
-    type:
+    name: A Magical Life
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - It's still unknown how or why this block
+      - is able to create life. Scholars know magic
+      - is involved but no one has been able to see
+      - at which point it intervenes.
+    shards: [1,0,0,1,0,2,0,0,0]
 
 CAULDRON:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - HUMAN
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: A Magical Start
+    type: ALCHEMICAL
     lore:
-      -
-    shards:
+      - Often seen as the beginning for most magical
+      - professions. The cauldron is imbued with
+      - more magic than most other objects.
+    shards: [1,0,2,0,1,0,0,0,1]
 
 CHAIN:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: Shackled
+    type: VOID
     lore:
-      -
-    shards:
+      - A history of enchained prisoners has made
+      - the essence of this item scullied and void.
+    shards: [1,1,0,0,0,0,0,1,0]
 
 CHAINMAIL_BOOTS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Greave Greif (Chain)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Like all armour, boots ant nothing more
+      - than to keep their wearer safe. Unforunatley
+      - they are overshadowed by other gear.
+    shards: [0,0,0,1,2,0,0,0,1]
 
 CHAINMAIL_CHESTPLATE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: The Great Defender (Chain)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Every hit, scrape and pummel stopped by the
+      - chestplate reinforces it's magics by giving
+      - it purpose and drive.
+    shards: [0,1,0,1,2,0,1,0,0]
 
 CHAINMAIL_HELMET:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Head above the rest (Chain)
+    type: VOID
     lore:
-      -
-    shards:
+      - A magicians most important tool is their own
+      - mind, any steps taken to protect that tool
+      - are vital and wise.
+    shards: [0,0,0,1,1,0,0,1,0]
 
 CHAINMAIL_LEGGINGS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Leggless (Chain)
+    type: CELESTIAL
     lore:
-      -
-    shards:
-
-CHAIN_COMMAND_BLOCK:
-  tier: 1
-  elements:
-    -
-  story:
-    name:
-    type:
-    lore:
-      -
-    shards:
+      - Like it's other armour brethren, leggings
+      - absorb crysta from their users in miniscule
+      - amounts over their tenure.
+    shards: [0,0,0,1,2,0,1,0,0]
 
 CHARCOAL:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Burnt Out
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - In the formation of charcoal, all the innate
+      - magic of a log is used up leaving only
+      - remnants.
+    shards: [1,0,0,0,0,0,0,0,1]
 
 CHEST:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Safe and Sound
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - While attempting to keep the held items
+      - safe, the chest loses drive for all other
+      - things.
+    shards: [0,1,0,0,2,0,0,0,0]
 
 CHEST_MINECART:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Safe and Sound... and fun!
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - Previously having lost the drive, being on
+      - wheels has reignited the spirit of the chest.
+    shards: [0,2,0,0,2,0,0,0,0]
 
 CHICKEN:
   tier: 1
@@ -2025,92 +2048,110 @@ CHICKEN:
     shards: [ 0,0,0,0,1,1,0,0,1 ]
 
 CHIPPED_ANVIL:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Hammer Time! (Chipped)
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - The essence of every tool that
+      - has touched the anvil imparts
+      - a part of itself to the anvil.
+    shards: [ 0,1,0,0,1,0,0,0,0 ]
 
 CHISELED_DEEPSLATE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Artisan (Deepslate)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - An artisan, without knowing, gives a portion
+      - of their magic into the block they craft.
+    shards: [0,1,0,1,1,0,0,0,1]
 
 CHISELED_NETHER_BRICKS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Artisan (Nether Bricks)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - An artisan, without knowing, gives a portion
+      - of their magic into the block they craft.
+    shards: [0,1,0,1,1,0,0,0,1]
 
 CHISELED_POLISHED_BLACKSTONE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Artisan (Polished Blackstone)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - An artisan, without knowing, gives a portion
+      - of their magic into the block they craft.
+    shards: [0,1,0,1,1,0,0,0,1]
 
 CHISELED_QUARTZ_BLOCK:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Artisan (Quartz)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - An artisan, without knowing, gives a portion
+      - of their magic into the block they craft.
+    shards: [0,1,0,1,1,0,1,0,1]
 
 CHISELED_RED_SANDSTONE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Artisan (Red Sandstone)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - An artisan, without knowing, gives a portion
+      - of their magic into the block they craft.
+    shards: [0,1,0,1,1,0,0,0,1]
 
 CHISELED_SANDSTONE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Artisan (Sandstone)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - An artisan, without knowing, gives a portion
+      - of their magic into the block they craft.
+    shards: [0,1,0,1,1,0,0,0,1]
 
 CHISELED_STONE_BRICKS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Artisan (Stone Bricks)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - An artisan, without knowing, gives a portion
+      - of their magic into the block they craft.
+    shards: [0,1,0,1,1,0,0,0,1]
 
 CHORUS_FLOWER:
   tier: 2
@@ -2130,57 +2171,55 @@ CHORUS_FLOWER:
 CHORUS_FRUIT:
   tier: 1
   elements:
-    -
+    - VOID
   story:
-    name:
-    type:
+    name: Transmit
+    type: VOID
     lore:
-      -
-    shards:
-
-CHORUS_PLANT:
-  tier: 1
-  elements:
-    -
-  story:
-    name:
-    type:
-    lore:
-      -
-    shards:
+      - The latent magics of this fruit are in
+      - a state of constant flux, quantumly connected
+      - to various nearby points in space-time.
+    shards: [0,0,1,0,0,0,0,1,0]
 
 CLAY:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Pliable (Block)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Eagerly waiting to be formed into something
+      - new. Clay looks forward to it's furture shape.
+    shards: [1,0,1,0,1,0,0,0,0]
 
 CLAY_BALL:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Pliable (Ball)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Eagerly waiting to be formed into something
+      - new. Clay looks forward to it's furture shape.
+    shards: [1,0,1,0,1,0,0,0,0]
 
 CLOCK:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HISTORICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Time to spare
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Criminally underused, the clock ends
+      - up with lots of time to spare.
+    shards: [0,1,0,1,1,0,0,0,0]
 
 COAL:
   tier: 1
@@ -2387,28 +2426,6 @@ COD_BUCKET:
     shards: [ 1,0,0,0,1,1,0,0,0 ]
     author: Seggan
 
-COMMAND_BLOCK:
-  tier: 1
-  elements:
-    -
-  story:
-    name:
-    type:
-    lore:
-      -
-    shards:
-
-COMMAND_BLOCK_MINECART:
-  tier: 1
-  elements:
-    -
-  story:
-    name:
-    type:
-    lore:
-      -
-    shards:
-
 COMPARATOR:
   tier: 1
   elements:
@@ -2604,57 +2621,77 @@ CORNFLOWER:
 CRACKED_DEEPSLATE_BRICKS:
   tier: 1
   elements:
-    -
+    - VOID
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Cracked (Deepslate)
+    type: VOID
     lore:
-      -
-    shards:
+      - This block releases it's magic via
+      - cracks in it's surface into the world.
+      - This often results in underground pockets
+      - of Crystamae.
+    shards: [1,0,0,0,0,0,0,1,1]
 
 CRACKED_DEEPSLATE_TILES:
   tier: 1
   elements:
-    -
+    - VOID
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Cracked (Deepslate Tiles)
+    type: VOID
     lore:
-      -
-    shards:
+      - This block releases it's magic via
+      - cracks in it's surface into the world.
+      - This often results in underground pockets
+      - of Crystamae.
+    shards: [1,0,0,0,0,0,0,1,1]
 
 CRACKED_NETHER_BRICKS:
   tier: 1
   elements:
-    -
+    - VOID
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Cracked (Nether Bricks)
+    type: VOID
     lore:
-      -
-    shards:
+      - This block releases it's magic via
+      - cracks in it's surface into the world.
+      - This often results in underground pockets
+      - of Crystamae.
+    shards: [1,0,0,0,0,0,0,1,1]
 
 CRACKED_POLISHED_BLACKSTONE_BRICKS:
   tier: 1
   elements:
-    -
+    - VOID
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Cracked (Blackstone Bricks)
+    type: VOID
     lore:
-      -
-    shards:
+      - This block releases it's magic via
+      - cracks in it's surface into the world.
+      - This often results in underground pockets
+      - of Crystamae.
+    shards: [1,0,0,0,0,0,0,1,1]
 
 CRACKED_STONE_BRICKS:
   tier: 1
   elements:
-    -
+    - VOID
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Cracked (Stone Bricks)
+    type: VOID
     lore:
-      -
-    shards:
+      - This block releases it's magic via
+      - cracks in it's surface into the world.
+      - This often results in underground pockets
+      - of Crystamae.
+    shards: [1,0,0,0,0,0,0,1,1]
 
 CRAFTING_TABLE:
   tier: 1
@@ -3158,15 +3195,18 @@ CYAN_WOOL:
     author: OOOOMAGAAA
 
 DAMAGED_ANVIL:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Hammer Time! (Damaged)
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - The essence of every tool that
+      - has touched the anvil imparts
+      - a part of itself to the anvil.
+    shards: [ 0,1,0,0,1,0,0,0,0 ]
 
 DANDELION:
   tier: 1
@@ -3884,37 +3924,46 @@ DIAMOND_BLOCK:
     shards:
 
 DIAMOND_BOOTS:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Greave Greif (Diamond)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Like all armour, boots ant nothing more
+      - than to keep their wearer safe. Unforunatley
+      - they are overshadowed by other gear.
+    shards: [0,0,0,1,2,0,0,0,1]
 
 DIAMOND_CHESTPLATE:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: The Great Defender (Diamond)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Every hit, scrape and pummel stopped by the
+      - chestplate reinforces it's magics by giving
+      - it purpose and drive.
+    shards: [0,1,0,1,2,0,1,0,0]
 
 DIAMOND_HELMET:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Head above the rest (Diamond)
+    type: VOID
     lore:
-      -
-    shards:
+      - A magicians most important tool is their own
+      - mind, any steps taken to protect that tool
+      - are vital and wise.
+    shards: [0,0,0,1,1,0,0,1,0]
 
 DIAMOND_HOE:
   tier: 1
@@ -3939,15 +3988,18 @@ DIAMOND_HORSE_ARMOR:
     shards:
 
 DIAMOND_LEGGINGS:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Leggless (Diamond)
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - Like it's other armour brethren, leggings
+      - absorb crysta from their users in miniscule
+      - amounts over their tenure.
+    shards: [0,0,0,1,2,0,1,0,0]
 
 DIAMOND_ORE:
   tier: 3
@@ -4868,15 +4920,18 @@ GOLDEN_AXE:
     shards:
 
 GOLDEN_BOOTS:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Greave Greif (Gold)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Like all armour, boots ant nothing more
+      - than to keep their wearer safe. Unforunatley
+      - they are overshadowed by other gear.
+    shards: [0,0,0,1,2,0,0,0,1]
 
 GOLDEN_CARROT:
   tier: 1
@@ -4890,26 +4945,32 @@ GOLDEN_CARROT:
     shards:
 
 GOLDEN_CHESTPLATE:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: The Great Defender (Gold)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Every hit, scrape and pummel stopped by the
+      - chestplate reinforces it's magics by giving
+      - it purpose and drive.
+    shards: [0,1,0,1,2,0,1,0,0]
 
 GOLDEN_HELMET:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Head above the rest (Gold)
+    type: VOID
     lore:
-      -
-    shards:
+      - A magicians most important tool is their own
+      - mind, any steps taken to protect that tool
+      - are vital and wise.
+    shards: [0,0,0,1,1,0,0,1,0]
 
 GOLDEN_HOE:
   tier: 1
@@ -4934,15 +4995,18 @@ GOLDEN_HORSE_ARMOR:
     shards:
 
 GOLDEN_LEGGINGS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Leggless (Gold)
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - Like it's other armour brethren, leggings
+      - absorb crysta from their users in miniscule
+      - amounts over their tenure.
+    shards: [0,0,0,1,2,0,1,0,0]
 
 GOLDEN_PICKAXE:
   tier: 1
@@ -5796,26 +5860,32 @@ IRON_BLOCK:
     shards: [ 1,2,0,0,1,0,0,0,0 ]
 
 IRON_BOOTS:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Greave Greif (Iron)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Like all armour, boots ant nothing more
+      - than to keep their wearer safe. Unforunatley
+      - they are overshadowed by other gear.
+    shards: [0,0,0,1,2,0,0,0,1]
 
 IRON_CHESTPLATE:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: The Great Defender (Iron)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Every hit, scrape and pummel stopped by the
+      - chestplate reinforces it's magics by giving
+      - it purpose and drive.
+    shards: [0,1,0,1,2,0,1,0,0]
 
 IRON_DOOR:
   tier: 2
@@ -5832,15 +5902,18 @@ IRON_DOOR:
     shards: [ 0,2,0,0,1,0,1,0,1 ]
 
 IRON_HELMET:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Head above the rest (Iron)
+    type: VOID
     lore:
-      -
-    shards:
+      - A magicians most important tool is their own
+      - mind, any steps taken to protect that tool
+      - are vital and wise.
+    shards: [0,0,0,1,1,0,0,1,0]
 
 IRON_HOE:
   tier: 1
@@ -5876,15 +5949,18 @@ IRON_INGOT:
     shards:
 
 IRON_LEGGINGS:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Leggless (Iron)
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - Like it's other armour brethren, leggings
+      - absorb crysta from their users in miniscule
+      - amounts over their tenure.
+    shards: [0,0,0,1,2,0,1,0,0]
 
 IRON_NUGGET:
   tier: 1
@@ -6324,35 +6400,44 @@ LEATHER:
 LEATHER_BOOTS:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Greave Greif (Leather)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Like all armour, boots ant nothing more
+      - than to keep their wearer safe. Unforunatley
+      - they are overshadowed by other gear.
+    shards: [0,0,0,1,2,0,0,0,1]
 
 LEATHER_CHESTPLATE:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: The Great Defender (Leather)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Every hit, scrape and pummel stopped by the
+      - chestplate reinforces it's magics by giving
+      - it purpose and drive.
+    shards: [0,1,0,1,2,0,1,0,0]
 
 LEATHER_HELMET:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Head above the rest (Leather)
+    type: VOID
     lore:
-      -
-    shards:
+      - A magicians most important tool is their own
+      - mind, any steps taken to protect that tool
+      - are vital and wise.
+    shards: [0,0,0,1,1,0,0,1,0]
 
 LEATHER_HORSE_ARMOR:
   tier: 1
@@ -6368,13 +6453,16 @@ LEATHER_HORSE_ARMOR:
 LEATHER_LEGGINGS:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Leggless (Leather)
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - Like it's other armour brethren, leggings
+      - absorb crysta from their users in miniscule
+      - amounts over their tenure.
+    shards: [0,0,0,1,2,0,1,0,0]
 
 LECTERN:
   tier: 1
@@ -7678,37 +7766,46 @@ NETHERITE_BLOCK:
     author: ashton
 
 NETHERITE_BOOTS:
-  tier: 1
+  tier: 5
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Greave Greif (Netherite)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Like all armour, boots ant nothing more
+      - than to keep their wearer safe. Unforunatley
+      - they are overshadowed by other gear.
+    shards: [0,0,0,1,2,0,0,0,1]
 
 NETHERITE_CHESTPLATE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: The Great Defender (Netherite)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Every hit, scrape and pummel stopped by the
+      - chestplate reinforces it's magics by giving
+      - it purpose and drive.
+    shards: [0,1,0,1,2,0,1,0,0]
 
 NETHERITE_HELMET:
-  tier: 1
+  tier: 5
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Head above the rest (Netherite)
+    type: VOID
     lore:
-      -
-    shards:
+      - A magicians most important tool is their own
+      - mind, any steps taken to protect that tool
+      - are vital and wise.
+    shards: [0,0,0,1,1,0,0,1,0]
 
 NETHERITE_HOE:
   tier: 1
@@ -7733,15 +7830,18 @@ NETHERITE_INGOT:
     shards:
 
 NETHERITE_LEGGINGS:
-  tier: 1
+  tier: 5
   elements:
-    -
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Leggless (Netherite)
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - Like it's other armour brethren, leggings
+      - absorb crysta from their users in miniscule
+      - amounts over their tenure.
+    shards: [0,0,0,1,2,0,1,0,0]
 
 NETHERITE_PICKAXE:
   tier: 1
@@ -7908,15 +8008,18 @@ NETHER_SPROUTS:
     shards:
 
 NETHER_STAR:
-  tier: 1
+  tier: 5
   elements:
-    -
+    - VOID
   story:
-    name:
-    type:
+    name: Crystaline Nether
+    type: VOID
     lore:
-      -
-    shards:
+      - Not all magic fits into the Crystamae
+      - framework, the sheer amount of void from
+      - the Wither is of this type. The Nether
+      - Star encapsulates it all.
+    shards: [1,0,0,1,1,1,0,2,1]
 
 NETHER_WART:
   tier: 1
@@ -10101,17 +10204,6 @@ REPEATER:
       -
     shards:
 
-REPEATING_COMMAND_BLOCK:
-  tier: 1
-  elements:
-    -
-  story:
-    name:
-    type:
-    lore:
-      -
-    shards:
-
 RESPAWN_ANCHOR:
   tier: 1
   elements:
@@ -11704,15 +11796,18 @@ TURTLE_EGG:
     shards:
 
 TURTLE_HELMET:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Head above the rest (Scute)
+    type: VOID
     lore:
-      -
-    shards:
+      - A magicians most important tool is their own
+      - mind, any steps taken to protect that tool
+      - are vital and wise.
+    shards: [0,0,0,1,1,0,0,1,0]
 
 TWISTING_VINES:
   tier: 1
@@ -11805,15 +11900,16 @@ WARPED_FUNGUS:
     shards:
 
 WARPED_FUNGUS_ON_A_STICK:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: A Great Incentive (Warped Fungus)
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - Slowly draws magical power from the creatures
+      - that this item attracts.
+    shards: [0,0,0,0,1,1,0,0,1]
 
 WARPED_HYPHAE:
   tier: 1

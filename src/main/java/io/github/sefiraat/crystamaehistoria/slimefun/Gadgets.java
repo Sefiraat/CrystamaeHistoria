@@ -10,6 +10,8 @@ import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobFan;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobLamp;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobMat;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MysteriousTicker;
+import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.TrophyDisplay;
+import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.DisplayStandHolder;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
@@ -74,6 +76,8 @@ public class Gadgets {
     private static GreenHouseGlass greenHouseGlass;
     @Getter
     private static GreenHouseGlass focusedGreenHouseGlass;
+    @Getter
+    private static TrophyDisplay trophyDisplay;
 
     public static void setup() {
 
@@ -624,6 +628,30 @@ public class Gadgets {
             10
         );
 
+        // Trophy Stand
+        RecipeItem trophyDisplayRecipe = new RecipeItem(
+            new ItemStack(Material.POLISHED_BLACKSTONE_BRICK_WALL),
+            StoryType.MECHANICAL, 10,
+            StoryType.HUMAN, 10,
+            StoryType.PHILOSOPHICAL, 10
+        );
+        trophyDisplay = new TrophyDisplay(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_TROPHY_DISPLAY_1",
+                new ItemStack(Material.POLISHED_BLACKSTONE_BRICK_WALL),
+                ThemeType.GADGET,
+                "Trophy Display",
+                "Used to place your trophies on to show",
+                "off to the world.",
+                "",
+                "Currently allowable trophies include:",
+                ThemeType.CLICK_INFO.getColor() + "A block in which you have a S.M.E. rank"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            trophyDisplayRecipe.getDisplayRecipe()
+        );
+
         // Slimefun Registry
         abstractionLamp.register(plugin);
         dispersionLamp.register(plugin);
@@ -645,6 +673,7 @@ public class Gadgets {
         mysteriousPlant.register(plugin);
         greenHouseGlass.register(plugin);
         focusedGreenHouseGlass.register(plugin);
+        trophyDisplay.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(abstractionLamp, abstractionLampRecipe);
@@ -669,5 +698,7 @@ public class Gadgets {
         LiquefactionBasinCache.addCraftingRecipe(mysteriousPlant, mysteriousPlantRecipe);
 
         LiquefactionBasinCache.addCraftingRecipe(focusedGreenHouseGlass, focusedGreenHouseGlassRecipe);
+
+        LiquefactionBasinCache.addCraftingRecipe(trophyDisplay, trophyDisplayRecipe);
     }
 }

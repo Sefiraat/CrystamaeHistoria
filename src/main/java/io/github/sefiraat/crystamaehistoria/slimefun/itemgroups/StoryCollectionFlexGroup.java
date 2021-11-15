@@ -1,8 +1,8 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.itemgroups;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.player.BlockRank;
 import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
-import io.github.sefiraat.crystamaehistoria.player.SpellRank;
 import io.github.sefiraat.crystamaehistoria.player.StoryRank;
 import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
@@ -25,12 +25,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 /**
@@ -55,6 +57,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
 
     private static final int CHRONICLING_SLOT = 20;
     private static final int TIER_SLOT = 22;
+    private static final int STATS_SLOT = 24;
     private static final int UNIQUE_SLOT = 40;
 
     private static final int[] DIVIDER = new int[]{
@@ -111,7 +114,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         });
 
         // Stats
-        menu.replaceExistingItem(GUIDE_STATS, getStatsStack(player));
+        menu.replaceExistingItem(GUIDE_STATS, getPlayerInfoStack(player));
         menu.addMenuClickHandler(GUIDE_STATS, (player1, slot, itemStack, clickAction) -> false);
 
         for (int i = 0; i < 36; i++) {
@@ -160,6 +163,9 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
 
         menu.replaceExistingItem(TIER_SLOT, getTierItemStack(definition));
         menu.addMenuClickHandler(TIER_SLOT, (player, i, itemStack, clickAction) -> false);
+
+        menu.replaceExistingItem(STATS_SLOT, getStatsStack(p.getUniqueId(), definition));
+        menu.addMenuClickHandler(STATS_SLOT, (player, i, itemStack, clickAction) -> false);
 
         menu.replaceExistingItem(UNIQUE_SLOT, getUniqueStoryItemStack(definition));
         menu.addMenuClickHandler(UNIQUE_SLOT, (player, i, itemStack, clickAction) -> false);
@@ -253,7 +259,32 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         }
     }
 
-    private ItemStack getStatsStack(Player player) {
+    @ParametersAreNonnullByDefault
+    private ItemStack getStatsStack(UUID player, BlockDefinition definition) {
+        final ChatColor color = ThemeType.CLICK_INFO.getColor();
+        final ChatColor passive = ThemeType.PASSIVE.getColor();
+        final List<String> lore = new ArrayList<>();
+        final BlockRank blockRank = PlayerStatistics.getBlockRank(player, definition);
+
+        final int timesChronicled = PlayerStatistics.getChronicle(player, definition);
+        final int timesRealised = PlayerStatistics.getRealisation(player, definition);
+
+        final String chronicleCap = timesChronicled > 100 ? "(Capped at 100)" : "";
+        final String realisationCap = timesRealised > 100 ? "(Capped at 100)" : "";
+
+        lore.add(MessageFormat.format("{0}Rank: {1}{2}", color, blockRank.getTheme().getColor(), blockRank.getTheme().getLoreLine()));
+        lore.add("");
+        lore.add(MessageFormat.format("{0}Times Chronicled: {1}{2} {3}", color, passive, timesChronicled, chronicleCap));
+        lore.add(MessageFormat.format("{0}Times Realised: {1}{2} {3}", color, passive, timesRealised, realisationCap));
+
+        return new CustomItemStack(
+            Material.TARGET,
+            ThemeType.MAIN.getColor() + "Item Statistics",
+            lore
+        );
+    }
+
+    private ItemStack getPlayerInfoStack(Player player) {
         final ChatColor color = ThemeType.CLICK_INFO.getColor();
         final ChatColor passive = ThemeType.PASSIVE.getColor();
         final List<String> lore = new ArrayList<>();

@@ -1,5 +1,6 @@
 COMMON:
   Quiet Days:
+    name: Quiet Days
     type: ELEMENTAL
     shards: [ 1,0,1,1,0,0,0,0,0 ]
     lore:
@@ -7,6 +8,7 @@ COMMON:
       - Everything was quiet and peaceful and serene.
 
   Grinding Gears:
+    name: Grinding Gears
     type: MECHANICAL
     shards: [ 0,1,0,0,1,0,0,0,0 ]
     lore:
@@ -14,6 +16,7 @@ COMMON:
       - will wear down the spirit with ease.
 
   Lead into Gold:
+    name: Lead into Gold
     type: ALCHEMICAL
     shards: [ 0,0,1,0,1,0,1,0,0 ]
     lore:
@@ -21,6 +24,7 @@ COMMON:
       - driven many-a-person mad.
 
   Everlasting:
+    name: Everlasting
     type: HISTORICAL
     shards: [ 1,0,1,1,0,0,0,0,0 ]
     lore:
@@ -28,6 +32,7 @@ COMMON:
       - this block is proven everlasting and resolute.
 
   Toil:
+    name: Toil
     type: HUMAN
     shards: [ 0,0,0,0,1,0,1,0,1 ]
     lore:
@@ -35,6 +40,7 @@ COMMON:
       - ages, aiding where possible; a fruitless task.
 
   Free Range:
+    name: Free Range
     type: ANIMAL
     shards: [ 0,0,0,0,0,1,1,0,1 ]
     lore:
@@ -42,6 +48,7 @@ COMMON:
       - the magics more than animals roaming free.
 
   Moonlit:
+    name: Moonlit
     type: CELESTIAL
     shards: [ 1,0,0,0,0,1,1,0,0 ]
     lore:
@@ -49,6 +56,7 @@ COMMON:
       - the light of a waning moon.
 
   Despair:
+    name: Despair
     type: VOID
     shards: [ 0,0,0,0,1,0,0,1,1 ]
     lore:
@@ -56,6 +64,7 @@ COMMON:
       - recesses of a mind causing depair and grief.
 
   Good Life:
+    name: Good Life
     type: PHILOSOPHICAL
     shards: [ 0,0,0,0,1,0,0,0,2 ]
     lore:
@@ -64,6 +73,7 @@ COMMON:
 
 UNCOMMON:
   Quiet Days:
+    name: Quiet Days
     type: ELEMENTAL
     shards: [ 1,0,1,1,0,0,0,0,0 ]
     lore:
@@ -71,6 +81,7 @@ UNCOMMON:
       - Everything was quiet and peaceful and serene.
 
   Grinding Gears:
+    name: Grinding Gears
     type: MECHANICAL
     shards: [ 0,1,0,0,1,0,0,0,0 ]
     lore:
@@ -78,6 +89,7 @@ UNCOMMON:
       - will wear down the spirit with ease.
 
   Lead into Gold:
+    name: Lead into Gold
     type: ALCHEMICAL
     shards: [ 0,0,1,0,1,0,1,0,0 ]
     lore:
@@ -85,6 +97,7 @@ UNCOMMON:
       - driven many-a-person mad.
 
   Everlasting:
+    name: Everlasting
     type: HISTORICAL
     shards: [ 1,0,1,1,0,0,0,0,0 ]
     lore:
@@ -92,6 +105,7 @@ UNCOMMON:
       - this block is proven everlasting and resolute.
 
   Toil:
+    name: Toil
     type: HUMAN
     shards: [ 0,0,0,0,1,0,1,0,1 ]
     lore:
@@ -99,6 +113,7 @@ UNCOMMON:
       - ages, aiding where possible; a fruitless task.
 
   Free Range:
+    name: Free Range
     type: ANIMAL
     shards: [ 0,0,0,0,0,1,1,0,1 ]
     lore:
@@ -106,6 +121,7 @@ UNCOMMON:
       - the magics more than animals roaming free.
 
   Moonlit:
+    name: Moonlit
     type: CELESTIAL
     shards: [ 1,0,0,0,0,1,1,0,0 ]
     lore:
@@ -113,6 +129,7 @@ UNCOMMON:
       - the light of a waning moon.
 
   Despair:
+    name: Despair
     type: VOID
     shards: [ 0,0,0,0,1,0,0,1,1 ]
     lore:
@@ -120,6 +137,7 @@ UNCOMMON:
       - recesses of a mind causing depair and grief.
 
   Good Life:
+    name: Good Life
     type: PHILOSOPHICAL
     shards: [ 0,0,0,0,1,0,0,0,2 ]
     lore:
@@ -128,6 +146,7 @@ UNCOMMON:
 
 RARE:
   Quiet Days:
+    name: Quiet Days
     type: ELEMENTAL
     shards: [ 1,0,1,1,0,0,0,0,0 ]
     lore:
@@ -135,6 +154,7 @@ RARE:
       - Everything was quiet and peaceful and serene.
 
   Grinding Gears:
+    name: Grinding Gears
     type: MECHANICAL
     shards: [ 0,1,0,0,1,0,0,0,0 ]
     lore:
@@ -142,6 +162,7 @@ RARE:
       - will wear down the spirit with ease.
 
   Lead into Gold:
+    name: Lead into Gold
     type: ALCHEMICAL
     shards: [ 0,0,1,0,1,0,1,0,0 ]
     lore:
@@ -149,6 +170,7 @@ RARE:
       - driven many-a-person mad.
 
   Everlasting:
+    name: Everlasting
     type: HISTORICAL
     shards: [ 1,0,1,1,0,0,0,0,0 ]
     lore:
@@ -156,6 +178,7 @@ RARE:
       - this block is proven everlasting and resolute.
 
   Toil:
+    name: Toil
     type: HUMAN
     shards: [ 0,0,0,0,1,0,1,0,1 ]
     lore:
@@ -163,6 +186,7 @@ RARE:
       - ages, aiding where possible; a fruitless task.
 
   Free Range:
+    name: Free Range
     type: ANIMAL
     shards: [ 0,0,0,0,0,1,1,0,1 ]
     lore:
@@ -170,6 +194,7 @@ RARE:
       - the magics more than animals roaming free.
 
   Moonlit:
+    name: Moonlit
     type: CELESTIAL
     shards: [ 1,0,0,0,0,1,1,0,0 ]
     lore:
@@ -177,6 +202,7 @@ RARE:
       - the light of a waning moon.
 
   Despair:
+    name: Despair
     type: VOID
     shards: [ 0,0,0,0,1,0,0,1,1 ]
     lore:
@@ -184,6 +210,7 @@ RARE:
       - recesses of a mind causing depair and grief.
 
   Good Life:
+    name: Good Life
     type: PHILOSOPHICAL
     shards: [ 0,0,0,0,1,0,0,0,2 ]
     lore:
@@ -192,6 +219,7 @@ RARE:
 
 EPIC:
   Quiet Days:
+    name: Quiet Days
     type: ELEMENTAL
     shards: [ 1,0,1,1,0,0,0,0,0 ]
     lore:
@@ -199,6 +227,7 @@ EPIC:
       - Everything was quiet and peaceful and serene.
 
   Grinding Gears:
+    name: Grinding Gears
     type: MECHANICAL
     shards: [ 0,1,0,0,1,0,0,0,0 ]
     lore:
@@ -206,6 +235,7 @@ EPIC:
       - will wear down the spirit with ease.
 
   Lead into Gold:
+    name: Lead into Gold
     type: ALCHEMICAL
     shards: [ 0,0,1,0,1,0,1,0,0 ]
     lore:
@@ -213,6 +243,7 @@ EPIC:
       - driven many-a-person mad.
 
   Everlasting:
+    name: Everlasting
     type: HISTORICAL
     shards: [ 1,0,1,1,0,0,0,0,0 ]
     lore:
@@ -220,6 +251,7 @@ EPIC:
       - this block is proven everlasting and resolute.
 
   Toil:
+    name: Toil
     type: HUMAN
     shards: [ 0,0,0,0,1,0,1,0,1 ]
     lore:
@@ -227,6 +259,7 @@ EPIC:
       - ages, aiding where possible; a fruitless task.
 
   Free Range:
+    name: Free Range
     type: ANIMAL
     shards: [ 0,0,0,0,0,1,1,0,1 ]
     lore:
@@ -234,6 +267,7 @@ EPIC:
       - the magics more than animals roaming free.
 
   Moonlit:
+    name: Moonlit
     type: CELESTIAL
     shards: [ 1,0,0,0,0,1,1,0,0 ]
     lore:
@@ -241,6 +275,7 @@ EPIC:
       - the light of a waning moon.
 
   Despair:
+    name: Despair
     type: VOID
     shards: [ 0,0,0,0,1,0,0,1,1 ]
     lore:
@@ -248,6 +283,7 @@ EPIC:
       - recesses of a mind causing depair and grief.
 
   Good Life:
+    name: Good Life
     type: PHILOSOPHICAL
     shards: [ 0,0,0,0,1,0,0,0,2 ]
     lore:
@@ -256,6 +292,7 @@ EPIC:
 
 MYTHICAL:
   Quiet Days:
+    name: Quiet Days
     type: ELEMENTAL
     shards: [ 1,0,1,1,0,0,0,0,0 ]
     lore:
@@ -263,6 +300,7 @@ MYTHICAL:
       - Everything was quiet and peaceful and serene.
 
   Grinding Gears:
+    name: Grinding Gears
     type: MECHANICAL
     shards: [ 0,1,0,0,1,0,0,0,0 ]
     lore:
@@ -270,6 +308,7 @@ MYTHICAL:
       - will wear down the spirit with ease.
 
   Lead into Gold:
+    name: Lead into Gold
     type: ALCHEMICAL
     shards: [ 0,0,1,0,1,0,1,0,0 ]
     lore:
@@ -277,6 +316,7 @@ MYTHICAL:
       - driven many-a-person mad.
 
   Everlasting:
+    name: Everlasting
     type: HISTORICAL
     shards: [ 1,0,1,1,0,0,0,0,0 ]
     lore:
@@ -284,6 +324,7 @@ MYTHICAL:
       - this block is proven everlasting and resolute.
 
   Toil:
+    name: Toil
     type: HUMAN
     shards: [ 0,0,0,0,1,0,1,0,1 ]
     lore:
@@ -291,6 +332,7 @@ MYTHICAL:
       - ages, aiding where possible; a fruitless task.
 
   Free Range:
+    name: Free Range
     type: ANIMAL
     shards: [ 0,0,0,0,0,1,1,0,1 ]
     lore:
@@ -298,6 +340,7 @@ MYTHICAL:
       - the magics more than animals roaming free.
 
   Moonlit:
+    name: Moonlit
     type: CELESTIAL
     shards: [ 1,0,0,0,0,1,1,0,0 ]
     lore:
@@ -305,6 +348,7 @@ MYTHICAL:
       - the light of a waning moon.
 
   Despair:
+    name: Despair
     type: VOID
     shards: [ 0,0,0,0,1,0,0,1,1 ]
     lore:
@@ -312,6 +356,7 @@ MYTHICAL:
       - recesses of a mind causing depair and grief.
 
   Good Life:
+    name: Good Life
     type: PHILOSOPHICAL
     shards: [ 0,0,0,0,1,0,0,0,2 ]
     lore:

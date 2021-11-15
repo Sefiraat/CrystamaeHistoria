@@ -6,14 +6,11 @@ import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
-import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.text.MessageFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
 import java.util.UUID;
 
 public class PlayerStatistics {
@@ -23,7 +20,7 @@ public class PlayerStatistics {
     }
 
     public static void unlockSpell(UUID player, SpellType spellType) {
-        String path = MessageFormat.format("{0}.{1}.{2}.Unlocked", player, StatType.SPELL, spellType.getId());
+        String path = MessageFormat.format("{0}.{1}.{2}.UNLOCKED", player, StatType.SPELL, spellType.getId());
         CrystamaeHistoria.getConfigManager().getPlayerStats().set(path, true);
     }
 
@@ -32,7 +29,7 @@ public class PlayerStatistics {
     }
 
     public static boolean hasUnlockedSpell(UUID player, SpellType spellType) {
-        String path = MessageFormat.format("{0}.{1}.{2}.Unlocked", player, StatType.SPELL, spellType.getId());
+        String path = MessageFormat.format("{0}.{1}.{2}.UNLOCKED", player, StatType.SPELL, spellType.getId());
         return CrystamaeHistoria.getConfigManager().getPlayerStats().getBoolean(path);
     }
 
@@ -43,7 +40,7 @@ public class PlayerStatistics {
     public static void addUsage(UUID player, SpellType spellType) {
         int uses = getUsages(player, spellType);
         uses++;
-        String path = MessageFormat.format("{0}.{1}.{2}.Times_Cast", player, StatType.SPELL, spellType.getId());
+        String path = MessageFormat.format("{0}.{1}.{2}.TIMES_CAST", player, StatType.SPELL, spellType.getId());
         CrystamaeHistoria.getConfigManager().getPlayerStats().set(path, uses);
     }
 
@@ -52,7 +49,7 @@ public class PlayerStatistics {
     }
 
     public static int getUsages(UUID player, SpellType spellType) {
-        String path = MessageFormat.format("{0}.{1}.{2}.Times_Cast", player, StatType.SPELL, spellType.getId());
+        String path = MessageFormat.format("{0}.{1}.{2}.TIMES_CAST", player, StatType.SPELL, spellType.getId());
         return CrystamaeHistoria.getConfigManager().getPlayerStats().getInt(path);
     }
 
@@ -61,7 +58,7 @@ public class PlayerStatistics {
     }
 
     public static void unlockUniqueStory(UUID player, BlockDefinition definition) {
-        String path = MessageFormat.format("{0}.{1}.{2}.Unlocked", player, StatType.STORY, definition.getMaterial());
+        String path = MessageFormat.format("{0}.{1}.{2}.UNLOCKED", player, StatType.STORY, definition.getMaterial());
         CrystamaeHistoria.getConfigManager().getPlayerStats().set(path, true);
     }
 
@@ -74,7 +71,7 @@ public class PlayerStatistics {
     }
 
     public static boolean hasUnlockedUniqueStory(UUID player, Material material) {
-        String path = MessageFormat.format("{0}.{1}.{2}.Unlocked", player, StatType.STORY, material);
+        String path = MessageFormat.format("{0}.{1}.{2}.UNLOCKED", player, StatType.STORY, material);
         return CrystamaeHistoria.getConfigManager().getPlayerStats().getBoolean(path);
     }
 
@@ -85,7 +82,7 @@ public class PlayerStatistics {
     public static void addChronicle(UUID player, BlockDefinition definition) {
         int uses = getChronicle(player, definition);
         uses++;
-        String path = MessageFormat.format("{0}.{1}.{2}.Times_Chronicled", player, StatType.STORY, definition.getMaterial());
+        String path = MessageFormat.format("{0}.{1}.{2}.TIMES_CHRONICLED", player, StatType.STORY, definition.getMaterial());
         CrystamaeHistoria.getConfigManager().getPlayerStats().set(path, uses);
     }
 
@@ -94,16 +91,45 @@ public class PlayerStatistics {
     }
 
     public static int getChronicle(UUID player, BlockDefinition definition) {
-        String path = MessageFormat.format("{0}.{1}.{2}.Times_Chronicled", player, StatType.STORY, definition.getMaterial());
+        String path = MessageFormat.format("{0}.{1}.{2}.TIMES_CHRONICLED", player, StatType.STORY, definition.getMaterial());
         return CrystamaeHistoria.getConfigManager().getPlayerStats().getInt(path);
     }
+
+    public static void addRealisation(Player player, BlockDefinition definition) {
+        addChronicle(player.getUniqueId(), definition);
+    }
+
+    public static void addRealisation(UUID player, BlockDefinition definition) {
+        int uses = getRealisation(player, definition);
+        uses++;
+        String path = MessageFormat.format("{0}.{1}.{2}.TIMES_REALISED", player, StatType.STORY, definition.getMaterial());
+        CrystamaeHistoria.getConfigManager().getPlayerStats().set(path, uses);
+    }
+
+    public static int getRealisation(Player player, BlockDefinition definition) {
+        return getChronicle(player.getUniqueId(), definition);
+    }
+
+    public static int getRealisation(UUID player, BlockDefinition definition) {
+        String path = MessageFormat.format("{0}.{1}.{2}.TIMES_REALISED", player, StatType.STORY, definition.getMaterial());
+        return CrystamaeHistoria.getConfigManager().getPlayerStats().getInt(path);
+    }
+
+    @ParametersAreNonnullByDefault
+    public static BlockRank getBlockRank(UUID uuid, BlockDefinition definition) {
+        final int chronicleAmount = Math.min(getChronicle(uuid, definition), 100);
+        final int realisedAmount = Math.min(getRealisation(uuid, definition), 100);
+        final int blockValue = (chronicleAmount + realisedAmount) / 2;
+        return BlockRank.getByAmount(blockValue);
+    }
+
 
     public static int getStoriesUnlocked(@Nonnull UUID uuid) {
         String path = MessageFormat.format("{0}.{1}", uuid, StatType.STORY);
         ConfigurationSection section = CrystamaeHistoria.getConfigManager().getPlayerStats().getConfigurationSection(path);
         int unlocked = 0;
         for (String story : section.getKeys(false)) {
-            String storyPath = MessageFormat.format("{0}.{1}.{2}.Unlocked", uuid, StatType.STORY, story);
+            String storyPath = MessageFormat.format("{0}.{1}.{2}.UNLOCKED", uuid, StatType.STORY, story);
             if (CrystamaeHistoria.getConfigManager().getPlayerStats().getBoolean(storyPath)) unlocked++;
         }
         return unlocked;
@@ -134,7 +160,7 @@ public class PlayerStatistics {
         ConfigurationSection section = CrystamaeHistoria.getConfigManager().getPlayerStats().getConfigurationSection(path);
         int unlocked = 0;
         for (String spell : section.getKeys(false)) {
-            String storyPath = MessageFormat.format("{0}.{1}.{2}.Unlocked", uuid, StatType.SPELL, spell);
+            String storyPath = MessageFormat.format("{0}.{1}.{2}.UNLOCKED", uuid, StatType.SPELL, spell);
             if (CrystamaeHistoria.getConfigManager().getPlayerStats().getBoolean(storyPath)) unlocked++;
         }
         return unlocked;

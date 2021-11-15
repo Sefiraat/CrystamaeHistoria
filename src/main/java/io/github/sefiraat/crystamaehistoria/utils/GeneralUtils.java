@@ -232,7 +232,7 @@ public final class GeneralUtils {
         item.setGravity(false);
         item.setVelocity(new Vector(0, 0, 0));
         item.setCanPlayerPickup(false);
-        item.setPickupDelay(999999);
+        item.setPickupDelay(Integer.MAX_VALUE);
         return item;
     }
 

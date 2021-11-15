@@ -9,6 +9,7 @@ import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockPlaceHandler;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker;
+import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
@@ -16,11 +17,13 @@ import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public abstract class TickingBlockNoGui extends SlimefunItem {
 
-    protected boolean firstTick = true;
+    protected final Map<Location, Boolean> firstTickMap = new HashMap<>();
 
     protected TickingBlockNoGui(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
@@ -49,9 +52,9 @@ public abstract class TickingBlockNoGui extends SlimefunItem {
 
                 @Override
                 public void tick(Block block, SlimefunItem slimefunItem, Config config) {
-                    if (firstTick) {
+                    if (!firstTickMap.containsKey(block.getLocation())) {
                         onFirstTick(block, slimefunItem, config);
-                        firstTick = false;
+                        firstTickMap.put(block.getLocation(), true);
                     }
                     onTick(block, slimefunItem, config);
                 }

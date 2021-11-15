@@ -81,7 +81,15 @@ public enum ThemeType {
     RANK_STORY_LECTURER(ChatColor.of("#ceff00"), "Lecturer"),
     RANK_STORY_PROFESSOR(ChatColor.of("#99ff00"), "Professor"),
     RANK_STORY_ADJUNCT_PROFESSOR(ChatColor.of("#6aff00"), "Adjunct Professor"),
-    RANK_STORY_EMERITUS_PROFESSOR(ChatColor.of("#33ff00"), "Emeritus Professor");
+    RANK_STORY_EMERITUS_PROFESSOR(ChatColor.of("#33ff00"), "Emeritus Professor"),
+    RANK_BLOCK_UNKNOWN(ChatColor.of("#a8ffb1"), "Unknown"),
+    RANK_BLOCK_HEARD_OF(ChatColor.of("#87ff94"), "Heard-of"),
+    RANK_BLOCK_KNOWN(ChatColor.of("#66ff77"), "Known"),
+    RANK_BLOCK_DETAILED(ChatColor.of("#4dff60"), "Detailed"),
+    RANK_BLOCK_RESEARCHED(ChatColor.of("#29ff40"), "Researched"),
+    RANK_BLOCK_EXPERT_OF(ChatColor.of("#0fff29"), "Expert-of"),
+    RANK_BLOCK_MASTER_OF(ChatColor.of("#00db18"), "Master-of"),
+    RANK_BLOCK_SME(ChatColor.of("#00820e"), "S.M.E.");
 
     /**
      * List of names to be given to ArmourStands, invisible but mods and Minimaps can see them :)
