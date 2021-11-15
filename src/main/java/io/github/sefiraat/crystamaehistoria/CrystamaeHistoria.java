@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.commands.GetRanks;
 import io.github.sefiraat.crystamaehistoria.commands.OpenSpellCompendium;
 import io.github.sefiraat.crystamaehistoria.commands.OpenStoryCompendium;
 import io.github.sefiraat.crystamaehistoria.commands.TestSpell;
+import io.github.sefiraat.crystamaehistoria.commands.TestWand;
 import io.github.sefiraat.crystamaehistoria.config.ConfigManager;
 import io.github.sefiraat.crystamaehistoria.listeners.ListenerManager;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
@@ -156,6 +157,7 @@ public class CrystamaeHistoria extends AbstractAddon {
         setupBstats();
 
         getAddonCommand().addSub(new TestSpell());
+        getAddonCommand().addSub(new TestWand());
         getAddonCommand().addSub(new OpenSpellCompendium());
         getAddonCommand().addSub(new OpenStoryCompendium());
         getAddonCommand().addSub(new GetRanks());
