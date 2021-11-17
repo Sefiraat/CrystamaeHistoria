@@ -29,6 +29,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import org.apache.commons.lang.Validate;
 import org.bstats.bukkit.Metrics;
 import org.bstats.charts.AdvancedPie;
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 
 import javax.annotation.Nonnull;
@@ -47,6 +48,7 @@ public class CrystamaeHistoria extends AbstractAddon {
     private RunnableManager runnableManager;
     private SpellMemory spellMemory;
     private EffectManager effectManager;
+    private boolean isMcMMO;
 
     public CrystamaeHistoria() {
         super("Sefiraat", "CrystamaeHistoria", "master", "auto-update");
@@ -83,6 +85,8 @@ public class CrystamaeHistoria extends AbstractAddon {
     public static PluginManager getPluginManager() {
         return instance.getServer().getPluginManager();
     }
+
+    public static boolean isMcMMO() { return  instance.isMcMMO;}
 
     @Nonnull
     public static Map<MagicProjectile, Pair<CastInformation, Long>> getProjectileMap() {
@@ -154,6 +158,8 @@ public class CrystamaeHistoria extends AbstractAddon {
 
         setupSlimefun();
 
+        setupSupportedPlugins();
+
         setupBstats();
 
         getAddonCommand().addSub(new TestSpell());
@@ -220,5 +226,11 @@ public class CrystamaeHistoria extends AbstractAddon {
         Mechanisms.setup();
         Gadgets.setup();
         Tools.setup();
+    }
+
+    private void setupSupportedPlugins() {
+        if (Bukkit.getPluginManager().isPluginEnabled("mcMMO")) {
+            this.isMcMMO = true;
+        }
     }
 }
