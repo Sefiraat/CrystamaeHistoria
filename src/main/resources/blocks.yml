@@ -3495,13 +3495,15 @@ DARK_OAK_WOOD:
 DARK_PRISMARINE:
   tier: 1
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: A Guarded Secret (Dark)
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - Guarded in the depths, these blocks are
+      - not designed to be used by any outside the
+      - temple. All will be reclaimed eventually.
+    shards: [1,0,0,1,0,1,0,0,0]
 
 DARK_PRISMARINE_SLAB:
   tier: 2
@@ -4177,26 +4179,32 @@ DIAMOND_PICKAXE:
     shards: [ 0,0,0,1,2,0,1,0,0 ]
 
 DIAMOND_SHOVEL:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - HUMAN
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Can you dig it? (Diamond)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The invention of the shovel was a pivotal
+      - to the furtherment of mankind, it was
+      - practically ground breaking!
+    shards: [1,1,0,0,1,0,0,0,0]
 
 DIAMOND_SWORD:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Time to Strike (Diamond)
+    type: VOID
     lore:
-      -
-    shards:
+      - Finally armed, the wielder can choose
+      - to use a sword defensively or aggressively
+      - either way the sword fulfills its purpose
+    shards: [0,0,0,1,1,0,0,1,1]
 
 DIORITE:
   tier: 1
@@ -4336,68 +4344,83 @@ DRAGON_HEAD:
 DRIED_KELP:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Castaway
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - For many, this simple item keeps them
+      - alive during their early days.
+    shards: [1,0,1,0,0,0,1,0,0]
 
 DRIED_KELP_BLOCK:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Another use
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - This item has lost it's purpose, it only
+      - knows that it doesn't wish to be burnt and
+      - it's spirit yearns for another use.
+    shards: [1,0,1,0,1,0,0,0,0]
 
 DRIPSTONE_BLOCK:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: Permeable (Block)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The water that slowly filtrates through
+      - this block transfers magics back and
+      - fourth making this block more resonant
+      - than some others.
+    shards: [2,0,1,0,0,0,0,1,0]
 
 DROPPER:
   tier: 1
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Butter Fingers!
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - People think the dropper wants to drop
+      - the items it holds. In actual fact, it
+      - feels the loss of every single one.
+    shards: [0,1,0,0,1,0,1,0,0]
 
 EGG:
   tier: 1
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Sunny Side Up
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - You have to be careful with puns about
+      - eggs, they really can't take a yolk.
+    shards: [ 1,0,0,0,0,1,0,0,0]
 
 ELYTRA:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - CELESTIAL
+    - VOID
   story:
-    name:
-    type:
+    name: A Flight of Magic
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - It's not known from what animal these
+      - wings came from. It's thought a precursor
+      - to the phantom.
+    shards: [1,0,0,0,0,1,1,1,0]
 
 EMERALD:
   tier: 3
@@ -4443,26 +4466,31 @@ EMERALD_ORE:
     shards: [ 1,0,0,1,0,0,1,2,0 ]
 
 ENCHANTED_BOOK:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Scholars Device
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Previous iterations of magical manipulations
+      - required forcing the magics into the written
+      - page. While blunt, this method is still effective.
+    shards: [2,0,0,0,1,0,0,0,0]
 
 ENCHANTED_GOLDEN_APPLE:
-  tier: 1
+  tier: 5
   elements:
-    -
+    - ELEMENTAL
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Notch's Own
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Made both for, and by, the creator. This
+      - apple has a most immense power.
+    shards: [2,1,1,1,1,2,1,1,1]
 
 ENCHANTING_TABLE:
   tier: 3
@@ -4496,37 +4524,48 @@ ENDER_CHEST:
     author: supertechxter
 
 ENDER_EYE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - HISTORICAL
+    - VOId
   story:
-    name:
-    type:
+    name: A Watchful Gaze
+    type: HISTORICAL
     lore:
-      -
-    shards:
+      - Every Ender Eye is magically tied to the
+      - dimension it came from.
+    shards: [1,0,1,1,0,0,0,1,0]
 
 ENDER_PEARL:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: Encapsulate
+    type: VOID
     lore:
-      -
-    shards:
+      - The unique make-up of the Ender Pearl
+      - means it's able to store magic without
+      - changing its state. Allowing both Imbued
+      - and Gilded forms or storage.
+    shards: [1,0,0,1,0,0,0,2,0]
 
 END_CRYSTAL:
-  tier: 1
+  tier: 5
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
+    - VOID
   story:
-    name:
-    type:
+    name: Tied to the Void
+    type: VOID
     lore:
-      -
-    shards:
+      - The End Crystal is intrinsically tied to
+      - the void and the End Dragon. So much so that
+      - a single tap can force a tear into space.
+    shards: [2,1,1,1,1,1,2,3,0]
 
 END_PORTAL_FRAME:
   tier: 5
@@ -4562,13 +4601,17 @@ END_ROD:
 END_STONE:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: Unknown Form
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The process in which End Stone is formed
+      - is unknown and shrouded in mystery.
+      - The magic resonating from it does not match
+      - normal frequencies.
+    shards: [1,0,0,0,0,0,0,0,0]
 
 END_STONE_BRICKS:
   tier: 2
@@ -4626,26 +4669,32 @@ END_STONE_BRICK_WALL:
     shards: [ 0,0,0,1,1,0,1,0,0 ]
 
 EXPERIENCE_BOTTLE:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Bottled Growth
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Knowledge is liquefied in a similar process
+      - to Crystamae and bottled for later use. These
+      - bottles inspired the first Crysta experiments.
+    shards: [0,0,2,0,1,0,1,0,0]
 
 EXPOSED_COPPER:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Feeling Exposed
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Even a block can be shy, the more copper
+      - is out in public, the more it tried to
+      - hide itself away.
+    shards: [1,0,0,0,0,0,1,0,1]
 
 EXPOSED_CUT_COPPER:
   tier: 2
@@ -4686,38 +4735,32 @@ EXPOSED_CUT_COPPER_STAIRS:
       - pain gone through for this visual perfection
     shards: [ 0,2,0,0,1,0,0,0,0 ]
 
-FARMLAND:
-  tier: 1
-  elements:
-    -
-  story:
-    name:
-    type:
-    lore:
-      -
-    shards:
-
 FEATHER:
   tier: 1
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Don't be a chicken!
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - Each feather remembers the living thing
+      - it came from and will still draw magical
+      - essence from it when possible
+    shards: [0,0,0,0,1,1,0,1,0]
 
 FERMENTED_SPIDER_EYE:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - VOID
   story:
-    name:
-    type:
+    name: Demonic Essence
+    type: VOID
     lore:
-      -
-    shards:
+      - The process of fermenting a spiders eye
+      - creates an opening for demonic essence to
+      - seep into the world. It's this essence that
+      - makes this a good potion ingredient.
+    shards: [1,0,0,0,0,1,0,1,0]
 
 FERN:
   tier: 1
@@ -5209,26 +5252,32 @@ GOLDEN_PICKAXE:
     shards: [ 0,0,0,1,2,0,1,0,0 ]
 
 GOLDEN_SHOVEL:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Can you dig it? (Gold)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The invention of the shovel was a pivotal
+      - to the furtherment of mankind, it was
+      - practically ground breaking!
+    shards: [1,1,0,0,1,0,0,0,0]
 
 GOLDEN_SWORD:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Time to Strike (Gold)
+    type: VOID
     lore:
-      -
-    shards:
+      - Finally armed, the wielder can choose
+      - to use a sword defensively or aggressively
+      - either way the sword fulfills its purpose
+    shards: [0,0,0,1,1,0,0,1,1]
 
 GOLD_BLOCK:
   tier: 3
@@ -6211,26 +6260,32 @@ IRON_PICKAXE:
     shards: [ 0,0,0,1,2,0,1,0,0 ]
 
 IRON_SHOVEL:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Can you dig it? (Iron)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The invention of the shovel was a pivotal
+      - to the furtherment of mankind, it was
+      - practically ground breaking!
+    shards: [1,1,0,0,1,0,0,0,0]
 
 IRON_SWORD:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Time to Strike (Iron)
+    type: VOID
     lore:
-      -
-    shards:
+      - Finally armed, the wielder can choose
+      - to use a sword defensively or aggressively
+      - either way the sword fulfills its purpose
+    shards: [0,0,0,1,1,0,0,1,1]
 
 IRON_TRAPDOOR:
   tier: 2
@@ -6478,17 +6533,6 @@ JUNGLE_WOOD:
     shards: [ 2,0,0,1,1,0,0,0,0 ]
 
 KELP:
-  tier: 1
-  elements:
-    -
-  story:
-    name:
-    type:
-    lore:
-      -
-    shards:
-
-KNOWLEDGE_BOOK:
   tier: 1
   elements:
     -
@@ -8161,26 +8205,32 @@ NETHERITE_SCRAP:
     shards:
 
 NETHERITE_SHOVEL:
-  tier: 1
+  tier: 5
   elements:
-    -
+    - HUMAN
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Can you dig it? (Netherite)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The invention of the shovel was a pivotal
+      - to the furtherment of mankind, it was
+      - practically ground breaking!
+    shards: [1,1,0,0,1,0,0,0,0]
 
 NETHERITE_SWORD:
-  tier: 1
+  tier: 5
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Time to Strike (Netherite)
+    type: VOID
     lore:
-      -
-    shards:
+      - Finally armed, the wielder can choose
+      - to use a sword defensively or aggressively
+      - either way the sword fulfills its purpose
+    shards: [0,0,0,1,1,0,0,1,1]
 
 NETHERRACK:
   tier: 1
@@ -9126,15 +9176,19 @@ PODZOL:
     shards:
 
 POINTED_DRIPSTONE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: Permeable
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The water that slowly filtrates through
+      - this block transfers magics back and
+      - fourth making this block more resonant
+      - than some others.
+    shards: [2,0,1,0,0,0,0,1,0]
 
 POISONOUS_POTATO:
   tier: 1
@@ -9558,16 +9612,18 @@ POWERED_RAIL:
 PRISMARINE:
   tier: 1
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: A Guarded Secret
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - Guarded in the depths, these blocks are
+      - not designed to be used by any outside the
+      - temple. All will be reclaimed eventually.
+    shards: [1,0,0,1,0,1,0,0,0]
 
 PRISMARINE_BRICKS:
-  tier: 2
+  tier: 1
   elements:
     - HISTORICAL
     - HUMAN
@@ -11643,15 +11699,18 @@ STONE_PRESSURE_PLATE:
     shards: [ 1,1,0,0,1,0,0,1,0 ]
 
 STONE_SHOVEL:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - HUMAN
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Can you dig it? (Stone)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The invention of the shovel was a pivotal
+      - to the furtherment of mankind, it was
+      - practically ground breaking!
+    shards: [1,1,0,0,1,0,0,0,0]
 
 STONE_SLAB:
   tier: 1
@@ -11682,15 +11741,18 @@ STONE_STAIRS:
     shards: [ 0,1,0,0,1,0,0,1,1 ]
 
 STONE_SWORD:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Time to Strike (Stone)
+    type: VOID
     lore:
-      -
-    shards:
+      - Finally armed, the wielder can choose
+      - to use a sword defensively or aggressively
+      - either way the sword fulfills its purpose
+    shards: [0,0,0,1,1,0,0,1,1]
 
 STRING:
   tier: 1
@@ -13034,26 +13096,32 @@ WOODEN_PICKAXE:
     shards: [ 0,0,0,1,2,0,1,0,0 ]
 
 WOODEN_SHOVEL:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - HUMAN
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Can you dig it? (Wood)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The invention of the shovel was a pivotal
+      - to the furtherment of mankind, it was
+      - practically ground breaking!
+    shards: [1,1,0,0,1,0,0,0,0]
 
 WOODEN_SWORD:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Time to Strike (Wood)
+    type: VOID
     lore:
-      -
-    shards:
+      - Finally armed, the wielder can choose
+      - to use a sword defensively or aggressively
+      - either way the sword fulfills its purpose
+    shards: [0,0,0,1,1,0,0,1,1]
 
 WRITABLE_BOOK:
   tier: 1
