@@ -4765,57 +4765,72 @@ FERMENTED_SPIDER_EYE:
 FERN:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Crouching Taiga
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - A fern stores what little Crysta it takes
+      - from the world and releases it when it spreads
+      - its spores.
+    shards: [1,0,1,0,0,1,1,0,0]
 
 FILLED_MAP:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HISTORICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Age of Discovery (Filled)
+    type: HISTORICAL
     lore:
-      -
-    shards:
+      - With the corners still to find, explorers from
+      - far and wide still set out the chart the
+      - uncharted.
+    shards: [0,0,0,2,1,0,0,0,0]
 
 FIREWORK_ROCKET:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ALCHEMICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Alchemical Starlight
+    type: ALCHEMICAL
     lore:
-      -
-    shards:
+      - Bursting with power, when lit the fireworks
+      - release all their potential within a few
+      - moments which drives the surrounding crysta
+      - wild.
+    shards: [1,0,2,0,1,0,0,0,0]
 
 FIREWORK_STAR:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: Star of the show
+    type: ALCHEMICAL
     lore:
-      -
-    shards:
+      - This item leans towards the superficial,
+      - enjoying changing up its look as frequently
+      - as possible.
+    shards: [1,0,2,0,0,0,0,0,0]
 
 FIRE_CHARGE:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Potentiation
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Creation of fire in the palm of your
+      - hands. The potential energy directly
+      - translates to Crysta.
+    shards: [2,0,0,0,0,0,0,0,0]
 
 FIRE_CORAL:
   tier: 2
@@ -4860,70 +4875,87 @@ FIRE_CORAL_FAN:
     shards: [ 0,0,1,1,0,1,1,0,0 ]
 
 FISHING_ROD:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Finding Nemo
+    type: VOID
     lore:
-      -
-    shards:
+      - Despite no fish being present, the
+      - fishing rod can still find and catch them
+      - with ease. It's unknown why this works.
+    shards: [0,1,0,0,1,0,0,1,0]
 
 FLETCHING_TABLE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - HISTORICAL
   story:
-    name:
-    type:
+    name: The Wild Bowyer
+    type: HISTORICAL
     lore:
-      -
-    shards:
+      - Tales tell of a bowyer who lived in the wild
+      - using nothing but his hunting and fletching
+      - skills to live. His skills died with him.
+    shards: [0,1,0,2,1,0,0,0,0]
 
 FLINT:
   tier: 1
   elements:
-    -
+    - HISTORICAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Enter the Stone Age
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - Flint is your first step into creating
+      - usable tools and will.... wait.. what?
+      - This isn't GregTech!?
+    shards: [0,1,0,1,1,0,0,0,0]
 
 FLINT_AND_STEEL:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Potentiation (Flint)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Creation of fire in the palm of your
+      - hands. The potential energy directly
+      - translates to Crysta.
+    shards: [2,0,0,0,0,0,0,0,0]
 
 FLOWERING_AZALEA:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: A Flourishing Anima
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - While not all azalea flowers, those that do
+      - draw in as much magical energy as they can
+      - to bloom wild and free.
+    shards: [1,0,2,0,0,0,0,0,0]
 
 FLOWERING_AZALEA_LEAVES:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: A Flourishing Anima (Leaves)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - While not all azalea flowers, those that do
+      - draw in as much magical energy as they can
+      - to bloom wild and free.
+    shards: [1,0,2,0,0,0,0,0,0]
 
 FLOWER_BANNER_PATTERN:
   tier: 2
@@ -6622,13 +6654,16 @@ LARGE_AMETHYST_BUD:
 LARGE_FERN:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Crouching Taiga (Large)
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - A fern stores what little Crysta it takes
+      - from the world and releases it when it spreads
+      - its spores.
+    shards: [1,0,1,0,0,1,1,0,0]
 
 LAVA_BUCKET:
   tier: 2
@@ -7565,15 +7600,18 @@ MAGMA_CREAM:
     shards:
 
 MAP:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HISTORICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Age of Discovery
+    type: HISTORICAL
     lore:
-      -
-    shards:
+      - With the corners still to find, explorers from
+      - far and wide still set out the chart the
+      - uncharted.
+    shards: [0,0,0,2,1,0,0,0,0]
 
 MEDIUM_AMETHYST_BUD:
   tier: 1

@@ -6,9 +6,9 @@ import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
-public class FlyingPhantomGoal extends AbstractRidableGoal<Bat> {
+public class FlyingBatGoal extends AbstractRidableGoal<Bat> {
 
-    public FlyingPhantomGoal(UUID owningPlayer) {
+    public FlyingBatGoal(UUID owningPlayer) {
         super(owningPlayer);
     }
 

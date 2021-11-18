@@ -1,6 +1,6 @@
 name: CrystamaeHistoria
 author: Sefiraat
-description: A magical addon with a Technical vibe allowing for automatic procudction of most things and adding cool new TOOLS!
+description: A magical addon with a semi-technical slimefun feel allowing for the production of spells, gadgets and more.
 main: io.github.sefiraat.crystamaehistoria.CrystamaeHistoria
 website: https://github.com/Sefiraat/CrystamaeHistoria
 version: ${project.version}
@@ -9,6 +9,8 @@ depend:
   - Slimefun
 softdepend:
   - mcMMO
+  - SlimeTinker
+  - ExoticGarden
 commands:
   crystamaehistoria:
     description: /historia

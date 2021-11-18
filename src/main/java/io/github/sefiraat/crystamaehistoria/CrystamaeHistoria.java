@@ -48,7 +48,7 @@ public class CrystamaeHistoria extends AbstractAddon {
     private RunnableManager runnableManager;
     private SpellMemory spellMemory;
     private EffectManager effectManager;
-    private boolean isMcMMO;
+    private SupportedPluginManager supportedPluginManager;
 
     public CrystamaeHistoria() {
         super("Sefiraat", "CrystamaeHistoria", "master", "auto-update");
@@ -56,6 +56,14 @@ public class CrystamaeHistoria extends AbstractAddon {
 
     public static CrystamaeHistoria getInstance() {
         return instance;
+    }
+
+    public static ConfigManager getConfigManager() {
+        return instance.configManager;
+    }
+
+    public static StoriesManager getStoriesManager() {
+        return instance.storiesManager;
     }
 
     public static ListenerManager getListenerManager() {
@@ -66,10 +74,6 @@ public class CrystamaeHistoria extends AbstractAddon {
         return instance.runnableManager;
     }
 
-    public static StoriesManager getStoriesManager() {
-        return instance.storiesManager;
-    }
-
     public static SpellMemory getSpellMemory() {
         return instance.spellMemory;
     }
@@ -78,15 +82,13 @@ public class CrystamaeHistoria extends AbstractAddon {
         return instance.effectManager;
     }
 
-    public static ConfigManager getConfigManager() {
-        return instance.configManager;
+    public static SupportedPluginManager getSupportedPluginManager() {
+        return instance.supportedPluginManager;
     }
 
     public static PluginManager getPluginManager() {
         return instance.getServer().getPluginManager();
     }
-
-    public static boolean isMcMMO() { return  instance.isMcMMO;}
 
     @Nonnull
     public static Map<MagicProjectile, Pair<CastInformation, Long>> getProjectileMap() {
@@ -132,11 +134,6 @@ public class CrystamaeHistoria extends AbstractAddon {
         return castInformation;
     }
 
-    @Nonnull
-    public static Map<SpellTickRunnable, Integer> getTickingMap() {
-        return instance.spellMemory.getTickingCastables();
-    }
-
     @Override
     public void enable() {
         instance = this;
@@ -157,8 +154,6 @@ public class CrystamaeHistoria extends AbstractAddon {
         SpellType.setupEnabledSpells();
 
         setupSlimefun();
-
-        setupSupportedPlugins();
 
         setupBstats();
 
@@ -226,11 +221,5 @@ public class CrystamaeHistoria extends AbstractAddon {
         Mechanisms.setup();
         Gadgets.setup();
         Tools.setup();
-    }
-
-    private void setupSupportedPlugins() {
-        if (Bukkit.getPluginManager().isPluginEnabled("mcMMO")) {
-            this.isMcMMO = true;
-        }
     }
 }

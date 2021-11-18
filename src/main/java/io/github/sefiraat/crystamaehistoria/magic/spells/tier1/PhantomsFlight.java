@@ -8,7 +8,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasi
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
-import io.github.sefiraat.crystamaehistoria.utils.mobgoals.FlyingPhantomGoal;
+import io.github.sefiraat.crystamaehistoria.utils.mobgoals.FlyingBatGoal;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -41,7 +41,7 @@ public class PhantomsFlight extends Spell {
             EntityType.BAT,
             caster,
             spawnLocation,
-            new FlyingPhantomGoal(caster),
+            new FlyingBatGoal(caster),
             castInformation.getStaveLevel() * 300,
             this::onTick
         );
