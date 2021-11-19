@@ -127,6 +127,9 @@ public class PlayerStatistics {
     public static int getStoriesUnlocked(@Nonnull UUID uuid) {
         String path = MessageFormat.format("{0}.{1}", uuid, StatType.STORY);
         ConfigurationSection section = CrystamaeHistoria.getConfigManager().getPlayerStats().getConfigurationSection(path);
+        if (section == null) {
+            return 0;
+        }
         int unlocked = 0;
         for (String story : section.getKeys(false)) {
             String storyPath = MessageFormat.format("{0}.{1}.{2}.UNLOCKED", uuid, StatType.STORY, story);
@@ -158,6 +161,9 @@ public class PlayerStatistics {
     public static int getSpellsUnlocked(@Nonnull UUID uuid) {
         String path = MessageFormat.format("{0}.{1}", uuid, StatType.SPELL);
         ConfigurationSection section = CrystamaeHistoria.getConfigManager().getPlayerStats().getConfigurationSection(path);
+        if (section == null) {
+            return 0;
+        }
         int unlocked = 0;
         for (String spell : section.getKeys(false)) {
             String storyPath = MessageFormat.format("{0}.{1}.{2}.UNLOCKED", uuid, StatType.SPELL, spell);
