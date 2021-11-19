@@ -8438,15 +8438,19 @@ NETHERRACK:
     shards: [ 1,0,1,0,0,0,0,0,0 ]
 
 NETHER_BRICK:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HISTORICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Before (Nether)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - While not much on it's own, the potential
+      - within this item is so large that the magics
+      - from it's possible forms ripple back through
+      - time.
+    shards: [ 0,1,0,1,1,0,0,0,0 ]
 
 NETHER_BRICKS:
   tier: 2
@@ -8465,13 +8469,16 @@ NETHER_BRICKS:
 NETHER_BRICK_FENCE:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - ANIMAL
+    - VOID
   story:
-    name:
-    type:
+    name: Livestock (Nether)
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - Nothing brings more joy to a fence
+      - than keeping your livestock safe.
+    shards: [ 0,0,0,0,1,2,0,1,0 ]
 
 NETHER_BRICK_SLAB:
   tier: 1
@@ -8548,13 +8555,15 @@ NETHER_QUARTZ_ORE:
 NETHER_SPROUTS:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: Sprouting
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Despite the conditions, life will always
+      - find a way to grow and thrive.
+    shards: [1,0,0,0,0,0,0,1,0]
 
 NETHER_STAR:
   tier: 5
@@ -8573,24 +8582,28 @@ NETHER_STAR:
 NETHER_WART:
   tier: 1
   elements:
-    -
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: Alchemical Conduit
+    type: ALCHEMICAL
     lore:
-      -
-    shards:
+      - Magic as we know it needs Crystals to act
+      - as a conduit. For potions, the magical
+      - conduit it Nether Wart.
+    shards: [0,0,2,0,0,0,0,0,0]
 
 NETHER_WART_BLOCK:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: Alchemical Conduit (Block)
+    type: ALCHEMICAL
     lore:
-      -
-    shards:
+      - Magic as we know it needs Crystals to act
+      - as a conduit. For potions, the magical
+      - conduit it Nether Wart.
+    shards: [0,0,3,0,0,0,0,0,0]
 
 NOTE_BLOCK:
   tier: 2
@@ -8805,15 +8818,19 @@ OAK_WOOD:
     shards: [ 2,0,0,1,1,0,0,0,0 ]
 
 OBSERVER:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Always Watching
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - The Observer is always watching, waiting
+      - to let you know the moment it sees something
+      - happen. Shame it can only see 1 block ahead...
+    shards: [0,2,0,0,1,0,1,0,0]
 
 OBSIDIAN:
   tier: 2
@@ -9027,15 +9044,17 @@ OXEYE_DAISY:
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 OXIDIZED_COPPER:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Further Refinement (Oxidied Copper)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Refined all the way to it's block form, this
+      - block enjoys being combined with it's brethren
+    shards: [ 2,1,0,0,0,0,0,0,0 ]
 
 OXIDIZED_CUT_COPPER:
   tier: 2
@@ -9092,26 +9111,32 @@ PACKED_ICE:
     shards: [ 2,0,1,0,0,0,0,0,0 ]
 
 PAINTING:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Aint No Picasso
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - While it 'aint no Picasso, each painting
+      - is enshirined in magic from the creativity
+      - of their artists.
+    shards: [0,0,0,1,2,0,0,0,1]
 
 PAPER:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: A Clean Slate
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - Every peice is a fresh start, a clean
+      - slate, and the sheer potential in each
+      - peice is vast.
+    shards: [0,1,0,1,1,0,1,0,0]
 
 PEONY:
   tier: 1
@@ -9127,15 +9152,17 @@ PEONY:
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 PHANTOM_MEMBRANE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - VOID
   story:
-    name:
-    type:
+    name: Lighter Than Air
+    type: VOId
     lore:
-      -
-    shards:
+      - When harnessed correctly, the Phantom
+      - Membrane is actually lighter than air
+      - and can pass this trait onto other items.
+    shards: [0,0,1,0,0,1,0,2,0]
 
 PIGLIN_BANNER_PATTERN:
   tier: 2
@@ -9333,15 +9360,18 @@ PINK_WOOL:
     author: OOOOMAGAAA
 
 PISTON:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Getting Pushy
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - The Piston tries to be calm but its
+      - easily triggered and flies off of the
+      - handle with ease.
+    shards: [0,2,0,0,1,0,0,0,0]
 
 PLAYER_HEAD:
   tier: 2
@@ -9360,13 +9390,15 @@ PLAYER_HEAD:
 PODZOL:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Leech
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Podzol is magically saturated from the iron
+      - it has absorbed. This magic is converted
+      - slowly over time.
+    shards: [2,0,0,0,0,0,0,0,0]
 
 POINTED_DRIPSTONE:
   tier: 2
@@ -9384,15 +9416,19 @@ POINTED_DRIPSTONE:
     shards: [ 2,0,1,0,0,0,0,1,0 ]
 
 POISONOUS_POTATO:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - ANIMAL
   story:
-    name:
-    type:
+    name: A Not-So-Welcome Surprise
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - When an item's internal Crysta goes bad
+      - the mechanics change completely. The
+      - Poisonous Potato is an outcome of this
+      - process.
+    shards: [0,0,1,0,0,1,1,0,0]
 
 POLISHED_ANDESITE:
   tier: 1
@@ -9585,15 +9621,18 @@ POLISHED_BLACKSTONE_WALL:
     shards: [ 0,0,0,1,1,0,1,0,0 ]
 
 POLISHED_DEEPSLATE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Time to Gleam (Deepslate)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - With a bit of love, any block can
+      - be made beautiful. Even those block
+      - left behind are drawn to the fore.
+    shards: [ 1,1,0,0,1,0,0,0,0 ]
 
 POLISHED_DEEPSLATE_SLAB:
   tier: 2
@@ -9716,15 +9755,16 @@ POLISHED_GRANITE_STAIRS:
     shards: [ 0,1,0,0,1,0,0,1,1 ]
 
 POPPED_CHORUS_FRUIT:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - VOID
   story:
-    name:
-    type:
+    name: Failure
+    type: VOID
     lore:
-      -
-    shards:
+      - Baking a Chorus Fruit stops the state of
+        flux and disables all quantum connections
+    shards: [ 0,0,1,0,0,0,0,1,0 ]
 
 POPPY:
   tier: 1
@@ -9766,16 +9806,19 @@ POTATO:
       - With every sprout, leaf and root this
       - item gives joy and nourishment to all
     shards: [ 0,0,0,0,1,1,1,0,0 ]
+
 POTION:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: A Simple Tonic
+    type: ALCHEMICAL
     lore:
-      -
-    shards:
+      - Before the discovery of Crysta and other
+      - esoteric magics, potions were the only way
+      - to tap into the Exoverse for power.
+    shards: [1,0,2,0,0,0,0,0,0]
 
 POWDER_SNOW_BUCKET:
   tier: 2
@@ -12751,15 +12794,17 @@ WATER_BUCKET:
     shards: [ 1,1,0,0,2,0,0,1,0 ]
 
 WAXED_COPPER_BLOCK:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Further Refinement (Waxed Copper)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Refined all the way to it's block form, this
+      - block enjoys being combined with it's brethren
+    shards: [ 2,1,0,0,0,0,0,0,0 ]
 
 WAXED_CUT_COPPER:
   tier: 2
@@ -12801,15 +12846,17 @@ WAXED_CUT_COPPER_STAIRS:
     shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 WAXED_EXPOSED_COPPER:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Further Refinement (Waxed Exposed Copper)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Refined all the way to it's block form, this
+      - block enjoys being combined with it's brethren
+    shards: [ 2,1,0,0,0,0,0,0,0 ]
 
 WAXED_EXPOSED_CUT_COPPER:
   tier: 2
@@ -12851,15 +12898,17 @@ WAXED_EXPOSED_CUT_COPPER_STAIRS:
     shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 WAXED_OXIDIZED_COPPER:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Further Refinement (Waxed Oxidised Copper)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Refined all the way to it's block form, this
+      - block enjoys being combined with it's brethren
+    shards: [ 2,1,0,0,0,0,0,0,0 ]
 
 WAXED_OXIDIZED_CUT_COPPER:
   tier: 2
@@ -12901,15 +12950,17 @@ WAXED_OXIDIZED_CUT_COPPER_STAIRS:
     shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 WAXED_WEATHERED_COPPER:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Further Refinement (Waxed Weathered Copper)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Refined all the way to it's block form, this
+      - block enjoys being combined with it's brethren
+    shards: [ 2,1,0,0,0,0,0,0,0 ]
 
 WAXED_WEATHERED_CUT_COPPER:
   tier: 2
@@ -12951,15 +13002,17 @@ WAXED_WEATHERED_CUT_COPPER_STAIRS:
     author: Seggan
 
 WEATHERED_COPPER:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Further Refinement (Weathered Copper)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Refined all the way to it's block form, this
+      - block enjoys being combined with it's brethren
+    shards: [ 2,1,0,0,0,0,0,0,0 ]
 
 WEATHERED_CUT_COPPER:
   tier: 2
