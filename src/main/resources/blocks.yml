@@ -9792,19 +9792,19 @@ POWDER_SNOW_BUCKET:
     shards: [ 0,1,0,0,2,0,1,1,0 ]
 
 POWERED_RAIL:
-  tier: 1
+  tier: 2
   elements:
     - MECHANICAL
     - HUMAN
   story:
-    name: Level up
+    name: Level Up
     type: MECHANICAL
     lore:
       - When Dr. Minestein accidentally dropped
       - some redstone on the railroad, he suddenly
       - discovered the next level in affordable
       - transportation
-    shards:
+    shards: [ 0,1,0,1,1,0,0,0,0 ]
     author: Seggan
 
 PRISMARINE:
@@ -11184,7 +11184,7 @@ SMALL_DRIPLEAF:
     shards:
 
 SMITHING_TABLE:
-  tier: 1
+  tier: 2
   elements:
     - HUMAN
     - MECHANICAL
@@ -11195,7 +11195,7 @@ SMITHING_TABLE:
       - Somehow, the magic of this table manages
       - to bend and form the hardest known material
       - around your favorite diamond tools
-    shards:
+    shards: [ 0,1,0,0,2,0,0,0,0 ]
     author: Seggan
 
 SMOKER:
@@ -11380,7 +11380,7 @@ SNOW:
       - the air, this wonderful material
       - is only found in the coldest
       - of locations
-    shards:
+    shards: [ 1,0,0,0,0,0,1,0,0 ]
     author: Seggan
 
 SNOWBALL:
@@ -11478,7 +11478,7 @@ SPAWNER:
     shards:
 
 SPECTRAL_ARROW:
-  tier: 1
+  tier: 2
   elements:
     - HUMAN
     - CELESTIAL
@@ -11489,7 +11489,7 @@ SPECTRAL_ARROW:
       - Covered with precious glowstone
       - dust, this magical arrow is hepful
       - for spotting your enemies
-    shards:
+    shards: [ 1,0,0,0,1,0,1,0,0 ]
     author: Seggan
 
 SPIDER_EYE:
@@ -12268,11 +12268,11 @@ TALL_GRASS:
     lore:
       - What could be more annoying
       - than tall grass?
-    shards:
+    shards: [ 1,0,0,0,0,0,0,1,0 ]
     author: Seggan
 
 TARGET:
-  tier: 1
+  tier: 2
   elements:
     - HUMAN
     - MECHANICAL
@@ -12281,7 +12281,7 @@ TARGET:
     type: HUMAN
     lore:
       - Are you better than Robin Hood?
-    shards:
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
     author: Seggan
 
 TERRACOTTA:
@@ -12299,7 +12299,7 @@ TERRACOTTA:
     shards: [ 1,0,0,0,2,0,0,0,1 ]
 
 TINTED_GLASS:
-  tier: 1
+  tier: 2
   elements:
     - HUMAN
     - VOID
@@ -12310,7 +12310,7 @@ TINTED_GLASS:
       - Corrupted with impure Crystamae,
       - this glass is forever destined
       - to fail its purpose
-    shards:
+    shards: [ 1,0,0,0,1,0,0,2,0 ]
     author: Seggan
 
 TIPPED_ARROW:
@@ -12409,7 +12409,7 @@ TRIPWIRE_HOOK:
       - When Dr. Minestein invented the tripwire
       - hook, he tripped, and out came the idea
       - of quantum minechanics
-    shards:
+    shards: [ 0,1,0,0,1,0,0,0,1 ]
     author: Seggan
 
 TROPICAL_FISH:
@@ -12984,7 +12984,7 @@ WAXED_WEATHERED_CUT_COPPER_STAIRS:
     author: Seggan
 
 WEATHERED_COPPER:
-  tier: 1
+  tier: 3
   elements:
     - ELEMENTAL
     - HUMAN
@@ -12995,7 +12995,7 @@ WEATHERED_COPPER:
       - The most beautiful form of copper, this
       - block has gone through many trials to reach
       - this level of perfection
-    shards:
+    shards: [ 2,1,0,0,1,0,0,0,0 ]
     author: Seggan
 
 WEATHERED_CUT_COPPER:
@@ -13282,7 +13282,7 @@ WITHER_ROSE:
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 WITHER_SKELETON_SKULL:
-  tier: 1
+  tier: 3
   elements:
     - VOID
     - ANIMAL
@@ -13293,7 +13293,7 @@ WITHER_SKELETON_SKULL:
       - Unfortunately, I cannot use the
       - full title due to advancement
       - copyright laws
-    shards:
+    shards: [ 0,0,0,1,0,1,0,2,0 ]
     author: Seggan
 
 WOODEN_AXE:
@@ -13388,7 +13388,7 @@ WRITTEN_BOOK:
     lore:
       - Oh the day when humans invented
       - writing!
-    shards:
+    shards: [ 0,0,0,1,1,0,0,0,1 ]
     author: Seggan
 
 YELLOW_BANNER:
