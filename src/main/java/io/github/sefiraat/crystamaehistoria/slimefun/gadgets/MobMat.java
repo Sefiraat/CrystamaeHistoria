@@ -1,5 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.gadgets;
 
+import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.TickingBlockNoGui;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
@@ -73,8 +74,12 @@ public class MobMat extends TickingBlockNoGui {
         );
         for (Entity entity : entities) {
             final LivingEntity livingEntity = (LivingEntity) entity;
-            final Player player = allowPlayerDrops ? Bukkit.getPlayer(uuid) : null;
-            livingEntity.damage(damage, player);
+            final Player player = Bukkit.getPlayer(uuid);
+            if (!allowPlayerDrops || player == null) {
+                livingEntity.damage(damage);
+            } else {
+                CrystamaeHistoria.getSupportedPluginManager().playerDamageWithoutMcMMO(livingEntity, player, damage);
+            }
             ParticleUtils.displayParticleEffect(location, 1, 3, dustOptions);
         }
     }

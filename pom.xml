@@ -35,6 +35,10 @@
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
+        <repository>
+            <id>mcmmo-repo</id>
+            <url>https://nexus.neetgames.com/repository/maven-public</url>
+        </repository>
     </repositories>
 
     <build>
@@ -101,6 +105,7 @@
     </build>
 
     <dependencies>
+        <!-- Core -->
         <dependency>
             <groupId>io.papermc.paper</groupId>
             <artifactId>paper-api</artifactId>
@@ -113,18 +118,8 @@
             <version>b8f7dc</version>
             <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>com.github.TheBusyBiscuit</groupId>
-            <artifactId>ExoticGarden</artifactId>
-            <version>a2c4b6d</version>
-            <scope>provided</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.github.mooy1</groupId>
-            <artifactId>InfinityLib</artifactId>
-            <version>LATEST</version>
-            <scope>compile</scope>
-        </dependency>
+
+        <!-- Tools etc. -->
         <dependency>
             <groupId>org.bstats</groupId>
             <artifactId>bstats-bukkit</artifactId>
@@ -141,6 +136,28 @@
             <artifactId>lombok</artifactId>
             <version>1.18.20</version>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- Supported Plugins -->
+        <dependency>
+            <groupId>com.github.TheBusyBiscuit</groupId>
+            <artifactId>ExoticGarden</artifactId>
+            <version>a2c4b6d</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.gmail.nossr50.mcMMO</groupId>
+            <artifactId>mcMMO</artifactId>
+            <version>2.1.202</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- To be removed, do not use further -->
+        <dependency>
+            <groupId>io.github.mooy1</groupId>
+            <artifactId>InfinityLib</artifactId>
+            <version>LATEST</version>
+            <scope>compile</scope>
         </dependency>
         <dependency>
             <groupId>com.elmakers.mine.bukkit</groupId>

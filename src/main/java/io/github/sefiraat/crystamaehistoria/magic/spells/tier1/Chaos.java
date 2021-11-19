@@ -27,7 +27,7 @@ public class Chaos extends Spell {
     public Chaos() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(10, true, 6, false, 50, true)
             .makeDamagingSpell(1, false, 0.2, false)
-            .makeProjectileSpell(this::cast, 0, false, 0.2, false)
+            .makeProjectileSpell(this::cast, 0, false, 0, false)
             .makeProjectileVsEntitySpell(this::onHitEntity)
             .makeProjectileVsBlockSpell(this::onHitBlock)
             .makeTickingSpell(this::cast, 10, true, 5, false);
@@ -71,9 +71,7 @@ public class Chaos extends Spell {
         GeneralUtils.damageEntity(
             castInformation.getMainTarget(),
             castInformation.getCaster(),
-            getDamage(castInformation),
-            castInformation.getDamageLocation(),
-            getProjectileKnockback(castInformation)
+            getDamage(castInformation)
         );
     }
 

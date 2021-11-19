@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.commands.GetRanks;
 import io.github.sefiraat.crystamaehistoria.commands.OpenSpellCompendium;
 import io.github.sefiraat.crystamaehistoria.commands.OpenStoryCompendium;
 import io.github.sefiraat.crystamaehistoria.commands.TestSpell;
+import io.github.sefiraat.crystamaehistoria.commands.TestWand;
 import io.github.sefiraat.crystamaehistoria.config.ConfigManager;
 import io.github.sefiraat.crystamaehistoria.listeners.ListenerManager;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
@@ -16,7 +17,6 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicProje
 import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicSummon;
 import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.runnables.RunnableManager;
-import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTickRunnable;
 import io.github.sefiraat.crystamaehistoria.slimefun.Gadgets;
 import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
@@ -46,6 +46,7 @@ public class CrystamaeHistoria extends AbstractAddon {
     private RunnableManager runnableManager;
     private SpellMemory spellMemory;
     private EffectManager effectManager;
+    private SupportedPluginManager supportedPluginManager;
 
     public CrystamaeHistoria() {
         super("Sefiraat", "CrystamaeHistoria", "master", "auto-update");
@@ -53,6 +54,14 @@ public class CrystamaeHistoria extends AbstractAddon {
 
     public static CrystamaeHistoria getInstance() {
         return instance;
+    }
+
+    public static ConfigManager getConfigManager() {
+        return instance.configManager;
+    }
+
+    public static StoriesManager getStoriesManager() {
+        return instance.storiesManager;
     }
 
     public static ListenerManager getListenerManager() {
@@ -63,10 +72,6 @@ public class CrystamaeHistoria extends AbstractAddon {
         return instance.runnableManager;
     }
 
-    public static StoriesManager getStoriesManager() {
-        return instance.storiesManager;
-    }
-
     public static SpellMemory getSpellMemory() {
         return instance.spellMemory;
     }
@@ -75,8 +80,8 @@ public class CrystamaeHistoria extends AbstractAddon {
         return instance.effectManager;
     }
 
-    public static ConfigManager getConfigManager() {
-        return instance.configManager;
+    public static SupportedPluginManager getSupportedPluginManager() {
+        return instance.supportedPluginManager;
     }
 
     public static PluginManager getPluginManager() {
@@ -127,11 +132,6 @@ public class CrystamaeHistoria extends AbstractAddon {
         return castInformation;
     }
 
-    @Nonnull
-    public static Map<SpellTickRunnable, Integer> getTickingMap() {
-        return instance.spellMemory.getTickingCastables();
-    }
-
     @Override
     public void enable() {
         instance = this;
@@ -145,6 +145,7 @@ public class CrystamaeHistoria extends AbstractAddon {
         this.listenerManager = new ListenerManager();
         this.runnableManager = new RunnableManager();
         this.spellMemory = new SpellMemory();
+        this.supportedPluginManager = new SupportedPluginManager();
         this.effectManager = new EffectManager(this);
 
         configManager.loadConfig();
@@ -156,6 +157,7 @@ public class CrystamaeHistoria extends AbstractAddon {
         setupBstats();
 
         getAddonCommand().addSub(new TestSpell());
+        getAddonCommand().addSub(new TestWand());
         getAddonCommand().addSub(new OpenSpellCompendium());
         getAddonCommand().addSub(new OpenStoryCompendium());
         getAddonCommand().addSub(new GetRanks());

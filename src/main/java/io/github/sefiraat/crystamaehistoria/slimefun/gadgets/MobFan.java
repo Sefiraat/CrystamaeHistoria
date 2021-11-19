@@ -150,15 +150,10 @@ public class MobFan extends TickingMenuBlock {
             false
         );
 
-        if (result == null) {
-            return;
-        }
-
         double finalRange = range;
 
-        Block foundBlock = result.getHitBlock();
-        if (foundBlock != null) {
-            finalRange = foundBlock.getLocation().distance(block.getLocation());
+        if (result != null && result.getHitBlock() != null) {
+            finalRange = result.getHitBlock().getLocation().distance(block.getLocation());
         }
 
         for (int i = 0; i < finalRange + 0.5; i++) {

@@ -25,7 +25,7 @@ public class StarFall extends Spell {
     public StarFall() {
         SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 7, true, 40, true)
             .makeDamagingSpell(2, true, 0.5, false)
-            .makeProjectileSpell(this::fireProjectiles, 1, true, 0.5, true)
+            .makeProjectileSpell(this::fireProjectiles, 1, true, 0, false)
             .makeProjectileVsEntitySpell(this::projectileHits)
             .makeProjectileVsBlockSpell(this::projectileHits)
             .makeTickingSpell(this::fireProjectiles, 9, false, 10, false);
@@ -59,9 +59,7 @@ public class StarFall extends Spell {
             GeneralUtils.damageEntity(
                 livingEntity,
                 castInformation.getCaster(),
-                getDamage(castInformation),
-                castInformation.getDamageLocation(),
-                getProjectileKnockback(castInformation)
+                getDamage(castInformation)
             );
         }
     }

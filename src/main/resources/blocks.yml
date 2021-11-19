@@ -150,7 +150,7 @@ ACACIA_SLAB:
   elements:
     - HUMAN
   story:
-    name: A cut below (Acacia)
+    name: A Cut Below (Acacia)
     type: HUMAN
     lore:
       - Ripped in half and divided from
@@ -790,7 +790,7 @@ BIRCH_SLAB:
   elements:
     - HUMAN
   story:
-    name: A cut below (Birch)
+    name: A Cut Below (Birch)
     type: HUMAN
     lore:
       - Ripped in half and divided from
@@ -1877,7 +1877,7 @@ CARROT_ON_A_STICK:
     lore:
       - Slowly draws magical power from the creatures
       - that this item attracts.
-    shards: [0,0,0,0,1,1,0,0,1]
+    shards: [ 0,0,0,0,1,1,0,0,1 ]
 
 CARTOGRAPHY_TABLE:
   tier: 2
@@ -1891,7 +1891,7 @@ CARTOGRAPHY_TABLE:
       - Dreaming of seeing the far corners of the
       - worlds, this block has to sit and live
       - through the acheivments of others.
-    shards: [0,0,0,1,2,0,0,0,1]
+    shards: [ 0,0,0,1,2,0,0,0,1 ]
 
 CARVED_PUMPKIN:
   tier: 2
@@ -1906,7 +1906,7 @@ CARVED_PUMPKIN:
       - is able to create life. Scholars know magic
       - is involved but no one has been able to see
       - at which point it intervenes.
-    shards: [1,0,0,1,0,2,0,0,0]
+    shards: [ 1,0,0,1,0,2,0,0,0 ]
 
 CAULDRON:
   tier: 2
@@ -1921,7 +1921,7 @@ CAULDRON:
       - Often seen as the beginning for most magical
       - professions. The cauldron is imbued with
       - more magic than most other objects.
-    shards: [1,0,2,0,1,0,0,0,1]
+    shards: [ 1,0,2,0,1,0,0,0,1 ]
 
 CHAIN:
   tier: 2
@@ -1934,7 +1934,7 @@ CHAIN:
     lore:
       - A history of enchained prisoners has made
       - the essence of this item scullied and void.
-    shards: [1,1,0,0,0,0,0,1,0]
+    shards: [ 1,1,0,0,0,0,0,1,0 ]
 
 CHAINMAIL_BOOTS:
   tier: 2
@@ -1948,7 +1948,7 @@ CHAINMAIL_BOOTS:
       - Like all armour, boots ant nothing more
       - than to keep their wearer safe. Unforunatley
       - they are overshadowed by other gear.
-    shards: [0,0,0,1,2,0,0,0,1]
+    shards: [ 0,0,0,1,2,0,0,0,1 ]
 
 CHAINMAIL_CHESTPLATE:
   tier: 2
@@ -1962,7 +1962,7 @@ CHAINMAIL_CHESTPLATE:
       - Every hit, scrape and pummel stopped by the
       - chestplate reinforces it's magics by giving
       - it purpose and drive.
-    shards: [0,1,0,1,2,0,1,0,0]
+    shards: [ 0,1,0,1,2,0,1,0,0 ]
 
 CHAINMAIL_HELMET:
   tier: 2
@@ -1976,7 +1976,7 @@ CHAINMAIL_HELMET:
       - A magicians most important tool is their own
       - mind, any steps taken to protect that tool
       - are vital and wise.
-    shards: [0,0,0,1,1,0,0,1,0]
+    shards: [ 0,0,0,1,1,0,0,1,0 ]
 
 CHAINMAIL_LEGGINGS:
   tier: 2
@@ -1990,7 +1990,7 @@ CHAINMAIL_LEGGINGS:
       - Like it's other armour brethren, leggings
       - absorb crysta from their users in miniscule
       - amounts over their tenure.
-    shards: [0,0,0,1,2,0,1,0,0]
+    shards: [ 0,0,0,1,2,0,1,0,0 ]
 
 CHARCOAL:
   tier: 1
@@ -2004,7 +2004,7 @@ CHARCOAL:
       - In the formation of charcoal, all the innate
       - magic of a log is used up leaving only
       - remnants.
-    shards: [1,0,0,0,0,0,0,0,1]
+    shards: [ 1,0,0,0,0,0,0,0,1 ]
 
 CHEST:
   tier: 1
@@ -2018,7 +2018,7 @@ CHEST:
       - While attempting to keep the held items
       - safe, the chest loses drive for all other
       - things.
-    shards: [0,1,0,0,2,0,0,0,0]
+    shards: [ 0,1,0,0,2,0,0,0,0 ]
 
 CHEST_MINECART:
   tier: 2
@@ -2031,7 +2031,7 @@ CHEST_MINECART:
     lore:
       - Previously having lost the drive, being on
       - wheels has reignited the spirit of the chest.
-    shards: [0,2,0,0,2,0,0,0,0]
+    shards: [ 0,2,0,0,2,0,0,0,0 ]
 
 CHICKEN:
   tier: 1
@@ -2072,7 +2072,7 @@ CHISELED_DEEPSLATE:
     lore:
       - An artisan, without knowing, gives a portion
       - of their magic into the block they craft.
-    shards: [0,1,0,1,1,0,0,0,1]
+    shards: [ 0,1,0,1,1,0,0,0,1 ]
 
 CHISELED_NETHER_BRICKS:
   tier: 2
@@ -2085,7 +2085,7 @@ CHISELED_NETHER_BRICKS:
     lore:
       - An artisan, without knowing, gives a portion
       - of their magic into the block they craft.
-    shards: [0,1,0,1,1,0,0,0,1]
+    shards: [ 0,1,0,1,1,0,0,0,1 ]
 
 CHISELED_POLISHED_BLACKSTONE:
   tier: 2
@@ -2098,7 +2098,7 @@ CHISELED_POLISHED_BLACKSTONE:
     lore:
       - An artisan, without knowing, gives a portion
       - of their magic into the block they craft.
-    shards: [0,1,0,1,1,0,0,0,1]
+    shards: [ 0,1,0,1,1,0,0,0,1 ]
 
 CHISELED_QUARTZ_BLOCK:
   tier: 3
@@ -2112,7 +2112,7 @@ CHISELED_QUARTZ_BLOCK:
     lore:
       - An artisan, without knowing, gives a portion
       - of their magic into the block they craft.
-    shards: [0,1,0,1,1,0,1,0,1]
+    shards: [ 0,1,0,1,1,0,1,0,1 ]
 
 CHISELED_RED_SANDSTONE:
   tier: 2
@@ -2125,7 +2125,7 @@ CHISELED_RED_SANDSTONE:
     lore:
       - An artisan, without knowing, gives a portion
       - of their magic into the block they craft.
-    shards: [0,1,0,1,1,0,0,0,1]
+    shards: [ 0,1,0,1,1,0,0,0,1 ]
 
 CHISELED_SANDSTONE:
   tier: 2
@@ -2138,7 +2138,7 @@ CHISELED_SANDSTONE:
     lore:
       - An artisan, without knowing, gives a portion
       - of their magic into the block they craft.
-    shards: [0,1,0,1,1,0,0,0,1]
+    shards: [ 0,1,0,1,1,0,0,0,1 ]
 
 CHISELED_STONE_BRICKS:
   tier: 2
@@ -2151,7 +2151,7 @@ CHISELED_STONE_BRICKS:
     lore:
       - An artisan, without knowing, gives a portion
       - of their magic into the block they craft.
-    shards: [0,1,0,1,1,0,0,0,1]
+    shards: [ 0,1,0,1,1,0,0,0,1 ]
 
 CHORUS_FLOWER:
   tier: 2
@@ -2179,7 +2179,7 @@ CHORUS_FRUIT:
       - The latent magics of this fruit are in
       - a state of constant flux, quantumly connected
       - to various nearby points in space-time.
-    shards: [0,0,1,0,0,0,0,1,0]
+    shards: [ 0,0,1,0,0,0,0,1,0 ]
 
 CLAY:
   tier: 1
@@ -2192,7 +2192,7 @@ CLAY:
     lore:
       - Eagerly waiting to be formed into something
       - new. Clay looks forward to it's furture shape.
-    shards: [1,0,1,0,1,0,0,0,0]
+    shards: [ 1,0,1,0,1,0,0,0,0 ]
 
 CLAY_BALL:
   tier: 1
@@ -2205,7 +2205,7 @@ CLAY_BALL:
     lore:
       - Eagerly waiting to be formed into something
       - new. Clay looks forward to it's furture shape.
-    shards: [1,0,1,0,1,0,0,0,0]
+    shards: [ 1,0,1,0,1,0,0,0,0 ]
 
 CLOCK:
   tier: 2
@@ -2219,29 +2219,35 @@ CLOCK:
     lore:
       - Criminally underused, the clock ends
       - up with lots of time to spare.
-    shards: [0,1,0,1,1,0,0,0,0]
+    shards: [ 0,1,0,1,1,0,0,0,0 ]
 
 COAL:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Dirty Fuel
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Almost all slimefun journeys begin with
+      - a vicious hunt for coal used is nearly
+      - everything from crafting to power generation
+    shards: [ 2,1,0,0,0,0,0,0,0 ]
 
 COAL_BLOCK:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Really Dirty Fuel
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Almost all slimefun journeys begin with
+      - a vicious hunt for coal used is nearly
+      - everything from crafting to power generation
+    shards: [ 2,1,0,0,0,0,0,0,0 ]
 
 COAL_ORE:
   tier: 2
@@ -2258,26 +2264,29 @@ COAL_ORE:
     author: R.I.P
 
 COARSE_DIRT:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: A Churlish Stain
+    type: VOID
     lore:
-      -
-    shards:
+      - Years of neglect and filth has made this
+      - dirt imbue a discourteous spirit.
+    shards: [ 1,0,1,0,0,0,0,1,0 ]
 
 COBBLED_DEEPSLATE:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
+    name: Improvised (Deepslate)
     type:
     lore:
-      -
-    shards:
+      - Fractured and fragmented, Cobblestone longs
+      - to be back to it's full form.
+    shards: [ 1,0,1,0,0,0,0,0,0 ]
 
 COBBLED_DEEPSLATE_SLAB:
   tier: 1
@@ -2323,13 +2332,14 @@ COBBLED_DEEPSLATE_WALL:
 COBBLESTONE:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
+    name: Improvised
     type:
     lore:
-      -
-    shards:
+      - Fractured and fragmented, Cobblestone longs
+      - to be back to it's full form.
+    shards: [ 1,0,1,0,0,0,0,0,0 ]
 
 COBBLESTONE_SLAB:
   tier: 1
@@ -2373,15 +2383,17 @@ COBBLESTONE_WALL:
     shards: [ 0,0,0,1,1,0,1,0,0 ]
 
 COBWEB:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Danger Comes
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - While a comfortable to some, the cobweb
+      - intells fear into most as it denotes nearby
+      - danger.
+    shards: [ 0,0,0,1,0,1,0,1,0 ]
 
 COCOA_BEANS:
   tier: 1
@@ -2427,48 +2439,61 @@ COD_BUCKET:
     author: Seggan
 
 COMPARATOR:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Versatile Output
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - A spirit which loves nothing more than to
+      - sort out the unorganised, inputs to outputs.
+    shards: [ 0,1,0,0,1,0,0,1,0 ]
 
 COMPASS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Not-so-True North
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - While designed to constantly point
+      - north, for some reason every compass
+      - points to a bed?
+    shards: [ 1,1,0,0,1,0,0,0,0 ]
 
 COMPOSTER:
   tier: 1
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Broken Down
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Normally a spirit would dwindle when only
+      - used to decompose material, but the composter
+      - lives for it!
+    shards: [ 0,1,0,0,1,0,1,0,0 ]
 
 CONDUIT:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - ELEMENTAL
+    - ANIMAL
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: I Have the Power!
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - The conduit is one of the rare instances
+      - of magic being utilised directly by nature.
+      - While it is also made by humans, the first was
+      - found.
+    shards: [ 1,1,0,1,0,1,2,0,1 ]
 
 COOKED_BEEF:
   tier: 1
@@ -2562,48 +2587,56 @@ COOKED_SALMON:
     shards: [ 0,0,0,0,1,2,0,0,0 ]
 
 COOKIE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HISTORICAL
   story:
-    name:
-    type:
+    name: The Beginning
+    type: HISTORICAL
     lore:
-      -
-    shards:
+      - It all began with a Cookie.
+    shards: [ 0,0,0,2,1,0,0,0,0 ]
 
 COPPER_BLOCK:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Further Refinement (Copper)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Refined all the way to it's block form, this
+      - block enjoys being combined with it's brethren
+    shards: [ 2,1,0,0,0,0,0,0,0 ]
 
 COPPER_INGOT:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Refined (Copper)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - After having all the slag and dregs removed
+      - this item can breathe a heavy sigh of relief.
+    shards: [ 1,1,1,0,0,0,0,0,0 ]
 
 COPPER_ORE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: This Ore That (Copper)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - As ore is formed within stone, it draws
+      - the latent magic from the earth into itself
+      - the types of magic found determine the
+      - ore that will appear.
+    shards: [ 1,0,1,1,0,0,1,1,0 ]
 
 CORNFLOWER:
   tier: 1
@@ -2631,7 +2664,7 @@ CRACKED_DEEPSLATE_BRICKS:
       - cracks in it's surface into the world.
       - This often results in underground pockets
       - of Crystamae.
-    shards: [1,0,0,0,0,0,0,1,1]
+    shards: [ 1,0,0,0,0,0,0,1,1 ]
 
 CRACKED_DEEPSLATE_TILES:
   tier: 1
@@ -2646,7 +2679,7 @@ CRACKED_DEEPSLATE_TILES:
       - cracks in it's surface into the world.
       - This often results in underground pockets
       - of Crystamae.
-    shards: [1,0,0,0,0,0,0,1,1]
+    shards: [ 1,0,0,0,0,0,0,1,1 ]
 
 CRACKED_NETHER_BRICKS:
   tier: 1
@@ -2661,7 +2694,7 @@ CRACKED_NETHER_BRICKS:
       - cracks in it's surface into the world.
       - This often results in underground pockets
       - of Crystamae.
-    shards: [1,0,0,0,0,0,0,1,1]
+    shards: [ 1,0,0,0,0,0,0,1,1 ]
 
 CRACKED_POLISHED_BLACKSTONE_BRICKS:
   tier: 1
@@ -2676,7 +2709,7 @@ CRACKED_POLISHED_BLACKSTONE_BRICKS:
       - cracks in it's surface into the world.
       - This often results in underground pockets
       - of Crystamae.
-    shards: [1,0,0,0,0,0,0,1,1]
+    shards: [ 1,0,0,0,0,0,0,1,1 ]
 
 CRACKED_STONE_BRICKS:
   tier: 1
@@ -2691,7 +2724,7 @@ CRACKED_STONE_BRICKS:
       - cracks in it's surface into the world.
       - This often results in underground pockets
       - of Crystamae.
-    shards: [1,0,0,0,0,0,0,1,1]
+    shards: [ 1,0,0,0,0,0,0,1,1 ]
 
 CRAFTING_TABLE:
   tier: 1
@@ -2710,26 +2743,31 @@ CRAFTING_TABLE:
     author: Ryhn12
 
 CREEPER_BANNER_PATTERN:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Star Spangled (Creeper)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Absorbs magic generated from the pride
+      - of those observing this pattern.
+    shards: [ 0,0,0,1,1,0,0,1,0 ]
 
 CREEPER_HEAD:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - VOID
   story:
-    name:
-    type:
+    name: Decapitation (Creeper)
+    type: VOID
     lore:
-      -
-    shards:
+      - While a despicable practice, some magics
+      - can only be harnessed through recent
+      - decapitations. Luckily no Crysta is wholy
+      - dependent on this.
+    shards: [ 0,1,0,0,1,0,0,1,0 ]
 
 CRIMSON_BUTTON:
   tier: 1
@@ -2790,37 +2828,47 @@ CRIMSON_FENCE_GATE:
     author: J. R. R. Tolkien
 
 CRIMSON_FUNGUS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ANIMAL
+    - VOID
   story:
-    name:
-    type:
+    name: Fungal Frugility (Crimson)
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - While slow, it's strength lies in it's
+      - simplicity and ability to thrive almost
+      - anywhere.
+    shards: [ 0,0,1,1,0,1,0,1,0 ]
 
 CRIMSON_HYPHAE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - HISTORICAL
+    - VOID
   story:
-    name:
-    type:
+    name: Punching Trees Gives Me... Huh? (Crimson)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Every adventure begins with a good fungus
+      - punch
+    shards: [ 2,0,0,1,1,0,0,1,0 ]
 
 CRIMSON_NYLIUM:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Not Quite Netherrack (Crimson)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - While normally desolate and barren, it
+      - gives a feeling of great purpose for
+      - Netherrack to be able to be a home to any
+      - form of life.
+    shards: [ 1,0,1,0,0,1,0,0,0 ]
 
 CRIMSON_PLANKS:
   tier: 1
@@ -2852,13 +2900,15 @@ CRIMSON_PRESSURE_PLATE:
 CRIMSON_ROOTS:
   tier: 1
   elements:
-    -
+    - ANIMAL
+    - VOID
   story:
-    name:
-    type:
+    name: Determination (Crimson)
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - Anything growning in a place like the nether
+      - should be commended for it's determination.
+    shards: [ 1,0,0,0,0,1,0,1,0 ]
 
 CRIMSON_SIGN:
   tier: 1
@@ -2880,7 +2930,7 @@ CRIMSON_SLAB:
     - HUMAN
     - VOID
   story:
-    name: A cut below
+    name: A Cut Below (Crimson)
     type: HUMAN
     lore:
       - Ripped in half and divided from
@@ -2902,15 +2952,18 @@ CRIMSON_STAIRS:
     shards: [ 0,1,0,0,1,0,1,1,1 ]
 
 CRIMSON_STEM:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - HISTORICAL
+    - VOID
   story:
-    name:
-    type:
+    name: Punching Trees Gives Me... Huh? (Crimson Stem)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Every adventure begins with a good fungus
+      - punch
+    shards: [ 2,0,0,1,1,0,0,1,0 ]
 
 CRIMSON_TRAPDOOR:
   tier: 1
@@ -2926,103 +2979,123 @@ CRIMSON_TRAPDOOR:
     shards: [ 0,1,0,0,1,0,0,1,0 ]
 
 CROSSBOW:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Feeling Tense
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - Feeling constantly tense will fracture
+      - event the strongest mind. The Crossbow
+      - can no longer feel anything but.
+    shards: [ 0,1,0,1,1,0,0,0,0 ]
 
 CRYING_OBSIDIAN:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: A Soft Mewl
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - The sadness from this block has eminated
+      - through generations. No one knows why and
+      - nor do they ask.
+    shards: [ 1,0,0,1,0,0,0,0,1 ]
 
 CUT_COPPER:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Copper)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 CUT_COPPER_SLAB:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Copper Slab)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 CUT_COPPER_STAIRS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Copper Stairs)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 CUT_RED_SANDSTONE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Red Sandstone)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 CUT_RED_SANDSTONE_SLAB:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Red Sandstone Slab)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 CUT_SANDSTONE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Sandstone)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 CUT_SANDSTONE_SLAB:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Sandstone Slab)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 CYAN_BANNER:
   tier: 2
@@ -3373,7 +3446,7 @@ DARK_OAK_SLAB:
   elements:
     - HUMAN
   story:
-    name: A cut below (Dark Oak)
+    name: A Cut Below (Dark Oak)
     type: HUMAN
     lore:
       - Ripped in half and divided from
@@ -3422,46 +3495,58 @@ DARK_OAK_WOOD:
 DARK_PRISMARINE:
   tier: 1
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: A Guarded Secret (Dark)
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - Guarded in the depths, these blocks are
+      - not designed to be used by any outside the
+      - temple. All will be reclaimed eventually.
+    shards: [ 1,0,0,1,0,1,0,0,0 ]
 
 DARK_PRISMARINE_SLAB:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - VOID
+    - ANIMAL
   story:
-    name:
-    type:
+    name: A Cut Below (Dark Prismarine)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Ripped in half and divided from
+      - self. A soul torn asunder
+    shards: [ 1,1,0,0,1,1,0,1,0 ]
 
 DARK_PRISMARINE_STAIRS:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Rising on up (Dark Prismarine)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Every step is either an incline to
+      - future glory or a possible descent
+      - into further madness...
+    shards: [ 0,1,0,0,1,1,0,1,1 ]
 
 DAYLIGHT_DETECTOR:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Sunny Disposition
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - The moment the sun hits this awaiting block
+      - it's spirit alights nad burns brightly.
+    shards: [ 1,1,0,0,1,0,1,0,0 ]
 
 DEAD_BRAIN_CORAL:
   tier: 1
@@ -3550,13 +3635,16 @@ DEAD_BUBBLE_CORAL_FAN:
 DEAD_BUSH:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Spirit Removed
+    type: VOID
     lore:
-      -
-    shards:
+      - The dead bush was once bursting with magical
+      - potential. Now it stands strong but with
+      - nothing but a single thread of void.
+    shards: [ 0,0,0,0,0,0,0,1,0 ]
 
 DEAD_FIRE_CORAL:
   tier: 1
@@ -3687,57 +3775,68 @@ DEAD_TUBE_CORAL_FAN:
 DEEPSLATE:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - HISTORICAL
   story:
-    name:
-    type:
+    name: Resolute (Deepslate)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Stone is the resolute backbone of the world's
+      - makeup. Ever present and everlasting.
+    shards: [ 2,0,1,1,0,0,0,0,0 ]
 
 DEEPSLATE_BRICKS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HISTORICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Dirt Hut Upgrade (Deepslate)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Enough to make near-any house a home,
+      - bricks are the staple to a modern comfort.
+    shards: [ 0,1,0,1,1,0,1,0,0 ]
 
 DEEPSLATE_BRICK_SLAB:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: A Cut Below (Deepslate Brick)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Ripped in half and divided from
+      - self. A soul torn asunder
+    shards: [ 1,1,0,0,1,0,0,1,0 ]
 
 DEEPSLATE_BRICK_STAIRS:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Rising on up (Deepslate Brick)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Every step is either an incline to
+      - future glory or a possible descent
+      - into further madness...
+    shards: [ 0,1,0,0,1,0,0,1,1 ]
 
 DEEPSLATE_BRICK_WALL:
   tier: 1
   elements:
-    -
+    - CELESTIAL
+    - HISTORICAL
   story:
-    name:
-    type:
+    name: Beating down the walls (Deepslate Brick)
+    type: HISTORICAL
     lore:
-      -
-    shards:
+      - Protecting for years working to keep
+      - those inside save and sound.
+    shards: [ 0,0,0,1,1,0,1,0,0 ]
 
 DEEPSLATE_COAL_ORE:
   tier: 2
@@ -3754,15 +3853,19 @@ DEEPSLATE_COAL_ORE:
     author: R.I.P
 
 DEEPSLATE_COPPER_ORE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: This Ore That (Deepslate Copper)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - As ore is formed within stone, it draws
+      - the latent magic from the earth into itself
+      - the types of magic found determine the
+      - ore that will appear.
+    shards: [ 1,0,1,1,0,0,1,1,0 ]
 
 DEEPSLATE_DIAMOND_ORE:
   tier: 3
@@ -3781,147 +3884,187 @@ DEEPSLATE_DIAMOND_ORE:
     author: R.I.P
 
 DEEPSLATE_EMERALD_ORE:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: This Ore That (Deepslate Emerald)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - As ore is formed within stone, it draws
+      - the latent magic from the earth into itself
+      - the types of magic found determine the
+      - ore that will appear.
+    shards: [ 1,0,0,1,0,0,1,2,0 ]
 
 DEEPSLATE_GOLD_ORE:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: This Ore That (Deepslate Gold)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - As ore is formed within stone, it draws
+      - the latent magic from the earth into itself
+      - the types of magic found determine the
+      - ore that will appear.
+    shards: [ 1,0,0,1,0,0,1,1,1 ]
 
 DEEPSLATE_IRON_ORE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: This Ore That (Deepslate Iron)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - As ore is formed within stone, it draws
+      - the latent magic from the earth into itself
+      - the types of magic found determine the
+      - ore that will appear.
+    shards: [ 1,1,0,1,0,0,1,1,0 ]
 
 DEEPSLATE_LAPIS_ORE:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: This Ore That (Deepslate Lapis)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - As ore is formed within stone, it draws
+      - the latent magic from the earth into itself
+      - the types of magic found determine the
+      - ore that will appear.
+    shards: [ 1,0,0,1,0,0,2,1,0 ]
 
 DEEPSLATE_REDSTONE_ORE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: This Ore That (Deepslate Redstone)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - As ore is formed within stone, it draws
+      - the latent magic from the earth into itself
+      - the types of magic found determine the
+      - ore that will appear.
+    shards: [ 1,1,0,1,0,0,1,1,0 ]
 
 DEEPSLATE_TILES:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Neatly Placed
+    type: HUMAN
     lore:
-      -
-    shards:
+      - A singularly mis-placed tile will stop
+      - the harmonisation of this blocks magics.
+    shards: [ 0,1,0,1,1,0,0,0,0 ]
 
 DEEPSLATE_TILE_SLAB:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: A Cut Below (Deepslate Tile)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Ripped in half and divided from
+      - self. A soul torn asunder
+    shards: [ 1,1,0,0,1,0,0,1,0 ]
 
 DEEPSLATE_TILE_STAIRS:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Rising on up (Deepslate Tile)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Every step is either an incline to
+      - future glory or a possible descent
+      - into further madness...
+    shards: [ 0,1,0,0,1,0,0,1,1 ]
 
 DEEPSLATE_TILE_WALL:
   tier: 1
   elements:
-    -
+    - CELESTIAL
+    - HISTORICAL
   story:
-    name:
-    type:
+    name: Beating down the walls (Deepslate Tile)
+    type: HISTORICAL
     lore:
-      -
-    shards:
+      - Protecting for years working to keep
+      - those inside save and sound.
+    shards: [ 0,0,0,1,1,0,1,0,0 ]
 
 DETECTOR_RAIL:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: The down track, tracks down
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - Constantly waiting and watching for anything
+      - to go past. Every time this happens the rail
+      - cries out in joy.
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 DIAMOND:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Refined (Diamond)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - After having all the slag and dregs removed
+      - this item can breathe a heavy sigh of relief.
+    shards: [ 1,1,1,0,0,0,0,0,0 ]
 
 DIAMOND_AXE:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Axe-cident waiting to happen! (Diamond)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Every person fears the day that they finally
+      - accidentally right click on a log in their
+      - base!
+    shards: [ 1,0,0,0,1,0,1,0,1 ]
 
 DIAMOND_BLOCK:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Further Refinement (Diamond)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Refined all the way to it's block form, this
+      - block enjoys being combined with it's brethren
+    shards: [ 2,1,0,0,0,0,1,0,0 ]
 
 DIAMOND_BOOTS:
   tier: 4
@@ -3935,7 +4078,7 @@ DIAMOND_BOOTS:
       - Like all armour, boots ant nothing more
       - than to keep their wearer safe. Unforunatley
       - they are overshadowed by other gear.
-    shards: [0,0,0,1,2,0,0,0,1]
+    shards: [ 0,0,0,1,2,0,0,0,1 ]
 
 DIAMOND_CHESTPLATE:
   tier: 4
@@ -3949,7 +4092,7 @@ DIAMOND_CHESTPLATE:
       - Every hit, scrape and pummel stopped by the
       - chestplate reinforces it's magics by giving
       - it purpose and drive.
-    shards: [0,1,0,1,2,0,1,0,0]
+    shards: [ 0,1,0,1,2,0,1,0,0 ]
 
 DIAMOND_HELMET:
   tier: 4
@@ -3963,29 +4106,33 @@ DIAMOND_HELMET:
       - A magicians most important tool is their own
       - mind, any steps taken to protect that tool
       - are vital and wise.
-    shards: [0,0,0,1,1,0,0,1,0]
+    shards: [ 0,0,0,1,1,0,0,1,0 ]
 
 DIAMOND_HOE:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - HUMAN
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Till until (Diamond)
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - Other farmers may have moved to more mechanical
+      - means, the trusty hoe is still the number one
+      - go-to.
+    shards: [ 1,1,0,0,1,0,1,0,0 ]
 
 DIAMOND_HORSE_ARMOR:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Tank (Diamond)
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - It's not only you that needs protecting
+      - in these dark times!
+    shards: [ 0,0,0,1,1,1,0,0,0 ]
 
 DIAMOND_LEGGINGS:
   tier: 4
@@ -3999,7 +4146,7 @@ DIAMOND_LEGGINGS:
       - Like it's other armour brethren, leggings
       - absorb crysta from their users in miniscule
       - amounts over their tenure.
-    shards: [0,0,0,1,2,0,1,0,0]
+    shards: [ 0,0,0,1,2,0,1,0,0 ]
 
 DIAMOND_ORE:
   tier: 3
@@ -4018,37 +4165,46 @@ DIAMOND_ORE:
     author: R.I.P
 
 DIAMOND_PICKAXE:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - HUMAN
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: P-p-p-pick up a pickaxe (Diamond)
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - Arguably the most important tool to any
+      - minecrafters arsenal, the pickaxe radiates
+      - a joy with every block broken.
+    shards: [ 0,0,0,1,2,0,1,0,0 ]
 
 DIAMOND_SHOVEL:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - HUMAN
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Can you dig it? (Diamond)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The invention of the shovel was a pivotal
+      - to the furtherment of mankind, it was
+      - practically ground breaking!
+    shards: [ 1,1,0,0,1,0,0,0,0 ]
 
 DIAMOND_SWORD:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Time to Strike (Diamond)
+    type: VOID
     lore:
-      -
-    shards:
+      - Finally armed, the wielder can choose
+      - to use a sword defensively or aggressively
+      - either way the sword fulfills its purpose
+    shards: [ 0,0,0,1,1,0,0,1,1 ]
 
 DIORITE:
   tier: 1
@@ -4188,123 +4344,153 @@ DRAGON_HEAD:
 DRIED_KELP:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Castaway
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - For many, this simple item keeps them
+      - alive during their early days.
+    shards: [ 1,0,1,0,0,0,1,0,0 ]
 
 DRIED_KELP_BLOCK:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Another use
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - This item has lost it's purpose, it only
+      - knows that it doesn't wish to be burnt and
+      - it's spirit yearns for another use.
+    shards: [ 1,0,1,0,1,0,0,0,0 ]
 
 DRIPSTONE_BLOCK:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: Permeable (Block)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The water that slowly filtrates through
+      - this block transfers magics back and
+      - fourth making this block more resonant
+      - than some others.
+    shards: [ 2,0,1,0,0,0,0,1,0 ]
 
 DROPPER:
   tier: 1
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Butter Fingers!
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - People think the dropper wants to drop
+      - the items it holds. In actual fact, it
+      - feels the loss of every single one.
+    shards: [ 0,1,0,0,1,0,1,0,0 ]
 
 EGG:
   tier: 1
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Sunny Side Up
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - You have to be careful with puns about
+      - eggs, they really can't take a yolk.
+    shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 ELYTRA:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - CELESTIAL
+    - VOID
   story:
-    name:
-    type:
+    name: A Flight of Magic
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - It's not known from what animal these
+      - wings came from. It's thought a precursor
+      - to the phantom.
+    shards: [ 1,0,0,0,0,1,1,1,0 ]
 
 EMERALD:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
+    - VOID
   story:
-    name:
-    type:
+    name: Refined (Emerald)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - After having all the slag and dregs removed
+      - this item can breathe a heavy sigh of relief.
+    shards: [ 1,1,1,0,0,0,0,0,0 ]
 
 EMERALD_BLOCK:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
+    - VOID
   story:
-    name:
-    type:
+    name: Further Refinement (Emerald)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Refined all the way to it's block form, this
+      - block enjoys being combined with it's brethren
+    shards: [ 2,1,0,0,0,0,0,0,0 ]
 
 EMERALD_ORE:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: This Ore That (Emerald)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - As ore is formed within stone, it draws
+      - the latent magic from the earth into itself
+      - the types of magic found determine the
+      - ore that will appear.
+    shards: [ 1,0,0,1,0,0,1,2,0 ]
 
 ENCHANTED_BOOK:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Scholars Device
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Previous iterations of magical manipulations
+      - required forcing the magics into the written
+      - page. While blunt, this method is still effective.
+    shards: [ 2,0,0,0,1,0,0,0,0 ]
 
 ENCHANTED_GOLDEN_APPLE:
-  tier: 1
+  tier: 5
   elements:
-    -
+    - ELEMENTAL
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Notch's Own
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Made both for, and by, the creator. This
+      - apple has a most immense power.
+    shards: [ 2,1,1,1,1,2,1,1,1 ]
 
 ENCHANTING_TABLE:
   tier: 3
@@ -4338,37 +4524,48 @@ ENDER_CHEST:
     author: supertechxter
 
 ENDER_EYE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - HISTORICAL
+    - VOId
   story:
-    name:
-    type:
+    name: A Watchful Gaze
+    type: HISTORICAL
     lore:
-      -
-    shards:
+      - Every Ender Eye is magically tied to the
+      - dimension it came from.
+    shards: [ 1,0,1,1,0,0,0,1,0 ]
 
 ENDER_PEARL:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: Encapsulate
+    type: VOID
     lore:
-      -
-    shards:
+      - The unique make-up of the Ender Pearl
+      - means it's able to store magic without
+      - changing its state. Allowing both Imbued
+      - and Gilded forms or storage.
+    shards: [ 1,0,0,1,0,0,0,2,0 ]
 
 END_CRYSTAL:
-  tier: 1
+  tier: 5
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
+    - VOID
   story:
-    name:
-    type:
+    name: Tied to the Void
+    type: VOID
     lore:
-      -
-    shards:
+      - The End Crystal is intrinsically tied to
+      - the void and the End Dragon. So much so that
+      - a single tap can force a tear into space.
+    shards: [ 2,1,1,1,1,1,2,3,0 ]
 
 END_PORTAL_FRAME:
   tier: 5
@@ -4404,200 +4601,236 @@ END_ROD:
 END_STONE:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: Unknown Form
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The process in which End Stone is formed
+      - is unknown and shrouded in mystery.
+      - The magic resonating from it does not match
+      - normal frequencies.
+    shards: [ 1,0,0,0,0,0,0,0,0 ]
 
 END_STONE_BRICKS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HISTORICAL
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Dirt Hut Upgrade (End Stone)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Enough to make near-any house a home,
+      - bricks are the staple to a modern comfort.
+    shards: [ 0,1,0,1,1,0,2,0,0 ]
 
 END_STONE_BRICK_SLAB:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: A Cut Below (End Stone Brick)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Ripped in half and divided from
+      - self. A soul torn asunder
+    shards: [ 1,1,0,0,1,0,0,1,0 ]
 
 END_STONE_BRICK_STAIRS:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Rising on up (End Stone Brick)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Every step is either an incline to
+      - future glory or a possible descent
+      - into further madness...
+    shards: [ 0,1,0,0,1,0,0,1,1 ]
 
 END_STONE_BRICK_WALL:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - CELESTIAL
+    - HISTORICAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Beating down the walls (End Stone Brick)
+    type: HISTORICAL
     lore:
-      -
-    shards:
+      - Protecting for years working to keep
+      - those inside save and sound.
+    shards: [ 0,0,0,1,1,0,1,0,0 ]
 
 EXPERIENCE_BOTTLE:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Bottled Growth
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Knowledge is liquefied in a similar process
+      - to Crystamae and bottled for later use. These
+      - bottles inspired the first Crysta experiments.
+    shards: [ 0,0,2,0,1,0,1,0,0 ]
 
 EXPOSED_COPPER:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Feeling Exposed
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Even a block can be shy, the more copper
+      - is out in public, the more it tried to
+      - hide itself away.
+    shards: [ 1,0,0,0,0,0,1,0,1 ]
 
 EXPOSED_CUT_COPPER:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Exposed Copper)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 EXPOSED_CUT_COPPER_SLAB:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Exposed Copper Slab)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 EXPOSED_CUT_COPPER_STAIRS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Exposed Copper Stairs)
+    type: Mechanical
     lore:
-      -
-    shards:
-
-FARMLAND:
-  tier: 1
-  elements:
-    -
-  story:
-    name:
-    type:
-    lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 FEATHER:
   tier: 1
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Don't be a chicken!
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - Each feather remembers the living thing
+      - it came from and will still draw magical
+      - essence from it when possible
+    shards: [ 0,0,0,0,1,1,0,1,0 ]
 
 FERMENTED_SPIDER_EYE:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - VOID
   story:
-    name:
-    type:
+    name: Demonic Essence
+    type: VOID
     lore:
-      -
-    shards:
+      - The process of fermenting a spiders eye
+      - creates an opening for demonic essence to
+      - seep into the world. It's this essence that
+      - makes this a good potion ingredient.
+    shards: [ 1,0,0,0,0,1,0,1,0 ]
 
 FERN:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Crouching Taiga
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - A fern stores what little Crysta it takes
+      - from the world and releases it when it spreads
+      - its spores.
+    shards: [ 1,0,1,0,0,1,1,0,0 ]
 
 FILLED_MAP:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HISTORICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Age of Discovery (Filled)
+    type: HISTORICAL
     lore:
-      -
-    shards:
+      - With the corners still to find, explorers from
+      - far and wide still set out the chart the
+      - uncharted.
+    shards: [ 0,0,0,2,1,0,0,0,0 ]
 
 FIREWORK_ROCKET:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ALCHEMICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Alchemical Starlight
+    type: ALCHEMICAL
     lore:
-      -
-    shards:
+      - Bursting with power, when lit the fireworks
+      - release all their potential within a few
+      - moments which drives the surrounding crysta
+      - wild.
+    shards: [ 1,0,2,0,1,0,0,0,0 ]
 
 FIREWORK_STAR:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: Star of the show
+    type: ALCHEMICAL
     lore:
-      -
-    shards:
+      - This item leans towards the superficial,
+      - enjoying changing up its look as frequently
+      - as possible.
+    shards: [ 1,0,2,0,0,0,0,0,0 ]
 
 FIRE_CHARGE:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Potentiation
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Creation of fire in the palm of your
+      - hands. The potential energy directly
+      - translates to Crysta.
+    shards: [ 2,0,0,0,0,0,0,0,0 ]
 
 FIRE_CORAL:
   tier: 2
@@ -4642,191 +4875,238 @@ FIRE_CORAL_FAN:
     shards: [ 0,0,1,1,0,1,1,0,0 ]
 
 FISHING_ROD:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Finding Nemo
+    type: VOID
     lore:
-      -
-    shards:
+      - Despite no fish being present, the
+      - fishing rod can still find and catch them
+      - with ease. It's unknown why this works.
+    shards: [ 0,1,0,0,1,0,0,1,0 ]
 
 FLETCHING_TABLE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - HISTORICAL
   story:
-    name:
-    type:
+    name: The Wild Bowyer
+    type: HISTORICAL
     lore:
-      -
-    shards:
+      - Tales tell of a bowyer who lived in the wild
+      - using nothing but his hunting and fletching
+      - skills to live. His skills died with him.
+    shards: [ 0,1,0,2,1,0,0,0,0 ]
 
 FLINT:
   tier: 1
   elements:
-    -
+    - HISTORICAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Enter the Stone Age
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - Flint is your first step into creating
+      - usable tools and will.... wait.. what?
+      - This isn't GregTech!?
+    shards: [ 0,1,0,1,1,0,0,0,0 ]
 
 FLINT_AND_STEEL:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Potentiation (Flint)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Creation of fire in the palm of your
+      - hands. The potential energy directly
+      - translates to Crysta.
+    shards: [ 2,0,0,0,0,0,0,0,0 ]
 
 FLOWERING_AZALEA:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: A Flourishing Anima
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - While not all azalea flowers, those that do
+      - draw in as much magical energy as they can
+      - to bloom wild and free.
+    shards: [ 1,0,2,0,0,0,0,0,0 ]
 
 FLOWERING_AZALEA_LEAVES:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: A Flourishing Anima (Leaves)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - While not all azalea flowers, those that do
+      - draw in as much magical energy as they can
+      - to bloom wild and free.
+    shards: [ 1,0,2,0,0,0,0,0,0 ]
 
 FLOWER_BANNER_PATTERN:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Star Spangled (Flower)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Absorbs magic generated from the pride
+      - of those observing this pattern.
+    shards: [ 0,0,0,1,1,1,0,0,0 ]
 
 FLOWER_POT:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: A Simple Home
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - A budding bulb turns into a blossoming
+      - flower with the help of this wonderful,
+      - temporary, home.
+    shards: [ 1,0,0,0,1,0,1,0,0 ]
 
 FURNACE:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
+    name: A Roaring Fire
     type:
     lore:
-      -
-    shards:
+      - A roaring fire that feeds on the
+      - creativity of it's creator.
+    shards: [ 1,1,0,0,1,0,0,0,0 ]
 
 FURNACE_MINECART:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
+    name: A Rolling Minecart... (Furnace)
     type:
     lore:
-      -
-    shards:
+      - ...Gathers No Moss. The singular largest
+      - leap in minecraft tech, the minecart has
+      - more uses than one may think.
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 GHAST_TEAR:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ANIMAL
+    - VOID
   story:
-    name:
-    type:
+    name: A Tear Shed
+    type: VOID
     lore:
-      -
-    shards:
+      - The Ghast wonders why no one has made the
+      - link that everyone it meets eventually
+      - makes it cry.
+    shards: [ 0,0,1,0,0,1,0,1,0 ]
 
 GILDED_BLACKSTONE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Rich Facade
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - A spirit so determined to put on a face
+      - and pretend to be something it isn't that
+      - it has now forgotten its own identity.
+    shards: [ 1,0,0,1,0,0,0,0,1 ]
 
 GLASS:
   tier: 1
   elements:
-    -
+    - PHILOSOPHICAL
+    - HUMAN
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: Seen Through
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - As hard as glass tries, it isnt able to
+      - hide its true self, being seen right through.
+    shards: [ 0,1,1,0,1,0,0,0,1 ]
 
 GLASS_BOTTLE:
   tier: 1
   elements:
-    -
+    - ALCHEMICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Bottle It Up
+    type: ALCHEMICAL
     lore:
-      -
-    shards:
+      - Every bottle dreams of the day its placed
+      - into a brewing stand to become something
+      - more than it is and to embrace the magic.
+    shards: [ 1,0,1,0,1,0,0,0,0 ]
 
 GLASS_PANE:
   tier: 1
   elements:
-    -
+    - PHILOSOPHICAL
+    - HUMAN
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: Seen Through (Pane)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - As hard as glass tries, it isnt able to
+      - hide its true self, being seen right through.
+    shards: [ 0,1,1,0,1,0,0,0,1 ]
 
 GLISTERING_MELON_SLICE:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Tooth Pain
+    type: HUMAN
     lore:
-      -
-    shards:
+      - It's covered in gold.. what else did you
+      - expect when you ate it?
+    shards: [ 1,0,1,0,1,0,0,0,0 ]
 
 GLOBE_BANNER_PATTERN:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - HISTORICAL
   story:
-    name:
-    type:
+    name: Star Spangled (Globe)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Absorbs magic generated from the pride
+      - of those observing this pattern.
+    shards: [ 0,0,0,2,1,0,0,0,0 ]
 
 GLOWSTONE:
   tier: 2
@@ -4843,81 +5123,103 @@ GLOWSTONE:
     author: OOOOMAGAAA
 
 GLOWSTONE_DUST:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: Irridecant (Dust)
+    type: ALCHEMICAL
     lore:
-      -
-    shards:
+      - Found only in the hottest of locaitons,
+      - it is still unknown how or why this
+      - stone glows.
+    shards: [ 0,0,1,0,0,0,0,0,0 ]
+    author: OOOOMAGAAA
 
 GLOW_BERRIES:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Inner Light (Berries)
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - It's unknown how or why, but this spirit
+      - is able to tap into local Celestial Crysta
+      - and convert it into light.
+    shards: [ 1,0,1,0,0,0,2,0,0 ]
 
 GLOW_INK_SAC:
   tier: 1
   elements:
-    -
+    - CELESTIAL
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Bioluminescent
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - Like the Glow Berry, the spirit of the Glow
+      - Squid is able to absorb and reflect Celestial
+      - Crysta back into the world as light.
+    shards: [ 0,0,1,0,0,0,1,0,1 ]
 
 GLOW_ITEM_FRAME:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - VOID
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Step Ahead
+    type: HUMAN
     lore:
-      -
-    shards:
+      - As with everything, humans took something new
+      - and beautiful and tore it apart for their own
+      - purposes. While still emitting light, the Celestial
+      - Crysta has converted to Void.
+    shards: [ 0,1,0,0,1,0,0,1,0 ]
 
 GLOW_LICHEN:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Inner Light (Lichen)
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - It's unknown how or why, but this spirit
+      - is able to tap into local Celestial Crysta
+      - and convert it into light.
+    shards: [ 1,0,1,0,0,0,2,0,0 ]
 
 GOLDEN_APPLE:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ALCHEMICAL
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: How on earth? (Apple)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - How do people even eat this? It's
+      - covered in actual gold...
+    shards: [ 0,0,1,0,2,0,1,0,0 ]
 
 GOLDEN_AXE:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Axe-cident waiting to happen! (Gold)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Every person fears the day that they finally
+      - accidentally right click on a log in their
+      - base!
+    shards: [ 1,0,0,0,1,0,1,0,1 ]
 
 GOLDEN_BOOTS:
   tier: 3
@@ -4931,18 +5233,21 @@ GOLDEN_BOOTS:
       - Like all armour, boots ant nothing more
       - than to keep their wearer safe. Unforunatley
       - they are overshadowed by other gear.
-    shards: [0,0,0,1,2,0,0,0,1]
+    shards: [ 0,0,0,1,2,0,0,0,1 ]
 
 GOLDEN_CARROT:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ALCHEMICAL
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: How on earth? (Carrot)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - How do people even eat this? It's
+      - covered in actual gold...
+    shards: [ 0,0,1,0,2,0,1,0,0 ]
 
 GOLDEN_CHESTPLATE:
   tier: 3
@@ -4956,7 +5261,7 @@ GOLDEN_CHESTPLATE:
       - Every hit, scrape and pummel stopped by the
       - chestplate reinforces it's magics by giving
       - it purpose and drive.
-    shards: [0,1,0,1,2,0,1,0,0]
+    shards: [ 0,1,0,1,2,0,1,0,0 ]
 
 GOLDEN_HELMET:
   tier: 3
@@ -4970,32 +5275,36 @@ GOLDEN_HELMET:
       - A magicians most important tool is their own
       - mind, any steps taken to protect that tool
       - are vital and wise.
-    shards: [0,0,0,1,1,0,0,1,0]
+    shards: [ 0,0,0,1,1,0,0,1,0 ]
 
 GOLDEN_HOE:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Till until (Gold)
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - Other farmers may have moved to more mechanical
+      - means, the trusty hoe is still the number one
+      - go-to.
+    shards: [ 1,1,0,0,1,0,1,0,0 ]
 
 GOLDEN_HORSE_ARMOR:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Tank (Gold)
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - It's not only you that needs protecting
+      - in these dark times!
+    shards: [ 0,0,0,1,1,1,0,0,0 ]
 
 GOLDEN_LEGGINGS:
-  tier: 2
+  tier: 3
   elements:
     - HUMAN
     - CELESTIAL
@@ -5006,84 +5315,106 @@ GOLDEN_LEGGINGS:
       - Like it's other armour brethren, leggings
       - absorb crysta from their users in miniscule
       - amounts over their tenure.
-    shards: [0,0,0,1,2,0,1,0,0]
+    shards: [ 0,0,0,1,2,0,1,0,0 ]
 
 GOLDEN_PICKAXE:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: P-p-p-pick up a pickaxe (Gold)
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - Arguably the most important tool to any
+      - minecrafters arsenal, the pickaxe radiates
+      - a joy with every block broken.
+    shards: [ 0,0,0,1,2,0,1,0,0 ]
 
 GOLDEN_SHOVEL:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Can you dig it? (Gold)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The invention of the shovel was a pivotal
+      - to the furtherment of mankind, it was
+      - practically ground breaking!
+    shards: [ 1,1,0,0,1,0,0,0,0 ]
 
 GOLDEN_SWORD:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Time to Strike (Gold)
+    type: VOID
     lore:
-      -
-    shards:
+      - Finally armed, the wielder can choose
+      - to use a sword defensively or aggressively
+      - either way the sword fulfills its purpose
+    shards: [ 0,0,0,1,1,0,0,1,1 ]
 
 GOLD_BLOCK:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Further Refinement (Emerald)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Refined all the way to it's block form, this
+      - block enjoys being combined with it's brethren
+    shards: [ 2,1,0,0,0,0,0,0,1 ]
 
 GOLD_INGOT:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Refined (Gold)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - After having all the slag and dregs removed
+      - this item can breathe a heavy sigh of relief.
+    shards: [ 1,1,1,0,0,0,0,0,1 ]
 
 GOLD_NUGGET:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Formation (Gold)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Like most elemental magics, the Crysta
+      - in a nugget longs to be paired with other
+      - matching forms but without the power to
+      - influence this.
+    shards: [ 1,0,0,0,0,0,0,0,0 ]
 
 GOLD_ORE:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - PHILOSPHICAL
   story:
-    name:
-    type:
+    name: This Ore That (Gold)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - As ore is formed within stone, it draws
+      - the latent magic from the earth into itself
+      - the types of magic found determine the
+      - ore that will appear.
+    shards: [ 1,0,0,1,0,0,1,1,1 ]
 
 GRANITE:
   tier: 1
@@ -5142,13 +5473,16 @@ GRANITE_WALL:
 GRASS:
   tier: 1
   elements:
-    -
+    - ANIMAL
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Where it begins
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - The beginning of most food webs, grass
+      - brings life into the world and drives
+      - it ever-forward.
+    shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 GRASS_BLOCK:
   tier: 1
@@ -5166,13 +5500,16 @@ GRASS_BLOCK:
 GRAVEL:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: Hammered
+    type: VOID
     lore:
-      -
-    shards:
+      - Detemined to be more than the sum of its
+      - parts, gravel lives only to have been hammered
+      - and then sifted for its content. Sad.
+    shards: [ 1,0,0,0,0,0,0,1,0 ]
 
 GRAY_BANNER:
   tier: 2
@@ -5514,59 +5851,74 @@ GREEN_WOOL:
     author: OOOOMAGAAA
 
 GRINDSTONE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Ground Down
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - The Grindstone loves to grind, crush and
+      - generally destroy whatever it can get at.
+      - If it could, it would grind the world.
+    shards: [ 0,1,0,0,1,0,0,1,0 ]
 
 GUNPOWDER:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: Explosive Personality
+    type: VOID
     lore:
-      -
-    shards:
+      - Primed and ready, this is a Creeper's
+      - last-ditch attempt to try to ruin your day!
+    shards: [ 1,0,0,0,0,1,0,1,0 ]
 
 HANGING_ROOTS:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Just Hanging Out
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - A very plain and simple spirit, these
+      - roots love nothing more than to just
+      - hang around and relax
+    shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 HAY_BLOCK:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Llama's Lament
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - Endlessly dreaming of being given to a
+      - llama, the Hay block is willing to give
+      - itself for the furtherment of others.
+    shards: [ 1,0,0,0,1,1,0,0,0 ]
 
 HEART_OF_THE_SEA:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Oceanic Draw
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - The Heart of the Sea constantly draws Crysta
+      - from the oceans while forming. The resultant
+      - item is more potent than any single Crystamae
+      - crystal.
+    shards: [ 2,0,1,1,0,1,1,0,0 ]
 
 HEAVY_WEIGHTED_PRESSURE_PLATE:
   tier: 2
@@ -5586,68 +5938,84 @@ HEAVY_WEIGHTED_PRESSURE_PLATE:
 HONEYCOMB:
   tier: 1
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Wax On!
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - This waxy substance is used to protect
+      - those items that do not like the open
+      - air.
+    shards: [ 0,0,1,0,0,1,0,0,0 ]
 
 HONEYCOMB_BLOCK:
   tier: 1
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Wax On! (Block)
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - This waxy substance is used to protect
+      - those items that do not like the open
+      - air.
+    shards: [ 0,0,1,0,0,1,0,0,0 ]
 
 HONEY_BLOCK:
   tier: 1
   elements:
-    -
+    - ANIMAL
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: A Sticky Situation (Honey)
+    type: ALCHEMICAL
     lore:
-      -
-    shards:
+      - Desparate to not be alone, this block
+      - will cling to anything it can and will
+      - not let go.
+    shards: [ 0,0,1,0,0,1,0,0,0 ]
 
 HONEY_BOTTLE:
   tier: 1
   elements:
-    -
+    - ALCHEMICAL
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Nectar of the Gods
+    type: ALCHEMICAL
     lore:
-      -
-    shards:
+      - With a vast variety of unknown healing properties,
+      - honey has untapped potential which will come to
+      - light... soon™...
+    shards: [ 0,0,1,0,0,1,0,0,0 ]
 
 HOPPER:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - VOID
   story:
-    name:
-    type:
+    name: Diversion
+    type: VOID
     lore:
-      -
-    shards:
+      - A hopper gets all of its joy from taking
+      - something from its true path and moving it
+      - elsewhere. Who know hoppers were such tricksters.
+    shards: [ 0,2,0,0,0,0,0,1,0 ]
 
 HOPPER_MINECART:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
+    name: A Rolling Minecart... (Hopper)
     type:
     lore:
-      -
-    shards:
+      - ...Gathers No Moss. The singular largest
+      - leap in minecraft tech, the minecart has
+      - more uses than one may think.
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 HORN_CORAL:
   tier: 2
@@ -5814,35 +6182,45 @@ INFESTED_STONE_BRICKS:
 INK_SAC:
   tier: 1
   elements:
-    -
+    - VOID
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: The Inky Void
+    type: VOID
     lore:
-      -
-    shards:
+      - Ink is both the creation of nearly all
+      - written knowledge but also an entry into
+      - the deepest void. The juxtapositon is, in
+      - itself, magical.
+    shards: [ 1,0,0,0,0,0,1,1,0 ]
 
 IRON_AXE:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Axe-cident waiting to happen! (Iron)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Every person fears the day that they finally
+      - accidentally right click on a log in their
+      - base!
+    shards: [ 1,0,0,0,1,0,1,0,1 ]
 
 IRON_BARS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Locked Up
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Designed for one true purpose, to keep those
+      - needed behind bars. Protecting others provides
+      - purpose to this iron.
+    shards: [ 0,1,0,0,1,0,0,0,1 ]
 
 IRON_BLOCK:
   tier: 3
@@ -5871,7 +6249,7 @@ IRON_BOOTS:
       - Like all armour, boots ant nothing more
       - than to keep their wearer safe. Unforunatley
       - they are overshadowed by other gear.
-    shards: [0,0,0,1,2,0,0,0,1]
+    shards: [ 0,0,0,1,2,0,0,0,1 ]
 
 IRON_CHESTPLATE:
   tier: 3
@@ -5885,7 +6263,7 @@ IRON_CHESTPLATE:
       - Every hit, scrape and pummel stopped by the
       - chestplate reinforces it's magics by giving
       - it purpose and drive.
-    shards: [0,1,0,1,2,0,1,0,0]
+    shards: [ 0,1,0,1,2,0,1,0,0 ]
 
 IRON_DOOR:
   tier: 2
@@ -5913,40 +6291,46 @@ IRON_HELMET:
       - A magicians most important tool is their own
       - mind, any steps taken to protect that tool
       - are vital and wise.
-    shards: [0,0,0,1,1,0,0,1,0]
+    shards: [ 0,0,0,1,1,0,0,1,0 ]
 
 IRON_HOE:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Till until (Iron)
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - Other farmers may have moved to more mechanical
+      - means, the trusty hoe is still the number one
+      - go-to.
+    shards: [ 1,1,0,0,1,0,1,0,0 ]
 
 IRON_HORSE_ARMOR:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Tank (Iron)
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - It's not only you that needs protecting
+      - in these dark times!
+    shards: [ 0,0,0,1,1,1,0,0,0 ]
 
 IRON_INGOT:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Refined (Emerald)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - After having all the slag and dregs removed
+      - this item can breathe a heavy sigh of relief.
+    shards: [ 1,2,1,0,0,0,0,0,0 ]
 
 IRON_LEGGINGS:
   tier: 3
@@ -5960,62 +6344,78 @@ IRON_LEGGINGS:
       - Like it's other armour brethren, leggings
       - absorb crysta from their users in miniscule
       - amounts over their tenure.
-    shards: [0,0,0,1,2,0,1,0,0]
+    shards: [ 0,0,0,1,2,0,1,0,0 ]
 
 IRON_NUGGET:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Formation (Iron)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Like most elemental magics, the Crysta
+      - in a nugget longs to be paired with other
+      - matching forms but without the power to
+      - influence this.
+    shards: [ 1,0,0,0,0,0,0,0,0 ]
 
 IRON_ORE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: This Ore That (Iron)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - As ore is formed within stone, it draws
+      - the latent magic from the earth into itself
+      - the types of magic found determine the
+      - ore that will appear.
+    shards: [ 1,1,0,1,0,0,1,1,0 ]
 
 IRON_PICKAXE:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: P-p-p-pick up a pickaxe (Iron)
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - Arguably the most important tool to any
+      - minecrafters arsenal, the pickaxe radiates
+      - a joy with every block broken.
+    shards: [ 0,0,0,1,2,0,1,0,0 ]
 
 IRON_SHOVEL:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Can you dig it? (Iron)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The invention of the shovel was a pivotal
+      - to the furtherment of mankind, it was
+      - practically ground breaking!
+    shards: [ 1,1,0,0,1,0,0,0,0 ]
 
 IRON_SWORD:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Time to Strike (Iron)
+    type: VOID
     lore:
-      -
-    shards:
+      - Finally armed, the wielder can choose
+      - to use a sword defensively or aggressively
+      - either way the sword fulfills its purpose
+    shards: [ 0,0,0,1,1,0,0,1,1 ]
 
 IRON_TRAPDOOR:
   tier: 2
@@ -6034,35 +6434,44 @@ IRON_TRAPDOOR:
 ITEM_FRAME:
   tier: 1
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Proud Display
+    type: HUMAN
     lore:
-      -
-    shards:
+      - An Item Frame awaits the moment when its
+      - allowed to display an item. The eminating
+      - pride envelopes the item fully.
+    shards: [ 0,1,0,0,0,1,0,0,0 ]
 
 JACK_O_LANTERN:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Spooky-scary
+    type: VOID
     lore:
-      -
-    shards:
+      - Nothing says sheer terror more than the
+      - carved Jack'O'Lantern... right?
+    shards: [ 1,0,0,0,1,0,0,1,0 ]
 
 JUKEBOX:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: The Magic of Music
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - While esoteric, the magic from music can
+      - be measured if in large enough quantities.
+      - With work it could be harnessed into something
+      - more.
+    shards: [ 0,1,0,0,1,0,2,0,0 ]
 
 JUNGLE_BOAT:
   tier: 1
@@ -6216,7 +6625,7 @@ JUNGLE_SLAB:
   elements:
     - HUMAN
   story:
-    name: A cut below (Jungle)
+    name: A Cut Below (Jungle)
     type: HUMAN
     lore:
       - Ripped in half and divided from
@@ -6265,101 +6674,112 @@ JUNGLE_WOOD:
 KELP:
   tier: 1
   elements:
-    -
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: ':LUL:'
+    type: CELESTIAL
     lore:
-      -
-    shards:
-
-KNOWLEDGE_BOOK:
-  tier: 1
-  elements:
-    -
-  story:
-    name:
-    type:
-    lore:
-      -
-    shards:
+      - I tried to not make this story a joke
+      - or a pun... but I couldn't kelp myself.
+    shards: [ 0,0,0,0,0,0,1,0,0 ]
 
 LADDER:
   tier: 1
   elements:
-    -
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Where's Boomer?
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Have a ladder that needs to be claimed?
+      - Call BOOMER_1 and he'll see you straight!
+    shards: [ 0,1,0,0,0,0,0,0,1 ]
 
 LANTERN:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Lighting the Way
+    type: ELEMENTAL
     lore:
-      -
-    shards:
-
-LAPIS_BLOCK:
-  tier: 1
-  elements:
-    -
-  story:
-    name:
-    type:
-    lore:
-      -
-    shards:
+      - Fear of the dark is an opressive force
+      - for lanterns. They use all their might to
+      - push back the darkness to make players
+      - feel at ease.
+    shards: [ 1,1,0,0,1,0,0,0,0 ]
 
 LAPIS_LAZULI:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Refined (Lapis)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - After having all the slag and dregs removed
+      - this item can breathe a heavy sigh of relief.
+    shards: [ 1,1,1,0,0,0,0,0,0 ]
+
+LAPIS_BLOCK:
+  tier: 3
+  elements:
+    - ELEMENTAL
+    - MECHANICAL
+    - CELESTIAL
+  story:
+    name: Further Refinement (Lapis)
+    type: ELEMENTAL
+    lore:
+      - Refined all the way to it's block form, this
+      - block enjoys being combined with it's brethren
+    shards: [ 2,1,0,0,0,0,0,0,0 ]
 
 LAPIS_ORE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: This Ore That (Lapis)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - As ore is formed within stone, it draws
+      - the latent magic from the earth into itself
+      - the types of magic found determine the
+      - ore that will appear.
+    shards: [ 1,0,0,1,0,0,2,1,0 ]
 
 LARGE_AMETHYST_BUD:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - VOID
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Devoid of magic (Large)
+    type: VOID
     lore:
-      -
-    shards:
+      - Amethyst buds are crystal deposits that couldn't
+      - harness enough Crysta to form correctly. While
+      - useful, they server little purpose magically.
+    shards: [ 1,0,0,0,0,0,0,1,0 ]
 
 LARGE_FERN:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Crouching Taiga (Large)
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - A fern stores what little Crysta it takes
+      - from the world and releases it when it spreads
+      - its spores.
+    shards: [ 1,0,1,0,0,1,1,0,0 ]
 
 LAVA_BUCKET:
   tier: 2
@@ -6378,24 +6798,28 @@ LAVA_BUCKET:
 LEAD:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Lead Me On
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - While insanely weak, the lead creates a
+      - magical tether between the leader and the
+      - led.
+    shards: [ 0,0,0,1,1,1,0,0,0 ]
 
 LEATHER:
   tier: 1
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Get Tanned
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - While an unfortunate practice, leather is
+      - a staple to basic development.
+    shards: [ 0,0,0,1,1,1,0,0,0 ]
 
 LEATHER_BOOTS:
   tier: 1
@@ -6409,7 +6833,7 @@ LEATHER_BOOTS:
       - Like all armour, boots ant nothing more
       - than to keep their wearer safe. Unforunatley
       - they are overshadowed by other gear.
-    shards: [0,0,0,1,2,0,0,0,1]
+    shards: [ 0,0,0,1,2,0,0,0,1 ]
 
 LEATHER_CHESTPLATE:
   tier: 1
@@ -6423,7 +6847,7 @@ LEATHER_CHESTPLATE:
       - Every hit, scrape and pummel stopped by the
       - chestplate reinforces it's magics by giving
       - it purpose and drive.
-    shards: [0,1,0,1,2,0,1,0,0]
+    shards: [ 0,1,0,1,2,0,1,0,0 ]
 
 LEATHER_HELMET:
   tier: 1
@@ -6437,18 +6861,19 @@ LEATHER_HELMET:
       - A magicians most important tool is their own
       - mind, any steps taken to protect that tool
       - are vital and wise.
-    shards: [0,0,0,1,1,0,0,1,0]
+    shards: [ 0,0,0,1,1,0,0,1,0 ]
 
 LEATHER_HORSE_ARMOR:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Tank (Leather)
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - It's not only you that needs protecting
+      - in these dark times!
+    shards: [ 0,0,0,1,1,1,0,0,0 ]
 
 LEATHER_LEGGINGS:
   tier: 1
@@ -6462,51 +6887,47 @@ LEATHER_LEGGINGS:
       - Like it's other armour brethren, leggings
       - absorb crysta from their users in miniscule
       - amounts over their tenure.
-    shards: [0,0,0,1,2,0,1,0,0]
+    shards: [ 0,0,0,1,2,0,1,0,0 ]
 
 LECTERN:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: The Power of Knowledge
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - the transfer of knowledge from person to
+      - person is just as, if not more, important
+      - than the knowledge itself. The Lectern knows
+      - this and revels in helping.
+    shards: [ 0,1,0,1,1,0,0,0,1 ]
 
 LEVER:
   tier: 1
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Binary
+    type: MECHANICAL
     lore:
-      -
-    shards:
-
-LIGHT:
-  tier: 1
-  elements:
-    -
-  story:
-    name:
-    type:
-    lore:
-      -
-    shards:
+      - The Lever lives in one of two states.
+      - On or off, yes or no. It dreams of a
+      - third state, but this will never happen.
+    shards: [ 0,1,0,0,1,0,0,0,0 ]
 
 LIGHTNING_ROD:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Attractive
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Copper longs for the touch of electricity
+      - and does all it can do draw some in.
+    shards: [ 2,0,0,0,0,0,0,0,0 ]
 
 LIGHT_BLUE_BANNER:
   tier: 2
@@ -6891,13 +7312,16 @@ LILY_OF_THE_VALLEY:
 LILY_PAD:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Swampy Device
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - The lily pad spends all its time doing
+      - nothign but relaxing in swamps. While some
+      - may wish for more, the lily pad is content.
+    shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 LIME_BANNER:
   tier: 2
@@ -7072,35 +7496,42 @@ LIME_WOOL:
 LINGERING_POTION:
   tier: 1
   elements:
-    -
+    - ALCHEMICAL
+    - VOID
   story:
-    name:
-    type:
+    name: Unwanted Guest
+    type: ALCHEMICAL
     lore:
-      -
-    shards:
+      - Guests, like fish, begin to smell after three days.
+      - No one likes things that linger too long.
+    shards: [ 1,0,1,0,0,0,0,1,0 ]
 
 LODESTONE:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - VOID
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Unnatural Pull
+    type: VOID
     lore:
-      -
-    shards:
+      - Combining both Celestial and Void Crysta
+      - causes this block to constantly pull at
+      - magically linked items regardless of distance.
+    shards: [ 0,1,0,1,1,0,1,1,0 ]
 
 LOOM:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
   story:
-    name:
-    type:
+    name: Dream Decor
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Every thread and weave is imparted with
+      - the creativity of the creator and the
+      - magics present at the time.
+    shards: [ 0,0,0,1,2,0,0,0,0 ]
 
 MAGENTA_BANNER:
   tier: 2
@@ -7273,48 +7704,59 @@ MAGENTA_WOOL:
     author: OOOOMAGAAA
 
 MAGMA_BLOCK:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: Hot Stuff (Block)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The burning passion of this item has
+      - the power to actually create a persistent
+      - heat with no help from magic.
+    shards: [ 1,0,1,0,0,0,0,1,0 ]
 
 MAGMA_CREAM:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Hot Stuff
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The burning passion of this item has
+      - the power to actually create a persistent
+      - heat with no help from magic.
+    shards: [ 1,0,1,0,0,0,0,0,0 ]
 
 MAP:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HISTORICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Age of Discovery
+    type: HISTORICAL
     lore:
-      -
-    shards:
+      - With the corners still to find, explorers from
+      - far and wide still set out the chart the
+      - uncharted.
+    shards: [ 0,0,0,2,1,0,0,0,0 ]
 
 MEDIUM_AMETHYST_BUD:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - VOID
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Devoid of magic (Medium)
+    type: VOID
     lore:
-      -
-    shards:
+      - Amethyst buds are crystal deposits that couldn't
+      - harness enough Crysta to form correctly. While
+      - useful, they server little purpose magically.
+    shards: [ 1,0,0,0,0,0,0,1,0 ]
 
 MELON:
   tier: 1
@@ -7347,13 +7789,15 @@ MELON_SEEDS:
 MELON_SLICE:
   tier: 1
   elements:
-    -
+    - ANIMAL
+    - HUMAN
   story:
-    name:
+    name: A Bitter-Sweet Victory
     type:
     lore:
-      -
-    shards:
+      - While cut and torn asunder, the result is an
+      - item that brings joy to many.
+    shards: [ 0,0,1,0,1,1,0,0,0 ]
 
 MILK_BUCKET:
   tier: 2
@@ -7370,37 +7814,44 @@ MILK_BUCKET:
     shards: [ 0,1,0,0,2,1,0,1,0 ]
 
 MINECART:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
+    name: A Rolling Minecart...
     type:
     lore:
-      -
-    shards:
+      - ...Gathers No Moss. The singular largest
+      - leap in minecraft tech, the minecart has
+      - more uses than one may think.
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 MOJANG_BANNER_PATTERN:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Star Spangled (Mojang)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Absorbs magic generated from the pride
+      - of those observing this pattern.
+    shards: [ 0,0,0,1,1,0,1,0,0 ]
 
 MOSSY_COBBLESTONE:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Slow Parasite
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The slow parasite developing through the
+      - cobblestone forms a symbiotic relationship
+      - bringing life to a lifeless block.
+    shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 MOSSY_COBBLESTONE_SLAB:
   tier: 1
@@ -7444,15 +7895,18 @@ MOSSY_COBBLESTONE_WALL:
     shards: [ 0,0,0,1,1,0,1,0,0 ]
 
 MOSSY_STONE_BRICKS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HISTORICAL
+    - HUMAN
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Dirt Hut Upgrade (Mossy Stone)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Enough to make near-any house a home,
+      - bricks are the staple to a modern comfort.
+    shards: [ 0,1,0,1,1,1,1,0,0 ]
 
 MOSSY_STONE_BRICK_SLAB:
   tier: 1
@@ -7498,13 +7952,15 @@ MOSSY_STONE_BRICK_WALL:
 MOSS_BLOCK:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: A Rich Ecosystem
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - This block, teeming with life, holds the
+      - promised for a wide variety of flora and
+      - fauna.
+    shards: [ 1,0,0,0,0,0,1,0,0 ]
 
 MOSS_CARPET:
   tier: 1
@@ -7550,147 +8006,200 @@ MUSHROOM_STEW:
     shards: [ 0,0,0,0,2,1,0,0,0 ]
 
 MUSIC_DISC_11:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Resonating Within (11)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Music Discs don't just record sounds,
+      - it also records the resonating magic
+      - in the air at the time of recording,
+      - releasing it each time it's replayed.
+    shards: [ 0,1,0,1,1,0,0,0,1 ]
 
 MUSIC_DISC_13:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Resonating Within (13)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Music Discs don't just record sounds,
+      - it also records the resonating magic
+      - in the air at the time of recording,
+      - releasing it each time it's replayed.
+    shards: [ 0,1,0,1,1,0,0,0,1 ]
 
 MUSIC_DISC_BLOCKS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Resonating Within (Blocks)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Music Discs don't just record sounds,
+      - it also records the resonating magic
+      - in the air at the time of recording,
+      - releasing it each time it's replayed.
+    shards: [ 0,1,0,1,1,0,0,0,1 ]
 
 MUSIC_DISC_CAT:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Resonating Within (Cat)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Music Discs don't just record sounds,
+      - it also records the resonating magic
+      - in the air at the time of recording,
+      - releasing it each time it's replayed.
+    shards: [ 0,1,0,1,1,0,0,0,1 ]
 
 MUSIC_DISC_CHIRP:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Resonating Within (Chirp)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Music Discs don't just record sounds,
+      - it also records the resonating magic
+      - in the air at the time of recording,
+      - releasing it each time it's replayed.
+    shards: [ 0,1,0,1,1,0,0,0,1 ]
 
 MUSIC_DISC_FAR:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Resonating Within (Far)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Music Discs don't just record sounds,
+      - it also records the resonating magic
+      - in the air at the time of recording,
+      - releasing it each time it's replayed.
+    shards: [ 0,1,0,1,1,0,0,0,1 ]
 
 MUSIC_DISC_MALL:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Resonating Within (Mall)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Music Discs don't just record sounds,
+      - it also records the resonating magic
+      - in the air at the time of recording,
+      - releasing it each time it's replayed.
+    shards: [ 0,1,0,1,1,0,0,0,1 ]
 
 MUSIC_DISC_MELLOHI:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Resonating Within (Mellohi)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Music Discs don't just record sounds,
+      - it also records the resonating magic
+      - in the air at the time of recording,
+      - releasing it each time it's replayed.
+    shards: [ 0,1,0,1,1,0,0,0,1 ]
 
 MUSIC_DISC_PIGSTEP:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
+    - VOID
   story:
-    name:
-    type:
+    name: Resonating Within (Pigstep)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Music Discs don't just record sounds,
+      - it also records the resonating magic
+      - in the air at the time of recording,
+      - releasing it each time it's replayed.
+    shards: [ 0,1,0,1,1,0,0,1,1 ]
 
 MUSIC_DISC_STAL:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Resonating Within (Stal)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Music Discs don't just record sounds,
+      - it also records the resonating magic
+      - in the air at the time of recording,
+      - releasing it each time it's replayed.
+    shards: [ 0,1,0,1,1,0,0,0,1 ]
 
 MUSIC_DISC_STRAD:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Resonating Within (Strad)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Music Discs don't just record sounds,
+      - it also records the resonating magic
+      - in the air at the time of recording,
+      - releasing it each time it's replayed.
+    shards: [ 0,1,0,1,1,0,0,0,1 ]
 
 MUSIC_DISC_WAIT:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Resonating Within (Wait)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Music Discs don't just record sounds,
+      - it also records the resonating magic
+      - in the air at the time of recording,
+      - releasing it each time it's replayed.
+    shards: [ 0,1,0,1,1,0,0,0,1 ]
 
 MUSIC_DISC_WARD:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Resonating Within (Ward)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Music Discs don't just record sounds,
+      - it also records the resonating magic
+      - in the air at the time of recording,
+      - releasing it each time it's replayed.
+    shards: [ 0,1,0,1,1,0,0,0,1 ]
 
 MUTTON:
   tier: 1
@@ -7707,48 +8216,60 @@ MUTTON:
     shards: [ 0,0,0,0,1,1,0,0,1 ]
 
 MYCELIUM:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: Ancient Promise
+    type: VOID
     lore:
-      -
-    shards:
+      - Touched by Ancient Spores, Mycelium draws from
+      - the void to become something new and dark.
+    shards: [ 1,0,0,1,0,0,0,1,0 ]
 
 NAME_TAG:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Identity
+    type: HUMAN
     lore:
-      -
-    shards:
+      - A nameless thing finally gets it's own
+      - identity and... wth is a Dinnerbone and
+      - why is the world upside down?
+    shards: [ 0,0,0,1,1,0,1,0,0 ]
 
 NAUTILUS_SHELL:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HISTORICAL
+    - VOID
   story:
-    name:
-    type:
+    name: An Unused Home
+    type: HISTORICAL
     lore:
-      -
-    shards:
+      - The Nautilis is though to comes from
+      - the deepest depths, but not one can be
+      - seen. It's not known where Drowned find
+      - these shells.
+    shards: [ 0,0,0,2,0,1,0,2,0 ]
 
 NETHERITE_AXE:
-  tier: 1
+  tier: 5
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Axe-cident waiting to happen! (Netherite)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Every person fears the day that they finally
+      - accidentally right click on a log in their
+      - base!
+    shards: [ 1,0,0,0,1,0,1,0,1 ]
 
 NETHERITE_BLOCK:
   tier: 5
@@ -7777,7 +8298,7 @@ NETHERITE_BOOTS:
       - Like all armour, boots ant nothing more
       - than to keep their wearer safe. Unforunatley
       - they are overshadowed by other gear.
-    shards: [0,0,0,1,2,0,0,0,1]
+    shards: [ 0,0,0,1,2,0,0,0,1 ]
 
 NETHERITE_CHESTPLATE:
   tier: 2
@@ -7791,7 +8312,7 @@ NETHERITE_CHESTPLATE:
       - Every hit, scrape and pummel stopped by the
       - chestplate reinforces it's magics by giving
       - it purpose and drive.
-    shards: [0,1,0,1,2,0,1,0,0]
+    shards: [ 0,1,0,1,2,0,1,0,0 ]
 
 NETHERITE_HELMET:
   tier: 5
@@ -7805,29 +8326,34 @@ NETHERITE_HELMET:
       - A magicians most important tool is their own
       - mind, any steps taken to protect that tool
       - are vital and wise.
-    shards: [0,0,0,1,1,0,0,1,0]
+    shards: [ 0,0,0,1,1,0,0,1,0 ]
 
 NETHERITE_HOE:
-  tier: 1
+  tier: 5
   elements:
-    -
+    - HUMAN
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: The one, only and ultimate
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - Everyone knows it's the only tool that
+      - counts.
+    shards: [ 1,1,0,0,1,0,1,0,0 ]
 
 NETHERITE_INGOT:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
+    - VOID
   story:
-    name:
-    type:
+    name: Refined (Netherite)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - After having all the slag and dregs removed
+      - this item can breathe a heavy sigh of relief.
+    shards: [ 1,1,1,0,0,0,2,0,0 ]
 
 NETHERITE_LEGGINGS:
   tier: 5
@@ -7841,51 +8367,63 @@ NETHERITE_LEGGINGS:
       - Like it's other armour brethren, leggings
       - absorb crysta from their users in miniscule
       - amounts over their tenure.
-    shards: [0,0,0,1,2,0,1,0,0]
+    shards: [ 0,0,0,1,2,0,1,0,0 ]
 
 NETHERITE_PICKAXE:
-  tier: 1
+  tier: 5
   elements:
-    -
+    - HUMAN
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: P-p-p-pick up a pickaxe (Netherite)
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - Arguably the most important tool to any
+      - minecrafters arsenal, the pickaxe radiates
+      - a joy with every block broken.
+    shards: [ 0,0,0,1,2,0,1,0,0 ]
 
 NETHERITE_SCRAP:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - HISTORICAL
   story:
-    name:
-    type:
+    name: Ancient Beyond Measure
+    type: HISTORICAL
     lore:
-      -
-    shards:
+      - The correct refinement process for Netherite
+      - has been lost to time. Starting with a
+      - scrap is the best known method currently.
+    shards: [ 1,0,0,2,0,0,0,0,1 ]
 
 NETHERITE_SHOVEL:
-  tier: 1
+  tier: 5
   elements:
-    -
+    - HUMAN
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Can you dig it? (Netherite)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The invention of the shovel was a pivotal
+      - to the furtherment of mankind, it was
+      - practically ground breaking!
+    shards: [ 1,1,0,0,1,0,0,0,0 ]
 
 NETHERITE_SWORD:
-  tier: 1
+  tier: 5
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Time to Strike (Netherite)
+    type: VOID
     lore:
-      -
-    shards:
+      - Finally armed, the wielder can choose
+      - to use a sword defensively or aggressively
+      - either way the sword fulfills its purpose
+    shards: [ 0,0,0,1,1,0,0,1,1 ]
 
 NETHERRACK:
   tier: 1
@@ -7900,37 +8438,47 @@ NETHERRACK:
     shards: [ 1,0,1,0,0,0,0,0,0 ]
 
 NETHER_BRICK:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HISTORICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Before (Nether)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - While not much on it's own, the potential
+      - within this item is so large that the magics
+      - from it's possible forms ripple back through
+      - time.
+    shards: [ 0,1,0,1,1,0,0,0,0 ]
 
 NETHER_BRICKS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HISTORICAL
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Dirt Hut Upgrade (Nether)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Enough to make near-any house a home,
+      - bricks are the staple to a modern comfort.
+    shards: [ 0,1,0,1,1,0,0,1,0 ]
 
 NETHER_BRICK_FENCE:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - ANIMAL
+    - VOID
   story:
-    name:
-    type:
+    name: Livestock (Nether)
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - Nothing brings more joy to a fence
+      - than keeping your livestock safe.
+    shards: [ 0,0,0,0,1,2,0,1,0 ]
 
 NETHER_BRICK_SLAB:
   tier: 1
@@ -7975,37 +8523,47 @@ NETHER_BRICK_WALL:
     shards: [ 0,0,0,1,1,0,1,0,0 ]
 
 NETHER_GOLD_ORE:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: This Ore That (Nether Gold)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - As ore is formed within stone, it draws
+      - the latent magic from the earth into itself
+      - the types of magic found determine the
+      - ore that will appear.
+    shards: [ 1,0,0,1,0,0,1,1,1 ]
 
 NETHER_QUARTZ_ORE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: This Ore That (Nether Quartz)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - As ore is formed within stone, it draws
+      - the latent magic from the earth into itself
+      - the types of magic found determine the
+      - ore that will appear.
+    shards: [ 1,0,0,1,0,0,2,1,0 ]
 
 NETHER_SPROUTS:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: Sprouting
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Despite the conditions, life will always
+      - find a way to grow and thrive.
+    shards: [1,0,0,0,0,0,0,1,0]
 
 NETHER_STAR:
   tier: 5
@@ -8019,29 +8577,33 @@ NETHER_STAR:
       - framework, the sheer amount of void from
       - the Wither is of this type. The Nether
       - Star encapsulates it all.
-    shards: [1,0,0,1,1,1,0,2,1]
+    shards: [ 1,0,0,1,1,1,0,2,1 ]
 
 NETHER_WART:
   tier: 1
   elements:
-    -
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: Alchemical Conduit
+    type: ALCHEMICAL
     lore:
-      -
-    shards:
+      - Magic as we know it needs Crystals to act
+      - as a conduit. For potions, the magical
+      - conduit it Nether Wart.
+    shards: [0,0,2,0,0,0,0,0,0]
 
 NETHER_WART_BLOCK:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: Alchemical Conduit (Block)
+    type: ALCHEMICAL
     lore:
-      -
-    shards:
+      - Magic as we know it needs Crystals to act
+      - as a conduit. For potions, the magical
+      - conduit it Nether Wart.
+    shards: [0,0,3,0,0,0,0,0,0]
 
 NOTE_BLOCK:
   tier: 2
@@ -8209,7 +8771,7 @@ OAK_SLAB:
   elements:
     - HUMAN
   story:
-    name: A cut below (Oak)
+    name: A Cut Below (Oak)
     type: HUMAN
     lore:
       - Ripped in half and divided from
@@ -8256,15 +8818,19 @@ OAK_WOOD:
     shards: [ 2,0,0,1,1,0,0,0,0 ]
 
 OBSERVER:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Always Watching
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - The Observer is always watching, waiting
+      - to let you know the moment it sees something
+      - happen. Shame it can only see 1 block ahead...
+    shards: [0,2,0,0,1,0,1,0,0]
 
 OBSIDIAN:
   tier: 2
@@ -8478,48 +9044,56 @@ OXEYE_DAISY:
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 OXIDIZED_COPPER:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Further Refinement (Oxidied Copper)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Refined all the way to it's block form, this
+      - block enjoys being combined with it's brethren
+    shards: [ 2,1,0,0,0,0,0,0,0 ]
 
 OXIDIZED_CUT_COPPER:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Ozidized Copper)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 OXIDIZED_CUT_COPPER_SLAB:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Ozidized Copper Slab)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 OXIDIZED_CUT_COPPER_STAIRS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Ozidized Copper Stairs)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 PACKED_ICE:
   tier: 2
@@ -8537,26 +9111,32 @@ PACKED_ICE:
     shards: [ 2,0,1,0,0,0,0,0,0 ]
 
 PAINTING:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Aint No Picasso
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - While it 'aint no Picasso, each painting
+      - is enshirined in magic from the creativity
+      - of their artists.
+    shards: [0,0,0,1,2,0,0,0,1]
 
 PAPER:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: A Clean Slate
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - Every peice is a fresh start, a clean
+      - slate, and the sheer potential in each
+      - peice is vast.
+    shards: [0,1,0,1,1,0,1,0,0]
 
 PEONY:
   tier: 1
@@ -8572,26 +9152,30 @@ PEONY:
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 PHANTOM_MEMBRANE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - VOID
   story:
-    name:
-    type:
+    name: Lighter Than Air
+    type: VOId
     lore:
-      -
-    shards:
+      - When harnessed correctly, the Phantom
+      - Membrane is actually lighter than air
+      - and can pass this trait onto other items.
+    shards: [0,0,1,0,0,1,0,2,0]
 
 PIGLIN_BANNER_PATTERN:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Star Spangled (Piglin)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Absorbs magic generated from the pride
+      - of those observing this pattern.
+    shards: [ 0,0,0,1,1,1,0,0,0 ]
 
 PINK_BANNER:
   tier: 2
@@ -8776,59 +9360,75 @@ PINK_WOOL:
     author: OOOOMAGAAA
 
 PISTON:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Getting Pushy
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - The Piston tries to be calm but its
+      - easily triggered and flies off of the
+      - handle with ease.
+    shards: [0,2,0,0,1,0,0,0,0]
 
 PLAYER_HEAD:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - VOID
   story:
-    name:
-    type:
+    name: Decapitation (Player)
+    type: VOID
     lore:
-      -
-    shards:
+      - While a despicable practice, some magics
+      - can only be harnessed through recent
+      - decapitations. Luckily no Crysta is wholy
+      - dependent on this.
+    shards: [ 0,1,0,0,1,0,0,1,0 ]
 
 PODZOL:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Leech
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Podzol is magically saturated from the iron
+      - it has absorbed. This magic is converted
+      - slowly over time.
+    shards: [2,0,0,0,0,0,0,0,0]
 
 POINTED_DRIPSTONE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: Permeable
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The water that slowly filtrates through
+      - this block transfers magics back and
+      - fourth making this block more resonant
+      - than some others.
+    shards: [ 2,0,1,0,0,0,0,1,0 ]
 
 POISONOUS_POTATO:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - ANIMAL
   story:
-    name:
-    type:
+    name: A Not-So-Welcome Surprise
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - When an item's internal Crysta goes bad
+      - the mechanics change completely. The
+      - Poisonous Potato is an outcome of this
+      - process.
+    shards: [0,0,1,0,0,1,1,0,0]
 
 POLISHED_ANDESITE:
   tier: 1
@@ -9021,48 +9621,58 @@ POLISHED_BLACKSTONE_WALL:
     shards: [ 0,0,0,1,1,0,1,0,0 ]
 
 POLISHED_DEEPSLATE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Time to Gleam (Deepslate)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - With a bit of love, any block can
+      - be made beautiful. Even those block
+      - left behind are drawn to the fore.
+    shards: [ 1,1,0,0,1,0,0,0,0 ]
 
 POLISHED_DEEPSLATE_SLAB:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: A Cut Below (Polished Deepslate)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Ripped in half and divided from
+      - self. A soul torn asunder
+    shards: [ 1,1,0,0,1,0,0,1,0 ]
 
 POLISHED_DEEPSLATE_STAIRS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Rising on up (Polished Deepslate)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Every step is either an incline to
+      - future glory or a possible descent
+      - into further madness...
+    shards: [ 0,1,0,0,1,0,0,1,1 ]
 
 POLISHED_DEEPSLATE_WALL:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - CELESTIAL
+    - HISTORICAL
   story:
-    name:
-    type:
+    name: Beating down the walls (Polished Deepslate)
+    type: HISTORICAL
     lore:
-      -
-    shards:
+      - Protecting for years working to keep
+      - those inside save and sound.
+    shards: [ 0,0,0,1,1,0,1,0,0 ]
 
 POLISHED_DIORITE:
   tier: 1
@@ -9145,15 +9755,16 @@ POLISHED_GRANITE_STAIRS:
     shards: [ 0,1,0,0,1,0,0,1,1 ]
 
 POPPED_CHORUS_FRUIT:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - VOID
   story:
-    name:
-    type:
+    name: Failure
+    type: VOID
     lore:
-      -
-    shards:
+      - Baking a Chorus Fruit stops the state of
+        flux and disables all quantum connections
+    shards: [ 0,0,1,0,0,0,0,1,0 ]
 
 POPPY:
   tier: 1
@@ -9195,16 +9806,19 @@ POTATO:
       - With every sprout, leaf and root this
       - item gives joy and nourishment to all
     shards: [ 0,0,0,0,1,1,1,0,0 ]
+
 POTION:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: A Simple Tonic
+    type: ALCHEMICAL
     lore:
-      -
-    shards:
+      - Before the discovery of Crysta and other
+      - esoteric magics, potions were the only way
+      - to tap into the Exoverse for power.
+    shards: [1,0,2,0,0,0,0,0,0]
 
 POWDER_SNOW_BUCKET:
   tier: 2
@@ -9221,59 +9835,76 @@ POWDER_SNOW_BUCKET:
     shards: [ 0,1,0,0,2,0,1,1,0 ]
 
 POWERED_RAIL:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Level Up
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - When Dr. Minestein accidentally dropped
+      - some redstone on the railroad, he suddenly
+      - discovered the next level in affordable
+      - transportation
+    shards: [ 0,1,0,1,1,0,0,0,0 ]
+    author: Seggan
 
 PRISMARINE:
   tier: 1
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: A Guarded Secret
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - Guarded in the depths, these blocks are
+      - not designed to be used by any outside the
+      - temple. All will be reclaimed eventually.
+    shards: [ 1,0,0,1,0,1,0,0,0 ]
 
 PRISMARINE_BRICKS:
   tier: 1
   elements:
-    -
+    - HISTORICAL
+    - HUMAN
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Dirt Hut Upgrade (Prismarine)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Enough to make near-any house a home,
+      - bricks are the staple to a modern comfort.
+    shards: [ 0,1,0,1,1,1,1,0,0 ]
 
 PRISMARINE_BRICK_SLAB:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - VOID
+    - ANIMAL
   story:
-    name:
-    type:
+    name: A Cut Below (Prismarine Brick)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Ripped in half and divided from
+      - self. A soul torn asunder
+    shards: [ 1,1,0,0,1,1,0,1,0 ]
 
 PRISMARINE_BRICK_STAIRS:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Rising on up (Prismarine Brick)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Every step is either an incline to
+      - future glory or a possible descent
+      - into further madness...
+    shards: [ 0,1,0,0,1,1,0,1,1 ]
 
 PRISMARINE_CRYSTALS:
   tier: 1
@@ -9300,35 +9931,45 @@ PRISMARINE_SHARD:
 PRISMARINE_SLAB:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - VOID
+    - ANIMAL
   story:
-    name:
-    type:
+    name: A Cut Below (Prismarine)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Ripped in half and divided from
+      - self. A soul torn asunder
+    shards: [ 1,1,0,0,1,1,0,1,0 ]
 
 PRISMARINE_STAIRS:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Rising on up (Diorite)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Every step is either an incline to
+      - future glory or a possible descent
+      - into further madness...
+    shards: [ 0,1,0,0,1,1,0,1,1 ]
 
 PRISMARINE_WALL:
   tier: 1
   elements:
-    -
+    - CELESTIAL
+    - HISTORICAL
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Beating down the walls (Prismarine)
+    type: HISTORICAL
     lore:
-      -
-    shards:
+      - Protecting for years working to keep
+      - those inside save and sound.
+    shards: [ 0,0,0,1,1,0,1,0,0 ]
 
 PUFFERFISH:
   tier: 1
@@ -9592,59 +10233,75 @@ PURPUR_PILLAR:
     shards:
 
 PURPUR_SLAB:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - VOID
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: A Cut Below (Purpur)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Ripped in half and divided from
+      - self. A soul torn asunder
+    shards: [ 1,1,0,0,1,0,1,1,0 ]
 
 PURPUR_STAIRS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Rising on up (Purpur)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Every step is either an incline to
+      - future glory or a possible descent
+      - into further madness...
+    shards: [ 0,1,0,0,1,0,1,1,1 ]
 
 QUARTZ:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
+    - HISTORICAL
   story:
-    name:
-    type:
+    name: Refined (Quartz)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - After having all the slag and dregs removed
+      - this item can breathe a heavy sigh of relief.
+    shards: [ 1,1,1,0,0,0,0,0,0 ]
 
 QUARTZ_BLOCK:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
+    - HISTORICAL
   story:
-    name:
-    type:
+    name: Further Refinement (Quartz)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Refined all the way to it's block form, this
+      - block enjoys being combined with it's brethren
+    shards: [ 2,1,0,0,0,0,0,0,0 ]
 
 QUARTZ_BRICKS:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HISTORICAL
+    - HUMAN
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: Dirt Hut Upgrade (Quartz)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Enough to make near-any house a home,
+      - bricks are the staple to a modern comfort.
+    shards: [ 0,1,1,1,1,0,0,0,0 ]
 
 QUARTZ_PILLAR:
   tier: 1
@@ -9658,26 +10315,33 @@ QUARTZ_PILLAR:
     shards:
 
 QUARTZ_SLAB:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - VOID
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: A Cut Below (Quartz)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Ripped in half and divided from
+      - self. A soul torn asunder
+    shards: [ 1,1,1,0,1,0,0,1,0 ]
 
 QUARTZ_STAIRS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: Rising on up (Quartz)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Every step is either an incline to
+      - future glory or a possible descent
+      - into further madness...
+    shards: [ 0,1,1,0,1,0,0,1,1 ]
 
 RABBIT:
   tier: 1
@@ -9747,90 +10411,110 @@ RAIL:
 RAW_COPPER:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: Refined (Raw Copper)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - After having all the slag and dregs removed
+      - this item can breathe a heavy sigh of relief.
+    shards: [ 1,1,1,0,0,0,0,0,0 ]
 
 RAW_COPPER_BLOCK:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: Further Refinement (Raw Copper)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Refined all the way to it's block form, this
+      - block enjoys being combined with it's brethren
+    shards: [ 2,1,1,0,0,0,0,0,0 ]
 
 RAW_GOLD:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Refined (Raw Gold)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - After having all the slag and dregs removed
+      - this item can breathe a heavy sigh of relief.
+    shards: [ 1,1,1,0,0,0,0,0,1 ]
 
 RAW_GOLD_BLOCK:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Further Refinement (Raw Gold)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Refined all the way to it's block form, this
+      - block enjoys being combined with it's brethren
+    shards: [ 2,1,0,0,0,0,0,0,1 ]
 
 RAW_IRON:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Refined (Raw Iron)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - After having all the slag and dregs removed
+      - this item can breathe a heavy sigh of relief.
+    shards: [ 1,2,0,0,0,0,0,0,0 ]
 
 RAW_IRON_BLOCK:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Further Refinement (Raw Iron)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Refined all the way to it's block form, this
+      - block enjoys being combined with it's brethren
+    shards: [ 2,2,0,0,0,0,0,0,0 ]
 
 REDSTONE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Refined (Redstone)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - After having all the slag and dregs removed
+      - this item can breathe a heavy sigh of relief.
+    shards: [ 1,2,0,0,0,0,0,0,0 ]
 
 REDSTONE_BLOCK:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Further Refinement (Redstone)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Refined all the way to it's block form, this
+      - block enjoys being combined with it's brethren
+    shards: [ 2,2,0,0,0,0,0,0,0 ]
 
 REDSTONE_LAMP:
   tier: 1
@@ -10010,15 +10694,18 @@ RED_MUSHROOM_BLOCK:
     shards: [ 0,0,1,1,0,1,0,0,0 ]
 
 RED_NETHER_BRICKS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HISTORICAL
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Dirt Hut Upgrade (Red Nether)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Enough to make near-any house a home,
+      - bricks are the staple to a modern comfort.
+    shards: [ 0,1,0,1,1,0,0,1,0 ]
 
 RED_NETHER_BRICK_SLAB:
   tier: 1
@@ -10474,48 +11161,59 @@ SKELETON_SKULL:
     shards:
 
 SKULL_BANNER_PATTERN:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: Star Spangled (Skull)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Absorbs magic generated from the pride
+      - of those observing this pattern.
+    shards: [ 0,0,1,1,1,0,0,0,0 ]
 
 SLIME_BALL:
   tier: 1
   elements:
-    -
+    - ANIMAL
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Bouncy
+    type: ANIMAL
     lore:
-      -
+      - This rare material is prized for
+      - its value as a toy
     shards:
+    author: Seggan
 
 SLIME_BLOCK:
   tier: 1
   elements:
-    -
+    - ANIMAL
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: A Sticky Situation (Slime)
+    type: ALCHEMICAL
     lore:
-      -
-    shards:
+      - Desparate to not be alone, this block
+      - will cling to anything it can and will
+      - not let go.
+    shards: [ 0,0,1,0,0,1,0,0,0 ]
 
 SMALL_AMETHYST_BUD:
   tier: 1
   elements:
-    -
+    - VOID
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Devoid of magic (Small)
+    type: VOID
     lore:
-      -
-    shards:
+      - Amethyst buds are crystal deposits that couldn't
+      - harness enough Crysta to form correctly. While
+      - useful, they serve little purpose magically.
+    shards: [ 1,0,0,0,0,0,0,1,0 ]
 
 SMALL_DRIPLEAF:
   tier: 1
@@ -10529,15 +11227,19 @@ SMALL_DRIPLEAF:
     shards:
 
 SMITHING_TABLE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Gilded
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Somehow, the magic of this table manages
+      - to bend and form the hardest known material
+      - around your favorite diamond tools
+    shards: [ 0,1,0,0,2,0,0,0,0 ]
+    author: Seggan
 
 SMOKER:
   tier: 2
@@ -10577,26 +11279,33 @@ SMOOTH_QUARTZ:
     shards:
 
 SMOOTH_QUARTZ_SLAB:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - VOID
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: A Cut Below (Smooth Quartz)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Ripped in half and divided from
+      - self. A soul torn asunder
+    shards: [ 1,1,1,0,1,0,0,1,0 ]
 
 SMOOTH_QUARTZ_STAIRS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: Rising on up (Smooth Quartz)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Every step is either an incline to
+      - future glory or a possible descent
+      - into further madness...
+    shards: [ 0,1,1,0,1,0,0,1,1 ]
 
 SMOOTH_RED_SANDSTONE:
   tier: 1
@@ -10704,13 +11413,18 @@ SMOOTH_STONE_SLAB:
 SNOW:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Crystallized
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Made from the Crystamae in
+      - the air, this wonderful material
+      - is only found in the coldest
+      - of locations
+    shards: [ 1,0,0,0,0,0,1,0,0 ]
+    author: Seggan
 
 SNOWBALL:
   tier: 1
@@ -10807,15 +11521,19 @@ SPAWNER:
     shards:
 
 SPECTRAL_ARROW:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Sparkling
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Covered with precious glowstone
+      - dust, this magical arrow is hepful
+      - for spotting your enemies
+    shards: [ 1,0,0,0,1,0,1,0,0 ]
+    author: Seggan
 
 SPIDER_EYE:
   tier: 1
@@ -11013,7 +11731,7 @@ SPRUCE_SLAB:
   elements:
     - HUMAN
   story:
-    name: A cut below (Spruce)
+    name: A Cut Below (Spruce)
     type: HUMAN
     lore:
       - Ripped in half and divided from
@@ -11122,26 +11840,31 @@ STONECUTTER:
     shards:
 
 STONE_AXE:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Axe-cident waiting to happen! (Stone)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Every person fears the day that they finally
+      - accidentally right click on a log in their
+      - base!
+    shards: [ 1,0,0,0,1,0,1,0,1 ]
 
 STONE_BRICKS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HISTORICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Dirt Hut Upgrade (Stone)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Enough to make near-any house a home,
+      - bricks are the staple to a modern comfort.
+    shards: [ 0,1,0,1,1,0,1,0,0 ]
 
 STONE_BRICK_SLAB:
   tier: 1
@@ -11197,26 +11920,32 @@ STONE_BUTTON:
     shards: [ 1,1,0,0,2,0,0,0,0 ]
 
 STONE_HOE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Till until (Stone)
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - Other farmers may have moved to more mechanical
+      - means, the trusty hoe is still the number one
+      - go-to.
+    shards: [ 1,1,0,0,1,0,1,0,0 ]
 
 STONE_PICKAXE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: P-p-p-pick up a pickaxe (Stone)
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - Arguably the most important tool to any
+      - minecrafters arsenal, the pickaxe radiates
+      - a joy with every block broken.
+    shards: [ 0,0,0,1,2,0,1,0,0 ]
 
 STONE_PRESSURE_PLATE:
   tier: 1
@@ -11233,15 +11962,18 @@ STONE_PRESSURE_PLATE:
     shards: [ 1,1,0,0,1,0,0,1,0 ]
 
 STONE_SHOVEL:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - HUMAN
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Can you dig it? (Stone)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The invention of the shovel was a pivotal
+      - to the furtherment of mankind, it was
+      - practically ground breaking!
+    shards: [ 1,1,0,0,1,0,0,0,0 ]
 
 STONE_SLAB:
   tier: 1
@@ -11272,15 +12004,18 @@ STONE_STAIRS:
     shards: [ 0,1,0,0,1,0,0,1,1 ]
 
 STONE_SWORD:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Time to Strike (Stone)
+    type: VOID
     lore:
-      -
-    shards:
+      - Finally armed, the wielder can choose
+      - to use a sword defensively or aggressively
+      - either way the sword fulfills its purpose
+    shards: [ 0,0,0,1,1,0,0,1,1 ]
 
 STRING:
   tier: 1
@@ -11569,24 +12304,28 @@ SWEET_BERRIES:
 TALL_GRASS:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Barrier
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - What could be more annoying
+      - than tall grass?
+    shards: [ 1,0,0,0,0,0,0,1,0 ]
+    author: Seggan
 
 TARGET:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Robin Hood
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Are you better than Robin Hood?
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
+    author: Seggan
 
 TERRACOTTA:
   tier: 1
@@ -11603,15 +12342,19 @@ TERRACOTTA:
     shards: [ 1,0,0,0,2,0,0,0,1 ]
 
 TINTED_GLASS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Darkness
+    type: VOID
     lore:
-      -
-    shards:
+      - Corrupted with impure Crystamae,
+      - this glass is forever destined
+      - to fail its purpose
+    shards: [ 1,0,0,0,1,0,0,2,0 ]
+    author: Seggan
 
 TIPPED_ARROW:
   tier: 1
@@ -11638,15 +12381,18 @@ TNT:
     author: Seggan
 
 TNT_MINECART:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
+    name: A Rolling Minecart... (TNT)
     type:
     lore:
-      -
-    shards:
+      - ...Gathers No Moss. The singular largest
+      - leap in minecraft tech, the minecart has
+      - more uses than one may think.
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 TORCH:
   tier: 1
@@ -11697,13 +12443,17 @@ TRIDENT:
 TRIPWIRE_HOOK:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Tripping up
+    type: MECHANCIAL
     lore:
-      -
-    shards:
+      - When Dr. Minestein invented the tripwire
+      - hook, he tripped, and out came the idea
+      - of quantum minechanics
+    shards: [ 0,1,0,0,1,0,0,0,1 ]
+    author: Seggan
 
 TROPICAL_FISH:
   tier: 1
@@ -11807,7 +12557,7 @@ TURTLE_HELMET:
       - A magicians most important tool is their own
       - mind, any steps taken to protect that tool
       - are vital and wise.
-    shards: [0,0,0,1,1,0,0,1,0]
+    shards: [ 0,0,0,1,1,0,0,1,0 ]
 
 TWISTING_VINES:
   tier: 1
@@ -11889,15 +12639,18 @@ WARPED_FENCE_GATE:
     author: J. R. R. Tolkien
 
 WARPED_FUNGUS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ANIMAL
+    - VOID
   story:
-    name:
-    type:
+    name: Fungal Frugility (Red)
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - While slow, it's strength lies in it's
+      - simplicity and ability to thrive almost
+      - anywhere.
+    shards: [ 0,0,1,1,0,1,0,1,0 ]
 
 WARPED_FUNGUS_ON_A_STICK:
   tier: 2
@@ -11909,29 +12662,36 @@ WARPED_FUNGUS_ON_A_STICK:
     lore:
       - Slowly draws magical power from the creatures
       - that this item attracts.
-    shards: [0,0,0,0,1,1,0,0,1]
+    shards: [ 0,0,0,0,1,1,0,0,1 ]
 
 WARPED_HYPHAE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - HISTORICAL
+    - VOID
   story:
-    name:
-    type:
+    name: Punching Trees Gives Me... Huh? (Warped)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Every adventure begins with a good fungus
+      - punch
+    shards: [ 2,0,0,1,1,0,0,1,0 ]
 
 WARPED_NYLIUM:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Not Quite Netherrack (Warped)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - While normally desolate and barren, it
+      - gives a feeling of great purpose for
+      - Netherrack to be able to be a home to any
+      - form of life.
+    shards: [ 1,0,1,0,0,1,0,0,0 ]
 
 WARPED_PLANKS:
   tier: 1
@@ -11963,13 +12723,15 @@ WARPED_PRESSURE_PLATE:
 WARPED_ROOTS:
   tier: 1
   elements:
-    -
+    - ANIMAL
+    - VOID
   story:
-    name:
-    type:
+    name: Determination (Warped)
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - Anything growning in a place like the nether
+      - should be commended for it's determination.
+    shards: [ 1,0,0,0,0,1,0,1,0 ]
 
 WARPED_SIGN:
   tier: 1
@@ -11991,7 +12753,7 @@ WARPED_SLAB:
     - HUMAN
     - VOID
   story:
-    name: A cut below
+    name: A Cut Below (Warped)
     type: HUMAN
     lore:
       - Ripped in half and divided from
@@ -12013,15 +12775,18 @@ WARPED_STAIRS:
     shards: [ 0,1,0,0,1,0,1,1,1 ]
 
 WARPED_STEM:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - HISTORICAL
+    - VOID
   story:
-    name:
-    type:
+    name: Punching Trees Gives Me... Huh? (Warped Stem)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Every adventure begins with a good fungus
+      - punch
+    shards: [ 2,0,0,1,1,0,0,1,0 ]
 
 WARPED_TRAPDOOR:
   tier: 1
@@ -12062,169 +12827,199 @@ WATER_BUCKET:
     shards: [ 1,1,0,0,2,0,0,1,0 ]
 
 WAXED_COPPER_BLOCK:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Further Refinement (Waxed Copper)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Refined all the way to it's block form, this
+      - block enjoys being combined with it's brethren
+    shards: [ 2,1,0,0,0,0,0,0,0 ]
 
 WAXED_CUT_COPPER:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Waxed Copper)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 WAXED_CUT_COPPER_SLAB:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Waxed Copper Slab)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 WAXED_CUT_COPPER_STAIRS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Waxed Copper Stairs)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 WAXED_EXPOSED_COPPER:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Further Refinement (Waxed Exposed Copper)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Refined all the way to it's block form, this
+      - block enjoys being combined with it's brethren
+    shards: [ 2,1,0,0,0,0,0,0,0 ]
 
 WAXED_EXPOSED_CUT_COPPER:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Waxed Exposed Copper)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 WAXED_EXPOSED_CUT_COPPER_SLAB:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Waxed Exposed Copper Slab)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 WAXED_EXPOSED_CUT_COPPER_STAIRS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Waxed Exposed Copper Stairs)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 WAXED_OXIDIZED_COPPER:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Further Refinement (Waxed Oxidised Copper)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Refined all the way to it's block form, this
+      - block enjoys being combined with it's brethren
+    shards: [ 2,1,0,0,0,0,0,0,0 ]
 
 WAXED_OXIDIZED_CUT_COPPER:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Waxed Oxidised Copper)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 WAXED_OXIDIZED_CUT_COPPER_SLAB:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Waxed Oxidised Copper Slab)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 WAXED_OXIDIZED_CUT_COPPER_STAIRS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Waxed Oxidised Copper Stairs)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 WAXED_WEATHERED_COPPER:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Further Refinement (Waxed Weathered Copper)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Refined all the way to it's block form, this
+      - block enjoys being combined with it's brethren
+    shards: [ 2,1,0,0,0,0,0,0,0 ]
 
 WAXED_WEATHERED_CUT_COPPER:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Waxed Weathered Copper)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 WAXED_WEATHERED_CUT_COPPER_SLAB:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Waxed Weathered Copper Slab)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 WAXED_WEATHERED_CUT_COPPER_STAIRS:
   tier: 1
@@ -12240,48 +13035,58 @@ WAXED_WEATHERED_CUT_COPPER_STAIRS:
     author: Seggan
 
 WEATHERED_COPPER:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Rusted to perfection
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The most beautiful form of copper, this
+      - block has gone through many trials to reach
+      - this level of perfection
+    shards: [ 2,1,0,0,1,0,0,0,0 ]
+    author: Seggan
 
 WEATHERED_CUT_COPPER:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Weathered Copper)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 WEATHERED_CUT_COPPER_SLAB:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Weathered Copper Slab)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 WEATHERED_CUT_COPPER_STAIRS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Cut Above (Weathered Copper Stairs)
+    type: Mechanical
     lore:
-      -
-    shards:
+      - This block never complains, despite the
+      - pain gone through for this visual perfection
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 WEEPING_VINES:
   tier: 1
@@ -12528,70 +13333,89 @@ WITHER_ROSE:
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 WITHER_SKELETON_SKULL:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - VOID
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Spooky scary skele...
+    type: VOID
     lore:
-      -
-    shards:
+      - Unfortunately, I cannot use the
+      - full title due to advancement
+      - copyright laws
+    shards: [ 0,0,0,1,0,1,0,2,0 ]
+    author: Seggan
 
 WOODEN_AXE:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Axe-cident waiting to happen! (Wood)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Every person fears the day when they
+      - accidentally right click on a log in their
+      - base!
+    shards: [ 1,0,0,0,1,0,1,0,1 ]
 
 WOODEN_HOE:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Till until (Wood)
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - Other farmers may have moved to more mechanical
+      - means, the trusty hoe is still the number one
+      - go-to.
+    shards: [ 1,1,0,0,1,0,1,0,0 ]
 
 WOODEN_PICKAXE:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: P-p-p-pick up a pickaxe (Wood)
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - Arguably the most important tool to any
+      - minecrafters arsenal, the pickaxe radiates
+      - a joy with every block broken.
+    shards: [ 0,0,0,1,2,0,1,0,0 ]
 
 WOODEN_SHOVEL:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - HUMAN
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Can you dig it? (Wood)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The invention of the shovel was a pivotal
+      - to the furtherment of mankind, it was
+      - practically ground breaking!
+    shards: [ 1,1,0,0,1,0,0,0,0 ]
 
 WOODEN_SWORD:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Time to Strike (Wood)
+    type: VOID
     lore:
-      -
-    shards:
+      - Finally armed, the wielder can choose
+      - to use a sword defensively or aggressively.
+      - Either way, the sword fulfills its purpose
+    shards: [ 0,0,0,1,1,0,0,1,1 ]
 
 WRITABLE_BOOK:
   tier: 1
@@ -12607,13 +13431,16 @@ WRITABLE_BOOK:
 WRITTEN_BOOK:
   tier: 1
   elements:
-    -
+    - PHILOSOPHICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: The Press
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Oh the day when humans invented
+      - writing!
+    shards: [ 0,0,0,1,1,0,0,0,1 ]
+    author: Seggan
 
 YELLOW_BANNER:
   tier: 2
@@ -12784,12 +13611,15 @@ YELLOW_WOOL:
     author: OOOOMAGAAA
 
 ZOMBIE_HEAD:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - VOID
   story:
-    name:
-    type:
+    name: Decapitation (Zombie)
+    type: VOID
     lore:
-      -
-    shards:
+      - While a despicable practice, some magics
+      - can only be harnessed through recent
+      - decapitations. Luckily no Crysta is wholy
+      - dependent on this.
+    shards: [ 0,1,0,0,1,0,0,1,0 ]

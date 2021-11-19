@@ -1,13 +1,13 @@
 package io.github.sefiraat.crystamaehistoria.utils.mobgoals;
 
-import org.bukkit.entity.Phantom;
+import org.bukkit.entity.Bat;
 import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
-public class FlyingPhantomGoal extends AbstractRidableGoal<Phantom> {
+public class FlyingBatGoal extends AbstractRidableGoal<Bat> {
 
-    public FlyingPhantomGoal(UUID owningPlayer) {
+    public FlyingBatGoal(UUID owningPlayer) {
         super(owningPlayer);
     }
 
