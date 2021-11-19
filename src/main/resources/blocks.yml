@@ -33,9 +33,9 @@ ACACIA_DOOR:
     name: Gateway (Acacia)
     type: HUMAN
     lore:
-      - Every enterance is also an exit.
+      - Every entrance  is also an exit.
       - Doors protects from the outside but
-      - dont let them keep you in!
+      - don't let them keep you in!
     shards: [ 0,2,0,0,1,0,0,0,1 ]
 
 ACACIA_FENCE:
@@ -207,7 +207,7 @@ ACTIVATOR_RAIL:
     lore:
       - Nothing provides more of a rush than
       - the cracking of a cart over this track.
-      - A singular purpose with an extatic
+      - A singular purpose with an ecstatic
       - result.
     shards: [ 0,2,0,0,1,0,0,0,0 ]
 
@@ -221,7 +221,7 @@ ALLIUM:
     type: ANIMAL
     lore:
       - A wafting fragrance to quell the most
-      - vicious of temprements.
+      - vicious of temperaments.
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 AMETHYST_BLOCK:
@@ -234,7 +234,7 @@ AMETHYST_BLOCK:
     type: ELEMENTAL
     lore:
       - A glittering, scattering spirit residing
-      - within the resonance of this crystal
+      - within the resonance of this Crystal
     shards: [ 2,0,1,1,0,0,0,0,0 ]
 
 AMETHYST_CLUSTER:
@@ -247,7 +247,7 @@ AMETHYST_CLUSTER:
     name: Looks Familiar?
     type: PHILOSOPHICAL
     lore:
-      - Something about this crystal feels familiar.
+      - Something about this Crystal feels familiar.
       - Feels receptive to magic, but...
     shards: [ 1,0,1,1,0,0,0,0,1 ]
 
@@ -386,7 +386,7 @@ ARROW:
     type: VOID
     lore:
       - Memories of flying through air give
-      - this spirit solice. Ripping through
+      - this spirit solace. Ripping through
       - flesh is just a bonus.
     shards: [ 0,1,0,0,0,0,0,1,0 ]
 
@@ -415,7 +415,7 @@ AZALEA:
     type: CELESTIAL
     lore:
       - Such a small point of force with the
-      - potential to become comthing mighty
+      - potential to become something mighty
       - and strong.
     shards: [ 1,0,1,0,0,0,1,0,0 ]
 
@@ -443,7 +443,7 @@ AZURE_BLUET:
     type: ANIMAL
     lore:
       - A wafting fragrance to quell the most
-      - vicious of temprements.
+      - vicious of temperaments.
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 BAKED_POTATO:
@@ -480,7 +480,7 @@ BARREL:
     type: PHILOSOPHICAL
     lore:
       - Used through time to store fish and
-      - no cared enough to notice, it cannnot
+      - no cared enough to notice, it cannot
       - stand the smell!
     shards: [ 0,1,0,0,1,0,0,0,2 ]
 
@@ -509,7 +509,7 @@ BEACON:
     lore:
       - The light in the distance...
       - The smell of your base...
-      - The warmth of Regeration II...
+      - The warmth of Regeneration II...
     shards: [ 0,2,0,0,1,0,0,1,0 ]
     author: Seggan
 
@@ -593,7 +593,7 @@ BEETROOT_SOUP:
     type: HUMAN
     lore:
       - Warming to both body and soul.
-      - Infers it's latent crysta to those
+      - Infers it's latent Crysta to those
       - drinking it.
     shards: [ 0,0,0,0,2,1,0,0,0 ]
 
@@ -630,7 +630,7 @@ BIG_DRIPLEAF:
     - ELEMENTAL
     - PHILOSOPHICAL
   story:
-    name: Trying Hard
+    name: Trying Hard (Big)
     type: PHILOSOPHICAL
     lore:
       - The dripleaf tries it's absolute
@@ -673,9 +673,9 @@ BIRCH_DOOR:
     name: Gateway (Birch)
     type: HUMAN
     lore:
-      - Every enterance is also an exit.
+      - Every entrance  is also an exit.
       - Doors protects from the outside but
-      - dont let them keep you in!
+      - don't let them keep you in!
     shards: [ 0,2,0,0,1,0,0,0,1 ]
 
 BIRCH_FENCE:
@@ -970,7 +970,7 @@ BLACK_CONCRETE_POWDER:
     type: HUMAN
     lore:
       - Being a blend of other distinct blocks
-      - can wreak havok on a spirit's identity.
+      - can wreak havoc on a spirit's identity.
       - Concrete longs for just a drop of water
       - so it can become itself!
     shards: [ 1,0,1,0,1,0,0,0,1 ]
@@ -984,7 +984,7 @@ BLACK_DYE:
     type: ALCHEMICAL
     lore:
       - Dye's singular purpose is to bring
-      - color to a dull world. The eminating
+      - color to a dull world. The emanating
       - magic from this process can be found
       - everywhere
     shards: [ 1,0,2,0,1,0,0,0,0 ]
@@ -1037,7 +1037,7 @@ BLACK_TERRACOTTA:
     - ELEMENTAL
     - HUMAN
   story:
-    name: Sculptur's Delight (Black)
+    name: Sculptor's Delight (Black)
     type: HUMAN
     lore:
       - Having the potential to be shaped into any
@@ -1181,7 +1181,7 @@ BLUE_CONCRETE_POWDER:
     type: HUMAN
     lore:
       - Being a blend of other distinct blocks
-      - can wreak havok on a spirit's identity.
+      - can wreak havoc on a spirit's identity.
       - Concrete longs for just a drop of water
       - so it can become itself!
     shards: [ 1,0,1,0,1,0,0,0,1 ]
@@ -1195,7 +1195,7 @@ BLUE_DYE:
     type: ALCHEMICAL
     lore:
       - Dye's singular purpose is to bring
-      - color to a dull world. The eminating
+      - color to a dull world. The emanating
       - magic from this process can be found
       - everywhere
     shards: [ 1,0,2,0,1,0,0,0,0 ]
@@ -1239,7 +1239,7 @@ BLUE_ORCHID:
     type: ANIMAL
     lore:
       - A wafting fragrance to quell the most
-      - vicious of temprements.
+      - vicious of temperaments.
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 BLUE_STAINED_GLASS:
@@ -1276,7 +1276,7 @@ BLUE_TERRACOTTA:
     - ELEMENTAL
     - HUMAN
   story:
-    name: Sculptur's Delight (Blue)
+    name: Sculptor's Delight (Blue)
     type: HUMAN
     lore:
       - Having the potential to be shaped into any
@@ -1461,7 +1461,7 @@ BREWING_STAND:
     lore:
       - After years of use, the brewing stand
       - is imbued with such storng alchemical
-      - crystamae it's brimming near to burst.
+      - Crystamae it's brimming near to burst.
     shards: [ 0,0,3,0,0,0,0,0,0 ]
 
 BRICK:
@@ -1613,7 +1613,7 @@ BROWN_CONCRETE_POWDER:
     type: HUMAN
     lore:
       - Being a blend of other distinct blocks
-      - can wreak havok on a spirit's identity.
+      - can wreak havoc on a spirit's identity.
       - Concrete longs for just a drop of water
       - so it can become itself!
     shards: [ 1,0,1,0,1,0,0,0,1 ]
@@ -1627,7 +1627,7 @@ BROWN_DYE:
     type: ALCHEMICAL
     lore:
       - Dye's singular purpose is to bring
-      - color to a dull world. The eminating
+      - color to a dull world. The emanating
       - magic from this process can be found
       - everywhere
     shards: [ 1,0,2,0,1,0,0,0,0 ]
@@ -1668,7 +1668,7 @@ BROWN_MUSHROOM_BLOCK:
     type: ANIMAL
     lore:
       - Through an odd quirk of nature, a mushroom
-      - can have it's entire crystamae deposit ignited
+      - can have it's entire Crystamae deposit ignited
       - within a single moment allowing something small
       - to grow into something giant.
     shards: [ 0,0,1,1,0,1,0,0,0 ]
@@ -1707,7 +1707,7 @@ BROWN_TERRACOTTA:
     - ELEMENTAL
     - HUMAN
   story:
-    name: Sculptur's Delight (Brown)
+    name: Sculptor's Delight (Brown)
     type: HUMAN
     lore:
       - Having the potential to be shaped into any
@@ -1988,7 +1988,7 @@ CHAINMAIL_LEGGINGS:
     type: CELESTIAL
     lore:
       - Like it's other armour brethren, leggings
-      - absorb crysta from their users in miniscule
+      - absorb Crysta from their users in miniscule
       - amounts over their tenure.
     shards: [ 0,0,0,1,2,0,1,0,0 ]
 
@@ -2648,7 +2648,7 @@ CORNFLOWER:
     type: ANIMAL
     lore:
       - A wafting fragrance to quell the most
-      - vicious of temprements.
+      - vicious of temperaments.
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 CRACKED_DEEPSLATE_BRICKS:
@@ -2792,9 +2792,9 @@ CRIMSON_DOOR:
     name: Gateway (Crimson)
     type: HUMAN
     lore:
-      - Every enterance is also an exit.
+      - Every entrance  is also an exit.
       - Doors protects from the outside but
-      - dont let them keep you in!
+      - don't let them keep you in!
     shards: [ 0,2,0,0,1,0,0,1,1 ]
 
 CRIMSON_FENCE:
@@ -3177,7 +3177,7 @@ CYAN_CONCRETE_POWDER:
     type: HUMAN
     lore:
       - Being a blend of other distinct blocks
-      - can wreak havok on a spirit's identity.
+      - can wreak havoc on a spirit's identity.
       - Concrete longs for just a drop of water
       - so it can become itself!
     shards: [ 1,0,1,0,1,0,0,0,1 ]
@@ -3191,7 +3191,7 @@ CYAN_DYE:
     type: ALCHEMICAL
     lore:
       - Dye's singular purpose is to bring
-      - color to a dull world. The eminating
+      - color to a dull world. The emanating
       - magic from this process can be found
       - everywhere
     shards: [ 1,0,2,0,1,0,0,0,0 ]
@@ -3244,7 +3244,7 @@ CYAN_TERRACOTTA:
     - ELEMENTAL
     - HUMAN
   story:
-    name: Sculptur's Delight (Cyan)
+    name: Sculptor's Delight (Cyan)
     type: HUMAN
     lore:
       - Having the potential to be shaped into any
@@ -3291,7 +3291,7 @@ DANDELION:
     type: ANIMAL
     lore:
       - A wafting fragrance to quell the most
-      - vicious of temprements.
+      - vicious of temperaments.
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 DARK_OAK_BOAT:
@@ -3329,9 +3329,9 @@ DARK_OAK_DOOR:
     name: Gateway (Dark Oak)
     type: HUMAN
     lore:
-      - Every enterance is also an exit.
+      - Every entrance  is also an exit.
       - Doors protects from the outside but
-      - dont let them keep you in!
+      - don't let them keep you in!
     shards: [ 0,2,0,0,1,0,0,0,1 ]
 
 DARK_OAK_FENCE:
@@ -4144,7 +4144,7 @@ DIAMOND_LEGGINGS:
     type: CELESTIAL
     lore:
       - Like it's other armour brethren, leggings
-      - absorb crysta from their users in miniscule
+      - absorb Crysta from their users in miniscule
       - amounts over their tenure.
     shards: [ 0,0,0,1,2,0,1,0,0 ]
 
@@ -4552,7 +4552,7 @@ ENDER_PEARL:
       - and Gilded forms or storage.
     shards: [ 1,0,0,1,0,0,0,2,0 ]
 
-END_CRYSTAL:
+END_CrystaL:
   tier: 5
   elements:
     - ELEMENTAL
@@ -4801,7 +4801,7 @@ FIREWORK_ROCKET:
     lore:
       - Bursting with power, when lit the fireworks
       - release all their potential within a few
-      - moments which drives the surrounding crysta
+      - moments which drives the surrounding Crysta
       - wild.
     shards: [ 1,0,2,0,1,0,0,0,0 ]
 
@@ -5313,7 +5313,7 @@ GOLDEN_LEGGINGS:
     type: CELESTIAL
     lore:
       - Like it's other armour brethren, leggings
-      - absorb crysta from their users in miniscule
+      - absorb Crysta from their users in miniscule
       - amounts over their tenure.
     shards: [ 0,0,0,1,2,0,1,0,0 ]
 
@@ -5591,7 +5591,7 @@ GRAY_CONCRETE_POWDER:
     type: HUMAN
     lore:
       - Being a blend of other distinct blocks
-      - can wreak havok on a spirit's identity.
+      - can wreak havoc on a spirit's identity.
       - Concrete longs for just a drop of water
       - so it can become itself!
     shards: [ 1,0,1,0,1,0,0,0,1 ]
@@ -5605,7 +5605,7 @@ GRAY_DYE:
     type: ALCHEMICAL
     lore:
       - Dye's singular purpose is to bring
-      - color to a dull world. The eminating
+      - color to a dull world. The emanating
       - magic from this process can be found
       - everywhere
     shards: [ 1,0,2,0,1,0,0,0,0 ]
@@ -5658,7 +5658,7 @@ GRAY_TERRACOTTA:
     - ELEMENTAL
     - HUMAN
   story:
-    name: Sculptur's Delight (Gray)
+    name: Sculptor's Delight (Gray)
     type: HUMAN
     lore:
       - Having the potential to be shaped into any
@@ -5760,7 +5760,7 @@ GREEN_CONCRETE_POWDER:
     type: HUMAN
     lore:
       - Being a blend of other distinct blocks
-      - can wreak havok on a spirit's identity.
+      - can wreak havoc on a spirit's identity.
       - Concrete longs for just a drop of water
       - so it can become itself!
     shards: [ 1,0,1,0,1,0,0,0,1 ]
@@ -5774,7 +5774,7 @@ GREEN_DYE:
     type: ALCHEMICAL
     lore:
       - Dye's singular purpose is to bring
-      - color to a dull world. The eminating
+      - color to a dull world. The emanating
       - magic from this process can be found
       - everywhere
     shards: [ 1,0,2,0,1,0,0,0,0 ]
@@ -5827,7 +5827,7 @@ GREEN_TERRACOTTA:
     - ELEMENTAL
     - HUMAN
   story:
-    name: Sculptur's Delight (Green)
+    name: Sculptor's Delight (Green)
     type: HUMAN
     lore:
       - Having the potential to be shaped into any
@@ -5917,7 +5917,7 @@ HEART_OF_THE_SEA:
       - The Heart of the Sea constantly draws Crysta
       - from the oceans while forming. The resultant
       - item is more potent than any single Crystamae
-      - crystal.
+      - Crystal.
     shards: [ 2,0,1,1,0,1,1,0,0 ]
 
 HEAVY_WEIGHTED_PRESSURE_PLATE:
@@ -6342,7 +6342,7 @@ IRON_LEGGINGS:
     type: CELESTIAL
     lore:
       - Like it's other armour brethren, leggings
-      - absorb crysta from their users in miniscule
+      - absorb Crysta from their users in miniscule
       - amounts over their tenure.
     shards: [ 0,0,0,1,2,0,1,0,0 ]
 
@@ -6441,7 +6441,7 @@ ITEM_FRAME:
     type: HUMAN
     lore:
       - An Item Frame awaits the moment when its
-      - allowed to display an item. The eminating
+      - allowed to display an item. The emanating
       - pride envelopes the item fully.
     shards: [ 0,1,0,0,0,1,0,0,0 ]
 
@@ -6508,9 +6508,9 @@ JUNGLE_DOOR:
     name: Gateway (Jungle)
     type: HUMAN
     lore:
-      - Every enterance is also an exit.
+      - Every entrance  is also an exit.
       - Doors protects from the outside but
-      - dont let them keep you in!
+      - don't let them keep you in!
     shards: [ 0,2,0,0,1,0,0,0,1 ]
 
 JUNGLE_FENCE:
@@ -6762,7 +6762,7 @@ LARGE_AMETHYST_BUD:
     name: Devoid of magic (Large)
     type: VOID
     lore:
-      - Amethyst buds are crystal deposits that couldn't
+      - Amethyst buds are Crystal deposits that couldn't
       - harness enough Crysta to form correctly. While
       - useful, they server little purpose magically.
     shards: [ 1,0,0,0,0,0,0,1,0 ]
@@ -6814,7 +6814,7 @@ LEATHER:
   elements:
     - ANIMAL
   story:
-    name: Get Tanned
+    name: Get Tanned (Leather)
     type: ANIMAL
     lore:
       - While an unfortunate practice, leather is
@@ -6885,7 +6885,7 @@ LEATHER_LEGGINGS:
     type: CELESTIAL
     lore:
       - Like it's other armour brethren, leggings
-      - absorb crysta from their users in miniscule
+      - absorb Crysta from their users in miniscule
       - amounts over their tenure.
     shards: [ 0,0,0,1,2,0,1,0,0 ]
 
@@ -7009,7 +7009,7 @@ LIGHT_BLUE_CONCRETE_POWDER:
     type: HUMAN
     lore:
       - Being a blend of other distinct blocks
-      - can wreak havok on a spirit's identity.
+      - can wreak havoc on a spirit's identity.
       - Concrete longs for just a drop of water
       - so it can become itself!
     shards: [ 1,0,1,0,1,0,0,0,1 ]
@@ -7023,7 +7023,7 @@ LIGHT_BLUE_DYE:
     type: ALCHEMICAL
     lore:
       - Dye's singular purpose is to bring
-      - color to a dull world. The eminating
+      - color to a dull world. The emanating
       - magic from this process can be found
       - everywhere
     shards: [ 1,0,2,0,1,0,0,0,0 ]
@@ -7077,7 +7077,7 @@ LIGHT_BLUE_TERRACOTTA:
     - ELEMENTAL
     - HUMAN
   story:
-    name: Sculptur's Delight (Light Blue)
+    name: Sculptor's Delight (Light Blue)
     type: HUMAN
     lore:
       - Having the potential to be shaped into any
@@ -7179,7 +7179,7 @@ LIGHT_GRAY_CONCRETE_POWDER:
     type: HUMAN
     lore:
       - Being a blend of other distinct blocks
-      - can wreak havok on a spirit's identity.
+      - can wreak havoc on a spirit's identity.
       - Concrete longs for just a drop of water
       - so it can become itself!
     shards: [ 1,0,1,0,1,0,0,0,1 ]
@@ -7193,7 +7193,7 @@ LIGHT_GRAY_DYE:
     type: ALCHEMICAL
     lore:
       - Dye's singular purpose is to bring
-      - color to a dull world. The eminating
+      - color to a dull world. The emanating
       - magic from this process can be found
       - everywhere
     shards: [ 1,0,2,0,1,0,0,0,0 ]
@@ -7246,7 +7246,7 @@ LIGHT_GRAY_TERRACOTTA:
     - ELEMENTAL
     - HUMAN
   story:
-    name: Sculptur's Delight (Light Gray)
+    name: Sculptor's Delight (Light Gray)
     type: HUMAN
     lore:
       - Having the potential to be shaped into any
@@ -7293,7 +7293,7 @@ LILAC:
     type: ANIMAL
     lore:
       - A wafting fragrance to quell the most
-      - vicious of temprements.
+      - vicious of temperaments.
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 LILY_OF_THE_VALLEY:
@@ -7306,7 +7306,7 @@ LILY_OF_THE_VALLEY:
     type: ANIMAL
     lore:
       - A wafting fragrance to quell the most
-      - vicious of temprements.
+      - vicious of temperaments.
     shards: [ 1,0,0,0,0,1,1,0,0 ]
 
 LILY_PAD:
@@ -7403,7 +7403,7 @@ LIME_CONCRETE_POWDER:
     type: HUMAN
     lore:
       - Being a blend of other distinct blocks
-      - can wreak havok on a spirit's identity.
+      - can wreak havoc on a spirit's identity.
       - Concrete longs for just a drop of water
       - so it can become itself!
     shards: [ 1,0,1,0,1,0,0,0,1 ]
@@ -7417,7 +7417,7 @@ LIME_DYE:
     type: ALCHEMICAL
     lore:
       - Dye's singular purpose is to bring
-      - color to a dull world. The eminating
+      - color to a dull world. The emanating
       - magic from this process can be found
       - everywhere
     shards: [ 1,0,2,0,1,0,0,0,0 ]
@@ -7470,7 +7470,7 @@ LIME_TERRACOTTA:
     - ELEMENTAL
     - HUMAN
   story:
-    name: Sculptur's Delight (Lime)
+    name: Sculptor's Delight (Lime)
     type: HUMAN
     lore:
       - Having the potential to be shaped into any
@@ -7613,7 +7613,7 @@ MAGENTA_CONCRETE_POWDER:
     type: HUMAN
     lore:
       - Being a blend of other distinct blocks
-      - can wreak havok on a spirit's identity.
+      - can wreak havoc on a spirit's identity.
       - Concrete longs for just a drop of water
       - so it can become itself!
     shards: [ 1,0,1,0,1,0,0,0,1 ]
@@ -7627,7 +7627,7 @@ MAGENTA_DYE:
     type: ALCHEMICAL
     lore:
       - Dye's singular purpose is to bring
-      - color to a dull world. The eminating
+      - color to a dull world. The emanating
       - magic from this process can be found
       - everywhere
     shards: [ 1,0,2,0,1,0,0,0,0 ]
@@ -7680,7 +7680,7 @@ MAGENTA_TERRACOTTA:
     - ELEMENTAL
     - HUMAN
   story:
-    name: Sculptur's Delight (Magenta)
+    name: Sculptor's Delight (Magenta)
     type: HUMAN
     lore:
       - Having the potential to be shaped into any
@@ -7753,7 +7753,7 @@ MEDIUM_AMETHYST_BUD:
     name: Devoid of magic (Medium)
     type: VOID
     lore:
-      - Amethyst buds are crystal deposits that couldn't
+      - Amethyst buds are Crystal deposits that couldn't
       - harness enough Crysta to form correctly. While
       - useful, they server little purpose magically.
     shards: [ 1,0,0,0,0,0,0,1,0 ]
@@ -7986,7 +7986,7 @@ MUSHROOM_STEM:
     type: ANIMAL
     lore:
       - Through an odd quirk of nature, a mushroom
-      - can have it's entire crystamae deposit ignited
+      - can have it's entire Crystamae deposit ignited
       - within a single moment allowing something small
       - to grow into something giant.
     shards: [ 0,0,1,1,0,1,0,0,0 ]
@@ -8001,7 +8001,7 @@ MUSHROOM_STEW:
     type: HUMAN
     lore:
       - Warming to both body and soul.
-      - Infers it's latent crysta to those
+      - Infers it's latent Crysta to those
       - drinking it.
     shards: [ 0,0,0,0,2,1,0,0,0 ]
 
@@ -8365,7 +8365,7 @@ NETHERITE_LEGGINGS:
     type: CELESTIAL
     lore:
       - Like it's other armour brethren, leggings
-      - absorb crysta from their users in miniscule
+      - absorb Crysta from their users in miniscule
       - amounts over their tenure.
     shards: [ 0,0,0,1,2,0,1,0,0 ]
 
@@ -8654,9 +8654,9 @@ OAK_DOOR:
     name: Gateway
     type: HUMAN
     lore:
-      - Every enterance is also an exit.
+      - Every entrance  is also an exit.
       - Doors protects from the outside but
-      - dont let them keep you in!
+      - don't let them keep you in!
     shards: [ 0,2,0,0,1,0,0,0,1 ]
 
 OAK_FENCE:
@@ -8927,7 +8927,7 @@ ORANGE_CONCRETE_POWDER:
     type: HUMAN
     lore:
       - Being a blend of other distinct blocks
-      - can wreak havok on a spirit's identity.
+      - can wreak havoc on a spirit's identity.
       - Concrete longs for just a drop of water
       - so it can become itself!
     shards: [ 1,0,1,0,1,0,0,0,1 ]
@@ -8941,7 +8941,7 @@ ORANGE_DYE:
     type: ALCHEMICAL
     lore:
       - Dye's singular purpose is to bring
-      - color to a dull world. The eminating
+      - color to a dull world. The emanating
       - magic from this process can be found
       - everywhere
     shards: [ 1,0,2,0,1,0,0,0,0 ]
@@ -8994,7 +8994,7 @@ ORANGE_TERRACOTTA:
     - ELEMENTAL
     - HUMAN
   story:
-    name: Sculptur's Delight (Orange)
+    name: Sculptor's Delight (Orange)
     type: HUMAN
     lore:
       - Having the potential to be shaped into any
@@ -9012,7 +9012,7 @@ ORANGE_TULIP:
     type: ANIMAL
     lore:
       - A wafting fragrance to quell the most
-      - vicious of temprements.
+      - vicious of temperaments.
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 ORANGE_WOOL:
@@ -9040,7 +9040,7 @@ OXEYE_DAISY:
     type: ANIMAL
     lore:
       - A wafting fragrance to quell the most
-      - vicious of temprements.
+      - vicious of temperaments.
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 OXIDIZED_COPPER:
@@ -9148,7 +9148,7 @@ PEONY:
     type: ANIMAL
     lore:
       - A wafting fragrance to quell the most
-      - vicious of temprements.
+      - vicious of temperaments.
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 PHANTOM_MEMBRANE:
@@ -9257,7 +9257,7 @@ PINK_CONCRETE_POWDER:
     type: HUMAN
     lore:
       - Being a blend of other distinct blocks
-      - can wreak havok on a spirit's identity.
+      - can wreak havoc on a spirit's identity.
       - Concrete longs for just a drop of water
       - so it can become itself!
     shards: [ 1,0,1,0,1,0,0,0,1 ]
@@ -9271,7 +9271,7 @@ PINK_DYE:
     type: ALCHEMICAL
     lore:
       - Dye's singular purpose is to bring
-      - color to a dull world. The eminating
+      - color to a dull world. The emanating
       - magic from this process can be found
       - everywhere
     shards: [ 1,0,2,0,1,0,0,0,0 ]
@@ -9324,7 +9324,7 @@ PINK_TERRACOTTA:
     - ELEMENTAL
     - HUMAN
   story:
-    name: Sculptur's Delight (Pink)
+    name: Sculptor's Delight (Pink)
     type: HUMAN
     lore:
       - Having the potential to be shaped into any
@@ -9342,7 +9342,7 @@ PINK_TULIP:
     type: ANIMAL
     lore:
       - A wafting fragrance to quell the most
-      - vicious of temprements.
+      - vicious of temperaments.
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 PINK_WOOL:
@@ -9776,7 +9776,7 @@ POPPY:
     type: ANIMAL
     lore:
       - A wafting fragrance to quell the most
-      - vicious of temprements.
+      - vicious of temperaments.
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 PORKCHOP:
@@ -9906,27 +9906,31 @@ PRISMARINE_BRICK_STAIRS:
       - into further madness...
     shards: [ 0,1,0,0,1,1,0,1,1 ]
 
-PRISMARINE_CRYSTALS:
-  tier: 1
+PRISMARINE_CrystaLS:
+  tier: 2
   elements:
-    -
+    - ANIMAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Guardians Draw (Crystals)
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - This item draws powers from nearby Celestial
+      - Crysta to emit a pale light and colors.
+    shards: [ 0,0,1,0,0,1,2,0,0 ]
 
 PRISMARINE_SHARD:
   tier: 1
   elements:
-    -
+    - ANIMAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Guardians Draw (Shard)
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - This item draws powers from nearby Celestial
+      - Crysta to emit a pale light and colors.
+    shards: [ 0,0,1,0,0,1,2,0,0 ]
 
 PRISMARINE_SLAB:
   tier: 1
@@ -9972,15 +9976,17 @@ PRISMARINE_WALL:
     shards: [ 0,0,0,1,1,0,1,0,0 ]
 
 PUFFERFISH:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ANIMAL
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Huff and Puff
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - The pufferfish is notoriously grumpy, if a
+      - player even gets close it just goes off on one.
+    shards: [ 0,0,1,0,0,1,0,0,1 ]
 
 PUFFERFISH_BUCKET:
   tier: 2
@@ -10012,15 +10018,18 @@ PUMPKIN:
     shards: [ 0,0,0,0,1,1,1,0,0 ]
 
 PUMPKIN_PIE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
   story:
-    name:
-    type:
+    name: Bake Off
+    type: HUMAN
     lore:
-      -
-    shards:
+      - The love a baker has for their food
+      - imparts a very small amount of magic into
+      - the food. The more magic, the better the
+      - outcome.
+    shards: [ 0,0,0,1,2,0,0,0,0 ]
 
 PUMPKIN_SEEDS:
   tier: 1
@@ -10116,7 +10125,7 @@ PURPLE_CONCRETE_POWDER:
     type: HUMAN
     lore:
       - Being a blend of other distinct blocks
-      - can wreak havok on a spirit's identity.
+      - can wreak havoc on a spirit's identity.
       - Concrete longs for just a drop of water
       - so it can become itself!
     shards: [ 1,0,1,0,1,0,0,0,1 ]
@@ -10130,7 +10139,7 @@ PURPLE_DYE:
     type: ALCHEMICAL
     lore:
       - Dye's singular purpose is to bring
-      - color to a dull world. The eminating
+      - color to a dull world. The emanating
       - magic from this process can be found
       - everywhere
     shards: [ 1,0,2,0,1,0,0,0,0 ]
@@ -10183,7 +10192,7 @@ PURPLE_TERRACOTTA:
     - ELEMENTAL
     - HUMAN
   story:
-    name: Sculptur's Delight (Purple)
+    name: Sculptor's Delight (Purple)
     type: HUMAN
     lore:
       - Having the potential to be shaped into any
@@ -10222,15 +10231,18 @@ PURPUR_BLOCK:
     author: Seggan
 
 PURPUR_PILLAR:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Pillar of Society (Purpur)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Holding up those in need, the purpose of
+      - a pillar is happily fulfilled without
+      - complaint.
+    shards: [ 0,1,0,0,0,1,0,0,1 ]
 
 PURPUR_SLAB:
   tier: 2
@@ -10304,15 +10316,18 @@ QUARTZ_BRICKS:
     shards: [ 0,1,1,1,1,0,0,0,0 ]
 
 QUARTZ_PILLAR:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Pillar of Society (Quartz)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Holding up those in need, the purpose of
+      - a pillar is happily fulfilled without
+      - complaint.
+    shards: [ 0,1,0,0,0,1,0,0,1 ]
 
 QUARTZ_SLAB:
   tier: 2
@@ -10368,20 +10383,21 @@ RABBIT_FOOT:
     lore:
       - It's unknown how or why, but a
       - rabbit's foot draws in nearby
-      - crystamae to form literal luck for
+      - Crystamae to form literal luck for
       - the holder
     shards: [ 0,0,0,0,0,1,2,0,1 ]
 
 RABBIT_HIDE:
   tier: 1
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Get Tanned (Rabbit)
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - While an unfortunate practice, leather is
+      - a staple to basic development.
+    shards: [ 0,0,0,1,1,1,0,0,0 ]
 
 RABBIT_STEW:
   tier: 1
@@ -10393,20 +10409,22 @@ RABBIT_STEW:
     type: HUMAN
     lore:
       - Warming to both body and soul.
-      - Infers it's latent crysta to those
+      - Infers it's latent Crysta to those
       - drinking it.
     shards: [ 0,0,0,0,2,1,0,0,0 ]
 
 RAIL:
   tier: 1
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: The Commute
+    type: HUMAN
     lore:
-      -
-    shards:
+      - Connecting far points together gives a rail
+      - a heartfelt satisfaction.
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 RAW_COPPER:
   tier: 1
@@ -10517,15 +10535,17 @@ REDSTONE_BLOCK:
     shards: [ 2,2,0,0,0,0,0,0,0 ]
 
 REDSTONE_LAMP:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Non-magical
+    type: MACHANICAL
     lore:
-      -
-    shards:
+      - The Redstone Lamp generates light without
+      - the use of Crysta or other magics. Weird!
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 REDSTONE_ORE:
   tier: 2
@@ -10545,13 +10565,14 @@ REDSTONE_ORE:
 REDSTONE_TORCH:
   tier: 1
   elements:
-    -
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Simple Signals
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - Redstone is a wonderful non-magical
+      - system that somehow transmits power
+    shards: [ 0,1,0,0,0,0,0,0,0 ]
 
 RED_BANNER:
   tier: 2
@@ -10633,7 +10654,7 @@ RED_CONCRETE_POWDER:
     type: HUMAN
     lore:
       - Being a blend of other distinct blocks
-      - can wreak havok on a spirit's identity.
+      - can wreak havoc on a spirit's identity.
       - Concrete longs for just a drop of water
       - so it can become itself!
     shards: [ 1,0,1,0,1,0,0,0,1 ]
@@ -10647,7 +10668,7 @@ RED_DYE:
     type: ALCHEMICAL
     lore:
       - Dye's singular purpose is to bring
-      - color to a dull world. The eminating
+      - color to a dull world. The emanating
       - magic from this process can be found
       - everywhere
     shards: [ 1,0,2,0,1,0,0,0,0 ]
@@ -10688,7 +10709,7 @@ RED_MUSHROOM_BLOCK:
     type: ANIMAL
     lore:
       - Through an odd quirk of nature, a mushroom
-      - can have it's entire crystamae deposit ignited
+      - can have it's entire Crystamae deposit ignited
       - within a single moment allowing something small
       - to grow into something giant.
     shards: [ 0,0,1,1,0,1,0,0,0 ]
@@ -10751,24 +10772,28 @@ RED_NETHER_BRICK_WALL:
 RED_SAND:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Silica (Red)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Weathered away for generations, sand is
+      - imparted with the Crysta of a thousand
+      - different items.
+    shards: [ 2,0,0,0,0,0,0,0,0 ]
 
 RED_SANDSTONE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Compacted (Red)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Over years of compaction, sand becomes
+      - something new, stronger with its own
+      - identity.
+    shards: [ 2,0,0,0,0,0,0,0,0 ]
 
 RED_SANDSTONE_SLAB:
   tier: 1
@@ -10845,7 +10870,7 @@ RED_TERRACOTTA:
     - ELEMENTAL
     - HUMAN
   story:
-    name: Sculptur's Delight (Red)
+    name: Sculptor's Delight (Red)
     type: HUMAN
     lore:
       - Having the potential to be shaped into any
@@ -10863,7 +10888,7 @@ RED_TULIP:
     type: ANIMAL
     lore:
       - A wafting fragrance to quell the most
-      - vicious of temprements.
+      - vicious of temperaments.
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 RED_WOOL:
@@ -10883,35 +10908,45 @@ RED_WOOL:
 REPEATER:
   tier: 1
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Repeat
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - Repeat Repeat Repeat Repeat Repeat
+      - Repeat Repeat Repeat Repeat Repeat
+      - Repeat Repeat Repeat Repeat Repeat
+    shards: [ 0,2,0,0,1,0,0,0,0 ]
 
 RESPAWN_ANCHOR:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: Metempsychosis
+    type: VOID
     lore:
-      -
-    shards:
+      - The respawn anchor, at its core, does NOT
+      - respawn you. Your body is recreated and your
+      - mind magically transmits via Void to the new
+      - recepticle. You are no longer you.
+    shards: [ 2,1,0,1,0,0,0,1,0 ]
 
 ROOTED_DIRT:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Entrenched
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - The Rooted Dirt is most comfortable within
+      - the confines of the parent tree. It absorbs
+      - Celestial Crysta from the tree above it.
+    shards: [1,0,0,0,0,1,0,0,0 ]
 
 ROSE_BUSH:
   tier: 1
@@ -10923,30 +10958,33 @@ ROSE_BUSH:
     type: ANIMAL
     lore:
       - A wafting fragrance to quell the most
-      - vicious of temprements.
+      - vicious of temperaments.
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 ROTTEN_FLESH:
   tier: 1
   elements:
-    -
+    - VOID
   story:
-    name:
-    type:
+    name: Unholy Compact
+    type: VOID
     lore:
-      -
-    shards:
+      - Zombies are severely misjudged. They are
+      - always so please to eat you!
+    shards: [ 0,0,0,0,1,0,0,1,0 ]
 
 SADDLE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Tame The Untamable
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - A wild spirit being tamed by a strong
+      - soul. While risky the result is a resonating
+      - harmony between man and beast.
+    shards: [ 0,0,0,1,1,1,0,0,0 ]
 
 SALMON:
   tier: 1
@@ -10961,6 +10999,7 @@ SALMON:
       - Longs for nothing more than a
       - nice fire
     shards: [ 0,0,0,0,1,1,0,0,1 ]
+
 SALMON_BUCKET:
   tier: 2
   elements:
@@ -10979,24 +11018,28 @@ SALMON_BUCKET:
 SAND:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Silica
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Weathered away for generations, sand is
+      - imparted with the Crysta of a thousand
+      - different items.
+    shards: [ 2,0,0,0,0,0,0,0,0 ]
 
 SANDSTONE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Compacted
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Over years of compaction, sand becomes
+      - something new, stronger with its own
+      - identity.
+    shards: [ 2,0,0,0,0,0,0,0,0 ]
 
 SANDSTONE_SLAB:
   tier: 1
@@ -11042,123 +11085,139 @@ SANDSTONE_WALL:
 SCAFFOLDING:
   tier: 1
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: To New Heights
+    type: MECHANICAL
     lore:
-      -
-    shards:
-
-SCULK_SENSOR:
-  tier: 1
-  elements:
-    -
-  story:
-    name:
-    type:
-    lore:
-      -
-    shards:
+      - Pillaring up is a thing of the past!
+      - With Scaffolding you can simply...
+      - uhm... Pillar.. up... hmm
+    shards: [ 0,1,0,0,1,0,0,0,0 ]
 
 SCUTE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Freely Shed
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - Freely given as a turtle grows, its
+      - considered a gift as thanks for caring
+      - for the little guy.
+    shards: [ 0,0,1,0,0,1,1,0,0 ]
 
 SEAGRASS:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Despite All Odds
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Life can find a way to grow anything
+      - anywhere. Even at the deepest depths
+      - this grass can flourish and thrive.
+    shards: [ 1,0,0,0,0,0,0,0,0 ]
 
 SEA_LANTERN:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - CELESTIAL
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Bight
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - The gathered Celestial Crysta from the
+      - prismarine Crystals emit a bright and
+      - ever present light.
+    shards: [ 1,0,1,0,0,1,1,0,0 ]
 
 SEA_PICKLE:
   tier: 1
   elements:
-    -
+    - ANIMAL
+    - VOID
   story:
-    name:
-    type:
+    name: Unsure
+    type: VOID
     lore:
-      -
-    shards:
+      - Unlike other light emitting items, this one
+      - does not draw from Celestial Crysta, it is
+      - therefore unknown how or why the Sea Pickle
+      - does.
+    shards: [ 0,0,0,0,0,1,0,1,0 ]
 
 SHEARS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ANIMAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Simple Tech
+    type: HUMAN
     lore:
-      -
-    shards:
+      - A forward leap, the invention of these
+      - was nothing but shear genius.
+    shards: [ 0,1,0,0,1,1,0,0,0 ]
 
 SHIELD:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Protect And Defend
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - It doesn't matter the danger or the risk,
+      - the Shield will put itself in harms way
+      - to protect its user without thought.
+    shards: [ 0,0,0,0,1,0,0,1,1 ]
 
 SHROOMLIGHT:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - VOID
+    - ANIMAL
   story:
-    name:
-    type:
+    name: A Oddity
+    type: VOID
     lore:
-      -
-    shards:
+      - While not unheard of, drawing light from
+      - the Void is a tricky thing to do. To do so
+      - passively is rare indeed.
+    shards: [ 1,0,0,0,0,1,0,1,0 ]
 
 SHULKER_SHELL:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ANIMAL
+    - VOID
   story:
-    name:
-    type:
+    name: A Tough Exterior
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - The Shulker's tough exterior is created with
+      - compacted layers of chitin and magic forming
+      - a near-impenetrable shell.
+    shards: [ 0,0,0,0,0,2,0,1,0 ]
 
 SKELETON_SKULL:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - VOID
   story:
-    name:
-    type:
+    name: Reanimated
+    type: VOID
     lore:
-      -
-    shards:
+      - While currently dormant, a skeleton skull
+      - can be reanimated with just a single unit
+      - of Void Crysta.
+    shards: [ 0,0,0,1,1,0,0,1,0 ]
 
 SKULL_BANNER_PATTERN:
   tier: 2
@@ -11184,7 +11243,7 @@ SLIME_BALL:
     lore:
       - This rare material is prized for
       - its value as a toy
-    shards:
+    shards: [ 0,0,0,0,0,1,0,1,1]
     author: Seggan
 
 SLIME_BLOCK:
@@ -11210,21 +11269,24 @@ SMALL_AMETHYST_BUD:
     name: Devoid of magic (Small)
     type: VOID
     lore:
-      - Amethyst buds are crystal deposits that couldn't
+      - Amethyst buds are Crystal deposits that couldn't
       - harness enough Crysta to form correctly. While
       - useful, they serve little purpose magically.
     shards: [ 1,0,0,0,0,0,0,1,0 ]
 
 SMALL_DRIPLEAF:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Trying Hard (Small)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - The dripleaf tries it's absolute
+      - best to keep itself up though it
+      - nearly always fails.
+    shards: [ 1,0,0,0,0,1,1,0,1 ]
 
 SMITHING_TABLE:
   tier: 2
@@ -11259,24 +11321,28 @@ SMOKER:
 SMOOTH_BASALT:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: A Debonair Delight (Basalt)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - It should be criminal to be this
+      - smooth!
+    shards: [1,0,0,0,1,0,1,0,0]
 
 SMOOTH_QUARTZ:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: A Debonair Delight (Quartz)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - It should be criminal to be this
+      - smooth!
+    shards: [1,0,0,0,1,0,1,0,0]
 
 SMOOTH_QUARTZ_SLAB:
   tier: 2
@@ -11308,15 +11374,17 @@ SMOOTH_QUARTZ_STAIRS:
     shards: [ 0,1,1,0,1,0,0,1,1 ]
 
 SMOOTH_RED_SANDSTONE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: A Debonair Delight (Red Sandstone)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - It should be criminal to be this
+      - smooth!
+    shards: [1,0,0,0,1,0,1,0,0]
 
 SMOOTH_RED_SANDSTONE_SLAB:
   tier: 1
@@ -11347,15 +11415,17 @@ SMOOTH_RED_SANDSTONE_STAIRS:
     shards: [ 0,1,0,0,1,0,0,1,1 ]
 
 SMOOTH_SANDSTONE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: A Debonair Delight (Sandstone)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - It should be criminal to be this
+      - smooth!
+    shards: [1,0,0,0,1,0,1,0,0]
 
 SMOOTH_SANDSTONE_SLAB:
   tier: 1
@@ -11388,13 +11458,15 @@ SMOOTH_SANDSTONE_STAIRS:
 SMOOTH_STONE:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: A Debonair Delight (Stone)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - It should be criminal to be this
+      - smooth!
+    shards: [1,0,0,0,1,0,1,0,0]
 
 SMOOTH_STONE_SLAB:
   tier: 1
@@ -11416,59 +11488,70 @@ SNOW:
     - ELEMENTAL
     - CELESTIAL
   story:
-    name: Crystallized
+    name: Crystallized (Layer)
     type: ELEMENTAL
     lore:
-      - Made from the Crystamae in
-      - the air, this wonderful material
-      - is only found in the coldest
-      - of locations
+      - Made from the Crystamae in the air,
+      - this wonderful material is only found
+      - in the coldest of locations
     shards: [ 1,0,0,0,0,0,1,0,0 ]
     author: Seggan
 
 SNOWBALL:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Crystallized (Ball)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Made from the Crystamae in the air,
+      - this wonderful material is only found
+      - in the coldest of locations
+    shards: [ 1,0,0,0,0,0,1,0,0 ]
+    author: Seggan
 
 SNOW_BLOCK:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Crystallized (Block)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Made from the Crystamae in the air,
+      - this wonderful material is only found
+      - in the coldest of locations
+    shards: [ 1,0,0,0,0,0,1,0,0 ]
+    author: Seggan
 
 SOUL_CAMPFIRE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: Burning Souls (Campfire)
+    type: VOID
     lore:
-      -
-    shards:
+      - This campfire burns the Void Crysta
+      - from soul sand to produce light.
+    shards: [ 1,0,1,0,0,0,0,1,0 ]
 
 SOUL_LANTERN:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: Burning Souls (Lantern)
+    type: VOID
     lore:
-      -
-    shards:
+      - This lantern burns the Void Crysta
+      - from soul sand to produce light.
+    shards: [ 1,0,1,0,0,0,0,1,0 ]
 
 SOUL_SAND:
   tier: 1
@@ -11499,26 +11582,33 @@ SOUL_SOIL:
     author: Seggan
 
 SOUL_TORCH:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - VOID
   story:
-    name:
-    type:
+    name: Burning Souls (Torch)
+    type: VOID
     lore:
-      -
-    shards:
+      - This torch burns the Void Crysta
+      - from soul sand to produce light.
+    shards: [ 1,0,1,0,0,0,0,1,0 ]
 
 SPAWNER:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HUMAN
+    - ANIMAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Angelic Bars
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - The true nature of a spawner has been lost to
+      - time. It is not a generator of mobs, it is a
+      - dimensional prison made from Celestial Crysta,
+      - holding them back as best as possible.
+    shards: [ 0,0,0,0,1,1,2,0,0 ]
 
 SPECTRAL_ARROW:
   tier: 2
@@ -11538,46 +11628,43 @@ SPECTRAL_ARROW:
 SPIDER_EYE:
   tier: 1
   elements:
-    -
+    - ANIMAL
+    - VOID
   story:
-    name:
-    type:
+    name: Spare?
+    type: VOID
     lore:
-      -
-    shards:
+      - With 8 per spider, surely sparing one
+      - wont be too detrimental right?
+    shards: [ 0,0,1,0,0,1,0,1,0 ]
 
 SPLASH_POTION:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: A Simple Tonic (Splash)
+    type: ALCHEMICAL
     lore:
-      -
-    shards:
+      - Before the discovery of Crysta and other
+      - esoteric magics, potions were the only way
+      - to tap into the Exoverse for power.
+    shards: [1,0,2,0,0,0,0,0,0]
 
 SPONGE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Absorbant (Dry)
+    type: ANIMAL
     lore:
-      -
-    shards:
-
-SPORE_BLOSSOM:
-  tier: 1
-  elements:
-    -
-  story:
-    name:
-    type:
-    lore:
-      -
-    shards:
+      - It is often forgotten that a Sponge is
+      - both an animal and still alive. When wet
+      - they absorb as many nutrients and magic
+      - from the water as possible.
+    shards: [ 1,0,1,0,0,2,0,0,0 ]
 
 SPRUCE_BOAT:
   tier: 1
@@ -11614,9 +11701,9 @@ SPRUCE_DOOR:
     name: Gateway
     type: HUMAN
     lore:
-      - Every enterance is also an exit.
+      - Every entrance  is also an exit.
       - Doors protects from the outside but
-      - dont let them keep you in!
+      - don't let them keep you in!
     shards: [ 0,2,0,0,1,0,0,0,1 ]
 
 SPRUCE_FENCE:
@@ -11778,26 +11865,30 @@ SPRUCE_WOOD:
     shards: [ 2,0,0,1,1,0,0,0,0 ]
 
 SPYGLASS:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - HUMAN
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Land Ho'
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - A simple tool but one that encourages
+      - investigation and exploration. A driving
+      - force for new discoveries.
+    shards: [ 0,1,0,0,1,0,0,0,1 ]
 
 STICK:
   tier: 1
   elements:
-    -
+    - HUMAN
   story:
-    name:
-    type:
+    name: It's a Start
+    type: HUMAN
     lore:
-      -
-    shards:
+      - A simple item but with more uses than
+      - one would think.
+    shards: [ 0,1,0,0,1,0,0,0,0 ]
 
 STICKY_PISTON:
   tier: 3
@@ -11829,15 +11920,17 @@ STONE:
     shards: [ 2,0,1,1,0,0,0,0,0 ]
 
 STONECUTTER:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Dangerous Devices
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - Stand close to a cactus and you'll
+      - die fast. Stand on this and you're fine?
+      - Hmm?
+    shards: [ 0,2,0,0,0,0,0,0,0 ]
 
 STONE_AXE:
   tier: 4
@@ -12020,13 +12113,16 @@ STONE_SWORD:
 STRING:
   tier: 1
   elements:
-    -
+    - ANIMAL
+    - VOID
   story:
-    name:
-    type:
+    name: All Tied Up
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - The strength of this gossamer is not just
+      - of natural means. The Void essence of the
+      - spider bolsters it greatly.
+    shards: [ 0,0,1,0,0,1,0,1,0 ]
 
 STRIPPED_ACACIA_LOG:
   tier: 1
@@ -12243,24 +12339,26 @@ STRIPPED_WARPED_STEM:
 SUGAR:
   tier: 1
   elements:
-    -
+    - ALCHEMICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Spoonful of Sugar
+    type: HUMAN
     lore:
-      -
-    shards:
+      - It helps the medicine go down!
+    shards: [ 0,0,1,0,1,0,0,0,0 ]
 
 SUGAR_CANE:
   tier: 1
   elements:
-    -
+    - ALCHEMICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: A Spoonful of Sugar (Cane)
+    type: HUMAN
     lore:
-      -
-    shards:
+      - It helps the medicine go down!
+    shards: [ 0,0,1,0,1,0,0,0,0 ]
 
 SUNFLOWER:
   tier: 1
@@ -12272,7 +12370,7 @@ SUNFLOWER:
     type: ANIMAL
     lore:
       - A wafting fragrance to quell the most
-      - vicious of temprements.
+      - vicious of temperaments.
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 SUSPICIOUS_STEW:
@@ -12333,7 +12431,7 @@ TERRACOTTA:
     - ELEMENTAL
     - HUMAN
   story:
-    name: Sculptur's Delight
+    name: Sculptor's Delight
     type: HUMAN
     lore:
       - Having the potential to be shaped into any
@@ -12357,15 +12455,17 @@ TINTED_GLASS:
     author: Seggan
 
 TIPPED_ARROW:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: A Simple Tonic (Tipped Arrow)
+    type: ALCHEMICAL
     lore:
-      -
-    shards:
+      - Before the discovery of Crysta and other
+      - esoteric magics, potions were the only way
+      - to tap into the Exoverse for power.
+    shards: [1,0,2,0,0,0,0,0,0]
 
 TNT:
   tier: 2
@@ -12408,37 +12508,45 @@ TORCH:
     shards: [ 1,1,0,0,1,0,1,0,0 ]
 
 TOTEM_OF_UNDYING:
-  tier: 1
+  tier: 3
   elements:
-    -
+    - HISTORICAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Divine Intervention
+    type: CELESTIAL
     lore:
-      -
-    shards:
+      - Its unknown what within the totem protects
+      - the holder but a plethora of Celestial Crysta
+      - is released into the Exoverse when it triggers.
+    shards: [ 0,0,0,2,0,0,2,0,0 ]
 
 TRAPPED_CHEST:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: A Devious Device
+    type: MECHANICAL
     lore:
-      -
-    shards:
+      - The Trapped Chest specifically lies in wait
+      - wanting nothing more than to surprise and
+      - (hopefuly) cause pain to others.
+    shards: [ 0,2,0,0,0,0,0,0,0 ]
 
 TRIDENT:
-  tier: 1
+  tier: 4
   elements:
-    -
+    - HUMAN
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Caller of the Seas
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - With strong ties to surrounding Elemental
+      - Crysta, the Trident can manipulate and
+      - create Elemental at will.
+    shards: [ 2,0,0,1,1,0,0,0,0 ]
 
 TRIPWIRE_HOOK:
   tier: 1
@@ -12458,13 +12566,15 @@ TRIPWIRE_HOOK:
 TROPICAL_FISH:
   tier: 1
   elements:
-    -
+    - ANIMAL
   story:
-    name:
+    name: The 2700 of Us
     type:
     lore:
-      -
-    shards:
+      - It was thought that each one was unique
+      - but after stringent research each possible
+      - type was found and documented.
+    shards: [ 0,0,0,0,0,1,1,0,0 ]
 
 TROPICAL_FISH_BUCKET:
   tier: 2
@@ -12526,24 +12636,28 @@ TUBE_CORAL_FAN:
 TUFF:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - HISTORICAL
   story:
-    name:
-    type:
+    name: Resolute (Tuff)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - Stone is the resolute backbone of the world's
+      - makeup. Ever present and everlasting.
+    shards: [ 2,0,1,1,0,0,0,0,0 ]
 
 TURTLE_EGG:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Soft Shell
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - A soft shell means these eggs need protecting.
+      - For whatever reason many damaging mobs are
+      - insanely attracted to these eggs.
+    shards: [ 0,0,0,1,0,1,0,0,0 ]
 
 TURTLE_HELMET:
   tier: 3
@@ -12562,24 +12676,32 @@ TURTLE_HELMET:
 TWISTING_VINES:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Climb and Clamber (Twisting)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The vine doesn't understand why people
+      - keep insisting on grabbing hold of it
+      - and climbing. It just wants peace and
+      - quiet.
+    shards: [ 1,0,0,1,0,1,0,0,0 ]
 
 VINE:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Climb and Clamber
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The vine doesn't understand why people
+      - keep insisting on grabbing hold of it
+      - and climbing. It just wants peace and
+      - quiet.
+    shards: [ 1,0,0,1,0,1,0,0,0 ]
 
 WARPED_BUTTON:
   tier: 1
@@ -12604,9 +12726,9 @@ WARPED_DOOR:
     name: Gateway
     type: HUMAN
     lore:
-      - Every enterance is also an exit.
+      - Every entrance  is also an exit.
       - Doors protects from the outside but
-      - dont let them keep you in!
+      - don't let them keep you in!
     shards: [ 0,2,0,0,1,0,0,1,1 ]
 
 WARPED_FENCE:
@@ -12802,15 +12924,17 @@ WARPED_TRAPDOOR:
     shards: [ 0,1,0,0,1,0,0,1,0 ]
 
 WARPED_WART_BLOCK:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ALCHEMICAL
   story:
-    name:
-    type:
+    name: Alchemical Conduit (Warped)
+    type: ALCHEMICAL
     lore:
-      -
-    shards:
+      - Magic as we know it needs Crystals to act
+      - as a conduit. For potions, the magical
+      - conduit it Nether Wart.
+    shards: [0,0,3,0,0,0,0,0,0]
 
 WATER_BUCKET:
   tier: 2
@@ -13091,24 +13215,32 @@ WEATHERED_CUT_COPPER_STAIRS:
 WEEPING_VINES:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Climb and Clamber (Weeping)
+    type: ELEMENTAL
     lore:
-      -
-    shards:
+      - The vine doesn't understand why people
+      - keep insisting on grabbing hold of it
+      - and climbing. It just wants peace and
+      - quiet.
+    shards: [ 1,0,0,1,0,1,0,0,0 ]
 
 WET_SPONGE:
-  tier: 1
+  tier: 2
   elements:
-    -
+    - ELEMENTAL
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Absorbant (Wet)
+    type: ANIMAL
     lore:
-      -
-    shards:
+      - It is often forgotten that a Sponge is
+      - both an animal and still alive. When wet
+      - they absorb as many nutrients and magic
+      - from the water as possible.
+    shards: [ 1,0,1,0,0,2,0,0,0 ]
 
 WHEAT:
   tier: 1
@@ -13218,7 +13350,7 @@ WHITE_CONCRETE_POWDER:
     type: HUMAN
     lore:
       - Being a blend of other distinct blocks
-      - can wreak havok on a spirit's identity.
+      - can wreak havoc on a spirit's identity.
       - Concrete longs for just a drop of water
       - so it can become itself!
     shards: [ 1,0,1,0,1,0,0,0,1 ]
@@ -13232,7 +13364,7 @@ WHITE_DYE:
     type: ALCHEMICAL
     lore:
       - Dye's singular purpose is to bring
-      - color to a dull world. The eminating
+      - color to a dull world. The emanating
       - magic from this process can be found
       - everywhere
     shards: [ 1,0,2,0,1,0,0,0,0 ]
@@ -13285,7 +13417,7 @@ WHITE_TERRACOTTA:
     - ELEMENTAL
     - HUMAN
   story:
-    name: Sculptur's Delight (White)
+    name: Sculptor's Delight (White)
     type: HUMAN
     lore:
       - Having the potential to be shaped into any
@@ -13303,7 +13435,7 @@ WHITE_TULIP:
     type: ANIMAL
     lore:
       - A wafting fragrance to quell the most
-      - vicious of temprements.
+      - vicious of temperaments.
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
 WHITE_WOOL:
@@ -13420,13 +13552,16 @@ WOODEN_SWORD:
 WRITABLE_BOOK:
   tier: 1
   elements:
-    -
+    - PHILOSOPHICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: The Press (Unfinished)
+    type: PHILOSOPHICAL
     lore:
-      -
-    shards:
+      - Oh the day when humans invented
+      - writing!
+    shards: [ 0,0,0,1,1,0,0,0,1 ]
+    author: Seggan
 
 WRITTEN_BOOK:
   tier: 1
@@ -13434,7 +13569,7 @@ WRITTEN_BOOK:
     - PHILOSOPHICAL
     - HUMAN
   story:
-    name: The Press
+    name: The Press (Finished)
     type: PHILOSOPHICAL
     lore:
       - Oh the day when humans invented
@@ -13521,7 +13656,7 @@ YELLOW_CONCRETE_POWDER:
     type: HUMAN
     lore:
       - Being a blend of other distinct blocks
-      - can wreak havok on a spirit's identity.
+      - can wreak havoc on a spirit's identity.
       - Concrete longs for just a drop of water
       - so it can become itself!
     shards: [ 1,0,1,0,1,0,0,0,1 ]
@@ -13535,7 +13670,7 @@ YELLOW_DYE:
     type: ALCHEMICAL
     lore:
       - Dye's singular purpose is to bring
-      - color to a dull world. The eminating
+      - color to a dull world. The emanating
       - magic from this process can be found
       - everywhere
     shards: [ 1,0,2,0,1,0,0,0,0 ]
@@ -13588,7 +13723,7 @@ YELLOW_TERRACOTTA:
     - ELEMENTAL
     - HUMAN
   story:
-    name: Sculptur's Delight (Yellow)
+    name: Sculptor's Delight (Yellow)
     type: HUMAN
     lore:
       - Having the potential to be shaped into any
