@@ -17,7 +17,6 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicProje
 import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicSummon;
 import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.runnables.RunnableManager;
-import io.github.sefiraat.crystamaehistoria.runnables.spells.SpellTickRunnable;
 import io.github.sefiraat.crystamaehistoria.slimefun.Gadgets;
 import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
@@ -29,7 +28,6 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import org.apache.commons.lang.Validate;
 import org.bstats.bukkit.Metrics;
 import org.bstats.charts.AdvancedPie;
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.PluginManager;
 
 import javax.annotation.Nonnull;
@@ -147,6 +145,7 @@ public class CrystamaeHistoria extends AbstractAddon {
         this.listenerManager = new ListenerManager();
         this.runnableManager = new RunnableManager();
         this.spellMemory = new SpellMemory();
+        this.supportedPluginManager = new SupportedPluginManager();
         this.effectManager = new EffectManager(this);
 
         configManager.loadConfig();

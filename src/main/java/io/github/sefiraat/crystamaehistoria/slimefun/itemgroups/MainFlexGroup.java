@@ -11,7 +11,6 @@ import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
 import org.bukkit.NamespacedKey;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -69,7 +68,6 @@ public class MainFlexGroup extends FlexItemGroup {
     }
 
 
-
     private void setupPage(@Nonnull Player player, @Nonnull PlayerProfile profile, @Nonnull SlimefunGuideMode mode, @Nonnull ChestMenu menu) {
         for (int slot : FOOTER) {
             menu.replaceExistingItem(slot, ChestMenuUtils.getBackground());
@@ -115,7 +113,7 @@ public class MainFlexGroup extends FlexItemGroup {
 
         // Spell
         menu.replaceExistingItem(SPELL, ItemGroups.SPELL_COLLECTION.getItem(player));
-        menu.addMenuClickHandler(SPELL, (player1, i1, itemStack1, clickAction)  ->
+        menu.addMenuClickHandler(SPELL, (player1, i1, itemStack1, clickAction) ->
             openPage(profile, ItemGroups.SPELL_COLLECTION, mode, 1));
 
         // Guide

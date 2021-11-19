@@ -1,7 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.realisationaltar;
 
 import io.github.mooy1.infinitylib.machines.TickingMenuBlock;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.chroniclerpanel.ChroniclerPanelCache;
 import io.github.sefiraat.crystamaehistoria.utils.theme.GuiElements;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
