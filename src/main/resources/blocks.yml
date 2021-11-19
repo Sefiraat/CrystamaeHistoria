@@ -9794,13 +9794,18 @@ POWDER_SNOW_BUCKET:
 POWERED_RAIL:
   tier: 1
   elements:
-    -
+    - MECHANICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Level up
+    type: MECHANICAL
     lore:
-      -
+      - When Dr. Minestein accidentally dropped
+      - some redstone on the railroad, he suddenly
+      - discovered the next level in affordable
+      - transportation
     shards:
+    author: Seggan
 
 PRISMARINE:
   tier: 1
@@ -11128,13 +11133,16 @@ SKULL_BANNER_PATTERN:
 SLIME_BALL:
   tier: 1
   elements:
-    -
+    - ANIMAL
+    - PHILOSOPHICAL
   story:
-    name:
-    type:
+    name: Bouncy
+    type: ANIMAL
     lore:
-      -
+      - This rare material is prized for
+      - its value as a toy
     shards:
+    author: Seggan
 
 SLIME_BLOCK:
   tier: 1
@@ -11161,7 +11169,7 @@ SMALL_AMETHYST_BUD:
     lore:
       - Amethyst buds are crystal deposits that couldn't
       - harness enough Crysta to form correctly. While
-      - useful, they server little purpose magically.
+      - useful, they serve little purpose magically.
     shards: [ 1,0,0,0,0,0,0,1,0 ]
 
 SMALL_DRIPLEAF:
@@ -11178,13 +11186,17 @@ SMALL_DRIPLEAF:
 SMITHING_TABLE:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Gilded
+    type: HUMAN
     lore:
-      -
+      - Somehow, the magic of this table manages
+      - to bend and form the hardest known material
+      - around your favorite diamond tools
     shards:
+    author: Seggan
 
 SMOKER:
   tier: 2
@@ -11358,13 +11370,18 @@ SMOOTH_STONE_SLAB:
 SNOW:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Crystallized
+    type: ELEMENTAL
     lore:
-      -
+      - Made from the Crystamae in
+      - the air, this wonderful material
+      - is only found in the coldest
+      - of locations
     shards:
+    author: Seggan
 
 SNOWBALL:
   tier: 1
@@ -11463,13 +11480,17 @@ SPAWNER:
 SPECTRAL_ARROW:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - CELESTIAL
   story:
-    name:
-    type:
+    name: Sparkling
+    type: HUMAN
     lore:
-      -
+      - Covered with precious glowstone
+      - dust, this magical arrow is hepful
+      - for spotting your enemies
     shards:
+    author: Seggan
 
 SPIDER_EYE:
   tier: 1
@@ -12240,24 +12261,28 @@ SWEET_BERRIES:
 TALL_GRASS:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
   story:
-    name:
-    type:
+    name: Barrier
+    type: ELEMENTAL
     lore:
-      -
+      - What could be more annoying
+      - than tall grass?
     shards:
+    author: Seggan
 
 TARGET:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Robin Hood
+    type: HUMAN
     lore:
-      -
+      - Are you better than Robin Hood?
     shards:
+    author: Seggan
 
 TERRACOTTA:
   tier: 1
@@ -12276,13 +12301,17 @@ TERRACOTTA:
 TINTED_GLASS:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - VOID
   story:
-    name:
-    type:
+    name: Darkness
+    type: VOID
     lore:
-      -
+      - Corrupted with impure Crystamae,
+      - this glass is forever destined
+      - to fail its purpose
     shards:
+    author: Seggan
 
 TIPPED_ARROW:
   tier: 1
@@ -12371,13 +12400,17 @@ TRIDENT:
 TRIPWIRE_HOOK:
   tier: 1
   elements:
-    -
+    - HUMAN
+    - MECHANICAL
   story:
-    name:
-    type:
+    name: Tripping up
+    type: MECHANCIAL
     lore:
-      -
+      - When Dr. Minestein invented the tripwire
+      - hook, he tripped, and out came the idea
+      - of quantum minechanics
     shards:
+    author: Seggan
 
 TROPICAL_FISH:
   tier: 1
@@ -12953,13 +12986,17 @@ WAXED_WEATHERED_CUT_COPPER_STAIRS:
 WEATHERED_COPPER:
   tier: 1
   elements:
-    -
+    - ELEMENTAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: Rusted to perfection
+    type: ELEMENTAL
     lore:
-      -
+      - The most beautiful form of copper, this
+      - block has gone through many trials to reach
+      - this level of perfection
     shards:
+    author: Seggan
 
 WEATHERED_CUT_COPPER:
   tier: 2
@@ -13247,13 +13284,17 @@ WITHER_ROSE:
 WITHER_SKELETON_SKULL:
   tier: 1
   elements:
-    -
+    - VOID
+    - ANIMAL
   story:
-    name:
-    type:
+    name: Spooky scary skele...
+    type: VOID
     lore:
-      -
+      - Unfortunately, I cannot use the
+      - full title due to advancement
+      - copyright laws
     shards:
+    author: Seggan
 
 WOODEN_AXE:
   tier: 4
@@ -13264,7 +13305,7 @@ WOODEN_AXE:
     name: Axe-cident waiting to happen! (Wood)
     type: PHILOSOPHICAL
     lore:
-      - Every person fears the day that they finally
+      - Every person fears the day when they
       - accidentally right click on a log in their
       - base!
     shards: [ 1,0,0,0,1,0,1,0,1 ]
@@ -13321,8 +13362,8 @@ WOODEN_SWORD:
     type: VOID
     lore:
       - Finally armed, the wielder can choose
-      - to use a sword defensively or aggressively
-      - either way the sword fulfills its purpose
+      - to use a sword defensively or aggressively.
+      - Either way, the sword fulfills its purpose
     shards: [ 0,0,0,1,1,0,0,1,1 ]
 
 WRITABLE_BOOK:
@@ -13339,13 +13380,16 @@ WRITABLE_BOOK:
 WRITTEN_BOOK:
   tier: 1
   elements:
-    -
+    - PHILOSOPHICAL
+    - HUMAN
   story:
-    name:
-    type:
+    name: The press
+    type: PHILOSOPHICAL
     lore:
-      -
+      - Oh the day when humans invented
+      - writing!
     shards:
+    author: Seggan
 
 YELLOW_BANNER:
   tier: 2
