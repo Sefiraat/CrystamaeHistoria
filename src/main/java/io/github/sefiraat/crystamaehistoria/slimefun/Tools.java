@@ -132,7 +132,7 @@ public class Tools {
                 ThemeType.TOOL,
                 "Refracting Lens",
                 "This magical lens has glass that can",
-                "the lights of Crysta into it's",
+                "split the light of Crysta into its",
                 "individual elements.",
                 "",
                 "Right click on a Crystamae Block for",
