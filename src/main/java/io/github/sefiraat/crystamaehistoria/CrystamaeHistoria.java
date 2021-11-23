@@ -25,9 +25,11 @@ import io.github.sefiraat.crystamaehistoria.slimefun.Tools;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import org.apache.commons.lang.Validate;
 import org.bstats.bukkit.Metrics;
 import org.bstats.charts.AdvancedPie;
+import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.PluginManager;
 
 import javax.annotation.Nonnull;

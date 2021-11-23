@@ -1,5 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.stories;
 
+import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryShardProfile;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
@@ -48,17 +49,22 @@ public class Story {
 
         this.id = section.getString("name");
 
-        Validate.notNull(
-            shards,
-            MessageFormat.format("The following story does not have a shard profile: {0}", this.id)
-        );
-        Validate.isTrue(
-            shards.size() == 9,
-            MessageFormat.format("The following story does not have a correctly setup shard profile: {0}", this.id)
-        );
+        StoryType storyType = StoryType.getByName(section.getString("type"));
+
+        if (shards.size() != 9) {
+            CrystamaeHistoria.getInstance().getLogger().warning(
+                MessageFormat.format("The following story does not have a correctly setup shard profile: {0}", this.id)
+            );
+        }
+
+        if (storyType == null) {
+            CrystamaeHistoria.getInstance().getLogger().warning(
+                MessageFormat.format("A block story has a badly typed element -> {0}", this.id)
+            );
+        }
 
         this.rarity = storyRarity;
-        this.type = StoryType.getByName(section.getString("type"));
+        this.type = storyType;
         this.storyShardProfile = new StoryShardProfile(section.getIntegerList("shards"));
         this.storyStrings = section.getStringList("lore");
         this.author = section.getString("author");

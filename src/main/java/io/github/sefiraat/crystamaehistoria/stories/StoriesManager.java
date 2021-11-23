@@ -14,6 +14,7 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import scala.concurrent.impl.FutureConvertersImpl;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.text.MessageFormat;
@@ -225,6 +226,15 @@ public class StoriesManager {
             final List<StoryType> types = wholeSection.getStringList("elements").stream()
                 .map(StoryType::getByName)
                 .collect(Collectors.toList());
+
+            for (StoryType storyType : types) {
+                if (storyType == null) {
+                    CrystamaeHistoria.getInstance().getLogger().info(
+                        MessageFormat.format("A block has a badly typed element -> {0}", key)
+                    );
+                }
+            }
+
             final BlockDefinition blockDefinition = new BlockDefinition(
                 material,
                 blockTierMap.get(tier),
