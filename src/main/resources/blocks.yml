@@ -1350,7 +1350,7 @@ BOOK:
     name: Learned
     type: PHILOSOPHICAL
     lore:
-      - A flahs of insight gained while learning
+      - A flash of insight gained while learning
       - directly translates into Crystamae stored
       - within the source book.
     shards: [ 0,0,0,1,1,0,0,0,1 ]
@@ -1419,8 +1419,8 @@ BRAIN_CORAL_BLOCK:
     name: Be'reef't (Brain)
     type: PHILOSOPHICAL
     lore:
-      - Ripped from it's habitat and molded into
-      - an unatural form for human purposes.
+      - Ripped from it's habitat and moulded into
+      - an unnatural form for human purposes.
       - This is a spirit ripped asunder.
     shards: [ 0,0,0,1,0,0,1,0,1 ]
 
@@ -1460,7 +1460,7 @@ BREWING_STAND:
     type: ALCHEMICAL
     lore:
       - After years of use, the brewing stand
-      - is imbued with such storng alchemical
+      - is imbued with such strong alchemical
       - Crystamae it's brimming near to burst.
     shards: [ 0,0,3,0,0,0,0,0,0 ]
 
@@ -1651,7 +1651,7 @@ BROWN_MUSHROOM:
   elements:
     - ANIMAL
   story:
-    name: Fungal Frugility (Brown)
+    name: Fungal Frugality (Brown)
     type: ANIMAL
     lore:
       - While slow, it's strength lies in it's
@@ -1664,7 +1664,7 @@ BROWN_MUSHROOM_BLOCK:
   elements:
     - ANIMAL
   story:
-    name: Giganticism (Brown)
+    name: Gigantism (Brown)
     type: ANIMAL
     lore:
       - Through an odd quirk of nature, a mushroom
@@ -1753,8 +1753,8 @@ BUBBLE_CORAL_BLOCK:
     name: Be'reef't (Bubble)
     type: PHILOSOPHICAL
     lore:
-      - Ripped from it's habitat and molded into
-      - an unatural form for human purposes.
+      - Ripped from it's habitat and moulded into
+      - an unnatural form for human purposes.
       - This is a spirit ripped asunder.
     shards: [ 0,0,0,1,0,0,1,0,1 ]
 
@@ -1890,7 +1890,7 @@ CARTOGRAPHY_TABLE:
     lore:
       - Dreaming of seeing the far corners of the
       - worlds, this block has to sit and live
-      - through the acheivments of others.
+      - through the achievements of others.
     shards: [ 0,0,0,1,2,0,0,0,1 ]
 
 CARVED_PUMPKIN:
@@ -1933,7 +1933,7 @@ CHAIN:
     type: VOID
     lore:
       - A history of enchained prisoners has made
-      - the essence of this item scullied and void.
+      - the essence of this item sullied and void.
     shards: [ 1,1,0,0,0,0,0,1,0 ]
 
 CHAINMAIL_BOOTS:
@@ -1945,8 +1945,8 @@ CHAINMAIL_BOOTS:
     name: Greave Greif (Chain)
     type: PHILOSOPHICAL
     lore:
-      - Like all armour, boots ant nothing more
-      - than to keep their wearer safe. Unforunatley
+      - Like all armour, boots want nothing more
+      - than to keep their wearer safe. Unfortunately
       - they are overshadowed by other gear.
     shards: [ 0,0,0,1,2,0,0,0,1 ]
 
@@ -1984,7 +1984,7 @@ CHAINMAIL_LEGGINGS:
     - HUMAN
     - CELESTIAL
   story:
-    name: Leggless (Chain)
+    name: Legless (Chain)
     type: CELESTIAL
     lore:
       - Like it's other armour brethren, leggings
@@ -2191,7 +2191,7 @@ CLAY:
     type: HUMAN
     lore:
       - Eagerly waiting to be formed into something
-      - new. Clay looks forward to it's furture shape.
+      - new. Clay looks forward to it's future shape.
     shards: [ 1,0,1,0,1,0,0,0,0 ]
 
 CLAY_BALL:
@@ -2204,7 +2204,7 @@ CLAY_BALL:
     type: HUMAN
     lore:
       - Eagerly waiting to be formed into something
-      - new. Clay looks forward to it's furture shape.
+      - new. Clay looks forward to it's future shape.
     shards: [ 1,0,1,0,1,0,0,0,0 ]
 
 CLOCK:
@@ -2282,7 +2282,7 @@ COBBLED_DEEPSLATE:
     - ELEMENTAL
   story:
     name: Improvised (Deepslate)
-    type:
+    type: ELEMENTAL
     lore:
       - Fractured and fragmented, Cobblestone longs
       - to be back to it's full form.
@@ -2335,7 +2335,7 @@ COBBLESTONE:
     - ELEMENTAL
   story:
     name: Improvised
-    type:
+    type: ELEMENTAL
     lore:
       - Fractured and fragmented, Cobblestone longs
       - to be back to it's full form.
@@ -2391,7 +2391,7 @@ COBWEB:
     type: ANIMAL
     lore:
       - While a comfortable to some, the cobweb
-      - intells fear into most as it denotes nearby
+      - instills fear into most as it denotes nearby
       - danger.
     shards: [ 0,0,0,1,0,1,0,1,0 ]
 
@@ -2728,7 +2728,6 @@ CRACKED_STONE_BRICKS:
 
 CRAFTING_TABLE:
   tier: 1
-  main_element: HUMAN
   elements:
     - HUMAN
     - PHILOSOPHICAL
@@ -2765,7 +2764,7 @@ CREEPER_HEAD:
     lore:
       - While a despicable practice, some magics
       - can only be harnessed through recent
-      - decapitations. Luckily no Crysta is wholy
+      - decapitations. Luckily no Crysta is wholly
       - dependent on this.
     shards: [ 0,1,0,0,1,0,0,1,0 ]
 
@@ -2833,7 +2832,7 @@ CRIMSON_FUNGUS:
     - ANIMAL
     - VOID
   story:
-    name: Fungal Frugility (Crimson)
+    name: Fungal Frugality (Crimson)
     type: ANIMAL
     lore:
       - While slow, it's strength lies in it's
@@ -2906,7 +2905,7 @@ CRIMSON_ROOTS:
     name: Determination (Crimson)
     type: ANIMAL
     lore:
-      - Anything growning in a place like the nether
+      - Anything growing in a place like the nether
       - should be commended for it's determination.
     shards: [ 1,0,0,0,0,1,0,1,0 ]
 
@@ -3001,7 +3000,7 @@ CRYING_OBSIDIAN:
     name: A Soft Mewl
     type: PHILOSOPHICAL
     lore:
-      - The sadness from this block has eminated
+      - The sadness from this block has emanated
       - through generations. No one knows why and
       - nor do they ask.
     shards: [ 1,0,0,1,0,0,0,0,1 ]
@@ -3013,7 +3012,7 @@ CUT_COPPER:
     - HUMAN
   story:
     name: A Cut Above (Copper)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -3026,7 +3025,7 @@ CUT_COPPER_SLAB:
     - HUMAN
   story:
     name: A Cut Above (Copper Slab)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -3039,7 +3038,7 @@ CUT_COPPER_STAIRS:
     - HUMAN
   story:
     name: A Cut Above (Copper Stairs)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -3052,7 +3051,7 @@ CUT_RED_SANDSTONE:
     - HUMAN
   story:
     name: A Cut Above (Red Sandstone)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -3065,7 +3064,7 @@ CUT_RED_SANDSTONE_SLAB:
     - HUMAN
   story:
     name: A Cut Above (Red Sandstone Slab)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -3078,7 +3077,7 @@ CUT_SANDSTONE:
     - HUMAN
   story:
     name: A Cut Above (Sandstone)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -3091,7 +3090,7 @@ CUT_SANDSTONE_SLAB:
     - HUMAN
   story:
     name: A Cut Above (Sandstone Slab)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -3287,7 +3286,7 @@ DANDELION:
     - ELEMENTAL
     - ANIMAL
   story:
-    name: Sweet Smell (Dandilion)
+    name: Sweet Smell (Dandelion)
     type: ANIMAL
     lore:
       - A wafting fragrance to quell the most
@@ -3545,7 +3544,7 @@ DAYLIGHT_DETECTOR:
     type: MECHANICAL
     lore:
       - The moment the sun hits this awaiting block
-      - it's spirit alights nad burns brightly.
+      - it's spirit alights and burns brightly.
     shards: [ 1,1,0,0,1,0,1,0,0 ]
 
 DEAD_BRAIN_CORAL:
@@ -4075,8 +4074,8 @@ DIAMOND_BOOTS:
     name: Greave Greif (Diamond)
     type: PHILOSOPHICAL
     lore:
-      - Like all armour, boots ant nothing more
-      - than to keep their wearer safe. Unforunatley
+      - Like all armour, boots want nothing more
+      - than to keep their wearer safe. Unfortunately
       - they are overshadowed by other gear.
     shards: [ 0,0,0,1,2,0,0,0,1 ]
 
@@ -4140,7 +4139,7 @@ DIAMOND_LEGGINGS:
     - HUMAN
     - CELESTIAL
   story:
-    name: Leggless (Diamond)
+    name: Legless (Diamond)
     type: CELESTIAL
     lore:
       - Like it's other armour brethren, leggings
@@ -4203,7 +4202,7 @@ DIAMOND_SWORD:
     lore:
       - Finally armed, the wielder can choose
       - to use a sword defensively or aggressively
-      - either way the sword fulfills its purpose
+      - either way the sword fulfils its purpose
     shards: [ 0,0,0,1,1,0,0,1,1 ]
 
 DIORITE:
@@ -4511,7 +4510,7 @@ ENDER_CHEST:
   tier: 4
   elements:
     - VOID
-    - MECHNICAL
+    - MECHANICAL
   story:
     name: A Not-Endless Void
     type: VOID
@@ -4528,7 +4527,7 @@ ENDER_EYE:
   elements:
     - ELEMENTAL
     - HISTORICAL
-    - VOId
+    - VOID
   story:
     name: A Watchful Gaze
     type: HISTORICAL
@@ -4552,7 +4551,7 @@ ENDER_PEARL:
       - and Gilded forms or storage.
     shards: [ 1,0,0,1,0,0,0,2,0 ]
 
-END_CrystaL:
+END_CRYSTAL:
   tier: 5
   elements:
     - ELEMENTAL
@@ -4578,7 +4577,7 @@ END_PORTAL_FRAME:
     type: MECHANICAL
     lore:
       - Back in the early days, the Ancient Builders
-      - created a devistating being they needed to hide
+      - created a devastating being they needed to hide
       - from. They built strongholds and eventually
       - constructed these portals to make their escape.
     shards: [ 0,2,0,1,1,0,0,2,0 ]
@@ -4703,7 +4702,7 @@ EXPOSED_CUT_COPPER:
     - HUMAN
   story:
     name: A Cut Above (Exposed Copper)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -4716,7 +4715,7 @@ EXPOSED_CUT_COPPER_SLAB:
     - HUMAN
   story:
     name: A Cut Above (Exposed Copper Slab)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -4729,7 +4728,7 @@ EXPOSED_CUT_COPPER_STAIRS:
     - HUMAN
   story:
     name: A Cut Above (Exposed Copper Stairs)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -4855,8 +4854,8 @@ FIRE_CORAL_BLOCK:
     name: Be'reef't (Fire)
     type: PHILOSOPHICAL
     lore:
-      - Ripped from it's habitat and molded into
-      - an unatural form for human purposes.
+      - Ripped from it's habitat and moulded into
+      - an unnatural form for human purposes.
       - This is a spirit ripped asunder.
     shards: [ 0,0,0,1,0,0,1,0,1 ]
 
@@ -4992,7 +4991,7 @@ FURNACE:
     - HUMAN
   story:
     name: A Roaring Fire
-    type:
+    type: ELEMENTAL
     lore:
       - A roaring fire that feeds on the
       - creativity of it's creator.
@@ -5005,7 +5004,7 @@ FURNACE_MINECART:
     - HUMAN
   story:
     name: A Rolling Minecart... (Furnace)
-    type:
+    type: MECHANICAL
     lore:
       - ...Gathers No Moss. The singular largest
       - leap in minecraft tech, the minecart has
@@ -5050,7 +5049,7 @@ GLASS:
     name: Seen Through
     type: PHILOSOPHICAL
     lore:
-      - As hard as glass tries, it isnt able to
+      - As hard as glass tries, it isn't able to
       - hide its true self, being seen right through.
     shards: [ 0,1,1,0,1,0,0,0,1 ]
 
@@ -5078,7 +5077,7 @@ GLASS_PANE:
     name: Seen Through (Pane)
     type: PHILOSOPHICAL
     lore:
-      - As hard as glass tries, it isnt able to
+      - As hard as glass tries, it isn't able to
       - hide its true self, being seen right through.
     shards: [ 0,1,1,0,1,0,0,0,1 ]
 
@@ -5113,10 +5112,10 @@ GLOWSTONE:
   elements:
     - ALCHEMICAL
   story:
-    name: Irridecant
+    name: Iridescent
     type: ALCHEMICAL
     lore:
-      - Found only in the hottest of locaitons,
+      - Found only in the hottest of locations,
       - it is still unknown how or why this
       - stone glows.
     shards: [ 0,0,2,0,0,0,1,0,0 ]
@@ -5127,10 +5126,10 @@ GLOWSTONE_DUST:
   elements:
     - ALCHEMICAL
   story:
-    name: Irridecant (Dust)
+    name: Iridescent (Dust)
     type: ALCHEMICAL
     lore:
-      - Found only in the hottest of locaitons,
+      - Found only in the hottest of locations,
       - it is still unknown how or why this
       - stone glows.
     shards: [ 0,0,1,0,0,0,0,0,0 ]
@@ -5230,8 +5229,8 @@ GOLDEN_BOOTS:
     name: Greave Greif (Gold)
     type: PHILOSOPHICAL
     lore:
-      - Like all armour, boots ant nothing more
-      - than to keep their wearer safe. Unforunatley
+      - Like all armour, boots want nothing more
+      - than to keep their wearer safe. Unfortunately
       - they are overshadowed by other gear.
     shards: [ 0,0,0,1,2,0,0,0,1 ]
 
@@ -5309,7 +5308,7 @@ GOLDEN_LEGGINGS:
     - HUMAN
     - CELESTIAL
   story:
-    name: Leggless (Gold)
+    name: Legless (Gold)
     type: CELESTIAL
     lore:
       - Like it's other armour brethren, leggings
@@ -5356,7 +5355,7 @@ GOLDEN_SWORD:
     lore:
       - Finally armed, the wielder can choose
       - to use a sword defensively or aggressively
-      - either way the sword fulfills its purpose
+      - either way the sword fulfils its purpose
     shards: [ 0,0,0,1,1,0,0,1,1 ]
 
 GOLD_BLOCK:
@@ -5405,7 +5404,7 @@ GOLD_ORE:
   tier: 3
   elements:
     - ELEMENTAL
-    - PHILOSPHICAL
+    - PHILOSOPHICAL
   story:
     name: This Ore That (Gold)
     type: ELEMENTAL
@@ -5506,7 +5505,7 @@ GRAVEL:
     name: Hammered
     type: VOID
     lore:
-      - Detemined to be more than the sum of its
+      - Determined to be more than the sum of its
       - parts, gravel lives only to have been hammered
       - and then sifted for its content. Sad.
     shards: [ 1,0,0,0,0,0,0,1,0 ]
@@ -5970,7 +5969,7 @@ HONEY_BLOCK:
     name: A Sticky Situation (Honey)
     type: ALCHEMICAL
     lore:
-      - Desparate to not be alone, this block
+      - Desperate to not be alone, this block
       - will cling to anything it can and will
       - not let go.
     shards: [ 0,0,1,0,0,1,0,0,0 ]
@@ -6010,7 +6009,7 @@ HOPPER_MINECART:
     - HUMAN
   story:
     name: A Rolling Minecart... (Hopper)
-    type:
+    type: MECHANICAL
     lore:
       - ...Gathers No Moss. The singular largest
       - leap in minecraft tech, the minecart has
@@ -6040,8 +6039,8 @@ HORN_CORAL_BLOCK:
     name: Be'reef't (Horn)
     type: PHILOSOPHICAL
     lore:
-      - Ripped from it's habitat and molded into
-      - an unatural form for human purposes.
+      - Ripped from it's habitat and moulded into
+      - an unnatural form for human purposes.
       - This is a spirit ripped asunder.
     shards: [ 0,0,0,1,0,0,1,0,1 ]
 
@@ -6081,7 +6080,7 @@ INFESTED_CHISELED_STONE_BRICKS:
     - ANIMAL
   story:
     name: Infested (Chiseled Stone)
-    type: VOId
+    type: VOID
     lore:
       - Bursting with the potential of the
       - parasitic dweller. The magics of this
@@ -6096,7 +6095,7 @@ INFESTED_COBBLESTONE:
     - ANIMAL
   story:
     name: Infested (Cobblestone)
-    type: VOId
+    type: VOID
     lore:
       - Bursting with the potential of the
       - parasitic dweller. The magics of this
@@ -6111,7 +6110,7 @@ INFESTED_CRACKED_STONE_BRICKS:
     - ANIMAL
   story:
     name: Infested (Cracked Stone)
-    type: VOId
+    type: VOID
     lore:
       - Bursting with the potential of the
       - parasitic dweller. The magics of this
@@ -6126,7 +6125,7 @@ INFESTED_DEEPSLATE:
     - ANIMAL
   story:
     name: Infested (Deepslate)
-    type: VOId
+    type: VOID
     lore:
       - Bursting with the potential of the
       - parasitic dweller. The magics of this
@@ -6141,7 +6140,7 @@ INFESTED_MOSSY_STONE_BRICKS:
     - ANIMAL
   story:
     name: Infested (Mossy Stone)
-    type: VOId
+    type: VOID
     lore:
       - Bursting with the potential of the
       - parasitic dweller. The magics of this
@@ -6156,7 +6155,7 @@ INFESTED_STONE:
     - ANIMAL
   story:
     name: Infested (Stone)
-    type: VOId
+    type: VOID
     lore:
       - Bursting with the potential of the
       - parasitic dweller. The magics of this
@@ -6171,7 +6170,7 @@ INFESTED_STONE_BRICKS:
     - ANIMAL
   story:
     name: Infested (Stone Bricks)
-    type: VOId
+    type: VOID
     lore:
       - Bursting with the potential of the
       - parasitic dweller. The magics of this
@@ -6190,7 +6189,7 @@ INK_SAC:
     lore:
       - Ink is both the creation of nearly all
       - written knowledge but also an entry into
-      - the deepest void. The juxtapositon is, in
+      - the deepest void. The juxtaposition is, in
       - itself, magical.
     shards: [ 1,0,0,0,0,0,1,1,0 ]
 
@@ -6246,8 +6245,8 @@ IRON_BOOTS:
     name: Greave Greif (Iron)
     type: PHILOSOPHICAL
     lore:
-      - Like all armour, boots ant nothing more
-      - than to keep their wearer safe. Unforunatley
+      - Like all armour, boots want nothing more
+      - than to keep their wearer safe. Unfortunately
       - they are overshadowed by other gear.
     shards: [ 0,0,0,1,2,0,0,0,1 ]
 
@@ -6275,7 +6274,7 @@ IRON_DOOR:
     name: Stronghold
     type: HUMAN
     lore:
-      - Protection again all indruders gives
+      - Protection again all intruders gives
       - this item purpose and drive.
     shards: [ 0,2,0,0,1,0,1,0,1 ]
 
@@ -6338,7 +6337,7 @@ IRON_LEGGINGS:
     - HUMAN
     - CELESTIAL
   story:
-    name: Leggless (Iron)
+    name: Legless (Iron)
     type: CELESTIAL
     lore:
       - Like it's other armour brethren, leggings
@@ -6414,7 +6413,7 @@ IRON_SWORD:
     lore:
       - Finally armed, the wielder can choose
       - to use a sword defensively or aggressively
-      - either way the sword fulfills its purpose
+      - either way the sword fulfils its purpose
     shards: [ 0,0,0,1,1,0,0,1,1 ]
 
 IRON_TRAPDOOR:
@@ -6704,7 +6703,7 @@ LANTERN:
     name: Lighting the Way
     type: ELEMENTAL
     lore:
-      - Fear of the dark is an opressive force
+      - Fear of the dark is an oppressive force
       - for lanterns. They use all their might to
       - push back the darkness to make players
       - feel at ease.
@@ -6830,8 +6829,8 @@ LEATHER_BOOTS:
     name: Greave Greif (Leather)
     type: PHILOSOPHICAL
     lore:
-      - Like all armour, boots ant nothing more
-      - than to keep their wearer safe. Unforunatley
+      - Like all armour, boots want nothing more
+      - than to keep their wearer safe. Unfortunately
       - they are overshadowed by other gear.
     shards: [ 0,0,0,1,2,0,0,0,1 ]
 
@@ -6881,7 +6880,7 @@ LEATHER_LEGGINGS:
     - HUMAN
     - CELESTIAL
   story:
-    name: Leggless (Leather)
+    name: Legless (Leather)
     type: CELESTIAL
     lore:
       - Like it's other armour brethren, leggings
@@ -7319,7 +7318,7 @@ LILY_PAD:
     type: ANIMAL
     lore:
       - The lily pad spends all its time doing
-      - nothign but relaxing in swamps. While some
+      - nothing but relaxing in swamps. While some
       - may wish for more, the lily pad is content.
     shards: [ 1,0,0,0,0,1,0,0,0 ]
 
@@ -7793,7 +7792,7 @@ MELON_SLICE:
     - HUMAN
   story:
     name: A Bitter-Sweet Victory
-    type:
+    type: ANIMAL
     lore:
       - While cut and torn asunder, the result is an
       - item that brings joy to many.
@@ -7820,7 +7819,7 @@ MINECART:
     - HUMAN
   story:
     name: A Rolling Minecart...
-    type:
+    type: MECHANICAL
     lore:
       - ...Gathers No Moss. The singular largest
       - leap in minecraft tech, the minecart has
@@ -7982,7 +7981,7 @@ MUSHROOM_STEM:
   elements:
     - ANIMAL
   story:
-    name: Giganticism (Stem)
+    name: Gigantism (Stem)
     type: ANIMAL
     lore:
       - Through an odd quirk of nature, a mushroom
@@ -8251,7 +8250,7 @@ NAUTILUS_SHELL:
     name: An Unused Home
     type: HISTORICAL
     lore:
-      - The Nautilis is though to comes from
+      - The Nautilus is though to comes from
       - the deepest depths, but not one can be
       - seen. It's not known where Drowned find
       - these shells.
@@ -8282,7 +8281,7 @@ NETHERITE_BLOCK:
     lore:
       - A block made only to show off insane wealth
       - After the first was made, it sparked wars,
-      - treachery and deceipt.
+      - treachery and deceit.
     shards: [ 0,0,0,0,2,0,1,0,1 ]
     author: ashton
 
@@ -8295,8 +8294,8 @@ NETHERITE_BOOTS:
     name: Greave Greif (Netherite)
     type: PHILOSOPHICAL
     lore:
-      - Like all armour, boots ant nothing more
-      - than to keep their wearer safe. Unforunatley
+      - Like all armour, boots want nothing more
+      - than to keep their wearer safe. Unfortunately
       - they are overshadowed by other gear.
     shards: [ 0,0,0,1,2,0,0,0,1 ]
 
@@ -8361,7 +8360,7 @@ NETHERITE_LEGGINGS:
     - HUMAN
     - CELESTIAL
   story:
-    name: Leggless (Netherite)
+    name: Legless (Netherite)
     type: CELESTIAL
     lore:
       - Like it's other armour brethren, leggings
@@ -8422,7 +8421,7 @@ NETHERITE_SWORD:
     lore:
       - Finally armed, the wielder can choose
       - to use a sword defensively or aggressively
-      - either way the sword fulfills its purpose
+      - either way the sword fulfils its purpose
     shards: [ 0,0,0,1,1,0,0,1,1 ]
 
 NETHERRACK:
@@ -8434,7 +8433,7 @@ NETHERRACK:
     type: ELEMENTAL
     lore:
       - It is unknown how such a soft rock can
-      - support the scructure of the Nether.
+      - support the structure of the Nether.
     shards: [ 1,0,1,0,0,0,0,0,0 ]
 
 NETHER_BRICK:
@@ -8570,7 +8569,7 @@ NETHER_STAR:
   elements:
     - VOID
   story:
-    name: Crystaline Nether
+    name: Crystalline Nether
     type: VOID
     lore:
       - Not all magic fits into the Crystamae
@@ -9049,7 +9048,7 @@ OXIDIZED_COPPER:
     - ELEMENTAL
     - MECHANICAL
   story:
-    name: Further Refinement (Oxidied Copper)
+    name: Further Refinement (Oxidized Copper)
     type: ELEMENTAL
     lore:
       - Refined all the way to it's block form, this
@@ -9062,8 +9061,8 @@ OXIDIZED_CUT_COPPER:
     - MECHANICAL
     - HUMAN
   story:
-    name: A Cut Above (Ozidized Copper)
-    type: Mechanical
+    name: A Cut Above (Oxidized Copper)
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -9075,8 +9074,8 @@ OXIDIZED_CUT_COPPER_SLAB:
     - MECHANICAL
     - HUMAN
   story:
-    name: A Cut Above (Ozidized Copper Slab)
-    type: Mechanical
+    name: A Cut Above (Oxidized Copper Slab)
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -9088,8 +9087,8 @@ OXIDIZED_CUT_COPPER_STAIRS:
     - MECHANICAL
     - HUMAN
   story:
-    name: A Cut Above (Ozidized Copper Stairs)
-    type: Mechanical
+    name: A Cut Above (Oxidized Copper Stairs)
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -9120,7 +9119,7 @@ PAINTING:
     type: PHILOSOPHICAL
     lore:
       - While it 'aint no Picasso, each painting
-      - is enshirined in magic from the creativity
+      - is enshrined in magic from the creativity
       - of their artists.
     shards: [0,0,0,1,2,0,0,0,1]
 
@@ -9133,9 +9132,9 @@ PAPER:
     name: A Clean Slate
     type: CELESTIAL
     lore:
-      - Every peice is a fresh start, a clean
+      - Every piece is a fresh start, a clean
       - slate, and the sheer potential in each
-      - peice is vast.
+      - piece is vast.
     shards: [0,1,0,1,1,0,1,0,0]
 
 PEONY:
@@ -9157,7 +9156,7 @@ PHANTOM_MEMBRANE:
     - VOID
   story:
     name: Lighter Than Air
-    type: VOId
+    type: VOID
     lore:
       - When harnessed correctly, the Phantom
       - Membrane is actually lighter than air
@@ -9383,7 +9382,7 @@ PLAYER_HEAD:
     lore:
       - While a despicable practice, some magics
       - can only be harnessed through recent
-      - decapitations. Luckily no Crysta is wholy
+      - decapitations. Luckily no Crysta is wholly
       - dependent on this.
     shards: [ 0,1,0,0,1,0,0,1,0 ]
 
@@ -9906,7 +9905,7 @@ PRISMARINE_BRICK_STAIRS:
       - into further madness...
     shards: [ 0,1,0,0,1,1,0,1,1 ]
 
-PRISMARINE_CrystaLS:
+PRISMARINE_CRYSTALS:
   tier: 2
   elements:
     - ANIMAL
@@ -10541,7 +10540,7 @@ REDSTONE_LAMP:
     - HUMAN
   story:
     name: Non-magical
-    type: MACHANICAL
+    type: MECHANICAL
     lore:
       - The Redstone Lamp generates light without
       - the use of Crysta or other magics. Weird!
@@ -10692,7 +10691,7 @@ RED_MUSHROOM:
   elements:
     - ANIMAL
   story:
-    name: Fungal Frugility (Red)
+    name: Fungal Frugality (Red)
     type: ANIMAL
     lore:
       - While slow, it's strength lies in it's
@@ -10705,7 +10704,7 @@ RED_MUSHROOM_BLOCK:
   elements:
     - ANIMAL
   story:
-    name: Giganticism (Red)
+    name: Gigantism (Red)
     type: ANIMAL
     lore:
       - Through an odd quirk of nature, a mushroom
@@ -10978,7 +10977,7 @@ SADDLE:
   elements:
     - ANIMAL
   story:
-    name: Tame The Untamable
+    name: Tame The Untameable
     type: ANIMAL
     lore:
       - A wild spirit being tamed by a strong
@@ -11255,7 +11254,7 @@ SLIME_BLOCK:
     name: A Sticky Situation (Slime)
     type: ALCHEMICAL
     lore:
-      - Desparate to not be alone, this block
+      - Desperate to not be alone, this block
       - will cling to anything it can and will
       - not let go.
     shards: [ 0,0,1,0,0,1,0,0,0 ]
@@ -11299,7 +11298,7 @@ SMITHING_TABLE:
     lore:
       - Somehow, the magic of this table manages
       - to bend and form the hardest known material
-      - around your favorite diamond tools
+      - around your favourite diamond tools
     shards: [ 0,1,0,0,2,0,0,0,0 ]
     author: Seggan
 
@@ -11620,7 +11619,7 @@ SPECTRAL_ARROW:
     type: HUMAN
     lore:
       - Covered with precious glowstone
-      - dust, this magical arrow is hepful
+      - dust, this magical arrow is helpful
       - for spotting your enemies
     shards: [ 1,0,0,0,1,0,1,0,0 ]
     author: Seggan
@@ -11657,7 +11656,7 @@ SPONGE:
     - ELEMENTAL
     - ANIMAL
   story:
-    name: Absorbant (Dry)
+    name: Absorbent (Dry)
     type: ANIMAL
     lore:
       - It is often forgotten that a Sponge is
@@ -12107,7 +12106,7 @@ STONE_SWORD:
     lore:
       - Finally armed, the wielder can choose
       - to use a sword defensively or aggressively
-      - either way the sword fulfills its purpose
+      - either way the sword fulfils its purpose
     shards: [ 0,0,0,1,1,0,0,1,1 ]
 
 STRING:
@@ -12381,7 +12380,7 @@ SUSPICIOUS_STEW:
     name: Not-so-Hearty
     type: HUMAN
     lore:
-      - An irratic spirit that lets out a
+      - An erratic spirit that lets out a
       - deluge of magics when consumed.
     shards: [ 0,0,0,0,2,1,0,0,0 ]
 
@@ -12487,7 +12486,7 @@ TNT_MINECART:
     - HUMAN
   story:
     name: A Rolling Minecart... (TNT)
-    type:
+    type: MECHANICAL
     lore:
       - ...Gathers No Moss. The singular largest
       - leap in minecraft tech, the minecart has
@@ -12531,7 +12530,7 @@ TRAPPED_CHEST:
     lore:
       - The Trapped Chest specifically lies in wait
       - wanting nothing more than to surprise and
-      - (hopefuly) cause pain to others.
+      - (hopefully) cause pain to others.
     shards: [ 0,2,0,0,0,0,0,0,0 ]
 
 TRIDENT:
@@ -12555,7 +12554,7 @@ TRIPWIRE_HOOK:
     - MECHANICAL
   story:
     name: Tripping up
-    type: MECHANCIAL
+    type: MECHANICAL
     lore:
       - When Dr. Minestein invented the tripwire
       - hook, he tripped, and out came the idea
@@ -12569,7 +12568,7 @@ TROPICAL_FISH:
     - ANIMAL
   story:
     name: The 2700 of Us
-    type:
+    type: ANIMAL
     lore:
       - It was thought that each one was unique
       - but after stringent research each possible
@@ -12614,8 +12613,8 @@ TUBE_CORAL_BLOCK:
     name: Be'reef't (Tube)
     type: PHILOSOPHICAL
     lore:
-      - Ripped from it's habitat and molded into
-      - an unatural form for human purposes.
+      - Ripped from it's habitat and moulded into
+      - an unnatural form for human purposes.
       - This is a spirit ripped asunder.
     shards: [ 0,0,0,1,0,0,1,0,1 ]
 
@@ -12766,7 +12765,7 @@ WARPED_FUNGUS:
     - ANIMAL
     - VOID
   story:
-    name: Fungal Frugility (Red)
+    name: Fungal Frugality (Red)
     type: ANIMAL
     lore:
       - While slow, it's strength lies in it's
@@ -12851,7 +12850,7 @@ WARPED_ROOTS:
     name: Determination (Warped)
     type: ANIMAL
     lore:
-      - Anything growning in a place like the nether
+      - Anything growing in a place like the nether
       - should be commended for it's determination.
     shards: [ 1,0,0,0,0,1,0,1,0 ]
 
@@ -12970,7 +12969,7 @@ WAXED_CUT_COPPER:
     - HUMAN
   story:
     name: A Cut Above (Waxed Copper)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -12983,7 +12982,7 @@ WAXED_CUT_COPPER_SLAB:
     - HUMAN
   story:
     name: A Cut Above (Waxed Copper Slab)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -12996,7 +12995,7 @@ WAXED_CUT_COPPER_STAIRS:
     - HUMAN
   story:
     name: A Cut Above (Waxed Copper Stairs)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -13022,7 +13021,7 @@ WAXED_EXPOSED_CUT_COPPER:
     - HUMAN
   story:
     name: A Cut Above (Waxed Exposed Copper)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -13035,7 +13034,7 @@ WAXED_EXPOSED_CUT_COPPER_SLAB:
     - HUMAN
   story:
     name: A Cut Above (Waxed Exposed Copper Slab)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -13048,7 +13047,7 @@ WAXED_EXPOSED_CUT_COPPER_STAIRS:
     - HUMAN
   story:
     name: A Cut Above (Waxed Exposed Copper Stairs)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -13074,7 +13073,7 @@ WAXED_OXIDIZED_CUT_COPPER:
     - HUMAN
   story:
     name: A Cut Above (Waxed Oxidised Copper)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -13087,7 +13086,7 @@ WAXED_OXIDIZED_CUT_COPPER_SLAB:
     - HUMAN
   story:
     name: A Cut Above (Waxed Oxidised Copper Slab)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -13100,7 +13099,7 @@ WAXED_OXIDIZED_CUT_COPPER_STAIRS:
     - HUMAN
   story:
     name: A Cut Above (Waxed Oxidised Copper Stairs)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -13126,7 +13125,7 @@ WAXED_WEATHERED_CUT_COPPER:
     - HUMAN
   story:
     name: A Cut Above (Waxed Weathered Copper)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -13139,7 +13138,7 @@ WAXED_WEATHERED_CUT_COPPER_SLAB:
     - HUMAN
   story:
     name: A Cut Above (Waxed Weathered Copper Slab)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -13180,7 +13179,7 @@ WEATHERED_CUT_COPPER:
     - HUMAN
   story:
     name: A Cut Above (Weathered Copper)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -13193,7 +13192,7 @@ WEATHERED_CUT_COPPER_SLAB:
     - HUMAN
   story:
     name: A Cut Above (Weathered Copper Slab)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -13206,7 +13205,7 @@ WEATHERED_CUT_COPPER_STAIRS:
     - HUMAN
   story:
     name: A Cut Above (Weathered Copper Stairs)
-    type: Mechanical
+    type: MECHANICAL
     lore:
       - This block never complains, despite the
       - pain gone through for this visual perfection
@@ -13233,7 +13232,7 @@ WET_SPONGE:
     - ELEMENTAL
     - ANIMAL
   story:
-    name: Absorbant (Wet)
+    name: Absorbent (Wet)
     type: ANIMAL
     lore:
       - It is often forgotten that a Sponge is
@@ -13546,7 +13545,7 @@ WOODEN_SWORD:
     lore:
       - Finally armed, the wielder can choose
       - to use a sword defensively or aggressively.
-      - Either way, the sword fulfills its purpose
+      - Either way, the sword fulfils its purpose
     shards: [ 0,0,0,1,1,0,0,1,1 ]
 
 WRITABLE_BOOK:
@@ -13755,6 +13754,6 @@ ZOMBIE_HEAD:
     lore:
       - While a despicable practice, some magics
       - can only be harnessed through recent
-      - decapitations. Luckily no Crysta is wholy
+      - decapitations. Luckily no Crysta is wholly
       - dependent on this.
     shards: [ 0,1,0,0,1,0,0,1,0 ]
