@@ -8300,7 +8300,7 @@ NETHERITE_BOOTS:
     shards: [ 0,0,0,1,2,0,0,0,1 ]
 
 NETHERITE_CHESTPLATE:
-  tier: 2
+  tier: 5
   elements:
     - HUMAN
     - CELESTIAL

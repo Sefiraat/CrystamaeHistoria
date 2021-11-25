@@ -700,4 +700,5 @@ public class Gadgets {
 
         LiquefactionBasinCache.addCraftingRecipe(trophyDisplay, trophyDisplayRecipe);
     }
+
 }

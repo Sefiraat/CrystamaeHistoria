@@ -173,6 +173,7 @@ public class Tools {
             }
         );
 
+
         // Slimefun Registry
         chargedPlate.register(CrystamaeHistoria.getInstance());
         inertPlate.register(CrystamaeHistoria.getInstance());
@@ -181,7 +182,10 @@ public class Tools {
         refractingLens.register(plugin);
         thaumaturgicSalts.register(plugin);
 
+
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(inertPlate, inertPlateRecipe);
+
+
     }
 }
