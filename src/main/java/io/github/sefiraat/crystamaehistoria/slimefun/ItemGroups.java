@@ -52,6 +52,13 @@ public final class ItemGroups {
             ThemeType.MAIN.getColor() + "Historia Staves and Tool"
         )
     );
+    public static final DummyItemGroup PAINTBRUSHES = new DummyItemGroup(
+        Keys.newKey("paintbrushes"),
+        new CustomItemStack(
+            new ItemStack(Material.STICK),
+            ThemeType.MAIN.getColor() + "Historia Magic Paintbrushes"
+        )
+    );
     public static final DummyItemGroup GADGETS = new DummyItemGroup(
         Keys.newKey("gadgets"),
         new CustomItemStack(

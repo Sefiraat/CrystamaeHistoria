@@ -59,6 +59,8 @@ public class Materials {
     private static SlimefunItem uncannyPearl;
     @Getter
     private static SlimefunItem gildedPearl;
+    @Getter
+    private static SlimefunItem basicFibres;
 
     public static void setup() {
 
@@ -416,6 +418,26 @@ public class Materials {
             }
         );
 
+        // Basic Fibres
+        RecipeItem basicFibresRecipe = new RecipeItem(
+            new ItemStack(Material.WHEAT),
+            StoryType.MECHANICAL, 5,
+            StoryType.HISTORICAL, 5,
+            StoryType.HUMAN, 5
+        );
+        basicFibres = new UnplaceableBlock(
+            ItemGroups.MATERIALS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_BASIC_FIBRES",
+                new ItemStack(Material.DRIED_KELP),
+                ThemeType.CRAFTING,
+                "Basic Fibres",
+                "Very basic and coarse fibres."
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            basicFibresRecipe.getDisplayRecipe()
+        );
+
         // Slimefun Registry
         amalgamateDustCommon.register(plugin);
         amalgamateDustUncommon.register(plugin);
@@ -432,10 +454,12 @@ public class Materials {
         imbuedGlass.register(plugin);
         uncannyPearl.register(plugin);
         gildedPearl.register(plugin);
+        basicFibres.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(imbuedGlass, imbuedGlassRecipe);
         LiquefactionBasinCache.addCraftingRecipe(uncannyPearl, uncannyPearlRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(basicFibres, basicFibresRecipe);
     }
 
     public static Map<StoryType, SlimefunItem> getDummyCrystalMap() {
