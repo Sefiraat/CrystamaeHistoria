@@ -661,6 +661,9 @@ public class Gadgets {
         waystoneMaterials.add(Material.RED_NETHER_BRICK_WALL);
         waystoneMaterials.add(Material.END_STONE_BRICK_WALL);
         waystoneMaterials.add(Material.DEEPSLATE_BRICK_WALL);
+        waystoneMaterials.add(Material.POLISHED_BLACKSTONE_BRICK_WALL);
+        waystoneMaterials.add(Material.STONE_BRICK_WALL);
+        waystoneMaterials.add(Material.NETHER_BRICK_WALL);
         RecipeItem waystoneRecipe = new RecipeItem(
             new ItemStack(Material.LODESTONE),
             StoryType.HISTORICAL, 50,
@@ -680,10 +683,10 @@ public class Gadgets {
             DummyLiquefactionBasinCrafting.TYPE,
             waystoneRecipe.getDisplayRecipe(),
             waystoneMaterials,
-            10,
+            5,
             block -> ParticleUtils.displayParticleEffect(
                 block.getLocation().add(0.5, 0.5, 0.5),
-                Particle.END_ROD,
+                Particle.PORTAL,
                 0.5,
                 3
             )

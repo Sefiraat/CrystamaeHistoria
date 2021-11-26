@@ -4,7 +4,7 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.RecallingCrystaMatrix;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.RecallingCrystaLattice;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.RefactingLens;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.ThaumaturgicSalt;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.BlankPlate;
@@ -38,7 +38,7 @@ public class Tools {
     @Getter
     private static ThaumaturgicSalt thaumaturgicSalts;
     @Getter
-    private static RecallingCrystaMatrix recallingCrystaMatrix;
+    private static RecallingCrystaLattice crystaRecallLattice;
 
     public static void setup() {
         final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
@@ -177,14 +177,14 @@ public class Tools {
             }
         );
 
-        // Recalling Matrix
-        recallingCrystaMatrix = new RecallingCrystaMatrix(
+        // Recall Lattice
+        crystaRecallLattice = new RecallingCrystaLattice(
             ItemGroups.TOOLS,
             ThemeType.themedSlimefunItemStack(
-                "CRY_RECALL_MATRIX",
+                "CRY_RECALL_LATTICE",
                 new ItemStack(Material.NETHER_STAR),
                 ThemeType.TOOL,
-                "Crystamae Recall Matrix",
+                "Crystamae Recall Lattice",
                 "Right click to recall to a linked",
                 "Waystone.",
                 "",
@@ -207,7 +207,7 @@ public class Tools {
         staveAdvanced.register(plugin);
         refractingLens.register(plugin);
         thaumaturgicSalts.register(plugin);
-        recallingCrystaMatrix.register(plugin);
+        crystaRecallLattice.register(plugin);
 
 
         // Liquefaction Recipes

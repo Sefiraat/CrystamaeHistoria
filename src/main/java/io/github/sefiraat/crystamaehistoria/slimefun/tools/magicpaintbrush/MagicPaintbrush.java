@@ -20,8 +20,6 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.PotionMeta;
 
-import java.util.Optional;
-
 public interface MagicPaintbrush {
 
     static ItemStack getTippedBrush(DyeColor dyeColor) {

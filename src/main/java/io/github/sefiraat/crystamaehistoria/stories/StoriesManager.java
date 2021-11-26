@@ -14,7 +14,6 @@ import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import scala.concurrent.impl.FutureConvertersImpl;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.text.MessageFormat;

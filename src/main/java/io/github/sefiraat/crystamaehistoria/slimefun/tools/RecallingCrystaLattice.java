@@ -11,26 +11,28 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
+import io.github.thebusybiscuit.slimefun4.utils.ChatUtils;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextColor;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Player;
 import org.bukkit.event.player.PlayerTeleportEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
-import scala.concurrent.impl.FutureConvertersImpl;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.text.MessageFormat;
 import java.util.Optional;
 
-public class RecallingCrystaMatrix extends SlimefunItem {
+public class RecallingCrystaLattice extends SlimefunItem {
 
     @ParametersAreNonnullByDefault
-    public RecallingCrystaMatrix(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
+    public RecallingCrystaLattice(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
         addItemHandler((ItemUseHandler) e -> {
             if (e.getPlayer().isSneaking()) {
@@ -42,33 +44,46 @@ public class RecallingCrystaMatrix extends SlimefunItem {
     }
 
     private void setLocation(PlayerRightClickEvent event) {
-        Optional<Block> blockOptional = event.getClickedBlock();
+        final Optional<Block> blockOptional = event.getClickedBlock();
+
         if (blockOptional.isPresent()) {
-            Block block = blockOptional.get();
-            SlimefunItem slimefunItem = BlockStorage.check(block);
-            Location location = block.getLocation();
+            final Block block = blockOptional.get();
+            final SlimefunItem slimefunItem = BlockStorage.check(block);
+            final Location location = block.getLocation();
+            final Player player = event.getPlayer();
+
             if (slimefunItem instanceof Waystone
-                && GeneralUtils.hasPermission(event.getPlayer(), location, Interaction.PLACE_BLOCK)
+                && GeneralUtils.hasPermission(player, location, Interaction.PLACE_BLOCK)
             ) {
-                ItemStack itemStack = event.getItem();
-                ItemMeta itemMeta = itemStack.getItemMeta();
-                PersistentDataContainer container = itemMeta.getPersistentDataContainer();
+                final ItemStack itemStack = event.getItem();
+                final ItemMeta itemMeta = itemStack.getItemMeta();
+                final PersistentDataContainer container = itemMeta.getPersistentDataContainer();
+
                 container.set(Keys.newKey("location"), DataType.LOCATION, location);
-                itemMeta.lore().remove(itemMeta.lore().size() - 1);
-                itemMeta.lore().add(Component.text(location.toString())
-                    .color(TextColor.color(200, 30,40)));
                 itemStack.setItemMeta(itemMeta);
+                player.sendMessage(
+                    MessageFormat.format("{0}Type the name of this Waystone into chat.", ChatColor.LIGHT_PURPLE)
+                );
+                ChatUtils.awaitInput(player, s -> renameItem(s, itemStack));
             }
         }
     }
 
+    private void renameItem(String s, ItemStack itemStack) {
+        final ItemMeta itemMeta = itemStack.getItemMeta();
+
+        itemMeta.setDisplayName(ThemeType.TOOL.getColor() + s);
+        itemStack.setItemMeta(itemMeta);
+    }
+
     private void teleport(PlayerRightClickEvent event) {
-        ItemStack itemStack = event.getItem();
-        ItemMeta itemMeta = itemStack.getItemMeta();
-        PersistentDataContainer container = itemMeta.getPersistentDataContainer();
-        Location location = container.get(Keys.newKey("location"), DataType.LOCATION);
-        Block block = location.getBlock();
-        SlimefunItem slimefunItem = BlockStorage.check(block);
+        final ItemStack itemStack = event.getItem();
+        final ItemMeta itemMeta = itemStack.getItemMeta();
+        final PersistentDataContainer container = itemMeta.getPersistentDataContainer();
+        final Location location = container.get(Keys.newKey("location"), DataType.LOCATION);
+        final Block block = location.getBlock();
+        final SlimefunItem slimefunItem = BlockStorage.check(block);
+
         if (slimefunItem instanceof Waystone
             && GeneralUtils.hasPermission(event.getPlayer(), location, Interaction.PLACE_BLOCK)
         ) {
@@ -80,7 +95,4 @@ public class RecallingCrystaMatrix extends SlimefunItem {
             );
         }
     }
-
-
-
 }
