@@ -47,7 +47,7 @@ public class InfinitePaintbrush extends SlimefunItem implements MagicPaintbrush 
                     potionMeta.setColor(profile.getDyeColor().getColor());
                     itemStack.setItemMeta(potionMeta);
                 } else {
-                    tryPaint(e, PaintProfile.getCachedValues()[currentSelection]);
+                    tryPaint(e, PaintProfile.getCachedValues()[currentSelection], true);
                 }
             }
         };

@@ -10,6 +10,12 @@ import org.bukkit.Material;
 import org.bukkit.Tag;
 import org.bukkit.block.Block;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Axolotl;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Parrot;
+import org.bukkit.entity.Sheep;
+import org.bukkit.entity.Shulker;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.PotionMeta;
@@ -38,19 +44,22 @@ public interface MagicPaintbrush {
         return itemStack;
     }
 
-    default boolean tryPaint(PlayerRightClickEvent event, PaintProfile profile) {
-        final Optional<Block> optionalBlock = event.getClickedBlock();
+    default boolean tryPaint(PlayerRightClickEvent event, PaintProfile profile, boolean allowEntities) {
+        final Block block = event.getPlayer().getTargetBlockExact(100);
+        final Entity entity = event.getPlayer().getTargetEntity(100);
 
-        if (!optionalBlock.isPresent()) {
-            return false;
+        if (allowEntities && entity != null && GeneralUtils.hasPermission(event.getPlayer(), entity.getLocation(), Interaction.INTERACT_ENTITY)) {
+            return tryPaintEntity(profile, entity);
         }
 
-        final Block block = optionalBlock.get();
-
-        if (!GeneralUtils.hasPermission(event.getPlayer(), block, Interaction.PLACE_BLOCK)) {
-            return false;
+        if (block != null && GeneralUtils.hasPermission(event.getPlayer(), block, Interaction.PLACE_BLOCK)) {
+            return tryPaintBlock(profile, block);
         }
 
+        return false;
+    }
+
+    default boolean tryPaintBlock(PaintProfile profile, Block block) {
         final Material material = block.getType();
 
         if (Tag.WOOL.isTagged(material)
@@ -83,6 +92,53 @@ public interface MagicPaintbrush {
         ) {
             block.setType(profile.getMaterialCarpet());
             return true;
+        } else if (SlimefunTag.GLASS_BLOCKS.isTagged(material)
+            && block.getType() != profile.getMaterialGlass()
+        ) {
+            block.setType(profile.getMaterialGlass());
+            return true;
+        } else if (SlimefunTag.GLASS_PANES.isTagged(material)
+            && block.getType() != profile.getMaterialGlassPane()
+        ) {
+            block.setType(profile.getMaterialGlassPane());
+            return true;
+        } else if (Tag.SHULKER_BOXES.isTagged(material)
+            && block.getType() != profile.getMaterialShulker()
+        ) {
+            block.setType(profile.getMaterialShulker());
+            return true;
+        }
+
+        return false;
+    }
+
+    default boolean tryPaintEntity(PaintProfile profile, Entity entity) {
+        final EntityType entityType = entity.getType();
+
+        if (entityType == EntityType.SHULKER) {
+            Shulker shulker = (Shulker) entity;
+            if (shulker.getColor() != profile.getDyeColor()) {
+                shulker.setColor(profile.getDyeColor());
+                return true;
+            }
+        } else if (entityType == EntityType.SHEEP) {
+            Sheep sheep = (Sheep) entity;
+            if (sheep.getColor() != profile.getDyeColor()) {
+                sheep.setColor(profile.getDyeColor());
+                return true;
+            }
+        } else if (entityType == EntityType.PARROT && profile.getParrotVariant() != null) {
+            Parrot parrot = (Parrot) entity;
+            if (parrot.getVariant() != profile.getParrotVariant()) {
+                parrot.setVariant(profile.getParrotVariant());
+                return true;
+            }
+        } else if (entityType == EntityType.AXOLOTL && profile.getAxolotlVariant() != null) {
+            Axolotl axolotl = (Axolotl) entity;
+            if (axolotl.getVariant() != profile.getAxolotlVariant()) {
+                axolotl.setVariant(profile.getAxolotlVariant());
+                return true;
+            }
         }
 
         return false;

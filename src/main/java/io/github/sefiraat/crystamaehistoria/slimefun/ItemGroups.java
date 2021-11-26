@@ -6,11 +6,13 @@ import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.DummyItemGroup;
 import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.MainFlexGroup;
 import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.SpellCollectionFlexGroup;
 import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.StoryCollectionFlexGroup;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.magicpaintbrush.MagicPaintbrush;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import lombok.experimental.UtilityClass;
+import org.bukkit.DyeColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
@@ -55,8 +57,8 @@ public final class ItemGroups {
     public static final DummyItemGroup PAINTBRUSHES = new DummyItemGroup(
         Keys.newKey("paintbrushes"),
         new CustomItemStack(
-            new ItemStack(Material.STICK),
-            ThemeType.MAIN.getColor() + "Historia Magic Paintbrushes"
+            MagicPaintbrush.getTippedBrush(DyeColor.WHITE, true),
+            ThemeType.MAIN.getColor() + "Crystamae Magic Paintbrushes"
         )
     );
     public static final DummyItemGroup GADGETS = new DummyItemGroup(

@@ -41,7 +41,7 @@ public class BasicPaintbrush extends LimitedUseItem implements MagicPaintbrush {
     @Override
     public ItemUseHandler getItemHandler() {
         return e -> {
-            if (tryPaint(e, this.profile)) {
+            if (tryPaint(e, this.profile, false)) {
                 damageItem(e.getPlayer(), e.getItem());
             }
         };
