@@ -4,6 +4,7 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.RecallingCrystaLattice;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.RefactingLens;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.ThaumaturgicSalt;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.BlankPlate;
@@ -36,6 +37,8 @@ public class Tools {
     private static RefactingLens refractingLens;
     @Getter
     private static ThaumaturgicSalt thaumaturgicSalts;
+    @Getter
+    private static RecallingCrystaLattice crystaRecallLattice;
 
     public static void setup() {
         final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
@@ -43,6 +46,7 @@ public class Tools {
         final ItemStack elementalUniqueCrystal = Materials.CRYSTAL_MAP.get(StoryRarity.UNIQUE).get(StoryType.ELEMENTAL).getItem();
         final ItemStack commonIngot = Materials.getAmalgamateIngotCommon().getItem();
         final ItemStack commonDust = Materials.getAmalgamateDustCommon().getItem();
+        final ItemStack epicIngot = Materials.getAmalgamateIngotEpic().getItem();
 
         // Inert Plate
         RecipeItem inertPlateRecipe = new RecipeItem(
@@ -173,6 +177,28 @@ public class Tools {
             }
         );
 
+        // Recall Lattice
+        crystaRecallLattice = new RecallingCrystaLattice(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_RECALL_LATTICE",
+                new ItemStack(Material.NETHER_STAR),
+                ThemeType.TOOL,
+                "Crystamae Recall Lattice",
+                "Right click to recall to a linked",
+                "Waystone.",
+                "",
+                "Shift Right Click on a Waystone",
+                "to link"
+            ),
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                new ItemStack(Material.AMETHYST_SHARD), epicIngot, new ItemStack(Material.AMETHYST_SHARD),
+                epicIngot, new ItemStack(Material.NETHER_STAR), epicIngot,
+                new ItemStack(Material.AMETHYST_SHARD), epicIngot, new ItemStack(Material.AMETHYST_SHARD)
+            }
+        );
+
 
         // Slimefun Registry
         chargedPlate.register(CrystamaeHistoria.getInstance());
@@ -181,6 +207,7 @@ public class Tools {
         staveAdvanced.register(plugin);
         refractingLens.register(plugin);
         thaumaturgicSalts.register(plugin);
+        crystaRecallLattice.register(plugin);
 
 
         // Liquefaction Recipes

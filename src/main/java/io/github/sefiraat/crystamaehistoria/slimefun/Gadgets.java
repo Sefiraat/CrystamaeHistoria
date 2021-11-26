@@ -11,6 +11,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobLamp;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobMat;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MysteriousTicker;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.TrophyDisplay;
+import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.Waystone;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
@@ -30,7 +31,9 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @UtilityClass
 public class Gadgets {
@@ -77,6 +80,8 @@ public class Gadgets {
     private static GreenHouseGlass focusedGreenHouseGlass;
     @Getter
     private static TrophyDisplay trophyDisplay;
+    @Getter
+    private static Waystone waystone;
 
     public static void setup() {
 
@@ -651,6 +656,42 @@ public class Gadgets {
             trophyDisplayRecipe.getDisplayRecipe()
         );
 
+        // Waystone
+        final Set<Material> waystoneMaterials = new HashSet<>();
+        waystoneMaterials.add(Material.RED_NETHER_BRICK_WALL);
+        waystoneMaterials.add(Material.END_STONE_BRICK_WALL);
+        waystoneMaterials.add(Material.DEEPSLATE_BRICK_WALL);
+        waystoneMaterials.add(Material.POLISHED_BLACKSTONE_BRICK_WALL);
+        waystoneMaterials.add(Material.STONE_BRICK_WALL);
+        waystoneMaterials.add(Material.NETHER_BRICK_WALL);
+        RecipeItem waystoneRecipe = new RecipeItem(
+            new ItemStack(Material.LODESTONE),
+            StoryType.HISTORICAL, 50,
+            StoryType.HUMAN, 50,
+            StoryType.CELESTIAL, 50
+        );
+        waystone = new Waystone(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_WAYSTONE",
+                new ItemStack(Material.END_STONE_BRICK_WALL),
+                ThemeType.GADGET,
+                "Diverging Waystone",
+                "Can be used as a marker to recall",
+                "back to."
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            waystoneRecipe.getDisplayRecipe(),
+            waystoneMaterials,
+            5,
+            block -> ParticleUtils.displayParticleEffect(
+                block.getLocation().add(0.5, 0.5, 0.5),
+                Particle.PORTAL,
+                0.5,
+                3
+            )
+        );
+
         // Slimefun Registry
         abstractionLamp.register(plugin);
         dispersionLamp.register(plugin);
@@ -673,6 +714,7 @@ public class Gadgets {
         greenHouseGlass.register(plugin);
         focusedGreenHouseGlass.register(plugin);
         trophyDisplay.register(plugin);
+        waystone.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(abstractionLamp, abstractionLampRecipe);
@@ -699,6 +741,8 @@ public class Gadgets {
         LiquefactionBasinCache.addCraftingRecipe(focusedGreenHouseGlass, focusedGreenHouseGlassRecipe);
 
         LiquefactionBasinCache.addCraftingRecipe(trophyDisplay, trophyDisplayRecipe);
+
+        LiquefactionBasinCache.addCraftingRecipe(waystone, waystoneRecipe);
     }
 
 }
