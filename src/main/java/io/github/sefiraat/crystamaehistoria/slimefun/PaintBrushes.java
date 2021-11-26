@@ -894,8 +894,9 @@ public class PaintBrushes {
                 "CRY_BRUSH_INFINITE",
                 MagicPaintbrush.getTippedBrush(DyeColor.WHITE, true),
                 ThemeType.TOOL,
-                "Magic Paintbrush (Infinite)",
-                "Paints colored blocks.",
+                "Mythical Paintbrush",
+                "Paints colored blocks and entities. Can",
+                "paint in all colors and doesn't run out.",
                 "",
                 MessageFormat.format("{0}Shift Left Click: {1}Change Color", ThemeType.CLICK_INFO.getColor(), ThemeType.PASSIVE.getColor())
             ),

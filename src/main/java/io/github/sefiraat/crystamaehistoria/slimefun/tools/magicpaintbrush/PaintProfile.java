@@ -5,7 +5,10 @@ import net.kyori.adventure.text.format.TextColor;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
+import org.bukkit.entity.Axolotl;
+import org.bukkit.entity.Parrot;
 
+import javax.annotation.Nullable;
 import java.awt.Color;
 
 public enum PaintProfile {
@@ -17,6 +20,11 @@ public enum PaintProfile {
         Material.BLACK_CONCRETE_POWDER,
         Material.BLACK_CONCRETE,
         Material.BLACK_CARPET,
+        Material.BLACK_STAINED_GLASS,
+        Material.BLACK_STAINED_GLASS_PANE,
+        Material.BLACK_SHULKER_BOX,
+        null,
+        null,
         DyeColor.BLACK
     ),
     BLUE(
@@ -26,6 +34,11 @@ public enum PaintProfile {
         Material.BLUE_CONCRETE_POWDER,
         Material.BLUE_CONCRETE,
         Material.BLUE_CARPET,
+        Material.BLUE_STAINED_GLASS,
+        Material.BLUE_STAINED_GLASS_PANE,
+        Material.BLUE_SHULKER_BOX,
+        Parrot.Variant.BLUE,
+        Axolotl.Variant.BLUE,
         DyeColor.BLUE
     ),
     BROWN(
@@ -35,6 +48,11 @@ public enum PaintProfile {
         Material.BROWN_CONCRETE_POWDER,
         Material.BROWN_CONCRETE,
         Material.BROWN_CARPET,
+        Material.BROWN_STAINED_GLASS,
+        Material.BROWN_STAINED_GLASS_PANE,
+        Material.BROWN_SHULKER_BOX,
+        null,
+        Axolotl.Variant.WILD,
         DyeColor.BROWN
     ),
     CYAN(
@@ -44,6 +62,11 @@ public enum PaintProfile {
         Material.CYAN_CONCRETE_POWDER,
         Material.CYAN_CONCRETE,
         Material.CYAN_CARPET,
+        Material.CYAN_STAINED_GLASS,
+        Material.CYAN_STAINED_GLASS_PANE,
+        Material.CYAN_SHULKER_BOX,
+        Parrot.Variant.CYAN,
+        Axolotl.Variant.CYAN,
         DyeColor.CYAN
     ),
     GRAY(
@@ -53,6 +76,11 @@ public enum PaintProfile {
         Material.GRAY_CONCRETE_POWDER,
         Material.GRAY_CONCRETE,
         Material.GRAY_CARPET,
+        Material.GRAY_STAINED_GLASS,
+        Material.GRAY_STAINED_GLASS_PANE,
+        Material.GRAY_SHULKER_BOX,
+        Parrot.Variant.GRAY,
+        null,
         DyeColor.GRAY
     ),
     GREEN(
@@ -62,6 +90,11 @@ public enum PaintProfile {
         Material.GREEN_CONCRETE_POWDER,
         Material.GREEN_CONCRETE,
         Material.GREEN_CARPET,
+        Material.GREEN_STAINED_GLASS,
+        Material.GREEN_STAINED_GLASS_PANE,
+        Material.GREEN_SHULKER_BOX,
+        Parrot.Variant.GREEN,
+        null,
         DyeColor.GREEN
     ),
     LIGHT_BLUE(
@@ -71,6 +104,11 @@ public enum PaintProfile {
         Material.LIGHT_BLUE_CONCRETE_POWDER,
         Material.LIGHT_BLUE_CONCRETE,
         Material.LIGHT_BLUE_CARPET,
+        Material.LIGHT_BLUE_STAINED_GLASS,
+        Material.LIGHT_BLUE_STAINED_GLASS_PANE,
+        Material.LIGHT_BLUE_SHULKER_BOX,
+        Parrot.Variant.CYAN,
+        Axolotl.Variant.BLUE,
         DyeColor.LIGHT_BLUE
     ),
     LIGHT_GRAY(
@@ -80,6 +118,11 @@ public enum PaintProfile {
         Material.LIGHT_GRAY_CONCRETE_POWDER,
         Material.LIGHT_GRAY_CONCRETE,
         Material.LIGHT_GRAY_CARPET,
+        Material.LIGHT_GRAY_STAINED_GLASS,
+        Material.LIGHT_GRAY_STAINED_GLASS_PANE,
+        Material.LIGHT_GRAY_SHULKER_BOX,
+        Parrot.Variant.GRAY,
+        Axolotl.Variant.CYAN,
         DyeColor.LIGHT_GRAY
     ),
     LIME(
@@ -89,6 +132,11 @@ public enum PaintProfile {
         Material.LIME_CONCRETE_POWDER,
         Material.LIME_CONCRETE,
         Material.LIME_CARPET,
+        Material.LIME_STAINED_GLASS,
+        Material.LIME_STAINED_GLASS_PANE,
+        Material.LIME_SHULKER_BOX,
+        Parrot.Variant.GREEN,
+        null,
         DyeColor.LIME
     ),
     MAGENTA(
@@ -99,6 +147,11 @@ public enum PaintProfile {
         Material.MAGENTA_CONCRETE_POWDER,
         Material.MAGENTA_CONCRETE,
         Material.MAGENTA_CARPET,
+        Material.MAGENTA_STAINED_GLASS,
+        Material.MAGENTA_STAINED_GLASS_PANE,
+        Material.MAGENTA_SHULKER_BOX,
+        null,
+        Axolotl.Variant.LUCY,
         DyeColor.MAGENTA
     ),
     ORANGE(
@@ -108,6 +161,11 @@ public enum PaintProfile {
         Material.ORANGE_CONCRETE_POWDER,
         Material.ORANGE_CONCRETE,
         Material.ORANGE_CARPET,
+        Material.ORANGE_STAINED_GLASS,
+        Material.ORANGE_STAINED_GLASS_PANE,
+        Material.ORANGE_SHULKER_BOX,
+        null,
+        Axolotl.Variant.GOLD,
         DyeColor.ORANGE
     ),
     PINK(
@@ -117,6 +175,11 @@ public enum PaintProfile {
         Material.PINK_CONCRETE_POWDER,
         Material.PINK_CONCRETE,
         Material.PINK_CARPET,
+        Material.PINK_STAINED_GLASS,
+        Material.PINK_STAINED_GLASS_PANE,
+        Material.PINK_SHULKER_BOX,
+        null,
+        Axolotl.Variant.LUCY,
         DyeColor.PINK
     ),
     PURPLE(
@@ -126,6 +189,11 @@ public enum PaintProfile {
         Material.PURPLE_CONCRETE_POWDER,
         Material.PURPLE_CONCRETE,
         Material.PURPLE_CARPET,
+        Material.PURPLE_STAINED_GLASS,
+        Material.PURPLE_STAINED_GLASS_PANE,
+        Material.PURPLE_SHULKER_BOX,
+        null,
+        Axolotl.Variant.LUCY,
         DyeColor.PURPLE
     ),
     RED(
@@ -135,6 +203,11 @@ public enum PaintProfile {
         Material.RED_CONCRETE_POWDER,
         Material.RED_CONCRETE,
         Material.RED_CARPET,
+        Material.RED_STAINED_GLASS,
+        Material.RED_STAINED_GLASS_PANE,
+        Material.RED_SHULKER_BOX,
+        Parrot.Variant.RED,
+        Axolotl.Variant.WILD,
         DyeColor.RED
     ),
     WHITE(
@@ -144,6 +217,11 @@ public enum PaintProfile {
         Material.WHITE_CONCRETE_POWDER,
         Material.WHITE_CONCRETE,
         Material.WHITE_CARPET,
+        Material.WHITE_STAINED_GLASS,
+        Material.WHITE_STAINED_GLASS_PANE,
+        Material.WHITE_SHULKER_BOX,
+        null,
+        Axolotl.Variant.CYAN,
         DyeColor.WHITE
     ),
     YELLOW(
@@ -153,6 +231,11 @@ public enum PaintProfile {
         Material.YELLOW_CONCRETE_POWDER,
         Material.YELLOW_CONCRETE,
         Material.YELLOW_CARPET,
+        Material.YELLOW_STAINED_GLASS,
+        Material.YELLOW_STAINED_GLASS_PANE,
+        Material.YELLOW_SHULKER_BOX,
+        null,
+        Axolotl.Variant.GOLD,
         DyeColor.YELLOW
     );
 
@@ -172,6 +255,16 @@ public enum PaintProfile {
     @Getter
     private final Material materialCarpet;
     @Getter
+    private final Material materialGlass;
+    @Getter
+    private final Material materialGlassPane;
+    @Getter
+    private final Material materialShulker;
+    @Getter
+    private final Parrot.Variant parrotVariant;
+    @Getter
+    private final Axolotl.Variant axolotlVariant;
+    @Getter
     private final DyeColor dyeColor;
 
     PaintProfile(Material materialWool,
@@ -180,6 +273,11 @@ public enum PaintProfile {
                  Material materialConcretePowder,
                  Material materialConcrete,
                  Material materialCarpet,
+                 Material materialGlass,
+                 Material materialGlassPane,
+                 Material materialShulker,
+                 @Nullable Parrot.Variant parrotVariant,
+                 @Nullable Axolotl.Variant axolotlVariant,
                  DyeColor dyeColor
     ) {
         this.materialWool = materialWool;
@@ -188,6 +286,11 @@ public enum PaintProfile {
         this.materialConcretePowder = materialConcretePowder;
         this.materialConcrete = materialConcrete;
         this.materialCarpet = materialCarpet;
+        this.materialGlass = materialGlass;
+        this.materialGlassPane = materialGlassPane;
+        this.materialShulker = materialShulker;
+        this.parrotVariant = parrotVariant;
+        this.axolotlVariant = axolotlVariant;
         this.dyeColor = dyeColor;
     }
 
