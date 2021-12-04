@@ -4,6 +4,8 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.EphemeralCraftingTable;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.EphemeralWorkBench;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.RecallingCrystaLattice;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.RefactingLens;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.ThaumaturgicSalt;
@@ -39,6 +41,10 @@ public class Tools {
     private static ThaumaturgicSalt thaumaturgicSalts;
     @Getter
     private static RecallingCrystaLattice crystaRecallLattice;
+    @Getter
+    private static EphemeralCraftingTable ephemeralCraftingTable;
+    @Getter
+    private static EphemeralWorkBench ephemeralWorkBench;
 
     public static void setup() {
         final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
@@ -199,6 +205,50 @@ public class Tools {
             }
         );
 
+        // Ephemeral Crafting Table
+        RecipeItem ephemeralCraftingTableRecipe = new RecipeItem(
+            new ItemStack(Material.CRAFTING_TABLE),
+            StoryType.HUMAN, 50,
+            StoryType.HISTORICAL, 25,
+            StoryType.PHILOSOPHICAL, 50
+        );
+        ephemeralCraftingTable = new EphemeralCraftingTable(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_EPHEMERAL_CRAFT_TABLE",
+                new ItemStack(Material.CRAFTING_TABLE),
+                ThemeType.TOOL,
+                "Ephemeral Crafting Table",
+                "Right click to be able to craft",
+                "from anywhere.",
+                "Vanilla Only"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            ephemeralCraftingTableRecipe.getDisplayRecipe()
+        );
+
+        // Ephemeral Crafting Table
+        RecipeItem ephemeralWorkBenchRecipe = new RecipeItem(
+            ephemeralCraftingTable.getItem(),
+            StoryType.HUMAN, 250,
+            StoryType.HISTORICAL, 100,
+            StoryType.PHILOSOPHICAL, 250
+        );
+        ephemeralWorkBench = new EphemeralWorkBench(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_EPHEMERAL_WORKBENCH",
+                new ItemStack(Material.CRAFTING_TABLE),
+                ThemeType.TOOL,
+                "Ephemeral Work Bench",
+                "Right click to be able to craft",
+                "from anywhere.",
+                "Vanilla + Enhanced Crafting Table."
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            ephemeralWorkBenchRecipe.getDisplayRecipe()
+        );
+
 
         // Slimefun Registry
         chargedPlate.register(CrystamaeHistoria.getInstance());
@@ -208,10 +258,14 @@ public class Tools {
         refractingLens.register(plugin);
         thaumaturgicSalts.register(plugin);
         crystaRecallLattice.register(plugin);
-
+        ephemeralCraftingTable.register(plugin);
+        ephemeralWorkBench.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(inertPlate, inertPlateRecipe);
+
+        LiquefactionBasinCache.addCraftingRecipe(ephemeralCraftingTable, ephemeralCraftingTableRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(ephemeralWorkBench, ephemeralWorkBenchRecipe);
 
 
     }
