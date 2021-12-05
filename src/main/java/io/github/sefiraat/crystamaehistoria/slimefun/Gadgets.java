@@ -18,11 +18,13 @@ import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasi
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.CrystaTag;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import io.github.thebusybiscuit.slimefun4.utils.tags.SlimefunTag;
 import lombok.Getter;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Color;
@@ -76,6 +78,16 @@ public class Gadgets {
     private static MysteriousTicker mysteriousPottedPlant;
     @Getter
     private static MysteriousTicker mysteriousPlant;
+    @Getter
+    private static MysteriousTicker mysteriousGlass;
+    @Getter
+    private static MysteriousTicker mysteriousWool;
+    @Getter
+    private static MysteriousTicker mysteriousTerracotta;
+    @Getter
+    private static MysteriousTicker mysteriousGlazedTerracotta;
+    @Getter
+    private static MysteriousTicker mysteriousConcrete;
     @Getter
     private static GreenHouseGlass greenHouseGlass;
     @Getter
@@ -591,6 +603,121 @@ public class Gadgets {
             )
         );
 
+        // Mysterious Glass
+        RecipeItem mysteriousGlassRecipe = new RecipeItem(
+            new ItemStack(Material.GLASS),
+            StoryType.MECHANICAL, 5,
+            StoryType.ALCHEMICAL, 5,
+            StoryType.PHILOSOPHICAL, 5
+        );
+        mysteriousGlass = new MysteriousTicker(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MYSTERIOUS_GLASS",
+                new ItemStack(Material.ORANGE_STAINED_GLASS),
+                ThemeType.GADGET,
+                "Mysterious Glass",
+                "Like rainbow glass but far",
+                "more random."
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            mysteriousGlassRecipe.getDisplayRecipe(),
+            SlimefunTag.GLASS_BLOCKS.getValues(),
+            15
+        );
+
+        // Mysterious Wool
+        RecipeItem mysteriousWoolRecipe = new RecipeItem(
+            new ItemStack(Material.WHITE_WOOL),
+            StoryType.MECHANICAL, 5,
+            StoryType.ALCHEMICAL, 5,
+            StoryType.PHILOSOPHICAL, 5
+        );
+        mysteriousWool = new MysteriousTicker(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MYSTERIOUS_WOOL",
+                new ItemStack(Material.ORANGE_WOOL),
+                ThemeType.GADGET,
+                "Mysterious Wool",
+                "Like rainbow wool but far",
+                "more random."
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            mysteriousWoolRecipe.getDisplayRecipe(),
+            SlimefunTag.WOOL.getValues(),
+            15
+        );
+
+        // Mysterious Wool
+        RecipeItem mysteriousTerracottaRecipe = new RecipeItem(
+            new ItemStack(Material.TERRACOTTA),
+            StoryType.MECHANICAL, 5,
+            StoryType.ALCHEMICAL, 5,
+            StoryType.PHILOSOPHICAL, 5
+        );
+        mysteriousTerracotta = new MysteriousTicker(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MYSTERIOUS_TERRACOTTA",
+                new ItemStack(Material.ORANGE_TERRACOTTA),
+                ThemeType.GADGET,
+                "Mysterious Terracotta",
+                "Like rainbow terracotta but far",
+                "more random."
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            mysteriousTerracottaRecipe.getDisplayRecipe(),
+            SlimefunTag.TERRACOTTA.getValues(),
+            15
+        );
+
+        // Mysterious Glazed Terracotta
+        RecipeItem mysteriousGlazedTerracottaRecipe = new RecipeItem(
+            new ItemStack(Material.WHITE_GLAZED_TERRACOTTA),
+            StoryType.MECHANICAL, 5,
+            StoryType.ALCHEMICAL, 5,
+            StoryType.PHILOSOPHICAL, 5
+        );
+        mysteriousGlazedTerracotta = new MysteriousTicker(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MYSTERIOUS_GLAZED_TERRACOTTA",
+                new ItemStack(Material.ORANGE_GLAZED_TERRACOTTA),
+                ThemeType.GADGET,
+                "Mysterious Glazed Terracotta",
+                "Like rainbow terracotta but far",
+                "more random."
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            mysteriousGlazedTerracottaRecipe.getDisplayRecipe(),
+            CrystaTag.GLAZED_TERRACOTTA.getValues(),
+            15
+        );
+
+        // Mysterious Concrete
+        RecipeItem mysteriousConcreteRecipe = new RecipeItem(
+            new ItemStack(Material.WHITE_CONCRETE),
+            StoryType.MECHANICAL, 5,
+            StoryType.ALCHEMICAL, 5,
+            StoryType.PHILOSOPHICAL, 5
+        );
+        mysteriousConcrete = new MysteriousTicker(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MYSTERIOUS_CONCRETE",
+                new ItemStack(Material.ORANGE_CONCRETE),
+                ThemeType.GADGET,
+                "Mysterious Concrete",
+                "Like rainbow concrete but far",
+                "more random."
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            mysteriousConcreteRecipe.getDisplayRecipe(),
+            CrystaTag.CONCRETE_BLOCKS.getValues(),
+            15
+        );
+
         // Green House Glass
         greenHouseGlass = new GreenHouseGlass(
             ItemGroups.GADGETS,
@@ -737,6 +864,11 @@ public class Gadgets {
         scintillatingMobCandle.register(plugin);
         mysteriousPottedPlant.register(plugin);
         mysteriousPlant.register(plugin);
+        mysteriousGlass.register(plugin);
+        mysteriousWool.register(plugin);
+        mysteriousTerracotta.register(plugin);
+        mysteriousGlazedTerracotta.register(plugin);
+        mysteriousConcrete.register(plugin);
         greenHouseGlass.register(plugin);
         focusedGreenHouseGlass.register(plugin);
         trophyDisplay.register(plugin);
@@ -764,6 +896,11 @@ public class Gadgets {
         LiquefactionBasinCache.addCraftingRecipe(scintillatingMobCandle, scintillatingMobCandleRecipe);
 
         LiquefactionBasinCache.addCraftingRecipe(mysteriousPlant, mysteriousPlantRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(mysteriousGlass, mysteriousPlantRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(mysteriousWool, mysteriousPlantRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(mysteriousTerracotta, mysteriousPlantRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(mysteriousGlazedTerracotta, mysteriousPlantRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(mysteriousConcrete, mysteriousPlantRecipe);
 
         LiquefactionBasinCache.addCraftingRecipe(focusedGreenHouseGlass, focusedGreenHouseGlassRecipe);
 
