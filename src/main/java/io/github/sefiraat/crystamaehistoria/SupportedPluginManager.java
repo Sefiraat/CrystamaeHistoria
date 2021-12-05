@@ -15,14 +15,20 @@ import javax.annotation.Nullable;
 @Getter
 public class SupportedPluginManager {
 
+    private static SupportedPluginManager instance;
+
     private final boolean mcMMO;
     private final boolean exoticGarden;
     private final boolean slimeTinker;
+    private final boolean headLimiter;
 
     public SupportedPluginManager() {
+        instance = this;
+
         mcMMO = Bukkit.getPluginManager().isPluginEnabled("mcMMO");
         exoticGarden = Bukkit.getPluginManager().isPluginEnabled("ExoticGarden");
         slimeTinker = Bukkit.getPluginManager().isPluginEnabled("SlimeTinker");
+        headLimiter = Bukkit.getPluginManager().isPluginEnabled("HeadLimiter");
     }
 
     /**
@@ -70,6 +76,22 @@ public class SupportedPluginManager {
             }
         }
         return null;
+    }
+
+    public static boolean isMcMMO() {
+        return instance.mcMMO;
+    }
+
+    public static boolean isExoticGarden() {
+        return instance.exoticGarden;
+    }
+
+    public static boolean isSlimeTinker() {
+        return instance.slimeTinker;
+    }
+
+    public static boolean isHeadLimiter() {
+        return instance.headLimiter;
     }
 
 
