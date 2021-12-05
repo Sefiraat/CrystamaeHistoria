@@ -4,12 +4,13 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.EphemeralCraftingTable;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.EphemeralWorkBench;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.LuminescenceScoop;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.RecallingCrystaLattice;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.RefactingLens;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.ThaumaturgicSalt;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.covers.BlockVeil;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.crafting.EphemeralCraftingTable;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.crafting.EphemeralWorkBench;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.BlankPlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.ChargedPlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.Stave;
@@ -17,8 +18,14 @@ import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import io.github.thebusybiscuit.slimefun4.implementation.items.cargo.AdvancedCargoOutputNode;
+import io.github.thebusybiscuit.slimefun4.implementation.items.cargo.CargoConnectorNode;
+import io.github.thebusybiscuit.slimefun4.implementation.items.cargo.CargoInputNode;
+import io.github.thebusybiscuit.slimefun4.implementation.items.cargo.CargoOutputNode;
+import io.github.thebusybiscuit.slimefun4.implementation.items.electric.EnergyConnector;
 import lombok.Getter;
 import lombok.experimental.UtilityClass;
 import org.bukkit.ChatColor;
@@ -52,6 +59,10 @@ public class Tools {
     private static LuminescenceScoop brillianceScoop;
     @Getter
     private static LuminescenceScoop lustreScoop;
+    @Getter
+    private static BlockVeil cargoCover;
+    @Getter
+    private static BlockVeil energyNetCover;
 
     public static void setup() {
         final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
@@ -331,6 +342,63 @@ public class Tools {
             250
         );
 
+        // Cargo Cover
+        SlimefunItemStack cargoCoverStack = ThemeType.themedSlimefunItemStack(
+            "CRY_CARGO_COVER",
+            new ItemStack(Material.PAPER),
+            ThemeType.TOOL,
+            "Block Veil - Cargo",
+            "Right click to place a magical",
+            "block veil over a cargo node.",
+            "The cover will mimic the block",
+            "in your offhand.",
+            "One time use per item."
+        );
+        RecipeItem cargoCoverRecipe = new RecipeItem(
+            SlimefunItems.CARGO_INPUT_NODE,
+            StoryType.MECHANICAL, 10,
+            StoryType.HUMAN, 10,
+            StoryType.VOID, 10
+        );
+        cargoCover = new BlockVeil(
+            ItemGroups.TOOLS,
+            cargoCoverStack,
+            DummyLiquefactionBasinCrafting.TYPE,
+            cargoCoverRecipe.getDisplayRecipe(),
+            cargoCoverStack.asQuantity(8),
+            CargoConnectorNode.class,
+            CargoInputNode.class,
+            CargoOutputNode.class,
+            AdvancedCargoOutputNode.class
+        );
+
+        // Energy Net Cover
+        SlimefunItemStack energyNetCoverStack = ThemeType.themedSlimefunItemStack(
+            "CRY_ENERGY_NET_COVER",
+            new ItemStack(Material.PAPER),
+            ThemeType.TOOL,
+            "Block Veil - Energy Net",
+            "Right click to place a magical",
+            "block veil over a cargo node.",
+            "The cover will mimic the block",
+            "in your offhand.",
+            "One time use per item."
+        );
+        RecipeItem energyNetCoverRecipe = new RecipeItem(
+            SlimefunItems.ENERGY_CONNECTOR,
+            StoryType.MECHANICAL, 10,
+            StoryType.HUMAN, 10,
+            StoryType.VOID, 10
+        );
+        energyNetCover = new BlockVeil(
+            ItemGroups.TOOLS,
+            energyNetCoverStack,
+            DummyLiquefactionBasinCrafting.TYPE,
+            energyNetCoverRecipe.getDisplayRecipe(),
+            energyNetCoverStack.asQuantity(8),
+            EnergyConnector.class
+        );
+
 
         // Slimefun Registry
         chargedPlate.register(CrystamaeHistoria.getInstance());
@@ -345,6 +413,8 @@ public class Tools {
         luminescenceScoop.register(plugin);
         brillianceScoop.register(plugin);
         lustreScoop.register(plugin);
+        cargoCover.register(plugin);
+        energyNetCover.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(inertPlate, inertPlateRecipe);
@@ -355,5 +425,8 @@ public class Tools {
         LiquefactionBasinCache.addCraftingRecipe(luminescenceScoop, luminescenceScoopRecipe);
         LiquefactionBasinCache.addCraftingRecipe(brillianceScoop, brillianceScoopRecipe);
         LiquefactionBasinCache.addCraftingRecipe(lustreScoop, lustreScoopRecipe);
+
+        LiquefactionBasinCache.addCraftingRecipe(cargoCover, cargoCoverRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(energyNetCover, energyNetCoverRecipe);
     }
 }

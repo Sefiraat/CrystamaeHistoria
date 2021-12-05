@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.slimefun.tools;
+package io.github.sefiraat.crystamaehistoria.slimefun.tools.crafting;
 
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
