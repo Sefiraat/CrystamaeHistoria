@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasi
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.EphemeralCraftingTable;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.EphemeralWorkBench;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.LuminescenceScoop;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.RecallingCrystaLattice;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.RefactingLens;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.ThaumaturgicSalt;
@@ -45,6 +46,12 @@ public class Tools {
     private static EphemeralCraftingTable ephemeralCraftingTable;
     @Getter
     private static EphemeralWorkBench ephemeralWorkBench;
+    @Getter
+    private static LuminescenceScoop luminescenceScoop;
+    @Getter
+    private static LuminescenceScoop brillianceScoop;
+    @Getter
+    private static LuminescenceScoop lustreScoop;
 
     public static void setup() {
         final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
@@ -227,7 +234,7 @@ public class Tools {
             ephemeralCraftingTableRecipe.getDisplayRecipe()
         );
 
-        // Ephemeral Crafting Table
+        // Ephemeral Workbench
         RecipeItem ephemeralWorkBenchRecipe = new RecipeItem(
             ephemeralCraftingTable.getItem(),
             StoryType.HUMAN, 250,
@@ -249,6 +256,81 @@ public class Tools {
             ephemeralWorkBenchRecipe.getDisplayRecipe()
         );
 
+        // Luminesence Scoop
+        RecipeItem luminescenceScoopRecipe = new RecipeItem(
+            new ItemStack(Material.LANTERN),
+            StoryType.CELESTIAL, 70,
+            StoryType.ALCHEMICAL, 20,
+            StoryType.HUMAN, 15
+        );
+        luminescenceScoop = new LuminescenceScoop(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_LUMINESCENCE_SCOOP",
+                new ItemStack(Material.LANTERN),
+                ThemeType.TOOL,
+                "Luminescence Scoop",
+                "Right click to place a magical",
+                "light source.",
+                "Shift Right click to scoop back.",
+                "",
+                ChatColor.YELLOW + "25 Uses " + ChatColor.GRAY + "left"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            luminescenceScoopRecipe.getDisplayRecipe(),
+            25
+        );
+
+        // Brilliance Scoop
+        RecipeItem brillianceScoopRecipe = new RecipeItem(
+            luminescenceScoop.getItem(),
+            StoryType.CELESTIAL, 140,
+            StoryType.ALCHEMICAL, 40,
+            StoryType.HUMAN, 30
+        );
+        brillianceScoop = new LuminescenceScoop(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_BRILLIANCE_SCOOP",
+                new ItemStack(Material.LANTERN),
+                ThemeType.TOOL,
+                "Brilliance Scoop",
+                "Right click to place a magical",
+                "light source.",
+                "Shift Right click to scoop back.",
+                "",
+                ChatColor.YELLOW + "75 Uses " + ChatColor.GRAY + "left"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            brillianceScoopRecipe.getDisplayRecipe(),
+            75
+        );
+
+        // Lustre Scoop
+        RecipeItem lustreScoopRecipe = new RecipeItem(
+            brillianceScoop.getItem(),
+            StoryType.CELESTIAL, 280,
+            StoryType.ALCHEMICAL, 80,
+            StoryType.HUMAN, 60
+        );
+        lustreScoop = new LuminescenceScoop(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_LUSTRE_SCOOP",
+                new ItemStack(Material.SOUL_LANTERN),
+                ThemeType.TOOL,
+                "Lustre Scoop",
+                "Right click to place a magical",
+                "light source.",
+                "Shift Right click to scoop back.",
+                "",
+                ChatColor.YELLOW + "250 Uses " + ChatColor.GRAY + "left"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            lustreScoopRecipe.getDisplayRecipe(),
+            250
+        );
+
 
         // Slimefun Registry
         chargedPlate.register(CrystamaeHistoria.getInstance());
@@ -260,6 +342,9 @@ public class Tools {
         crystaRecallLattice.register(plugin);
         ephemeralCraftingTable.register(plugin);
         ephemeralWorkBench.register(plugin);
+        luminescenceScoop.register(plugin);
+        brillianceScoop.register(plugin);
+        lustreScoop.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(inertPlate, inertPlateRecipe);
@@ -267,6 +352,8 @@ public class Tools {
         LiquefactionBasinCache.addCraftingRecipe(ephemeralCraftingTable, ephemeralCraftingTableRecipe);
         LiquefactionBasinCache.addCraftingRecipe(ephemeralWorkBench, ephemeralWorkBenchRecipe);
 
-
+        LiquefactionBasinCache.addCraftingRecipe(luminescenceScoop, luminescenceScoopRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(brillianceScoop, brillianceScoopRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(lustreScoop, lustreScoopRecipe);
     }
 }
