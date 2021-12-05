@@ -21,7 +21,11 @@ public class AngelBlock extends SlimefunItem {
             (ItemUseHandler) e -> {
                 Location location = e.getPlayer().getEyeLocation();
                 Block block = location.add(location.getDirection()).getBlock();
-                if (block.isEmpty() && GeneralUtils.hasPermission(e.getPlayer(), block, Interaction.PLACE_BLOCK)) {
+                if (block.isEmpty()
+                    && block.getLocation().getY() <= block.getWorld().getMaxHeight()
+                    && block.getLocation().getY() >= block.getWorld().getMinHeight()
+                    && GeneralUtils.hasPermission(e.getPlayer(), block, Interaction.PLACE_BLOCK)
+                ) {
                     block.setType(e.getItem().getType());
                     BlockStorage.store(block, e.getItem());
                     e.getItem().setAmount(e.getItem().getAmount() - 1);
