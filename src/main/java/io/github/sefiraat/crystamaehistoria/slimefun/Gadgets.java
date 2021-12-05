@@ -10,6 +10,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobCandle;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobFan;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobLamp;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobMat;
+import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobTrap;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MysteriousTicker;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.TrophyDisplay;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.Waystone;
@@ -60,6 +61,8 @@ public class Gadgets {
     private static MobMat doomedPlate;
     @Getter
     private static MobMat evisceratingPlate;
+    @Getter
+    private static MobTrap trapPlate;
     @Getter
     private static ExpCollector basicExpCollector;
     @Getter
@@ -364,7 +367,30 @@ public class Gadgets {
             true
         );
 
-        // Basic Exp Collector Plate
+        // Trap Plate
+        RecipeItem trapPlateRecipe = new RecipeItem(
+            evisceratingPlate.getItem(),
+            StoryType.ALCHEMICAL, 400,
+            StoryType.CELESTIAL, 100,
+            StoryType.MECHANICAL, 50
+        );
+        trapPlate = new MobTrap(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MOB_PLATE_TRAP",
+                new ItemStack(Material.DARK_OAK_PRESSURE_PLATE),
+                ThemeType.GADGET,
+                "Trap Plate",
+                "This plate no longer deals",
+                "damage but now applies potion",
+                "effects. Right click with",
+                "a potion to assign."
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            trapPlateRecipe.getDisplayRecipe()
+        );
+
+        // Basic Exp Collector
         RecipeItem basicExpCollectorRecipe = new RecipeItem(
             SlimefunItems.EXP_COLLECTOR,
             StoryType.MECHANICAL, 150,
@@ -855,6 +881,7 @@ public class Gadgets {
         searingPlate.register(plugin);
         doomedPlate.register(plugin);
         evisceratingPlate.register(plugin);
+        trapPlate.register(plugin);
         basicExpCollector.register(plugin);
         infusedExpCollector.register(plugin);
         basicEnderInhibitor.register(plugin);
@@ -887,6 +914,7 @@ public class Gadgets {
         LiquefactionBasinCache.addCraftingRecipe(searingPlate, searingPlateRecipe);
         LiquefactionBasinCache.addCraftingRecipe(doomedPlate, doomedPlateRecipe);
         LiquefactionBasinCache.addCraftingRecipe(evisceratingPlate, evisceratingPlateRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(trapPlate, trapPlateRecipe);
 
         LiquefactionBasinCache.addCraftingRecipe(basicExpCollector, basicExpCollectorRecipe);
         LiquefactionBasinCache.addCraftingRecipe(infusedExpCollector, infusedExpCollectorRecipe);
