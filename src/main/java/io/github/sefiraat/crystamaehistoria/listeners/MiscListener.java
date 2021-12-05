@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.listeners;
 
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MysteriousTicker;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.covers.BlockVeil;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
@@ -32,6 +33,14 @@ public class MiscListener implements Listener {
     public void onPlaceStoriedBlock(BlockPlaceEvent e) {
         ItemStack itemStack = e.getItemInHand();
         if (StoryUtils.isStoried(itemStack)) {
+            e.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void onPlaceCover(BlockPlaceEvent e) {
+        ItemStack itemStack = e.getPlayer().getInventory().getItemInMainHand();
+        if (SlimefunItem.getByItem(itemStack) instanceof BlockVeil) {
             e.setCancelled(true);
         }
     }

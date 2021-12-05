@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.tools;
 
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.types.RefillableUseItem;
+import io.github.sefiraat.crystamaehistoria.slimefun.types.RefillableUseItem;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;

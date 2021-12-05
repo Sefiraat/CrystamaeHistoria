@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.AngelBlock;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.CursedEarth;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.EnderInhibitor;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.ExpCollector;
@@ -9,6 +10,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobCandle;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobFan;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobLamp;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobMat;
+import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobTrap;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MysteriousTicker;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.TrophyDisplay;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.Waystone;
@@ -17,10 +19,13 @@ import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasi
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.CrystaTag;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
+import io.github.thebusybiscuit.slimefun4.utils.tags.SlimefunTag;
 import lombok.Getter;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Color;
@@ -57,6 +62,8 @@ public class Gadgets {
     @Getter
     private static MobMat evisceratingPlate;
     @Getter
+    private static MobTrap trapPlate;
+    @Getter
     private static ExpCollector basicExpCollector;
     @Getter
     private static ExpCollector infusedExpCollector;
@@ -75,6 +82,16 @@ public class Gadgets {
     @Getter
     private static MysteriousTicker mysteriousPlant;
     @Getter
+    private static MysteriousTicker mysteriousGlass;
+    @Getter
+    private static MysteriousTicker mysteriousWool;
+    @Getter
+    private static MysteriousTicker mysteriousTerracotta;
+    @Getter
+    private static MysteriousTicker mysteriousGlazedTerracotta;
+    @Getter
+    private static MysteriousTicker mysteriousConcrete;
+    @Getter
     private static GreenHouseGlass greenHouseGlass;
     @Getter
     private static GreenHouseGlass focusedGreenHouseGlass;
@@ -82,6 +99,8 @@ public class Gadgets {
     private static TrophyDisplay trophyDisplay;
     @Getter
     private static Waystone waystone;
+    @Getter
+    private static AngelBlock angelBlock;
 
     public static void setup() {
 
@@ -89,6 +108,7 @@ public class Gadgets {
 
         final ItemStack uniqueVoid = Materials.CRYSTAL_MAP.get(StoryRarity.UNIQUE).get(StoryType.VOID).getItem();
         final ItemStack amalgamateDustRare = Materials.getAmalgamateDustRare().getItem();
+        final ItemStack amalgamateIngotRare = Materials.getAmalgamateIngotRare().getItem();
         final ItemStack amalgamateDustEpic = Materials.getAmalgamateDustEpic().getItem();
 
         // Abstraction Lamp
@@ -347,7 +367,30 @@ public class Gadgets {
             true
         );
 
-        // Basic Exp Collector Plate
+        // Trap Plate
+        RecipeItem trapPlateRecipe = new RecipeItem(
+            evisceratingPlate.getItem(),
+            StoryType.ALCHEMICAL, 400,
+            StoryType.CELESTIAL, 100,
+            StoryType.MECHANICAL, 50
+        );
+        trapPlate = new MobTrap(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MOB_PLATE_TRAP",
+                new ItemStack(Material.DARK_OAK_PRESSURE_PLATE),
+                ThemeType.GADGET,
+                "Trap Plate",
+                "This plate no longer deals",
+                "damage but now applies potion",
+                "effects. Right click with",
+                "a potion to assign."
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            trapPlateRecipe.getDisplayRecipe()
+        );
+
+        // Basic Exp Collector
         RecipeItem basicExpCollectorRecipe = new RecipeItem(
             SlimefunItems.EXP_COLLECTOR,
             StoryType.MECHANICAL, 150,
@@ -586,6 +629,121 @@ public class Gadgets {
             )
         );
 
+        // Mysterious Glass
+        RecipeItem mysteriousGlassRecipe = new RecipeItem(
+            new ItemStack(Material.GLASS),
+            StoryType.MECHANICAL, 5,
+            StoryType.ALCHEMICAL, 5,
+            StoryType.PHILOSOPHICAL, 5
+        );
+        mysteriousGlass = new MysteriousTicker(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MYSTERIOUS_GLASS",
+                new ItemStack(Material.ORANGE_STAINED_GLASS),
+                ThemeType.GADGET,
+                "Mysterious Glass",
+                "Like rainbow glass but far",
+                "more random."
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            mysteriousGlassRecipe.getDisplayRecipe(),
+            SlimefunTag.GLASS_BLOCKS.getValues(),
+            15
+        );
+
+        // Mysterious Wool
+        RecipeItem mysteriousWoolRecipe = new RecipeItem(
+            new ItemStack(Material.WHITE_WOOL),
+            StoryType.MECHANICAL, 5,
+            StoryType.ALCHEMICAL, 5,
+            StoryType.PHILOSOPHICAL, 5
+        );
+        mysteriousWool = new MysteriousTicker(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MYSTERIOUS_WOOL",
+                new ItemStack(Material.ORANGE_WOOL),
+                ThemeType.GADGET,
+                "Mysterious Wool",
+                "Like rainbow wool but far",
+                "more random."
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            mysteriousWoolRecipe.getDisplayRecipe(),
+            SlimefunTag.WOOL.getValues(),
+            15
+        );
+
+        // Mysterious Wool
+        RecipeItem mysteriousTerracottaRecipe = new RecipeItem(
+            new ItemStack(Material.TERRACOTTA),
+            StoryType.MECHANICAL, 5,
+            StoryType.ALCHEMICAL, 5,
+            StoryType.PHILOSOPHICAL, 5
+        );
+        mysteriousTerracotta = new MysteriousTicker(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MYSTERIOUS_TERRACOTTA",
+                new ItemStack(Material.ORANGE_TERRACOTTA),
+                ThemeType.GADGET,
+                "Mysterious Terracotta",
+                "Like rainbow terracotta but far",
+                "more random."
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            mysteriousTerracottaRecipe.getDisplayRecipe(),
+            SlimefunTag.TERRACOTTA.getValues(),
+            15
+        );
+
+        // Mysterious Glazed Terracotta
+        RecipeItem mysteriousGlazedTerracottaRecipe = new RecipeItem(
+            new ItemStack(Material.WHITE_GLAZED_TERRACOTTA),
+            StoryType.MECHANICAL, 5,
+            StoryType.ALCHEMICAL, 5,
+            StoryType.PHILOSOPHICAL, 5
+        );
+        mysteriousGlazedTerracotta = new MysteriousTicker(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MYSTERIOUS_GLAZED_TERRACOTTA",
+                new ItemStack(Material.ORANGE_GLAZED_TERRACOTTA),
+                ThemeType.GADGET,
+                "Mysterious Glazed Terracotta",
+                "Like rainbow terracotta but far",
+                "more random."
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            mysteriousGlazedTerracottaRecipe.getDisplayRecipe(),
+            CrystaTag.GLAZED_TERRACOTTA.getValues(),
+            15
+        );
+
+        // Mysterious Concrete
+        RecipeItem mysteriousConcreteRecipe = new RecipeItem(
+            new ItemStack(Material.WHITE_CONCRETE),
+            StoryType.MECHANICAL, 5,
+            StoryType.ALCHEMICAL, 5,
+            StoryType.PHILOSOPHICAL, 5
+        );
+        mysteriousConcrete = new MysteriousTicker(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MYSTERIOUS_CONCRETE",
+                new ItemStack(Material.ORANGE_CONCRETE),
+                ThemeType.GADGET,
+                "Mysterious Concrete",
+                "Like rainbow concrete but far",
+                "more random."
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            mysteriousConcreteRecipe.getDisplayRecipe(),
+            CrystaTag.CONCRETE_BLOCKS.getValues(),
+            15
+        );
+
         // Green House Glass
         greenHouseGlass = new GreenHouseGlass(
             ItemGroups.GADGETS,
@@ -692,6 +850,27 @@ public class Gadgets {
             )
         );
 
+        // AngelBlock
+        SlimefunItemStack angelBlockStack = ThemeType.themedSlimefunItemStack(
+            "CRY_ANGEL_BLOCK",
+            new ItemStack(Material.GLASS),
+            ThemeType.GADGET,
+            "Angel Block",
+            "Can be placed anywhere, even in",
+            "the air."
+        );
+        angelBlock = new AngelBlock(
+            ItemGroups.GADGETS,
+            angelBlockStack,
+            RecipeType.ENHANCED_CRAFTING_TABLE,
+            new ItemStack[]{
+                new ItemStack(Material.GLASS), new ItemStack(Material.GLASS), new ItemStack(Material.GLASS),
+                new ItemStack(Material.GLASS), amalgamateIngotRare, new ItemStack(Material.GLASS),
+                new ItemStack(Material.GLASS), new ItemStack(Material.GLASS), new ItemStack(Material.GLASS)
+            },
+            angelBlockStack.asQuantity(8)
+        );
+
         // Slimefun Registry
         abstractionLamp.register(plugin);
         dispersionLamp.register(plugin);
@@ -702,6 +881,7 @@ public class Gadgets {
         searingPlate.register(plugin);
         doomedPlate.register(plugin);
         evisceratingPlate.register(plugin);
+        trapPlate.register(plugin);
         basicExpCollector.register(plugin);
         infusedExpCollector.register(plugin);
         basicEnderInhibitor.register(plugin);
@@ -711,10 +891,16 @@ public class Gadgets {
         scintillatingMobCandle.register(plugin);
         mysteriousPottedPlant.register(plugin);
         mysteriousPlant.register(plugin);
+        mysteriousGlass.register(plugin);
+        mysteriousWool.register(plugin);
+        mysteriousTerracotta.register(plugin);
+        mysteriousGlazedTerracotta.register(plugin);
+        mysteriousConcrete.register(plugin);
         greenHouseGlass.register(plugin);
         focusedGreenHouseGlass.register(plugin);
         trophyDisplay.register(plugin);
         waystone.register(plugin);
+        angelBlock.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(abstractionLamp, abstractionLampRecipe);
@@ -728,6 +914,7 @@ public class Gadgets {
         LiquefactionBasinCache.addCraftingRecipe(searingPlate, searingPlateRecipe);
         LiquefactionBasinCache.addCraftingRecipe(doomedPlate, doomedPlateRecipe);
         LiquefactionBasinCache.addCraftingRecipe(evisceratingPlate, evisceratingPlateRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(trapPlate, trapPlateRecipe);
 
         LiquefactionBasinCache.addCraftingRecipe(basicExpCollector, basicExpCollectorRecipe);
         LiquefactionBasinCache.addCraftingRecipe(infusedExpCollector, infusedExpCollectorRecipe);
@@ -737,6 +924,11 @@ public class Gadgets {
         LiquefactionBasinCache.addCraftingRecipe(scintillatingMobCandle, scintillatingMobCandleRecipe);
 
         LiquefactionBasinCache.addCraftingRecipe(mysteriousPlant, mysteriousPlantRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(mysteriousGlass, mysteriousPlantRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(mysteriousWool, mysteriousPlantRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(mysteriousTerracotta, mysteriousPlantRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(mysteriousGlazedTerracotta, mysteriousPlantRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(mysteriousConcrete, mysteriousPlantRecipe);
 
         LiquefactionBasinCache.addCraftingRecipe(focusedGreenHouseGlass, focusedGreenHouseGlassRecipe);
 
