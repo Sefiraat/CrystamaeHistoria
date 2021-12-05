@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.AngelBlock;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.CursedEarth;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.EnderInhibitor;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.ExpCollector;
@@ -19,6 +20,7 @@ import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import lombok.Getter;
@@ -82,6 +84,8 @@ public class Gadgets {
     private static TrophyDisplay trophyDisplay;
     @Getter
     private static Waystone waystone;
+    @Getter
+    private static AngelBlock angelBlock;
 
     public static void setup() {
 
@@ -89,6 +93,7 @@ public class Gadgets {
 
         final ItemStack uniqueVoid = Materials.CRYSTAL_MAP.get(StoryRarity.UNIQUE).get(StoryType.VOID).getItem();
         final ItemStack amalgamateDustRare = Materials.getAmalgamateDustRare().getItem();
+        final ItemStack amalgamateIngotRare = Materials.getAmalgamateIngotRare().getItem();
         final ItemStack amalgamateDustEpic = Materials.getAmalgamateDustEpic().getItem();
 
         // Abstraction Lamp
@@ -692,6 +697,27 @@ public class Gadgets {
             )
         );
 
+        // AngelBlock
+        SlimefunItemStack angelBlockStack = ThemeType.themedSlimefunItemStack(
+            "CRY_ANGEL_BLOCK",
+            new ItemStack(Material.GLASS),
+            ThemeType.GADGET,
+            "Angel Block",
+            "Can be placed anywhere, even in",
+            "the air."
+        );
+        angelBlock = new AngelBlock(
+            ItemGroups.GADGETS,
+            angelBlockStack,
+            RecipeType.ENHANCED_CRAFTING_TABLE,
+            new ItemStack[]{
+                new ItemStack(Material.GLASS), new ItemStack(Material.GLASS), new ItemStack(Material.GLASS),
+                new ItemStack(Material.GLASS), amalgamateIngotRare, new ItemStack(Material.GLASS),
+                new ItemStack(Material.GLASS), new ItemStack(Material.GLASS), new ItemStack(Material.GLASS)
+            },
+            angelBlockStack.asQuantity(8)
+        );
+
         // Slimefun Registry
         abstractionLamp.register(plugin);
         dispersionLamp.register(plugin);
@@ -715,6 +741,7 @@ public class Gadgets {
         focusedGreenHouseGlass.register(plugin);
         trophyDisplay.register(plugin);
         waystone.register(plugin);
+        angelBlock.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(abstractionLamp, abstractionLampRecipe);
