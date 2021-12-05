@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.SupportedPluginManager;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
@@ -342,64 +343,6 @@ public class Tools {
             250
         );
 
-        // Cargo Cover
-        SlimefunItemStack cargoCoverStack = ThemeType.themedSlimefunItemStack(
-            "CRY_CARGO_COVER",
-            new ItemStack(Material.PAPER),
-            ThemeType.TOOL,
-            "Block Veil - Cargo",
-            "Right click to place a magical",
-            "block veil over a cargo node.",
-            "The cover will mimic the block",
-            "in your offhand.",
-            "One time use per item."
-        );
-        RecipeItem cargoCoverRecipe = new RecipeItem(
-            SlimefunItems.CARGO_INPUT_NODE,
-            StoryType.MECHANICAL, 10,
-            StoryType.HUMAN, 10,
-            StoryType.VOID, 10
-        );
-        cargoCover = new BlockVeil(
-            ItemGroups.TOOLS,
-            cargoCoverStack,
-            DummyLiquefactionBasinCrafting.TYPE,
-            cargoCoverRecipe.getDisplayRecipe(),
-            cargoCoverStack.asQuantity(8),
-            CargoConnectorNode.class,
-            CargoInputNode.class,
-            CargoOutputNode.class,
-            AdvancedCargoOutputNode.class
-        );
-
-        // Energy Net Cover
-        SlimefunItemStack energyNetCoverStack = ThemeType.themedSlimefunItemStack(
-            "CRY_ENERGY_NET_COVER",
-            new ItemStack(Material.PAPER),
-            ThemeType.TOOL,
-            "Block Veil - Energy Net",
-            "Right click to place a magical",
-            "block veil over a cargo node.",
-            "The cover will mimic the block",
-            "in your offhand.",
-            "One time use per item."
-        );
-        RecipeItem energyNetCoverRecipe = new RecipeItem(
-            SlimefunItems.ENERGY_CONNECTOR,
-            StoryType.MECHANICAL, 10,
-            StoryType.HUMAN, 10,
-            StoryType.VOID, 10
-        );
-        energyNetCover = new BlockVeil(
-            ItemGroups.TOOLS,
-            energyNetCoverStack,
-            DummyLiquefactionBasinCrafting.TYPE,
-            energyNetCoverRecipe.getDisplayRecipe(),
-            energyNetCoverStack.asQuantity(8),
-            EnergyConnector.class
-        );
-
-
         // Slimefun Registry
         chargedPlate.register(CrystamaeHistoria.getInstance());
         inertPlate.register(CrystamaeHistoria.getInstance());
@@ -413,8 +356,6 @@ public class Tools {
         luminescenceScoop.register(plugin);
         brillianceScoop.register(plugin);
         lustreScoop.register(plugin);
-        cargoCover.register(plugin);
-        energyNetCover.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(inertPlate, inertPlateRecipe);
@@ -426,7 +367,75 @@ public class Tools {
         LiquefactionBasinCache.addCraftingRecipe(brillianceScoop, brillianceScoopRecipe);
         LiquefactionBasinCache.addCraftingRecipe(lustreScoop, lustreScoopRecipe);
 
-        LiquefactionBasinCache.addCraftingRecipe(cargoCover, cargoCoverRecipe);
-        LiquefactionBasinCache.addCraftingRecipe(energyNetCover, energyNetCoverRecipe);
+
+        /*
+        Covers 'hide' items from HL - until the tile entity check
+        is swapped out to extend to all SlimefunItems we don't want
+        to allow the items to exist here.
+         */
+        if (!SupportedPluginManager.isHeadLimiter()) {
+            // Cargo Cover
+            SlimefunItemStack cargoCoverStack = ThemeType.themedSlimefunItemStack(
+                "CRY_CARGO_COVER",
+                new ItemStack(Material.PAPER),
+                ThemeType.TOOL,
+                "Block Veil - Cargo",
+                "Right click to place a magical",
+                "block veil over a cargo node.",
+                "The cover will mimic the block",
+                "in your offhand.",
+                "One time use per item."
+            );
+            RecipeItem cargoCoverRecipe = new RecipeItem(
+                SlimefunItems.CARGO_INPUT_NODE,
+                StoryType.MECHANICAL, 10,
+                StoryType.HUMAN, 10,
+                StoryType.VOID, 10
+            );
+            cargoCover = new BlockVeil(
+                ItemGroups.TOOLS,
+                cargoCoverStack,
+                DummyLiquefactionBasinCrafting.TYPE,
+                cargoCoverRecipe.getDisplayRecipe(),
+                cargoCoverStack.asQuantity(8),
+                CargoConnectorNode.class,
+                CargoInputNode.class,
+                CargoOutputNode.class,
+                AdvancedCargoOutputNode.class
+            );
+
+            // Energy Net Cover
+            SlimefunItemStack energyNetCoverStack = ThemeType.themedSlimefunItemStack(
+                "CRY_ENERGY_NET_COVER",
+                new ItemStack(Material.PAPER),
+                ThemeType.TOOL,
+                "Block Veil - Energy Net",
+                "Right click to place a magical",
+                "block veil over a cargo node.",
+                "The cover will mimic the block",
+                "in your offhand.",
+                "One time use per item."
+            );
+            RecipeItem energyNetCoverRecipe = new RecipeItem(
+                SlimefunItems.ENERGY_CONNECTOR,
+                StoryType.MECHANICAL, 10,
+                StoryType.HUMAN, 10,
+                StoryType.VOID, 10
+            );
+            energyNetCover = new BlockVeil(
+                ItemGroups.TOOLS,
+                energyNetCoverStack,
+                DummyLiquefactionBasinCrafting.TYPE,
+                energyNetCoverRecipe.getDisplayRecipe(),
+                energyNetCoverStack.asQuantity(8),
+                EnergyConnector.class
+            );
+
+            cargoCover.register(plugin);
+            energyNetCover.register(plugin);
+
+            LiquefactionBasinCache.addCraftingRecipe(cargoCover, cargoCoverRecipe);
+            LiquefactionBasinCache.addCraftingRecipe(energyNetCover, energyNetCoverRecipe);
+        }
     }
 }

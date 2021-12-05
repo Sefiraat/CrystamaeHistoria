@@ -11,6 +11,7 @@ softdepend:
   - mcMMO
   - SlimeTinker
   - ExoticGarden
+  - HeadLimiter
 commands:
   crystamaehistoria:
     description: /historia
