@@ -3,6 +3,7 @@ package io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbas
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
+import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import lombok.Getter;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -33,7 +34,7 @@ public class RecipeItem {
 
     public boolean recipeMatches(List<StoryType> testTypes, List<Integer> testAmounts, ItemStack inputItem) {
         int i = 0;
-        if (!this.inputItem.isSimilar(inputItem)) {
+        if (!SlimefunUtils.isItemSimilar(this.inputItem, inputItem, true,false)) {
             return false;
         }
         for (StoryType testType : testTypes) {
