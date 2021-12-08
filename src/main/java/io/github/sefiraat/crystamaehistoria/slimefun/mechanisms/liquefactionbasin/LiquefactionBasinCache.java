@@ -300,7 +300,7 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
             if (slimefunItem != null
                 && !slimefunItem.isDisabled()
             ) {
-                item.getWorld().dropItem(item.getLocation(), slimefunItem.getItem().clone());
+                item.getWorld().dropItem(item.getLocation(), slimefunItem.getRecipeOutput().clone());
                 if (itemStack.getAmount() > 1) {
                     itemStack.setAmount(itemStack.getAmount() - 1);
                 } else {
