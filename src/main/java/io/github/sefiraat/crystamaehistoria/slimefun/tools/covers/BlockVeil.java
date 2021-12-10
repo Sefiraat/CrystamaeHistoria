@@ -32,6 +32,7 @@ public class BlockVeil extends SlimefunItem {
                     if (testClass.isInstance(slimefunItem)) {
                         if (offhand.getType() != Material.AIR
                             && offhand.getType().isBlock()
+                            && materialIsValid(offhand.getType())
                         ) {
                             block.setType(offhand.getType());
                             e.getItem().setAmount(e.getItem().getAmount() - 1);
@@ -41,5 +42,9 @@ public class BlockVeil extends SlimefunItem {
                 }
             }
         });
+    }
+
+    public boolean materialIsValid(Material material) {
+        return material != Material.SPAWNER && material.getHardness() != -1;
     }
 }
