@@ -6,6 +6,11 @@ magical spells and a progression system for crafting and unlocking new spells.
 Any major event or experience leaves its mark on the surrounding area. Historia allows you to harness this by drawing
 out the raw essence of these experiences from blocks.
 
+Boomer_1 has made an awesome video that takes you through the basics of Crystamae going from the first mechanisms to casting your first spell in Part 1 of his 3-Part series. I'd encourange everyone to watch and enjoy!
+
+[![Watch the video](https://img.youtube.com/vi/fggkwmf6V6k/0.jpg)](https://www.youtube.com/embed/fggkwmf6V6k)
+
+
 ## The Chronicler
 
 The Chronicler Panel is a magical device that allows you to draw out the stories that any Minecraft block has
