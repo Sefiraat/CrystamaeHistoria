@@ -61,8 +61,13 @@ public class BloodMagics extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "BLOOD_MAGICS";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ALCHEMICAL,
+            StoryType.HISTORICAL,
+            StoryType.PHILOSOPHICAL
+        );
     }
 
     @Nonnull
@@ -76,18 +81,13 @@ public class BloodMagics extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.RED_DYE;
+    public String getId() {
+        return "BLOOD_MAGICS";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ALCHEMICAL,
-            StoryType.HISTORICAL,
-            StoryType.PHILOSOPHICAL
-        );
+    public Material getMaterial() {
+        return Material.RED_DYE;
     }
 }

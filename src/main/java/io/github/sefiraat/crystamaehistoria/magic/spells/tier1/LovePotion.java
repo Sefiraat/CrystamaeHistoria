@@ -39,8 +39,13 @@ public class LovePotion extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "LOVE_POTION";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ALCHEMICAL,
+            StoryType.ANIMAL,
+            StoryType.CELESTIAL
+        );
     }
 
     @Nonnull
@@ -53,18 +58,13 @@ public class LovePotion extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.POTION;
+    public String getId() {
+        return "LOVE_POTION";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ALCHEMICAL,
-            StoryType.ANIMAL,
-            StoryType.CELESTIAL
-        );
+    public Material getMaterial() {
+        return Material.POTION;
     }
 }

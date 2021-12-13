@@ -30,8 +30,13 @@ public class Break extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "BREAK";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.MECHANICAL,
+            StoryType.ALCHEMICAL
+        );
     }
 
     @Nonnull
@@ -44,18 +49,13 @@ public class Break extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.CRACKED_STONE_BRICKS;
+    public String getId() {
+        return "BREAK";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.MECHANICAL,
-            StoryType.ALCHEMICAL
-        );
+    public Material getMaterial() {
+        return Material.CRACKED_STONE_BRICKS;
     }
 }

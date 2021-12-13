@@ -76,8 +76,13 @@ public class LeechBomb extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "LEECH_BOMB";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.MECHANICAL,
+            StoryType.HUMAN,
+            StoryType.ANIMAL
+        );
     }
 
     @Nonnull
@@ -91,19 +96,14 @@ public class LeechBomb extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.CARVED_PUMPKIN;
+    public String getId() {
+        return "LEECH_BOMB";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.MECHANICAL,
-            StoryType.HUMAN,
-            StoryType.ANIMAL
-        );
+    public Material getMaterial() {
+        return Material.CARVED_PUMPKIN;
     }
 
 }

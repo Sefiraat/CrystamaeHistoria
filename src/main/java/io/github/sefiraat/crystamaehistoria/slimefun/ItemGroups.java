@@ -68,6 +68,13 @@ public final class ItemGroups {
             ThemeType.MAIN.getColor() + "Magical Tech and Gadgets"
         )
     );
+    public static final DummyItemGroup EXALTED = new DummyItemGroup(
+        Keys.newKey("exalted"),
+        new CustomItemStack(
+            new ItemStack(Material.BEACON),
+            ThemeType.MAIN.getColor() + "Exalted Items"
+        )
+    );
     public static final DummyItemGroup MATERIALS = new DummyItemGroup(
         Keys.newKey("materials"),
         new CustomItemStack(
@@ -235,8 +242,6 @@ public final class ItemGroups {
 
         // Slimefun Registry
         ItemGroups.MAIN.register(plugin);
-        //ItemGroups.STORY_COLLECTION.register(plugin);
-        //ItemGroups.SPELL_COLLECTION.register(plugin);
 
         guideChronicler.register(plugin);
         guideRealisation.register(plugin);

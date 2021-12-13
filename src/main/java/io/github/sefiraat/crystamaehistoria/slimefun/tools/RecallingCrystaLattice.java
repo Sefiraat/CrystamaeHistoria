@@ -69,13 +69,6 @@ public class RecallingCrystaLattice extends SlimefunItem {
         }
     }
 
-    private void renameItem(String s, ItemStack itemStack) {
-        final ItemMeta itemMeta = itemStack.getItemMeta();
-
-        itemMeta.setDisplayName(ThemeType.TOOL.getColor() + s);
-        itemStack.setItemMeta(itemMeta);
-    }
-
     private void teleport(PlayerRightClickEvent event) {
         final ItemStack itemStack = event.getItem();
         final ItemMeta itemMeta = itemStack.getItemMeta();
@@ -94,5 +87,12 @@ public class RecallingCrystaLattice extends SlimefunItem {
                     .color(TextColor.color(200, 30, 40))
             );
         }
+    }
+
+    private void renameItem(String s, ItemStack itemStack) {
+        final ItemMeta itemMeta = itemStack.getItemMeta();
+
+        itemMeta.setDisplayName(ThemeType.TOOL.getColor() + s);
+        itemStack.setItemMeta(itemMeta);
     }
 }

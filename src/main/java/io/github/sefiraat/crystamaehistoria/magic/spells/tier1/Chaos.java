@@ -63,10 +63,6 @@ public class Chaos extends Spell {
         }
     }
 
-    public void onTick(MagicProjectile magicProjectile) {
-        ParticleUtils.displayParticleEffect(magicProjectile.getProjectile(), Particle.GLOW, 0.2, 1);
-    }
-
     public void onHitEntity(CastInformation castInformation) {
         GeneralUtils.damageEntity(
             castInformation.getMainTarget(),
@@ -79,10 +75,19 @@ public class Chaos extends Spell {
         GeneralUtils.tryBreakBlock(castInformation.getCaster(), castInformation.getHitBlock());
     }
 
+    public void onTick(MagicProjectile magicProjectile) {
+        ParticleUtils.displayParticleEffect(magicProjectile.getProjectile(), Particle.GLOW, 0.2, 1);
+    }
+
     @Nonnull
     @Override
-    public String getId() {
-        return "CHAOS";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.MECHANICAL,
+            StoryType.HISTORICAL,
+            StoryType.VOID
+        );
     }
 
     @Nonnull
@@ -97,18 +102,13 @@ public class Chaos extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.SOUL_LANTERN;
+    public String getId() {
+        return "CHAOS";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.MECHANICAL,
-            StoryType.HISTORICAL,
-            StoryType.VOID
-        );
+    public Material getMaterial() {
+        return Material.SOUL_LANTERN;
     }
 }

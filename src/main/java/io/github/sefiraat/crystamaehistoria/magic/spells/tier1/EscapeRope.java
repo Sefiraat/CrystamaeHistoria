@@ -34,8 +34,13 @@ public class EscapeRope extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "ESCAPE_ROPE";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.HISTORICAL,
+            StoryType.CELESTIAL,
+            StoryType.VOID
+        );
     }
 
     @Nonnull
@@ -49,18 +54,13 @@ public class EscapeRope extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.LEAD;
+    public String getId() {
+        return "ESCAPE_ROPE";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.HISTORICAL,
-            StoryType.CELESTIAL,
-            StoryType.VOID
-        );
+    public Material getMaterial() {
+        return Material.LEAD;
     }
 }

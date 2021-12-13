@@ -65,6 +65,11 @@ public class RealisationAltar extends TickingMenuBlock {
     }
 
     @Override
+    protected boolean synchronous() {
+        return true;
+    }
+
+    @Override
     @ParametersAreNonnullByDefault
     protected void setup(BlockMenuPreset blockMenuPreset) {
         blockMenuPreset.drawBackground(GuiElements.MENU_BACKGROUND, BACKGROUND_SLOTS);
@@ -83,18 +88,6 @@ public class RealisationAltar extends TickingMenuBlock {
 
     @Override
     @ParametersAreNonnullByDefault
-    protected void onBreak(BlockBreakEvent event, BlockMenu blockMenu) {
-        super.onBreak(event, blockMenu);
-        Location location = blockMenu.getLocation();
-        RealisationAltarCache realisationAltarCache = CACHES.remove(location);
-        if (realisationAltarCache != null) {
-            realisationAltarCache.kill();
-        }
-        blockMenu.dropItems(location, INPUT_SLOT);
-    }
-
-    @Override
-    @ParametersAreNonnullByDefault
     protected void onNewInstance(BlockMenu blockMenu, Block b) {
         super.onNewInstance(blockMenu, b);
         if (!CACHES.containsKey(blockMenu.getLocation())) {
@@ -105,7 +98,14 @@ public class RealisationAltar extends TickingMenuBlock {
     }
 
     @Override
-    protected boolean synchronous() {
-        return true;
+    @ParametersAreNonnullByDefault
+    protected void onBreak(BlockBreakEvent event, BlockMenu blockMenu) {
+        super.onBreak(event, blockMenu);
+        Location location = blockMenu.getLocation();
+        RealisationAltarCache realisationAltarCache = CACHES.remove(location);
+        if (realisationAltarCache != null) {
+            realisationAltarCache.kill();
+        }
+        blockMenu.dropItems(location, INPUT_SLOT);
     }
 }

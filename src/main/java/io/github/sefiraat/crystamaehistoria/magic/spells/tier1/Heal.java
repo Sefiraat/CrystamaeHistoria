@@ -33,8 +33,13 @@ public class Heal extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "HEAL";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.HUMAN,
+            StoryType.CELESTIAL,
+            StoryType.PHILOSOPHICAL
+        );
     }
 
     @Nonnull
@@ -47,18 +52,13 @@ public class Heal extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.POTION;
+    public String getId() {
+        return "HEAL";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.HUMAN,
-            StoryType.CELESTIAL,
-            StoryType.PHILOSOPHICAL
-        );
+    public Material getMaterial() {
+        return Material.POTION;
     }
 }

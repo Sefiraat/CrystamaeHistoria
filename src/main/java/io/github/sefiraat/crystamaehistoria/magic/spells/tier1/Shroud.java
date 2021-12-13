@@ -43,8 +43,13 @@ public class Shroud extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "SHROUD";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ALCHEMICAL,
+            StoryType.HUMAN,
+            StoryType.VOID
+        );
     }
 
     @Nonnull
@@ -59,18 +64,13 @@ public class Shroud extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.BLACK_CANDLE;
+    public String getId() {
+        return "SHROUD";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ALCHEMICAL,
-            StoryType.HUMAN,
-            StoryType.VOID
-        );
+    public Material getMaterial() {
+        return Material.BLACK_CANDLE;
     }
 }

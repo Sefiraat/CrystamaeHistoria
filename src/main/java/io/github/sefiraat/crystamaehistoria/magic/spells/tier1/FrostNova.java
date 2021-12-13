@@ -59,8 +59,13 @@ public class FrostNova extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "FROST_NOVA";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.MECHANICAL,
+            StoryType.VOID
+        );
     }
 
     @Nonnull
@@ -74,18 +79,13 @@ public class FrostNova extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.SNOWBALL;
+    public String getId() {
+        return "FROST_NOVA";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.MECHANICAL,
-            StoryType.VOID
-        );
+    public Material getMaterial() {
+        return Material.SNOWBALL;
     }
 }

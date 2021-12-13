@@ -58,8 +58,13 @@ public class Ravage extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "RAVAGE";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.MECHANICAL,
+            StoryType.ALCHEMICAL,
+            StoryType.ANIMAL
+        );
     }
 
     @Nonnull
@@ -75,19 +80,14 @@ public class Ravage extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.RAVAGER_SPAWN_EGG;
+    public String getId() {
+        return "RAVAGE";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.MECHANICAL,
-            StoryType.ALCHEMICAL,
-            StoryType.ANIMAL
-        );
+    public Material getMaterial() {
+        return Material.RAVAGER_SPAWN_EGG;
     }
 
 }

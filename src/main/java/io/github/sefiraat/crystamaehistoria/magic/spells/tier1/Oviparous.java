@@ -64,8 +64,13 @@ public class Oviparous extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "OVIPAROUS";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.MECHANICAL,
+            StoryType.ANIMAL,
+            StoryType.PHILOSOPHICAL
+        );
     }
 
     @Nonnull
@@ -78,18 +83,13 @@ public class Oviparous extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.EGG;
+    public String getId() {
+        return "OVIPAROUS";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.MECHANICAL,
-            StoryType.ANIMAL,
-            StoryType.PHILOSOPHICAL
-        );
+    public Material getMaterial() {
+        return Material.EGG;
     }
 }

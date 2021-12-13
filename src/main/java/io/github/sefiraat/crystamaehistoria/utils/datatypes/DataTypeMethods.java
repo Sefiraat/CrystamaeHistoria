@@ -16,18 +16,6 @@ import java.util.Optional;
 public class DataTypeMethods {
 
     /**
-     * Get an object based on the provided {@link PersistentDataType} in a {@link PersistentDataContainer}, if the key doesn't exist it returns null.
-     *
-     * @param holder The {@link PersistentDataHolder} to retrieve the data from
-     * @param key    The key of the data to retrieve
-     * @return An object associated with this key or null if it doesn't exist
-     */
-    @Nullable
-    public static <T, Z> Z getCustom(@Nonnull PersistentDataHolder holder, @Nonnull NamespacedKey key, @Nonnull PersistentDataType<T, Z> type) {
-        return holder.getPersistentDataContainer().get(key, type);
-    }
-
-    /**
      * This method returns an {@link Optional} describing the object defined by the {@link PersistentDataType}
      * found under the given key. An empty {@link Optional} will be returned if no value has been found.
      *
@@ -39,6 +27,18 @@ public class DataTypeMethods {
     @Nonnull
     public static <T, Z> Optional<Z> getOptionalCustom(@Nonnull PersistentDataHolder holder, @Nonnull NamespacedKey key, @Nonnull PersistentDataType<T, Z> type) {
         return Optional.ofNullable(getCustom(holder, key, type));
+    }
+
+    /**
+     * Get an object based on the provided {@link PersistentDataType} in a {@link PersistentDataContainer}, if the key doesn't exist it returns null.
+     *
+     * @param holder The {@link PersistentDataHolder} to retrieve the data from
+     * @param key    The key of the data to retrieve
+     * @return An object associated with this key or null if it doesn't exist
+     */
+    @Nullable
+    public static <T, Z> Z getCustom(@Nonnull PersistentDataHolder holder, @Nonnull NamespacedKey key, @Nonnull PersistentDataType<T, Z> type) {
+        return holder.getPersistentDataContainer().get(key, type);
     }
 
     /**

@@ -49,29 +49,6 @@ public class StoriesManager {
         fillBlockDefinitions();
     }
 
-    @ParametersAreNonnullByDefault
-    public static void rebuildStoriedStack(ItemStack itemStack) {
-        ItemMeta im = itemStack.getItemMeta();
-        setName(itemStack, im);
-        List<String> lore = new ArrayList<>();
-        List<Story> storyList = StoryUtils.getAllStories(itemStack);
-        for (Story story : storyList) {
-            lore.add("");
-            lore.add(story.getDisplayName());
-            lore.addAll(story.getStoryLore());
-        }
-        im.setLore(lore);
-        itemStack.setItemMeta(im);
-    }
-
-    @ParametersAreNonnullByDefault
-    private static void setName(ItemStack itemStack, ItemMeta im) {
-        TextComponent name = new TextComponent("Storied " + ThemeType.toTitleCase(itemStack.getType().toString()));
-        name.setColor(ThemeType.MAIN.getColor());
-        name.setBold(true);
-        im.setDisplayName(name.toLegacyText());
-    }
-
     private void fillBlockTierMap() {
         blockTierMap.put(
             1,
@@ -179,16 +156,6 @@ public class StoriesManager {
         fillMap(storyMapMythical, mythical, StoryRarity.MYTHICAL);
     }
 
-    @ParametersAreNonnullByDefault
-    private void fillMap(Map<String, Story> map, ConfigurationSection section, StoryRarity rarity) {
-        for (String key : section.getKeys(false)) {
-            ConfigurationSection storySection = section.getConfigurationSection(key);
-            Validate.notNull(storySection, "Section is null, this doesn't make sense so don't worry.");
-            Story story = new Story(storySection, rarity);
-            map.put(story.getId(), story);
-        }
-    }
-
     private void fillBlockDefinitions() {
         final FileConfiguration blocks = CrystamaeHistoria.getConfigManager().getBlocks();
         for (String key : blocks.getKeys(false)) {
@@ -246,6 +213,39 @@ public class StoriesManager {
         CrystamaeHistoria.getInstance().getLogger().info(
             MessageFormat.format("Loaded: {0} unique (block) stories.", blockDefinitionMap.size())
         );
+    }
+
+    @ParametersAreNonnullByDefault
+    private void fillMap(Map<String, Story> map, ConfigurationSection section, StoryRarity rarity) {
+        for (String key : section.getKeys(false)) {
+            ConfigurationSection storySection = section.getConfigurationSection(key);
+            Validate.notNull(storySection, "Section is null, this doesn't make sense so don't worry.");
+            Story story = new Story(storySection, rarity);
+            map.put(story.getId(), story);
+        }
+    }
+
+    @ParametersAreNonnullByDefault
+    public static void rebuildStoriedStack(ItemStack itemStack) {
+        ItemMeta im = itemStack.getItemMeta();
+        setName(itemStack, im);
+        List<String> lore = new ArrayList<>();
+        List<Story> storyList = StoryUtils.getAllStories(itemStack);
+        for (Story story : storyList) {
+            lore.add("");
+            lore.add(story.getDisplayName());
+            lore.addAll(story.getStoryLore());
+        }
+        im.setLore(lore);
+        itemStack.setItemMeta(im);
+    }
+
+    @ParametersAreNonnullByDefault
+    private static void setName(ItemStack itemStack, ItemMeta im) {
+        TextComponent name = new TextComponent("Storied " + ThemeType.toTitleCase(itemStack.getType().toString()));
+        name.setColor(ThemeType.MAIN.getColor());
+        name.setBold(true);
+        im.setDisplayName(name.toLegacyText());
     }
 
     @ParametersAreNonnullByDefault

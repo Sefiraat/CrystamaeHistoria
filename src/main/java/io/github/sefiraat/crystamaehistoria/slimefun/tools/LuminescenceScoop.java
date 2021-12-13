@@ -44,10 +44,19 @@ public class LuminescenceScoop extends RefillableUseItem {
         };
     }
 
-    @Override
-    protected @Nonnull
-    NamespacedKey getStorageKey() {
-        return key;
+    private void removeLight(PlayerRightClickEvent event) {
+        final Player player = event.getPlayer();
+        final Location start = player.getEyeLocation();
+        final Vector direction = start.getDirection();
+        for (int i = 1; i < 6; i++) {
+            final Block checkBlock = start.add(direction.multiply(i)).getBlock();
+            if (checkBlock.getType() == Material.LIGHT
+                && GeneralUtils.hasPermission(player, checkBlock, Interaction.BREAK_BLOCK)
+            ) {
+                checkBlock.setType(Material.AIR);
+                refillItem(player, event.getItem());
+            }
+        }
     }
 
     private void setLight(PlayerRightClickEvent event) {
@@ -63,18 +72,9 @@ public class LuminescenceScoop extends RefillableUseItem {
         }
     }
 
-    private void removeLight(PlayerRightClickEvent event) {
-        final Player player = event.getPlayer();
-        final Location start = player.getEyeLocation();
-        final Vector direction = start.getDirection();
-        for (int i = 1; i < 6; i++) {
-            final Block checkBlock = start.add(direction.multiply(i)).getBlock();
-            if (checkBlock.getType() == Material.LIGHT
-                && GeneralUtils.hasPermission(player, checkBlock, Interaction.BREAK_BLOCK)
-            ) {
-                checkBlock.setType(Material.AIR);
-                refillItem(player, event.getItem());
-            }
-        }
+    @Override
+    protected @Nonnull
+    NamespacedKey getStorageKey() {
+        return key;
     }
 }

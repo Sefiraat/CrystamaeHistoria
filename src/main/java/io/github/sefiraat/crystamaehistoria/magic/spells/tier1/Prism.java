@@ -54,8 +54,13 @@ public class Prism extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "PRISM";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ALCHEMICAL,
+            StoryType.HISTORICAL,
+            StoryType.HUMAN
+        );
     }
 
     @Nonnull
@@ -69,18 +74,13 @@ public class Prism extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.POTION;
+    public String getId() {
+        return "PRISM";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ALCHEMICAL,
-            StoryType.HISTORICAL,
-            StoryType.HUMAN
-        );
+    public Material getMaterial() {
+        return Material.POTION;
     }
 }

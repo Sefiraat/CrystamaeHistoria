@@ -49,8 +49,13 @@ public class ImbueVoid extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "IMBUE_VOID";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.HUMAN,
+            StoryType.VOID,
+            StoryType.PHILOSOPHICAL
+        );
     }
 
     @Nonnull
@@ -65,18 +70,13 @@ public class ImbueVoid extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.ENDERMITE_SPAWN_EGG;
+    public String getId() {
+        return "IMBUE_VOID";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.HUMAN,
-            StoryType.VOID,
-            StoryType.PHILOSOPHICAL
-        );
+    public Material getMaterial() {
+        return Material.ENDERMITE_SPAWN_EGG;
     }
 }

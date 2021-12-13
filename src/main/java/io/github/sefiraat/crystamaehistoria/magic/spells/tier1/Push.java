@@ -50,8 +50,13 @@ public class Push extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "PUSH";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.MECHANICAL,
+            StoryType.HUMAN,
+            StoryType.CELESTIAL
+        );
     }
 
     @Nonnull
@@ -65,18 +70,13 @@ public class Push extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.PISTON;
+    public String getId() {
+        return "PUSH";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.MECHANICAL,
-            StoryType.HUMAN,
-            StoryType.CELESTIAL
-        );
+    public Material getMaterial() {
+        return Material.PISTON;
     }
 }

@@ -51,6 +51,10 @@ public class RemnantOfWar extends Spell {
         gearZombie(zombie, castInformation.getStaveLevel());
     }
 
+    public void onTick(MagicSummon magicSummon) {
+        ParticleUtils.displayParticleEffect(magicSummon.getMob(), Particle.SOUL, 1, 1);
+    }
+
     public void gearZombie(Zombie zombie, int tier) {
         ItemStack helmet;
         ItemStack chestplate;
@@ -104,14 +108,15 @@ public class RemnantOfWar extends Spell {
         entityEquipment.setItemInMainHand(sword);
     }
 
-    public void onTick(MagicSummon magicSummon) {
-        ParticleUtils.displayParticleEffect(magicSummon.getMob(), Particle.SOUL, 1, 1);
-    }
-
     @Nonnull
     @Override
-    public String getId() {
-        return "REMNANT_OF_WAR";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.HISTORICAL,
+            StoryType.HUMAN,
+            StoryType.VOID
+        );
     }
 
     @Nonnull
@@ -125,18 +130,13 @@ public class RemnantOfWar extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.ZOMBIE_SPAWN_EGG;
+    public String getId() {
+        return "REMNANT_OF_WAR";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.HISTORICAL,
-            StoryType.HUMAN,
-            StoryType.VOID
-        );
+    public Material getMaterial() {
+        return Material.ZOMBIE_SPAWN_EGG;
     }
 }

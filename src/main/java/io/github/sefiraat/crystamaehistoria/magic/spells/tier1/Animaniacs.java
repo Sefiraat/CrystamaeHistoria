@@ -88,8 +88,13 @@ public class Animaniacs extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "ANIMANIACS";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ALCHEMICAL,
+            StoryType.ANIMAL,
+            StoryType.PHILOSOPHICAL
+        );
     }
 
     @Nonnull
@@ -102,18 +107,13 @@ public class Animaniacs extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.AXOLOTL_SPAWN_EGG;
+    public String getId() {
+        return "ANIMANIACS";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ALCHEMICAL,
-            StoryType.ANIMAL,
-            StoryType.PHILOSOPHICAL
-        );
+    public Material getMaterial() {
+        return Material.AXOLOTL_SPAWN_EGG;
     }
 }

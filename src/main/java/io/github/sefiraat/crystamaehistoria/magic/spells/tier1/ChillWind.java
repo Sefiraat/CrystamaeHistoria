@@ -60,8 +60,13 @@ public class ChillWind extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "CHILL_WIND";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.ALCHEMICAL,
+            StoryType.VOID
+        );
     }
 
     @Nonnull
@@ -76,18 +81,13 @@ public class ChillWind extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.BLUE_ICE;
+    public String getId() {
+        return "CHILL_WIND";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.ALCHEMICAL,
-            StoryType.VOID
-        );
+    public Material getMaterial() {
+        return Material.BLUE_ICE;
     }
 }

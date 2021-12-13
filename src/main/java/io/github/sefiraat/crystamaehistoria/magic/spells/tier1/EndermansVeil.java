@@ -73,8 +73,13 @@ public class EndermansVeil extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "ENDERMANS_VEIL";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.HISTORICAL,
+            StoryType.PHILOSOPHICAL
+        );
     }
 
     @Nonnull
@@ -88,18 +93,13 @@ public class EndermansVeil extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.ENDER_PEARL;
+    public String getId() {
+        return "ENDERMANS_VEIL";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.HISTORICAL,
-            StoryType.PHILOSOPHICAL
-        );
+    public Material getMaterial() {
+        return Material.ENDER_PEARL;
     }
 }

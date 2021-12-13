@@ -52,8 +52,13 @@ public class CurificationRitual extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "CURIFICATION_RITUAL";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.HUMAN,
+            StoryType.ANIMAL,
+            StoryType.CELESTIAL
+        );
     }
 
     @Nonnull
@@ -67,18 +72,13 @@ public class CurificationRitual extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.GOLDEN_APPLE;
+    public String getId() {
+        return "CURIFICATION_RITUAL";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.HUMAN,
-            StoryType.ANIMAL,
-            StoryType.CELESTIAL
-        );
+    public Material getMaterial() {
+        return Material.GOLDEN_APPLE;
     }
 }

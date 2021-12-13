@@ -48,8 +48,13 @@ public class Deity extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "DEITY";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.ANIMAL,
+            StoryType.PHILOSOPHICAL
+        );
     }
 
     @Nonnull
@@ -63,19 +68,14 @@ public class Deity extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.END_CRYSTAL;
+    public String getId() {
+        return "DEITY";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.ANIMAL,
-            StoryType.PHILOSOPHICAL
-        );
+    public Material getMaterial() {
+        return Material.END_CRYSTAL;
     }
 
 }

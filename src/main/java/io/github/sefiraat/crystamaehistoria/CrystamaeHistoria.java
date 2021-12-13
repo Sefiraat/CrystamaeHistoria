@@ -17,12 +17,14 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicProje
 import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicSummon;
 import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.runnables.RunnableManager;
+import io.github.sefiraat.crystamaehistoria.slimefun.Exalted;
 import io.github.sefiraat.crystamaehistoria.slimefun.Gadgets;
 import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.slimefun.Mechanisms;
 import io.github.sefiraat.crystamaehistoria.slimefun.PaintBrushes;
 import io.github.sefiraat.crystamaehistoria.slimefun.Tools;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.exhalted.ExaltedItem;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
@@ -222,5 +224,6 @@ public class CrystamaeHistoria extends AbstractAddon {
         Gadgets.setup();
         Tools.setup();
         PaintBrushes.setup();
+        Exalted.setup();
     }
 }

@@ -59,6 +59,52 @@ public class ChroniclerPanelCache extends AbstractCache {
         }
     }
 
+    @ParametersAreNonnullByDefault
+    protected void setWorking(Block block, Material m) {
+        final Block lightBlock = block.getRelative(BlockFace.UP);
+
+        blockMiddle = block.getLocation().clone().add(0.5, 0.5, 0.5);
+        workingOn = m;
+        working = true;
+
+        BlockStorage.addBlockInfo(block, Keys.BS_CP_WORKING_ON, m.toString());
+        if (lightBlock.getType() == Material.AIR) {
+            lightBlock.setType(Material.LIGHT);
+        }
+        startAnimation();
+        blockDefinition = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().get(m);
+    }
+
+    private void startAnimation() {
+        final ArmorStand armourStand = getDisplayStand();
+
+        ArmourStandUtils.panelAnimationReset(armourStand, blockMenu.getBlock());
+        animation = new FloatingHeadAnimation(armourStand);
+        animation.runTaskTimer(CrystamaeHistoria.getInstance(), 0, FloatingHeadAnimation.SPEED);
+    }
+
+    @ParametersAreNonnullByDefault
+    private ArmorStand getDisplayStand() {
+        if (armorStandUUID == null) {
+            final String uuidString = BlockStorage.getLocationInfo(getLocation(), "ch_display_stand");
+            if (uuidString != null) {
+                armorStandUUID = UUID.fromString(uuidString);
+            } else {
+                final Block block = blockMenu.getBlock();
+                final ArmorStand armorStand = (ArmorStand) block.getWorld().spawnEntity(getLocation().add(0.5, -0.6, 0.5), EntityType.ARMOR_STAND);
+                ArmourStandUtils.setDisplay(armorStand);
+                BlockStorage.addBlockInfo(block.getLocation(), "ch_display_stand", armorStand.getUniqueId().toString());
+                armorStandUUID = armorStand.getUniqueId();
+                return armorStand;
+            }
+        }
+        return (ArmorStand) Bukkit.getEntity(armorStandUUID);
+    }
+
+    protected Location getLocation() {
+        return blockMenu.getLocation().clone();
+    }
+
     protected void process() {
         final Block block = blockMenu.getBlock();
         final ItemStack inputItem = blockMenu.getItemInSlot(ChroniclerPanel.INPUT_SLOT);
@@ -115,30 +161,6 @@ public class ChroniclerPanelCache extends AbstractCache {
             itemStack.setAmount(0);
             blockMenu.getBlock().getWorld().dropItemNaturally(blockMenu.getLocation(), rejectedSpawn);
         }
-    }
-
-    @ParametersAreNonnullByDefault
-    protected void setWorking(Block block, Material m) {
-        final Block lightBlock = block.getRelative(BlockFace.UP);
-
-        blockMiddle = block.getLocation().clone().add(0.5, 0.5, 0.5);
-        workingOn = m;
-        working = true;
-
-        BlockStorage.addBlockInfo(block, Keys.BS_CP_WORKING_ON, m.toString());
-        if (lightBlock.getType() == Material.AIR) {
-            lightBlock.setType(Material.LIGHT);
-        }
-        startAnimation();
-        blockDefinition = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().get(m);
-    }
-
-    private void startAnimation() {
-        final ArmorStand armourStand = getDisplayStand();
-
-        ArmourStandUtils.panelAnimationReset(armourStand, blockMenu.getBlock());
-        animation = new FloatingHeadAnimation(armourStand);
-        animation.runTaskTimer(CrystamaeHistoria.getInstance(), 0, FloatingHeadAnimation.SPEED);
     }
 
     @ParametersAreNonnullByDefault
@@ -221,34 +243,12 @@ public class ChroniclerPanelCache extends AbstractCache {
         return blockMenu.getLocation().getWorld();
     }
 
-    protected Location getLocation() {
-        return blockMenu.getLocation().clone();
-    }
-
     protected Location getLocation(boolean centered) {
         if (centered) {
             return getLocation().add(0.5, 0.5, 0.5);
         } else {
             return getLocation();
         }
-    }
-
-    @ParametersAreNonnullByDefault
-    private ArmorStand getDisplayStand() {
-        if (armorStandUUID == null) {
-            final String uuidString = BlockStorage.getLocationInfo(getLocation(), "ch_display_stand");
-            if (uuidString != null) {
-                armorStandUUID = UUID.fromString(uuidString);
-            } else {
-                final Block block = blockMenu.getBlock();
-                final ArmorStand armorStand = (ArmorStand) block.getWorld().spawnEntity(getLocation().add(0.5, -0.6, 0.5), EntityType.ARMOR_STAND);
-                ArmourStandUtils.setDisplay(armorStand);
-                BlockStorage.addBlockInfo(block.getLocation(), "ch_display_stand", armorStand.getUniqueId().toString());
-                armorStandUUID = armorStand.getUniqueId();
-                return armorStand;
-            }
-        }
-        return (ArmorStand) Bukkit.getEntity(armorStandUUID);
     }
 
 }

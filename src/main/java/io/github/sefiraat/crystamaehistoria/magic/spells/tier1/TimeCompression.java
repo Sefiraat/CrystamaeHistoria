@@ -59,8 +59,13 @@ public class TimeCompression extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "TIME_COMPRESSION";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.HISTORICAL,
+            StoryType.ANIMAL,
+            StoryType.VOID
+        );
     }
 
     @Nonnull
@@ -74,18 +79,13 @@ public class TimeCompression extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.WAXED_CUT_COPPER;
+    public String getId() {
+        return "TIME_COMPRESSION";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.HISTORICAL,
-            StoryType.ANIMAL,
-            StoryType.VOID
-        );
+    public Material getMaterial() {
+        return Material.WAXED_CUT_COPPER;
     }
 }

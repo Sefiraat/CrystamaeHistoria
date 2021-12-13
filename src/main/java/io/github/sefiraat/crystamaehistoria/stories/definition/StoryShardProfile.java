@@ -29,10 +29,6 @@ public class StoryShardProfile {
         dropShards(rarity, block.getLocation());
     }
 
-    public void dropShards(StoryRarity rarity, Block block, int multiplier) {
-        dropShards(rarity, block.getLocation(), multiplier);
-    }
-
     public void dropShards(StoryRarity rarity, Location location) {
         dropShards(rarity, location, 1);
     }
@@ -47,5 +43,9 @@ public class StoryShardProfile {
                 location.getWorld().dropItemNaturally(location, itemStack);
             }
         }
+    }
+
+    public void dropShards(StoryRarity rarity, Block block, int multiplier) {
+        dropShards(rarity, block.getLocation(), multiplier);
     }
 }

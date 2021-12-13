@@ -62,8 +62,13 @@ public class FireNova extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "FIRE_NOVA";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.CELESTIAL,
+            StoryType.VOID
+        );
     }
 
     @Nonnull
@@ -77,18 +82,13 @@ public class FireNova extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.FIRE_CHARGE;
+    public String getId() {
+        return "FIRE_NOVA";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.CELESTIAL,
-            StoryType.VOID
-        );
+    public Material getMaterial() {
+        return Material.FIRE_CHARGE;
     }
 }

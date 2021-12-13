@@ -57,8 +57,13 @@ public class Gyroscopic extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "GYROSCOPIC";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.MECHANICAL,
+            StoryType.ANIMAL,
+            StoryType.CELESTIAL
+        );
     }
 
     @Nonnull
@@ -71,18 +76,13 @@ public class Gyroscopic extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.MUSIC_DISC_CAT;
+    public String getId() {
+        return "GYROSCOPIC";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.MECHANICAL,
-            StoryType.ANIMAL,
-            StoryType.CELESTIAL
-        );
+    public Material getMaterial() {
+        return Material.MUSIC_DISC_CAT;
     }
 }

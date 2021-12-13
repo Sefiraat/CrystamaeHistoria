@@ -72,19 +72,6 @@ public class StoryUtils {
     }
 
     /**
-     * Returns true if the has been storied. This does not mean that is HAS
-     * stories, only that it has started to be processed byu a chronicler
-     *
-     * @param itemStack The {@link ItemStack} to check
-     * @return true if has previously been chronicled at any point
-     */
-    @Nonnull
-    @ParametersAreNonnullByDefault
-    public static JsonObject getStoryLimits(ItemStack itemStack) {
-        return PersistentDataAPI.getJsonObject(itemStack.getItemMeta(), Keys.PDC_POTENTIAL_STORIES, getInitialStoryLimits(itemStack));
-    }
-
-    /**
      * Sets the ItemStack's PDC StoryList
      *
      * @param itemMeta   The {@link ItemMeta} to add the PDC element to
@@ -96,70 +83,16 @@ public class StoryUtils {
     }
 
     /**
-     * Gets the Item's max number of StoryList
-     *
-     * @param itemStack The {@link ItemStack} to add the PDC element to
-     */
-    @ParametersAreNonnullByDefault
-    public static int getMaxStoryAmount(ItemStack itemStack) {
-        return getStoryLimits(itemStack).get(Keys.JS_S_AVAILABLE_STORIES).getAsInt();
-    }
-
-    /**
-     * Gets the ItemStack's current number of StoryList
-     *
-     * @param itemMeta The {@link ItemMeta} to get the count from
-     */
-    @ParametersAreNonnullByDefault
-    public static int getStoryAmount(ItemMeta itemMeta) {
-        return PersistentDataAPI.getInt(itemMeta, Keys.PDC_CURRENT_NUMBER_OF_STORIES, 0);
-    }
-
-    /**
-     * Sets the ItemStack's current number of StoryList
-     *
-     * @param itemStack The {@link ItemStack} to add the PDC element to
-     * @param amount    The amount of stories to set
-     */
-    @ParametersAreNonnullByDefault
-    public static void setStoryAmount(ItemStack itemStack, int amount) {
-        ItemMeta itemMeta = itemStack.getItemMeta();
-        PersistentDataAPI.setInt(itemMeta, Keys.PDC_CURRENT_NUMBER_OF_STORIES, amount);
-        if (amount >= getMaxStoryAmount(itemStack)) {
-            itemMeta.addEnchant(Enchantment.LUCK, 1, true);
-            itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        }
-        itemStack.setItemMeta(itemMeta);
-    }
-
-    /**
-     * Sets the ItemStack's current number of StoryList
-     *
-     * @param itemStack The {@link ItemStack} to increment the story amount
-     */
-    @ParametersAreNonnullByDefault
-    public static void incrementStoryAmount(ItemStack itemStack) {
-        setStoryAmount(itemStack, getStoryAmount(itemStack.getItemMeta()) + 1);
-    }
-
-    /**
-     * Gets the ItemStack's remaining possible stories
+     * Returns true if the has been storied. This does not mean that is HAS
+     * stories, only that it has started to be processed byu a chronicler
      *
      * @param itemStack The {@link ItemStack} to check
+     * @return true if has previously been chronicled at any point
      */
+    @Nonnull
     @ParametersAreNonnullByDefault
-    public static int getRemainingStoryAmount(ItemStack itemStack) {
-        return getMaxStoryAmount(itemStack) - getStoryAmount(itemStack.getItemMeta());
-    }
-
-    /**
-     * Returns true if there is room for more stories
-     *
-     * @param itemStack The {@link ItemStack} to check
-     */
-    @ParametersAreNonnullByDefault
-    public static boolean hasRemainingStorySlots(ItemStack itemStack) {
-        return getRemainingStoryAmount(itemStack) > 0;
+    public static JsonObject getStoryLimits(ItemStack itemStack) {
+        return PersistentDataAPI.getJsonObject(itemStack.getItemMeta(), Keys.PDC_POTENTIAL_STORIES, getInitialStoryLimits(itemStack));
     }
 
     /**
@@ -181,6 +114,46 @@ public class StoryUtils {
         jsonObject.add(Keys.JS_S_AVAILABLE_STORIES, new JsonPrimitive(availableStoryCount));
         jsonObject.add(Keys.JS_S_TIER, new JsonPrimitive(tier));
         return jsonObject;
+    }
+
+    /**
+     * Returns true if there is room for more stories
+     *
+     * @param itemStack The {@link ItemStack} to check
+     */
+    @ParametersAreNonnullByDefault
+    public static boolean hasRemainingStorySlots(ItemStack itemStack) {
+        return getRemainingStoryAmount(itemStack) > 0;
+    }
+
+    /**
+     * Gets the ItemStack's remaining possible stories
+     *
+     * @param itemStack The {@link ItemStack} to check
+     */
+    @ParametersAreNonnullByDefault
+    public static int getRemainingStoryAmount(ItemStack itemStack) {
+        return getMaxStoryAmount(itemStack) - getStoryAmount(itemStack.getItemMeta());
+    }
+
+    /**
+     * Gets the Item's max number of StoryList
+     *
+     * @param itemStack The {@link ItemStack} to add the PDC element to
+     */
+    @ParametersAreNonnullByDefault
+    public static int getMaxStoryAmount(ItemStack itemStack) {
+        return getStoryLimits(itemStack).get(Keys.JS_S_AVAILABLE_STORIES).getAsInt();
+    }
+
+    /**
+     * Gets the ItemStack's current number of StoryList
+     *
+     * @param itemMeta The {@link ItemMeta} to get the count from
+     */
+    @ParametersAreNonnullByDefault
+    public static int getStoryAmount(ItemMeta itemMeta) {
+        return PersistentDataAPI.getInt(itemMeta, Keys.PDC_CURRENT_NUMBER_OF_STORIES, 0);
     }
 
     @ParametersAreNonnullByDefault
@@ -206,26 +179,12 @@ public class StoryUtils {
     }
 
     @ParametersAreNonnullByDefault
-    public static void requestUniqueStory(ItemStack itemstack) {
-        final StoriesManager m = CrystamaeHistoria.getStoriesManager();
-        final BlockDefinition s = m.getBlockDefinitionMap().get(itemstack.getType());
-        Story unique = s.getUnique();
-        applyStory(itemstack, unique);
-    }
-
-    @ParametersAreNonnullByDefault
     public static void addStory(ItemStack itemStack, List<StoryType> p, Map<String, Story> storyList) {
         final StoryType st = p.get(ThreadLocalRandom.current().nextInt(0, p.size()));
         final List<Story> availableStories = storyList.values().stream().filter(t -> t.getType() == st).collect(Collectors.toList());
         final Story story = availableStories.get(ThreadLocalRandom.current().nextInt(0, availableStories.size()));
         applyStory(itemStack, story);
         incrementStoryAmount(itemStack);
-    }
-
-    @ParametersAreNonnullByDefault
-    @Nullable
-    public static List<Story> getAllStories(ItemStack itemStack) {
-        return DataTypeMethods.getCustom(itemStack.getItemMeta(), Keys.PDC_STORIES, PersistentStoriesDataType.TYPE);
     }
 
     @ParametersAreNonnullByDefault
@@ -238,6 +197,47 @@ public class StoryUtils {
         storyList.add(story);
         DataTypeMethods.setCustom(im, Keys.PDC_STORIES, PersistentStoriesDataType.TYPE, storyList);
         itemStack.setItemMeta(im);
+    }
+
+    /**
+     * Sets the ItemStack's current number of StoryList
+     *
+     * @param itemStack The {@link ItemStack} to increment the story amount
+     */
+    @ParametersAreNonnullByDefault
+    public static void incrementStoryAmount(ItemStack itemStack) {
+        setStoryAmount(itemStack, getStoryAmount(itemStack.getItemMeta()) + 1);
+    }
+
+    @ParametersAreNonnullByDefault
+    @Nullable
+    public static List<Story> getAllStories(ItemStack itemStack) {
+        return DataTypeMethods.getCustom(itemStack.getItemMeta(), Keys.PDC_STORIES, PersistentStoriesDataType.TYPE);
+    }
+
+    /**
+     * Sets the ItemStack's current number of StoryList
+     *
+     * @param itemStack The {@link ItemStack} to add the PDC element to
+     * @param amount    The amount of stories to set
+     */
+    @ParametersAreNonnullByDefault
+    public static void setStoryAmount(ItemStack itemStack, int amount) {
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        PersistentDataAPI.setInt(itemMeta, Keys.PDC_CURRENT_NUMBER_OF_STORIES, amount);
+        if (amount >= getMaxStoryAmount(itemStack)) {
+            itemMeta.addEnchant(Enchantment.LUCK, 1, true);
+            itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        }
+        itemStack.setItemMeta(itemMeta);
+    }
+
+    @ParametersAreNonnullByDefault
+    public static void requestUniqueStory(ItemStack itemstack) {
+        final StoriesManager m = CrystamaeHistoria.getStoriesManager();
+        final BlockDefinition s = m.getBlockDefinitionMap().get(itemstack.getType());
+        Story unique = s.getUnique();
+        applyStory(itemstack, unique);
     }
 
     @ParametersAreNonnullByDefault

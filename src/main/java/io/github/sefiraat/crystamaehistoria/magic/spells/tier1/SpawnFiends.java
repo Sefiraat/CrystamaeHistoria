@@ -49,8 +49,13 @@ public class SpawnFiends extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "SPAWN_FIENDS";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ANIMAL,
+            StoryType.VOID,
+            StoryType.PHILOSOPHICAL
+        );
     }
 
     @Nonnull
@@ -64,19 +69,14 @@ public class SpawnFiends extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.PHANTOM_SPAWN_EGG;
+    public String getId() {
+        return "SPAWN_FIENDS";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ANIMAL,
-            StoryType.VOID,
-            StoryType.PHILOSOPHICAL
-        );
+    public Material getMaterial() {
+        return Material.PHANTOM_SPAWN_EGG;
     }
 
 }

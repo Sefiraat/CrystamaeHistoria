@@ -29,8 +29,13 @@ public class Launch extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "LAUNCH";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.MECHANICAL,
+            StoryType.CELESTIAL,
+            StoryType.VOID
+        );
     }
 
     @Nonnull
@@ -44,18 +49,13 @@ public class Launch extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.BRAIN_CORAL;
+    public String getId() {
+        return "LAUNCH";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.MECHANICAL,
-            StoryType.CELESTIAL,
-            StoryType.VOID
-        );
+    public Material getMaterial() {
+        return Material.BRAIN_CORAL;
     }
 }

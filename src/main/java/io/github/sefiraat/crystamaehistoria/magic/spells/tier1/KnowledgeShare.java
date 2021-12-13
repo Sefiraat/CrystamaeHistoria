@@ -53,8 +53,13 @@ public class KnowledgeShare extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "KNOWLEDGE_SHARE";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.HISTORICAL,
+            StoryType.HUMAN,
+            StoryType.CELESTIAL
+        );
     }
 
     @Nonnull
@@ -68,18 +73,13 @@ public class KnowledgeShare extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.EXPERIENCE_BOTTLE;
+    public String getId() {
+        return "KNOWLEDGE_SHARE";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.HISTORICAL,
-            StoryType.HUMAN,
-            StoryType.CELESTIAL
-        );
+    public Material getMaterial() {
+        return Material.EXPERIENCE_BOTTLE;
     }
 }

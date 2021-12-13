@@ -4,6 +4,7 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.AngelBlock;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.CursedEarth;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.EnderInhibitor;
+import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.ExaltationStand;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.ExpCollector;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.GreenHouseGlass;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobCandle;
@@ -97,6 +98,8 @@ public class Gadgets {
     private static GreenHouseGlass focusedGreenHouseGlass;
     @Getter
     private static TrophyDisplay trophyDisplay;
+    @Getter
+    private static ExaltationStand exaltationStand;
     @Getter
     private static Waystone waystone;
     @Getter
@@ -814,6 +817,28 @@ public class Gadgets {
             trophyDisplayRecipe.getDisplayRecipe()
         );
 
+        // Exaltation Stand
+        RecipeItem exaltationStandRecipe = new RecipeItem(
+            new ItemStack(Material.PRISMARINE_WALL),
+            StoryType.MECHANICAL, 50,
+            StoryType.HUMAN, 50,
+            StoryType.PHILOSOPHICAL, 50
+        );
+        exaltationStand = new ExaltationStand(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_EXALTATION_STAND",
+                new ItemStack(Material.PRISMARINE_WALL),
+                ThemeType.GADGET,
+                "Exaltation Stand",
+                "Used to place 'Exalted' items on.",
+                "These items require special conditions",
+                "and impart powerful effects while nearby."
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            exaltationStandRecipe.getDisplayRecipe()
+        );
+
         // Waystone
         final Set<Material> waystoneMaterials = new HashSet<>();
         waystoneMaterials.add(Material.RED_NETHER_BRICK_WALL);
@@ -899,6 +924,7 @@ public class Gadgets {
         greenHouseGlass.register(plugin);
         focusedGreenHouseGlass.register(plugin);
         trophyDisplay.register(plugin);
+        exaltationStand.register(plugin);
         waystone.register(plugin);
         angelBlock.register(plugin);
 
@@ -933,6 +959,7 @@ public class Gadgets {
         LiquefactionBasinCache.addCraftingRecipe(focusedGreenHouseGlass, focusedGreenHouseGlassRecipe);
 
         LiquefactionBasinCache.addCraftingRecipe(trophyDisplay, trophyDisplayRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(exaltationStand, exaltationStandRecipe);
 
         LiquefactionBasinCache.addCraftingRecipe(waystone, waystoneRecipe);
     }

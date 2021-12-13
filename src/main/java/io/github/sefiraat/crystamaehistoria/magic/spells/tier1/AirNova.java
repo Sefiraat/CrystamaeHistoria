@@ -63,8 +63,13 @@ public class AirNova extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "AIR_NOVA";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.MECHANICAL,
+            StoryType.ANIMAL
+        );
     }
 
     @Nonnull
@@ -78,18 +83,13 @@ public class AirNova extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.FEATHER;
+    public String getId() {
+        return "AIR_NOVA";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.MECHANICAL,
-            StoryType.ANIMAL
-        );
+    public Material getMaterial() {
+        return Material.FEATHER;
     }
 }

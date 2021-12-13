@@ -74,8 +74,13 @@ public class Hellscape extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "HELLSCAPE";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.ALCHEMICAL,
+            StoryType.PHILOSOPHICAL
+        );
     }
 
     @Nonnull
@@ -88,18 +93,13 @@ public class Hellscape extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.FLINT_AND_STEEL;
+    public String getId() {
+        return "HELLSCAPE";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.ALCHEMICAL,
-            StoryType.PHILOSOPHICAL
-        );
+    public Material getMaterial() {
+        return Material.FLINT_AND_STEEL;
     }
 }

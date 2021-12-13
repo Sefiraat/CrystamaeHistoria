@@ -55,8 +55,13 @@ public class HarvestMoon extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "HARVEST_MOON";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.HUMAN,
+            StoryType.ANIMAL
+        );
     }
 
     @Nonnull
@@ -72,18 +77,13 @@ public class HarvestMoon extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.WHEAT;
+    public String getId() {
+        return "HARVEST_MOON";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.HUMAN,
-            StoryType.ANIMAL
-        );
+    public Material getMaterial() {
+        return Material.WHEAT;
     }
 }

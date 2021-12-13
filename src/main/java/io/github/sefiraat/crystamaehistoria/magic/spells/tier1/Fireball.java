@@ -36,13 +36,6 @@ public class Fireball extends Spell {
     }
 
     @ParametersAreNonnullByDefault
-    public void beforeProjectileHit(CastInformation castInformation) {
-        for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
-            livingEntity.setFireTicks(80);
-        }
-    }
-
-    @ParametersAreNonnullByDefault
     public void projectileHit(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
             GeneralUtils.damageEntity(livingEntity,
@@ -54,10 +47,22 @@ public class Fireball extends Spell {
         }
     }
 
+    @ParametersAreNonnullByDefault
+    public void beforeProjectileHit(CastInformation castInformation) {
+        for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
+            livingEntity.setFireTicks(80);
+        }
+    }
+
     @Nonnull
     @Override
-    public String getId() {
-        return "FIREBALL";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.HUMAN,
+            StoryType.CELESTIAL
+        );
     }
 
     @Nonnull
@@ -71,18 +76,13 @@ public class Fireball extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.FIRE_CHARGE;
+    public String getId() {
+        return "FIREBALL";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.HUMAN,
-            StoryType.CELESTIAL
-        );
+    public Material getMaterial() {
+        return Material.FIRE_CHARGE;
     }
 }

@@ -70,8 +70,13 @@ public class Compass extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "COMPASS";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.MECHANICAL,
+            StoryType.ALCHEMICAL,
+            StoryType.HUMAN
+        );
     }
 
     @Nonnull
@@ -86,18 +91,13 @@ public class Compass extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.COMPASS;
+    public String getId() {
+        return "COMPASS";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.MECHANICAL,
-            StoryType.ALCHEMICAL,
-            StoryType.HUMAN
-        );
+    public Material getMaterial() {
+        return Material.COMPASS;
     }
 }

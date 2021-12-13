@@ -82,8 +82,13 @@ public class PhilosophersStone extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "PHILOSOPHERS_STONE";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ALCHEMICAL,
+            StoryType.HUMAN,
+            StoryType.PHILOSOPHICAL
+        );
     }
 
     @Nonnull
@@ -97,18 +102,13 @@ public class PhilosophersStone extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.GOLD_BLOCK;
+    public String getId() {
+        return "PHILOSOPHERS_STONE";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ALCHEMICAL,
-            StoryType.HUMAN,
-            StoryType.PHILOSOPHICAL
-        );
+    public Material getMaterial() {
+        return Material.GOLD_BLOCK;
     }
 }

@@ -51,8 +51,13 @@ public class AbstractVoid extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "ABSTRACT_VOID";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.MECHANICAL,
+            StoryType.VOID,
+            StoryType.PHILOSOPHICAL
+        );
     }
 
     @Nonnull
@@ -65,18 +70,13 @@ public class AbstractVoid extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.GREEN_DYE;
+    public String getId() {
+        return "ABSTRACT_VOID";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.MECHANICAL,
-            StoryType.VOID,
-            StoryType.PHILOSOPHICAL
-        );
+    public Material getMaterial() {
+        return Material.GREEN_DYE;
     }
 }

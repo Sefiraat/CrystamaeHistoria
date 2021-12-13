@@ -83,6 +83,14 @@ public class Bobulate extends Spell {
         processEntities(location, caster);
     }
 
+    private void processBlock(UUID caster, Block block, Tag<Material> tag) {
+        if (GeneralUtils.hasPermission(caster, block, Interaction.PLACE_BLOCK)) {
+            final List<Material> list = tag.getValues().stream().toList();
+            final int randomValue = ThreadLocalRandom.current().nextInt(0, list.size());
+            block.setType(list.get(randomValue));
+        }
+    }
+
     private void processEntities(Location location, UUID caster) {
         final Collection<Entity> entities = location.getWorld().getNearbyEntities(
             location,
@@ -104,18 +112,15 @@ public class Bobulate extends Spell {
         }
     }
 
-    private void processBlock(UUID caster, Block block, Tag<Material> tag) {
-        if (GeneralUtils.hasPermission(caster, block, Interaction.PLACE_BLOCK)) {
-            final List<Material> list = tag.getValues().stream().toList();
-            final int randomValue = ThreadLocalRandom.current().nextInt(0, list.size());
-            block.setType(list.get(randomValue));
-        }
-    }
-
     @Nonnull
     @Override
-    public String getId() {
-        return "BOBULATE";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.MECHANICAL,
+            StoryType.ALCHEMICAL,
+            StoryType.PHILOSOPHICAL
+        );
     }
 
     @Nonnull
@@ -129,18 +134,13 @@ public class Bobulate extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.CYAN_WOOL;
+    public String getId() {
+        return "BOBULATE";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.MECHANICAL,
-            StoryType.ALCHEMICAL,
-            StoryType.PHILOSOPHICAL
-        );
+    public Material getMaterial() {
+        return Material.CYAN_WOOL;
     }
 }

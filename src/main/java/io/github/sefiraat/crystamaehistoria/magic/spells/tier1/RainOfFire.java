@@ -55,13 +55,6 @@ public class RainOfFire extends Spell {
     }
 
     @ParametersAreNonnullByDefault
-    public void beforeProjectileHits(CastInformation castInformation) {
-        for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
-            livingEntity.setFireTicks(80);
-        }
-    }
-
-    @ParametersAreNonnullByDefault
     public void projectileHits(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
             GeneralUtils.damageEntity(livingEntity,
@@ -73,10 +66,22 @@ public class RainOfFire extends Spell {
         }
     }
 
+    @ParametersAreNonnullByDefault
+    public void beforeProjectileHits(CastInformation castInformation) {
+        for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
+            livingEntity.setFireTicks(80);
+        }
+    }
+
     @Nonnull
     @Override
-    public String getId() {
-        return "RAIN_OF_FIRE";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.HUMAN,
+            StoryType.VOID
+        );
     }
 
     @Nonnull
@@ -90,18 +95,13 @@ public class RainOfFire extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.FIRE_CHARGE;
+    public String getId() {
+        return "RAIN_OF_FIRE";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.HUMAN,
-            StoryType.VOID
-        );
+    public Material getMaterial() {
+        return Material.FIRE_CHARGE;
     }
 }

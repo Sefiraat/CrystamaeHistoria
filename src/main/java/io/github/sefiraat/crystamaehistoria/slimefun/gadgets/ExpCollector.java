@@ -59,21 +59,6 @@ public class ExpCollector extends TickingMenuBlock {
     }
 
     @Override
-    protected void onBreak(BlockBreakEvent e, BlockMenu menu) {
-        BlockStorage.clearBlockInfo(e.getBlock());
-    }
-
-    @Override
-    @ParametersAreNonnullByDefault
-    protected void onPlace(BlockPlaceEvent e, Block b) {
-        final UUID uuid = e.getPlayer().getUniqueId();
-        BlockStorage.addBlockInfo(b, ID_UUID, uuid.toString());
-        blockOwnerMap.put(b.getLocation(), uuid);
-        BlockStorage.addBlockInfo(b, ID_VOLUME, String.valueOf(0));
-        volumeMap.put(b.getLocation(), 0);
-    }
-
-    @Override
     @ParametersAreNonnullByDefault
     protected void tick(Block block, BlockMenu blockMenu) {
         final Location location = block.getLocation().add(0.5, 0.5, 0.5);
@@ -108,9 +93,24 @@ public class ExpCollector extends TickingMenuBlock {
     }
 
     @Override
+    protected boolean synchronous() {
+        return true;
+    }
+
+    @Override
     @ParametersAreNonnullByDefault
     protected void setup(BlockMenuPreset blockMenuPreset) {
         blockMenuPreset.drawBackground(BACKGROUND_SLOTS);
+    }
+
+    @Override
+    protected int[] getInputSlots() {
+        return new int[0];
+    }
+
+    @Override
+    protected int[] getOutputSlots() {
+        return new int[0];
     }
 
     @Override
@@ -145,17 +145,17 @@ public class ExpCollector extends TickingMenuBlock {
     }
 
     @Override
-    protected boolean synchronous() {
-        return true;
+    protected void onBreak(BlockBreakEvent e, BlockMenu menu) {
+        BlockStorage.clearBlockInfo(e.getBlock());
     }
 
     @Override
-    protected int[] getInputSlots() {
-        return new int[0];
-    }
-
-    @Override
-    protected int[] getOutputSlots() {
-        return new int[0];
+    @ParametersAreNonnullByDefault
+    protected void onPlace(BlockPlaceEvent e, Block b) {
+        final UUID uuid = e.getPlayer().getUniqueId();
+        BlockStorage.addBlockInfo(b, ID_UUID, uuid.toString());
+        blockOwnerMap.put(b.getLocation(), uuid);
+        BlockStorage.addBlockInfo(b, ID_VOLUME, String.valueOf(0));
+        volumeMap.put(b.getLocation(), 0);
     }
 }

@@ -52,8 +52,13 @@ public class StripMine extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "STRIP_MINE";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.MECHANICAL,
+            StoryType.ALCHEMICAL,
+            StoryType.HISTORICAL
+        );
     }
 
     @Nonnull
@@ -67,18 +72,13 @@ public class StripMine extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.MINECART;
+    public String getId() {
+        return "STRIP_MINE";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.MECHANICAL,
-            StoryType.ALCHEMICAL,
-            StoryType.HISTORICAL
-        );
+    public Material getMaterial() {
+        return Material.MINECART;
     }
 }
