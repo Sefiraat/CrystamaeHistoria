@@ -79,10 +79,6 @@ public class Story {
         this.author = story.author;
     }
 
-    public String getDisplayRarity() {
-        return "[" + rarity.toString() + "] ";
-    }
-
     public String getDisplayName() {
         final TextComponent rarityComponent = new TextComponent(getDisplayRarity());
         final TextComponent nameComponent = new TextComponent(this.id);
@@ -91,6 +87,10 @@ public class Story {
         rarityComponent.setBold(true);
         nameComponent.setColor(ThemeType.CLICK_INFO.getColor());
         return BaseComponent.toLegacyText(rarityComponent, nameComponent);
+    }
+
+    public String getDisplayRarity() {
+        return "[" + rarity.toString() + "] ";
     }
 
     public List<String> getStoryLore() {

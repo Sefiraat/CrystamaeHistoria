@@ -54,8 +54,13 @@ public class FlameSprite extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "FLAME_SPRITE";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.ANIMAL,
+            StoryType.VOID
+        );
     }
 
     @Nonnull
@@ -69,19 +74,14 @@ public class FlameSprite extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.BLAZE_SPAWN_EGG;
+    public String getId() {
+        return "FLAME_SPRITE";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.ANIMAL,
-            StoryType.VOID
-        );
+    public Material getMaterial() {
+        return Material.BLAZE_SPAWN_EGG;
     }
 
 }

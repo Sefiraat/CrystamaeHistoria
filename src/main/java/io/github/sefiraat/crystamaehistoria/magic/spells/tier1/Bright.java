@@ -36,8 +36,13 @@ public class Bright extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "BRIGHT";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ALCHEMICAL,
+            StoryType.HISTORICAL,
+            StoryType.CELESTIAL
+        );
     }
 
     @Nonnull
@@ -50,18 +55,13 @@ public class Bright extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.SUNFLOWER;
+    public String getId() {
+        return "BRIGHT";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ALCHEMICAL,
-            StoryType.HISTORICAL,
-            StoryType.CELESTIAL
-        );
+    public Material getMaterial() {
+        return Material.SUNFLOWER;
     }
 }

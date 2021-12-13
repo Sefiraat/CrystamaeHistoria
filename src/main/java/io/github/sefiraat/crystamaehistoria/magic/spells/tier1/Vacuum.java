@@ -53,8 +53,13 @@ public class Vacuum extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "VACUUM";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.MECHANICAL,
+            StoryType.HUMAN,
+            StoryType.VOID
+        );
     }
 
     @Nonnull
@@ -68,18 +73,13 @@ public class Vacuum extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.FISHING_ROD;
+    public String getId() {
+        return "VACUUM";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.MECHANICAL,
-            StoryType.HUMAN,
-            StoryType.VOID
-        );
+    public Material getMaterial() {
+        return Material.FISHING_ROD;
     }
 }

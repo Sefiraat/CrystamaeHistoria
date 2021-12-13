@@ -69,16 +69,15 @@ public class PlutosDecent extends Spell {
         }
     }
 
-    private void spawnBlocks(CastInformation castInformation, List<Block> blocks) {
-        for (Block block : blocks) {
-            MagicFallingBlock magicFallingBlock = SpellUtils.summonMagicFallingBlock(
-                castInformation,
-                block.getLocation().add(0, 40, 0),
-                MATERIALS.get(ThreadLocalRandom.current().nextInt(MATERIALS.size())),
-                5
-            );
-            magicFallingBlock.setVelocity(block.getLocation(), 2);
-        }
+    private void blockLands(CastInformation castInformation) {
+        Location location = castInformation.getHitBlock().getLocation();
+        location.getWorld().createExplosion(
+            castInformation.getCasterAsPlayer(),
+            location,
+            getRadius(castInformation) + 1F,
+            true,
+            true
+        );
     }
 
     private int getRadius(CastInformation castInformation) {
@@ -99,21 +98,27 @@ public class PlutosDecent extends Spell {
         return radius;
     }
 
-    private void blockLands(CastInformation castInformation) {
-        Location location = castInformation.getHitBlock().getLocation();
-        location.getWorld().createExplosion(
-            castInformation.getCasterAsPlayer(),
-            location,
-            getRadius(castInformation) + 1F,
-            true,
-            true
-        );
+    private void spawnBlocks(CastInformation castInformation, List<Block> blocks) {
+        for (Block block : blocks) {
+            MagicFallingBlock magicFallingBlock = SpellUtils.summonMagicFallingBlock(
+                castInformation,
+                block.getLocation().add(0, 40, 0),
+                MATERIALS.get(ThreadLocalRandom.current().nextInt(MATERIALS.size())),
+                5
+            );
+            magicFallingBlock.setVelocity(block.getLocation(), 2);
+        }
     }
 
     @Nonnull
     @Override
-    public String getId() {
-        return "PLUTOS_DESCENT";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.ALCHEMICAL,
+            StoryType.HUMAN
+        );
     }
 
     @Nonnull
@@ -126,18 +131,13 @@ public class PlutosDecent extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.COBBLED_DEEPSLATE;
+    public String getId() {
+        return "PLUTOS_DESCENT";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.ALCHEMICAL,
-            StoryType.HUMAN
-        );
+    public Material getMaterial() {
+        return Material.COBBLED_DEEPSLATE;
     }
 }

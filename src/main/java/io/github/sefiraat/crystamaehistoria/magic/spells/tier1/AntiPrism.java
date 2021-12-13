@@ -77,8 +77,13 @@ public class AntiPrism extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "ANTI_PRISM";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ALCHEMICAL,
+            StoryType.HISTORICAL,
+            StoryType.ANIMAL
+        );
     }
 
     @Nonnull
@@ -92,18 +97,13 @@ public class AntiPrism extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.POTION;
+    public String getId() {
+        return "ANTI_PRISM";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ALCHEMICAL,
-            StoryType.HISTORICAL,
-            StoryType.ANIMAL
-        );
+    public Material getMaterial() {
+        return Material.POTION;
     }
 }

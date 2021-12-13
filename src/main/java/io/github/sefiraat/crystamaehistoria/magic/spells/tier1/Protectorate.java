@@ -53,8 +53,13 @@ public class Protectorate extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "PROTECTORATE";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.MECHANICAL,
+            StoryType.HISTORICAL,
+            StoryType.CELESTIAL
+        );
     }
 
     @Nonnull
@@ -68,18 +73,13 @@ public class Protectorate extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.SHIELD;
+    public String getId() {
+        return "PROTECTORATE";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.MECHANICAL,
-            StoryType.HISTORICAL,
-            StoryType.CELESTIAL
-        );
+    public Material getMaterial() {
+        return Material.SHIELD;
     }
 }

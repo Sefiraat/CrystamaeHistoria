@@ -76,8 +76,13 @@ public class PoisonNova extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "POISON_NOVA";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ALCHEMICAL,
+            StoryType.HUMAN,
+            StoryType.ANIMAL
+        );
     }
 
     @Nonnull
@@ -92,18 +97,13 @@ public class PoisonNova extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.SLIME_BALL;
+    public String getId() {
+        return "POISON_NOVA";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ALCHEMICAL,
-            StoryType.HUMAN,
-            StoryType.ANIMAL
-        );
+    public Material getMaterial() {
+        return Material.SLIME_BALL;
     }
 }

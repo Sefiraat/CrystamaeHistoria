@@ -43,6 +43,21 @@ public final class GeneralUtils {
     }
 
     /**
+     * Rolls a number starting from 1 to upper
+     *
+     * @param upper   The highest possible number that could roll (inclusive)
+     * @param upLimit If true, the bound will be increased for 1 for inclusivity while
+     *                maintaining readability for manually typed numbers
+     *                (i.e. Upper 50 converts to 51 returning a max of 50 still).
+     *                Set false when using 0 based indexes (list.size())
+     * @return rolled int
+     */
+    public static int roll(int upper, boolean upLimit) {
+        if (upLimit) upper++;
+        return ThreadLocalRandom.current().nextInt(1, upper);
+    }
+
+    /**
      * Tests a chance roll starting from 1 to {@param upper}
      *
      * @param chance The number the roll must be lower than
@@ -51,6 +66,21 @@ public final class GeneralUtils {
      */
     public static boolean testChance(double chance, double upper) {
         return roll(upper, true) <= chance;
+    }
+
+    /**
+     * Rolls a number starting from 1 to upper
+     *
+     * @param upper   The highest possible number that could roll (inclusive)
+     * @param upLimit If true, the bound will be increased for 1 for inclusivity while
+     *                maintaining readability for manually typed numbers
+     *                (i.e. Upper 50 converts to 51 returning a max of 50 still).
+     *                Set false when using 0 based indexes (list.size())
+     * @return rolled int
+     */
+    public static double roll(double upper, boolean upLimit) {
+        if (upLimit) upper++;
+        return ThreadLocalRandom.current().nextDouble(1, upper);
     }
 
     /**
@@ -73,36 +103,6 @@ public final class GeneralUtils {
         return roll(upper, true);
     }
 
-    /**
-     * Rolls a number starting from 1 to upper
-     *
-     * @param upper   The highest possible number that could roll (inclusive)
-     * @param upLimit If true, the bound will be increased for 1 for inclusivity while
-     *                maintaining readability for manually typed numbers
-     *                (i.e. Upper 50 converts to 51 returning a max of 50 still).
-     *                Set false when using 0 based indexes (list.size())
-     * @return rolled int
-     */
-    public static int roll(int upper, boolean upLimit) {
-        if (upLimit) upper++;
-        return ThreadLocalRandom.current().nextInt(1, upper);
-    }
-
-    /**
-     * Rolls a number starting from 1 to upper
-     *
-     * @param upper   The highest possible number that could roll (inclusive)
-     * @param upLimit If true, the bound will be increased for 1 for inclusivity while
-     *                maintaining readability for manually typed numbers
-     *                (i.e. Upper 50 converts to 51 returning a max of 50 still).
-     *                Set false when using 0 based indexes (list.size())
-     * @return rolled int
-     */
-    public static double roll(double upper, boolean upLimit) {
-        if (upLimit) upper++;
-        return ThreadLocalRandom.current().nextDouble(1, upper);
-    }
-
     public static void markBlockForRemoval(Block block, int secondsUntilRemoval) {
         long timeUntilRemoval = secondsUntilRemoval * 1000L;
         block.setMetadata("ch", new FixedMetadataValue(CrystamaeHistoria.getInstance(), "y"));
@@ -114,25 +114,8 @@ public final class GeneralUtils {
         return block.hasMetadata("ch");
     }
 
-    public static boolean blockCanBeBroken(UUID caster, Block block) {
-        return hasPermission(caster, block, Interaction.BREAK_BLOCK)
-            && !BlockStorage.hasBlockInfo(block)
-            && !(block.getState() instanceof TileState)
-            && block.getType().getHardness() != -1
-            && !block.getType().isAir();
-    }
-
-
     public static boolean hasPermission(Player player, Block block, Interaction interaction) {
         return hasPermission(player.getUniqueId(), block.getLocation(), interaction);
-    }
-
-    public static boolean hasPermission(Player player, Location location, Interaction interaction) {
-        return hasPermission(player.getUniqueId(), location, interaction);
-    }
-
-    public static boolean hasPermission(UUID player, Block block, Interaction interaction) {
-        return hasPermission(player, block.getLocation(), interaction);
     }
 
     public static boolean hasPermission(UUID player, Location location, Interaction interaction) {
@@ -140,6 +123,9 @@ public final class GeneralUtils {
         return Slimefun.getProtectionManager().hasPermission(offlinePlayer, location, interaction);
     }
 
+    public static boolean hasPermission(Player player, Location location, Interaction interaction) {
+        return hasPermission(player.getUniqueId(), location, interaction);
+    }
 
     @ParametersAreNonnullByDefault
     public boolean pullEntity(UUID caster, Location pullToLocation, Entity pushed, double force) {
@@ -147,21 +133,6 @@ public final class GeneralUtils {
             .subtract(pullToLocation.toVector())
             .normalize()
             .multiply(-force);
-        return pushEntity(caster, vector, pushed);
-    }
-
-    @ParametersAreNonnullByDefault
-    public boolean pushEntity(UUID caster, Vector pushVector, Entity pushed, double force) {
-        return pushEntity(caster, pushVector.multiply(force), pushed);
-    }
-
-
-    @ParametersAreNonnullByDefault
-    public boolean pushEntity(UUID caster, Location pushFromLocation, Entity pushed, double force) {
-        Vector vector = pushed.getLocation().toVector()
-            .subtract(pushFromLocation.toVector())
-            .normalize()
-            .multiply(force);
         return pushEntity(caster, vector, pushed);
     }
 
@@ -176,6 +147,11 @@ public final class GeneralUtils {
     }
 
     @ParametersAreNonnullByDefault
+    public boolean pushEntity(UUID caster, Vector pushVector, Entity pushed, double force) {
+        return pushEntity(caster, pushVector.multiply(force), pushed);
+    }
+
+    @ParametersAreNonnullByDefault
     public static boolean tryBreakBlock(UUID caster, Block block) {
         Player player = Bukkit.getPlayer(caster);
         if (GeneralUtils.blockCanBeBroken(caster, block)
@@ -187,6 +163,17 @@ public final class GeneralUtils {
         return false;
     }
 
+    public static boolean blockCanBeBroken(UUID caster, Block block) {
+        return hasPermission(caster, block, Interaction.BREAK_BLOCK)
+            && !BlockStorage.hasBlockInfo(block)
+            && !(block.getState() instanceof TileState)
+            && block.getType().getHardness() != -1
+            && !block.getType().isAir();
+    }
+
+    public static boolean hasPermission(UUID player, Block block, Interaction interaction) {
+        return hasPermission(player, block.getLocation(), interaction);
+    }
 
     @ParametersAreNonnullByDefault
     public static boolean damageEntity(LivingEntity livingEntity, UUID caster, double damage) {
@@ -205,6 +192,15 @@ public final class GeneralUtils {
             return true;
         }
         return false;
+    }
+
+    @ParametersAreNonnullByDefault
+    public boolean pushEntity(UUID caster, Location pushFromLocation, Entity pushed, double force) {
+        Vector vector = pushed.getLocation().toVector()
+            .subtract(pushFromLocation.toVector())
+            .normalize()
+            .multiply(force);
+        return pushEntity(caster, vector, pushed);
     }
 
     /**

@@ -44,13 +44,13 @@ public class PlayerStatistics {
         CrystamaeHistoria.getConfigManager().getPlayerStats().set(path, uses);
     }
 
-    public static int getUsages(Player player, SpellType spellType) {
-        return getUsages(player.getUniqueId(), spellType);
-    }
-
     public static int getUsages(UUID player, SpellType spellType) {
         String path = MessageFormat.format("{0}.{1}.{2}.TIMES_CAST", player, StatType.SPELL, spellType.getId());
         return CrystamaeHistoria.getConfigManager().getPlayerStats().getInt(path);
+    }
+
+    public static int getUsages(Player player, SpellType spellType) {
+        return getUsages(player.getUniqueId(), spellType);
     }
 
     public static void unlockUniqueStory(Player player, BlockDefinition definition) {
@@ -86,13 +86,13 @@ public class PlayerStatistics {
         CrystamaeHistoria.getConfigManager().getPlayerStats().set(path, uses);
     }
 
-    public static int getChronicle(Player player, BlockDefinition definition) {
-        return getChronicle(player.getUniqueId(), definition);
-    }
-
     public static int getChronicle(UUID player, BlockDefinition definition) {
         String path = MessageFormat.format("{0}.{1}.{2}.TIMES_CHRONICLED", player, StatType.STORY, definition.getMaterial());
         return CrystamaeHistoria.getConfigManager().getPlayerStats().getInt(path);
+    }
+
+    public static int getChronicle(Player player, BlockDefinition definition) {
+        return getChronicle(player.getUniqueId(), definition);
     }
 
     public static void addRealisation(Player player, BlockDefinition definition) {
@@ -106,13 +106,13 @@ public class PlayerStatistics {
         CrystamaeHistoria.getConfigManager().getPlayerStats().set(path, uses);
     }
 
-    public static int getRealisation(Player player, BlockDefinition definition) {
-        return getChronicle(player.getUniqueId(), definition);
-    }
-
     public static int getRealisation(UUID player, BlockDefinition definition) {
         String path = MessageFormat.format("{0}.{1}.{2}.TIMES_REALISED", player, StatType.STORY, definition.getMaterial());
         return CrystamaeHistoria.getConfigManager().getPlayerStats().getInt(path);
+    }
+
+    public static int getRealisation(Player player, BlockDefinition definition) {
+        return getChronicle(player.getUniqueId(), definition);
     }
 
     @ParametersAreNonnullByDefault
@@ -123,6 +123,11 @@ public class PlayerStatistics {
         return BlockRank.getByAmount(blockValue);
     }
 
+    public static StoryRank getStoryRank(@Nonnull UUID uuid) {
+        int total = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().size();
+        final int unlocked = getStoriesUnlocked(uuid);
+        return StoryRank.getByPercent(((double) unlocked / total) * 100);
+    }
 
     public static int getStoriesUnlocked(@Nonnull UUID uuid) {
         String path = MessageFormat.format("{0}.{1}", uuid, StatType.STORY);
@@ -136,12 +141,6 @@ public class PlayerStatistics {
             if (CrystamaeHistoria.getConfigManager().getPlayerStats().getBoolean(storyPath)) unlocked++;
         }
         return unlocked;
-    }
-
-    public static StoryRank getStoryRank(@Nonnull UUID uuid) {
-        int total = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().size();
-        final int unlocked = getStoriesUnlocked(uuid);
-        return StoryRank.getByPercent(((double) unlocked / total) * 100);
     }
 
     public static String getStoryRankString(@Nonnull UUID uuid) {
@@ -158,6 +157,12 @@ public class PlayerStatistics {
         );
     }
 
+    public static SpellRank getSpellRank(@Nonnull UUID uuid) {
+        int total = SpellType.getEnabledSpells().length;
+        int unlocked = getSpellsUnlocked(uuid);
+        return SpellRank.getByPercent(((double) unlocked / total) * 100);
+    }
+
     public static int getSpellsUnlocked(@Nonnull UUID uuid) {
         String path = MessageFormat.format("{0}.{1}", uuid, StatType.SPELL);
         ConfigurationSection section = CrystamaeHistoria.getConfigManager().getPlayerStats().getConfigurationSection(path);
@@ -170,12 +175,6 @@ public class PlayerStatistics {
             if (CrystamaeHistoria.getConfigManager().getPlayerStats().getBoolean(storyPath)) unlocked++;
         }
         return unlocked;
-    }
-
-    public static SpellRank getSpellRank(@Nonnull UUID uuid) {
-        int total = SpellType.getEnabledSpells().length;
-        int unlocked = getSpellsUnlocked(uuid);
-        return SpellRank.getByPercent(((double) unlocked / total) * 100);
     }
 
     public static String getSpellRankString(@Nonnull UUID uuid) {

@@ -80,8 +80,13 @@ public class StarFall extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "STAR_FALL";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ALCHEMICAL,
+            StoryType.CELESTIAL,
+            StoryType.PHILOSOPHICAL
+        );
     }
 
     @Nonnull
@@ -95,18 +100,13 @@ public class StarFall extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.NETHER_STAR;
+    public String getId() {
+        return "STAR_FALL";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ALCHEMICAL,
-            StoryType.CELESTIAL,
-            StoryType.PHILOSOPHICAL
-        );
+    public Material getMaterial() {
+        return Material.NETHER_STAR;
     }
 }

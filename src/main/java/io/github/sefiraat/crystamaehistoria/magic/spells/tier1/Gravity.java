@@ -43,8 +43,13 @@ public class Gravity extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "GRAVITY";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.MECHANICAL,
+            StoryType.ALCHEMICAL,
+            StoryType.CELESTIAL
+        );
     }
 
     @Nonnull
@@ -58,18 +63,13 @@ public class Gravity extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.FIREWORK_STAR;
+    public String getId() {
+        return "GRAVITY";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.MECHANICAL,
-            StoryType.ALCHEMICAL,
-            StoryType.CELESTIAL
-        );
+    public Material getMaterial() {
+        return Material.FIREWORK_STAR;
     }
 }

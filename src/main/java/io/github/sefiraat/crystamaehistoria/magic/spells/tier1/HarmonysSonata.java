@@ -73,8 +73,13 @@ public class HarmonysSonata extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "HARMONYS_SONATA";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.ALCHEMICAL,
+            StoryType.CELESTIAL
+        );
     }
 
     @Nonnull
@@ -87,18 +92,13 @@ public class HarmonysSonata extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.GRASS;
+    public String getId() {
+        return "HARMONYS_SONATA";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.ALCHEMICAL,
-            StoryType.CELESTIAL
-        );
+    public Material getMaterial() {
+        return Material.GRASS;
     }
 }

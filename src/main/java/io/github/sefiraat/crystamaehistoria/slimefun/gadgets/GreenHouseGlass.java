@@ -45,6 +45,14 @@ public class GreenHouseGlass extends TickingBlockNoGui {
     }
 
     @Override
+    protected void onFirstTick(@Nonnull Block block, @Nonnull SlimefunItem slimefunItem, @Nonnull Config config) {
+        blockOwnerMap.put(
+            block.getLocation(),
+            UUID.fromString(BlockStorage.getLocationInfo(block.getLocation(), "CH_UUID"))
+        );
+    }
+
+    @Override
     protected void onTick(@Nonnull Block block, @Nonnull SlimefunItem slimefunItem, @Nonnull Config config) {
         if (!GeneralUtils.testChance(this.rate, 100) || TimePeriod.isLight(block.getWorld())) {
             return;
@@ -81,14 +89,6 @@ public class GreenHouseGlass extends TickingBlockNoGui {
                 testBlock.setBlockData(ageable);
             }
         }
-    }
-
-    @Override
-    protected void onFirstTick(@Nonnull Block block, @Nonnull SlimefunItem slimefunItem, @Nonnull Config config) {
-        blockOwnerMap.put(
-            block.getLocation(),
-            UUID.fromString(BlockStorage.getLocationInfo(block.getLocation(), "CH_UUID"))
-        );
     }
 
     @Override

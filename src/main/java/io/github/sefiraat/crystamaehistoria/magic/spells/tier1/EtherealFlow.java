@@ -30,8 +30,13 @@ public class EtherealFlow extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "ETHEREAL_FLOW";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.HISTORICAL,
+            StoryType.VOID,
+            StoryType.PHILOSOPHICAL
+        );
     }
 
     @Nonnull
@@ -44,18 +49,13 @@ public class EtherealFlow extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.CLOCK;
+    public String getId() {
+        return "ETHEREAL_FLOW";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.HISTORICAL,
-            StoryType.VOID,
-            StoryType.PHILOSOPHICAL
-        );
+    public Material getMaterial() {
+        return Material.CLOCK;
     }
 }

@@ -68,8 +68,13 @@ public class Teleport extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "TELEPORT";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.HISTORICAL,
+            StoryType.VOID
+        );
     }
 
     @Nonnull
@@ -82,18 +87,13 @@ public class Teleport extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.ENDER_PEARL;
+    public String getId() {
+        return "TELEPORT";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.HISTORICAL,
-            StoryType.VOID
-        );
+    public Material getMaterial() {
+        return Material.ENDER_PEARL;
     }
 }

@@ -53,8 +53,13 @@ public class Hearthstone extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "HEARTHSTONE";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.MECHANICAL,
+            StoryType.HUMAN,
+            StoryType.PHILOSOPHICAL
+        );
     }
 
     @Nonnull
@@ -69,18 +74,13 @@ public class Hearthstone extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.RED_BED;
+    public String getId() {
+        return "HEARTHSTONE";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.MECHANICAL,
-            StoryType.HUMAN,
-            StoryType.PHILOSOPHICAL
-        );
+    public Material getMaterial() {
+        return Material.RED_BED;
     }
 }

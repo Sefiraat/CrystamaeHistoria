@@ -43,15 +43,6 @@ public abstract class Spell {
     private boolean enabled;
 
     @Nonnull
-    public abstract String getId();
-
-    @Nonnull
-    public abstract String[] getLore();
-
-    @Nonnull
-    public abstract Material getMaterial();
-
-    @Nonnull
     public abstract RecipeSpell getRecipe();
 
     @Nonnull
@@ -76,6 +67,15 @@ public abstract class Spell {
         return stack;
     }
 
+    @Nonnull
+    public abstract String[] getLore();
+
+    @Nonnull
+    public abstract String getId();
+
+    @Nonnull
+    public abstract Material getMaterial();
+
     @ParametersAreNonnullByDefault
     public void castSpell(CastInformation castInformation) {
 
@@ -98,6 +98,26 @@ public abstract class Spell {
         if (spellCore.isTickingSpell()) {
             registerTicker(castInformation, spellCore.getTickInterval(), spellCore.getNumberOfTicks());
         }
+    }
+
+    /**
+     * Used to register the projectile's events to the definition and then
+     * the projectile/definition to the projectileMap. Used when detecting
+     * the projectile hitting targets.
+     *
+     * @param castInformation The {@link CastInformation} with the stave information
+     * @param tickAmount      The number of times this event should tick before stopping.
+     */
+    @ParametersAreNonnullByDefault
+    protected void registerTicker(CastInformation castInformation, long period, int tickAmount) {
+        tickAmount = spellCore.isNumberOfTicksMultiplied() ? tickAmount * castInformation.getStaveLevel() : tickAmount;
+        period = spellCore.isTickIntervalMultiplied() ? period * castInformation.getStaveLevel() : period;
+        castInformation.setTickEvent(spellCore.getTickEvent());
+        castInformation.setAfterTicksEvent(spellCore.getAfterAllTicksEvent());
+
+        final SpellTickRunnable ticker = new SpellTickRunnable(castInformation, tickAmount);
+        CrystamaeHistoria.getSpellMemory().getTickingCastables().put(ticker, tickAmount);
+        ticker.runTaskTimer(CrystamaeHistoria.getInstance(), 0, period);
     }
 
     @ParametersAreNonnullByDefault
@@ -181,26 +201,6 @@ public abstract class Spell {
         castInformation.setAfterProjectileHitEvent(spellCore.getAfterProjectileHitEvent());
         Long expiry = System.currentTimeMillis() + 1000;
         CrystamaeHistoria.getSpellMemory().getStrikeMap().put(lightningStrike.getUniqueId(), new Pair<>(castInformation, expiry));
-    }
-
-    /**
-     * Used to register the projectile's events to the definition and then
-     * the projectile/definition to the projectileMap. Used when detecting
-     * the projectile hitting targets.
-     *
-     * @param castInformation The {@link CastInformation} with the stave information
-     * @param tickAmount      The number of times this event should tick before stopping.
-     */
-    @ParametersAreNonnullByDefault
-    protected void registerTicker(CastInformation castInformation, long period, int tickAmount) {
-        tickAmount = spellCore.isNumberOfTicksMultiplied() ? tickAmount * castInformation.getStaveLevel() : tickAmount;
-        period = spellCore.isTickIntervalMultiplied() ? period * castInformation.getStaveLevel() : period;
-        castInformation.setTickEvent(spellCore.getTickEvent());
-        castInformation.setAfterTicksEvent(spellCore.getAfterAllTicksEvent());
-
-        final SpellTickRunnable ticker = new SpellTickRunnable(castInformation, tickAmount);
-        CrystamaeHistoria.getSpellMemory().getTickingCastables().put(ticker, tickAmount);
-        ticker.runTaskTimer(CrystamaeHistoria.getInstance(), 0, period);
     }
 
     /**

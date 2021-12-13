@@ -53,8 +53,13 @@ public class FanOfArrows extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "FAN_OF_ARROWS";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.MECHANICAL,
+            StoryType.HISTORICAL,
+            StoryType.HUMAN
+        );
     }
 
     @Nonnull
@@ -68,18 +73,13 @@ public class FanOfArrows extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.SPECTRAL_ARROW;
+    public String getId() {
+        return "FAN_OF_ARROWS";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.MECHANICAL,
-            StoryType.HISTORICAL,
-            StoryType.HUMAN
-        );
+    public Material getMaterial() {
+        return Material.SPECTRAL_ARROW;
     }
 }

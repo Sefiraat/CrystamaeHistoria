@@ -35,6 +35,7 @@ public enum ThemeType {
     MACHINE(ChatColor.of("#3295a8"), "Machine"),
     MECHANISM(ChatColor.of("#3295a8"), "Mechanism"),
     GADGET(ChatColor.of("#8732a8"), "Gadget"),
+    EXALTED(ChatColor.of("#8732a8"), "Exalted"),
     GUIDE(ChatColor.of("#444444"), "Guide"),
     CHEST(ChatColor.of("#b89b1c"), "Chest"),
     DROP(ChatColor.of("#bf307f"), "Rare Drop"),
@@ -138,19 +139,6 @@ public enum ThemeType {
     }
 
     /**
-     * Applies the theme color to a given string
-     *
-     * @param themeType The {@link ThemeType} to apply the color from
-     * @param string    The string to apply the color to
-     * @return Returns the string provides preceded by the color
-     */
-    @Nonnull
-    @ParametersAreNonnullByDefault
-    public static String applyThemeToString(ThemeType themeType, String string) {
-        return themeType.getColor() + string;
-    }
-
-    /**
      * Gets a SlimefunItemStack with a pre-populated lore and name with themed colors.
      *
      * @param id        The ID for the new {@link SlimefunItemStack}
@@ -177,6 +165,19 @@ public enum ThemeType {
             ThemeType.applyThemeToString(themeType, name),
             finalLore.toArray(new String[finalLore.size() - 1])
         );
+    }
+
+    /**
+     * Applies the theme color to a given string
+     *
+     * @param themeType The {@link ThemeType} to apply the color from
+     * @param string    The string to apply the color to
+     * @return Returns the string provides preceded by the color
+     */
+    @Nonnull
+    @ParametersAreNonnullByDefault
+    public static String applyThemeToString(ThemeType themeType, String string) {
+        return themeType.getColor() + string;
     }
 
     /**

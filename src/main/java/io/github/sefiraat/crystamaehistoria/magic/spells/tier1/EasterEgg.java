@@ -55,8 +55,13 @@ public class EasterEgg extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "EASTER_EGG";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ANIMAL,
+            StoryType.CELESTIAL,
+            StoryType.PHILOSOPHICAL
+        );
     }
 
     @Nonnull
@@ -69,18 +74,13 @@ public class EasterEgg extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.ZOGLIN_SPAWN_EGG;
+    public String getId() {
+        return "EASTER_EGG";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ANIMAL,
-            StoryType.CELESTIAL,
-            StoryType.PHILOSOPHICAL
-        );
+    public Material getMaterial() {
+        return Material.ZOGLIN_SPAWN_EGG;
     }
 }

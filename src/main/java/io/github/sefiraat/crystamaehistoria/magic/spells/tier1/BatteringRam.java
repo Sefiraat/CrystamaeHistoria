@@ -50,8 +50,13 @@ public class BatteringRam extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "BATTERING_RAM";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.ALCHEMICAL,
+            StoryType.ANIMAL
+        );
     }
 
     @Nonnull
@@ -65,19 +70,14 @@ public class BatteringRam extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.GOAT_SPAWN_EGG;
+    public String getId() {
+        return "BATTERING_RAM";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.ALCHEMICAL,
-            StoryType.ANIMAL
-        );
+    public Material getMaterial() {
+        return Material.GOAT_SPAWN_EGG;
     }
 
 }

@@ -70,6 +70,34 @@ public class RealisationAltarCache extends AbstractCache {
         }
     }
 
+    private void tryGrow() {
+        Iterator<BlockPosition> iterator = crystalStoryMap.keySet().iterator();
+        while (iterator.hasNext()) {
+            BlockPosition blockPosition = iterator.next();
+            final Block block = blockPosition.getBlock();
+            final Material material = block.getType();
+            switch (material) {
+                case SMALL_AMETHYST_BUD:
+                    if (GeneralUtils.testChance(1, 10)) {
+                        block.setType(Material.MEDIUM_AMETHYST_BUD);
+                        summonGrowParticles(block);
+                    }
+                    break;
+                case MEDIUM_AMETHYST_BUD:
+                    if (GeneralUtils.testChance(1, 20)) {
+                        block.setType(Material.LARGE_AMETHYST_BUD);
+                        summonGrowParticles(block);
+                    }
+                    break;
+                case LARGE_AMETHYST_BUD:
+                    summonFullyGrownParticles(block);
+                    break;
+                default:
+                    iterator.remove();
+            }
+        }
+    }
+
     @ParametersAreNonnullByDefault
     private void rejectOverage(ItemStack i) {
         if (i.getAmount() > 1) {
@@ -77,14 +105,6 @@ public class RealisationAltarCache extends AbstractCache {
             i.setAmount(1);
             i2.setAmount(i2.getAmount() - 1);
             blockMenu.getBlock().getWorld().dropItemNaturally(blockMenu.getLocation(), i2);
-        }
-    }
-
-    protected void reject(@Nullable ItemStack itemStack) {
-        if (itemStack != null) {
-            final ItemStack rejectedSpawn = itemStack.clone();
-            itemStack.setAmount(0);
-            blockMenu.getBlock().getWorld().dropItemNaturally(blockMenu.getLocation(), rejectedSpawn);
         }
     }
 
@@ -131,6 +151,29 @@ public class RealisationAltarCache extends AbstractCache {
         DataTypeMethods.setCustom(chunk, Keys.newKey(String.valueOf(position.getPosition())), PersistentStoryChunkDataType.TYPE, stories);
     }
 
+    private void summonGrowParticles(Block block) {
+        final Location location = block.getLocation().add(0.5, 0.2, 0.5);
+        ParticleUtils.displayParticleEffect(location, Particle.CRIMSON_SPORE, 0.4, 3);
+    }
+
+    private void summonFullyGrownParticles(Block block) {
+        final Location location = block.getLocation().add(0.5, 0.2, 0.5);
+        ParticleUtils.displayParticleEffect(location, Particle.WAX_OFF, 0.4, 3);
+    }
+
+    private void summonConsumeParticles(Block block) {
+        final Location location = block.getLocation().add(0.5, 0.2, 0.5);
+        ParticleUtils.displayParticleEffect(location, Particle.FLASH, 0.4, 2);
+    }
+
+    protected void reject(@Nullable ItemStack itemStack) {
+        if (itemStack != null) {
+            final ItemStack rejectedSpawn = itemStack.clone();
+            itemStack.setAmount(0);
+            blockMenu.getBlock().getWorld().dropItemNaturally(blockMenu.getLocation(), rejectedSpawn);
+        }
+    }
+
     protected void loadMap() {
         final Chunk chunk = blockMenu.getBlock().getChunk();
         final BlockPosition position = new BlockPosition(blockMenu.getLocation());
@@ -140,53 +183,6 @@ public class RealisationAltarCache extends AbstractCache {
                 crystalStoryMap.put(story.getBlockPosition(), new Pair<>(story.getRarity(), story.getId()));
             }
         }
-    }
-
-    private void clearMap() {
-        PersistentDataAPI.remove(blockMenu.getBlock().getChunk(), Keys.RESOLUTION_CRYSTAL_MAP);
-    }
-
-    private void tryGrow() {
-        Iterator<BlockPosition> iterator = crystalStoryMap.keySet().iterator();
-        while (iterator.hasNext()) {
-            BlockPosition blockPosition = iterator.next();
-            final Block block = blockPosition.getBlock();
-            final Material material = block.getType();
-            switch (material) {
-                case SMALL_AMETHYST_BUD:
-                    if (GeneralUtils.testChance(1, 10)) {
-                        block.setType(Material.MEDIUM_AMETHYST_BUD);
-                        summonGrowParticles(block);
-                    }
-                    break;
-                case MEDIUM_AMETHYST_BUD:
-                    if (GeneralUtils.testChance(1, 20)) {
-                        block.setType(Material.LARGE_AMETHYST_BUD);
-                        summonGrowParticles(block);
-                    }
-                    break;
-                case LARGE_AMETHYST_BUD:
-                    summonFullyGrownParticles(block);
-                    break;
-                default:
-                    iterator.remove();
-            }
-        }
-    }
-
-    private void summonConsumeParticles(Block block) {
-        final Location location = block.getLocation().add(0.5, 0.2, 0.5);
-        ParticleUtils.displayParticleEffect(location, Particle.FLASH, 0.4, 2);
-    }
-
-    private void summonGrowParticles(Block block) {
-        final Location location = block.getLocation().add(0.5, 0.2, 0.5);
-        ParticleUtils.displayParticleEffect(location, Particle.CRIMSON_SPORE, 0.4, 3);
-    }
-
-    private void summonFullyGrownParticles(Block block) {
-        final Location location = block.getLocation().add(0.5, 0.2, 0.5);
-        ParticleUtils.displayParticleEffect(location, Particle.WAX_OFF, 0.4, 3);
     }
 
     protected void kill() {
@@ -201,6 +197,10 @@ public class RealisationAltarCache extends AbstractCache {
         final BlockPosition position = new BlockPosition(blockMenu.getLocation());
         PersistentDataAPI.remove(chunk, Keys.newKey(String.valueOf(position.getPosition())));
         clearMap();
+    }
+
+    private void clearMap() {
+        PersistentDataAPI.remove(blockMenu.getBlock().getChunk(), Keys.RESOLUTION_CRYSTAL_MAP);
     }
 
     protected World getWorld() {

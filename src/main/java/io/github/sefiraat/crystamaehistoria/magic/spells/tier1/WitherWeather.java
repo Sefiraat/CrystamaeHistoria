@@ -44,8 +44,13 @@ public class WitherWeather extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "WITHER_WEATHER";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.HUMAN,
+            StoryType.ANIMAL,
+            StoryType.VOID
+        );
     }
 
     @Nonnull
@@ -60,18 +65,13 @@ public class WitherWeather extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.WITHER_SKELETON_SKULL;
+    public String getId() {
+        return "WITHER_WEATHER";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.HUMAN,
-            StoryType.ANIMAL,
-            StoryType.VOID
-        );
+    public Material getMaterial() {
+        return Material.WITHER_SKELETON_SKULL;
     }
 }

@@ -57,6 +57,38 @@ public interface MagicPaintbrush {
         return false;
     }
 
+    default boolean tryPaintEntity(PaintProfile profile, Entity entity) {
+        final EntityType entityType = entity.getType();
+
+        if (entityType == EntityType.SHULKER) {
+            Shulker shulker = (Shulker) entity;
+            if (shulker.getColor() != profile.getDyeColor()) {
+                shulker.setColor(profile.getDyeColor());
+                return true;
+            }
+        } else if (entityType == EntityType.SHEEP) {
+            Sheep sheep = (Sheep) entity;
+            if (sheep.getColor() != profile.getDyeColor()) {
+                sheep.setColor(profile.getDyeColor());
+                return true;
+            }
+        } else if (entityType == EntityType.PARROT && profile.getParrotVariant() != null) {
+            Parrot parrot = (Parrot) entity;
+            if (parrot.getVariant() != profile.getParrotVariant()) {
+                parrot.setVariant(profile.getParrotVariant());
+                return true;
+            }
+        } else if (entityType == EntityType.AXOLOTL && profile.getAxolotlVariant() != null) {
+            Axolotl axolotl = (Axolotl) entity;
+            if (axolotl.getVariant() != profile.getAxolotlVariant()) {
+                axolotl.setVariant(profile.getAxolotlVariant());
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     default boolean tryPaintBlock(PaintProfile profile, Block block) {
         final Material material = block.getType();
 
@@ -105,38 +137,6 @@ public interface MagicPaintbrush {
         ) {
             block.setType(profile.getMaterialShulker());
             return true;
-        }
-
-        return false;
-    }
-
-    default boolean tryPaintEntity(PaintProfile profile, Entity entity) {
-        final EntityType entityType = entity.getType();
-
-        if (entityType == EntityType.SHULKER) {
-            Shulker shulker = (Shulker) entity;
-            if (shulker.getColor() != profile.getDyeColor()) {
-                shulker.setColor(profile.getDyeColor());
-                return true;
-            }
-        } else if (entityType == EntityType.SHEEP) {
-            Sheep sheep = (Sheep) entity;
-            if (sheep.getColor() != profile.getDyeColor()) {
-                sheep.setColor(profile.getDyeColor());
-                return true;
-            }
-        } else if (entityType == EntityType.PARROT && profile.getParrotVariant() != null) {
-            Parrot parrot = (Parrot) entity;
-            if (parrot.getVariant() != profile.getParrotVariant()) {
-                parrot.setVariant(profile.getParrotVariant());
-                return true;
-            }
-        } else if (entityType == EntityType.AXOLOTL && profile.getAxolotlVariant() != null) {
-            Axolotl axolotl = (Axolotl) entity;
-            if (axolotl.getVariant() != profile.getAxolotlVariant()) {
-                axolotl.setVariant(profile.getAxolotlVariant());
-                return true;
-            }
         }
 
         return false;

@@ -59,12 +59,12 @@ public class BatteringRamGoal extends AbstractGoal<Goat> {
     }
 
     @Override
-    public boolean getTargetsEnemies() {
+    public boolean getTickCondition() {
         return false;
     }
 
     @Override
-    public boolean getTickCondition() {
+    public boolean getTargetsEnemies() {
         return false;
     }
 

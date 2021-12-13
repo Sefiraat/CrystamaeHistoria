@@ -54,8 +54,13 @@ public class TunnelBore extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "TUNNEL_BORE";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.ALCHEMICAL,
+            StoryType.ANIMAL
+        );
     }
 
     @Nonnull
@@ -70,19 +75,14 @@ public class TunnelBore extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.GOAT_SPAWN_EGG;
+    public String getId() {
+        return "TUNNEL_BORE";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.ALCHEMICAL,
-            StoryType.ANIMAL
-        );
+    public Material getMaterial() {
+        return Material.GOAT_SPAWN_EGG;
     }
 
 }

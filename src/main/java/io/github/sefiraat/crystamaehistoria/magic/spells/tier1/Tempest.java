@@ -51,23 +51,28 @@ public class Tempest extends Spell {
     }
 
     @ParametersAreNonnullByDefault
-    public void beforeProjectileHit(CastInformation castInformation) {
-        for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
-            livingEntity.setFireTicks(40);
-        }
-    }
-
-    @ParametersAreNonnullByDefault
     public void onProjectileHit(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
             GeneralUtils.damageEntity(livingEntity, castInformation.getCaster(), getDamage(castInformation), castInformation.getDamageLocation(), getKnockback(castInformation));
         }
     }
 
+    @ParametersAreNonnullByDefault
+    public void beforeProjectileHit(CastInformation castInformation) {
+        for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
+            livingEntity.setFireTicks(40);
+        }
+    }
+
     @Nonnull
     @Override
-    public String getId() {
-        return "TEMPEST";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.MECHANICAL,
+            StoryType.CELESTIAL
+        );
     }
 
     @Nonnull
@@ -81,18 +86,13 @@ public class Tempest extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.END_ROD;
+    public String getId() {
+        return "TEMPEST";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.MECHANICAL,
-            StoryType.CELESTIAL
-        );
+    public Material getMaterial() {
+        return Material.END_ROD;
     }
 }

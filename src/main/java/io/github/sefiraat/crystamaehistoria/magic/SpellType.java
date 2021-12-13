@@ -173,15 +173,15 @@ public enum SpellType {
         return null;
     }
 
+    @Nonnull
+    public String getId() {
+        return spell.getId();
+    }
+
     public static void setupEnabledSpells() {
         enabledSpells = Arrays.stream(values())
             .filter(spellType -> spellType.getSpell().isEnabled())
             .toArray(SpellType[]::new);
-    }
-
-    @Nonnull
-    public String getId() {
-        return spell.getId();
     }
 
     @Nonnull

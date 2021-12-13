@@ -40,8 +40,13 @@ public class HealingMist extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "HEALING_MIST";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.CELESTIAL,
+            StoryType.VOID,
+            StoryType.PHILOSOPHICAL
+        );
     }
 
     @Nonnull
@@ -56,18 +61,13 @@ public class HealingMist extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.GOLDEN_APPLE;
+    public String getId() {
+        return "HEALING_MIST";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.CELESTIAL,
-            StoryType.VOID,
-            StoryType.PHILOSOPHICAL
-        );
+    public Material getMaterial() {
+        return Material.GOLDEN_APPLE;
     }
 }

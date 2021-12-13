@@ -60,8 +60,13 @@ public class Quake extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "QUAKE";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.HISTORICAL,
+            StoryType.HUMAN,
+            StoryType.PHILOSOPHICAL
+        );
     }
 
     @Nonnull
@@ -75,18 +80,13 @@ public class Quake extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.CRACKED_DEEPSLATE_BRICKS;
+    public String getId() {
+        return "QUAKE";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.HISTORICAL,
-            StoryType.HUMAN,
-            StoryType.PHILOSOPHICAL
-        );
+    public Material getMaterial() {
+        return Material.CRACKED_DEEPSLATE_BRICKS;
     }
 }

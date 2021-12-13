@@ -54,8 +54,13 @@ public class AirSprite extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "AIR_SPRITE";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.ANIMAL,
+            StoryType.CELESTIAL
+        );
     }
 
     @Nonnull
@@ -69,19 +74,14 @@ public class AirSprite extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.VEX_SPAWN_EGG;
+    public String getId() {
+        return "AIR_SPRITE";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.ANIMAL,
-            StoryType.CELESTIAL
-        );
+    public Material getMaterial() {
+        return Material.VEX_SPAWN_EGG;
     }
 
 }

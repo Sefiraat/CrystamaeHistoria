@@ -42,23 +42,28 @@ public class CallLightning extends Spell {
     }
 
     @ParametersAreNonnullByDefault
-    public void beforeProjectileHit(CastInformation castInformation) {
-        for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
-            livingEntity.setFireTicks(40);
-        }
-    }
-
-    @ParametersAreNonnullByDefault
     public void projectileHit(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
             GeneralUtils.damageEntity(livingEntity, castInformation.getCaster(), getDamage(castInformation), castInformation.getDamageLocation(), getKnockback(castInformation));
         }
     }
 
+    @ParametersAreNonnullByDefault
+    public void beforeProjectileHit(CastInformation castInformation) {
+        for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
+            livingEntity.setFireTicks(40);
+        }
+    }
+
     @Nonnull
     @Override
-    public String getId() {
-        return "CALL_LIGHTNING";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.MECHANICAL,
+            StoryType.HISTORICAL
+        );
     }
 
     @Nonnull
@@ -71,18 +76,13 @@ public class CallLightning extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.LIGHTNING_ROD;
+    public String getId() {
+        return "CALL_LIGHTNING";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.MECHANICAL,
-            StoryType.HISTORICAL
-        );
+    public Material getMaterial() {
+        return Material.LIGHTNING_ROD;
     }
 }

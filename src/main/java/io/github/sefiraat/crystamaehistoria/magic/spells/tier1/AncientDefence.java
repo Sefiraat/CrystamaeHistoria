@@ -46,8 +46,13 @@ public class AncientDefence extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "ANCIENT_DEFENCE";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.HISTORICAL,
+            StoryType.HUMAN
+        );
     }
 
     @Nonnull
@@ -61,18 +66,13 @@ public class AncientDefence extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.CRYING_OBSIDIAN;
+    public String getId() {
+        return "ANCIENT_DEFENCE";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.HISTORICAL,
-            StoryType.HUMAN
-        );
+    public Material getMaterial() {
+        return Material.CRYING_OBSIDIAN;
     }
 }

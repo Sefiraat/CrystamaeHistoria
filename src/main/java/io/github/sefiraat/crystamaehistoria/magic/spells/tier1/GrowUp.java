@@ -48,8 +48,13 @@ public class GrowUp extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "GROW_UP";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.MECHANICAL,
+            StoryType.ANIMAL,
+            StoryType.VOID
+        );
     }
 
     @Nonnull
@@ -62,18 +67,13 @@ public class GrowUp extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.SLIME_BLOCK;
+    public String getId() {
+        return "GROW_UP";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.MECHANICAL,
-            StoryType.ANIMAL,
-            StoryType.VOID
-        );
+    public Material getMaterial() {
+        return Material.SLIME_BLOCK;
     }
 }

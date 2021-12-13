@@ -51,8 +51,13 @@ public class LavaLake extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "LAVA_LAKE";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.ELEMENTAL,
+            StoryType.ALCHEMICAL,
+            StoryType.HISTORICAL
+        );
     }
 
     @Nonnull
@@ -65,18 +70,13 @@ public class LavaLake extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.LAVA_BUCKET;
+    public String getId() {
+        return "LAVA_LAKE";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.ELEMENTAL,
-            StoryType.ALCHEMICAL,
-            StoryType.HISTORICAL
-        );
+    public Material getMaterial() {
+        return Material.LAVA_BUCKET;
     }
 }

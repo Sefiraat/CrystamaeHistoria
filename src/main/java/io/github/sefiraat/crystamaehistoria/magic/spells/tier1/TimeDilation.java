@@ -59,8 +59,13 @@ public class TimeDilation extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "TIME_DILATION";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.HISTORICAL,
+            StoryType.ANIMAL,
+            StoryType.CELESTIAL
+        );
     }
 
     @Nonnull
@@ -74,18 +79,13 @@ public class TimeDilation extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.CUT_COPPER;
+    public String getId() {
+        return "TIME_DILATION";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.HISTORICAL,
-            StoryType.ANIMAL,
-            StoryType.CELESTIAL
-        );
+    public Material getMaterial() {
+        return Material.CUT_COPPER;
     }
 }

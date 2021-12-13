@@ -56,15 +56,6 @@ public class ChroniclerPanel extends TickingMenuBlock {
     }
 
     @Override
-    @ParametersAreNonnullByDefault
-    protected void tick(Block block, BlockMenu blockMenu) {
-        ChroniclerPanelCache cache = CACHES.get(block.getLocation());
-        if (cache != null) {
-            cache.process();
-        }
-    }
-
-    @Override
     protected int[] getInputSlots() {
         return new int[0];
     }
@@ -72,6 +63,16 @@ public class ChroniclerPanel extends TickingMenuBlock {
     @Override
     protected int[] getOutputSlots() {
         return new int[0];
+    }
+
+    @Override
+    @ParametersAreNonnullByDefault
+    protected void onNewInstance(BlockMenu blockMenu, Block b) {
+        super.onNewInstance(blockMenu, b);
+        if (!CACHES.containsKey(blockMenu.getLocation())) {
+            ChroniclerPanelCache cache = new ChroniclerPanelCache(blockMenu, this.tier);
+            CACHES.put(blockMenu.getLocation(), cache);
+        }
     }
 
     @Override
@@ -86,11 +87,10 @@ public class ChroniclerPanel extends TickingMenuBlock {
 
     @Override
     @ParametersAreNonnullByDefault
-    protected void onNewInstance(BlockMenu blockMenu, Block b) {
-        super.onNewInstance(blockMenu, b);
-        if (!CACHES.containsKey(blockMenu.getLocation())) {
-            ChroniclerPanelCache cache = new ChroniclerPanelCache(blockMenu, this.tier);
-            CACHES.put(blockMenu.getLocation(), cache);
+    protected void tick(Block block, BlockMenu blockMenu) {
+        ChroniclerPanelCache cache = CACHES.get(block.getLocation());
+        if (cache != null) {
+            cache.process();
         }
     }
 

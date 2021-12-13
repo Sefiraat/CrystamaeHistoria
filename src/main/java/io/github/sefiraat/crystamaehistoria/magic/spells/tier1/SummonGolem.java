@@ -63,8 +63,13 @@ public class SummonGolem extends Spell {
 
     @Nonnull
     @Override
-    public String getId() {
-        return "SUMMON_GOLEM";
+    public RecipeSpell getRecipe() {
+        return new RecipeSpell(
+            1,
+            StoryType.MECHANICAL,
+            StoryType.HUMAN,
+            StoryType.ANIMAL
+        );
     }
 
     @Nonnull
@@ -79,19 +84,14 @@ public class SummonGolem extends Spell {
 
     @Nonnull
     @Override
-    public Material getMaterial() {
-        return Material.CARVED_PUMPKIN;
+    public String getId() {
+        return "SUMMON_GOLEM";
     }
 
     @Nonnull
     @Override
-    public RecipeSpell getRecipe() {
-        return new RecipeSpell(
-            1,
-            StoryType.MECHANICAL,
-            StoryType.HUMAN,
-            StoryType.ANIMAL
-        );
+    public Material getMaterial() {
+        return Material.CARVED_PUMPKIN;
     }
 
 }

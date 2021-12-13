@@ -103,6 +103,16 @@ public enum TimePeriod {
     }
 
     /**
+     * Returns if the given world is dark.
+     *
+     * @param world The world to check.
+     * @return True if past sunset/before sunrise or in a different world.
+     */
+    public static boolean isDark(World world) {
+        return !isLight(world);
+    }
+
+    /**
      * Returns if the given world is light.
      *
      * @param world The world to check.
@@ -113,15 +123,5 @@ public enum TimePeriod {
             return isDay(world.getTime());
         }
         return false;
-    }
-
-    /**
-     * Returns if the given world is dark.
-     *
-     * @param world The world to check.
-     * @return True if past sunset/before sunrise or in a different world.
-     */
-    public static boolean isDark(World world) {
-        return !isLight(world);
     }
 }
