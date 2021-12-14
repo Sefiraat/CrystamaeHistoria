@@ -513,22 +513,6 @@ BEACON:
     shards: [ 0,2,0,0,1,0,0,1,0 ]
     author: Seggan
 
-BEDROCK:
-  tier: 1
-  elements:
-    - ELEMENTAL
-    - VOID
-  story:
-    name: The sleeping rock
-    type: ELEMENTAL
-    lore:
-      - This rock has been here for so
-      - long, it has turned hard as
-      - stone. Wait... that's not
-      - right...
-    shards: [ 2,0,0,0,0,0,0,2,0 ]
-    author: Seggan
-
 BEEF:
   tier: 1
   elements:
