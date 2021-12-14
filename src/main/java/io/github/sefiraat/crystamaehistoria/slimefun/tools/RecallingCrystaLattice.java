@@ -90,9 +90,11 @@ public class RecallingCrystaLattice extends SlimefunItem {
     }
 
     private void renameItem(String s, ItemStack itemStack) {
-        final ItemMeta itemMeta = itemStack.getItemMeta();
+        if (itemStack != null) {
+            final ItemMeta itemMeta = itemStack.getItemMeta();
 
-        itemMeta.setDisplayName(ThemeType.TOOL.getColor() + s);
-        itemStack.setItemMeta(itemMeta);
+            itemMeta.setDisplayName(ThemeType.TOOL.getColor() + s);
+            itemStack.setItemMeta(itemMeta);
+        }
     }
 }
