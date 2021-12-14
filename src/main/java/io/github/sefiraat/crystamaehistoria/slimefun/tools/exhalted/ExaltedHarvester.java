@@ -22,7 +22,7 @@ public class ExaltedHarvester extends ExaltedItem {
         for (int i = 0; i < 5; i++) {
             final int x = ThreadLocalRandom.current().nextInt(-4, 5);
             final int z = ThreadLocalRandom.current().nextInt(-4, 5);
-            Block block = location.add(x, 0, z).getBlock();
+            Block block = location.add(x, -1.5, z).getBlock();
             if (block.getBlockData() instanceof Ageable) {
                 Ageable ageable = (Ageable) block.getBlockData();
                 Material material = block.getType();
