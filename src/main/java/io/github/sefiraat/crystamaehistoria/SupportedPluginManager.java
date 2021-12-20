@@ -21,6 +21,7 @@ public class SupportedPluginManager {
     private final boolean exoticGarden;
     private final boolean slimeTinker;
     private final boolean headLimiter;
+    private final boolean networks;
 
     public SupportedPluginManager() {
         instance = this;
@@ -29,6 +30,7 @@ public class SupportedPluginManager {
         exoticGarden = Bukkit.getPluginManager().isPluginEnabled("ExoticGarden");
         slimeTinker = Bukkit.getPluginManager().isPluginEnabled("SlimeTinker");
         headLimiter = Bukkit.getPluginManager().isPluginEnabled("HeadLimiter");
+        networks = Bukkit.getPluginManager().isPluginEnabled("Networks");
     }
 
     /**
@@ -92,6 +94,10 @@ public class SupportedPluginManager {
 
     public static boolean isHeadLimiter() {
         return instance.headLimiter;
+    }
+
+    public static boolean isNetworks() {
+        return instance.networks;
     }
 
 

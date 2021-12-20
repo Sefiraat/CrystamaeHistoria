@@ -26,8 +26,6 @@ public class BlockVeil extends SlimefunItem {
                     return;
                 }
 
-                Class<? extends SlimefunItem> itemClass = slimefunItem.getClass();
-
                 for (Class<?> testClass : classToCover) {
                     if (testClass.isInstance(slimefunItem)) {
                         if (offhand.getType() != Material.AIR

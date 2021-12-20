@@ -175,5 +175,11 @@
             <version>9.3</version>
             <scope>compile</scope>
         </dependency>
+        <dependency>
+            <groupId>io.github.sefiraat.networks</groupId>
+            <artifactId>Networks</artifactId>
+            <version>MODIFIED</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 </project>

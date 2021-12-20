@@ -160,7 +160,14 @@ public class StoriesManager {
         final FileConfiguration blocks = CrystamaeHistoria.getConfigManager().getBlocks();
         for (String key : blocks.getKeys(false)) {
             final ConfigurationSection wholeSection = blocks.getConfigurationSection(key);
-            Validate.notNull(wholeSection, "Section is null, this doesn't make sense so don't worry.");
+
+            if (wholeSection == null) {
+                CrystamaeHistoria.getInstance().getLogger().info(
+                    MessageFormat.format("Whole section missing for story -> {0}", key)
+                );
+                continue;
+            }
+
             final ConfigurationSection storySection = wholeSection.getConfigurationSection("story");
 
             if (storySection == null) {
