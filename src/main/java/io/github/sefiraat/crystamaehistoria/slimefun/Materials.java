@@ -1,11 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
-import io.github.sefiraat.crystamaehistoria.player.SpellRank;
-import io.github.sefiraat.crystamaehistoria.player.StoryRank;
 import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
-import io.github.sefiraat.crystamaehistoria.slimefun.materials.Trophy;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
@@ -22,7 +18,6 @@ import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.Unplaceabl
 import lombok.Getter;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Material;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.EnumMap;
@@ -66,10 +61,6 @@ public class Materials {
     private static SlimefunItem gildedPearl;
     @Getter
     private static SlimefunItem basicFibres;
-    @Getter
-    private static Trophy storyTrophy;
-    @Getter
-    private static Trophy spellTrophy;
 
     public static void setup() {
 
@@ -447,52 +438,6 @@ public class Materials {
             basicFibresRecipe.getDisplayRecipe()
         );
 
-        // Spell Trophy
-        RecipeItem spellTrophyRecipe = new RecipeItem(
-            new ItemStack(Material.PAPER),
-            StoryType.ELEMENTAL, 100,
-            StoryType.ALCHEMICAL, 100,
-            StoryType.VOID, 100,
-            Materials::isMaxSpellRank
-        );
-        spellTrophy = new Trophy(
-            ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_SPELL_TROPHY",
-                new ItemStack(Material.PAPER),
-                ThemeType.CRAFTING,
-                "Proofs: Grandmaster Magus",
-                "Proof that you are simply the best.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Spell Rank > Grandmaster Magus"
-            ),
-            DummyLiquefactionBasinCrafting.TYPE,
-            spellTrophyRecipe.getDisplayRecipe()
-        );
-
-        // Story Trophy
-        RecipeItem storyTrophyRecipe = new RecipeItem(
-            new ItemStack(Material.PAPER),
-            StoryType.ELEMENTAL, 100,
-            StoryType.ALCHEMICAL, 100,
-            StoryType.CELESTIAL, 100,
-            Materials::isMaxStoryRank
-        );
-        storyTrophy = new Trophy(
-            ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_STORY_TROPHY",
-                new ItemStack(Material.PAPER),
-                ThemeType.CRAFTING,
-                "Proofs: Emeritus Professor",
-                "Proof that you are simply the best.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Story Rank > Emeritus Professor"
-            ),
-            DummyLiquefactionBasinCrafting.TYPE,
-            storyTrophyRecipe.getDisplayRecipe()
-        );
-
         // Slimefun Registry
         amalgamateDustCommon.register(plugin);
         amalgamateDustUncommon.register(plugin);
@@ -510,15 +455,11 @@ public class Materials {
         uncannyPearl.register(plugin);
         gildedPearl.register(plugin);
         basicFibres.register(plugin);
-        spellTrophy.register(plugin);
-        storyTrophy.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(imbuedGlass, imbuedGlassRecipe);
         LiquefactionBasinCache.addCraftingRecipe(uncannyPearl, uncannyPearlRecipe);
         LiquefactionBasinCache.addCraftingRecipe(basicFibres, basicFibresRecipe);
-        LiquefactionBasinCache.addCraftingRecipe(spellTrophy, spellTrophyRecipe);
-        LiquefactionBasinCache.addCraftingRecipe(storyTrophy, storyTrophyRecipe);
     }
 
     public static Map<StoryType, SlimefunItem> getDummyCrystalMap() {
@@ -529,11 +470,4 @@ public class Materials {
         return CRYSTAL_MAP;
     }
 
-    private static boolean isMaxStoryRank(Player player) {
-        return PlayerStatistics.getStoryRank(player.getUniqueId()) == StoryRank.EMERITUS_PROFESSOR;
-    }
-
-    private static boolean isMaxSpellRank(Player player) {
-        return PlayerStatistics.getSpellRank(player.getUniqueId()) == SpellRank.GRANDMASTER_MAGI;
-    }
 }

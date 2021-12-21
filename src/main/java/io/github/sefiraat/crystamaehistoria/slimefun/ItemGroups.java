@@ -82,6 +82,13 @@ public final class ItemGroups {
             ThemeType.MAIN.getColor() + "Crystamae Raw Materials"
         )
     );
+    public static final DummyItemGroup UNIQUES = new DummyItemGroup(
+        Keys.newKey("uniques"),
+        new CustomItemStack(
+            new ItemStack(Material.NETHER_STAR),
+            ThemeType.MAIN.getColor() + "Uniques"
+        )
+    );
     public static final DummyItemGroup GUIDE = new DummyItemGroup(
         Keys.newKey("guide"),
         new CustomItemStack(

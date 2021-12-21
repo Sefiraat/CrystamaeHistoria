@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import lombok.Getter;
 import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -54,8 +55,11 @@ public class RecipeItem {
 
     public boolean recipeMatches(List<StoryType> testTypes, List<Integer> testAmounts, ItemStack inputItem, UUID uuid) {
         int i = 0;
-        if (uuid != null && additionalRequirement != null && !additionalRequirement.test(Bukkit.getPlayer(uuid))) {
-            return false;
+        if (uuid != null && additionalRequirement != null) {
+            OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(uuid);
+            if (offlinePlayer.isOnline() && !additionalRequirement.test(Bukkit.getPlayer(uuid))) {
+                return false;
+            }
         }
         if (!SlimefunUtils.isItemSimilar(this.inputItem, inputItem, true, false)) {
             return false;
