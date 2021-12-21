@@ -398,10 +398,7 @@ public class Tools {
                 DummyLiquefactionBasinCrafting.TYPE,
                 cargoCoverRecipe.getDisplayRecipe(),
                 cargoCoverStack.asQuantity(8),
-                CargoConnectorNode.class,
-                CargoInputNode.class,
-                CargoOutputNode.class,
-                AdvancedCargoOutputNode.class
+                CargoConnectorNode.class
             );
 
             // Energy Net Cover
