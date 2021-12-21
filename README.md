@@ -6,10 +6,11 @@ magical spells and a progression system for crafting and unlocking new spells.
 Any major event or experience leaves its mark on the surrounding area. Historia allows you to harness this by drawing
 out the raw essence of these experiences from blocks.
 
-Boomer_1 has made an awesome video that takes you through the basics of Crystamae going from the first mechanisms to casting your first spell in Part 1 of his 3-Part series. I'd encourange everyone to watch and enjoy!
+Boomer_1 has made two awesome videos that take you through the basics of Crystamae going from the first mechanisms to casting your first spell in Part 1 to the various Gadgets and Tools Crystamae has to offer in Part 2. I'd encourange everyone to watch these both and enjoy!
 
 [![Watch the video](https://img.youtube.com/vi/fggkwmf6V6k/0.jpg)](https://www.youtube.com/embed/fggkwmf6V6k)
 
+[![Watch the video](https://img.youtube.com/vi/OiI6MaoiO_I/0.jpg)](https://www.youtube.com/watch?v=OiI6MaoiO_I)
 
 ## The Chronicler
 
