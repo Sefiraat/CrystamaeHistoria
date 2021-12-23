@@ -46,7 +46,7 @@
         <repository>
             <id>sefi-central</id>
             <name>Sefiraat</name>
-            <url>https://sefiraat.jfrog.io/artifactory/default-maven-local</url>
+            <url>https://sefiraat.jfrog.io/artifactory/default-maven-virtual</url>
         </repository>
     </repositories>
 
