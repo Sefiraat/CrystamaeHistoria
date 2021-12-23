@@ -41,7 +41,7 @@ public class SpawnFiends extends Spell {
                 spawnLocation,
                 new FiendGoal(caster),
                 180
-            );
+            ).getMob();
             phantom.setSize(2);
             phantom.setShouldBurnInDay(false);
         }
