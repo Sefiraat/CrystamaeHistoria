@@ -79,9 +79,9 @@ public class LeechBomb extends Spell {
     public RecipeSpell getRecipe() {
         return new RecipeSpell(
             1,
-            StoryType.MECHANICAL,
-            StoryType.HUMAN,
-            StoryType.ANIMAL
+            StoryType.HISTORICAL,
+            StoryType.ANIMAL,
+            StoryType.PHILOSOPHICAL
         );
     }
 

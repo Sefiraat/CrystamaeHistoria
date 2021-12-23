@@ -60,8 +60,8 @@ public class PhantomsFlight extends Spell {
     public RecipeSpell getRecipe() {
         return new RecipeSpell(
             1,
+            StoryType.HUMAN,
             StoryType.ANIMAL,
-            StoryType.CELESTIAL,
             StoryType.PHILOSOPHICAL
         );
     }
