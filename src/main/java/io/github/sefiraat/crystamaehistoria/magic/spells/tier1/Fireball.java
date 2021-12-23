@@ -41,7 +41,7 @@ public class Fireball extends Spell {
             GeneralUtils.damageEntity(livingEntity,
                 castInformation.getCaster(),
                 getDamage(castInformation),
-                castInformation.getDamageLocation(),
+                castInformation.getProjectileLocation(),
                 getKnockback(castInformation)
             );
         }
