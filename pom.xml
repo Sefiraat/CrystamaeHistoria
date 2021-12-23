@@ -43,6 +43,11 @@
             <id>jeff-media-public</id>
             <url>https://hub.jeff-media.com/nexus/repository/jeff-media-public/</url>
         </repository>
+        <repository>
+            <id>sefi-central</id>
+            <name>Sefiraat</name>
+            <url>https://sefiraat.jfrog.io/artifactory/sefiraat-maven</url>
+        </repository>
     </repositories>
 
     <build>
@@ -161,12 +166,18 @@
             <version>2.1.202</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>io.github.sefiraat</groupId>
+            <artifactId>networks</artifactId>
+            <version>MODIFIED_1.0.1</version>
+            <scope>provided</scope>
+        </dependency>
 
         <!-- To be removed, do not use further -->
         <dependency>
             <groupId>io.github.mooy1</groupId>
             <artifactId>InfinityLib</artifactId>
-            <version>LATEST</version>
+            <version>7e03c79</version>
             <scope>compile</scope>
         </dependency>
         <dependency>
@@ -174,12 +185,6 @@
             <artifactId>EffectLib</artifactId>
             <version>9.3</version>
             <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.github.sefiraat.networks</groupId>
-            <artifactId>Networks</artifactId>
-            <version>MODIFIED</version>
-            <scope>provided</scope>
         </dependency>
     </dependencies>
 </project>
