@@ -11,6 +11,7 @@ import io.github.sefiraat.crystamaehistoria.stories.definition.StoryChances;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentStoriesDataType;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import lombok.experimental.UtilityClass;
 import org.apache.commons.lang.Validate;
@@ -24,8 +25,10 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
+import java.util.EnumSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
@@ -43,7 +46,29 @@ public class StoryUtils {
         final Material material = itemStack.getType();
         final BlockDefinition definition = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().get(material);
 
-        return definition != null && definition.getTier().tier <= tier && !itemStack.hasItemMeta();
+        return definition != null && definition.getTier().tier <= tier && isAllowed(itemStack);
+    }
+
+    private static final Set<Material> metaBypass = EnumSet.of(
+        Material.BEE_NEST,
+        Material.BEEHIVE,
+        Material.ENCHANTED_BOOK,
+        Material.FILLED_MAP,
+        Material.FIREWORK_ROCKET,
+        Material.FIREWORK_STAR,
+        Material.LINGERING_POTION,
+        Material.PLAYER_HEAD,
+        Material.POTION,
+        Material.SPLASH_POTION,
+        Material.SPAWNER,
+        Material.SUSPICIOUS_STEW,
+        Material.TIPPED_ARROW,
+        Material.WRITTEN_BOOK
+    );
+
+    private static boolean isAllowed(ItemStack itemStack) {
+        SlimefunItem slimefunItem = SlimefunItem.getByItem(itemStack);
+        return slimefunItem == null && (metaBypass.contains(itemStack.getType()) || !itemStack.hasItemMeta());
     }
 
     /**

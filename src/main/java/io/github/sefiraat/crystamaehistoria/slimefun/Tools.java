@@ -8,6 +8,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasi
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.LuminescenceScoop;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.RecallingCrystaLattice;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.RefactingLens;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.SpiritualSilken;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.ThaumaturgicSalt;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.covers.BlockVeil;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.crafting.EphemeralCraftingTable;
@@ -24,10 +25,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import io.github.thebusybiscuit.slimefun4.implementation.items.cargo.AdvancedCargoOutputNode;
 import io.github.thebusybiscuit.slimefun4.implementation.items.cargo.CargoConnectorNode;
-import io.github.thebusybiscuit.slimefun4.implementation.items.cargo.CargoInputNode;
-import io.github.thebusybiscuit.slimefun4.implementation.items.cargo.CargoOutputNode;
 import io.github.thebusybiscuit.slimefun4.implementation.items.electric.EnergyConnector;
 import lombok.Getter;
 import lombok.experimental.UtilityClass;
@@ -62,6 +60,8 @@ public class Tools {
     private static LuminescenceScoop brillianceScoop;
     @Getter
     private static LuminescenceScoop lustreScoop;
+    @Getter
+    private static SpiritualSilken spiritualSilken;
     @Getter
     private static BlockVeil cargoCover;
     @Getter
@@ -347,6 +347,34 @@ public class Tools {
             250
         );
 
+        // Spiritual Silken
+        RecipeItem spiritualSilkenRecipe = new RecipeItem(
+            new ItemStack(Material.BONE),
+            StoryType.MECHANICAL, 250,
+            StoryType.HUMAN, 250,
+            StoryType.CELESTIAL, 250
+        );
+        spiritualSilken = new SpiritualSilken(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_SPIRITUAL_SILKEN",
+                new ItemStack(Material.BONE),
+                ThemeType.TOOL,
+                "Spiritual Silken",
+                "This pick has been imbued with",
+                "spiritual energies that allow it",
+                "to keep certain items whole.",
+                ChatColor.RED + "Only works on blocks that do",
+                ChatColor.RED + "not normally drop themselves",
+                ChatColor.RED + "both with and without silk.",
+                "",
+                ChatColor.YELLOW + "50 Uses " + ChatColor.GRAY + "left"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            spiritualSilkenRecipe.getDisplayRecipe(),
+            50
+        );
+
         // Slimefun Registry
         chargedPlate.register(CrystamaeHistoria.getInstance());
         inertPlate.register(CrystamaeHistoria.getInstance());
@@ -360,6 +388,7 @@ public class Tools {
         luminescenceScoop.register(plugin);
         brillianceScoop.register(plugin);
         lustreScoop.register(plugin);
+        spiritualSilken.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(inertPlate, inertPlateRecipe);
@@ -371,6 +400,7 @@ public class Tools {
         LiquefactionBasinCache.addCraftingRecipe(brillianceScoop, brillianceScoopRecipe);
         LiquefactionBasinCache.addCraftingRecipe(lustreScoop, lustreScoopRecipe);
 
+        LiquefactionBasinCache.addCraftingRecipe(spiritualSilken, spiritualSilkenRecipe);
 
         /*
         Covers 'hide' items from HL - until the tile entity check
