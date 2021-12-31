@@ -63,12 +63,21 @@ public class StoryUtils {
         Material.SPAWNER,
         Material.SUSPICIOUS_STEW,
         Material.TIPPED_ARROW,
-        Material.WRITTEN_BOOK
+        Material.WRITTEN_BOOK,
+        Material.AXOLOTL_BUCKET,
+        Material.COD_BUCKET,
+        Material.PUFFERFISH_BUCKET,
+        Material.SALMON_BUCKET,
+        Material.TROPICAL_FISH_BUCKET
     );
 
     private static boolean isAllowed(ItemStack itemStack) {
         SlimefunItem slimefunItem = SlimefunItem.getByItem(itemStack);
-        return slimefunItem == null && (metaBypass.contains(itemStack.getType()) || !itemStack.hasItemMeta());
+        if (slimefunItem == null) {
+            return metaBypass.contains(itemStack.getType()) || !itemStack.hasItemMeta();
+        } else {
+            return itemStack.getType() == Material.SPAWNER;
+        }
     }
 
     /**
