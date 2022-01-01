@@ -2,7 +2,7 @@ package io.github.sefiraat.crystamaehistoria.slimefun.tools;
 
 import io.github.sefiraat.crystamaehistoria.slimefun.types.RefillableUseItem;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
-import io.github.sefiraat.networks.utils.Theme;
+import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
@@ -57,7 +57,7 @@ public class SpiritualSilken extends RefillableUseItem {
                     block.getWorld().dropItem(block.getLocation(), new ItemStack(material));
                     damageItem(e.getPlayer(), e.getItem());
                 } else {
-                    e.getPlayer().sendMessage(Theme.WARNING.getColor() + "This block doesn't seem to react.");
+                    e.getPlayer().sendMessage(ThemeType.WARNING.getColor() + "This block doesn't seem to react.");
                 }
             }
         };
