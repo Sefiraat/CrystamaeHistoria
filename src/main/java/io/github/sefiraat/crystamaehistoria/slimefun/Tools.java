@@ -7,7 +7,6 @@ import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasi
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.ConnectingCompass;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.LuminescenceScoop;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.PurificationStone;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.RecallingCrystaLattice;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.RefactingLens;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.ThaumaturgicSalt;
@@ -70,8 +69,6 @@ public class Tools {
     private static BlockVeil energyNetCover;
     @Getter
     private static ConnectingCompass connectingCompass;
-    @Getter
-    private static PurificationStone purificationStone;
 
     public static void setup() {
         final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
@@ -376,27 +373,6 @@ public class Tools {
             connectingCompassRecipe.getDisplayRecipe()
         );
 
-        // Purification Stone
-        RecipeItem purificationStoneRecipe = new RecipeItem(
-            new ItemStack(Material.LAPIS_LAZULI),
-            StoryType.ELEMENTAL, 25,
-            StoryType.CELESTIAL, 50,
-            StoryType.HUMAN, 25
-        );
-        purificationStone = new PurificationStone(
-            ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_PURIFICATION_STONE",
-                new ItemStack(Material.LAPIS_LAZULI),
-                ThemeType.TOOL,
-                "Purification Stone",
-                "Purifies things on right click.",
-                "Effect varies by block/entity."
-            ),
-            DummyLiquefactionBasinCrafting.TYPE,
-            purificationStoneRecipe.getDisplayRecipe()
-        );
-
         // Slimefun Registry
         chargedPlate.register(CrystamaeHistoria.getInstance());
         inertPlate.register(CrystamaeHistoria.getInstance());
@@ -411,7 +387,6 @@ public class Tools {
         brillianceScoop.register(plugin);
         lustreScoop.register(plugin);
         connectingCompass.register(plugin);
-        purificationStone.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(inertPlate, inertPlateRecipe);
@@ -424,9 +399,6 @@ public class Tools {
         LiquefactionBasinCache.addCraftingRecipe(lustreScoop, lustreScoopRecipe);
 
         LiquefactionBasinCache.addCraftingRecipe(connectingCompass, connectingCompassRecipe);
-
-        LiquefactionBasinCache.addCraftingRecipe(purificationStone, purificationStoneRecipe);
-
 
         /*
         Covers 'hide' items from HL - until the tile entity check

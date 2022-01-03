@@ -5,6 +5,7 @@ import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.player.SpellRank;
 import io.github.sefiraat.crystamaehistoria.player.StoryRank;
 import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
+import io.github.sefiraat.crystamaehistoria.slimefun.materials.PowderedEssence;
 import io.github.sefiraat.crystamaehistoria.slimefun.materials.Trophy;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
@@ -21,6 +22,7 @@ import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import lombok.Getter;
 import lombok.experimental.UtilityClass;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -66,6 +68,8 @@ public class Materials {
     private static SlimefunItem gildedPearl;
     @Getter
     private static SlimefunItem basicFibres;
+    @Getter
+    private static PowderedEssence powderedEssence;
     @Getter
     private static Trophy storyTrophy;
     @Getter
@@ -447,6 +451,30 @@ public class Materials {
             basicFibresRecipe.getDisplayRecipe()
         );
 
+        // Powdered Essence
+        RecipeItem powderedEssenceRecipe = new RecipeItem(
+            new ItemStack(Material.BONE_MEAL),
+            StoryType.ELEMENTAL, 20,
+            StoryType.ALCHEMICAL, 25,
+            StoryType.PHILOSOPHICAL, 15
+        );
+        powderedEssence = new PowderedEssence(
+            ItemGroups.MATERIALS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_POWDERED_ESSENCE",
+                new ItemStack(Material.WHITE_DYE),
+                ThemeType.CRAFTING,
+                "Powdered Essence",
+                "A refined crafting material.",
+                "Can be used as bone meal.",
+                "",
+                ChatColor.YELLOW + "250 Uses " + ChatColor.GRAY + "left"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            powderedEssenceRecipe.getDisplayRecipe(),
+            250
+        );
+
         // Spell Trophy
         RecipeItem spellTrophyRecipe = new RecipeItem(
             new ItemStack(Material.PAPER),
@@ -510,6 +538,7 @@ public class Materials {
         uncannyPearl.register(plugin);
         gildedPearl.register(plugin);
         basicFibres.register(plugin);
+        powderedEssence.register(plugin);
         spellTrophy.register(plugin);
         storyTrophy.register(plugin);
 
@@ -517,6 +546,7 @@ public class Materials {
         LiquefactionBasinCache.addCraftingRecipe(imbuedGlass, imbuedGlassRecipe);
         LiquefactionBasinCache.addCraftingRecipe(uncannyPearl, uncannyPearlRecipe);
         LiquefactionBasinCache.addCraftingRecipe(basicFibres, basicFibresRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(powderedEssence, powderedEssenceRecipe);
         LiquefactionBasinCache.addCraftingRecipe(spellTrophy, spellTrophyRecipe);
         LiquefactionBasinCache.addCraftingRecipe(storyTrophy, storyTrophyRecipe);
     }
