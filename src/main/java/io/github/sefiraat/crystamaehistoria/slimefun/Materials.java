@@ -471,52 +471,6 @@ public class Materials {
             250
         );
 
-        // Spell Trophy
-        RecipeItem spellTrophyRecipe = new RecipeItem(
-            new ItemStack(Material.PAPER),
-            StoryType.ELEMENTAL, 100,
-            StoryType.ALCHEMICAL, 100,
-            StoryType.VOID, 100,
-            Materials::isMaxSpellRank
-        );
-        spellTrophy = new Trophy(
-            ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_SPELL_TROPHY",
-                new ItemStack(Material.PAPER),
-                ThemeType.CRAFTING,
-                "Proofs: Grandmaster Magus",
-                "Proof that you are simply the best.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Spell Rank > Grandmaster Magus"
-            ),
-            DummyLiquefactionBasinCrafting.TYPE,
-            spellTrophyRecipe.getDisplayRecipe()
-        );
-
-        // Story Trophy
-        RecipeItem storyTrophyRecipe = new RecipeItem(
-            new ItemStack(Material.PAPER),
-            StoryType.ELEMENTAL, 100,
-            StoryType.ALCHEMICAL, 100,
-            StoryType.CELESTIAL, 100,
-            Materials::isMaxStoryRank
-        );
-        storyTrophy = new Trophy(
-            ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_STORY_TROPHY",
-                new ItemStack(Material.PAPER),
-                ThemeType.CRAFTING,
-                "Proofs: Emeritus Professor",
-                "Proof that you are simply the best.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Story Rank > Emeritus Professor"
-            ),
-            DummyLiquefactionBasinCrafting.TYPE,
-            storyTrophyRecipe.getDisplayRecipe()
-        );
-
         // Slimefun Registry
         amalgamateDustCommon.register(plugin);
         amalgamateDustUncommon.register(plugin);
@@ -543,8 +497,6 @@ public class Materials {
         LiquefactionBasinCache.addCraftingRecipe(uncannyPearl, uncannyPearlRecipe);
         LiquefactionBasinCache.addCraftingRecipe(basicFibres, basicFibresRecipe);
         LiquefactionBasinCache.addCraftingRecipe(powderedEssence, powderedEssenceRecipe);
-        LiquefactionBasinCache.addCraftingRecipe(spellTrophy, spellTrophyRecipe);
-        LiquefactionBasinCache.addCraftingRecipe(storyTrophy, storyTrophyRecipe);
     }
 
     public static Map<StoryType, SlimefunItem> getDummyCrystalMap() {

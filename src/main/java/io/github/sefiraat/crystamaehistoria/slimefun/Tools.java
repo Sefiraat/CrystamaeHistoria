@@ -376,6 +376,7 @@ public class Tools {
             ),
             DummyLiquefactionBasinCrafting.TYPE,
             connectingCompassRecipe.getDisplayRecipe()
+        );
 
         // Spiritual Silken
         RecipeItem spiritualSilkenRecipe = new RecipeItem(
