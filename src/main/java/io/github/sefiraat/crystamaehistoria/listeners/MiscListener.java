@@ -32,7 +32,7 @@ public class MiscListener implements Listener {
     @EventHandler
     public void onPlaceStoriedBlock(BlockPlaceEvent e) {
         ItemStack itemStack = e.getItemInHand();
-        if (StoryUtils.isStoried(itemStack)) {
+        if (itemStack.getType() != Material.AIR && StoryUtils.isStoried(itemStack)) {
             e.setCancelled(true);
         }
     }

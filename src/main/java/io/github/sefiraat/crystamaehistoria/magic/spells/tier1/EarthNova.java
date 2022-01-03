@@ -67,7 +67,7 @@ public class EarthNova extends Spell {
             1,
             StoryType.ELEMENTAL,
             StoryType.MECHANICAL,
-            StoryType.VOID
+            StoryType.PHILOSOPHICAL
         );
     }
 

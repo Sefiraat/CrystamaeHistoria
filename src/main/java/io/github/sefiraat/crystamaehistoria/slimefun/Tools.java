@@ -9,6 +9,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.tools.ConnectingCompass;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.LuminescenceScoop;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.RecallingCrystaLattice;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.RefactingLens;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.SpiritualSilken;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.ThaumaturgicSalt;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.covers.BlockVeil;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.crafting.EphemeralCraftingTable;
@@ -19,14 +20,13 @@ import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.Stave;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
+import io.github.sefiraat.networks.slimefun.NetworksSlimefunItemStacks;
+import io.github.sefiraat.networks.slimefun.network.NetworkObject;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
-import io.github.thebusybiscuit.slimefun4.implementation.items.cargo.AdvancedCargoOutputNode;
 import io.github.thebusybiscuit.slimefun4.implementation.items.cargo.CargoConnectorNode;
-import io.github.thebusybiscuit.slimefun4.implementation.items.cargo.CargoInputNode;
-import io.github.thebusybiscuit.slimefun4.implementation.items.cargo.CargoOutputNode;
 import io.github.thebusybiscuit.slimefun4.implementation.items.electric.EnergyConnector;
 import lombok.Getter;
 import lombok.experimental.UtilityClass;
@@ -64,11 +64,16 @@ public class Tools {
     @Getter
     private static LuminescenceScoop lustreScoop;
     @Getter
+    private static ConnectingCompass connectingCompass;
+    @Getter
+    private static SpiritualSilken spiritualSilken;
+    @Getter
     private static BlockVeil cargoCover;
     @Getter
     private static BlockVeil energyNetCover;
     @Getter
-    private static ConnectingCompass connectingCompass;
+    private static BlockVeil networkNodeCover;
+
 
     public static void setup() {
         final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
@@ -371,6 +376,33 @@ public class Tools {
             ),
             DummyLiquefactionBasinCrafting.TYPE,
             connectingCompassRecipe.getDisplayRecipe()
+
+        // Spiritual Silken
+        RecipeItem spiritualSilkenRecipe = new RecipeItem(
+            new ItemStack(Material.BONE),
+            StoryType.MECHANICAL, 250,
+            StoryType.HUMAN, 250,
+            StoryType.CELESTIAL, 250
+        );
+        spiritualSilken = new SpiritualSilken(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_SPIRITUAL_SILKEN",
+                new ItemStack(Material.BONE),
+                ThemeType.TOOL,
+                "Spiritual Silken",
+                "This pick has been imbued with",
+                "spiritual energies that allow it",
+                "to keep certain items whole.",
+                ChatColor.RED + "Only works on blocks that do",
+                ChatColor.RED + "not normally drop themselves",
+                ChatColor.RED + "both with and without silk.",
+                "",
+                ChatColor.YELLOW + "50 Uses " + ChatColor.GRAY + "left"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            spiritualSilkenRecipe.getDisplayRecipe(),
+            50
         );
 
         // Slimefun Registry
@@ -387,6 +419,7 @@ public class Tools {
         brillianceScoop.register(plugin);
         lustreScoop.register(plugin);
         connectingCompass.register(plugin);
+        spiritualSilken.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(inertPlate, inertPlateRecipe);
@@ -397,8 +430,10 @@ public class Tools {
         LiquefactionBasinCache.addCraftingRecipe(luminescenceScoop, luminescenceScoopRecipe);
         LiquefactionBasinCache.addCraftingRecipe(brillianceScoop, brillianceScoopRecipe);
         LiquefactionBasinCache.addCraftingRecipe(lustreScoop, lustreScoopRecipe);
-
+          
         LiquefactionBasinCache.addCraftingRecipe(connectingCompass, connectingCompassRecipe);
+
+        LiquefactionBasinCache.addCraftingRecipe(spiritualSilken, spiritualSilkenRecipe);
 
         /*
         Covers 'hide' items from HL - until the tile entity check
@@ -430,10 +465,7 @@ public class Tools {
                 DummyLiquefactionBasinCrafting.TYPE,
                 cargoCoverRecipe.getDisplayRecipe(),
                 cargoCoverStack.asQuantity(8),
-                CargoConnectorNode.class,
-                CargoInputNode.class,
-                CargoOutputNode.class,
-                AdvancedCargoOutputNode.class
+                CargoConnectorNode.class
             );
 
             // Energy Net Cover
@@ -463,11 +495,46 @@ public class Tools {
                 EnergyConnector.class
             );
 
+
             cargoCover.register(plugin);
             energyNetCover.register(plugin);
 
             LiquefactionBasinCache.addCraftingRecipe(cargoCover, cargoCoverRecipe);
             LiquefactionBasinCache.addCraftingRecipe(energyNetCover, energyNetCoverRecipe);
+        }
+
+        if (SupportedPluginManager.isNetworks()) {
+
+            // Networks Cover
+            SlimefunItemStack networksCoverStack = ThemeType.themedSlimefunItemStack(
+                "CRY_NETWORK_COVER",
+                new ItemStack(Material.PAPER),
+                ThemeType.TOOL,
+                "Block Veil - Networks",
+                "Right click to place a magical",
+                "block veil over a Networks node.",
+                "The cover will mimic the block",
+                "in your offhand.",
+                "One time use per item."
+            );
+            RecipeItem networksCoverRecipe = new RecipeItem(
+                NetworksSlimefunItemStacks.NETWORK_BRIDGE,
+                StoryType.MECHANICAL, 10,
+                StoryType.HUMAN, 10,
+                StoryType.VOID, 10
+            );
+            networkNodeCover = new BlockVeil(
+                ItemGroups.TOOLS,
+                networksCoverStack,
+                DummyLiquefactionBasinCrafting.TYPE,
+                networksCoverRecipe.getDisplayRecipe(),
+                networksCoverStack.asQuantity(8),
+                NetworkObject.class
+            );
+
+            networkNodeCover.register(plugin);
+
+            LiquefactionBasinCache.addCraftingRecipe(networkNodeCover, networksCoverRecipe);
         }
     }
 }

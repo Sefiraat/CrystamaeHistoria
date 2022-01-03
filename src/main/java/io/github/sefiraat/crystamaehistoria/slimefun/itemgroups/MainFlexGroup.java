@@ -30,10 +30,12 @@ public class MainFlexGroup extends FlexItemGroup {
     private static final int TOOLS = 11;
     private static final int GADGETS = 12;
     private static final int PAINTBRUSHES = 13;
-    private static final int MATERIALS = 14;
-    private static final int GUIDE = 15;
-    private static final int STORY = 16;
-    private static final int SPELL = 17;
+    private static final int EXALTED = 14;
+    private static final int UNIQUES = 15;
+    private static final int MATERIALS = 16;
+    private static final int GUIDE = 17;
+    private static final int STORY = 18;
+    private static final int SPELL = 19;
 
     private static final int[] HEADER = new int[]{
         0, 1, 2, 3, 4, 5, 6, 7, 8
@@ -106,6 +108,16 @@ public class MainFlexGroup extends FlexItemGroup {
         menu.replaceExistingItem(PAINTBRUSHES, ItemGroups.PAINTBRUSHES.getItem(player));
         menu.addMenuClickHandler(PAINTBRUSHES, (player1, i1, itemStack1, clickAction) ->
             openPage(profile, ItemGroups.PAINTBRUSHES, mode, 1));
+
+        // Exalted
+        menu.replaceExistingItem(EXALTED, ItemGroups.EXALTED.getItem(player));
+        menu.addMenuClickHandler(EXALTED, (player1, i1, itemStack1, clickAction) ->
+            openPage(profile, ItemGroups.EXALTED, mode, 1));
+
+        // Uniques
+        menu.replaceExistingItem(UNIQUES, ItemGroups.UNIQUES.getItem(player));
+        menu.addMenuClickHandler(UNIQUES, (player1, i1, itemStack1, clickAction) ->
+            openPage(profile, ItemGroups.UNIQUES, mode, 1));
 
         // Materials
         menu.replaceExistingItem(MATERIALS, ItemGroups.MATERIALS.getItem(player));

@@ -71,6 +71,8 @@ public class Tracer extends Spell {
                 dustOptions = new Particle.DustOptions(COLOR_MAP.get("animal"), 1);
             } else if (livingEntity instanceof Ambient) {
                 dustOptions = new Particle.DustOptions(COLOR_MAP.get("ambient"), 1);
+            } else {
+                continue;
             }
 
             Validate.notNull(

@@ -4550,23 +4550,6 @@ END_CRYSTAL:
       - a single tap can force a tear into space.
     shards: [ 2,1,1,1,1,1,2,3,0 ]
 
-END_PORTAL_FRAME:
-  tier: 5
-  elements:
-    - HUMAN
-    - MECHANICAL
-    - VOID
-  story:
-    name: Unbreaking
-    type: MECHANICAL
-    lore:
-      - Back in the early days, the Ancient Builders
-      - created a devastating being they needed to hide
-      - from. They built strongholds and eventually
-      - constructed these portals to make their escape.
-    shards: [ 0,2,0,1,1,0,0,2,0 ]
-    author: Ashton
-
 END_ROD:
   tier: 2
   elements:

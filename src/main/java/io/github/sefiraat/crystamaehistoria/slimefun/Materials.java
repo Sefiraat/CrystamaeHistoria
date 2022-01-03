@@ -1,9 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
-import io.github.sefiraat.crystamaehistoria.player.SpellRank;
-import io.github.sefiraat.crystamaehistoria.player.StoryRank;
 import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
 import io.github.sefiraat.crystamaehistoria.slimefun.materials.PowderedEssence;
 import io.github.sefiraat.crystamaehistoria.slimefun.materials.Trophy;
@@ -24,7 +21,6 @@ import lombok.Getter;
 import lombok.experimental.UtilityClass;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.EnumMap;
@@ -559,11 +555,4 @@ public class Materials {
         return CRYSTAL_MAP;
     }
 
-    private static boolean isMaxStoryRank(Player player) {
-        return PlayerStatistics.getStoryRank(player.getUniqueId()) == StoryRank.EMERITUS_PROFESSOR;
-    }
-
-    private static boolean isMaxSpellRank(Player player) {
-        return PlayerStatistics.getSpellRank(player.getUniqueId()) == SpellRank.GRANDMASTER_MAGI;
-    }
 }
