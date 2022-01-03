@@ -7,7 +7,7 @@ import org.bukkit.NamespacedKey;
 import javax.annotation.Nonnull;
 
 @Data
-public class Keys {
+public final class Keys {
 
     // BlockStorage
     public static final String BS_CP_WORKING_ON = "BS_CP_WORKING_ON";

@@ -5,6 +5,7 @@ import io.github.sefiraat.crystamaehistoria.SupportedPluginManager;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.ConnectingCompass;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.LuminescenceScoop;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.RecallingCrystaLattice;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.RefactingLens;
@@ -32,6 +33,8 @@ import lombok.experimental.UtilityClass;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
+
+import java.text.MessageFormat;
 
 @UtilityClass
 public class Tools {
@@ -61,6 +64,8 @@ public class Tools {
     @Getter
     private static LuminescenceScoop lustreScoop;
     @Getter
+    private static ConnectingCompass connectingCompass;
+    @Getter
     private static SpiritualSilken spiritualSilken;
     @Getter
     private static BlockVeil cargoCover;
@@ -68,6 +73,7 @@ public class Tools {
     private static BlockVeil energyNetCover;
     @Getter
     private static BlockVeil networkNodeCover;
+
 
     public static void setup() {
         final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
@@ -347,6 +353,31 @@ public class Tools {
             250
         );
 
+        // Connecting Compass
+        RecipeItem connectingCompassRecipe = new RecipeItem(
+            new ItemStack(Material.COMPASS),
+            StoryType.MECHANICAL, 5,
+            StoryType.HISTORICAL, 10,
+            StoryType.HUMAN, 5
+        );
+        connectingCompass = new ConnectingCompass(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_CONNECTING_COMPASS",
+                new ItemStack(Material.COMPASS),
+                ThemeType.TOOL,
+                "Connecting Compass",
+                "Allows you to save a location",
+                "to find your way back to it at",
+                "a later time.",
+                "",
+                MessageFormat.format("{0}Right Click: {1}Display Stored Location", ThemeType.CLICK_INFO.getColor(), ThemeType.PASSIVE.getColor()),
+                MessageFormat.format("{0}Shift Right Click: {1}Store Location", ThemeType.CLICK_INFO.getColor(), ThemeType.PASSIVE.getColor())
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            connectingCompassRecipe.getDisplayRecipe()
+        );
+
         // Spiritual Silken
         RecipeItem spiritualSilkenRecipe = new RecipeItem(
             new ItemStack(Material.BONE),
@@ -388,6 +419,7 @@ public class Tools {
         luminescenceScoop.register(plugin);
         brillianceScoop.register(plugin);
         lustreScoop.register(plugin);
+        connectingCompass.register(plugin);
         spiritualSilken.register(plugin);
 
         // Liquefaction Recipes
@@ -399,6 +431,8 @@ public class Tools {
         LiquefactionBasinCache.addCraftingRecipe(luminescenceScoop, luminescenceScoopRecipe);
         LiquefactionBasinCache.addCraftingRecipe(brillianceScoop, brillianceScoopRecipe);
         LiquefactionBasinCache.addCraftingRecipe(lustreScoop, lustreScoopRecipe);
+          
+        LiquefactionBasinCache.addCraftingRecipe(connectingCompass, connectingCompassRecipe);
 
         LiquefactionBasinCache.addCraftingRecipe(spiritualSilken, spiritualSilkenRecipe);
 
