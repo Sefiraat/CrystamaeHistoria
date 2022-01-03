@@ -66,10 +66,6 @@ public class Materials {
     private static SlimefunItem basicFibres;
     @Getter
     private static PowderedEssence powderedEssence;
-    @Getter
-    private static Trophy storyTrophy;
-    @Getter
-    private static Trophy spellTrophy;
 
     public static void setup() {
 
@@ -489,8 +485,6 @@ public class Materials {
         gildedPearl.register(plugin);
         basicFibres.register(plugin);
         powderedEssence.register(plugin);
-        spellTrophy.register(plugin);
-        storyTrophy.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(imbuedGlass, imbuedGlassRecipe);

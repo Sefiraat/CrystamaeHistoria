@@ -38,6 +38,10 @@ public class SpellMemory {
     @Getter
     private final Map<UUID, Long> playersWithFlight = new HashMap<>();
     @Getter
+    private final Map<UUID, Long> playersWithFrozenTime = new HashMap<>();
+    @Getter
+    private final Map<UUID, Long> playersWithFrozenWeather = new HashMap<>();
+    @Getter
     private final Map<UUID, Long> inhibitedEndermen = new HashMap<>();
     @Getter
     private final Map<BoundingBox, Long> noSpawningAreas = new HashMap<>();
@@ -70,6 +74,14 @@ public class SpellMemory {
         // Remove and disable all players flight
         removeFlight(true);
         playersWithFlight.clear();
+
+        // Reset all players personal time
+        removeFrozenTime(true);
+        playersWithFrozenTime.clear();
+
+        // Reset all players personal weather
+        removeFrozenWeather(true);
+        playersWithFrozenWeather.clear();
 
         // Reenable Enderman teleporting
         removeEnderman(true);
@@ -138,6 +150,34 @@ public class SpellMemory {
                     player.setAllowFlight(false);
                     player.setFlying(false);
                     playersWithFlight.remove(entry.getKey());
+                }
+            }
+        }
+    }
+
+    public void removeFrozenTime(boolean forceRemoveAll) {
+        long time = System.currentTimeMillis();
+        final Set<Map.Entry<UUID, Long>> set = new HashSet<>(playersWithFrozenTime.entrySet());
+        for (Map.Entry<UUID, Long> entry : set) {
+            if (forceRemoveAll || entry.getValue() < time) {
+                Player player = Bukkit.getPlayer(entry.getKey());
+                if (player != null) {
+                    player.resetPlayerTime();
+                    playersWithFrozenTime.remove(entry.getKey());
+                }
+            }
+        }
+    }
+
+    public void removeFrozenWeather(boolean forceRemoveAll) {
+        long time = System.currentTimeMillis();
+        final Set<Map.Entry<UUID, Long>> set = new HashSet<>(playersWithFrozenWeather.entrySet());
+        for (Map.Entry<UUID, Long> entry : set) {
+            if (forceRemoveAll || entry.getValue() < time) {
+                Player player = Bukkit.getPlayer(entry.getKey());
+                if (player != null) {
+                    player.resetPlayerWeather();
+                    playersWithFrozenWeather.remove(entry.getKey());
                 }
             }
         }

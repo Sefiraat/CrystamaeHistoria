@@ -15,6 +15,8 @@ public class TemporaryEffectsRunnable extends BukkitRunnable {
         clearMagicSummons(storage);
         clearTempBlocks(storage);
         removeTempFlight(storage);
+        removeFrozenTime(storage);
+        removeFrozenWeather(storage);
         removeInhibitedEndermen(storage);
         removeSpawnDisabledAreas(storage);
         removeDisplayItems(storage);
@@ -38,6 +40,14 @@ public class TemporaryEffectsRunnable extends BukkitRunnable {
 
     public void removeTempFlight(SpellMemory storage) {
         storage.removeFlight(false);
+    }
+
+    public void removeFrozenTime(SpellMemory storage) {
+        storage.removeFrozenTime(false);
+    }
+
+    public void removeFrozenWeather(SpellMemory storage) {
+        storage.removeFrozenWeather(false);
     }
 
     public void removeInhibitedEndermen(SpellMemory storage) {
