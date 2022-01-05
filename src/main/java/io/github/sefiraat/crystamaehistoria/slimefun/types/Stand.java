@@ -18,6 +18,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
+import scala.concurrent.impl.FutureConvertersImpl;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -109,10 +110,12 @@ public abstract class Stand extends TickingBlockNoGui {
         final UUID currentItemUuid = itemMap.get(location);
         if (currentItemUuid != null) {
             final Item currentItem = (Item) Bukkit.getEntity(currentItemUuid);
-            final ItemStack displayStack = currentItem.getItemStack();
-            location.getWorld().dropItemNaturally(location, displayStack);
+            if (currentItem != null) {
+                final ItemStack displayStack = currentItem.getItemStack();
+                location.getWorld().dropItemNaturally(location, displayStack);
+                currentItem.remove();
+            }
             BlockStorage.clearBlockInfo(location);
-            currentItem.remove();
         }
     }
 
