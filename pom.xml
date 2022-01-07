@@ -46,7 +46,7 @@
         <repository>
             <id>sefi-central</id>
             <name>Sefiraat</name>
-            <url>https://sefiraat.jfrog.io/artifactory/default-maven-virtual</url>
+            <url>https://sefiraat.jfrog.io/artifactory/default-maven-local</url>
         </repository>
     </repositories>
 
@@ -169,8 +169,14 @@
         <dependency>
             <groupId>io.github.sefiraat</groupId>
             <artifactId>networks</artifactId>
-            <version>MODIFIED_1.0.1</version>
+            <version>MODIFIED_1.0.2</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.elmakers.mine.bukkit</groupId>
+            <artifactId>EffectLib</artifactId>
+            <version>9.4</version>
+            <scope>compile</scope>
         </dependency>
 
         <!-- To be removed, do not use further -->
@@ -178,12 +184,6 @@
             <groupId>io.github.mooy1</groupId>
             <artifactId>InfinityLib</artifactId>
             <version>7e03c79</version>
-            <scope>compile</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.elmakers.mine.bukkit</groupId>
-            <artifactId>EffectLib</artifactId>
-            <version>9.4</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>
