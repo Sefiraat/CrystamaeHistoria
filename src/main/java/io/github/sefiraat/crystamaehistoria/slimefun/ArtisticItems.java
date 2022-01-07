@@ -13,7 +13,6 @@ import io.github.sefiraat.crystamaehistoria.slimefun.tools.artistic.PoseChanger;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.artistic.PoseCloner;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
-import io.github.sefiraat.networks.utils.Theme;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
@@ -1043,13 +1042,13 @@ public class ArtisticItems {
                 "can do additional things to",
                 "Imbued Stands.",
                 "",
-                MessageFormat.format("{0}Left Click: {1}Change selected body part", Theme.CLICK_INFO.getColor(), Theme.PASSIVE.getColor()),
-                MessageFormat.format("{0}Shift Left Click: {1}Change selected change method", Theme.CLICK_INFO.getColor(), Theme.PASSIVE.getColor()),
-                MessageFormat.format("{0}Right Click: {1}Apply change (positive)", Theme.CLICK_INFO.getColor(), Theme.PASSIVE.getColor()),
-                MessageFormat.format("{0}Shift Right Click: {1}Apply change (negative)", Theme.CLICK_INFO.getColor(), Theme.PASSIVE.getColor()),
+                MessageFormat.format("{0}Left Click: {1}Change selected body part", ThemeType.CLICK_INFO.getColor(), ThemeType.PASSIVE.getColor()),
+                MessageFormat.format("{0}Shift Left Click: {1}Change selected change method", ThemeType.CLICK_INFO.getColor(), ThemeType.PASSIVE.getColor()),
+                MessageFormat.format("{0}Right Click: {1}Apply change (positive)", ThemeType.CLICK_INFO.getColor(), ThemeType.PASSIVE.getColor()),
+                MessageFormat.format("{0}Shift Right Click: {1}Apply change (negative)", ThemeType.CLICK_INFO.getColor(), ThemeType.PASSIVE.getColor()),
                 "",
-                MessageFormat.format("{0}Pose Set To: {1}HEAD", Theme.CLICK_INFO.getColor(), Theme.PASSIVE.getColor()),
-                MessageFormat.format("{0}Change Set To: {1}RESET", Theme.CLICK_INFO.getColor(), Theme.PASSIVE.getColor())
+                MessageFormat.format("{0}Pose Set To: {1}HEAD", ThemeType.CLICK_INFO.getColor(), ThemeType.PASSIVE.getColor()),
+                MessageFormat.format("{0}Change Set To: {1}RESET", ThemeType.CLICK_INFO.getColor(), ThemeType.PASSIVE.getColor())
             ),
             RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[]{
@@ -1071,8 +1070,8 @@ public class ArtisticItems {
                 "of an Inbued Armorstand and",
                 "make another match to suit.",
                 "",
-                MessageFormat.format("{0}Right Click: {1}Clone pose", Theme.CLICK_INFO.getColor(), Theme.PASSIVE.getColor()),
-                MessageFormat.format("{0}Shift Right Click: {1}Apply stored clone", Theme.CLICK_INFO.getColor(), Theme.PASSIVE.getColor())
+                MessageFormat.format("{0}Right Click: {1}Clone pose", ThemeType.CLICK_INFO.getColor(), ThemeType.PASSIVE.getColor()),
+                MessageFormat.format("{0}Shift Right Click: {1}Apply stored clone", ThemeType.CLICK_INFO.getColor(), ThemeType.PASSIVE.getColor())
             ),
             RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[]{
