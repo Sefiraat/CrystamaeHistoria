@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.slimefun.tools.magicpaintbrush;
+package io.github.sefiraat.crystamaehistoria.slimefun.tools.artistic;
 
 import lombok.Getter;
 import net.kyori.adventure.text.format.TextColor;

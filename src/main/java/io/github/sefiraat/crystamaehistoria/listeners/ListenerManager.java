@@ -17,6 +17,7 @@ public class ListenerManager {
         addListener(new EndermanInhibitorListener());
         addListener(new MobCandleListener());
         addListener(new DisplayItemListener());
+        addListener(new PoseChangerListener());
         addListener(new MiscListener());
     }
 

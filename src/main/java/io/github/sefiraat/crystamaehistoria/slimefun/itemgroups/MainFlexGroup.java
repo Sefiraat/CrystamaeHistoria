@@ -105,9 +105,9 @@ public class MainFlexGroup extends FlexItemGroup {
             openPage(profile, ItemGroups.GADGETS, mode, 1));
 
         // Paint Brushes
-        menu.replaceExistingItem(PAINTBRUSHES, ItemGroups.PAINTBRUSHES.getItem(player));
+        menu.replaceExistingItem(PAINTBRUSHES, ItemGroups.ARTISTIC.getItem(player));
         menu.addMenuClickHandler(PAINTBRUSHES, (player1, i1, itemStack1, clickAction) ->
-            openPage(profile, ItemGroups.PAINTBRUSHES, mode, 1));
+            openPage(profile, ItemGroups.ARTISTIC, mode, 1));
 
         // Exalted
         menu.replaceExistingItem(EXALTED, ItemGroups.EXALTED.getItem(player));

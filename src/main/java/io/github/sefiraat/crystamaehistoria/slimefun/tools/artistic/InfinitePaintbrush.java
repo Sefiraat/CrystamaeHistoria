@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.slimefun.tools.magicpaintbrush;
+package io.github.sefiraat.crystamaehistoria.slimefun.tools.artistic;
 
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
