@@ -46,7 +46,6 @@ public class BlockVeil extends SlimefunItem {
         return material != Material.SPAWNER
             && material.getHardness() != -1
             && material.isSolid()
-            && material.isOccluding()
-            && material.isBurnable();
+            && material.isOccluding();
     }
 }

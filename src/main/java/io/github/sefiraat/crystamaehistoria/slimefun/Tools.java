@@ -22,6 +22,8 @@ import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.sefiraat.networks.slimefun.NetworksSlimefunItemStacks;
+import io.github.sefiraat.networks.slimefun.network.NetworkBridge;
+import io.github.sefiraat.networks.slimefun.network.NetworkMonitor;
 import io.github.sefiraat.networks.slimefun.network.NetworkObject;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -590,7 +592,8 @@ public class Tools {
                 DummyLiquefactionBasinCrafting.TYPE,
                 networksCoverRecipe.getDisplayRecipe(),
                 networksCoverStack.asQuantity(8),
-                NetworkObject.class
+                NetworkBridge.class,
+                NetworkMonitor.class
             );
 
             networkNodeCover.register(plugin);
