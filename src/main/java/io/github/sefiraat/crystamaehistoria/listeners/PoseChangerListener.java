@@ -1,8 +1,12 @@
 package io.github.sefiraat.crystamaehistoria.listeners;
 
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.artistic.ImbuedStand;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.artistic.PoseChanger;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.artistic.PoseCloner;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
+import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
+import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentPoseType;
 import io.github.sefiraat.networks.utils.Theme;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
@@ -29,9 +33,12 @@ import java.util.List;
 
 public class PoseChangerListener implements Listener {
 
+    private static final String IMBUED_ONLY_MESSAGE = Theme.WARNING.getColor() + "This can only be done to an Imbued Armorstand";
+
     private final double stepAmount = 0.01;
     private final NamespacedKey poseKey = Keys.newKey("pose_type");
     private final NamespacedKey changeKey = Keys.newKey("change_Type");
+    private final NamespacedKey clonedPoseKey = Keys.newKey("stored_pose");
 
     @EventHandler(priority = EventPriority.LOW)
     public void onInteract(PlayerInteractEvent e) {
@@ -46,7 +53,7 @@ public class PoseChangerListener implements Listener {
     }
 
     @EventHandler(priority = EventPriority.LOW)
-    public void onInteractStand(PlayerInteractAtEntityEvent e) {
+    public void onPoseChange(PlayerInteractAtEntityEvent e) {
         final Player player = e.getPlayer();
         final ItemStack heldItem = player.getInventory().getItemInMainHand();
         final SlimefunItem slimefunItem = SlimefunItem.getByItem(heldItem);
@@ -56,8 +63,9 @@ public class PoseChangerListener implements Listener {
 
             e.setCancelled(true);
             if (entity instanceof ArmorStand) {
-                ArmorStand armorStand = (ArmorStand) entity;
-                if (armorStand.isVisible()
+                final ArmorStand armorStand = (ArmorStand) entity;
+                final boolean isImbued = PersistentDataAPI.getBoolean(armorStand, ImbuedStand.KEY);
+                if ((armorStand.isVisible() || isImbued)
                     && !armorStand.isMarker()
                     && GeneralUtils.hasPermission(player, armorStand.getLocation(), Interaction.INTERACT_ENTITY)
                     && GeneralUtils.hasPermission(player, armorStand.getLocation(), Interaction.ATTACK_ENTITY)
@@ -65,7 +73,53 @@ public class PoseChangerListener implements Listener {
                     final ItemMeta itemMeta = heldItem.getItemMeta();
                     final PoseType poseType = PoseType.valueOf(PersistentDataAPI.getString(itemMeta, poseKey, "HEAD"));
                     final ChangeType changeType = ChangeType.valueOf(PersistentDataAPI.getString(itemMeta, changeKey, "RESET"));
-                    changePose(armorStand, poseType, changeType, player.isSneaking());
+
+                    changePose(player, armorStand, poseType, changeType, player.isSneaking(), isImbued);
+                }
+            }
+        }
+    }
+
+    @EventHandler(priority = EventPriority.LOW)
+    public void onPoseClone(PlayerInteractAtEntityEvent e) {
+        final Player player = e.getPlayer();
+        final ItemStack heldItem = player.getInventory().getItemInMainHand();
+        final SlimefunItem slimefunItem = SlimefunItem.getByItem(heldItem);
+
+        if (slimefunItem instanceof PoseCloner) {
+            final Entity entity = e.getRightClicked();
+
+            e.setCancelled(true);
+            if (entity instanceof ArmorStand) {
+                final ArmorStand armorStand = (ArmorStand) entity;
+                if (!armorStand.isMarker()
+                    && GeneralUtils.hasPermission(player, armorStand.getLocation(), Interaction.INTERACT_ENTITY)
+                    && GeneralUtils.hasPermission(player, armorStand.getLocation(), Interaction.ATTACK_ENTITY)
+                ) {
+                    final boolean isImbued = PersistentDataAPI.getBoolean(armorStand, ImbuedStand.KEY);
+                    if (!isImbued) {
+                        player.sendMessage(Theme.WARNING.getColor() + "This can only be done to an Imbued Armorstand");
+                        return;
+                    }
+
+                    final ItemMeta itemMeta = heldItem.getItemMeta();
+
+                    if (player.isSneaking()) {
+                        final PoseCloner.StoredPose pose = DataTypeMethods.getCustom(itemMeta, clonedPoseKey, PersistentPoseType.TYPE);
+
+                        if (pose == null) {
+                            player.sendMessage(Theme.WARNING.getColor() + "No pose has been stored.");
+                            return;
+                        }
+                        pose.applyPose(armorStand);
+                        player.sendActionBar(Component.text(Theme.WARNING.getColor() + "Pose Applied"));
+                    } else {
+                        final PoseCloner.StoredPose pose = new PoseCloner.StoredPose(armorStand);
+
+                        DataTypeMethods.setCustom(itemMeta, clonedPoseKey, PersistentPoseType.TYPE, pose);
+                        heldItem.setItemMeta(itemMeta);
+                        player.sendActionBar(Component.text(Theme.WARNING.getColor() + "Pose Stored"));
+                    }
                 }
             }
         }
@@ -108,8 +162,8 @@ public class PoseChangerListener implements Listener {
     }
 
     @ParametersAreNonnullByDefault
-    private void changePose(ArmorStand armorStand, PoseType poseType, ChangeType changeType, boolean negative) {
-        EulerAngle eulerAngle = getEulerAngle(armorStand, poseType);
+    private void changePose(Player player, ArmorStand armorStand, PoseType poseType, ChangeType changeType, boolean negative, boolean isImbued) {
+        EulerAngle eulerAngle = getEulerAngle(player, armorStand, poseType, isImbued);
 
         if (eulerAngle == null) {
             return;
@@ -120,7 +174,7 @@ public class PoseChangerListener implements Listener {
     }
 
     @Nullable
-    private EulerAngle getEulerAngle(@Nonnull ArmorStand armorStand, @Nonnull PoseType poseType) {
+    private EulerAngle getEulerAngle(@Nonnull Player player, @Nonnull ArmorStand armorStand, @Nonnull PoseType poseType, boolean isImbued) {
         switch (poseType) {
             case HEAD:
                 return armorStand.getHeadPose();
@@ -139,6 +193,28 @@ public class PoseChangerListener implements Listener {
                 return null;
             case BASE_VISIBILITY:
                 armorStand.setBasePlate(!armorStand.hasBasePlate());
+                return null;
+            case STAND_VISIBILITY:
+                if (isImbued) {
+                    armorStand.setVisible(!armorStand.isVisible());
+                } else {
+                    player.sendMessage(Theme.WARNING.getColor() + "This can only be done to an Imbued Armorstand");
+                }
+                return null;
+            case STAND_SIZE:
+                if (isImbued) {
+                    armorStand.setSmall(!armorStand.isSmall());
+                } else {
+                    player.sendMessage(Theme.WARNING.getColor() + "This can only be done to an Imbued Armorstand");
+                }
+                return null;
+            case STAND_GRAVITY:
+                if (isImbued) {
+                    armorStand.setGravity(!armorStand.hasGravity());
+                    player.sendActionBar(Component.text("Gravity: " + armorStand.hasGravity()));
+                } else {
+                    player.sendMessage(Theme.WARNING.getColor() + "This can only be done to an Imbued Armorstand");
+                }
                 return null;
             default:
                 return null;
@@ -194,7 +270,11 @@ public class PoseChangerListener implements Listener {
         LEFT_LEG,
         RIGHT_LEG,
         ARM_VISIBILITY,
-        BASE_VISIBILITY;
+        BASE_VISIBILITY,
+        STAND_VISIBILITY,
+        STAND_SIZE,
+        STAND_GRAVITY,
+        STAND_POSITION;
 
         private static final PoseType[] CACHED_VALUES = values();
 
