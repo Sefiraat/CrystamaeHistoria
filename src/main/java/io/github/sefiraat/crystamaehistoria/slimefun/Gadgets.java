@@ -161,7 +161,7 @@ public class Gadgets {
                 ThemeType.CLICK_INFO.getColor() + "Force: " + ThemeType.PASSIVE.getColor() + "5 CrystaPow™"
             ),
             DummyLiquefactionBasinCrafting.TYPE,
-            abstractionLampRecipe.getDisplayRecipe(),
+            dispersionLampRecipe.getDisplayRecipe(),
             7,
             0.5
         );
@@ -963,5 +963,4 @@ public class Gadgets {
 
         LiquefactionBasinCache.addCraftingRecipe(waystone, waystoneRecipe);
     }
-
 }
