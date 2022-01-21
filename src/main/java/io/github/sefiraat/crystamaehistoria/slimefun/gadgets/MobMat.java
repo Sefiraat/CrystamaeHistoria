@@ -78,7 +78,7 @@ public class MobMat extends TickingBlockNoGui {
             if (!allowPlayerDrops || player == null) {
                 livingEntity.damage(damage);
             } else {
-                CrystamaeHistoria.getSupportedPluginManager().playerDamageWithoutMcMMO(livingEntity, player, damage);
+                CrystamaeHistoria.getSupportedPluginManager().playerDamageWithoutAttribution(livingEntity, player, damage);
             }
             ParticleUtils.displayParticleEffect(location, 1, 3, dustOptions);
         }
