@@ -11,14 +11,14 @@ public class ArmorStandInteract implements Listener {
 
     @EventHandler
     public void onArmorStandManipulate(PlayerArmorStandManipulateEvent e) {
-        if (ArmourStandUtils.isDisplayStand(e.getRightClicked())) e.setCancelled(true);
+        if (ArmourStandUtils.isDisplayStand(e.getRightClicked())) {
+            e.setCancelled(true);
+        }
     }
 
     @EventHandler
     public void onArmorDispense(BlockDispenseArmorEvent e) {
-        if (e.getTargetEntity() instanceof ArmorStand
-            && ArmourStandUtils.isDisplayStand((ArmorStand) e.getTargetEntity())
-        ) {
+        if (e.getTargetEntity() instanceof ArmorStand && ArmourStandUtils.isDisplayStand((ArmorStand) e.getTargetEntity())) {
             e.setCancelled(true);
         }
     }

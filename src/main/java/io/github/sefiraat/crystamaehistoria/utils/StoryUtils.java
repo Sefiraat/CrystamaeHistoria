@@ -46,7 +46,7 @@ public class StoryUtils {
         final Material material = itemStack.getType();
         final BlockDefinition definition = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().get(material);
 
-        return definition != null && definition.getTier().tier <= tier && isAllowed(itemStack);
+        return definition != null && definition.getBlockTier().tier <= tier && isAllowed(itemStack);
     }
 
     private static final Set<Material> metaBypass = EnumSet.of(
@@ -71,6 +71,7 @@ public class StoryUtils {
         Material.TROPICAL_FISH_BUCKET
     );
 
+    @ParametersAreNonnullByDefault
     private static boolean isAllowed(ItemStack itemStack) {
         SlimefunItem slimefunItem = SlimefunItem.getByItem(itemStack);
         if (slimefunItem == null) {
@@ -95,7 +96,7 @@ public class StoryUtils {
     /**
      * Sets the ItemStack's PDC Storied to True. Also sets an initial story object
      *
-     * @param itemStack The {@link ItemStack} whos meta will have the PDC element added to
+     * @param itemStack The {@link ItemStack} whose meta will have the PDC element added to
      */
     @ParametersAreNonnullByDefault
     public static void makeStoried(ItemStack itemStack) {
@@ -130,7 +131,7 @@ public class StoryUtils {
     }
 
     /**
-     * Creates a new jsonobject for a newly storied item.
+     * Creates a new JsonObject for a newly storied item.
      * We do this now to 'lock in' the story potential
      *
      * @param itemStack The {@link ItemStack} to compare against the storied map
@@ -139,11 +140,11 @@ public class StoryUtils {
     @Nonnull
     @ParametersAreNonnullByDefault
     public static JsonObject getInitialStoryLimits(ItemStack itemStack) {
-        Material m = itemStack.getType();
-        BlockDefinition definition = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().get(m);
+        Material material = itemStack.getType();
+        BlockDefinition definition = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().get(material);
         Validate.notNull(definition, "The selected material does not have a story definition. This shouldn't happen, SefiDumb™");
-        int availableStoryCount = ThreadLocalRandom.current().nextInt(definition.getTier().minStories, definition.getTier().maxStories + 1);
-        int tier = definition.getTier().tier;
+        int availableStoryCount = ThreadLocalRandom.current().nextInt(definition.getBlockTier().minStories, definition.getBlockTier().maxStories + 1);
+        int tier = definition.getBlockTier().tier;
         JsonObject jsonObject = new JsonObject();
         jsonObject.add(Keys.JS_S_AVAILABLE_STORIES, new JsonPrimitive(availableStoryCount));
         jsonObject.add(Keys.JS_S_TIER, new JsonPrimitive(tier));
@@ -194,7 +195,7 @@ public class StoryUtils {
     public static void requestNewStory(ItemStack itemstack) {
         final StoriesManager manager = CrystamaeHistoria.getStoriesManager();
         final BlockDefinition definition = manager.getBlockDefinitionMap().get(itemstack.getType());
-        final BlockTier tier = definition.getTier();
+        final BlockTier tier = definition.getBlockTier();
         final StoryChances chance = tier.storyChances;
         final List<StoryType> pool = definition.getPools();
         int rnd = ThreadLocalRandom.current().nextInt(1, 101);

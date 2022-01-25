@@ -151,9 +151,9 @@ public enum SpellType {
     WITHER_WEATHER(new WitherWeather());
 
     @Getter
-    protected static final SpellType[] cachedValues = values();
+    private static final SpellType[] cachedValues = values();
     @Getter
-    protected static SpellType[] enabledSpells;
+    private static SpellType[] enabledSpells;
     @Getter
     private final Spell spell;
 

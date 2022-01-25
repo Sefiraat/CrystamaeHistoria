@@ -70,6 +70,7 @@ public class Animaniacs extends Spell {
         magicProjectile.disableGravity();
     }
 
+    @ParametersAreNonnullByDefault
     public void projectileHit(CastInformation castInformation) {
         for (LivingEntity entity : getTargets(castInformation, 7, true)) {
             final Location entityLocation = entity.getLocation();

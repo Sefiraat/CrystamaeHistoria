@@ -38,7 +38,7 @@ public enum Skulls {
     GUI_TIER_NUMBER_5("7fb91bb97749d6a6eed4449d23aea284dc4de6c3818eea5c7e149ddda6f7c9", null);
 
     @Getter
-    protected static final Skulls[] cachedValues = values();
+    private static final Skulls[] cachedValues = values();
 
     @Getter
     private final String hash;
@@ -52,6 +52,7 @@ public enum Skulls {
         this.storyType = storyType;
     }
 
+    @Nullable
     public static Skulls getByType(StoryType type) {
         for (Skulls skull : values()) {
             if (skull.storyType == type) {

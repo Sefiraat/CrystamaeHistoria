@@ -28,6 +28,7 @@ public class DisplayItem {
         CrystamaeHistoria.getSpellMemory().getDisplayItems().put(this, System.currentTimeMillis() + duration);
     }
 
+    @ParametersAreNonnullByDefault
     public void setVelocity(Vector vector) {
         this.item.setGravity(true);
         this.item.setVelocity(vector);

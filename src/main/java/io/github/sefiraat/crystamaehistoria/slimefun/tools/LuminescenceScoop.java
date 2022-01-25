@@ -54,7 +54,7 @@ public class LuminescenceScoop extends RefillableUseItem {
                 && GeneralUtils.hasPermission(player, checkBlock, Interaction.BREAK_BLOCK)
             ) {
                 checkBlock.setType(Material.AIR);
-                refillItem(player, event.getItem());
+                refillItem(event.getItem());
             }
         }
     }

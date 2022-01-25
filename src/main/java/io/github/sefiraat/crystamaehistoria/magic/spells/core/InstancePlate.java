@@ -60,17 +60,14 @@ public class InstancePlate {
         final Spell spell = storedSpell.getSpell();
         final int crystaCost = spell.getCrystaCost(castInformation);
 
-        // Is spell disabled in the spells.yml?
         if (!CrystamaeHistoria.getConfigManager().spellEnabled(spell)) {
             return CastResult.SPELL_DISABLED;
         }
 
-        // Is enough crysta currently stored in the plate?
         if (crysta < crystaCost) {
             return CastResult.CAST_FAIL_NO_CRYSTA;
         }
 
-        // Is the spell still on cooldown?
         if (cooldown > System.currentTimeMillis()) {
             return CastResult.ON_COOLDOWN;
         }

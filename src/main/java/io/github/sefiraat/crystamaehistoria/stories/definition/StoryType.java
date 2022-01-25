@@ -3,6 +3,7 @@ package io.github.sefiraat.crystamaehistoria.stories.definition;
 import lombok.Getter;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 public enum StoryType {
     ELEMENTAL(1),
@@ -35,6 +36,7 @@ public enum StoryType {
     }
 
     @Nullable
+    @ParametersAreNonnullByDefault
     public static StoryType getByName(String name) {
         for (StoryType storyType : getCachedValues()) {
             if (storyType.name().equals(name)) {

@@ -52,6 +52,7 @@ public class Ravage extends Spell {
         applyPositiveEffects(magicSummon.getMob(), castInformation);
     }
 
+    @ParametersAreNonnullByDefault
     public void onTick(MagicSummon magicSummon) {
         ParticleUtils.displayParticleEffect(magicSummon.getMob(), Particle.VILLAGER_ANGRY, 1, 2);
     }

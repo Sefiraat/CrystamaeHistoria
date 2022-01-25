@@ -1,7 +1,6 @@
 package io.github.sefiraat.crystamaehistoria;
 
 import com.gmail.nossr50.util.skills.CombatUtils;
-import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.thebusybiscuit.exoticgarden.items.BonemealableItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
@@ -15,6 +14,7 @@ import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 @Getter
 public class SupportedPluginManager {
@@ -47,12 +47,14 @@ public class SupportedPluginManager {
      * @param player       The {@link Player} to attribute the damage/drops to
      * @param damage       The damage to apply
      */
+    @ParametersAreNonnullByDefault
     public void playerDamageWithoutAttribution(LivingEntity livingEntity, Player player, double damage) {
         markIgnoreDamage(livingEntity);
         livingEntity.damage(damage, player);
         clearIgnoreDamageMarker(livingEntity);
     }
 
+    @ParametersAreNonnullByDefault
     public void markIgnoreDamage(LivingEntity livingEntity) {
         if (mcMMO) CombatUtils.applyIgnoreDamageMetadata(livingEntity);
         if (slimeTinker) {
@@ -60,6 +62,7 @@ public class SupportedPluginManager {
         }
     }
 
+    @ParametersAreNonnullByDefault
     public void clearIgnoreDamageMarker(LivingEntity livingEntity) {
         if (mcMMO) CombatUtils.removeIgnoreDamageMetadata(livingEntity);
         if (slimeTinker) {
@@ -67,6 +70,7 @@ public class SupportedPluginManager {
         }
     }
 
+    @ParametersAreNonnullByDefault
     public boolean isExoticGardenPlant(Block block) {
         return exoticGarden
             && BlockStorage.hasBlockInfo(block)
@@ -80,7 +84,7 @@ public class SupportedPluginManager {
      * @return Returns null if there is not a plant (or Exotic is not installed) or the
      * the SlimefunItem if applicable.
      */
-    @Nullable
+    @Nullable @ParametersAreNonnullByDefault
     public SlimefunItem getExoticGardenPlant(Block block) {
         if (exoticGarden && BlockStorage.hasBlockInfo(block)) {
             SlimefunItem slimefunItem = BlockStorage.check(block);

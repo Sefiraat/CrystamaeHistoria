@@ -51,10 +51,12 @@ public class RemnantOfWar extends Spell {
         gearZombie(zombie, castInformation.getStaveLevel());
     }
 
+    @ParametersAreNonnullByDefault
     public void onTick(MagicSummon magicSummon) {
         ParticleUtils.displayParticleEffect(magicSummon.getMob(), Particle.SOUL, 1, 1);
     }
 
+    @ParametersAreNonnullByDefault
     public void gearZombie(Zombie zombie, int tier) {
         ItemStack helmet;
         ItemStack chestplate;

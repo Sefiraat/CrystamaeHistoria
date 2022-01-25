@@ -42,6 +42,7 @@ public class Cascada extends Spell {
         magicProjectile.disableGravity();
     }
 
+    @ParametersAreNonnullByDefault
     public void projectileHit(CastInformation castInformation) {
         final UUID caster = castInformation.getCaster();
         final Location location = castInformation.getProjectileLocation();

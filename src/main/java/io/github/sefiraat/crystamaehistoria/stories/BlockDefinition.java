@@ -11,14 +11,14 @@ import java.util.List;
 public class BlockDefinition {
 
     private final Material material;
-    private final BlockTier tier;
+    private final BlockTier blockTier;
     private final List<StoryType> pools;
     private final Story unique;
 
     @ParametersAreNonnullByDefault
     public BlockDefinition(Material material, BlockTier tier, List<StoryType> pools, Story unique) {
         this.material = material;
-        this.tier = tier;
+        this.blockTier = tier;
         this.pools = pools;
         this.unique = unique;
     }

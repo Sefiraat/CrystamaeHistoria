@@ -64,6 +64,7 @@ public class MagicProjectile {
         return (Projectile) Bukkit.getEntity(projectileUUID);
     }
 
+    @ParametersAreNonnullByDefault
     public boolean matches(Projectile projectile) {
         return this.projectileUUID.equals(projectile.getUniqueId());
     }
