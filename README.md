@@ -74,6 +74,8 @@ The end result of all your hard work? Spells!
 
 <p align="center"><img width="900" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_spell_push.gif?raw=true"></p>
 
+## Thanks!
+
 As usual, a big thanks to those who tested Crystamae to get it to the nice state it is in.
 
 A big thanks to the owners of **mct.tantrum.org** who have tested nearly everything I have made and really given me direction and drive to make these things.
