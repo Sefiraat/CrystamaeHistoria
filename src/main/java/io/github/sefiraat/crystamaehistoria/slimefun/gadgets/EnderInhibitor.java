@@ -17,7 +17,6 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 
-import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 
@@ -30,35 +29,49 @@ public class EnderInhibitor extends SlimefunItem {
     public EnderInhibitor(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, double radius) {
         super(category, item, recipeType, recipe);
         this.radius = radius;
-        this.addItemHandler(
-            new BlockPlaceHandler(false) {
-                @Override
-                public void onPlayerPlace(@Nonnull BlockPlaceEvent event) {
-                    BlockStorage.addBlockInfo(event.getBlock(), "CH_UUID", event.getPlayer().getUniqueId().toString());
-                }
-            },
-            new BlockBreakHandler(false, false) {
-                @Override
-                public void onPlayerBreak(BlockBreakEvent blockBreakEvent, ItemStack itemStack, List<ItemStack> list) {
-                    BlockStorage.clearBlockInfo(blockBreakEvent.getBlock());
-                }
-            },
-            new BlockTicker() {
-                @Override
-                public boolean isSynchronized() {
-                    return true;
-                }
+    }
 
-                @Override
-                public void tick(Block block, SlimefunItem slimefunItem, Config config) {
-                    for (Enderman enderman : block.getWorld().getNearbyEntitiesByType(Enderman.class, block.getLocation(), radius)) {
-                        CrystamaeHistoria.getSpellMemory().getInhibitedEndermen().put(
+    @Override
+    public void preRegister() {
+        addItemHandler(onBlockPlace(), onBlockBreak(), onTick());
+    }
+
+    private BlockPlaceHandler onBlockPlace() {
+        return new BlockPlaceHandler(false) {
+            @Override
+            @ParametersAreNonnullByDefault
+            public void onPlayerPlace(BlockPlaceEvent event) {
+                BlockStorage.addBlockInfo(event.getBlock(), "CH_UUID", event.getPlayer().getUniqueId().toString());
+            }
+        };
+    }
+
+    private BlockBreakHandler onBlockBreak() {
+        return new BlockBreakHandler(false, false) {
+            @Override
+            @ParametersAreNonnullByDefault
+            public void onPlayerBreak(BlockBreakEvent blockBreakEvent, ItemStack itemStack, List<ItemStack> list) {
+                BlockStorage.clearBlockInfo(blockBreakEvent.getBlock());
+            }
+        };
+    }
+
+    private BlockTicker onTick() {
+        return new BlockTicker() {
+            @Override
+            public boolean isSynchronized() {
+                return true;
+            }
+
+            @Override
+            public void tick(Block block, SlimefunItem slimefunItem, Config config) {
+                for (Enderman enderman : block.getWorld().getNearbyEntitiesByType(Enderman.class, block.getLocation(), radius)) {
+                    CrystamaeHistoria.getSpellMemory().getInhibitedEndermen().put(
                             enderman.getUniqueId(),
                             System.currentTimeMillis() + 2000
-                        );
-                    }
+                    );
                 }
             }
-        );
+        };
     }
 }

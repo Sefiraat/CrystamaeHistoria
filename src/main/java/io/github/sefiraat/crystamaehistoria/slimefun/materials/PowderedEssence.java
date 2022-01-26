@@ -9,7 +9,6 @@ import io.github.thebusybiscuit.slimefun4.implementation.items.LimitedUseItem;
 import org.bukkit.NamespacedKey;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -25,7 +24,7 @@ public class PowderedEssence extends LimitedUseItem {
         setMaxUseCount(amount);
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public ItemUseHandler getItemHandler() {
         return e -> {

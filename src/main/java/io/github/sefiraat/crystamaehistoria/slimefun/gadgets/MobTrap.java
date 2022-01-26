@@ -45,12 +45,21 @@ public class MobTrap extends TickingBlockNoGui {
                    ItemStack[] recipe
     ) {
         super(category, item, recipeType, recipe);
-        addItemHandler((BlockUseHandler) e -> {
+    }
+
+    @Override
+    public void preRegister() {
+        super.preRegister();
+        addItemHandler(onBlockUse());
+    }
+
+    private BlockUseHandler onBlockUse() {
+        return e -> {
             final ItemStack itemStack = e.getPlayer().getInventory().getItemInMainHand();
             final Optional<Block> optionalBlock = e.getClickedBlock();
 
             if (itemStack.getType() == Material.POTION
-                && optionalBlock.isPresent()
+                    && optionalBlock.isPresent()
             ) {
                 final Block block = optionalBlock.get();
                 final PotionMeta potionMeta = (PotionMeta) itemStack.getItemMeta();
@@ -61,7 +70,7 @@ public class MobTrap extends TickingBlockNoGui {
                     itemStack.setAmount(itemStack.getAmount() - 1);
                 }
             }
-        });
+        };
     }
 
     @Override

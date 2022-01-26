@@ -11,11 +11,25 @@ import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.Nullable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public class BlockVeil extends SlimefunItem {
 
+    private final Class<? extends SlimefunItem>[] classToCover;
+
+    @ParametersAreNonnullByDefault
     public BlockVeil(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, @Nullable ItemStack recipeOutput, Class<? extends SlimefunItem>... classToCover) {
         super(itemGroup, item, recipeType, recipe, recipeOutput);
-        addItemHandler((ItemUseHandler) e -> {
+        this.classToCover = classToCover;
+    }
+
+    @Override
+    public void preRegister() {
+        addItemHandler(onItemUse());
+    }
+
+    private ItemUseHandler onItemUse() {
+        return e -> {
             e.cancel();
             if (e.getClickedBlock().isPresent()) {
                 Block block = e.getClickedBlock().get();
@@ -26,11 +40,11 @@ public class BlockVeil extends SlimefunItem {
                     return;
                 }
 
-                for (Class<?> testClass : classToCover) {
+                for (Class<?> testClass : this.classToCover) {
                     if (testClass.isInstance(slimefunItem)) {
                         if (offhand.getType() != Material.AIR
-                            && offhand.getType().isBlock()
-                            && materialIsValid(offhand.getType())
+                                && offhand.getType().isBlock()
+                                && materialIsValid(offhand.getType())
                         ) {
                             block.setType(offhand.getType());
                             e.getItem().setAmount(e.getItem().getAmount() - 1);
@@ -39,9 +53,10 @@ public class BlockVeil extends SlimefunItem {
                     }
                 }
             }
-        });
+        };
     }
 
+    @ParametersAreNonnullByDefault
     public boolean materialIsValid(Material material) {
         return material != Material.SPAWNER
             && material.getHardness() != -1

@@ -49,43 +49,49 @@ public class CursedEarth extends SlimefunItem {
         this.lightLevel = lightLevel;
         this.monsters = spawns;
         this.dustOptions = new Particle.DustOptions(color, 1);
-        this.addItemHandler(
-            new BlockTicker() {
-                @Override
-                public boolean isSynchronized() {
-                    return true;
-                }
+    }
 
-                @Override
-                public void tick(Block block, SlimefunItem slimefunItem, Config config) {
-                    final Location location = block.getLocation().add(0.5, 1.5, 0.5);
-                    if (currentTick == ticksToSpawn) {
-                        final Block blockA = block.getRelative(BlockFace.UP);
-                        final Block blockB = blockA.getRelative(BlockFace.UP);
-                        if (blockA.getLightLevel() <= lightLevel
+    @Override
+    public void preRegister() {
+        addItemHandler(onTick());
+    }
+
+    private BlockTicker onTick() {
+        return new BlockTicker() {
+            @Override
+            public boolean isSynchronized() {
+                return true;
+            }
+
+            @Override
+            public void tick(Block block, SlimefunItem slimefunItem, Config config) {
+                final Location location = block.getLocation().add(0.5, 1.5, 0.5);
+                if (currentTick == ticksToSpawn) {
+                    final Block blockA = block.getRelative(BlockFace.UP);
+                    final Block blockB = blockA.getRelative(BlockFace.UP);
+                    if (blockA.getLightLevel() <= lightLevel
                             && blockA.isEmpty()
                             && blockB.isEmpty()
                             && location.getWorld().getNearbyEntities(location, 0.5, 0.5, 0.5).isEmpty()
                             && location.getWorld().getNearbyEntities(location, 4, 4, 4, LivingEntity.class::isInstance).size() < 10
-                        ) {
-                            location.getWorld().spawnEntity(
+                    ) {
+                        location.getWorld().spawnEntity(
                                 location,
                                 monsters.get(ThreadLocalRandom.current().nextInt(monsters.size())),
                                 true
-                            );
-                        }
-                        currentTick = 0;
-                    } else {
-                        currentTick++;
+                        );
                     }
-                    ParticleUtils.displayParticleEffect(
+                    currentTick = 0;
+                } else {
+                    currentTick++;
+                }
+                ParticleUtils.displayParticleEffect(
                         location,
                         1,
                         3,
                         dustOptions
-                    );
-                }
+                );
             }
-        );
+        };
     }
 }

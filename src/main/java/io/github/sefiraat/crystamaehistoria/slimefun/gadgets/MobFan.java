@@ -25,7 +25,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.RayTraceResult;
 import org.bukkit.util.Vector;
 
-import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.List;
 import java.util.UUID;
@@ -52,21 +51,32 @@ public class MobFan extends TickingMenuBlock {
     public MobFan(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, double range) {
         super(category, item, recipeType, recipe);
         this.range = range;
-        this.addItemHandler(
-            new BlockPlaceHandler(false) {
-                @Override
-                public void onPlayerPlace(@Nonnull BlockPlaceEvent event) {
-                    BlockStorage.addBlockInfo(event.getBlock(), ID_UUID, event.getPlayer().getUniqueId().toString());
-                    BlockStorage.addBlockInfo(event.getBlock(), ID_DIRECTION, BlockFace.SELF.name());
-                }
-            },
-            new BlockBreakHandler(false, false) {
-                @Override
-                public void onPlayerBreak(BlockBreakEvent blockBreakEvent, ItemStack itemStack, List<ItemStack> list) {
-                    BlockStorage.clearBlockInfo(blockBreakEvent.getBlock());
-                }
+    }
+
+    @Override
+    public void preRegister() {
+        addItemHandler(onBlockPlace(), onBlockBreak());
+    }
+
+    private BlockPlaceHandler onBlockPlace() {
+        return new BlockPlaceHandler(false) {
+            @Override
+            @ParametersAreNonnullByDefault
+            public void onPlayerPlace(BlockPlaceEvent event) {
+                BlockStorage.addBlockInfo(event.getBlock(), ID_UUID, event.getPlayer().getUniqueId().toString());
+                BlockStorage.addBlockInfo(event.getBlock(), ID_DIRECTION, BlockFace.SELF.name());
             }
-        );
+        };
+    }
+
+    private BlockBreakHandler onBlockBreak() {
+        return new BlockBreakHandler(false, false) {
+            @Override
+            @ParametersAreNonnullByDefault
+            public void onPlayerBreak(BlockBreakEvent blockBreakEvent, ItemStack itemStack, List<ItemStack> list) {
+                BlockStorage.clearBlockInfo(blockBreakEvent.getBlock());
+            }
+        };
     }
 
     @Override

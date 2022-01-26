@@ -41,7 +41,12 @@ public class TrophyDisplay extends Stand {
     @ParametersAreNonnullByDefault
     public TrophyDisplay(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
-        this.addItemHandler((BlockUseHandler) this::onRightClick);
+    }
+
+    @Override
+    public void preRegister() {
+        super.preRegister();
+        addItemHandler((BlockUseHandler) this::onRightClick);
     }
 
     @Override

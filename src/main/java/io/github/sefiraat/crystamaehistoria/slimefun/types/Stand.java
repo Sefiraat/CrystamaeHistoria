@@ -37,7 +37,12 @@ public abstract class Stand extends TickingBlockNoGui {
     @ParametersAreNonnullByDefault
     protected Stand(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
-        this.addItemHandler((BlockUseHandler) this::onRightClick);
+    }
+
+    @Override
+    public void preRegister() {
+        super.preRegister();
+        addItemHandler((BlockUseHandler) this::onRightClick);
     }
 
     public abstract void onRightClick(PlayerRightClickEvent e);

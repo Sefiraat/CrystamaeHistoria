@@ -29,6 +29,10 @@ public abstract class TickingBlockNoGui extends SlimefunItem {
     @ParametersAreNonnullByDefault
     protected TickingBlockNoGui(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
+    }
+
+    @Override
+    public void preRegister() {
         addItemHandler(blockTicker());
     }
 

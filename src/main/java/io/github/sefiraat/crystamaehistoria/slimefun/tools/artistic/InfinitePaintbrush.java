@@ -24,10 +24,14 @@ public class InfinitePaintbrush extends SlimefunItem implements MagicPaintbrush 
                               ItemStack[] recipe
     ) {
         super(itemGroup, item, recipeType, recipe);
-        addItemHandler(getItemHandler());
     }
 
-    public ItemUseHandler getItemHandler() {
+    @Override
+    public void preRegister() {
+        addItemHandler(onItemUse());
+    }
+
+    public ItemUseHandler onItemUse() {
         return e -> {
             ItemStack itemStack = e.getItem();
             if (itemStack.getType() != Material.AIR) {

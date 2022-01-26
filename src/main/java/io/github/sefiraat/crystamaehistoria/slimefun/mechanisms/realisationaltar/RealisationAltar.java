@@ -40,7 +40,15 @@ public class RealisationAltar extends TickingMenuBlock {
     public RealisationAltar(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, int tier) {
         super(itemGroup, item, recipeType, recipe);
         this.tier = tier;
-        this.addItemHandler(new BlockPlaceHandler(false) {
+    }
+
+    @Override
+    public void preRegister() {
+        addItemHandler(onBlockPlace());
+    }
+
+    private BlockPlaceHandler onBlockPlace() {
+        return new BlockPlaceHandler(false) {
             @Override
             public void onPlayerPlace(@Nonnull BlockPlaceEvent event) {
                 final Location location = event.getBlockPlaced().getLocation();
@@ -48,7 +56,7 @@ public class RealisationAltar extends TickingMenuBlock {
                 cache.setActivePlayer(event.getPlayer());
                 CACHES.put(location, cache);
             }
-        });
+        };
     }
 
     public static Map<Location, RealisationAltarCache> getCaches() {

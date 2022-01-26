@@ -16,7 +16,6 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -31,7 +30,7 @@ public class LuminescenceScoop extends RefillableUseItem {
         setMaxUseCount(amount);
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public ItemUseHandler getItemHandler() {
         return e -> {

@@ -51,36 +51,42 @@ public class MysteriousTicker extends SlimefunItem {
         this.materials = tickingMaterials;
         this.ticks = tickFrequency;
         this.consumer = consumer;
-        this.addItemHandler(
-            new BlockTicker() {
-                @Override
-                public boolean isSynchronized() {
-                    return true;
-                }
+    }
 
-                @Override
-                public void tick(Block block, SlimefunItem slimefunItem, Config config) {
-                    if (block.isEmpty()) {
-                        BlockStorage.clearBlockInfo(block.getLocation());
-                    }
-                    Integer currentTick = tickMap.get(block.getLocation());
-                    if (currentTick == null) {
-                        currentTick = ThreadLocalRandom.current().nextInt(ticks);
-                    }
-                    if (currentTick >= ticks) {
-                        currentTick = 0;
-                        block.setType(
-                            materials.toArray(new Material[]{})[ThreadLocalRandom.current().nextInt(materials.size())]
-                        );
-                        if (MysteriousTicker.this.consumer != null) {
-                            MysteriousTicker.this.consumer.accept(block);
-                        }
-                    } else {
-                        currentTick++;
-                    }
-                    tickMap.put(block.getLocation(), currentTick);
-                }
+    @Override
+    public void preRegister() {
+        addItemHandler(onTick());
+    }
+
+    private BlockTicker onTick() {
+        return new BlockTicker() {
+            @Override
+            public boolean isSynchronized() {
+                return true;
             }
-        );
+
+            @Override
+            public void tick(Block block, SlimefunItem slimefunItem, Config config) {
+                if (block.isEmpty()) {
+                    BlockStorage.clearBlockInfo(block.getLocation());
+                }
+                Integer currentTick = tickMap.get(block.getLocation());
+                if (currentTick == null) {
+                    currentTick = ThreadLocalRandom.current().nextInt(ticks);
+                }
+                if (currentTick >= ticks) {
+                    currentTick = 0;
+                    block.setType(
+                            materials.toArray(new Material[]{})[ThreadLocalRandom.current().nextInt(materials.size())]
+                    );
+                    if (MysteriousTicker.this.consumer != null) {
+                        MysteriousTicker.this.consumer.accept(block);
+                    }
+                } else {
+                    currentTick++;
+                }
+                tickMap.put(block.getLocation(), currentTick);
+            }
+        };
     }
 }

@@ -25,6 +25,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.text.MessageFormat;
 import java.util.Optional;
@@ -43,6 +44,7 @@ public class RecallingCrystaLattice extends SlimefunItem {
         });
     }
 
+    @ParametersAreNonnullByDefault
     private void setLocation(PlayerRightClickEvent event) {
         final Optional<Block> blockOptional = event.getClickedBlock();
 
@@ -69,6 +71,7 @@ public class RecallingCrystaLattice extends SlimefunItem {
         }
     }
 
+    @ParametersAreNonnullByDefault
     private void teleport(PlayerRightClickEvent event) {
         final ItemStack itemStack = event.getItem();
         final ItemMeta itemMeta = itemStack.getItemMeta();
@@ -89,7 +92,8 @@ public class RecallingCrystaLattice extends SlimefunItem {
         }
     }
 
-    private void renameItem(String s, ItemStack itemStack) {
+    @ParametersAreNonnullByDefault
+    private void renameItem(String s, @Nullable ItemStack itemStack) {
         if (itemStack != null) {
             final ItemMeta itemMeta = itemStack.getItemMeta();
 
