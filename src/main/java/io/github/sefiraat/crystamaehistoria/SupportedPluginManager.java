@@ -84,7 +84,8 @@ public class SupportedPluginManager {
      * @return Returns null if there is not a plant (or Exotic is not installed) or the
      * the SlimefunItem if applicable.
      */
-    @Nullable @ParametersAreNonnullByDefault
+    @Nullable
+    @ParametersAreNonnullByDefault
     public SlimefunItem getExoticGardenPlant(Block block) {
         if (exoticGarden && BlockStorage.hasBlockInfo(block)) {
             SlimefunItem slimefunItem = BlockStorage.check(block);

@@ -43,8 +43,8 @@ public class BlockVeil extends SlimefunItem {
                 for (Class<?> testClass : this.classToCover) {
                     if (testClass.isInstance(slimefunItem)) {
                         if (offhand.getType() != Material.AIR
-                                && offhand.getType().isBlock()
-                                && materialIsValid(offhand.getType())
+                            && offhand.getType().isBlock()
+                            && materialIsValid(offhand.getType())
                         ) {
                             block.setType(offhand.getType());
                             e.getItem().setAmount(e.getItem().getAmount() - 1);

@@ -23,7 +23,6 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.PotionMeta;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -58,9 +57,7 @@ public class MobTrap extends TickingBlockNoGui {
             final ItemStack itemStack = e.getPlayer().getInventory().getItemInMainHand();
             final Optional<Block> optionalBlock = e.getClickedBlock();
 
-            if (itemStack.getType() == Material.POTION
-                    && optionalBlock.isPresent()
-            ) {
+            if (itemStack.getType() == Material.POTION && optionalBlock.isPresent()) {
                 final Block block = optionalBlock.get();
                 final PotionMeta potionMeta = (PotionMeta) itemStack.getItemMeta();
                 final PotionEffectType type = potionMeta.getBasePotionData().getType().getEffectType();
@@ -106,7 +103,7 @@ public class MobTrap extends TickingBlockNoGui {
     }
 
     @Override
-    protected void onPlace(@NotNull BlockPlaceEvent event) {
+    protected void onPlace(@Nonnull BlockPlaceEvent event) {
         // Not required
     }
 
