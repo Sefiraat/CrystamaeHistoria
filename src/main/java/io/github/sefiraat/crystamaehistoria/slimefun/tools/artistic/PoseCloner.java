@@ -18,13 +18,23 @@ public class PoseCloner extends UnplaceableBlock {
 
     public PoseCloner(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
-        addItemHandler(new BlockPlaceHandler(false) {
+    }
+
+    @Override
+    public void preRegister() {
+        super.preRegister();
+        addItemHandler(onBlockPlace());
+    }
+
+    private BlockPlaceHandler onBlockPlace() {
+        return new BlockPlaceHandler(false) {
             @Override
             public void onPlayerPlace(@NotNull BlockPlaceEvent e) {
                 e.setCancelled(true);
             }
-        });
+        };
     }
+
 
     public static class StoredPose {
         @Getter
