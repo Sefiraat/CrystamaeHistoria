@@ -73,3 +73,9 @@ The end result of all your hard work? Spells!
 <p align="center"><img width="900" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_spell_ethereal.gif?raw=true"></p>
 
 <p align="center"><img width="900" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_spell_push.gif?raw=true"></p>
+
+As usual, a big thanks to those who tested Crystamae to get it to the nice state it is in.
+
+A big thanks to the owners of **mct.tantrum.org** who have tested nearly everything I have made and really given me direction and drive to make these things.
+
+Another big shoutout to **GentlemanCheesy** of **mc.talosmp.net** for being my first (and as of writing this, only!) sponsor. A few coffee's a month to make me feel better about making these addons <3
