@@ -13,7 +13,7 @@ import java.util.stream.Collectors;
 public class BlocksConfigGenerator {
 
     public static void main(String[] args) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(new File("src/main/resources/new_blocks.yml")))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("src/main/resources/new_blocks.yml"))) {
             writeLine(writer, "blocks:");
 
             for (Material material : Arrays.stream(Material.values()).sorted(Comparator.comparing(Material::toString)).collect(Collectors.toList())) {

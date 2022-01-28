@@ -18,7 +18,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 import java.util.function.Predicate;
-import java.util.function.Supplier;
 
 public class RecipeItem {
 
@@ -53,6 +52,7 @@ public class RecipeItem {
         this.additionalRequirement = additionalRequirement;
     }
 
+    @ParametersAreNonnullByDefault
     public boolean recipeMatches(List<StoryType> testTypes, List<Integer> testAmounts, ItemStack inputItem, UUID uuid) {
         int i = 0;
         if (uuid != null && additionalRequirement != null) {

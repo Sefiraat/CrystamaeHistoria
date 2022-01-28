@@ -17,9 +17,7 @@ import org.bukkit.entity.Item;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
 
-import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
 import java.util.List;
@@ -39,13 +37,19 @@ public abstract class Stand extends TickingBlockNoGui {
     @ParametersAreNonnullByDefault
     protected Stand(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
-        this.addItemHandler((BlockUseHandler) this::onRightClick);
+    }
+
+    @Override
+    public void preRegister() {
+        super.preRegister();
+        addItemHandler((BlockUseHandler) this::onRightClick);
     }
 
     public abstract void onRightClick(PlayerRightClickEvent e);
 
     @Override
-    protected void onFirstTick(@NotNull Block block, @NotNull SlimefunItem slimefunItem, @NotNull Config config) {
+    @ParametersAreNonnullByDefault
+    protected void onFirstTick(Block block, SlimefunItem slimefunItem, Config config) {
         final Location blockLocation = block.getLocation();
         String itemUuidString = BlockStorage.getLocationInfo(block.getLocation(), PDC_ITEM);
         if (itemUuidString != null) {
@@ -59,7 +63,8 @@ public abstract class Stand extends TickingBlockNoGui {
     }
 
     @Override
-    protected void onTick(@NotNull Block block, @NotNull SlimefunItem slimefunItem, @NotNull Config config) {
+    @ParametersAreNonnullByDefault
+    protected void onTick(Block block, SlimefunItem slimefunItem, Config config) {
         final Location blockLocation = block.getLocation();
         final UUID currentItemUuid = itemMap.get(blockLocation);
 
@@ -96,7 +101,8 @@ public abstract class Stand extends TickingBlockNoGui {
     }
 
     @Override
-    protected void onPlace(@NotNull BlockPlaceEvent event) {
+    @ParametersAreNonnullByDefault
+    protected void onPlace(BlockPlaceEvent event) {
         Stand.this.currentTickMap.put(
             event.getBlock().getLocation(),
             ThreadLocalRandom.current().nextInt(3, 7)
@@ -104,7 +110,8 @@ public abstract class Stand extends TickingBlockNoGui {
     }
 
     @Override
-    protected void onBreak(@NotNull BlockBreakEvent blockBreakEvent, @NotNull ItemStack itemStack, @NotNull List<ItemStack> list) {
+    @ParametersAreNonnullByDefault
+    protected void onBreak(BlockBreakEvent blockBreakEvent, ItemStack itemStack, List<ItemStack> list) {
         Location location = blockBreakEvent.getBlock().getLocation();
         final UUID currentItemUuid = itemMap.get(location);
         if (currentItemUuid != null) {
@@ -118,5 +125,6 @@ public abstract class Stand extends TickingBlockNoGui {
         }
     }
 
-    public abstract void afterTick(@Nonnull Item item, @Nonnull Block block, @Nonnull SlimefunItem slimefunItem, @Nonnull Config config);
+    @ParametersAreNonnullByDefault
+    public abstract void afterTick(Item item, Block block, SlimefunItem slimefunItem, Config config);
 }

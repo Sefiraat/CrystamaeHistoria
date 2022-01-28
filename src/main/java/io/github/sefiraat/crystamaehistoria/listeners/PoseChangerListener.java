@@ -34,8 +34,8 @@ import java.util.List;
 public class PoseChangerListener implements Listener {
 
     private static final String IMBUED_ONLY_MESSAGE = ThemeType.WARNING.getColor() + "This can only be done to an Imbued Armorstand";
+    private static final double STEP_AMOUNT = 0.01;
 
-    private final double stepAmount = 0.01;
     private final NamespacedKey poseKey = Keys.newKey("pose_type");
     private final NamespacedKey changeKey = Keys.newKey("change_Type");
     private final NamespacedKey clonedPoseKey = Keys.newKey("stored_pose");
@@ -222,7 +222,7 @@ public class PoseChangerListener implements Listener {
     }
 
     private EulerAngle getChangedEulerAngle(@Nonnull EulerAngle eulerAngle, @Nonnull ChangeType changeType, boolean negative) {
-        final double amount = negative ? -stepAmount : stepAmount;
+        final double amount = negative ? -STEP_AMOUNT : STEP_AMOUNT;
         switch (changeType) {
             case RESET:
                 return EulerAngle.ZERO;

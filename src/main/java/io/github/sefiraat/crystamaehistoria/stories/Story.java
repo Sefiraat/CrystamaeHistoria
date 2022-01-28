@@ -77,6 +77,7 @@ public class Story {
         this.storyShardProfile = story.getStoryShardProfile();
         this.storyStrings = story.storyStrings;
         this.author = story.author;
+        this.blockPosition = story.blockPosition;
     }
 
     public String getDisplayName() {
@@ -90,7 +91,7 @@ public class Story {
     }
 
     public String getDisplayRarity() {
-        return "[" + rarity.toString() + "] ";
+        return "[" + rarity + "] ";
     }
 
     public List<String> getStoryLore() {

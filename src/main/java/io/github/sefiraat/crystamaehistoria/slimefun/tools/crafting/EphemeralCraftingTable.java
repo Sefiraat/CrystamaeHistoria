@@ -14,9 +14,17 @@ public class EphemeralCraftingTable extends SlimefunItem {
     @ParametersAreNonnullByDefault
     public EphemeralCraftingTable(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
-        addItemHandler((ItemUseHandler) e -> {
+    }
+
+    @Override
+    public void preRegister() {
+        addItemHandler(onItemUse());
+    }
+
+    private ItemUseHandler onItemUse() {
+        return e -> {
             e.cancel();
             e.getPlayer().openWorkbench(null, true);
-        });
+        };
     }
 }

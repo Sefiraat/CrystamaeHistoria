@@ -13,6 +13,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.EnumMap;
 import java.util.List;
@@ -68,10 +69,12 @@ public class InstanceStave {
         this.itemStack.setItemMeta(itemMeta);
     }
 
+    @ParametersAreNonnullByDefault
     public void setSlot(SpellSlot spellSlot, InstancePlate instancePlate) {
         spellInstanceMap.put(spellSlot, instancePlate);
     }
 
+    @ParametersAreNonnullByDefault
     public CastResult tryCastSpell(SpellSlot slot, CastInformation castInformation) {
         InstancePlate instancePlate = spellInstanceMap.get(slot);
         if (instancePlate != null) {

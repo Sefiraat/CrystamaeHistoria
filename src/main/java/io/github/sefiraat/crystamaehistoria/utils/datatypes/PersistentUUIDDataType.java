@@ -5,6 +5,8 @@ import org.bukkit.persistence.PersistentDataAdapterContext;
 import org.bukkit.persistence.PersistentDataType;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.UUID;
 
 public final class PersistentUUIDDataType implements PersistentDataType<int[], UUID> {
@@ -28,7 +30,8 @@ public final class PersistentUUIDDataType implements PersistentDataType<int[], U
 
     @Nonnull
     @Override
-    public int[] toPrimitive(@Nonnull UUID complex, @Nonnull PersistentDataAdapterContext context) {
+    @ParametersAreNonnullByDefault
+    public int[] toPrimitive(UUID complex, PersistentDataAdapterContext context) {
         return toIntArray(complex);
     }
 
@@ -43,12 +46,13 @@ public final class PersistentUUIDDataType implements PersistentDataType<int[], U
 
     @Nonnull
     @Override
-    public UUID fromPrimitive(@Nonnull int[] primitive, @Nonnull PersistentDataAdapterContext context) {
+    @ParametersAreNonnullByDefault
+    public UUID fromPrimitive(int[] primitive, PersistentDataAdapterContext context) {
         return fromIntArray(primitive);
     }
 
     @Nonnull
-    public static UUID fromIntArray(@Nonnull int[] ints) {
+    public static UUID fromIntArray(int[] ints) {
         Validate.notNull(ints, "The provided integer array cannot be null!");
         Validate.isTrue(ints.length == 4, "The integer array must have a length of 4.");
 

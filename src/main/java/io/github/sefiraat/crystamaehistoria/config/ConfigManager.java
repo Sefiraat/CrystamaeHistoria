@@ -9,6 +9,7 @@ import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
@@ -35,6 +36,7 @@ public class ConfigManager {
     /**
      * @noinspection ResultOfMethodCallIgnored
      */
+    @ParametersAreNonnullByDefault
     private FileConfiguration getConfig(String fileName, boolean updateWithDefaults) {
         final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
         final File file = new File(plugin.getDataFolder(), fileName);
@@ -54,6 +56,7 @@ public class ConfigManager {
         return config;
     }
 
+    @ParametersAreNonnullByDefault
     private void updateConfig(FileConfiguration config, File file, String fileName) throws IOException {
         final InputStream inputStream = CrystamaeHistoria.getInstance().getResource(fileName);
         final BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
@@ -63,6 +66,7 @@ public class ConfigManager {
         config.save(file);
     }
 
+    @ParametersAreNonnullByDefault
     public boolean spellEnabled(Spell spell) {
         return spells.getBoolean(spell.getId());
     }

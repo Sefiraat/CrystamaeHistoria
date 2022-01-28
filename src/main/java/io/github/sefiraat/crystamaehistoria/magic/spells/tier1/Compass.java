@@ -53,6 +53,7 @@ public class Compass extends Spell {
     }
 
     @Nullable
+    @ParametersAreNonnullByDefault
     public Block tryGetBlock(Player player, Material material, int range) {
         final Location location = player.getLocation();
         for (int x = -range; x < range; x++) {

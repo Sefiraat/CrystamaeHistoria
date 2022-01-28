@@ -10,7 +10,6 @@ import org.bukkit.entity.ArmorStand;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.EulerAngle;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 
@@ -18,12 +17,21 @@ public class PoseCloner extends UnplaceableBlock {
 
     public PoseCloner(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
-        addItemHandler(new BlockPlaceHandler(false) {
+    }
+
+    @Override
+    public void preRegister() {
+        super.preRegister();
+        addItemHandler(onBlockPlace());
+    }
+
+    private BlockPlaceHandler onBlockPlace() {
+        return new BlockPlaceHandler(false) {
             @Override
-            public void onPlayerPlace(@NotNull BlockPlaceEvent e) {
+            public void onPlayerPlace(@Nonnull BlockPlaceEvent e) {
                 e.setCancelled(true);
             }
-        });
+        };
     }
 
     public static class StoredPose {

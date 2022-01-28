@@ -18,7 +18,6 @@ import io.github.thebusybiscuit.slimefun4.core.handlers.BlockUseHandler;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import net.md_5.bungee.api.ChatColor;
-import org.apache.commons.lang.WordUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -42,7 +41,12 @@ public class TrophyDisplay extends Stand {
     @ParametersAreNonnullByDefault
     public TrophyDisplay(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
-        this.addItemHandler((BlockUseHandler) this::onRightClick);
+    }
+
+    @Override
+    public void preRegister() {
+        super.preRegister();
+        addItemHandler((BlockUseHandler) this::onRightClick);
     }
 
     @Override

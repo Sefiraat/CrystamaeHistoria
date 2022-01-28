@@ -55,12 +55,22 @@ public class EphemeralWorkBench extends SlimefunItem {
     @ParametersAreNonnullByDefault
     public EphemeralWorkBench(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
-        addItemHandler((ItemUseHandler) e -> {
+    }
+
+    @Override
+    public void preRegister() {
+        addItemHandler(onItemUse());
+    }
+
+    private ItemUseHandler onItemUse() {
+        return e -> {
             e.cancel();
             WorkBenchMenu workBenchMenu = new WorkBenchMenu();
             workBenchMenu.open(e.getPlayer());
-        });
+        };
     }
+
+
 
     public static boolean allowedRecipe(SlimefunItemStack i) {
         return allowedRecipe(i.getItemId());

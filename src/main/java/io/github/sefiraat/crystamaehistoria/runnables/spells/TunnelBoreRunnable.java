@@ -10,6 +10,7 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.scheduler.BukkitRunnable;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -25,6 +26,7 @@ public class TunnelBoreRunnable extends BukkitRunnable {
     private final UUID owner;
     private int iterations;
 
+    @ParametersAreNonnullByDefault
     public TunnelBoreRunnable(LivingEntity bore, int radius, UUID owner, int iterations) {
         this.bore = bore;
         this.radius = radius;

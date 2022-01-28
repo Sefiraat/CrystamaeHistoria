@@ -60,19 +60,19 @@ public class ChroniclerPanelCache extends AbstractCache {
     }
 
     @ParametersAreNonnullByDefault
-    protected void setWorking(Block block, Material m) {
+    protected void setWorking(Block block, Material material) {
         final Block lightBlock = block.getRelative(BlockFace.UP);
 
         blockMiddle = block.getLocation().clone().add(0.5, 0.5, 0.5);
-        workingOn = m;
+        workingOn = material;
         working = true;
 
-        BlockStorage.addBlockInfo(block, Keys.BS_CP_WORKING_ON, m.toString());
+        BlockStorage.addBlockInfo(block, Keys.BS_CP_WORKING_ON, material.toString());
         if (lightBlock.getType() == Material.AIR) {
             lightBlock.setType(Material.LIGHT);
         }
         startAnimation();
-        blockDefinition = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().get(m);
+        blockDefinition = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().get(material);
     }
 
     private void startAnimation() {
@@ -188,7 +188,7 @@ public class ChroniclerPanelCache extends AbstractCache {
         // If this block isn't storied, make it storied then add the initial story set
         if (StoryUtils.hasRemainingStorySlots(i)) {
             final int remaining = StoryUtils.getRemainingStoryAmount(i);
-            final int req = blockDefinition.getTier().chroniclingChance;
+            final int req = blockDefinition.getBlockTier().chroniclingChance;
             if (GeneralUtils.testChance(req, 10000)) {
                 // We can chronicle a story
                 StoryUtils.requestNewStory(i);

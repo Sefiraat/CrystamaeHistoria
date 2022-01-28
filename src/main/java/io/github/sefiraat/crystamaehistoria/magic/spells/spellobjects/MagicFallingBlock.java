@@ -59,6 +59,7 @@ public class MagicFallingBlock {
         return (FallingBlock) Bukkit.getEntity(fallingBlockUUID);
     }
 
+    @ParametersAreNonnullByDefault
     public boolean matches(FallingBlock fallingBlock) {
         return this.fallingBlockUUID.equals(fallingBlock.getUniqueId());
     }

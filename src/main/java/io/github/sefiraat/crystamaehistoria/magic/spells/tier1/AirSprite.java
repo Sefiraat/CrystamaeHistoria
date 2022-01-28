@@ -48,6 +48,7 @@ public class AirSprite extends Spell {
         }
     }
 
+    @ParametersAreNonnullByDefault
     public void onTick(MagicSummon magicSummon) {
         ParticleUtils.displayParticleEffect(magicSummon.getMob(), Particle.CLOUD, 1, 2);
     }

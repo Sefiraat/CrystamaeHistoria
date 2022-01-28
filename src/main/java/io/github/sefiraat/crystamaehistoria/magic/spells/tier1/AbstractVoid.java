@@ -13,6 +13,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -25,6 +26,7 @@ public class AbstractVoid extends Spell {
         setSpellCore(spellCoreBuilder.build());
     }
 
+    @ParametersAreNonnullByDefault
     private void cast(CastInformation castInformation) {
         final Location castLocation = castInformation.getCastLocation();
         final double range = getRange(castInformation);

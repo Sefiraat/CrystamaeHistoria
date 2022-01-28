@@ -17,6 +17,7 @@ import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,22 +26,32 @@ public abstract class TickingBlockNoGui extends SlimefunItem {
 
     protected final Map<Location, Boolean> firstTickMap = new HashMap<>();
 
+    @ParametersAreNonnullByDefault
     protected TickingBlockNoGui(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
+    }
+
+    @Override
+    public void preRegister() {
         addItemHandler(blockTicker());
     }
 
+    @ParametersAreNonnullByDefault
     protected TickingBlockNoGui(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, @Nullable ItemStack recipeOutput) {
         super(itemGroup, item, recipeType, recipe, recipeOutput);
     }
 
-    protected abstract void onFirstTick(@Nonnull Block block, @Nonnull SlimefunItem slimefunItem, @Nonnull Config config);
+    @ParametersAreNonnullByDefault
+    protected abstract void onFirstTick(Block block, SlimefunItem slimefunItem, Config config);
 
-    protected abstract void onTick(@Nonnull Block block, @Nonnull SlimefunItem slimefunItem, @Nonnull Config config);
+    @ParametersAreNonnullByDefault
+    protected abstract void onTick(Block block, SlimefunItem slimefunItem, Config config);
 
-    protected abstract void onPlace(@Nonnull BlockPlaceEvent event);
+    @ParametersAreNonnullByDefault
+    protected abstract void onPlace(BlockPlaceEvent event);
 
-    protected abstract void onBreak(@Nonnull BlockBreakEvent blockBreakEvent, @Nonnull ItemStack itemStack, @Nonnull List<ItemStack> list);
+    @ParametersAreNonnullByDefault
+    protected abstract void onBreak(BlockBreakEvent blockBreakEvent, ItemStack itemStack, List<ItemStack> list);
 
     protected ItemHandler[] blockTicker() {
         return new ItemHandler[]{

@@ -3,6 +3,8 @@ package io.github.sefiraat.crystamaehistoria.utils;
 import lombok.Getter;
 import org.bukkit.World;
 
+import javax.annotation.ParametersAreNonnullByDefault;
+
 public enum TimePeriod {
     SUNRISE(23000, 23999),
     DAY(24000, 11999),
@@ -33,35 +35,40 @@ public enum TimePeriod {
         this.end = end;
     }
 
+    @ParametersAreNonnullByDefault
     public static boolean isDay(World world) {
         return isDay(world.getTime());
     }
 
-    public static boolean isDay(Long time) {
+    public static boolean isDay(long time) {
         return time < 13000 || time > 24000;
     }
 
+    @ParametersAreNonnullByDefault
     public static boolean isNight(World world) {
         return isNight(world.getTime());
     }
 
-    public static boolean isNight(Long time) {
+    public static boolean isNight(long time) {
         return !isDay(time);
     }
 
+    @ParametersAreNonnullByDefault
     public static boolean isActive(World world, TimePeriod timePeriod) {
         return isActive(world.getTime(), timePeriod);
     }
 
-    public static boolean isActive(Long time, TimePeriod timePeriod) {
+    @ParametersAreNonnullByDefault
+    public static boolean isActive(long time, TimePeriod timePeriod) {
         return time >= timePeriod.getStart() && time <= timePeriod.getEnd();
     }
 
+    @ParametersAreNonnullByDefault
     public static boolean villagersAwake(World world) {
         return villagersAwake(world.getTime());
     }
 
-    public static boolean villagersAwake(Long time) {
+    public static boolean villagersAwake(long time) {
         return time >= WAKE_UP.getStart() && time <= VILLAGER_BED_TIME.getEnd();
     }
 
@@ -71,6 +78,7 @@ public enum TimePeriod {
      * @param world The world to check.
      * @return True if the moon is/would be out, false if not or wrong world type.
      */
+    @ParametersAreNonnullByDefault
     public static boolean moonOut(World world) {
         if (world.getEnvironment() == World.Environment.NORMAL) {
             return moonOut(world.getTime());
@@ -85,10 +93,11 @@ public enum TimePeriod {
      * @param time The time to check.
      * @return True if the moon is/would be out
      */
-    public static boolean moonOut(Long time) {
+    public static boolean moonOut(long time) {
         return time >= MOON_SHOW.getStart() && time <= MOON_HIDE.getEnd();
     }
 
+    @ParametersAreNonnullByDefault
     public static boolean naturalMobsCanSpawn(World world) {
         long time = world.getTime();
         return world.isClearWeather()
@@ -108,6 +117,7 @@ public enum TimePeriod {
      * @param world The world to check.
      * @return True if past sunset/before sunrise or in a different world.
      */
+    @ParametersAreNonnullByDefault
     public static boolean isDark(World world) {
         return !isLight(world);
     }
@@ -118,6 +128,7 @@ public enum TimePeriod {
      * @param world The world to check.
      * @return True if past sunrise/before sunset or in a different world.
      */
+    @ParametersAreNonnullByDefault
     public static boolean isLight(World world) {
         if (world.getEnvironment() == World.Environment.NORMAL) {
             return isDay(world.getTime());

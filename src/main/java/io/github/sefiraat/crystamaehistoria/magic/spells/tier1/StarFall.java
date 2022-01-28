@@ -64,6 +64,7 @@ public class StarFall extends Spell {
         }
     }
 
+    @ParametersAreNonnullByDefault
     public void onTick(MagicProjectile magicProjectile) {
         final Location location = magicProjectile.getProjectile().getLocation();
         final Particle.DustOptions dustOptions = new Particle.DustOptions(

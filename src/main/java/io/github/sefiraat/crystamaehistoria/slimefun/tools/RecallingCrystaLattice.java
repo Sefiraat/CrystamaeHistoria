@@ -25,6 +25,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
 
+import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.text.MessageFormat;
 import java.util.Optional;
@@ -34,15 +35,24 @@ public class RecallingCrystaLattice extends SlimefunItem {
     @ParametersAreNonnullByDefault
     public RecallingCrystaLattice(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
-        addItemHandler((ItemUseHandler) e -> {
+    }
+
+    @Override
+    public void preRegister() {
+        addItemHandler(onItemUse());
+    }
+
+    private ItemUseHandler onItemUse() {
+        return e -> {
             if (e.getPlayer().isSneaking()) {
                 setLocation(e);
             } else {
                 teleport(e);
             }
-        });
+        };
     }
 
+    @ParametersAreNonnullByDefault
     private void setLocation(PlayerRightClickEvent event) {
         final Optional<Block> blockOptional = event.getClickedBlock();
 
@@ -69,27 +79,36 @@ public class RecallingCrystaLattice extends SlimefunItem {
         }
     }
 
+    @ParametersAreNonnullByDefault
     private void teleport(PlayerRightClickEvent event) {
         final ItemStack itemStack = event.getItem();
         final ItemMeta itemMeta = itemStack.getItemMeta();
         final PersistentDataContainer container = itemMeta.getPersistentDataContainer();
-        final Location location = container.get(Keys.newKey("location"), DataType.LOCATION);
-        final Block block = location.getBlock();
-        final SlimefunItem slimefunItem = BlockStorage.check(block);
 
-        if (slimefunItem instanceof Waystone
-            && GeneralUtils.hasPermission(event.getPlayer(), location, Interaction.PLACE_BLOCK)
-        ) {
-            event.getPlayer().teleportAsync(location.add(1, 1, 1), PlayerTeleportEvent.TeleportCause.PLUGIN);
+        if (container.has(Keys.newKey("location"), DataType.LOCATION)) {
+            final Location location = container.get(Keys.newKey("location"), DataType.LOCATION);
+            final Block block = location.getBlock();
+            final SlimefunItem slimefunItem = BlockStorage.check(block);
+
+            if (slimefunItem instanceof Waystone
+                    && GeneralUtils.hasPermission(event.getPlayer(), location, Interaction.PLACE_BLOCK)
+            ) {
+                event.getPlayer().teleportAsync(location.add(1, 1, 1), PlayerTeleportEvent.TeleportCause.PLUGIN);
+            } else {
+                event.getPlayer().sendActionBar(
+                        Component.text("Waystone connection isn't functional")
+                                .color(TextColor.color(200, 30, 40))
+                );
+            }
         } else {
-            event.getPlayer().sendActionBar(
-                Component.text("Waystone connection isn't functional")
-                    .color(TextColor.color(200, 30, 40))
+            event.getPlayer().sendMessage(
+                    MessageFormat.format("{0}Bind the Lattice to a Waystone using Shift + Right Click.", ChatColor.RED)
             );
         }
     }
 
-    private void renameItem(String s, ItemStack itemStack) {
+    @ParametersAreNonnullByDefault
+    private void renameItem(String s, @Nullable ItemStack itemStack) {
         if (itemStack != null) {
             final ItemMeta itemMeta = itemStack.getItemMeta();
 

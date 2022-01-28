@@ -49,6 +49,7 @@ public class SummonGolem extends Spell {
         );
     }
 
+    @ParametersAreNonnullByDefault
     public void onTick(MagicSummon magicSummon) {
         Mob mob = magicSummon.getMob();
         Player player = magicSummon.getPlayer();

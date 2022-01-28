@@ -32,7 +32,6 @@ import java.util.UUID;
 
 public class GreenHouseGlass extends TickingBlockNoGui {
 
-
     @Getter
     private final int rate;
     @Getter
