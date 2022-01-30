@@ -5,12 +5,15 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffectType;
 
 import javax.annotation.Nonnull;
@@ -35,8 +38,11 @@ public class Shroud extends Spell {
         for (Entity entity : location.getWorld().getNearbyEntities(location, range, range, range)) {
             if (entity instanceof LivingEntity && entity.getUniqueId() != castInformation.getCaster()) {
                 LivingEntity livingEntity = (LivingEntity) entity;
-                applyNegativeEffects(livingEntity, castInformation);
-                ParticleUtils.displayParticleEffect(livingEntity, Particle.SLIME, 2, 2);
+                final Interaction interaction = livingEntity instanceof Player ? Interaction.ATTACK_PLAYER : Interaction.ATTACK_ENTITY;
+                if (GeneralUtils.hasPermission(castInformation.getCaster(), entity.getLocation(), interaction)) {
+                    applyNegativeEffects(livingEntity, castInformation);
+                    ParticleUtils.displayParticleEffect(livingEntity, Particle.SLIME, 2, 2);
+                }
             }
         }
     }
