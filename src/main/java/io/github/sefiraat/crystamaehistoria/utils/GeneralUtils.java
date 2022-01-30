@@ -124,6 +124,9 @@ public final class GeneralUtils {
     @ParametersAreNonnullByDefault
     public static boolean hasPermission(UUID player, Location location, Interaction interaction) {
         OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(player);
+        if (interaction == Interaction.ATTACK_PLAYER && !location.getWorld().getPVP()) {
+            return false;
+        }
         return Slimefun.getProtectionManager().hasPermission(offlinePlayer, location, interaction);
     }
 

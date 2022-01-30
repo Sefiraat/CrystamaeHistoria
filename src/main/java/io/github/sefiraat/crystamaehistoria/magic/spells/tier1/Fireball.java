@@ -8,10 +8,12 @@ import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasi
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -38,7 +40,8 @@ public class Fireball extends Spell {
     @ParametersAreNonnullByDefault
     public void projectileHit(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
-            GeneralUtils.damageEntity(livingEntity,
+            GeneralUtils.damageEntity(
+                livingEntity,
                 castInformation.getCaster(),
                 getDamage(castInformation),
                 castInformation.getProjectileLocation(),
@@ -50,7 +53,10 @@ public class Fireball extends Spell {
     @ParametersAreNonnullByDefault
     public void beforeProjectileHit(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
-            livingEntity.setFireTicks(80);
+            final Interaction interaction = livingEntity instanceof Player ? Interaction.ATTACK_PLAYER : Interaction.ATTACK_ENTITY;
+            if (GeneralUtils.hasPermission(castInformation.getCaster(), livingEntity.getLocation(), interaction)) {
+                livingEntity.setFireTicks(80);
+            }
         }
     }
 

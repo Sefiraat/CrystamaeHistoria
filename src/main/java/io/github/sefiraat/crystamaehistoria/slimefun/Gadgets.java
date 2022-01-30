@@ -13,6 +13,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobLamp;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobMat;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobTrap;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MysteriousTicker;
+import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MysteriousTickerNoInteraction;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.TrophyDisplay;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.Waystone;
 import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
@@ -79,7 +80,7 @@ public class Gadgets {
     @Getter
     private static MobCandle scintillatingMobCandle;
     @Getter
-    private static MysteriousTicker mysteriousPottedPlant;
+    private static MysteriousTickerNoInteraction mysteriousPottedPlant;
     @Getter
     private static MysteriousTicker mysteriousPlant;
     @Getter
@@ -578,7 +579,7 @@ public class Gadgets {
         );
 
         // Mysterious Potted Plant
-        mysteriousPottedPlant = new MysteriousTicker(
+        mysteriousPottedPlant = new MysteriousTickerNoInteraction(
             ItemGroups.GADGETS,
             ThemeType.themedSlimefunItemStack(
                 "CRY_MYSTERIOUS_POTTED_PLANT",
