@@ -9,21 +9,22 @@ import io.github.thebusybiscuit.slimefun4.implementation.items.LimitedUseItem;
 import org.bukkit.NamespacedKey;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Optional;
 
 public class PowderedEssence extends LimitedUseItem {
 
     private static final NamespacedKey key = Keys.newKey("uses");
 
+    @ParametersAreNonnullByDefault
     public PowderedEssence(ItemGroup group, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, int amount) {
         super(group, item, recipeType, recipe);
         setMaxUseCount(amount);
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public ItemUseHandler getItemHandler() {
         return e -> {

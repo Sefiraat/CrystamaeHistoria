@@ -103,6 +103,7 @@ public final class GeneralUtils {
         return roll(upper, true);
     }
 
+    @ParametersAreNonnullByDefault
     public static void markBlockForRemoval(Block block, int secondsUntilRemoval) {
         long timeUntilRemoval = secondsUntilRemoval * 1000L;
         block.setMetadata("ch", new FixedMetadataValue(CrystamaeHistoria.getInstance(), "y"));
@@ -110,19 +111,23 @@ public final class GeneralUtils {
         CrystamaeHistoria.getSpellMemory().getBlocksToRemove().put(new BlockPosition(block), removalTime);
     }
 
+    @ParametersAreNonnullByDefault
     public static boolean isRemovableBlock(Block block) {
         return block.hasMetadata("ch");
     }
 
+    @ParametersAreNonnullByDefault
     public static boolean hasPermission(Player player, Block block, Interaction interaction) {
         return hasPermission(player.getUniqueId(), block.getLocation(), interaction);
     }
 
+    @ParametersAreNonnullByDefault
     public static boolean hasPermission(UUID player, Location location, Interaction interaction) {
         OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(player);
         return Slimefun.getProtectionManager().hasPermission(offlinePlayer, location, interaction);
     }
 
+    @ParametersAreNonnullByDefault
     public static boolean hasPermission(Player player, Location location, Interaction interaction) {
         return hasPermission(player.getUniqueId(), location, interaction);
     }
@@ -163,6 +168,7 @@ public final class GeneralUtils {
         return false;
     }
 
+    @ParametersAreNonnullByDefault
     public static boolean blockCanBeBroken(UUID caster, Block block) {
         return hasPermission(caster, block, Interaction.BREAK_BLOCK)
             && !BlockStorage.hasBlockInfo(block)
@@ -171,6 +177,7 @@ public final class GeneralUtils {
             && !block.getType().isAir();
     }
 
+    @ParametersAreNonnullByDefault
     public static boolean hasPermission(UUID player, Block block, Interaction interaction) {
         return hasPermission(player, block.getLocation(), interaction);
     }
@@ -217,6 +224,7 @@ public final class GeneralUtils {
         }
     }
 
+    @ParametersAreNonnullByDefault
     public static Item spawnDisplayItem(ItemStack stack, Location location, String name) {
         final Item item = location.getWorld().dropItem(
             location,

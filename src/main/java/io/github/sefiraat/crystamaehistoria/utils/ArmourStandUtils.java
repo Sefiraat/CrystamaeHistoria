@@ -40,6 +40,7 @@ public class ArmourStandUtils {
         armorStand.getEquipment().setHelmet(itemStack);
     }
 
+    @ParametersAreNonnullByDefault
     public void clearDisplayItem(ArmorStand armorStand) {
         armorStand.getEquipment().setHelmet(null);
     }

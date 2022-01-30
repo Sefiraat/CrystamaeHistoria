@@ -8,6 +8,7 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 /**
  * A {@link PersistentDataType} for {@link InstancePlate}s which uses an
@@ -36,7 +37,8 @@ public class PersistentPlateDataType implements PersistentDataType<PersistentDat
 
     @Override
     @Nonnull
-    public PersistentDataContainer toPrimitive(@Nonnull InstancePlate complex, @Nonnull PersistentDataAdapterContext context) {
+    @ParametersAreNonnullByDefault
+    public PersistentDataContainer toPrimitive(InstancePlate complex, PersistentDataAdapterContext context) {
         PersistentDataContainer container = context.newPersistentDataContainer();
         container.set(Keys.PLATE_TIER, PersistentDataType.INTEGER, complex.getTier());
         container.set(Keys.PLATE_SPELL, PersistentDataType.STRING, complex.getStoredSpell().getId());
@@ -47,7 +49,8 @@ public class PersistentPlateDataType implements PersistentDataType<PersistentDat
 
     @Override
     @Nonnull
-    public InstancePlate fromPrimitive(@Nonnull PersistentDataContainer primitive, @Nonnull PersistentDataAdapterContext context) {
+    @ParametersAreNonnullByDefault
+    public InstancePlate fromPrimitive(PersistentDataContainer primitive, PersistentDataAdapterContext context) {
         InstancePlate instancePlate = new InstancePlate(
             primitive.get(Keys.PLATE_TIER, PersistentDataType.INTEGER),
             SpellType.valueOf(primitive.get(Keys.PLATE_SPELL, PersistentDataType.STRING)),

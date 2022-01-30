@@ -18,53 +18,64 @@ import org.bukkit.inventory.meta.CompassMeta;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.util.Vector;
 
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.text.MessageFormat;
 
 public class ConnectingCompass extends SlimefunItem {
 
+    @ParametersAreNonnullByDefault
     public ConnectingCompass(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(itemGroup, item, recipeType, recipe);
-        addItemHandler(
-            (ItemUseHandler) e -> {
-                final Player player = e.getPlayer();
-                final ItemStack itemStack = e.getItem();
-                final ItemMeta itemMeta = itemStack.getItemMeta();
+    }
 
-                if (!(itemMeta instanceof CompassMeta)) {
+    @Override
+    public void preRegister() {
+        addItemHandler(onItemUse());
+    }
+
+    private ItemUseHandler onItemUse() {
+        return e -> {
+            final Player player = e.getPlayer();
+            final ItemStack itemStack = e.getItem();
+            final ItemMeta itemMeta = itemStack.getItemMeta();
+
+            if (!(itemMeta instanceof CompassMeta)) {
+                return;
+            }
+
+            final CompassMeta compassMeta = (CompassMeta) itemMeta;
+
+            if (player.isSneaking()) {
+                player.sendMessage(
+                        MessageFormat.format("{0}Type a name for this location in chat.", ChatColor.LIGHT_PURPLE)
+                );
+                ChatUtils.awaitInput(player, s -> nameAndSet(s, itemStack, player.getEyeLocation()));
+            } else {
+                if (!compassMeta.hasLodestone()) {
                     return;
                 }
 
-                final CompassMeta compassMeta = (CompassMeta) itemMeta;
+                final Location location = player.getEyeLocation();
+                final Location pointToLocation = compassMeta.getLodestone();
 
-                if (player.isSneaking()) {
-                    player.sendMessage(
-                        MessageFormat.format("{0}Type a name for this location in chat.", ChatColor.LIGHT_PURPLE)
-                    );
-                    ChatUtils.awaitInput(player, s -> nameAndSet(s, itemStack, player.getEyeLocation()));
-                } else {
-                    if (!compassMeta.hasLodestone()) {
-                        return;
-                    }
-
-                    final Location location = player.getEyeLocation();
-                    final Location pointToLocation = compassMeta.getLodestone();
-
-                    if (location.getWorld().equals(pointToLocation.getWorld())) {
-                        Vector vector = getVector(location, compassMeta.getLodestone());
-                        ParticleUtils.drawLine(
+                if (location.getWorld().equals(pointToLocation.getWorld())) {
+                    Vector vector = getVector(location, compassMeta.getLodestone());
+                    ParticleUtils.drawLine(
                             Particle.REDSTONE,
                             location,
                             location.clone().add(vector.multiply(5)),
                             0.5,
                             new Particle.DustOptions(Color.RED, 1)
-                        );
-                    }
+                    );
                 }
             }
-        );
+        };
     }
 
-    private void nameAndSet(String s, ItemStack itemStack, Location location) {
+
+    @ParametersAreNonnullByDefault
+    private void nameAndSet(String s, @Nullable ItemStack itemStack, Location location) {
         if (itemStack != null) {
             final ItemMeta itemMeta = itemStack.getItemMeta();
             if (itemMeta instanceof CompassMeta) {
@@ -80,6 +91,7 @@ public class ConnectingCompass extends SlimefunItem {
     /*
     https://www.spigotmc.org/threads/get-the-direction-from-2-location.263645/
      */
+    @ParametersAreNonnullByDefault
     public static Vector getVector(Location a, Location b) {
         double dX = a.getX() - b.getX();
         double dY = a.getY() - b.getY();
@@ -92,6 +104,5 @@ public class ConnectingCompass extends SlimefunItem {
 
         return new Vector(x, z, y);
     }
-
 
 }

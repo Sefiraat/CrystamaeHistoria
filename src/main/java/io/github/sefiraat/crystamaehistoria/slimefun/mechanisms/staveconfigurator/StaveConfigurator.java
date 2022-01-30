@@ -74,7 +74,8 @@ public class StaveConfigurator extends MenuBlock {
     }
 
     @Override
-    protected void onNewInstance(@Nonnull BlockMenu blockMenu, @Nonnull Block b) {
+    @ParametersAreNonnullByDefault
+    protected void onNewInstance(BlockMenu blockMenu, Block b) {
         super.onNewInstance(blockMenu, b);
 
         blockMenu.addMenuClickHandler(REMOVE_PLATES, (player, i, itemStack, clickAction) -> {
@@ -146,7 +147,8 @@ public class StaveConfigurator extends MenuBlock {
     }
 
     @Override
-    protected void onBreak(@Nonnull BlockBreakEvent e, @Nonnull BlockMenu menu) {
+    @ParametersAreNonnullByDefault
+    protected void onBreak(BlockBreakEvent e, BlockMenu menu) {
         super.onBreak(e, menu);
         super.onBreak(e, menu);
         Location location = menu.getLocation();
@@ -157,6 +159,7 @@ public class StaveConfigurator extends MenuBlock {
         menu.dropItems(location, STAVE_SLOT);
     }
 
+    @ParametersAreNonnullByDefault
     public void rejectInvalid(BlockMenu blockMenu) {
         for (int slot : PLATE_SLOTS) {
             final ItemStack itemStack = blockMenu.getItemInSlot(slot);
@@ -167,14 +170,16 @@ public class StaveConfigurator extends MenuBlock {
         }
     }
 
-    private void clearPlates(@Nonnull BlockMenu blockMenu) {
+    @ParametersAreNonnullByDefault
+    private void clearPlates(BlockMenu blockMenu) {
         blockMenu.replaceExistingItem(LEFT_CLICK_SLOT, null);
         blockMenu.replaceExistingItem(RIGHT_CLICK_SLOT, null);
         blockMenu.replaceExistingItem(SHIFT_LEFT_CLICK_SLOT, null);
         blockMenu.replaceExistingItem(SHIFT_RIGHT_CLICK_SLOT, null);
     }
 
-    private void rejectItems(@Nonnull BlockMenu blockMenu) {
+    @ParametersAreNonnullByDefault
+    private void rejectItems(BlockMenu blockMenu) {
         blockMenu.dropItems(
             blockMenu.getLocation(),
             LEFT_CLICK_SLOT,
@@ -184,7 +189,8 @@ public class StaveConfigurator extends MenuBlock {
         );
     }
 
-    private boolean platesEmpty(@Nonnull BlockMenu blockMenu) {
+    @ParametersAreNonnullByDefault
+    private boolean platesEmpty(BlockMenu blockMenu) {
         for (int slot : PLATE_SLOTS) {
             final ItemStack itemStack = blockMenu.getItemInSlot(slot);
             if (itemStack != null) {
@@ -194,12 +200,14 @@ public class StaveConfigurator extends MenuBlock {
         return true;
     }
 
+    @ParametersAreNonnullByDefault
     private boolean staveIsEmpty(ItemStack stave) {
         final InstanceStave instanceStave = new InstanceStave(stave);
         return instanceStave.getSpellInstanceMap().size() == 0;
     }
 
-    private int getSlot(@Nonnull SpellSlot spellSlot) {
+    @ParametersAreNonnullByDefault
+    private int getSlot(SpellSlot spellSlot) {
         switch (spellSlot) {
             case LEFT_CLICK:
                 return LEFT_CLICK_SLOT;

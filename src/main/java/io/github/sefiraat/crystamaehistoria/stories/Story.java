@@ -81,6 +81,7 @@ public class Story {
         this.storyStrings = story.storyStrings;
         this.author = story.author;
         this.sponsor = story.sponsor;
+        this.blockPosition = story.blockPosition;
     }
 
     public String getDisplayName() {
@@ -94,7 +95,7 @@ public class Story {
     }
 
     public String getDisplayRarity() {
-        return "[" + rarity.toString() + "] ";
+        return "[" + rarity + "] ";
     }
 
     public List<String> getStoryLore() {

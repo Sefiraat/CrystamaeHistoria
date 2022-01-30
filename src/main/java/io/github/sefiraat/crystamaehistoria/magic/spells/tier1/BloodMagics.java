@@ -35,6 +35,7 @@ public class BloodMagics extends Spell {
         castBlood(castInformation, location, size, 1);
     }
 
+    @ParametersAreNonnullByDefault
     private void castBlood(CastInformation castInformation, Location location, double size, int iteration) {
         final Particle.DustOptions dustOptions = new Particle.DustOptions(Color.fromRGB(190, 55, 80), 1F);
         final Collection<Entity> entities = location.getWorld().getNearbyEntities(location, size, size, size);

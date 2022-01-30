@@ -1,19 +1,17 @@
 package io.github.sefiraat.crystamaehistoria.utils.datatypes;
 
 import de.jeff_media.morepersistentdatatypes.DataType;
-import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.InstancePlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.artistic.PoseCloner;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import org.bukkit.NamespacedKey;
 import org.bukkit.persistence.PersistentDataAdapterContext;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.util.EulerAngle;
-import org.tukaani.xz.simple.ARM;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 /**
  * A {@link PersistentDataType} for {@link InstancePlate}s which uses an
@@ -54,7 +52,8 @@ public class PersistentPoseType implements PersistentDataType<PersistentDataCont
 
     @Override
     @Nonnull
-    public PersistentDataContainer toPrimitive(@Nonnull PoseCloner.StoredPose complex, @Nonnull PersistentDataAdapterContext context) {
+    @ParametersAreNonnullByDefault
+    public PersistentDataContainer toPrimitive(PoseCloner.StoredPose complex, PersistentDataAdapterContext context) {
         PersistentDataContainer container = context.newPersistentDataContainer();
         container.set(HEAD, DataType.DOUBLE_ARRAY, new double[]{
             complex.getHead().getX(),
@@ -96,7 +95,8 @@ public class PersistentPoseType implements PersistentDataType<PersistentDataCont
 
     @Override
     @Nonnull
-    public PoseCloner.StoredPose fromPrimitive(@Nonnull PersistentDataContainer primitive, @Nonnull PersistentDataAdapterContext context) {
+    @ParametersAreNonnullByDefault
+    public PoseCloner.StoredPose fromPrimitive(PersistentDataContainer primitive, PersistentDataAdapterContext context) {
         double[] head = primitive.get(HEAD, DataType.DOUBLE_ARRAY);
         double[] body = primitive.get(BODY, DataType.DOUBLE_ARRAY);
         double[] leftArm = primitive.get(LEFT_ARM, DataType.DOUBLE_ARRAY);

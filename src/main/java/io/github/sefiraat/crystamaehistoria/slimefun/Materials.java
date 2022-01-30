@@ -28,8 +28,8 @@ import java.util.Map;
 @UtilityClass
 public class Materials {
 
-    protected static final Map<StoryType, SlimefunItem> DUMMY_CRYSTAL_MAP = new EnumMap<>(StoryType.class);
-    protected static final Map<StoryRarity, Map<StoryType, SlimefunItem>> CRYSTAL_MAP = new EnumMap<>(StoryRarity.class);
+    private static final Map<StoryType, SlimefunItem> DUMMY_CRYSTAL_MAP = new EnumMap<>(StoryType.class);
+    static final Map<StoryRarity, Map<StoryType, SlimefunItem>> CRYSTAL_MAP = new EnumMap<>(StoryRarity.class);
 
     @Getter
     private static SlimefunItem amalgamateDustCommon;
@@ -76,10 +76,10 @@ public class Materials {
             SlimefunItem sfItem = new Crystal(
                 ItemGroups.DUMMY_ITEM_GROUP,
                 ThemeType.themedSlimefunItemStack(
-                    "CRY_CRYSTAL_DUMMY_" + type.toString() + "_" + type.toString(),
+                    "CRY_CRYSTAL_DUMMY_" + type + "_" + type,
                     Skulls.getByType(type).getPlayerHead(),
                     ThemeType.CRYSTAL,
-                    theme.getColor() + TextUtils.toTitleCase(type.toString() + " Crystal"),
+                    theme.getColor() + TextUtils.toTitleCase(type + " Crystal"),
                     "Magical Crystamae in it's physical form"
                 ),
                 DummyRealisationAltar.TYPE,
@@ -99,10 +99,10 @@ public class Materials {
                 SlimefunItem slimefunItem = new Crystal(
                     ItemGroups.CRYSTALS,
                     ThemeType.themedSlimefunItemStack(
-                        "CRY_CRYSTAL_" + rarity.toString() + "_" + type.toString(),
+                        "CRY_CRYSTAL_" + rarity + "_" + type.toString(),
                         Skulls.getByType(type).getPlayerHead(),
                         ThemeType.CRYSTAL,
-                        theme.getColor() + TextUtils.toTitleCase(rarity.toString() + " " + type.toString()) + " Crystal",
+                        theme.getColor() + TextUtils.toTitleCase(rarity + " " + type) + " Crystal",
                         "Magical Crystamae in it's physical form",
                         "Higher tier blocks are more likely to",
                         "provide rarer Crystal types.",

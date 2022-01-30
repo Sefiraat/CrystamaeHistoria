@@ -42,7 +42,7 @@ public class SpiritualSilken extends RefillableUseItem {
         setMaxUseCount(amount);
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public ItemUseHandler getItemHandler() {
         return e -> {

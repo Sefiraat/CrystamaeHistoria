@@ -48,6 +48,7 @@ public class FlameSprite extends Spell {
         }
     }
 
+    @ParametersAreNonnullByDefault
     public void onTick(MagicSummon magicSummon) {
         ParticleUtils.displayParticleEffect(magicSummon.getMob(), Particle.FLAME, 1, 4);
     }

@@ -9,6 +9,7 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +41,8 @@ public class PersistentStoriesDataType implements PersistentDataType<PersistentD
 
     @Override
     @Nonnull
-    public PersistentDataContainer[] toPrimitive(@Nonnull List<Story> complex, @Nonnull PersistentDataAdapterContext context) {
+    @ParametersAreNonnullByDefault
+    public PersistentDataContainer[] toPrimitive(List<Story> complex, PersistentDataAdapterContext context) {
         PersistentDataContainer[] containers = new PersistentDataContainer[complex.size()];
         int i = 0;
 
@@ -56,7 +58,8 @@ public class PersistentStoriesDataType implements PersistentDataType<PersistentD
 
     @Override
     @Nonnull
-    public List<Story> fromPrimitive(@Nonnull PersistentDataContainer[] primitive, @Nonnull PersistentDataAdapterContext context) {
+    @ParametersAreNonnullByDefault
+    public List<Story> fromPrimitive(PersistentDataContainer[] primitive, PersistentDataAdapterContext context) {
         List<Story> list = new ArrayList<>();
         for (PersistentDataContainer container : primitive) {
             String id = container.get(Keys.STORY_ID, PersistentDataType.STRING);

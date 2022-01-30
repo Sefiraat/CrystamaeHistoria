@@ -19,9 +19,9 @@ import org.bukkit.entity.ItemFrame;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.ZombieVillager;
 import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.EnumMap;
 import java.util.Map;
 import java.util.Optional;
@@ -62,12 +62,13 @@ public class Displacer extends LimitedUseItem {
         CONVERSION_MAP_ENTITY.put(EntityType.OCELOT, EntityType.CAT);
     }
 
+    @ParametersAreNonnullByDefault
     public Displacer(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, int amount) {
         super(itemGroup, item, recipeType, recipe);
         setMaxUseCount(amount);
     }
 
-    @NotNull
+    @Nonnull
     @Override
     public ItemUseHandler getItemHandler() {
         return e -> {

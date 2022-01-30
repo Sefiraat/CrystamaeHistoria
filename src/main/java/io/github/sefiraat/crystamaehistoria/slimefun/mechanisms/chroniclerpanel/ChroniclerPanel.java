@@ -37,7 +37,16 @@ public class ChroniclerPanel extends TickingMenuBlock {
     public ChroniclerPanel(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, int tier) {
         super(itemGroup, item, recipeType, recipe);
         this.tier = tier;
-        this.addItemHandler(new BlockPlaceHandler(false) {
+    }
+
+    @Override
+    public void preRegister() {
+        addItemHandler(onBlockPlace());
+    }
+
+
+    private BlockPlaceHandler onBlockPlace() {
+        return new BlockPlaceHandler(false) {
             @Override
             public void onPlayerPlace(@Nonnull BlockPlaceEvent event) {
                 final Location location = event.getBlockPlaced().getLocation();
@@ -45,7 +54,7 @@ public class ChroniclerPanel extends TickingMenuBlock {
                 cache.setActivePlayer(event.getPlayer());
                 CACHES.put(location, cache);
             }
-        });
+        };
     }
 
     @Override

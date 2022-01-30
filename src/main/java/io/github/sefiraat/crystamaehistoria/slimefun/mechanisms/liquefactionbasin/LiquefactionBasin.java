@@ -49,7 +49,15 @@ public class LiquefactionBasin extends TickingMenuBlock {
         super(itemGroup, item, recipeType, recipe);
         this.maxVolume = maxVolume;
         this.color = color;
-        this.addItemHandler(new BlockPlaceHandler(false) {
+    }
+
+    @Override
+    public void preRegister() {
+        addItemHandler(onBlockPlace());
+    }
+
+    private BlockPlaceHandler onBlockPlace() {
+        return new BlockPlaceHandler(false) {
             @Override
             public void onPlayerPlace(@Nonnull BlockPlaceEvent event) {
                 final Location location = event.getBlockPlaced().getLocation();
@@ -57,8 +65,9 @@ public class LiquefactionBasin extends TickingMenuBlock {
                 cache.setActivePlayer(event.getPlayer());
                 cacheMap.put(location, cache);
             }
-        });
+        };
     }
+
 
     @Override
     @ParametersAreNonnullByDefault

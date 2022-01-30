@@ -63,6 +63,7 @@ public class Chaos extends Spell {
         }
     }
 
+    @ParametersAreNonnullByDefault
     public void onHitEntity(CastInformation castInformation) {
         GeneralUtils.damageEntity(
             castInformation.getMainTarget(),
@@ -71,10 +72,12 @@ public class Chaos extends Spell {
         );
     }
 
+    @ParametersAreNonnullByDefault
     public void onHitBlock(CastInformation castInformation) {
         GeneralUtils.tryBreakBlock(castInformation.getCaster(), castInformation.getHitBlock());
     }
 
+    @ParametersAreNonnullByDefault
     public void onTick(MagicProjectile magicProjectile) {
         ParticleUtils.displayParticleEffect(magicProjectile.getProjectile(), Particle.GLOW, 0.2, 1);
     }

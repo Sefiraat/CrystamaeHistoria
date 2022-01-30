@@ -8,7 +8,6 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.common.ChatColors;
 import io.github.thebusybiscuit.slimefun4.utils.LoreBuilder;
 import io.github.thebusybiscuit.slimefun4.utils.PatternUtils;
 import org.bukkit.NamespacedKey;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.persistence.PersistentDataContainer;
@@ -20,16 +19,18 @@ import java.util.List;
 
 public abstract class RefillableUseItem extends LimitedUseItem {
 
+    @ParametersAreNonnullByDefault
     protected RefillableUseItem(ItemGroup group, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(group, item, recipeType, recipe);
     }
 
-    protected void refillItem(Player p, ItemStack itemStack) {
-        refillItem(p, itemStack, 1);
+    @ParametersAreNonnullByDefault
+    protected void refillItem(ItemStack itemStack) {
+        refillItem(itemStack, 1);
     }
 
     @ParametersAreNonnullByDefault
-    protected void refillItem(Player p, ItemStack item, int refillAmount) {
+    protected void refillItem(ItemStack item, int refillAmount) {
         final ItemMeta meta = item.getItemMeta();
         final NamespacedKey key = getStorageKey();
         final PersistentDataContainer pdc = meta.getPersistentDataContainer();

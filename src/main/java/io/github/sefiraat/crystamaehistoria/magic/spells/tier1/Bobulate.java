@@ -47,6 +47,7 @@ public class Bobulate extends Spell {
         magicProjectile.disableGravity();
     }
 
+    @ParametersAreNonnullByDefault
     public void projectileHit(CastInformation castInformation) {
         final UUID caster = castInformation.getCaster();
         final Location location = castInformation.getProjectileLocation();
@@ -83,6 +84,7 @@ public class Bobulate extends Spell {
         processEntities(location, caster);
     }
 
+    @ParametersAreNonnullByDefault
     private void processBlock(UUID caster, Block block, Tag<Material> tag) {
         if (GeneralUtils.hasPermission(caster, block, Interaction.PLACE_BLOCK)) {
             final List<Material> list = tag.getValues().stream().toList();
@@ -91,6 +93,7 @@ public class Bobulate extends Spell {
         }
     }
 
+    @ParametersAreNonnullByDefault
     private void processEntities(Location location, UUID caster) {
         final Collection<Entity> entities = location.getWorld().getNearbyEntities(
             location,

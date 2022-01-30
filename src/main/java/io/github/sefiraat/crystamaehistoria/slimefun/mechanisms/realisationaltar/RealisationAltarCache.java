@@ -111,7 +111,7 @@ public class RealisationAltarCache extends AbstractCache {
     @ParametersAreNonnullByDefault
     private boolean processItem(ItemStack itemStack) {
         final BlockDefinition definition = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().get(itemStack.getType());
-        if (definition.getTier().tier <= this.maxTier) {
+        if (definition.getBlockTier().tier <= this.maxTier) {
             if (GeneralUtils.testChance(1, 6)) {
                 final int x = ThreadLocalRandom.current().nextInt(-3, 4);
                 final int z = ThreadLocalRandom.current().nextInt(-3, 4);

@@ -51,6 +51,7 @@ public class PhantomsFlight extends Spell {
         bat.addPassenger(castInformation.getCasterAsPlayer());
     }
 
+    @ParametersAreNonnullByDefault
     public void onTick(MagicSummon magicSummon) {
         ParticleUtils.displayParticleEffect(magicSummon.getMob(), Particle.SPORE_BLOSSOM_AIR, 1, 2);
     }

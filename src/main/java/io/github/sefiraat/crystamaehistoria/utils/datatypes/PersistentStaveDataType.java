@@ -9,6 +9,7 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.EnumMap;
 import java.util.Map;
 
@@ -40,7 +41,8 @@ public class PersistentStaveDataType implements PersistentDataType<PersistentDat
 
     @Override
     @Nonnull
-    public PersistentDataContainer[] toPrimitive(@Nonnull Map<SpellSlot, InstancePlate> complex, @Nonnull PersistentDataAdapterContext context) {
+    @ParametersAreNonnullByDefault
+    public PersistentDataContainer[] toPrimitive(Map<SpellSlot, InstancePlate> complex, PersistentDataAdapterContext context) {
         PersistentDataContainer[] containers = new PersistentDataContainer[complex.size()];
         int i = 0;
 
@@ -57,7 +59,8 @@ public class PersistentStaveDataType implements PersistentDataType<PersistentDat
 
     @Override
     @Nonnull
-    public Map<SpellSlot, InstancePlate> fromPrimitive(@Nonnull PersistentDataContainer[] primitive, @Nonnull PersistentDataAdapterContext context) {
+    @ParametersAreNonnullByDefault
+    public Map<SpellSlot, InstancePlate> fromPrimitive(PersistentDataContainer[] primitive, PersistentDataAdapterContext context) {
         Map<SpellSlot, InstancePlate> plateStorageMap = new EnumMap<>(SpellSlot.class);
         for (PersistentDataContainer container : primitive) {
             final SpellSlot spellSlot = SpellSlot.valueOf(container.get(Keys.STAVE_SLOT, PersistentDataType.STRING));

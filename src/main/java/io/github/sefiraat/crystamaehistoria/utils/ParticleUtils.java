@@ -61,10 +61,12 @@ public class ParticleUtils {
         displayParticleEffect(entity.getLocation(), rangeRadius, 5, dustOptions);
     }
 
+    @ParametersAreNonnullByDefault
     public static void drawLine(Particle particle, Location start, Location end, double space) {
         drawLine(particle, start, end, space, null);
     }
 
+    @ParametersAreNonnullByDefault
     public static void drawLine(Particle particle, Location start, Location end, double space, @Nullable Particle.DustOptions dustOptions) {
         final double distance = start.distance(end);
         double currentPoint = 0;
@@ -96,10 +98,12 @@ public class ParticleUtils {
         }
     }
 
-    public static void drawLine(Particle.DustOptions dustOptions, Location start, Location end, double space) {
+    @ParametersAreNonnullByDefault
+    public static void drawLine(@Nullable Particle.DustOptions dustOptions, Location start, Location end, double space) {
         drawLine(Particle.REDSTONE, start, end, space, dustOptions);
     }
 
+    @ParametersAreNonnullByDefault
     public static List<Location> getLine(Location start, Location end, double space) {
         final double distance = start.distance(end);
         double currentPoint = 0;
@@ -123,6 +127,7 @@ public class ParticleUtils {
         return locations;
     }
 
+    @ParametersAreNonnullByDefault
     public static void drawCube(Particle particle, Location corner1, Location corner2, double space) {
         drawCube(particle, corner1, corner2, space, null);
     }
@@ -130,6 +135,7 @@ public class ParticleUtils {
     /**
      * https://www.spigotmc.org/threads/create-particles-in-cube-outline-shape.65991/
      */
+    @ParametersAreNonnullByDefault
     public static void drawCube(Particle particle, Location corner1, Location corner2, double particleDistance, @Nullable Particle.DustOptions dustOptions) {
         World world = corner1.getWorld();
         double minX = Math.min(corner1.getX(), corner2.getX());
@@ -158,7 +164,8 @@ public class ParticleUtils {
         }
     }
 
-    public static void drawCube(Particle.DustOptions dustOptions, Location corner1, Location corner2, double space) {
+    @ParametersAreNonnullByDefault
+    public static void drawCube(@Nullable Particle.DustOptions dustOptions, Location corner1, Location corner2, double space) {
         drawCube(Particle.REDSTONE, corner1, corner2, space, dustOptions);
     }
 }

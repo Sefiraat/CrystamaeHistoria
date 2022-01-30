@@ -17,6 +17,7 @@ import org.bukkit.entity.Monster;
 import org.bukkit.entity.Player;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.List;
@@ -113,6 +114,7 @@ public abstract class AbstractGoal<T extends Mob> implements Goal<T> {
 
     }
 
+    @Nullable
     public Player removeOffline() {
         final OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(owner);
 

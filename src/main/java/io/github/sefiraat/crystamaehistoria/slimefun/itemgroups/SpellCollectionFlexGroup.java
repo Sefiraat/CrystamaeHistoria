@@ -25,6 +25,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -70,11 +71,13 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
     }
 
     @Override
-    public boolean isVisible(@Nonnull Player player, @Nonnull PlayerProfile playerProfile, @Nonnull SlimefunGuideMode guideMode) {
+    @ParametersAreNonnullByDefault
+    public boolean isVisible(Player player, PlayerProfile playerProfile, SlimefunGuideMode guideMode) {
         return true;
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void open(Player p, PlayerProfile profile, SlimefunGuideMode mode) {
         final ChestMenu chestMenu = new ChestMenu(ThemeType.MAIN.getColor() + "Spell Compendium");
 
@@ -91,7 +94,8 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         chestMenu.open(p);
     }
 
-    private void setupPage(@Nonnull Player player, @Nonnull PlayerProfile profile, @Nonnull SlimefunGuideMode mode, @Nonnull ChestMenu menu, int page) {
+    @ParametersAreNonnullByDefault
+    private void setupPage(Player player, PlayerProfile profile, SlimefunGuideMode mode, ChestMenu menu, int page) {
         final List<SpellType> spellTypes = Arrays.asList(SpellType.getEnabledSpells());
         final int numberOfBlocks = spellTypes.size();
         final int totalPages = (int) Math.ceil(numberOfBlocks / (double) PAGE_SIZE);
@@ -139,7 +143,8 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         }
     }
 
-    private void displayDefinition(@Nonnull Player p, @Nonnull PlayerProfile profile, @Nonnull SlimefunGuideMode mode, @Nonnull ChestMenu menu, int returnPage, @Nonnull SpellType spellType) {
+    @ParametersAreNonnullByDefault
+    private void displayDefinition(Player p, PlayerProfile profile, SlimefunGuideMode mode, ChestMenu menu, int returnPage, SpellType spellType) {
         final Spell spell = spellType.getSpell();
         // Back Button
         menu.replaceExistingItem(GUIDE_BACK, ChestMenuUtils.getBackButton(p, Slimefun.getLocalization().getMessage("guide.back.guide")));
@@ -187,7 +192,8 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
 
     }
 
-    private void clearDisplay(@Nonnull ChestMenu menu) {
+    @ParametersAreNonnullByDefault
+    private void clearDisplay(ChestMenu menu) {
         for (int i = 0; i < 45; i++) {
             final int slot = i + 9;
             menu.replaceExistingItem(slot, null);
@@ -195,7 +201,8 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         }
     }
 
-    private void reapplyFooter(@Nonnull Player p, @Nonnull PlayerProfile profile, SlimefunGuideMode mode, @Nonnull ChestMenu menu, int page, int totalPages) {
+    @ParametersAreNonnullByDefault
+    private void reapplyFooter(Player p, PlayerProfile profile, SlimefunGuideMode mode, ChestMenu menu, int page, int totalPages) {
         for (int slot : FOOTER) {
             menu.replaceExistingItem(slot, ChestMenuUtils.getBackground());
             menu.addMenuClickHandler(slot, ((player, i, itemStack, clickAction) -> false));
@@ -204,7 +211,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         menu.replaceExistingItem(PAGE_PREVIOUS, ChestMenuUtils.getPreviousButton(p, page, totalPages));
         menu.addMenuClickHandler(PAGE_PREVIOUS, (player1, slot, itemStack, clickAction) -> {
             final int previousPage = page - 1;
-            if (previousPage != page && previousPage >= 1) {
+            if (previousPage >= 1) {
                 setupPage(player1, profile, mode, menu, previousPage);
             }
             return false;
@@ -213,7 +220,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         menu.replaceExistingItem(PAGE_NEXT, ChestMenuUtils.getNextButton(p, page, totalPages));
         menu.addMenuClickHandler(PAGE_NEXT, (player1, slot, itemStack, clickAction) -> {
             final int nextPage = page + 1;
-            if (nextPage != page && nextPage <= totalPages) {
+            if (nextPage <= totalPages) {
                 setupPage(player1, profile, mode, menu, nextPage);
             }
             return false;
@@ -242,6 +249,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         );
     }
 
+    @ParametersAreNonnullByDefault
     private ItemStack getBasicStack(Spell spell) {
         final SpellCore spellCore = spell.getSpellCore();
         final ChatColor color = ThemeType.CLICK_INFO.getColor();
@@ -263,6 +271,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         );
     }
 
+    @ParametersAreNonnullByDefault
     private ItemStack getValuesStack(Spell spell) {
         final SpellCore spellCore = spell.getSpellCore();
         final ChatColor color = ThemeType.CLICK_INFO.getColor();
@@ -296,6 +305,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         );
     }
 
+    @ParametersAreNonnullByDefault
     private ItemStack getCastTypeStack(Spell spell) {
         final SpellCore spellCore = spell.getSpellCore();
         final ChatColor color = ThemeType.CLICK_INFO.getColor();
@@ -346,6 +356,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         );
     }
 
+    @ParametersAreNonnullByDefault
     private ItemStack getRangeStack(Spell spell) {
         final ChatColor color = ThemeType.CLICK_INFO.getColor();
         final ChatColor passive = ThemeType.PASSIVE.getColor();
@@ -369,6 +380,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         );
     }
 
+    @ParametersAreNonnullByDefault
     private ItemStack getKnockBackStack(Spell spell) {
         final ChatColor color = ThemeType.CLICK_INFO.getColor();
         final ChatColor passive = ThemeType.PASSIVE.getColor();
@@ -392,6 +404,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         );
     }
 
+    @ParametersAreNonnullByDefault
     private ItemStack getProjectileStack(Spell spell) {
         final SpellCore spellCore = spell.getSpellCore();
         final ChatColor color = ThemeType.CLICK_INFO.getColor();
@@ -421,6 +434,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         );
     }
 
+    @ParametersAreNonnullByDefault
     private ItemStack getEffectsStack(Spell spell) {
         final SpellCore spellCore = spell.getSpellCore();
         final ChatColor color = ThemeType.CLICK_INFO.getColor();
@@ -487,6 +501,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
         );
     }
 
+    @ParametersAreNonnullByDefault
     private ItemStack getStatsStack(Player player) {
         final ChatColor color = ThemeType.CLICK_INFO.getColor();
         final ChatColor passive = ThemeType.PASSIVE.getColor();

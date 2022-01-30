@@ -15,6 +15,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
+import javax.annotation.ParametersAreNonnullByDefault;
 
 /**
  * @noinspection deprecation
@@ -49,11 +50,13 @@ public class MainFlexGroup extends FlexItemGroup {
     }
 
     @Override
-    public boolean isVisible(@Nonnull Player player, @Nonnull PlayerProfile playerProfile, @Nonnull SlimefunGuideMode guideMode) {
+    @ParametersAreNonnullByDefault
+    public boolean isVisible(Player player, PlayerProfile playerProfile, SlimefunGuideMode guideMode) {
         return true;
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void open(Player p, PlayerProfile profile, SlimefunGuideMode mode) {
         final ChestMenu chestMenu = new ChestMenu(ThemeType.MAIN.getColor() + "Crystamae Magic Compendium");
 
@@ -70,8 +73,8 @@ public class MainFlexGroup extends FlexItemGroup {
         chestMenu.open(p);
     }
 
-
-    private void setupPage(@Nonnull Player player, @Nonnull PlayerProfile profile, @Nonnull SlimefunGuideMode mode, @Nonnull ChestMenu menu) {
+    @ParametersAreNonnullByDefault
+    private void setupPage(Player player, PlayerProfile profile, SlimefunGuideMode mode, ChestMenu menu) {
         for (int slot : FOOTER) {
             menu.replaceExistingItem(slot, ChestMenuUtils.getBackground());
             menu.addMenuClickHandler(slot, ((player1, i, itemStack, clickAction) -> false));
@@ -140,6 +143,7 @@ public class MainFlexGroup extends FlexItemGroup {
             openPage(profile, ItemGroups.GUIDE, mode, 1));
     }
 
+    @ParametersAreNonnullByDefault
     public boolean openPage(PlayerProfile profile, ItemGroup itemGroup, SlimefunGuideMode mode, int page) {
         profile.getGuideHistory().add(this, 1);
         SlimefunGuide.openItemGroup(profile, itemGroup, mode, page);

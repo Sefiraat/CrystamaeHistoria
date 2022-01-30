@@ -26,6 +26,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
 
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Map;
 
 public class RefractingLensListener implements Listener {
@@ -50,6 +51,7 @@ public class RefractingLensListener implements Listener {
         }
     }
 
+    @ParametersAreNonnullByDefault
     private void liquefactionBasin(Player player, SlimefunItem blockItem, Block clickedBlock) {
         final Location location = clickedBlock.getLocation().add(0.5, 1, 0.5);
         final LiquefactionBasin basin = (LiquefactionBasin) blockItem;

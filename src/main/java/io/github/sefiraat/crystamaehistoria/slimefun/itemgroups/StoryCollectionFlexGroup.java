@@ -67,16 +67,19 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         45, 46, 47, 48, 49, 50, 51, 52, 53
     };
 
+    @ParametersAreNonnullByDefault
     public StoryCollectionFlexGroup(NamespacedKey key, ItemStack item) {
         super(key, item);
     }
 
     @Override
-    public boolean isVisible(@Nonnull Player player, @Nonnull PlayerProfile playerProfile, @Nonnull SlimefunGuideMode guideMode) {
+    @ParametersAreNonnullByDefault
+    public boolean isVisible(Player player, PlayerProfile playerProfile, SlimefunGuideMode guideMode) {
         return true;
     }
 
     @Override
+    @ParametersAreNonnullByDefault
     public void open(Player p, PlayerProfile profile, SlimefunGuideMode mode) {
         final ChestMenu chestMenu = new ChestMenu(ThemeType.MAIN.getColor() + "Crystamae Magic Compendium");
 
@@ -93,7 +96,8 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         chestMenu.open(p);
     }
 
-    private void setupPage(@Nonnull Player player, @Nonnull PlayerProfile profile, @Nonnull SlimefunGuideMode mode, @Nonnull ChestMenu menu, int page) {
+    @ParametersAreNonnullByDefault
+    private void setupPage(Player player, PlayerProfile profile, SlimefunGuideMode mode, ChestMenu menu, int page) {
         final List<BlockDefinition> blockDefinitions = new ArrayList<>(CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().values());
         final int numberOfBlocks = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().size();
         final int totalPages = (int) Math.ceil(numberOfBlocks / (double) PAGE_SIZE);
@@ -141,7 +145,8 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         }
     }
 
-    private void displayDefinition(@Nonnull Player p, @Nonnull PlayerProfile profile, @Nonnull SlimefunGuideMode mode, @Nonnull ChestMenu menu, int returnPage, @Nonnull BlockDefinition definition) {
+    @ParametersAreNonnullByDefault
+    private void displayDefinition(Player p, PlayerProfile profile, SlimefunGuideMode mode, ChestMenu menu, int returnPage, BlockDefinition definition) {
         // Back Button
         menu.replaceExistingItem(GUIDE_BACK, ChestMenuUtils.getBackButton(p, Slimefun.getLocalization().getMessage("guide.back.guide")));
         menu.addMenuClickHandler(GUIDE_BACK, (player1, slot, itemStack, clickAction) -> {
@@ -182,7 +187,8 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
 
     }
 
-    private void clearDisplay(@Nonnull ChestMenu menu) {
+    @ParametersAreNonnullByDefault
+    private void clearDisplay(ChestMenu menu) {
         for (int i = 0; i < 45; i++) {
             final int slot = i + 9;
             menu.replaceExistingItem(slot, null);
@@ -190,7 +196,8 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         }
     }
 
-    private void reapplyFooter(@Nonnull Player p, @Nonnull PlayerProfile profile, SlimefunGuideMode mode, @Nonnull ChestMenu menu, int page, int totalPages) {
+    @ParametersAreNonnullByDefault
+    private void reapplyFooter(Player p, PlayerProfile profile, SlimefunGuideMode mode, ChestMenu menu, int page, int totalPages) {
         for (int slot : FOOTER) {
             menu.replaceExistingItem(slot, ChestMenuUtils.getBackground());
             menu.addMenuClickHandler(slot, ((player, i, itemStack, clickAction) -> false));
@@ -199,7 +206,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         menu.replaceExistingItem(PAGE_PREVIOUS, ChestMenuUtils.getPreviousButton(p, page, totalPages));
         menu.addMenuClickHandler(PAGE_PREVIOUS, (player1, slot, itemStack, clickAction) -> {
             final int previousPage = page - 1;
-            if (previousPage != page && previousPage >= 1) {
+            if (previousPage >= 1) {
                 setupPage(player1, profile, mode, menu, previousPage);
             }
             return false;
@@ -208,14 +215,15 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         menu.replaceExistingItem(PAGE_NEXT, ChestMenuUtils.getNextButton(p, page, totalPages));
         menu.addMenuClickHandler(PAGE_NEXT, (player1, slot, itemStack, clickAction) -> {
             final int nextPage = page + 1;
-            if (nextPage != page && nextPage <= totalPages) {
+            if (nextPage <= totalPages) {
                 setupPage(player1, profile, mode, menu, nextPage);
             }
             return false;
         });
     }
 
-    private ItemStack getPoolsItemStack(@Nonnull BlockDefinition definition) {
+    @ParametersAreNonnullByDefault
+    private ItemStack getPoolsItemStack(BlockDefinition definition) {
         final List<StoryType> storyTypes = definition.getPools();
         final List<String> lore = Arrays.stream(new String[]{
             "When chronicling this item, you",
@@ -234,7 +242,8 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         );
     }
 
-    private ItemStack getUniqueStoryItemStack(@Nonnull BlockDefinition definition) {
+    @ParametersAreNonnullByDefault
+    private ItemStack getUniqueStoryItemStack(BlockDefinition definition) {
         return new CustomItemStack(
             definition.getMaterial(),
             ThemeType.MAIN.getColor() + definition.getUnique().getId(),
@@ -242,8 +251,9 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         );
     }
 
-    private ItemStack getTierItemStack(@Nonnull BlockDefinition definition) {
-        switch (definition.getTier().tier) {
+    @ParametersAreNonnullByDefault
+    private ItemStack getTierItemStack(BlockDefinition definition) {
+        switch (definition.getBlockTier().tier) {
             case 1:
                 return GuiElements.TIER_INDICATOR_1;
             case 2:
@@ -255,7 +265,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
             case 5:
                 return GuiElements.TIER_INDICATOR_5;
             default:
-                throw new IllegalStateException("Inapplicable tier provided: " + definition.getTier().tier);
+                throw new IllegalStateException("Inapplicable tier provided: " + definition.getBlockTier().tier);
         }
     }
 
@@ -284,6 +294,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         );
     }
 
+    @ParametersAreNonnullByDefault
     private ItemStack getPlayerInfoStack(Player player) {
         final ChatColor color = ThemeType.CLICK_INFO.getColor();
         final ChatColor passive = ThemeType.PASSIVE.getColor();

@@ -12,6 +12,8 @@ import net.md_5.bungee.api.ChatColor;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,13 +27,15 @@ public class InstancePlate {
     @Setter
     private long cooldown = 0;
 
+    @ParametersAreNonnullByDefault
     public InstancePlate(int tier, SpellType storedSpell, int crysta) {
         this.tier = tier;
         this.storedSpell = storedSpell;
         this.crysta = crysta;
     }
 
-    public static void setPlateLore(ItemStack itemStack, InstancePlate instancePlate) {
+    @ParametersAreNonnullByDefault
+    public static void setPlateLore(ItemStack itemStack, @Nullable InstancePlate instancePlate) {
         final String magic = instancePlate != null ? ThemeType.toTitleCase(instancePlate.storedSpell.getId()) : "None";
         final String crysta = instancePlate != null ? String.valueOf(instancePlate.crysta) : "0";
         final String[] lore = new String[]{
@@ -56,11 +60,12 @@ public class InstancePlate {
         itemStack.setItemMeta(itemMeta);
     }
 
+    @ParametersAreNonnullByDefault
     public CastResult tryCastSpell(CastInformation castInformation) {
         final Spell spell = storedSpell.getSpell();
         final int crystaCost = spell.getCrystaCost(castInformation);
 
-        // Is spell disabled in the spells.yml?
+        // Is the spell disabled in spells.yml?
         if (!CrystamaeHistoria.getConfigManager().spellEnabled(spell)) {
             return CastResult.SPELL_DISABLED;
         }

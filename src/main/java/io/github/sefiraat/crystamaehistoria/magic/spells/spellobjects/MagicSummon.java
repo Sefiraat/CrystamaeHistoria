@@ -8,6 +8,7 @@ import org.bukkit.entity.Mob;
 import org.bukkit.entity.Player;
 
 import javax.annotation.Nullable;
+import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.UUID;
 import java.util.function.Consumer;
 
@@ -21,6 +22,7 @@ public class MagicSummon {
     @Setter
     public Consumer<MagicSummon> tickConsumer;
 
+    @ParametersAreNonnullByDefault
     public MagicSummon(UUID mobUUID, UUID ownerUUID) {
         this.mobUUID = mobUUID;
         this.ownerUUID = ownerUUID;
