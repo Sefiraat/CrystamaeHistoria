@@ -11,6 +11,8 @@ import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasi
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import lombok.Getter;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Color;
@@ -31,6 +33,8 @@ public class Uniques {
     private static Trophy spellTrophy;
     @Getter
     private static Trophy christmasTrophy;
+    @Getter
+    private static Trophy valentinesTrophy;
 
     public static void setup() {
 
@@ -132,13 +136,46 @@ public class Uniques {
             }
         );
 
+        // Christmas Trophy
+        RecipeItem valentinesTrophyRecipe = new RecipeItem(
+            SlimefunItems.RAINBOW_WOOL_VALENTINE,
+            StoryType.HUMAN, 250,
+            StoryType.ELEMENTAL, 250,
+            StoryType.HISTORICAL, 250,
+            Uniques::isValentines
+        );
+        valentinesTrophy = new Trophy(
+            ItemGroups.UNIQUES,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_VALENTINES_TROPHY",
+                new ItemStack(Material.PINK_DYE),
+                ThemeType.CRAFTING,
+                "Happy Valentines Day",
+                "A little love goes a long way.",
+                "",
+                ThemeType.CLICK_INFO.getColor() + "Requires: Can only be crafted when love is in the air"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            valentinesTrophyRecipe.getDisplayRecipe(),
+            location -> {
+                ParticleUtils.displayParticleEffect(
+                    location.add(0, 0.2, 0),
+                    Particle.HEART,
+                    1,
+                    3
+                );
+            }
+        );
+
         spellTrophy.register(plugin);
         storyTrophy.register(plugin);
         christmasTrophy.register(plugin);
+        valentinesTrophy.register(plugin);
 
         LiquefactionBasinCache.addCraftingRecipe(spellTrophy, spellTrophyRecipe);
         LiquefactionBasinCache.addCraftingRecipe(storyTrophy, storyTrophyRecipe);
         LiquefactionBasinCache.addCraftingRecipe(christmasTrophy, christmasTrophyRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(valentinesTrophy, valentinesTrophyRecipe);
     }
 
     private static boolean isMaxStoryRank(@Nonnull Player player) {
@@ -154,6 +191,15 @@ public class Uniques {
         final int year = now.getYear();
         final LocalDate start = LocalDate.of(year, 12, 20);
         final LocalDate end = LocalDate.of(year + 1, 1, 5);
+
+        return now.isAfter(start) && now.isBefore(end);
+    }
+
+    private static boolean isValentines(@Nonnull Player player) {
+        final LocalDate now = LocalDate.now();
+        final int year = now.getYear();
+        final LocalDate start = LocalDate.of(year, 2, 6);
+        final LocalDate end = LocalDate.of(year, 2, 20);
 
         return now.isAfter(start) && now.isBefore(end);
     }
