@@ -142,7 +142,7 @@ public class Uniques {
             StoryType.HUMAN, 250,
             StoryType.ELEMENTAL, 250,
             StoryType.HISTORICAL, 250,
-            Uniques::isChristmas
+            Uniques::isValentines
         );
         valentinesTrophy = new Trophy(
             ItemGroups.UNIQUES,
@@ -191,6 +191,15 @@ public class Uniques {
         final int year = now.getYear();
         final LocalDate start = LocalDate.of(year, 12, 20);
         final LocalDate end = LocalDate.of(year + 1, 1, 5);
+
+        return now.isAfter(start) && now.isBefore(end);
+    }
+
+    private static boolean isValentines(@Nonnull Player player) {
+        final LocalDate now = LocalDate.now();
+        final int year = now.getYear();
+        final LocalDate start = LocalDate.of(year, 2, 6);
+        final LocalDate end = LocalDate.of(year, 2, 20);
 
         return now.isAfter(start) && now.isBefore(end);
     }
