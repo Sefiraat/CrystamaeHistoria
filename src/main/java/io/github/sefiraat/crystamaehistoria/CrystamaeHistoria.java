@@ -221,8 +221,8 @@ public class CrystamaeHistoria extends AbstractAddon {
         ItemGroups.setup();
         Materials.setup();
         Mechanisms.setup();
-        Gadgets.setup();
         Tools.setup();
+        Gadgets.setup();
         ArtisticItems.setup();
         Exalted.setup();
         Uniques.setup();
