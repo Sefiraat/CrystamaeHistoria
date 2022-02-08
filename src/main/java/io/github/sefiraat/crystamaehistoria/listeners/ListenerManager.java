@@ -18,6 +18,7 @@ public class ListenerManager {
         addListener(new MobCandleListener());
         addListener(new DisplayItemListener());
         addListener(new PoseChangerListener());
+        addListener(new PhilosophersSprayListener());
         addListener(new MiscListener());
     }
 
