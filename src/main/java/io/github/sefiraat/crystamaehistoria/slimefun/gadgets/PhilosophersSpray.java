@@ -1,12 +1,14 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.gadgets;
 
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.Displacer;
+import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.NotConfigurable;
 import io.github.thebusybiscuit.slimefun4.core.attributes.NotHopperable;
+import io.github.thebusybiscuit.slimefun4.core.handlers.BlockUseHandler;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -20,6 +22,16 @@ public class PhilosophersSpray extends SlimefunItem implements NotHopperable, No
     @ParametersAreNonnullByDefault
     public PhilosophersSpray(ItemGroup category, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
         super(category, item, recipeType, recipe);
+    }
+
+    @Override
+    public void preRegister() {
+        addItemHandler(new BlockUseHandler() {
+            @Override
+            public void onRightClick(PlayerRightClickEvent e) {
+                e.cancel();
+            }
+        });
     }
 
     public static void triggerChange(@Nonnull Block block) {
