@@ -11,7 +11,6 @@ import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -33,7 +32,8 @@ public class SpiritualSilken extends RefillableUseItem {
         Material.INFESTED_MOSSY_STONE_BRICKS,
         Material.INFESTED_STONE_BRICKS,
         Material.LARGE_FERN,
-        Material.TALL_GRASS
+        Material.TALL_GRASS,
+        Material.BUDDING_AMETHYST
     );
 
     @ParametersAreNonnullByDefault
