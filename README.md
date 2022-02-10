@@ -8,6 +8,12 @@ out the raw essence of these experiences from blocks.
 
 Boomer_1 has made two awesome videos that take you through the basics of Crystamae going from the first mechanisms to casting your first spell in Part 1 to the various Gadgets and Tools Crystamae has to offer in Part 2. I'd encourange everyone to watch these both and enjoy!
 
+## Download SlimeTinker
+
+[![Build Status](https://thebusybiscuit.github.io/builds/Sefiraat/CrystamaeHistoria/master/badge.svg)](https://thebusybiscuit.github.io/builds/Sefiraat/CrystamaeHistoria/master)
+
+## Videos
+
 [![Watch the video](https://img.youtube.com/vi/fggkwmf6V6k/0.jpg)](https://www.youtube.com/embed/fggkwmf6V6k)
 
 [![Watch the video](https://img.youtube.com/vi/OiI6MaoiO_I/0.jpg)](https://www.youtube.com/watch?v=OiI6MaoiO_I)
