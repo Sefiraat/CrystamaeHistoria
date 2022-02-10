@@ -28,12 +28,14 @@ public class MiscListener implements Listener {
     @EventHandler
     public void onTryCraft(CraftItemEvent e) {
         for (ItemStack item : e.getInventory().getMatrix()) {
-            if (StoryUtils.isStoried(item)) {
-                e.setCancelled(true);
-                for (HumanEntity viewer : e.getInventory().getViewers()) {
-                    viewer.sendMessage(ThemeType.WARNING.getColor() + "You cannot craft using this!");
+            if (item != null && item.getType() != Material.AIR) {
+                if (StoryUtils.isStoried(item)) {
+                    e.setCancelled(true);
+                    for (HumanEntity viewer : e.getInventory().getViewers()) {
+                        viewer.sendMessage(ThemeType.WARNING.getColor() + "You cannot craft using this!");
+                    }
+                    return;
                 }
-                return;
             }
         }
     }
