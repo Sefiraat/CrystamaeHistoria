@@ -1,4 +1,6 @@
-![](https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/logo/logo_large.png?raw=true)
+<p align="center">
+<img width="800" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/logo/logo.svg"><br><br>
+</p>
 
 Crystamae Historia is a Slimefun4 addon (currently a work in progress with much work left to do!) that adds a suite of
 magical spells and a progression system for crafting and unlocking new spells.
