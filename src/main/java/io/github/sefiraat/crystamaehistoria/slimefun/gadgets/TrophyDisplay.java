@@ -9,6 +9,7 @@ import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.sefiraat.crystamaehistoria.utils.TextUtils;
+import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
@@ -26,6 +27,7 @@ import org.bukkit.block.Block;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -67,45 +69,53 @@ public class TrophyDisplay extends Stand {
         // Stand already has an item, we try to remove this then return;
         if (currentItemUuid != null) {
             final Item currentItem = (Item) Bukkit.getEntity(currentItemUuid);
-            final ItemStack itemStack = currentItem.getItemStack();
-            final HashMap<Integer, ItemStack> rejected = player.getInventory().addItem(itemStack);
+            if (currentItem != null) {
+                final ItemStack itemStack = currentItem.getItemStack();
+                final HashMap<Integer, ItemStack> rejected = player.getInventory().addItem(itemStack);
+                if (!rejected.isEmpty()) {
+                    blockClicked.getWorld().dropItem(blockClicked.getLocation().clone().add(0.5, 1.5, 0.5), itemStack);
+                }
+                currentItem.remove();
+            }
             BlockStorage.addBlockInfo(blockClicked, PDC_ITEM, null);
             itemMap.remove(blockClicked.getLocation());
-            if (rejected.isEmpty()) {
-                currentItem.remove();
-                this.locationConsumer = null;
-            }
+            this.locationConsumer = null;
             return;
         }
 
         final ItemStack itemStack = e.getItem();
         final Material material = itemStack.getType();
         final BlockDefinition definition = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().get(material);
+        final SlimefunItem slimefunItem = SlimefunItem.getByItem(itemStack);
 
-        if (definition != null && material != Material.AIR) {
-            final BlockRank blockRank = PlayerStatistics.getBlockRank(
-                player.getUniqueId(),
-                definition
-            );
+        if (slimefunItem instanceof Trophy) {
+            // Item is a trophy - no need to check anything, just place
+            final ItemStack clone = itemStack.asQuantity(1);
+            final Trophy trophy = (Trophy) slimefunItem;
+
+            this.locationConsumer = trophy.getDisplayConsumer();
+            itemStack.setAmount(itemStack.getAmount() - 1);
+            addItem(blockClicked, clone, slimefunItem.getItemName());
+        } else if (definition != null && material != Material.AIR) {
+            // Item is not a trophy, we need to see if it's a block the player has ranked to SME
+            final BlockRank blockRank = PlayerStatistics.getBlockRank(player.getUniqueId(), definition);
             if (blockRank == BlockRank.SME) {
-                addItem(blockClicked, itemStack, TextUtils.toTitleCase(material.toString()));
+                final ItemStack clone = itemStack.asQuantity(1);
+                final ItemMeta itemMeta = clone.getItemMeta();
+                final String materialName = TextUtils.toTitleCase(material.toString());
+
+                itemStack.setAmount(itemStack.getAmount() - 1);
+                itemMeta.setDisplayName(ThemeType.RANK_BLOCK_SME.getColor() + materialName + " Trophy");
+                clone.setItemMeta(itemMeta);
+                addItem(blockClicked, clone, ThemeType.RANK_BLOCK_SME.getColor() + materialName);
                 this.locationConsumer = this::defaultConsumer;
-            } else {
-                SlimefunItem slimefunItem = SlimefunItem.getByItem(itemStack);
-                if (slimefunItem instanceof Trophy) {
-                    Trophy trophy = (Trophy) slimefunItem;
-                    this.locationConsumer = trophy.getDisplayConsumer();
-                    addItem(blockClicked, itemStack, slimefunItem.getItemName());
-                }
             }
         }
     }
 
     private void addItem(Block block, ItemStack itemStack, String name) {
         final Location location = block.getLocation().add(0.5, 1.5, 0.5);
-        final String finalName = ChatColor.of("#FFD100") + name;
-        Item item = GeneralUtils.spawnDisplayItem(itemStack.asQuantity(1), location, finalName);
-        itemStack.setAmount(itemStack.getAmount() - 1);
+        Item item = GeneralUtils.spawnDisplayItem(itemStack.asQuantity(1), location, name);
         BlockStorage.addBlockInfo(block, PDC_ITEM, item.getUniqueId().toString());
         itemMap.put(block.getLocation(), item.getUniqueId());
     }
