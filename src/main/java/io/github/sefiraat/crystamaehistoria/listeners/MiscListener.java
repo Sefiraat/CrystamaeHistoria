@@ -4,6 +4,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.tools.covers.BlockVeil;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
+import io.github.thebusybiscuit.slimefun4.api.events.BlockPlacerPlaceEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import org.bukkit.Material;
 import org.bukkit.entity.HumanEntity;
@@ -25,6 +26,15 @@ public class MiscListener implements Listener {
             e.setCancelled(true);
         }
     }
+
+    @EventHandler
+    public void onBlockPlacerStoriedBlock(BlockPlacerPlaceEvent e) {
+        ItemStack itemStack = e.getItemStack();
+        if (itemStack.getType() != Material.AIR && StoryUtils.isStoried(itemStack)) {
+            e.setCancelled(true);
+        }
+    }
+
     @EventHandler
     public void onTryCraft(CraftItemEvent e) {
         for (ItemStack item : e.getInventory().getMatrix()) {

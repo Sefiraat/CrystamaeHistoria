@@ -17,12 +17,12 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicProje
 import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicSummon;
 import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.runnables.RunnableManager;
+import io.github.sefiraat.crystamaehistoria.slimefun.ArtisticItems;
 import io.github.sefiraat.crystamaehistoria.slimefun.Exalted;
 import io.github.sefiraat.crystamaehistoria.slimefun.Gadgets;
 import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.slimefun.Mechanisms;
-import io.github.sefiraat.crystamaehistoria.slimefun.ArtisticItems;
 import io.github.sefiraat.crystamaehistoria.slimefun.Tools;
 import io.github.sefiraat.crystamaehistoria.slimefun.Uniques;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;

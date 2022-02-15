@@ -1,5 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.tools.crafting;
 
+import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
@@ -100,14 +101,15 @@ public class EphemeralWorkBench extends SlimefunItem {
             addPlayerInventoryClickHandler((p, slot, item, action) -> true);
             addItem(CRAFT_SLOT, CRAFT_BUTTON_STACK, (p, slot, item, action) -> false);
             addMenuClickHandler(CRAFT_SLOT, (player, slot, item, action) -> {
-                final ItemStack itemInOutput = getItemInSlot(OUTPUT_SLOT);
-
                 final ItemStack[] inputs = new ItemStack[RECIPE_SLOTS.length];
                 int i = 0;
 
-                // Fill the inputs
+                // Fill the inputs - abort if storied
                 for (int recipeSlot : RECIPE_SLOTS) {
                     ItemStack stack = getItemInSlot(recipeSlot);
+                    if (stack != null && stack.getType() != Material.AIR && StoryUtils.isStoried(stack)) {
+                        return false;
+                    }
                     inputs[i] = stack;
                     i++;
                 }
