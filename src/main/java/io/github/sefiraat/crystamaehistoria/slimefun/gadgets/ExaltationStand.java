@@ -43,16 +43,19 @@ public class ExaltationStand extends Stand {
         final Block blockClicked = optionalBlock.get();
         final UUID currentItemUuid = itemMap.get(blockClicked.getLocation());
 
-        // Stand already has an item, we try to remove this then return;
         if (currentItemUuid != null) {
+            // Stand already has an item, we try to remove this then return;
             final Item currentItem = (Item) Bukkit.getEntity(currentItemUuid);
-            final ItemStack itemStack = currentItem.getItemStack();
-            final HashMap<Integer, ItemStack> rejected = player.getInventory().addItem(itemStack);
-            BlockStorage.addBlockInfo(blockClicked, PDC_ITEM, null);
-            itemMap.remove(blockClicked.getLocation());
-            if (rejected.isEmpty()) {
+            if (currentItem != null) {
+                final ItemStack itemStack = currentItem.getItemStack();
+                final HashMap<Integer, ItemStack> rejected = player.getInventory().addItem(itemStack);
+                if (!rejected.isEmpty()) {
+                    blockClicked.getWorld().dropItem(blockClicked.getLocation().clone().add(0.5, 1.5, 0.5), itemStack);
+                }
                 currentItem.remove();
             }
+            BlockStorage.addBlockInfo(blockClicked, PDC_ITEM, null);
+            itemMap.remove(blockClicked.getLocation());
             return;
         }
 
