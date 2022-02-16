@@ -90,7 +90,7 @@ public class SpellUtils {
         @Nullable AbstractGoal<T> goal,
         Consumer<MagicSummon> tickConsumer
     ) {
-        return summonTemporaryMob(entityType, caster, location, goal, 30, tickConsumer);
+        return summonTemporaryMob(entityType, caster, location, goal, 120, tickConsumer);
     }
 
     @ParametersAreNonnullByDefault
