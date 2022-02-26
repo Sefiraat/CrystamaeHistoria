@@ -3,26 +3,31 @@ package io.github.sefiraat.crystamaehistoria.utils;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import lombok.experimental.UtilityClass;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.block.Block;
 import org.bukkit.block.TileState;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.util.Vector;
 
+import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.UUID;
@@ -271,5 +276,20 @@ public final class GeneralUtils {
             return System.currentTimeMillis() < cooldownUntil;
         }
         return false;
+    }
+
+    @Nonnull
+    @SafeVarargs
+    public static ItemStack getPreEnchantedItemStack(Material material, boolean hide, @Nonnull Pair<Enchantment, Integer>... enchantments) {
+        ItemStack itemStack = new ItemStack(material);
+        ItemMeta itemMeta = itemStack.getItemMeta();
+        for (Pair<Enchantment, Integer> pair : enchantments) {
+            itemMeta.addEnchant(pair.getFirstValue(), pair.getSecondValue(), true);
+        }
+        if (hide) {
+            itemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        }
+        itemStack.setItemMeta(itemMeta);
+        return itemStack;
     }
 }

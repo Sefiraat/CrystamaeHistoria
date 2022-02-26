@@ -35,7 +35,9 @@ public enum Skulls {
     GUI_TIER_NUMBER_2("96fab991d083993cb83e4bcf44a0b6cefac647d4189ee9cb823e9cc1571e38", null),
     GUI_TIER_NUMBER_3("cd319b9343f17a35636bcbc26b819625a9333de3736111f2e932827c8e749", null),
     GUI_TIER_NUMBER_4("d198d56216156114265973c258f57fc79d246bb65e3c77bbe8312ee35db6", null),
-    GUI_TIER_NUMBER_5("7fb91bb97749d6a6eed4449d23aea284dc4de6c3818eea5c7e149ddda6f7c9", null);
+    GUI_TIER_NUMBER_5("7fb91bb97749d6a6eed4449d23aea284dc4de6c3818eea5c7e149ddda6f7c9", null),
+
+    ITEM_MILK("bc68c3e9d2ee9390a61a666f77949ec44cb72c3cea43301cd0c41510472a7d74", null);
 
     @Getter
     private static final Skulls[] cachedValues = values();

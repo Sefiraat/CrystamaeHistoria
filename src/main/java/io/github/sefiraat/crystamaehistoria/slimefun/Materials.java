@@ -65,6 +65,8 @@ public class Materials {
     private static SlimefunItem basicFibres;
     @Getter
     private static PowderedEssence powderedEssence;
+    @Getter
+    private static SlimefunItem magicalMilk;
 
     public static void setup() {
 
@@ -466,6 +468,28 @@ public class Materials {
             250
         );
 
+        // Magical Milk
+        RecipeItem magicalMilkRecipe = new RecipeItem(
+            new ItemStack(Material.MILK_BUCKET),
+            StoryType.ALCHEMICAL, 25,
+            StoryType.HUMAN, 75,
+            StoryType.ANIMAL, 50
+        );
+        magicalMilk = new SlimefunItem(
+            ItemGroups.MATERIALS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_MAGICAL_MILK",
+                new ItemStack(Material.MILK_BUCKET),
+                ThemeType.CRAFTING,
+                "Magical Milk",
+                "This milk has something about it...",
+                "",
+                ChatColor.YELLOW + "Do not waste by drinking!"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            magicalMilkRecipe.getDisplayRecipe()
+        );
+
         // Slimefun Registry
         amalgamateDustCommon.register(plugin);
         amalgamateDustUncommon.register(plugin);
@@ -484,12 +508,14 @@ public class Materials {
         gildedPearl.register(plugin);
         basicFibres.register(plugin);
         powderedEssence.register(plugin);
+        magicalMilk.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(imbuedGlass, imbuedGlassRecipe);
         LiquefactionBasinCache.addCraftingRecipe(uncannyPearl, uncannyPearlRecipe);
         LiquefactionBasinCache.addCraftingRecipe(basicFibres, basicFibresRecipe);
         LiquefactionBasinCache.addCraftingRecipe(powderedEssence, powderedEssenceRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(magicalMilk, magicalMilkRecipe);
     }
 
     public static Map<StoryType, SlimefunItem> getDummyCrystalMap() {
@@ -499,5 +525,4 @@ public class Materials {
     public static Map<StoryRarity, Map<StoryType, SlimefunItem>> getCrystalMap() {
         return CRYSTAL_MAP;
     }
-
 }
