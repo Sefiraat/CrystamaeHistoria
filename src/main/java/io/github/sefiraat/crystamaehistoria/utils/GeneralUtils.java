@@ -150,6 +150,15 @@ public final class GeneralUtils {
     }
 
     @ParametersAreNonnullByDefault
+    public void pullEntity(Location pullToLocation, Entity pushed, double force) {
+        Vector vector = pushed.getLocation().toVector()
+            .subtract(pullToLocation.toVector())
+            .normalize()
+            .multiply(-force);
+        pushEntity(vector, pushed);
+    }
+
+    @ParametersAreNonnullByDefault
     public boolean pushEntity(UUID caster, Vector vector, Entity pushed) {
         Interaction interaction = pushed instanceof Player ? Interaction.ATTACK_PLAYER : Interaction.INTERACT_ENTITY;
         if (GeneralUtils.hasPermission(caster, pushed.getLocation(), interaction)) {
@@ -157,6 +166,10 @@ public final class GeneralUtils {
             return true;
         }
         return false;
+    }
+    @ParametersAreNonnullByDefault
+    public void pushEntity(Vector vector, Entity pushed) {
+        pushed.setVelocity(vector);
     }
 
     @ParametersAreNonnullByDefault
