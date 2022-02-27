@@ -15,6 +15,8 @@ import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import me.mrCookieSlime.Slimefun.api.item_transport.ItemTransportFlow;
 import org.bukkit.Location;
+import org.bukkit.Particle;
+import org.bukkit.Vibration;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
@@ -27,6 +29,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class FragmentedVoid extends SlimefunItem {
 
@@ -75,6 +78,16 @@ public class FragmentedVoid extends SlimefunItem {
                 final Collection<Item> items = location.getWorld().getNearbyEntitiesByType(Item.class, location, FragmentedVoid.this.range);
                 for (Item item : items) {
                     GeneralUtils.pullEntity(location, item, 0.5);
+                }
+
+                for (int i = 0; i < 4; i++) {
+                    final double xOffset = ThreadLocalRandom.current().nextDouble(-3, 3);
+                    final double yOffset = ThreadLocalRandom.current().nextDouble(-3, 3);
+                    final double zOffset = ThreadLocalRandom.current().nextDouble(-3, 3);
+                    final Location spawnLocation = location.clone().add(xOffset, yOffset, zOffset);
+                    final Vibration vibration = new Vibration(spawnLocation, new Vibration.Destination.BlockDestination(location), 20);
+
+                    location.getWorld().spawnParticle(Particle.VIBRATION, spawnLocation, 1, vibration);
                 }
             }
         };
