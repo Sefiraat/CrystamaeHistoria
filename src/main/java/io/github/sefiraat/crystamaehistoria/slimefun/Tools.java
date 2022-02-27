@@ -539,7 +539,8 @@ public class Tools {
                 "Rune-marked Sleeping Bag",
                 "This sleeping bag emits a weak",
                 "protection magic that will defend",
-                "you in the wilds."
+                "you in the wilds.",
+                "Does not set your respawn point."
             ),
             DummyLiquefactionBasinCrafting.TYPE,
             sleepingBagRecipe.getDisplayRecipe()
