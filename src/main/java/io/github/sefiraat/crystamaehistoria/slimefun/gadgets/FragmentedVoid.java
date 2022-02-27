@@ -1,8 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.gadgets;
 
-import io.github.sefiraat.crystamaehistoria.slimefun.Gadgets;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
-import io.github.sefiraat.networks.slimefun.NetworkSlimefunItems;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -19,16 +17,13 @@ import me.mrCookieSlime.Slimefun.api.item_transport.ItemTransportFlow;
 import org.bukkit.Location;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Item;
-import org.bukkit.entity.Panda;
 import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
-import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -64,7 +59,8 @@ public class FragmentedVoid extends SlimefunItem {
             public void tick(Block block, SlimefunItem slimefunItem, Config config) {
                 final Location location = block.getLocation().clone().add(0.5, 0.5, 0.5);
                 final Collection<Item> itemsToConsume = location.getWorld().getNearbyEntitiesByType(Item.class, location, 1.25);
-                    final BlockMenu blockMenu = BlockStorage.getInventory(block);
+                final BlockMenu blockMenu = BlockStorage.getInventory(block);
+
                 for (Item item : itemsToConsume) {
                     final ItemStack itemStack = item.getItemStack();
                     final Map<Integer, ItemStack> leftovers = blockMenu.toInventory().addItem(itemStack);
