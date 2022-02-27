@@ -954,7 +954,7 @@ public class Gadgets {
 
         // Fragmented Void
         RecipeItem fragmentedVoidRecipe = new RecipeItem(
-            new ItemStack(Material.NETHER_STAR),
+            SlimefunItems.INFUSED_HOPPER,
             StoryType.VOID, 120,
             StoryType.MECHANICAL, 100,
             StoryType.CELESTIAL, 80
