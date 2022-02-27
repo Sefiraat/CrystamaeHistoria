@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.CursedEarth;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.EnderInhibitor;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.ExaltationStand;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.ExpCollector;
+import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.FragmentedVoid;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.GlassOfMilk;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.GreenHouseGlass;
 import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.MobCandle;
@@ -112,6 +113,10 @@ public class Gadgets {
     private static PhilosophersSpray philosophersSpray;
     @Getter
     private static GlassOfMilk glassOfMilk;
+    @Getter
+    private static FragmentedVoid fragmentedVoid;
+    @Getter
+    private static FragmentedVoid shatteredVoid;
 
     public static void setup() {
 
@@ -947,6 +952,54 @@ public class Gadgets {
             }
         );
 
+        // Fragmented Void
+        RecipeItem fragmentedVoidRecipe = new RecipeItem(
+            new ItemStack(Material.NETHER_STAR),
+            StoryType.VOID, 120,
+            StoryType.MECHANICAL, 100,
+            StoryType.CELESTIAL, 80
+        );
+        fragmentedVoid = new FragmentedVoid(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_FRAGMENTED_VOID",
+                new ItemStack(Material.BLACK_CONCRETE),
+                ThemeType.GADGET,
+                "Fragmented Void",
+                "A portable hole in the universe.",
+                "Will pull any nearby items into it.",
+                "",
+                ThemeType.WARNING.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "5"
+            ),
+            RecipeType.ENHANCED_CRAFTING_TABLE,
+            fragmentedVoidRecipe.getDisplayRecipe(),
+            5
+        );
+
+        // Shattered Void
+        RecipeItem shatteredVoidRecipe = new RecipeItem(
+            fragmentedVoid.getItem(),
+            StoryType.VOID, 120,
+            StoryType.MECHANICAL, 100,
+            StoryType.CELESTIAL, 80
+        );
+        shatteredVoid = new FragmentedVoid(
+            ItemGroups.GADGETS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_SHATTERED_VOID",
+                new ItemStack(Material.BLACK_CONCRETE),
+                ThemeType.GADGET,
+                "Shattered Void",
+                "A portable hole in the universe.",
+                "Will pull any nearby items into it.",
+                "",
+                ThemeType.WARNING.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "7"
+            ),
+            RecipeType.ENHANCED_CRAFTING_TABLE,
+            shatteredVoidRecipe.getDisplayRecipe(),
+            7
+        );
+
         // Slimefun Registry
         abstractionLamp.register(plugin);
         dispersionLamp.register(plugin);
@@ -980,6 +1033,8 @@ public class Gadgets {
         angelBlock.register(plugin);
         philosophersSpray.register(plugin);
         glassOfMilk.register(plugin);
+        fragmentedVoid.register(plugin);
+        shatteredVoid.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(abstractionLamp, abstractionLampRecipe);
@@ -1015,5 +1070,8 @@ public class Gadgets {
         LiquefactionBasinCache.addCraftingRecipe(exaltationStand, exaltationStandRecipe);
 
         LiquefactionBasinCache.addCraftingRecipe(waystone, waystoneRecipe);
+
+        LiquefactionBasinCache.addCraftingRecipe(fragmentedVoid, fragmentedVoidRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(shatteredVoid, shatteredVoidRecipe);
     }
 }

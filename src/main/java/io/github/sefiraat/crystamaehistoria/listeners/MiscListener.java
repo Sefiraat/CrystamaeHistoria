@@ -1,21 +1,31 @@
 package io.github.sefiraat.crystamaehistoria.listeners;
 
+import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.SpellMemory;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.SleepingBag;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.covers.BlockVeil;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.events.BlockPlacerPlaceEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.HumanEntity;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.inventory.CraftItemEvent;
+import org.bukkit.event.player.PlayerBedLeaveEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
+
+import java.util.Map;
+import java.util.UUID;
 
 public class MiscListener implements Listener {
 
@@ -67,6 +77,16 @@ public class MiscListener implements Listener {
             && GeneralUtils.isOnCooldown(itemStack)
         ) {
             event.setCancelled(true);
+        }
+    }
+
+    @EventHandler(priority = EventPriority.LOWEST)
+    public void leaveSleepingBag(PlayerBedLeaveEvent event) {
+        final Player player = event.getPlayer();
+        final Location location = CrystamaeHistoria.getSpellMemory().getSleepingBags().remove(player.getUniqueId());
+
+        if (location != null) {
+            location.getBlock().setType(Material.AIR);
         }
     }
 }
