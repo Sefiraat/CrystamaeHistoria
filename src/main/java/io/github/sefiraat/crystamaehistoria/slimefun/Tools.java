@@ -11,6 +11,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.tools.Displacer;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.LuminescenceScoop;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.RecallingCrystaLattice;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.RefactingLens;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.SleepingBag;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.SpiritualSilken;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.ThaumaturgicSalt;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.covers.BlockVeil;
@@ -87,6 +88,8 @@ public class Tools {
     private static BalmySponge balmySponge;
     @Getter
     private static BalmySponge searingSponge;
+    @Getter
+    private static SleepingBag sleepingBag;
 
 
     public static void setup() {
@@ -520,6 +523,28 @@ public class Tools {
             7
         );
 
+        // Sleeping Bag
+        RecipeItem sleepingBagRecipe = new RecipeItem(
+            balmySponge.getItem(),
+            StoryType.MECHANICAL, 75,
+            StoryType.HISTORICAL, 100,
+            StoryType.HUMAN, 100
+        );
+        sleepingBag = new SleepingBag(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_SLEEPING_BAG",
+                new ItemStack(Material.LIGHT_BLUE_BANNER),
+                ThemeType.TOOL,
+                "Rune-marked Sleeping Bag",
+                "This sleeping bag emits a weak",
+                "protection magic that will defend",
+                "you in the wilds."
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            sleepingBagRecipe.getDisplayRecipe()
+        );
+
         // Slimefun Registry
         chargedPlate.register(CrystamaeHistoria.getInstance());
         inertPlate.register(CrystamaeHistoria.getInstance());
@@ -539,6 +564,7 @@ public class Tools {
         arcaneDisplacer.register(plugin);
         balmySponge.register(plugin);
         searingSponge.register(plugin);
+        sleepingBag.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(inertPlate, inertPlateRecipe);
@@ -559,6 +585,8 @@ public class Tools {
 
         LiquefactionBasinCache.addCraftingRecipe(balmySponge, balmySpongeRecipe);
         LiquefactionBasinCache.addCraftingRecipe(searingSponge, searingSpongeRecipe);
+
+        LiquefactionBasinCache.addCraftingRecipe(sleepingBag, sleepingBagRecipe);
 
         /*
         Covers 'hide' items from HL - until the tile entity check

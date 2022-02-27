@@ -10,6 +10,7 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import lombok.Getter;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
@@ -47,6 +48,8 @@ public class SpellMemory {
     private final Map<BoundingBox, Long> noSpawningAreas = new HashMap<>();
     @Getter
     private final Map<DisplayItem, Long> displayItems = new HashMap<>();
+    @Getter
+    private final Map<UUID, Location> sleepingBags = new HashMap<>();
 
     public void clearAll() {
         // Cancels all outstanding spells being cast
@@ -94,6 +97,10 @@ public class SpellMemory {
         // Remove Floating display items
         removeDisplayItems(true);
         displayItems.clear();
+
+        // Remove Sleeping Bags
+        removeSleepingBags();
+        sleepingBags.clear();
 
     }
 
@@ -211,6 +218,14 @@ public class SpellMemory {
                 entry.getKey().kill();
                 displayItems.remove(entry.getKey());
             }
+        }
+    }
+
+    public void removeSleepingBags() {
+        final Set<Map.Entry<UUID, Location>> set = new HashSet<>(sleepingBags.entrySet());
+        for (Map.Entry<UUID, Location> entry : set) {
+            final Block block = entry.getValue().getBlock();
+            block.setType(Material.AIR);
         }
     }
 
