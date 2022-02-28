@@ -519,7 +519,7 @@ public class Tools {
                 ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "7 Blocks"
             ),
             DummyLiquefactionBasinCrafting.TYPE,
-            balmySpongeRecipe.getDisplayRecipe(),
+            searingSpongeRecipe.getDisplayRecipe(),
             7
         );
 
