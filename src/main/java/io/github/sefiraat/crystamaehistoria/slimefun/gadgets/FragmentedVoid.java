@@ -33,7 +33,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class FragmentedVoid extends SlimefunItem {
 
-    private static final int[] INPUT_SLOTS = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8};
+    private static final int[] OUTPUT_SLOTS = new int[]{0, 1, 2, 3, 4, 5, 6, 7, 8};
 
     private final int range;
 
@@ -98,7 +98,7 @@ public class FragmentedVoid extends SlimefunItem {
             @Override
             public void onPlayerBreak(BlockBreakEvent e, ItemStack item, List<ItemStack> drops) {
                 final BlockMenu blockMenu = BlockStorage.getInventory(e.getBlock());
-                blockMenu.dropItems(blockMenu.getLocation(), INPUT_SLOTS);
+                blockMenu.dropItems(blockMenu.getLocation(), OUTPUT_SLOTS);
             }
         };
     }
@@ -119,8 +119,8 @@ public class FragmentedVoid extends SlimefunItem {
 
             @Override
             public int[] getSlotsAccessedByItemTransport(ItemTransportFlow flow) {
-                if (flow == ItemTransportFlow.INSERT) {
-                    return INPUT_SLOTS;
+                if (flow == ItemTransportFlow.WITHDRAW) {
+                    return OUTPUT_SLOTS;
                 }
                 return new int[0];
             }
