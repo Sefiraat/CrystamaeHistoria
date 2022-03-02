@@ -23,7 +23,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class PhantomsFlight extends Spell {
 
     public PhantomsFlight() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 0, false, 50, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 0, false, 30, true)
             .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
     }

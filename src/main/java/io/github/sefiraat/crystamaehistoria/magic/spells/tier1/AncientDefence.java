@@ -17,7 +17,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class AncientDefence extends Spell {
 
     public AncientDefence() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(60, true, 5, false, 25, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(60, true, 5, false, 20, true)
             .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
     }

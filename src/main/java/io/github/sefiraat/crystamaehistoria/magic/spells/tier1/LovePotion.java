@@ -19,7 +19,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class LovePotion extends Spell {
 
     public LovePotion() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(60, true, 5, true, 50, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(60, true, 5, true, 25, true)
             .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
     }

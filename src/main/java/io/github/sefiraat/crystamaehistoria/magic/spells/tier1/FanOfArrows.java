@@ -18,7 +18,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class FanOfArrows extends Spell {
 
     public FanOfArrows() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(10, true, 20, true, 1, false)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(10, true, 20, true, 10, false)
             .makeProjectileSpell(this::fireProjectiles, 0, false, 0, false)
             .makeProjectileVsEntitySpell(this::projectileHit)
             .makeDamagingSpell(1, true, 0, false);

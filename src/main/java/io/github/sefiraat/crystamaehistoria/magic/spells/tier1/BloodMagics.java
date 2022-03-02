@@ -21,7 +21,7 @@ import java.util.Collection;
 public class BloodMagics extends Spell {
 
     public BloodMagics() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 7, false, 25, false)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 7, false, 20, false)
             .makeDamagingSpell(2, true, 0.5, false)
             .makeTickingSpell(this::cast, 3, false, 20, false);
         setSpellCore(spellCoreBuilder.build());

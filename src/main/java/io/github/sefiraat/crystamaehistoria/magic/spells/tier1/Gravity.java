@@ -18,7 +18,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class Gravity extends Spell {
 
     public Gravity() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(300, true, 0, false, 50, false)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(300, true, 0, false, 25, false)
             .makeTickingSpell(this::tick, 1, false, 20, false)
             .addAfterTicksEvent(this::afterAllTicks);
         setSpellCore(spellCoreBuilder.build());

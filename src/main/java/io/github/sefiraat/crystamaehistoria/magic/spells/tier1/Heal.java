@@ -18,7 +18,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class Heal extends Spell {
 
     public Heal() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(10, true, 0, false, 1, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(10, true, 0, false, 10, true)
             .makeInstantSpell(this::cast)
             .makeHealingSpell(2, true);
         setSpellCore(spellCoreBuilder.build());

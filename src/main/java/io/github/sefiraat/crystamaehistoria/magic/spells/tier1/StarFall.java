@@ -23,7 +23,7 @@ import java.util.Collection;
 public class StarFall extends Spell {
 
     public StarFall() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 7, true, 40, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 7, true, 20, true)
             .makeDamagingSpell(2, true, 0.5, false)
             .makeProjectileSpell(this::fireProjectiles, 1, true, 0, false)
             .makeProjectileVsEntitySpell(this::projectileHits)

@@ -25,7 +25,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Chaos extends Spell {
 
     public Chaos() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(10, true, 6, false, 50, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(10, true, 6, false, 40, true)
             .makeDamagingSpell(1, false, 0.2, false)
             .makeProjectileSpell(this::cast, 0, false, 0, false)
             .makeProjectileVsEntitySpell(this::onHitEntity)

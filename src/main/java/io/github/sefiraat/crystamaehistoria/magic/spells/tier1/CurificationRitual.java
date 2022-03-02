@@ -21,7 +21,7 @@ import java.util.Collection;
 public class CurificationRitual extends Spell {
 
     public CurificationRitual() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(60, false, 10, true, 100, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(60, false, 10, true, 25, true)
             .makeInstantSpell(this::cast)
             .makeDamagingSpell(2, true, 0, false);
         setSpellCore(spellCoreBuilder.build());

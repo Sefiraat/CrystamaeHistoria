@@ -21,7 +21,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Deity extends Spell {
 
     public Deity() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(600, true, 0, false, 1000, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(600, true, 0, false, 500, true)
             .makeInstantSpell(this::cast)
             .addPositiveEffect(PotionEffectType.GLOWING, 1, 120);
         setSpellCore(spellCoreBuilder.build());

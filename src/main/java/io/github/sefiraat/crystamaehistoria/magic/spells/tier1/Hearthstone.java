@@ -19,7 +19,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class Hearthstone extends Spell {
 
     public Hearthstone() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(300, true, 0, false, 50, false)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(300, true, 0, false, 25, false)
             .makeTickingSpell(this::tick, 10, false, 10, false)
             .addAfterTicksEvent(this::afterAllTicks);
         setSpellCore(spellCoreBuilder.build());

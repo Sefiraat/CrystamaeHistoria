@@ -19,7 +19,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class Prism extends Spell {
 
     public Prism() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(25, true, 0, false, 150, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(25, true, 0, false, 75, true)
             .makeInstantSpell(this::cast)
             .makeEffectingSpell(true, true)
             .addPositiveEffect(PotionEffectType.ABSORPTION, 1, 30)

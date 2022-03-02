@@ -19,7 +19,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class HealingMist extends Spell {
 
     public HealingMist() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 10, false, 5, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(100, true, 10, false, 10, true)
             .makeInstantSpell(this::cast)
             .makeEffectingSpell(true, false)
             .addPositiveEffect(PotionEffectType.REGENERATION, 1, 10);

@@ -17,7 +17,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class LavaLake extends Spell {
 
     public LavaLake() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(60, true, 4, true, 50, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(60, true, 4, true, 25, true)
             .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
     }

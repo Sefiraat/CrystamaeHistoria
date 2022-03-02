@@ -17,7 +17,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class StripMine extends Spell {
 
     public StripMine() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 10, true, 25, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 10, true, 10, true)
             .makeTickingSpell(this::tick, 10, true, 5, false);
         setSpellCore(spellCoreBuilder.build());
     }
