@@ -9,8 +9,6 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.attributes.NotConfigurable;
 import io.github.thebusybiscuit.slimefun4.core.attributes.NotHopperable;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockUseHandler;
-import me.mrCookieSlime.Slimefun.api.BlockStorage;
-import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.inventory.ItemStack;
@@ -36,16 +34,6 @@ public class PhilosophersSpray extends SlimefunItem implements NotHopperable, No
 
     public static void triggerChange(@Nonnull Block block) {
         final Block blockToChange = block.getRelative(BlockFace.UP);
-
-        if (BlockStorage.check(blockToChange) != null) {
-            return;
-        }
-
-        final Material material = blockToChange.getType();
-        final Material convertTo = Displacer.getConversions().get(material);
-
-        if (convertTo != null) {
-            blockToChange.setType(convertTo, true);
-        }
+        Displacer.convertBlock(blockToChange);
     }
 }
