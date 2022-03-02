@@ -58,8 +58,8 @@ public class StoriesManager {
                 3,
                 1,
                 new StoryChances(
-                    90,
-                    10,
+                    85,
+                    15,
                     0,
                     0,
                     0
@@ -108,7 +108,7 @@ public class StoriesManager {
                 new StoryChances(
                     25,
                     40,
-                    22,
+                    20,
                     10,
                     5
                 )
