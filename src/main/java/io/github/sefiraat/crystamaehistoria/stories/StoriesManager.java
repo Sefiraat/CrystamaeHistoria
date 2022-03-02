@@ -75,8 +75,8 @@ public class StoriesManager {
                 2,
                 new StoryChances(
                     70,
-                    20,
-                    10,
+                    25,
+                    5,
                     0,
                     0
                 )
@@ -91,8 +91,8 @@ public class StoriesManager {
                 2,
                 new StoryChances(
                     50,
-                    30,
-                    15,
+                    35,
+                    10,
                     5,
                     0
                 )
@@ -107,8 +107,8 @@ public class StoriesManager {
                 3,
                 new StoryChances(
                     25,
-                    35,
-                    25,
+                    40,
+                    22,
                     10,
                     5
                 )
@@ -122,9 +122,9 @@ public class StoriesManager {
                 5,
                 4,
                 new StoryChances(
-                    10,
+                    5,
                     30,
-                    25,
+                    30,
                     20,
                     15
                 )

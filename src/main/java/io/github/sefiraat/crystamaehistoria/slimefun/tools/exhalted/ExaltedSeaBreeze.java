@@ -36,7 +36,6 @@ public class ExaltedSeaBreeze extends ExaltedItem {
         MATERIAL_MAP.put(Material.CUT_COPPER_SLAB, Material.EXPOSED_CUT_COPPER_SLAB);
         MATERIAL_MAP.put(Material.EXPOSED_CUT_COPPER_SLAB, Material.WEATHERED_CUT_COPPER_SLAB);
         MATERIAL_MAP.put(Material.WEATHERED_CUT_COPPER_SLAB, Material.OXIDIZED_CUT_COPPER_SLAB);
-
     }
 
     @Override
