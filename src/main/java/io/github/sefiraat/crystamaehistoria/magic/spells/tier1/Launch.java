@@ -14,7 +14,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class Launch extends Spell {
 
     public Launch() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(60, false, 5, true, 30, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(60, false, 5, true, 15, true)
             .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
     }

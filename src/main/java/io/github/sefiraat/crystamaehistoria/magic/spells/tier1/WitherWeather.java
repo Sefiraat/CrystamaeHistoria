@@ -19,7 +19,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class WitherWeather extends Spell {
 
     public WitherWeather() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 0, false, 1, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 0, false, 20, true)
             .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
     }

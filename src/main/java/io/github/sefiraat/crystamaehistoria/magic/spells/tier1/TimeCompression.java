@@ -20,7 +20,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class TimeCompression extends Spell {
 
     public TimeCompression() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(40, true, 10, false, 50, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(40, true, 10, false, 25, true)
             .makeTickingSpell(this::cast, 10, true, 20, false)
             .makeEffectingSpell(true, false)
             .addPositiveEffect(PotionEffectType.JUMP, 1, 2)

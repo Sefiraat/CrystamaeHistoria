@@ -20,7 +20,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class Gyroscopic extends Spell {
 
     public Gyroscopic() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(40, true, 15, false, 50, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(40, true, 15, false, 25, true)
             .makeTickingSpell(this::cast, 20, true, 5, false);
         setSpellCore(spellCoreBuilder.build());
     }

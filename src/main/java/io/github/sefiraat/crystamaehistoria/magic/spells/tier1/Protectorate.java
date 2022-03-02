@@ -20,7 +20,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class Protectorate extends Spell {
 
     public Protectorate() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(40, true, 7, false, 50, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(40, true, 7, false, 25, true)
             .makeTickingSpell(this::cast, 10, true, 20, false);
         setSpellCore(spellCoreBuilder.build());
     }

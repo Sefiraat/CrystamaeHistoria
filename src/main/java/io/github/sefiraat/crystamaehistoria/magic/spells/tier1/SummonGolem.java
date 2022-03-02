@@ -25,7 +25,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class SummonGolem extends Spell {
 
     public SummonGolem() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 0, false, 50, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 0, false, 15, true)
             .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
     }

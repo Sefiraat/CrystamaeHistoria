@@ -23,7 +23,7 @@ import java.util.List;
 public class Compass extends Spell {
 
     public Compass() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(10, false, 20, true, 50, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(10, false, 20, true, 10, true)
             .makeTickingSpell(this::onTick, 10, true, 20, false);
         setSpellCore(spellCoreBuilder.build());
     }

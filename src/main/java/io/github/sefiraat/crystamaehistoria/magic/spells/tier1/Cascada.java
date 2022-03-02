@@ -26,7 +26,7 @@ import java.util.UUID;
 public class Cascada extends Spell {
 
     public Cascada() {
-        final SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(60, true, 0, false, 50, false)
+        final SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(60, true, 0, false, 30, false)
             .makeProjectileSpell(this::fireProjectile, 2, false, 0, false)
             .makeProjectileVsBlockSpell(this::projectileHit)
             .makeProjectileVsEntitySpell(this::projectileHit);

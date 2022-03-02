@@ -20,7 +20,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class Teleport extends Spell {
 
     public Teleport() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(20, true, 20, false, 1, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(20, true, 20, false, 5, true)
             .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
     }

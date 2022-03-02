@@ -25,7 +25,7 @@ import java.util.UUID;
 public class TunnelBore extends Spell {
 
     public TunnelBore() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(50, true, 1, true, 100, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(50, true, 1, true, 30, true)
             .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
     }

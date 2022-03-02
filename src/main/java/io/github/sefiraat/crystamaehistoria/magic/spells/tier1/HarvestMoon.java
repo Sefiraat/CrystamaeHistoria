@@ -20,7 +20,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class HarvestMoon extends Spell {
 
     public HarvestMoon() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(40, true, 5, true, 50, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(40, true, 5, true, 30, true)
             .makeTickingSpell(this::cast, 20, true, 10, false);
         setSpellCore(spellCoreBuilder.build());
     }

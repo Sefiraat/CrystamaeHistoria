@@ -21,7 +21,7 @@ import java.util.UUID;
 public class BatteringRam extends Spell {
 
     public BatteringRam() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 3, true, 50, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 3, true, 25, true)
             .makeInstantSpell(this::cast)
             .makeEffectingSpell(true, false);
         setSpellCore(spellCoreBuilder.build());

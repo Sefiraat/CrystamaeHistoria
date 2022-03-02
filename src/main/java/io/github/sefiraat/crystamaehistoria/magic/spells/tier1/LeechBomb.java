@@ -26,7 +26,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class LeechBomb extends Spell {
 
     public LeechBomb() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 0, false, 50, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 0, false, 25, true)
             .makeProjectileSpell(this::fireProjectile, 0, false, 0, false)
             .makeProjectileVsEntitySpell(this::eggHit)
             .makeProjectileVsBlockSpell(this::eggHit);

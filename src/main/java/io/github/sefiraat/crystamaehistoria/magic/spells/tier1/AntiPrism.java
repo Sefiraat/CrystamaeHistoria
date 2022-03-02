@@ -23,7 +23,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class AntiPrism extends Spell {
 
     public AntiPrism() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(10, true, 0, false, 100, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(10, true, 0, false, 50, true)
             .makeProjectileSpell(this::cast, 3, false, 0, false)
             .makeProjectileVsEntitySpell(this::projectileHit)
             .makeProjectileVsBlockSpell(this::projectileHit)

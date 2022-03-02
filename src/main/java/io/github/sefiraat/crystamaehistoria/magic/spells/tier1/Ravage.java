@@ -23,7 +23,7 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Ravage extends Spell {
 
     public Ravage() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 0, false, 50, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(5, true, 0, false, 25, true)
             .makeInstantSpell(this::cast)
             .makeEffectingSpell(true, false)
             .addPositiveEffect(PotionEffectType.DAMAGE_RESISTANCE, 1, 300)

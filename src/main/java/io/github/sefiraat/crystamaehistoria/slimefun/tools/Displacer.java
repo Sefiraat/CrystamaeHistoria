@@ -277,31 +277,17 @@ public class Displacer extends LimitedUseItem {
 
             e.cancel();
 
-            blockOptional.ifPresent(block -> blocks(player, block));
+            blockOptional.ifPresent(block -> convertBlock(player, block));
             entityOptional.ifPresent(entity -> entities(player, entity));
 
             damageItem(player, e.getItem());
         };
     }
 
-    private void blocks(@Nonnull Player player, @Nonnull Block block) {
-        if (!GeneralUtils.hasPermission(player, block, Interaction.BREAK_BLOCK) && BlockStorage.check(block) != null) {
-            return;
+    private void convertBlock(@Nonnull Player player, @Nonnull Block block) {
+        if (GeneralUtils.hasPermission(player, block, Interaction.BREAK_BLOCK)) {
+            convertBlock(block);
         }
-
-        Material material = block.getType();
-        Material convertTo = CONVERSIONS.get(material);
-
-        if (convertTo != null) {
-            block.setType(convertTo, true);
-        } else if (material == Material.FARMLAND) {
-            farmland(block);
-        }
-    }
-
-    private void farmland(@Nonnull Block block) {
-        Farmland farmland = (Farmland) block.getBlockData();
-        farmland.setMoisture(farmland.getMaximumMoisture());
     }
 
     private void entities(@Nonnull Player player, @Nonnull Entity entity) {
@@ -333,6 +319,32 @@ public class Displacer extends LimitedUseItem {
     private void zombieVillager(@Nonnull Player player, @Nonnull ZombieVillager zombieVillager) {
         zombieVillager.setConversionPlayer(player);
         zombieVillager.setConversionTime(200);
+    }
+
+    public static void convertBlock(@Nonnull Block block) {
+        if (BlockStorage.check(block) != null) {
+            return;
+        }
+
+        Material material = block.getType();
+        Material convertTo = CONVERSIONS.get(material);
+
+        if (convertTo != null) {
+            block.setType(convertTo, true);
+        } else if (material == Material.FARMLAND) {
+            farmland(block);
+        } else if (material == Material.DIRT) {
+            dirt(block);
+        }
+    }
+
+    private static void farmland(@Nonnull Block block) {
+        Farmland farmland = (Farmland) block.getBlockData();
+        farmland.setMoisture(farmland.getMaximumMoisture());
+    }
+
+    private static void dirt(@Nonnull Block block) {
+        block.setType(block.getY() < 0 ? Material.ROOTED_DIRT : Material.COARSE_DIRT);
     }
 
     @Override

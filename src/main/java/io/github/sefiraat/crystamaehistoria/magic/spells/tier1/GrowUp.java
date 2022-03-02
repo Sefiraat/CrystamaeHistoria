@@ -20,7 +20,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class GrowUp extends Spell {
 
     public GrowUp() {
-        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(360, false, 5, true, 120, true)
+        SpellCoreBuilder spellCoreBuilder = new SpellCoreBuilder(360, false, 5, true, 50, true)
             .makeInstantSpell(this::cast);
         setSpellCore(spellCoreBuilder.build());
     }

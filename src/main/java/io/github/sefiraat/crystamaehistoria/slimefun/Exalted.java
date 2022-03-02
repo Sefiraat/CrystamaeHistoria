@@ -10,6 +10,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasi
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.exhalted.ExaltedBeacon;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.exhalted.ExaltedFertilityPharo;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.exhalted.ExaltedHarvester;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.exhalted.ExaltedSeaBreeze;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.exhalted.ExaltedTime;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.exhalted.ExaltedWeather;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
@@ -18,6 +19,7 @@ import lombok.Getter;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Material;
 import org.bukkit.WeatherType;
+import org.bukkit.block.Biome;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
@@ -38,6 +40,8 @@ public class Exalted {
     private static ExaltedWeather exaltedSun;
     @Getter
     private static ExaltedWeather exaltedStorm;
+    @Getter
+    private static ExaltedSeaBreeze exaltedSeaBreeze;
 
     public static void setup() {
 
@@ -223,6 +227,31 @@ public class Exalted {
             WeatherType.DOWNFALL
         );
 
+        // Exalted Sea Breeze
+        RecipeItem exaltedSeeBreezeRecipe = new RecipeItem(
+            amalgamateDustMythical,
+            StoryType.ELEMENTAL, 125,
+            StoryType.ALCHEMICAL, 200,
+            StoryType.CELESTIAL, 150,
+            player -> player.getWorld().getBiome(player.getLocation()) == Biome.BEACH
+        );
+        exaltedSeaBreeze = new ExaltedSeaBreeze(
+            ItemGroups.EXALTED,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_SEA_BREEZE",
+                new ItemStack(Material.TUBE_CORAL_BLOCK),
+                ThemeType.EXALTED,
+                "Exalted Sea Breeze",
+                "A magical construct that brings",
+                "the sea air to nearby blocks, weathering",
+                "and oxidizing them.",
+                "",
+                ThemeType.CLICK_INFO.getColor() + "Requires: Crafted on a beach"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            exaltedSeeBreezeRecipe.getDisplayRecipe()
+        );
+
         // Slimefun Registry
         exaltedBeacon.register(plugin);
         exaltedFertilityPharo.register(plugin);
@@ -231,6 +260,7 @@ public class Exalted {
         exaltedDusk.register(plugin);
         exaltedSun.register(plugin);
         exaltedStorm.register(plugin);
+        exaltedSeaBreeze.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(exaltedBeacon, exaltedBeaconRecipe);
@@ -240,6 +270,7 @@ public class Exalted {
         LiquefactionBasinCache.addCraftingRecipe(exaltedDusk, exaltedDuskRecipe);
         LiquefactionBasinCache.addCraftingRecipe(exaltedSun, exaltedSunRecipe);
         LiquefactionBasinCache.addCraftingRecipe(exaltedStorm, exaltedStormRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(exaltedSeaBreeze, exaltedSeeBreezeRecipe);
     }
 
     private static boolean isMaxStoryRank(Player player) {

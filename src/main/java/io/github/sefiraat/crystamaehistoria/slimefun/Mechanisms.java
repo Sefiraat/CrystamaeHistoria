@@ -285,7 +285,7 @@ public class Mechanisms {
                 "Crystamae form. Used for magical crafting.",
                 "Danger: Do not break while filled!",
                 "",
-                "Holds up to 1000 Liquefied Crysta."
+                "Holds up to 1250 Liquefied Crysta."
             ),
             RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[]{
@@ -293,7 +293,7 @@ public class Mechanisms {
                 amalgamateDustRare, liquefactionBasin1.getItem(), amalgamateDustRare,
                 amalgamateDustRare, SlimefunItems.ENCHANTMENT_RUNE, amalgamateDustRare
             },
-            1000,
+            1250,
             Color.fromRGB(195, 195, 150)
         );
 
