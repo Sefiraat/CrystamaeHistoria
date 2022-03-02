@@ -296,12 +296,18 @@ public class Displacer extends LimitedUseItem {
             block.setType(convertTo, true);
         } else if (material == Material.FARMLAND) {
             farmland(block);
+        } else if (material == Material.DIRT) {
+            dirt(block);
         }
     }
 
     private void farmland(@Nonnull Block block) {
         Farmland farmland = (Farmland) block.getBlockData();
         farmland.setMoisture(farmland.getMaximumMoisture());
+    }
+
+    private void dirt(@Nonnull Block block) {
+        block.setType(block.getY() < 0 ? Material.ROOTED_DIRT : Material.COARSE_DIRT);
     }
 
     private void entities(@Nonnull Player player, @Nonnull Entity entity) {
