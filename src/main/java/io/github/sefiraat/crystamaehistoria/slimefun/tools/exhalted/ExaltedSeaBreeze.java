@@ -40,7 +40,7 @@ public class ExaltedSeaBreeze extends ExaltedItem {
 
     @Override
     public void onExalt(ExaltedItem slimefunItem, Location location) {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 4; i++) {
             final int x = ThreadLocalRandom.current().nextInt(-5, 6);
             final int z = ThreadLocalRandom.current().nextInt(-5, 6);
             Block block = location.add(x, -1.5, z).getBlock();
