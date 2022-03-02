@@ -39,10 +39,9 @@ public class CrystaDowngradeListener implements Listener {
                 final double velZ = ThreadLocalRandom.current().nextDouble(-0.9, 1.1);
                 e.setCancelled(true);
                 newItemStack.setAmount(itemStack.getAmount());
-                item.setItemStack(itemStack);
+                item.setItemStack(newItemStack);
                 item.setVelocity(new Vector(velX, 0.5, velZ));
             }
         }
-
     }
 }
