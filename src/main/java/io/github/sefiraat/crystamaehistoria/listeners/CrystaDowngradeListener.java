@@ -32,7 +32,7 @@ public class CrystaDowngradeListener implements Listener {
             final Crystal crystal = (Crystal) slimefunItem;
             final int id = crystal.getRarity().getId();
             final StoryType type = crystal.getType();
-            if (id > 1) {
+            if (id != 6 && id > 1) {
                 final StoryRarity rarity = StoryRarity.getById(id - 1);
                 final ItemStack newItemStack = Materials.getCrystalMap().get(rarity).get(type).getItem().clone();
                 final double velX = ThreadLocalRandom.current().nextDouble(-0.9, 1.1);
