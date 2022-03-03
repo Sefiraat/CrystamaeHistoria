@@ -10,6 +10,8 @@ import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.DisplayStandHold
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.BlankPlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.ChargedPlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.MagicalPlate;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.satchel.CrystamageSatchel;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.satchel.SatchelInstance;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.ArmourStandUtils;
@@ -17,12 +19,15 @@ import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentPlateDataType;
+import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentSatchelInstanceType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.implementation.items.backpacks.SlimefunBackpack;
 import lombok.Getter;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
+import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
@@ -295,12 +300,46 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
             .collect(Collectors.toList());
 
         if (typeList.size() == 3) {
-            SlimefunItem.getByItem(itemStack);
             SlimefunItem slimefunItem = getMatchingRecipe(typeList, amountList, itemStack);
-            if (slimefunItem != null
-                && !slimefunItem.isDisabled()
-            ) {
-                item.getWorld().dropItem(item.getLocation(), slimefunItem.getRecipeOutput().clone());
+            if (slimefunItem != null && !slimefunItem.isDisabled()) {
+                final ItemStack stackToDrop = slimefunItem.getRecipeOutput().clone();
+
+                // Satchel stuff
+                if (slimefunItem instanceof CrystamageSatchel) {
+                    SatchelInstance instance;
+                    CrystamageSatchel newSatchel = (CrystamageSatchel) slimefunItem;
+                    SlimefunItem incomingSlimefunItem = SlimefunItem.getByItem(itemStack);
+                    if (incomingSlimefunItem instanceof SlimefunBackpack) {
+                        if (!canCraftSatchel(itemStack)) {
+                            return false;
+                        } else {
+                            instance = new SatchelInstance(System.currentTimeMillis(), newSatchel.getTier());
+                        }
+                    } else if (incomingSlimefunItem instanceof CrystamageSatchel) {
+                        CrystamageSatchel oldSatchel = (CrystamageSatchel) incomingSlimefunItem;
+                        instance = DataTypeMethods.getCustom(
+                            itemStack.getItemMeta(),
+                            Keys.PDC_SATCHEL_STORAGE,
+                            PersistentSatchelInstanceType.TYPE,
+                            new SatchelInstance(System.currentTimeMillis(), oldSatchel.getTier())
+                        );
+                    } else {
+                        return false;
+                    }
+
+                    final ItemMeta itemMeta = stackToDrop.getItemMeta();
+
+                    DataTypeMethods.setCustom(
+                        itemMeta,
+                        Keys.PDC_SATCHEL_STORAGE,
+                        PersistentSatchelInstanceType.TYPE,
+                        instance
+                    );
+                    stackToDrop.setItemMeta(itemMeta);
+                }
+
+                // Drop
+                item.getWorld().dropItem(item.getLocation(), stackToDrop);
                 if (itemStack.getAmount() > 1) {
                     itemStack.setAmount(itemStack.getAmount() - 1);
                 } else {
@@ -308,6 +347,16 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
                 }
                 summonCatalystParticles();
                 emptyBasin();
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean canCraftSatchel(ItemStack incomingItem) {
+        List<String> lore = incomingItem.getItemMeta().getLore();
+        for (String s : lore) {
+            if (s.equals(ChatColor.GRAY + "ID: <ID>")) {
                 return true;
             }
         }
