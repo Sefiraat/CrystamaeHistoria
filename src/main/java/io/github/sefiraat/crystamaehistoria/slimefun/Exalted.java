@@ -229,7 +229,7 @@ public class Exalted {
 
         // Exalted Sea Breeze
         RecipeItem exaltedSeeBreezeRecipe = new RecipeItem(
-            amalgamateDustMythical,
+            new ItemStack(Material.HEART_OF_THE_SEA),
             StoryType.ELEMENTAL, 125,
             StoryType.ALCHEMICAL, 200,
             StoryType.CELESTIAL, 150,
