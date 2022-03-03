@@ -12,6 +12,8 @@ softdepend:
   - SlimeTinker
   - ExoticGarden
   - HeadLimiter
+  - RoseStacker
+  - WildStacker
 commands:
   crystamaehistoria:
     description: /historia

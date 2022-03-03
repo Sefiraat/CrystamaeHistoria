@@ -48,6 +48,14 @@
             <name>Sefiraat</name>
             <url>https://sefiraat.jfrog.io/artifactory/default-maven-local</url>
         </repository>
+        <repository>
+            <id>bg-repo</id>
+            <url>https://repo.bg-software.com/repository/api/</url>
+        </repository>
+        <repository>
+            <id>rosewood-repo</id>
+            <url>https://repo.rosewooddev.io/repository/public/</url>
+        </repository>
     </repositories>
 
     <build>
@@ -177,6 +185,18 @@
             <artifactId>EffectLib</artifactId>
             <version>9.4</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.bgsoftware</groupId>
+            <artifactId>WildStackerAPI</artifactId>
+            <version>3.6.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>dev.rosewood</groupId>
+            <artifactId>rosestacker</artifactId>
+            <version>1.3.4</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- To be removed, do not use further -->

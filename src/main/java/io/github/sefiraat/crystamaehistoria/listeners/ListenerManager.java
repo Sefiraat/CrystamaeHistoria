@@ -15,6 +15,7 @@ public class ListenerManager {
         addListener(new RefractingLensListener());
         addListener(new ThaumaturgicSaltsListener());
         addListener(new CrystaDowngradeListener());
+        addListener(new SatchelListener());
         addListener(new EndermanInhibitorListener());
         addListener(new MobCandleListener());
         addListener(new DisplayItemListener());

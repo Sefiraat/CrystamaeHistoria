@@ -19,6 +19,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.tools.crafting.EphemeralCra
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.crafting.EphemeralWorkBench;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.BlankPlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.plates.ChargedPlate;
+import io.github.sefiraat.crystamaehistoria.slimefun.tools.satchel.CrystamageSatchel;
 import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.Stave;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
@@ -90,7 +91,18 @@ public class Tools {
     private static BalmySponge searingSponge;
     @Getter
     private static SleepingBag sleepingBag;
-
+    @Getter
+    private static CrystamageSatchel apprenticesSatchel;
+    @Getter
+    private static CrystamageSatchel crystamagesSatchel;
+    @Getter
+    private static CrystamageSatchel wizardsSatchel;
+    @Getter
+    private static CrystamageSatchel conjurersSatchel;
+    @Getter
+    private static CrystamageSatchel sorcerersSatchel;
+    @Getter
+    private static CrystamageSatchel grandmastersSatchel;
 
     public static void setup() {
         final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
@@ -546,6 +558,150 @@ public class Tools {
             sleepingBagRecipe.getDisplayRecipe()
         );
 
+        // Apprentices Satchel
+        RecipeItem apprenticesSatchelRecipe = new RecipeItem(
+            SlimefunItems.BACKPACK_SMALL,
+            StoryType.ELEMENTAL, 25,
+            StoryType.HUMAN, 25,
+            StoryType.PHILOSOPHICAL, 25
+        );
+        apprenticesSatchel = new CrystamageSatchel(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_SATCHEL_1",
+                new ItemStack(Material.WHITE_CONCRETE),
+                ThemeType.TOOL,
+                "Apprentice's Satchel",
+                "This simple satchel will pick up",
+                "and hold crystals for you.",
+                "",
+                ThemeType.WARNING.getColor() + "Rarities: " + ThemeType.PASSIVE.getColor() + "Unique only"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            apprenticesSatchelRecipe.getDisplayRecipe(),
+            1
+        );
+
+        // Crystamages Satchel
+        RecipeItem crystamagesSatchelRecipe = new RecipeItem(
+            apprenticesSatchel.getItem(),
+            StoryType.ALCHEMICAL, 35,
+            StoryType.ANIMAL, 35,
+            StoryType.VOID, 35
+        );
+        crystamagesSatchel = new CrystamageSatchel(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_SATCHEL_2",
+                new ItemStack(Material.GRAY_CONCRETE),
+                ThemeType.TOOL,
+                "Crystamage's Satchel",
+                "This simple satchel will pick up",
+                "and hold crystals for you.",
+                "",
+                ThemeType.WARNING.getColor() + "Rarities: " + ThemeType.PASSIVE.getColor() + "Unique -> Common"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            crystamagesSatchelRecipe.getDisplayRecipe(),
+            2
+        );
+
+        // Wizards Satchel
+        RecipeItem wizardsSatchelRecipe = new RecipeItem(
+            crystamagesSatchel.getItem(),
+            StoryType.MECHANICAL, 45,
+            StoryType.HISTORICAL, 45,
+            StoryType.CELESTIAL, 45
+        );
+        wizardsSatchel = new CrystamageSatchel(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_SATCHEL_3",
+                new ItemStack(Material.LIME_CONCRETE),
+                ThemeType.TOOL,
+                "Wizard's Satchel",
+                "This simple satchel will pick up",
+                "and hold crystals for you.",
+                "",
+                ThemeType.WARNING.getColor() + "Rarities: " + ThemeType.PASSIVE.getColor() + "Unique -> Uncommon"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            wizardsSatchelRecipe.getDisplayRecipe(),
+            3
+        );
+
+        // Conjurers Satchel
+        RecipeItem conjurersSatchelRecipe = new RecipeItem(
+            wizardsSatchel.getItem(),
+            StoryType.ELEMENTAL, 55,
+            StoryType.HUMAN, 55,
+            StoryType.PHILOSOPHICAL, 55
+        );
+        conjurersSatchel = new CrystamageSatchel(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_SATCHEL_4",
+                new ItemStack(Material.YELLOW_CONCRETE),
+                ThemeType.TOOL,
+                "Conjurer's Satchel",
+                "This simple satchel will pick up",
+                "and hold crystals for you.",
+                "",
+                ThemeType.WARNING.getColor() + "Rarities: " + ThemeType.PASSIVE.getColor() + "Unique -> Rare"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            conjurersSatchelRecipe.getDisplayRecipe(),
+            4
+        );
+
+        // Sorcerers Satchel
+        RecipeItem sorcerersSatchelRecipe = new RecipeItem(
+            conjurersSatchel.getItem(),
+            StoryType.ALCHEMICAL, 65,
+            StoryType.ANIMAL, 65,
+            StoryType.VOID, 65
+        );
+        sorcerersSatchel = new CrystamageSatchel(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_SATCHEL_5",
+                new ItemStack(Material.PURPLE_CONCRETE),
+                ThemeType.TOOL,
+                "Sorcerer's Satchel",
+                "This simple satchel will pick up",
+                "and hold crystals for you.",
+                "",
+                ThemeType.WARNING.getColor() + "Rarities: " + ThemeType.PASSIVE.getColor() + "Unique -> Epic"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            sorcerersSatchelRecipe.getDisplayRecipe(),
+            5
+        );
+
+        // Grandmasters Satchel
+        RecipeItem grandmastersSatchelRecipe = new RecipeItem(
+            sorcerersSatchel.getItem(),
+            StoryType.MECHANICAL, 75,
+            StoryType.HISTORICAL, 75,
+            StoryType.CELESTIAL, 75
+        );
+        grandmastersSatchel = new CrystamageSatchel(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_SATCHEL_6",
+                new ItemStack(Material.RED_CONCRETE),
+                ThemeType.TOOL,
+                "Grandmaster's Satchel",
+                "This simple satchel will pick up",
+                "and hold crystals for you.",
+                "",
+                ThemeType.WARNING.getColor() + "Rarities: " + ThemeType.PASSIVE.getColor() + "Unique -> Mythical"
+            ),
+            DummyLiquefactionBasinCrafting.TYPE,
+            grandmastersSatchelRecipe.getDisplayRecipe(),
+            6
+        );
+
         // Slimefun Registry
         chargedPlate.register(CrystamaeHistoria.getInstance());
         inertPlate.register(CrystamaeHistoria.getInstance());
@@ -566,6 +722,12 @@ public class Tools {
         balmySponge.register(plugin);
         searingSponge.register(plugin);
         sleepingBag.register(plugin);
+        apprenticesSatchel.register(plugin);
+        crystamagesSatchel.register(plugin);
+        wizardsSatchel.register(plugin);
+        conjurersSatchel.register(plugin);
+        sorcerersSatchel.register(plugin);
+        grandmastersSatchel.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(inertPlate, inertPlateRecipe);
@@ -588,6 +750,13 @@ public class Tools {
         LiquefactionBasinCache.addCraftingRecipe(searingSponge, searingSpongeRecipe);
 
         LiquefactionBasinCache.addCraftingRecipe(sleepingBag, sleepingBagRecipe);
+
+        LiquefactionBasinCache.addCraftingRecipe(apprenticesSatchel, apprenticesSatchelRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(crystamagesSatchel, crystamagesSatchelRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(wizardsSatchel, wizardsSatchelRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(conjurersSatchel, conjurersSatchelRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(sorcerersSatchel, sorcerersSatchelRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(grandmastersSatchel, grandmastersSatchelRecipe);
 
         /*
         Covers 'hide' items from HL - until the tile entity check

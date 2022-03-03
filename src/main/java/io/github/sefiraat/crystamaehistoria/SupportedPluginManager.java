@@ -1,6 +1,9 @@
 package io.github.sefiraat.crystamaehistoria;
 
+import com.bgsoftware.wildstacker.api.WildStackerAPI;
 import com.gmail.nossr50.util.skills.CombatUtils;
+import dev.rosewood.rosestacker.api.RoseStackerAPI;
+import dev.rosewood.rosestacker.stack.StackedItem;
 import io.github.thebusybiscuit.exoticgarden.items.BonemealableItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
@@ -10,6 +13,7 @@ import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
 import org.bukkit.block.Block;
+import org.bukkit.entity.Item;
 import org.bukkit.entity.LivingEntity;
 import org.bukkit.entity.Player;
 
@@ -27,6 +31,10 @@ public class SupportedPluginManager {
     private final boolean slimeTinker;
     private final boolean headLimiter;
     private final boolean networks;
+    private final boolean wildStacker;
+    private final boolean roseStacker;
+
+    private RoseStackerAPI roseStackerAPI;
 
     public SupportedPluginManager() {
         instance = this;
@@ -36,6 +44,11 @@ public class SupportedPluginManager {
         slimeTinker = Bukkit.getPluginManager().isPluginEnabled("SlimeTinker");
         headLimiter = Bukkit.getPluginManager().isPluginEnabled("HeadLimiter");
         networks = Bukkit.getPluginManager().isPluginEnabled("Networks");
+        wildStacker = Bukkit.getPluginManager().isPluginEnabled("WildStacker");
+        roseStacker = Bukkit.getPluginManager().isPluginEnabled("RoseStacker");
+        if (roseStacker) {
+            this.roseStackerAPI = RoseStackerAPI.getInstance();
+        }
     }
 
     /**
@@ -96,6 +109,28 @@ public class SupportedPluginManager {
         return null;
     }
 
+    public int getStackAmount(Item item) {
+        if (wildStacker) {
+            return WildStackerAPI.getItemAmount(item);
+        } else if (roseStacker) {
+            StackedItem stackedItem = roseStackerAPI.getStackedItem(item);
+            return stackedItem == null ? item.getItemStack().getAmount() : stackedItem.getStackSize();
+        } else {
+            return item.getItemStack().getAmount();
+        }
+    }
+
+    public void setStackAmount(Item item, int amount) {
+        if (wildStacker) {
+            WildStackerAPI.getStackedItem(item).setStackAmount(amount, true);
+        } else if (roseStacker) {
+            StackedItem stackedItem = roseStackerAPI.getStackedItem(item);
+            stackedItem.setStackSize(amount);
+        } else {
+            item.getItemStack().setAmount(amount);
+        }
+    }
+
     public static boolean isMcMMO() {
         return instance.mcMMO;
     }
@@ -116,5 +151,12 @@ public class SupportedPluginManager {
         return instance.networks;
     }
 
+    public static boolean isWildStacker() {
+        return instance.wildStacker;
+    }
+
+    public static boolean isRoseStacker() {
+        return instance.roseStacker;
+    }
 
 }
