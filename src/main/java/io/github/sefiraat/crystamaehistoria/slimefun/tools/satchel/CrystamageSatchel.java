@@ -48,6 +48,7 @@ public class CrystamageSatchel extends UnplaceableBlock {
 
     public ItemUseHandler onOpen() {
         return event -> {
+            event.cancel();
             SatchelInstance satchelInstance = DataTypeMethods.getCustom(
                 event.getItem().getItemMeta(),
                 Keys.PDC_SATCHEL_STORAGE,
