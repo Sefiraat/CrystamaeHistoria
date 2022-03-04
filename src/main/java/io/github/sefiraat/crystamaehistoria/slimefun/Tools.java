@@ -560,7 +560,7 @@ public class Tools {
 
         // Apprentices Satchel
         RecipeItem apprenticesSatchelRecipe = new RecipeItem(
-            SlimefunItems.BACKPACK_SMALL,
+            new ItemStack(Material.TRAPPED_CHEST),
             StoryType.ELEMENTAL, 25,
             StoryType.HUMAN, 25,
             StoryType.PHILOSOPHICAL, 25
