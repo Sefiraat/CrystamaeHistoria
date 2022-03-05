@@ -309,13 +309,7 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
                     SatchelInstance instance;
                     CrystamageSatchel newSatchel = (CrystamageSatchel) slimefunItem;
                     SlimefunItem incomingSlimefunItem = SlimefunItem.getByItem(itemStack);
-                    if (incomingSlimefunItem instanceof SlimefunBackpack) {
-                        if (!canCraftSatchel(itemStack)) {
-                            return false;
-                        } else {
-                            instance = new SatchelInstance(System.currentTimeMillis(), newSatchel.getTier());
-                        }
-                    } else if (incomingSlimefunItem instanceof CrystamageSatchel) {
+                    if (incomingSlimefunItem instanceof CrystamageSatchel) {
                         CrystamageSatchel oldSatchel = (CrystamageSatchel) incomingSlimefunItem;
                         instance = DataTypeMethods.getCustom(
                             itemStack.getItemMeta(),
@@ -323,8 +317,9 @@ public class LiquefactionBasinCache extends DisplayStandHolder {
                             PersistentSatchelInstanceType.TYPE,
                             new SatchelInstance(System.currentTimeMillis(), oldSatchel.getTier())
                         );
+                        instance.setTier(newSatchel.getTier());
                     } else {
-                        return false;
+                        instance = new SatchelInstance(System.currentTimeMillis(), 1);
                     }
 
                     final ItemMeta itemMeta = stackToDrop.getItemMeta();
