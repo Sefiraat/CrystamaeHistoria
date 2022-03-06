@@ -1,7 +1,6 @@
 {
   "values": [
     "minecraft:spawn_egg",
-    "minecraft:agent_spawn_egg",
     "minecraft:axolotl_spawn_egg",
     "minecraft:bat_spawn_egg",
     "minecraft:bee_spawn_egg",
@@ -31,7 +30,6 @@
     "minecraft:magma_cube_spawn_egg",
     "minecraft:mooshroom_spawn_egg",
     "minecraft:mule_spawn_egg",
-    "minecraft:npc_spawn_egg",
     "minecraft:ocelot_spawn_egg",
     "minecraft:panda_spawn_egg",
     "minecraft:parrot_spawn_egg",
@@ -66,7 +64,7 @@
     "minecraft:wolf_spawn_egg",
     "minecraft:zoglin_spawn_egg",
     "minecraft:zombie_horse_spawn_egg",
-    "minecraft:zombie_pigman_spawn_egg",
+    "minecraft:zombified_piglin_spawn_egg",
     "minecraft:zombie_spawn_egg",
     "minecraft:zombie_villager_spawn_egg"
   ]
