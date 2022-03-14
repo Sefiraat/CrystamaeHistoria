@@ -19,7 +19,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.gadgets.MysteriousTic
 import io.github.sefiraat.crystamaehistoria.slimefun.items.gadgets.PhilosophersSpray;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.gadgets.TrophyDisplay;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.gadgets.Waystone;
-import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
+import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
@@ -148,7 +148,7 @@ public class Gadgets {
                 ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "5 Blocks",
                 ThemeType.CLICK_INFO.getColor() + "Force: " + ThemeType.PASSIVE.getColor() + "3 CrystaPow™"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             abstractionLampRecipe.getDisplayRecipe(),
             5,
             0.3
@@ -174,7 +174,7 @@ public class Gadgets {
                 ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "7 Blocks",
                 ThemeType.CLICK_INFO.getColor() + "Force: " + ThemeType.PASSIVE.getColor() + "5 CrystaPow™"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             dispersionLampRecipe.getDisplayRecipe(),
             7,
             0.5
@@ -200,7 +200,7 @@ public class Gadgets {
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Push Distance: " + ThemeType.PASSIVE.getColor() + "5 Blocks"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             inversionVacuumRecipe.getDisplayRecipe(),
             5
         );
@@ -225,7 +225,7 @@ public class Gadgets {
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Push Distance: " + ThemeType.PASSIVE.getColor() + "10 Blocks"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             antipodalVacuumRecipe.getDisplayRecipe(),
             10
         );
@@ -295,7 +295,7 @@ public class Gadgets {
                 ThemeType.CLICK_INFO.getColor() + "Light Level: " + ThemeType.PASSIVE.getColor() + "15",
                 ThemeType.CLICK_INFO.getColor() + "Spawns: " + ThemeType.PASSIVE.getColor() + "Advanced"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             dreadfulDirtRecipe.getDisplayRecipe(),
             10,
             15,
@@ -324,7 +324,7 @@ public class Gadgets {
                 ThemeType.CLICK_INFO.getColor() + "Damage: " + ThemeType.PASSIVE.getColor() + "1",
                 ThemeType.CLICK_INFO.getColor() + "Player Drops: " + ThemeType.PASSIVE.getColor() + "No"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             searingPlateRecipe.getDisplayRecipe(),
             1,
             false
@@ -351,7 +351,7 @@ public class Gadgets {
                 ThemeType.CLICK_INFO.getColor() + "Damage: " + ThemeType.PASSIVE.getColor() + "1",
                 ThemeType.CLICK_INFO.getColor() + "Player Drops: " + ThemeType.PASSIVE.getColor() + "Yes"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             doomedPlateRecipe.getDisplayRecipe(),
             1,
             true
@@ -378,7 +378,7 @@ public class Gadgets {
                 ThemeType.CLICK_INFO.getColor() + "Damage: " + ThemeType.PASSIVE.getColor() + "2",
                 ThemeType.CLICK_INFO.getColor() + "Player Drops: " + ThemeType.PASSIVE.getColor() + "Yes"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             evisceratingPlateRecipe.getDisplayRecipe(),
             2,
             true
@@ -403,7 +403,7 @@ public class Gadgets {
                 "effects. Right click with",
                 "a potion to assign."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             trapPlateRecipe.getDisplayRecipe()
         );
 
@@ -428,7 +428,7 @@ public class Gadgets {
                 ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "4",
                 ThemeType.CLICK_INFO.getColor() + "Capacity: " + ThemeType.PASSIVE.getColor() + "2500"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             basicExpCollectorRecipe.getDisplayRecipe(),
             2500,
             4
@@ -454,7 +454,7 @@ public class Gadgets {
                 ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "8",
                 ThemeType.CLICK_INFO.getColor() + "Capacity: " + ThemeType.PASSIVE.getColor() + "10000"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             infusedExpCollectorRecipe.getDisplayRecipe(),
             10000,
             8
@@ -531,7 +531,7 @@ public class Gadgets {
                 ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "16",
                 ThemeType.CLICK_INFO.getColor() + "Duration: " + ThemeType.PASSIVE.getColor() + "2 hour (real time)"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             dimMobCandleRecipe.getDisplayRecipe(),
             16,
             7200
@@ -558,7 +558,7 @@ public class Gadgets {
                 ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "32",
                 ThemeType.CLICK_INFO.getColor() + "Duration: " + ThemeType.PASSIVE.getColor() + "24 hours (real time)"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             brightMobCandleRecipe.getDisplayRecipe(),
             32,
             86_400
@@ -585,7 +585,7 @@ public class Gadgets {
                 ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "64",
                 ThemeType.CLICK_INFO.getColor() + "Duration: " + ThemeType.PASSIVE.getColor() + "48 Hours (real time)"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             scintillatingMobCandleRecipe.getDisplayRecipe(),
             64,
             172_800
@@ -634,7 +634,7 @@ public class Gadgets {
                 "Mysterious Plant",
                 "Removing it from that pot took work."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             mysteriousPlantRecipe.getDisplayRecipe(),
             Tag.SMALL_FLOWERS.getValues(),
             15,
@@ -663,7 +663,7 @@ public class Gadgets {
                 "Like rainbow glass but far",
                 "more random."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             mysteriousGlassRecipe.getDisplayRecipe(),
             SlimefunTag.GLASS_BLOCKS.getValues(),
             15
@@ -686,7 +686,7 @@ public class Gadgets {
                 "Like rainbow wool but far",
                 "more random."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             mysteriousWoolRecipe.getDisplayRecipe(),
             SlimefunTag.WOOL.getValues(),
             15
@@ -709,7 +709,7 @@ public class Gadgets {
                 "Like rainbow terracotta but far",
                 "more random."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             mysteriousTerracottaRecipe.getDisplayRecipe(),
             SlimefunTag.TERRACOTTA.getValues(),
             15
@@ -732,7 +732,7 @@ public class Gadgets {
                 "Like rainbow terracotta but far",
                 "more random."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             mysteriousGlazedTerracottaRecipe.getDisplayRecipe(),
             CrystaTag.GLAZED_TERRACOTTA.getValues(),
             15
@@ -755,7 +755,7 @@ public class Gadgets {
                 "Like rainbow concrete but far",
                 "more random."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             mysteriousConcreteRecipe.getDisplayRecipe(),
             CrystaTag.CONCRETE_BLOCKS.getValues(),
             15
@@ -802,7 +802,7 @@ public class Gadgets {
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Rate: " + ThemeType.PASSIVE.getColor() + "10"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             focusedGreenHouseGlassRecipe.getDisplayRecipe(),
             10
         );
@@ -827,7 +827,7 @@ public class Gadgets {
                 "Currently allowable trophies include:",
                 ThemeType.CLICK_INFO.getColor() + "A block in which you have a S.M.E. rank"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             trophyDisplayRecipe.getDisplayRecipe()
         );
 
@@ -849,7 +849,7 @@ public class Gadgets {
                 "These items require special conditions",
                 "and impart powerful effects while nearby."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             exaltationStandRecipe.getDisplayRecipe()
         );
 
@@ -877,7 +877,7 @@ public class Gadgets {
                 "Can be used as a marker to recall",
                 "back to."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             waystoneRecipe.getDisplayRecipe(),
             waystoneMaterials,
             5,

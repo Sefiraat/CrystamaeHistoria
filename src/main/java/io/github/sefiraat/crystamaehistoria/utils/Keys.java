@@ -30,9 +30,10 @@ public final class Keys {
     public static final NamespacedKey GUIDE_LIQUEFACTION = newKey("guide_liquefaction");
     public static final NamespacedKey GUIDE_REALISATION = newKey("guide_realisation");
 
-    public static final NamespacedKey REALISATION_DUMMY_CRYSTAL = newKey("r_d_c");
-    public static final NamespacedKey LIQUEFACTION_DUMMY_CRAFTING = newKey("l_d_c");
-    public static final NamespacedKey LIQUEFACTION_DUMMY_SPELL = newKey("l_d_s");
+    public static final NamespacedKey REALISATION_ALTAR_RECIPE_TYPE = newKey("r_d_c");
+    public static final NamespacedKey LIQUEFACTION_CRAFTING_RECIPE_TYPE = newKey("l_d_c");
+    public static final NamespacedKey LIQUEFACTION_SPELL_RECIPE_TYPE = newKey("l_d_s");
+    public static final NamespacedKey NETHER_DRAINING_RECIPE_TYPE = newKey("nether_draining");
 
     // PDC
     // Items

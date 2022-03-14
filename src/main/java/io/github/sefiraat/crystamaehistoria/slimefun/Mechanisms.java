@@ -2,7 +2,7 @@ package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.chroniclerpanel.ChroniclerPanel;
-import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
+import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasin;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
@@ -121,7 +121,7 @@ public class Mechanisms {
                 "",
                 "Can chronicle stories for T1-T4 blocks."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             chroniclerT3Recipe.getDisplayRecipe(),
             3
         );
@@ -146,7 +146,7 @@ public class Mechanisms {
                 "",
                 "Can chronicle stories for T1-T5 blocks."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             chroniclerT4Recipe.getDisplayRecipe(),
             4
         );
@@ -217,7 +217,7 @@ public class Mechanisms {
                 "",
                 "Can realise T1 - T4."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             realisationT3Recipe.getDisplayRecipe(),
             3
         );
@@ -242,7 +242,7 @@ public class Mechanisms {
                 "",
                 "Can realise T1 - T5."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             realisationT4Recipe.getDisplayRecipe(),
             4
         );
@@ -318,7 +318,7 @@ public class Mechanisms {
                 "",
                 "Holds up to 2500 Liquefied Crysta."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             liquefactionT3Recipe.getDisplayRecipe(),
             2500,
             Color.fromRGB(215, 200, 110)
@@ -345,7 +345,7 @@ public class Mechanisms {
                 "",
                 "Holds up to 5000 Liquefied Crysta."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             liquefactionT4Recipe.getDisplayRecipe(),
             5000,
             Color.fromRGB(240, 220, 26)
@@ -369,7 +369,7 @@ public class Mechanisms {
                 "to add spell plates into your",
                 "Staves."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             staveConfiguratorRecipe.getDisplayRecipe()
         );
 

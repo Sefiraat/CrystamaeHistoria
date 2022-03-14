@@ -2,7 +2,7 @@ package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.managers.SupportedPluginManager;
-import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
+import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.BalmySponge;
@@ -129,7 +129,7 @@ public class Tools {
                 "A blank plate that has the potential to",
                 "store magical energy"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             inertPlateRecipe.getDisplayRecipe(),
             1
         );
@@ -146,7 +146,7 @@ public class Tools {
                 "A magically charged plate storing magic",
                 "potential."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             new ItemStack[]{null, null, null, null, new ItemStack(Material.AMETHYST_CLUSTER), null, null, null, null},
             1
         );
@@ -281,7 +281,7 @@ public class Tools {
                 "from anywhere.",
                 "Vanilla Only"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             ephemeralCraftingTableRecipe.getDisplayRecipe()
         );
 
@@ -303,7 +303,7 @@ public class Tools {
                 "from anywhere.",
                 "Vanilla + Enhanced Crafting Table."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             ephemeralWorkBenchRecipe.getDisplayRecipe()
         );
 
@@ -327,7 +327,7 @@ public class Tools {
                 "",
                 ChatColor.YELLOW + "25 Uses " + ChatColor.GRAY + "left"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             luminescenceScoopRecipe.getDisplayRecipe(),
             25
         );
@@ -352,7 +352,7 @@ public class Tools {
                 "",
                 ChatColor.YELLOW + "75 Uses " + ChatColor.GRAY + "left"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             brillianceScoopRecipe.getDisplayRecipe(),
             75
         );
@@ -377,7 +377,7 @@ public class Tools {
                 "",
                 ChatColor.YELLOW + "250 Uses " + ChatColor.GRAY + "left"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             lustreScoopRecipe.getDisplayRecipe(),
             250
         );
@@ -403,7 +403,7 @@ public class Tools {
                 MessageFormat.format("{0}Right Click: {1}Display Stored Location", ThemeType.CLICK_INFO.getColor(), ThemeType.PASSIVE.getColor()),
                 MessageFormat.format("{0}Shift Right Click: {1}Store Location", ThemeType.CLICK_INFO.getColor(), ThemeType.PASSIVE.getColor())
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             connectingCompassRecipe.getDisplayRecipe()
         );
 
@@ -430,7 +430,7 @@ public class Tools {
                 "",
                 ChatColor.YELLOW + "50 Uses " + ChatColor.GRAY + "left"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             spiritualSilkenRecipe.getDisplayRecipe(),
             50
         );
@@ -455,7 +455,7 @@ public class Tools {
                 "another dimension.",
                 ChatColor.YELLOW + "50 Uses " + ChatColor.GRAY + "left"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             simpleDisplacerRecipe.getDisplayRecipe(),
             50
         );
@@ -480,7 +480,7 @@ public class Tools {
                 "another dimension.",
                 ChatColor.YELLOW + "500 Uses " + ChatColor.GRAY + "left"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             arcaneDisplacerRecipe.getDisplayRecipe(),
             500
         );
@@ -505,7 +505,7 @@ public class Tools {
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "4 Blocks"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             balmySpongeRecipe.getDisplayRecipe(),
             4
         );
@@ -530,7 +530,7 @@ public class Tools {
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "7 Blocks"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             searingSpongeRecipe.getDisplayRecipe(),
             7
         );
@@ -554,7 +554,7 @@ public class Tools {
                 "you in the wilds.",
                 "Does not set your respawn point."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             sleepingBagRecipe.getDisplayRecipe()
         );
 
@@ -577,7 +577,7 @@ public class Tools {
                 "",
                 ThemeType.WARNING.getColor() + "Rarities: " + ThemeType.PASSIVE.getColor() + "Unique only"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             apprenticesSatchelRecipe.getDisplayRecipe(),
             1
         );
@@ -601,7 +601,7 @@ public class Tools {
                 "",
                 ThemeType.WARNING.getColor() + "Rarities: " + ThemeType.PASSIVE.getColor() + "Unique -> Common"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             crystamagesSatchelRecipe.getDisplayRecipe(),
             2
         );
@@ -625,7 +625,7 @@ public class Tools {
                 "",
                 ThemeType.WARNING.getColor() + "Rarities: " + ThemeType.PASSIVE.getColor() + "Unique -> Uncommon"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             wizardsSatchelRecipe.getDisplayRecipe(),
             3
         );
@@ -649,7 +649,7 @@ public class Tools {
                 "",
                 ThemeType.WARNING.getColor() + "Rarities: " + ThemeType.PASSIVE.getColor() + "Unique -> Rare"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             conjurersSatchelRecipe.getDisplayRecipe(),
             4
         );
@@ -673,7 +673,7 @@ public class Tools {
                 "",
                 ThemeType.WARNING.getColor() + "Rarities: " + ThemeType.PASSIVE.getColor() + "Unique -> Epic"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             sorcerersSatchelRecipe.getDisplayRecipe(),
             5
         );
@@ -697,7 +697,7 @@ public class Tools {
                 "",
                 ThemeType.WARNING.getColor() + "Rarities: " + ThemeType.PASSIVE.getColor() + "Unique -> Mythical"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             grandmastersSatchelRecipe.getDisplayRecipe(),
             6
         );
@@ -785,7 +785,7 @@ public class Tools {
             cargoCover = new BlockVeil(
                 ItemGroups.TOOLS,
                 cargoCoverStack,
-                DummyLiquefactionBasinCrafting.TYPE,
+                LiquefactionBasinCraftingRecipeType.TYPE,
                 cargoCoverRecipe.getDisplayRecipe(),
                 cargoCoverStack.asQuantity(8),
                 CargoConnectorNode.class
@@ -812,7 +812,7 @@ public class Tools {
             energyNetCover = new BlockVeil(
                 ItemGroups.TOOLS,
                 energyNetCoverStack,
-                DummyLiquefactionBasinCrafting.TYPE,
+                LiquefactionBasinCraftingRecipeType.TYPE,
                 energyNetCoverRecipe.getDisplayRecipe(),
                 energyNetCoverStack.asQuantity(8),
                 EnergyConnector.class
@@ -849,7 +849,7 @@ public class Tools {
             networkNodeCover = new BlockVeil(
                 ItemGroups.TOOLS,
                 networksCoverStack,
-                DummyLiquefactionBasinCrafting.TYPE,
+                LiquefactionBasinCraftingRecipeType.TYPE,
                 networksCoverRecipe.getDisplayRecipe(),
                 networksCoverStack.asQuantity(8),
                 NetworkBridge.class,

@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.realisationaltar;
+package io.github.sefiraat.crystamaehistoria.slimefun.recipetypes;
 
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
@@ -9,7 +9,7 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 @UtilityClass
-public class DummyRealisationAltar {
+public class RealisationAltarRecipeType {
 
     public static final SlimefunItemStack STACK = ThemeType.themedSlimefunItemStack(
         "CRY_REALISATION_ALTAR_DUMMY_CRYSTAL",
@@ -21,5 +21,6 @@ public class DummyRealisationAltar {
         "Altar. Giving the Altar storied blocks will",
         "produce crystals."
     );
-    public static final RecipeType TYPE = new RecipeType(Keys.REALISATION_DUMMY_CRYSTAL, STACK);
+
+    public static final RecipeType TYPE = new RecipeType(Keys.REALISATION_ALTAR_RECIPE_TYPE, STACK);
 }

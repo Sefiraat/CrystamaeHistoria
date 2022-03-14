@@ -3,10 +3,10 @@ package io.github.sefiraat.crystamaehistoria.slimefun;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.materials.Crystal;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.materials.PowderedEssence;
-import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
+import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
-import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.realisationaltar.DummyRealisationAltar;
+import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.RealisationAltarRecipeType;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.Skulls;
@@ -84,7 +84,7 @@ public class Materials {
                     theme.getColor() + TextUtils.toTitleCase(type + " Crystal"),
                     "Magical Crystamae in it's physical form"
                 ),
-                DummyRealisationAltar.TYPE,
+                RealisationAltarRecipeType.TYPE,
                 new ItemStack[]{},
                 StoryRarity.COMMON,
                 type
@@ -111,7 +111,7 @@ public class Materials {
                         "",
                         "Provides " + Crystal.getRarityValueMap().get(rarity) + " Crysta."
                     ),
-                    DummyRealisationAltar.TYPE,
+                    RealisationAltarRecipeType.TYPE,
                     new ItemStack[]{null, null, null, null, new ItemStack(Material.AMETHYST_CLUSTER), null, null, null, null},
                     rarity,
                     type
@@ -379,7 +379,7 @@ public class Materials {
                 "Glass imbued with Crysta that has",
                 "some strange properties."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             imbuedGlassRecipe.getDisplayRecipe()
         );
 
@@ -400,7 +400,7 @@ public class Materials {
                 "The internal resonance of this pearl",
                 "has been quelled using crysta."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             uncannyPearlRecipe.getDisplayRecipe()
         );
 
@@ -440,7 +440,7 @@ public class Materials {
                 "Basic Fibres",
                 "Very basic and coarse fibres."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             basicFibresRecipe.getDisplayRecipe()
         );
 
@@ -463,7 +463,7 @@ public class Materials {
                 "",
                 ChatColor.YELLOW + "250 Uses " + ChatColor.GRAY + "left"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             powderedEssenceRecipe.getDisplayRecipe(),
             250
         );
@@ -486,7 +486,7 @@ public class Materials {
                 "",
                 ChatColor.YELLOW + "Do not waste by drinking!"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             magicalMilkRecipe.getDisplayRecipe()
         );
 

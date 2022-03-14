@@ -1,7 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
+import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.BasicPaintbrush;
@@ -944,7 +944,7 @@ public class ArtisticItems {
                 "Armorstand of the Body",
                 "Something about this stand is off."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             bodyStandRecipe.getDisplayRecipe()
         );
 
@@ -964,7 +964,7 @@ public class ArtisticItems {
                 "Armorstand of the Mind",
                 "Something about this stand is off."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             mindStandRecipe.getDisplayRecipe()
         );
 
@@ -984,7 +984,7 @@ public class ArtisticItems {
                 "Armorstand of the Soul",
                 "Something about this stand is off."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             soulStandRecipe.getDisplayRecipe()
         );
 
@@ -1024,7 +1024,7 @@ public class ArtisticItems {
                 "invisible or smaller with a pose",
                 "changer."
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             imbuedStandRecipe.getDisplayRecipe()
         );
 

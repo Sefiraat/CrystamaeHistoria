@@ -5,7 +5,7 @@ import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.player.SpellRank;
 import io.github.sefiraat.crystamaehistoria.player.StoryRank;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.materials.Trophy;
-import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
+import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
@@ -58,7 +58,7 @@ public class Uniques {
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Requires: Spell Rank > Grandmaster Magus"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             spellTrophyRecipe.getDisplayRecipe(),
             location -> ParticleUtils.displayParticleEffect(
                 location.add(0, 0.2, 0),
@@ -87,7 +87,7 @@ public class Uniques {
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Requires: Story Rank > Emeritus Professor"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             storyTrophyRecipe.getDisplayRecipe(),
             location -> ParticleUtils.displayParticleEffect(
                 location.add(0, 0.2, 0),
@@ -117,7 +117,7 @@ public class Uniques {
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Requires: Can only be crafted during the holidays"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             christmasTrophyRecipe.getDisplayRecipe(),
             location -> {
                 ParticleUtils.displayParticleEffect(
@@ -154,7 +154,7 @@ public class Uniques {
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Requires: Can only be crafted when love is in the air"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             valentinesTrophyRecipe.getDisplayRecipe(),
             location -> {
                 ParticleUtils.displayParticleEffect(

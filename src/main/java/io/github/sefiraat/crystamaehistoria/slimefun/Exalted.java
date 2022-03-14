@@ -4,7 +4,7 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.player.SpellRank;
 import io.github.sefiraat.crystamaehistoria.player.StoryRank;
-import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
+import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.exhalted.ExaltedBeacon;
@@ -71,7 +71,7 @@ public class Exalted {
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Requires: Story Rank > Emeritus Professor"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             exaltedBeaconRecipe.getDisplayRecipe()
         );
 
@@ -97,7 +97,7 @@ public class Exalted {
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Requires: Story Rank > Emeritus Professor"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             exaltedFertilityPharoRecipe.getDisplayRecipe()
         );
 
@@ -123,7 +123,7 @@ public class Exalted {
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Requires: Spell Rank > Grandmaster Magus"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             exaltedHarvesterRecipe.getDisplayRecipe()
         );
 
@@ -147,7 +147,7 @@ public class Exalted {
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Requires: Crafted during the day"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             exaltedDawnRecipe.getDisplayRecipe(),
             6000
         );
@@ -172,7 +172,7 @@ public class Exalted {
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Requires: Crafted during the night"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             exaltedDuskRecipe.getDisplayRecipe(),
             18000
         );
@@ -197,7 +197,7 @@ public class Exalted {
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Requires: Crafted during a clear day"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             exaltedSunRecipe.getDisplayRecipe(),
             WeatherType.CLEAR
         );
@@ -222,7 +222,7 @@ public class Exalted {
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Requires: Crafted during a storm"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             exaltedStormRecipe.getDisplayRecipe(),
             WeatherType.DOWNFALL
         );
@@ -248,7 +248,7 @@ public class Exalted {
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Requires: Crafted on a beach"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             exaltedSeeBreezeRecipe.getDisplayRecipe()
         );
 
