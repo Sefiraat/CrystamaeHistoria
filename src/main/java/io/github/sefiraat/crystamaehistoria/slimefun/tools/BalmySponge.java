@@ -72,7 +72,7 @@ public class BalmySponge extends SlimefunItem {
                         if (checkBlock.getType() == Material.WATER && GeneralUtils.hasPermission(player, checkBlock, Interaction.BREAK_BLOCK)) {
                             final BlockData blockData = checkBlock.getBlockData();
 
-                            if (blockData instanceof Levelled){
+                            if (blockData instanceof Levelled) {
                                 Levelled levelled = (Levelled) blockData;
                                 if (levelled.getLevel() == 0) {
                                     checkBlock.setType(Material.OBSIDIAN);
@@ -164,11 +164,11 @@ public class BalmySponge extends SlimefunItem {
         int by = spongeLocation.getBlockY();
         int bz = spongeLocation.getBlockZ();
 
-        for(int x = bx - range; x <= bx + range; x++) {
-            for(int y = by - range; y <= by + range; y++) {
-                for(int z = bz - range; z <= bz + range; z++) {
-                    final double distance = ((bx-x) * (bx-x) + ((bz-z) * (bz-z)) + ((by-y) * (by-y)));
-                    if(distance < range * range) {
+        for (int x = bx - range; x <= bx + range; x++) {
+            for (int y = by - range; y <= by + range; y++) {
+                for (int z = bz - range; z <= bz + range; z++) {
+                    final double distance = ((bx - x) * (bx - x) + ((bz - z) * (bz - z)) + ((by - y) * (by - y)));
+                    if (distance < range * range) {
                         final Location l = new Location(spongeLocation.getWorld(), x, y, z);
                         circleBlocks.add(l);
                     }

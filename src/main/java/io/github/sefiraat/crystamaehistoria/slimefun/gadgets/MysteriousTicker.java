@@ -77,7 +77,7 @@ public class MysteriousTicker extends SlimefunItem {
                 if (currentTick >= ticks) {
                     currentTick = 0;
                     block.setType(
-                            materials.toArray(new Material[]{})[ThreadLocalRandom.current().nextInt(materials.size())]
+                        materials.toArray(new Material[]{})[ThreadLocalRandom.current().nextInt(materials.size())]
                     );
                     if (MysteriousTicker.this.consumer != null) {
                         MysteriousTicker.this.consumer.accept(block);

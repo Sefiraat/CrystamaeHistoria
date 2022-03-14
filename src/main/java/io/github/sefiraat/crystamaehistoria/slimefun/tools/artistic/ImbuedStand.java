@@ -39,9 +39,9 @@ public class ImbuedStand extends SlimefunItem {
                 final Block block = optionalBlock.get();
                 final Location location = block.getRelative(e.getClickedFace()).getLocation().add(0.5, 0.5, 0.5);
                 final Entity entity = location.getWorld().spawnEntity(
-                        location,
-                        EntityType.ARMOR_STAND,
-                        CreatureSpawnEvent.SpawnReason.CUSTOM
+                    location,
+                    EntityType.ARMOR_STAND,
+                    CreatureSpawnEvent.SpawnReason.CUSTOM
                 );
 
                 PersistentDataAPI.setBoolean(entity, KEY, true);

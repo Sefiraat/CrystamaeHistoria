@@ -70,15 +70,15 @@ public class CursedEarth extends SlimefunItem {
                     final Block blockA = block.getRelative(BlockFace.UP);
                     final Block blockB = blockA.getRelative(BlockFace.UP);
                     if (blockA.getLightLevel() <= lightLevel
-                            && blockA.isEmpty()
-                            && blockB.isEmpty()
-                            && location.getWorld().getNearbyEntities(location, 0.5, 0.5, 0.5).isEmpty()
-                            && location.getWorld().getNearbyEntities(location, 4, 4, 4, LivingEntity.class::isInstance).size() < 10
+                        && blockA.isEmpty()
+                        && blockB.isEmpty()
+                        && location.getWorld().getNearbyEntities(location, 0.5, 0.5, 0.5).isEmpty()
+                        && location.getWorld().getNearbyEntities(location, 4, 4, 4, LivingEntity.class::isInstance).size() < 10
                     ) {
                         location.getWorld().spawnEntity(
-                                location,
-                                monsters.get(ThreadLocalRandom.current().nextInt(monsters.size())),
-                                true
+                            location,
+                            monsters.get(ThreadLocalRandom.current().nextInt(monsters.size())),
+                            true
                         );
                     }
                     currentTick = 0;
@@ -86,10 +86,10 @@ public class CursedEarth extends SlimefunItem {
                     currentTick++;
                 }
                 ParticleUtils.displayParticleEffect(
-                        location,
-                        1,
-                        3,
-                        dustOptions
+                    location,
+                    1,
+                    3,
+                    dustOptions
                 );
             }
         };

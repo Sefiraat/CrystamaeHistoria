@@ -55,7 +55,8 @@ public class PlutosDecent extends Spell {
                             final Block block = target.getWorld().getBlockAt(
                                 x + target.getBlockX(),
                                 y + target.getBlockY(),
-                                z + target.getBlockZ());
+                                z + target.getBlockZ()
+                            );
                             if (!blocks.contains(block)
                                 && GeneralUtils.hasPermission(player, block, Interaction.PLACE_BLOCK)
                             ) {

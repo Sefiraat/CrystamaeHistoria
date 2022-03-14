@@ -59,7 +59,8 @@ public class Cascada extends Spell {
                     final Block block = location.getWorld().getBlockAt(
                         x + location.getBlockX(),
                         y + location.getBlockY(),
-                        z + location.getBlockZ());
+                        z + location.getBlockZ()
+                    );
                     if (!blocks.contains(block) && GeneralUtils.hasPermission(caster, block, Interaction.BREAK_BLOCK)) {
                         blocks.add(block);
                     }

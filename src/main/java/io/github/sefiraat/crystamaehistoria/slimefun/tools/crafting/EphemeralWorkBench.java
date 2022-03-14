@@ -72,7 +72,6 @@ public class EphemeralWorkBench extends SlimefunItem {
     }
 
 
-
     public static boolean allowedRecipe(SlimefunItemStack i) {
         return allowedRecipe(i.getItemId());
     }

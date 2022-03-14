@@ -22,7 +22,6 @@ import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentPlateDataT
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentSatchelInstanceType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.implementation.items.backpacks.SlimefunBackpack;
 import lombok.Getter;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;

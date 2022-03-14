@@ -2,7 +2,6 @@ package io.github.sefiraat.crystamaehistoria.slimefun.tools.satchel;
 
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import scala.Int;
 
 import javax.annotation.Nonnull;
 import java.util.EnumMap;

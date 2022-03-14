@@ -56,7 +56,8 @@ public class PoisonNova extends Spell {
         if (hit.getHealth() == 1) {
             GeneralUtils.damageEntity(hit, castInformation.getCaster(), getDamage(castInformation));
         } else {
-            PotionEffect potionEffect = new PotionEffect(PotionEffectType.POISON,
+            PotionEffect potionEffect = new PotionEffect(
+                PotionEffectType.POISON,
                 castInformation.getStaveLevel() * 100,
                 castInformation.getStaveLevel()
             );
@@ -67,7 +68,8 @@ public class PoisonNova extends Spell {
 
     @ParametersAreNonnullByDefault
     public void afterProjectileHit(CastInformation castInformation) {
-        ParticleUtils.displayParticleEffect(castInformation.getMainTarget(),
+        ParticleUtils.displayParticleEffect(
+            castInformation.getMainTarget(),
             Particle.CRIMSON_SPORE,
             1.0,
             10

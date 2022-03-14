@@ -67,8 +67,8 @@ public class EnderInhibitor extends SlimefunItem {
             public void tick(Block block, SlimefunItem slimefunItem, Config config) {
                 for (Enderman enderman : block.getWorld().getNearbyEntitiesByType(Enderman.class, block.getLocation(), radius)) {
                     CrystamaeHistoria.getSpellMemory().getInhibitedEndermen().put(
-                            enderman.getUniqueId(),
-                            System.currentTimeMillis() + 2000
+                        enderman.getUniqueId(),
+                        System.currentTimeMillis() + 2000
                     );
                 }
             }

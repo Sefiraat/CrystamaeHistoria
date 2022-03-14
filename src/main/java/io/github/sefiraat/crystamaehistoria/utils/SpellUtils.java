@@ -21,7 +21,6 @@ import org.bukkit.entity.Fireball;
 import org.bukkit.entity.Mob;
 import org.bukkit.entity.Projectile;
 
-import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.UUID;

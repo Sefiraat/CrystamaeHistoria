@@ -91,18 +91,18 @@ public class RecallingCrystaLattice extends SlimefunItem {
             final SlimefunItem slimefunItem = BlockStorage.check(block);
 
             if (slimefunItem instanceof Waystone
-                    && GeneralUtils.hasPermission(event.getPlayer(), location, Interaction.PLACE_BLOCK)
+                && GeneralUtils.hasPermission(event.getPlayer(), location, Interaction.PLACE_BLOCK)
             ) {
                 event.getPlayer().teleportAsync(location.add(1, 1, 1), PlayerTeleportEvent.TeleportCause.PLUGIN);
             } else {
                 event.getPlayer().sendActionBar(
-                        Component.text("Waystone connection isn't functional")
-                                .color(TextColor.color(200, 30, 40))
+                    Component.text("Waystone connection isn't functional")
+                        .color(TextColor.color(200, 30, 40))
                 );
             }
         } else {
             event.getPlayer().sendMessage(
-                    MessageFormat.format("{0}Bind the Lattice to a Waystone using Shift + Right Click.", ChatColor.RED)
+                MessageFormat.format("{0}Bind the Lattice to a Waystone using Shift + Right Click.", ChatColor.RED)
             );
         }
     }

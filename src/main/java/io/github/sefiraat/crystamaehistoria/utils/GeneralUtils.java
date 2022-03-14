@@ -167,6 +167,7 @@ public final class GeneralUtils {
         }
         return false;
     }
+
     @ParametersAreNonnullByDefault
     public void pushEntity(Vector vector, Entity pushed) {
         pushed.setVelocity(vector);

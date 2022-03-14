@@ -37,7 +37,8 @@ public class Compass extends Spell {
         if (material != Material.AIR && material.isBlock()) {
             final Block foundBlock = tryGetBlock(player, material, (int) getRange(castInformation));
             if (foundBlock == null) {
-                ParticleUtils.displayParticleEffect(location.add(location.getDirection()),
+                ParticleUtils.displayParticleEffect(
+                    location.add(location.getDirection()),
                     Particle.VILLAGER_ANGRY,
                     1,
                     10

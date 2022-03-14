@@ -57,7 +57,8 @@ public class RainOfFire extends Spell {
     @ParametersAreNonnullByDefault
     public void projectileHits(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
-            GeneralUtils.damageEntity(livingEntity,
+            GeneralUtils.damageEntity(
+                livingEntity,
                 castInformation.getCaster(),
                 getDamage(castInformation),
                 castInformation.getDamageLocation(),

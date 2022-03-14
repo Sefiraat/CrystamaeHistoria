@@ -48,7 +48,7 @@ public class ConnectingCompass extends SlimefunItem {
 
             if (player.isSneaking()) {
                 player.sendMessage(
-                        MessageFormat.format("{0}Type a name for this location in chat.", ChatColor.LIGHT_PURPLE)
+                    MessageFormat.format("{0}Type a name for this location in chat.", ChatColor.LIGHT_PURPLE)
                 );
                 ChatUtils.awaitInput(player, s -> nameAndSet(s, itemStack, player.getEyeLocation()));
             } else {
@@ -62,11 +62,11 @@ public class ConnectingCompass extends SlimefunItem {
                 if (location.getWorld().equals(pointToLocation.getWorld())) {
                     Vector vector = getVector(location, compassMeta.getLodestone());
                     ParticleUtils.drawLine(
-                            Particle.REDSTONE,
-                            location,
-                            location.clone().add(vector.multiply(5)),
-                            0.5,
-                            new Particle.DustOptions(Color.RED, 1)
+                        Particle.REDSTONE,
+                        location,
+                        location.clone().add(vector.multiply(5)),
+                        0.5,
+                        new Particle.DustOptions(Color.RED, 1)
                     );
                 }
             }

@@ -49,7 +49,7 @@ public class Displacer extends LimitedUseItem {
         CONVERSIONS.put(Material.SAND, Material.RED_SAND);
         CONVERSIONS.put(Material.RED_SAND, Material.SOUL_SAND);
         CONVERSIONS.put(Material.SOUL_SAND, Material.SAND);
-        
+
         CONVERSIONS.put(Material.BLACK_CONCRETE, Material.WHITE_CONCRETE);
         CONVERSIONS.put(Material.WHITE_CONCRETE, Material.ORANGE_CONCRETE);
         CONVERSIONS.put(Material.ORANGE_CONCRETE, Material.MAGENTA_CONCRETE);
@@ -66,7 +66,7 @@ public class Displacer extends LimitedUseItem {
         CONVERSIONS.put(Material.BROWN_CONCRETE, Material.GREEN_CONCRETE);
         CONVERSIONS.put(Material.GREEN_CONCRETE, Material.RED_CONCRETE);
         CONVERSIONS.put(Material.RED_CONCRETE, Material.BLACK_CONCRETE);
-        
+
         CONVERSIONS.put(Material.BLACK_CONCRETE_POWDER, Material.WHITE_CONCRETE_POWDER);
         CONVERSIONS.put(Material.WHITE_CONCRETE_POWDER, Material.ORANGE_CONCRETE_POWDER);
         CONVERSIONS.put(Material.ORANGE_CONCRETE_POWDER, Material.MAGENTA_CONCRETE_POWDER);
@@ -83,7 +83,7 @@ public class Displacer extends LimitedUseItem {
         CONVERSIONS.put(Material.BROWN_CONCRETE_POWDER, Material.GREEN_CONCRETE_POWDER);
         CONVERSIONS.put(Material.GREEN_CONCRETE_POWDER, Material.RED_CONCRETE_POWDER);
         CONVERSIONS.put(Material.RED_CONCRETE_POWDER, Material.BLACK_CONCRETE_POWDER);
-        
+
         CONVERSIONS.put(Material.BLACK_WOOL, Material.WHITE_WOOL);
         CONVERSIONS.put(Material.WHITE_WOOL, Material.ORANGE_WOOL);
         CONVERSIONS.put(Material.ORANGE_WOOL, Material.MAGENTA_WOOL);
@@ -100,7 +100,7 @@ public class Displacer extends LimitedUseItem {
         CONVERSIONS.put(Material.BROWN_WOOL, Material.GREEN_WOOL);
         CONVERSIONS.put(Material.GREEN_WOOL, Material.RED_WOOL);
         CONVERSIONS.put(Material.RED_WOOL, Material.BLACK_WOOL);
-        
+
         CONVERSIONS.put(Material.BLACK_GLAZED_TERRACOTTA, Material.WHITE_GLAZED_TERRACOTTA);
         CONVERSIONS.put(Material.WHITE_GLAZED_TERRACOTTA, Material.ORANGE_GLAZED_TERRACOTTA);
         CONVERSIONS.put(Material.ORANGE_GLAZED_TERRACOTTA, Material.MAGENTA_GLAZED_TERRACOTTA);
@@ -117,7 +117,7 @@ public class Displacer extends LimitedUseItem {
         CONVERSIONS.put(Material.BROWN_GLAZED_TERRACOTTA, Material.GREEN_GLAZED_TERRACOTTA);
         CONVERSIONS.put(Material.GREEN_GLAZED_TERRACOTTA, Material.RED_GLAZED_TERRACOTTA);
         CONVERSIONS.put(Material.RED_GLAZED_TERRACOTTA, Material.BLACK_GLAZED_TERRACOTTA);
-        
+
         CONVERSIONS.put(Material.BLACK_TERRACOTTA, Material.WHITE_TERRACOTTA);
         CONVERSIONS.put(Material.WHITE_TERRACOTTA, Material.ORANGE_TERRACOTTA);
         CONVERSIONS.put(Material.ORANGE_TERRACOTTA, Material.MAGENTA_TERRACOTTA);
@@ -134,7 +134,7 @@ public class Displacer extends LimitedUseItem {
         CONVERSIONS.put(Material.BROWN_TERRACOTTA, Material.GREEN_TERRACOTTA);
         CONVERSIONS.put(Material.GREEN_TERRACOTTA, Material.RED_TERRACOTTA);
         CONVERSIONS.put(Material.RED_TERRACOTTA, Material.BLACK_TERRACOTTA);
-        
+
         CONVERSIONS.put(Material.BLACK_STAINED_GLASS, Material.WHITE_STAINED_GLASS);
         CONVERSIONS.put(Material.WHITE_STAINED_GLASS, Material.ORANGE_STAINED_GLASS);
         CONVERSIONS.put(Material.ORANGE_STAINED_GLASS, Material.MAGENTA_STAINED_GLASS);
@@ -151,7 +151,7 @@ public class Displacer extends LimitedUseItem {
         CONVERSIONS.put(Material.BROWN_STAINED_GLASS, Material.GREEN_STAINED_GLASS);
         CONVERSIONS.put(Material.GREEN_STAINED_GLASS, Material.RED_STAINED_GLASS);
         CONVERSIONS.put(Material.RED_STAINED_GLASS, Material.BLACK_STAINED_GLASS);
-        
+
         CONVERSIONS.put(Material.BLACK_STAINED_GLASS_PANE, Material.WHITE_STAINED_GLASS_PANE);
         CONVERSIONS.put(Material.WHITE_STAINED_GLASS_PANE, Material.ORANGE_STAINED_GLASS_PANE);
         CONVERSIONS.put(Material.ORANGE_STAINED_GLASS_PANE, Material.MAGENTA_STAINED_GLASS_PANE);
@@ -168,7 +168,7 @@ public class Displacer extends LimitedUseItem {
         CONVERSIONS.put(Material.BROWN_STAINED_GLASS_PANE, Material.GREEN_STAINED_GLASS_PANE);
         CONVERSIONS.put(Material.GREEN_STAINED_GLASS_PANE, Material.RED_STAINED_GLASS_PANE);
         CONVERSIONS.put(Material.RED_STAINED_GLASS_PANE, Material.BLACK_STAINED_GLASS_PANE);
-        
+
         CONVERSIONS.put(Material.BLACK_CARPET, Material.WHITE_CARPET);
         CONVERSIONS.put(Material.WHITE_CARPET, Material.ORANGE_CARPET);
         CONVERSIONS.put(Material.ORANGE_CARPET, Material.MAGENTA_CARPET);
@@ -185,37 +185,37 @@ public class Displacer extends LimitedUseItem {
         CONVERSIONS.put(Material.BROWN_CARPET, Material.GREEN_CARPET);
         CONVERSIONS.put(Material.GREEN_CARPET, Material.RED_CARPET);
         CONVERSIONS.put(Material.RED_CARPET, Material.BLACK_CARPET);
-        
+
         CONVERSIONS.put(Material.WARPED_FUNGUS, Material.CRIMSON_FUNGUS);
         CONVERSIONS.put(Material.CRIMSON_FUNGUS, Material.WARPED_FUNGUS);
         CONVERSIONS.put(Material.WARPED_STEM, Material.CRIMSON_STEM);
         CONVERSIONS.put(Material.CRIMSON_STEM, Material.WARPED_STEM);
         CONVERSIONS.put(Material.WARPED_HYPHAE, Material.CRIMSON_HYPHAE);
         CONVERSIONS.put(Material.CRIMSON_HYPHAE, Material.WARPED_HYPHAE);
-        
+
         CONVERSIONS.put(Material.ACACIA_SAPLING, Material.BIRCH_SAPLING);
         CONVERSIONS.put(Material.BIRCH_SAPLING, Material.DARK_OAK_SAPLING);
         CONVERSIONS.put(Material.DARK_OAK_SAPLING, Material.OAK_SAPLING);
         CONVERSIONS.put(Material.OAK_SAPLING, Material.JUNGLE_SAPLING);
         CONVERSIONS.put(Material.JUNGLE_SAPLING, Material.SPRUCE_SAPLING);
         CONVERSIONS.put(Material.SPRUCE_SAPLING, Material.ACACIA_SAPLING);
-        
+
         CONVERSIONS.put(Material.ACACIA_LEAVES, Material.BIRCH_LEAVES);
         CONVERSIONS.put(Material.BIRCH_LEAVES, Material.DARK_OAK_LEAVES);
         CONVERSIONS.put(Material.DARK_OAK_LEAVES, Material.OAK_LEAVES);
         CONVERSIONS.put(Material.OAK_LEAVES, Material.JUNGLE_LEAVES);
         CONVERSIONS.put(Material.JUNGLE_LEAVES, Material.SPRUCE_LEAVES);
         CONVERSIONS.put(Material.SPRUCE_LEAVES, Material.ACACIA_LEAVES);
-        
+
         CONVERSIONS.put(Material.VINE, Material.GLOW_LICHEN);
         CONVERSIONS.put(Material.GLOW_LICHEN, Material.VINE);
-        
+
         CONVERSIONS.put(Material.TUBE_CORAL, Material.BRAIN_CORAL);
         CONVERSIONS.put(Material.BRAIN_CORAL, Material.BUBBLE_CORAL);
         CONVERSIONS.put(Material.BUBBLE_CORAL, Material.FIRE_CORAL);
         CONVERSIONS.put(Material.FIRE_CORAL, Material.HORN_CORAL);
         CONVERSIONS.put(Material.HORN_CORAL, Material.TUBE_CORAL);
-        
+
         CONVERSIONS.put(Material.DEAD_TUBE_CORAL, Material.DEAD_BRAIN_CORAL);
         CONVERSIONS.put(Material.DEAD_BRAIN_CORAL, Material.DEAD_BUBBLE_CORAL);
         CONVERSIONS.put(Material.DEAD_BUBBLE_CORAL, Material.DEAD_FIRE_CORAL);
