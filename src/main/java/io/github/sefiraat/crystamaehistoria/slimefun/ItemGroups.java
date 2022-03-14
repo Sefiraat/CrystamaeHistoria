@@ -6,7 +6,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.DummyItemGroup;
 import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.MainFlexGroup;
 import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.SpellCollectionFlexGroup;
 import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.StoryCollectionFlexGroup;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.artistic.MagicPaintbrush;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.MagicPaintbrush;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;

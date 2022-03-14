@@ -1,7 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.utils.datatypes;
 
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.InstancePlate;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.SpellSlot;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.stave.SpellSlot;
 import io.github.sefiraat.crystamaehistoria.stories.Story;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import org.bukkit.persistence.PersistentDataAdapterContext;

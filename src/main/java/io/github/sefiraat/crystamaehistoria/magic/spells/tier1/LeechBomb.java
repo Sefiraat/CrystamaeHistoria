@@ -5,7 +5,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicProjectile;
 import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicSummon;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeSpell;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;

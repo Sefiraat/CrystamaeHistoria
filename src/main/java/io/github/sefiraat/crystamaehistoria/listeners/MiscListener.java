@@ -1,7 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.listeners;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.covers.BlockVeil;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.covers.BlockVeil;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;

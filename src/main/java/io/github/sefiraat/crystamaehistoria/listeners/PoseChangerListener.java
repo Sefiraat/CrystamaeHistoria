@@ -1,8 +1,8 @@
 package io.github.sefiraat.crystamaehistoria.listeners;
 
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.artistic.ImbuedStand;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.artistic.PoseChanger;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.artistic.PoseCloner;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.ImbuedStand;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.PoseChanger;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.PoseCloner;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;

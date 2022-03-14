@@ -5,7 +5,7 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.TunnelBoreRunnable;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeSpell;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import org.bukkit.Location;
 import org.bukkit.Material;

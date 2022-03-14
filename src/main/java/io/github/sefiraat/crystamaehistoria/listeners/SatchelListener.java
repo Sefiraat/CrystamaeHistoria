@@ -1,7 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.listeners;
 
-import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.satchel.CrystamageSatchel;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.materials.Crystal;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.satchel.CrystamageSatchel;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;

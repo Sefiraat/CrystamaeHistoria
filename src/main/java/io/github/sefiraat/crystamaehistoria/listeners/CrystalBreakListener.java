@@ -1,8 +1,8 @@
 package io.github.sefiraat.crystamaehistoria.listeners;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.realisationaltar.RealisationAltar;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.realisationaltar.RealisationAltarCache;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.realisationaltar.RealisationAltar;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.realisationaltar.RealisationAltarCache;
 import io.github.sefiraat.crystamaehistoria.stories.Story;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;

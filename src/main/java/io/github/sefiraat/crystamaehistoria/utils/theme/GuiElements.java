@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.utils.theme;
 
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.stave.SpellSlot;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.stave.SpellSlot;
 import io.github.sefiraat.crystamaehistoria.utils.Skulls;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;

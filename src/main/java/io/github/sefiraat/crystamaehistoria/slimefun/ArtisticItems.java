@@ -1,16 +1,16 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.artistic.BasicPaintbrush;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.artistic.ImbuedStand;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.artistic.InfinitePaintbrush;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.artistic.MagicPaintbrush;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.artistic.PaintProfile;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.artistic.PoseChanger;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.artistic.PoseCloner;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.BasicPaintbrush;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.ImbuedStand;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.InfinitePaintbrush;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.MagicPaintbrush;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.PaintProfile;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.PoseChanger;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.PoseCloner;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
