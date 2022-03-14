@@ -5,7 +5,7 @@ import com.google.gson.JsonPrimitive;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.BlockTier;
-import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
+import io.github.sefiraat.crystamaehistoria.managers.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.stories.Story;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryChances;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;

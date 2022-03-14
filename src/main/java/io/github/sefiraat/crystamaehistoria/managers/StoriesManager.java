@@ -1,6 +1,9 @@
-package io.github.sefiraat.crystamaehistoria.stories;
+package io.github.sefiraat.crystamaehistoria.managers;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
+import io.github.sefiraat.crystamaehistoria.stories.BlockTier;
+import io.github.sefiraat.crystamaehistoria.stories.Story;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryChances;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;

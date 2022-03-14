@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria.config;
+package io.github.sefiraat.crystamaehistoria.managers;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;

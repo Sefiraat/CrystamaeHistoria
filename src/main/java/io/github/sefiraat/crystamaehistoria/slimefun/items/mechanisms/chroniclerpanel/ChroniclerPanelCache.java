@@ -5,7 +5,7 @@ import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.FloatingHeadAnimation;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.AbstractCache;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
-import io.github.sefiraat.crystamaehistoria.stories.StoriesManager;
+import io.github.sefiraat.crystamaehistoria.managers.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.utils.ArmourStandUtils;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;

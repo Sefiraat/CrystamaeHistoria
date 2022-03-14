@@ -1,4 +1,4 @@
-package io.github.sefiraat.crystamaehistoria;
+package io.github.sefiraat.crystamaehistoria.managers;
 
 import com.bgsoftware.wildstacker.api.WildStackerAPI;
 import com.gmail.nossr50.util.skills.CombatUtils;
