@@ -1,7 +1,11 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.recipetypes;
 
+import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
+import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import lombok.experimental.UtilityClass;
@@ -22,7 +26,8 @@ public class NetherDrainingRecipeType {
         "Nether Draining",
         "Crysta has a hard time transferring",
         "to the Nether. If it is in it's Crystal",
-        "form, all the magic will be drained."
+        "form, all the magic will be drained.",
+        "Any Mythical Crystal will work."
     );
 
     public static final RecipeType TYPE = new RecipeType(Keys.REALISATION_ALTAR_RECIPE_TYPE, STACK);
@@ -33,12 +38,15 @@ public class NetherDrainingRecipeType {
         return DRAINING_RECIPES;
     }
 
-    public static ItemStack[] generateDrainingRecipe(@Nonnull ItemStack input, @Nonnull ItemStack output) {
-        DRAINING_RECIPES.put(input, output);
-        return new ItemStack[] {
-            null, null, null,
-            null, input, null,
-            null, null, null
-        };
+    public static ItemStack[] getDummyRecipe(@Nonnull ItemStack output) {
+        final ItemStack[] itemStacks = new ItemStack[9];
+        int i = 0;
+        for (Map.Entry<StoryType, SlimefunItem> entry : Materials.getCrystalMap().get(StoryRarity.MYTHICAL).entrySet()) {
+            final ItemStack itemStack = entry.getValue().getItem();
+            DRAINING_RECIPES.put(itemStack, output);
+            itemStacks[i] = itemStack;
+            i++;
+        }
+        return itemStacks;
     }
 }

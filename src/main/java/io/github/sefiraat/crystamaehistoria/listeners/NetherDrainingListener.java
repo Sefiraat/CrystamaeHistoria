@@ -10,7 +10,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityPortalExitEvent;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.HashMap;
 import java.util.Map;
 
 public class NetherDrainingListener implements Listener {
@@ -25,13 +24,13 @@ public class NetherDrainingListener implements Listener {
         final Item item = (Item) entity;
         final ItemStack itemStack = item.getItemStack();
 
-        for (Map.Entry<ItemStack, ItemStack> entry : NetherDrainingRecipeType.DRAINING_RECIPES.entrySet()) {
+        for (Map.Entry<ItemStack, ItemStack> entry : NetherDrainingRecipeType.getDrainingRecipes().entrySet()) {
             final ItemStack recipeStack = entry.getKey();
             if (recipeStack == null || recipeStack.getType() == Material.AIR) {
                 continue;
             }
             if (SlimefunUtils.isItemSimilar(recipeStack, itemStack, true, false)) {
-                item.setItemStack(entry.getValue().clone().asQuantity(recipeStack.getAmount()));
+                item.setItemStack(entry.getValue().clone().asQuantity(itemStack.getAmount()));
                 break;
             }
         }

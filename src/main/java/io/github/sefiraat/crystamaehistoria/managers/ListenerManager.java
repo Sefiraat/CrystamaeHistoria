@@ -10,6 +10,7 @@ import io.github.sefiraat.crystamaehistoria.listeners.EndermanInhibitorListener;
 import io.github.sefiraat.crystamaehistoria.listeners.MaintenanceListener;
 import io.github.sefiraat.crystamaehistoria.listeners.MiscListener;
 import io.github.sefiraat.crystamaehistoria.listeners.MobCandleListener;
+import io.github.sefiraat.crystamaehistoria.listeners.NetherDrainingListener;
 import io.github.sefiraat.crystamaehistoria.listeners.PhilosophersSprayListener;
 import io.github.sefiraat.crystamaehistoria.listeners.PoseChangerListener;
 import io.github.sefiraat.crystamaehistoria.listeners.RefractingLensListener;
@@ -31,6 +32,7 @@ public class ListenerManager {
         addListener(new RefractingLensListener());
         addListener(new ThaumaturgicSaltsListener());
         addListener(new CrystaDowngradeListener());
+        addListener(new NetherDrainingListener());
         addListener(new SatchelListener());
         addListener(new EndermanInhibitorListener());
         addListener(new MobCandleListener());

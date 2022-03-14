@@ -6,6 +6,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.materials.PowderedEss
 import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
+import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.NetherDrainingRecipeType;
 import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.RealisationAltarRecipeType;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
@@ -13,6 +14,7 @@ import io.github.sefiraat.crystamaehistoria.utils.Skulls;
 import io.github.sefiraat.crystamaehistoria.utils.TextUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
+import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
@@ -31,6 +33,14 @@ public class Materials {
     private static final Map<StoryType, SlimefunItem> DUMMY_CRYSTAL_MAP = new EnumMap<>(StoryType.class);
     static final Map<StoryRarity, Map<StoryType, SlimefunItem>> CRYSTAL_MAP = new EnumMap<>(StoryRarity.class);
 
+    @Getter
+    private static UnplaceableBlock blankCrystal;
+    @Getter
+    private static UnplaceableBlock polychromaticCrystal;
+    @Getter
+    private static UnplaceableBlock kaleidoscopicCrystal;
+    @Getter
+    private static UnplaceableBlock motleyCrystal;
     @Getter
     private static SlimefunItem amalgamateDustCommon;
     @Getter
@@ -121,6 +131,84 @@ public class Materials {
                 CRYSTAL_MAP.put(rarity, storyTypeSlimefunItemMap);
             }
         }
+
+        // Blank Crystal
+        SlimefunItemStack blankCrystalStack = ThemeType.themedSlimefunItemStack(
+            "CRY_CRYSTAL_BLANK",
+            Skulls.CRYSTAL_CLEAR.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "Blank Crystal",
+            "A Crystal with all of it's Crysta drained."
+        );
+        blankCrystal = new UnplaceableBlock(
+            ItemGroups.MATERIALS,
+            blankCrystalStack,
+            NetherDrainingRecipeType.TYPE,
+            NetherDrainingRecipeType.getDummyRecipe(blankCrystalStack)
+        );
+
+        // Polychromatic Crystal
+        RecipeItem polychromaticCrystalRecipe = new RecipeItem(
+            new ItemStack(Material.WHEAT),
+            StoryType.ELEMENTAL, 10,
+            StoryType.MECHANICAL, 10,
+            StoryType.ALCHEMICAL, 10
+        );
+        polychromaticCrystal = new UnplaceableBlock(
+            ItemGroups.MATERIALS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_CRYSTAL_POLYCHROMATIC",
+                Skulls.CRYSTAL_POLYCHROME.getPlayerHead(),
+                ThemeType.CRAFTING,
+                "Polychromatic Crystal",
+                "A Crystal shell with multiple crysta",
+                "types infused within."
+            ),
+            LiquefactionBasinCraftingRecipeType.TYPE,
+            polychromaticCrystalRecipe.getDisplayRecipe()
+        );
+
+        // Kaleidoscopic Crystal
+        RecipeItem kaleidoscopicCrystalRecipe = new RecipeItem(
+            new ItemStack(Material.WHEAT),
+            StoryType.HISTORICAL, 10,
+            StoryType.HUMAN, 10,
+            StoryType.ANIMAL, 10
+        );
+        kaleidoscopicCrystal = new UnplaceableBlock(
+            ItemGroups.MATERIALS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_CRYSTAL_KALEIDOSCOPIC",
+                Skulls.CRYSTAL_KALEIDOSCOPIC.getPlayerHead(),
+                ThemeType.CRAFTING,
+                "Kaleidoscopic Crystal",
+                "A Crystal shell with multiple crysta",
+                "types infused within."
+            ),
+            LiquefactionBasinCraftingRecipeType.TYPE,
+            kaleidoscopicCrystalRecipe.getDisplayRecipe()
+        );
+
+        // Motley Crystal
+        RecipeItem motleyCrystalRecipe = new RecipeItem(
+            new ItemStack(Material.WHEAT),
+            StoryType.CELESTIAL, 10,
+            StoryType.VOID, 10,
+            StoryType.PHILOSOPHICAL, 10
+        );
+        motleyCrystal = new UnplaceableBlock(
+            ItemGroups.MATERIALS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_CRYSTAL_MOTLEY",
+                Skulls.CRYSTAL_MOTLEY.getPlayerHead(),
+                ThemeType.CRAFTING,
+                "Motley Crystal",
+                "A Crystal shell with multiple crysta",
+                "types infused within."
+            ),
+            LiquefactionBasinCraftingRecipeType.TYPE,
+            motleyCrystalRecipe.getDisplayRecipe()
+        );
 
         // Amalgamate Dust Common
         amalgamateDustCommon = new SlimefunItem(
@@ -491,6 +579,10 @@ public class Materials {
         );
 
         // Slimefun Registry
+        blankCrystal.register(plugin);
+        polychromaticCrystal.register(plugin);
+        kaleidoscopicCrystal.register(plugin);
+        motleyCrystal.register(plugin);
         amalgamateDustCommon.register(plugin);
         amalgamateDustUncommon.register(plugin);
         amalgamateDustRare.register(plugin);
@@ -511,6 +603,10 @@ public class Materials {
         magicalMilk.register(plugin);
 
         // Liquefaction Recipes
+        LiquefactionBasinCache.addCraftingRecipe(polychromaticCrystal, polychromaticCrystalRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(kaleidoscopicCrystal, kaleidoscopicCrystalRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(motleyCrystal, motleyCrystalRecipe);
+
         LiquefactionBasinCache.addCraftingRecipe(imbuedGlass, imbuedGlassRecipe);
         LiquefactionBasinCache.addCraftingRecipe(uncannyPearl, uncannyPearlRecipe);
         LiquefactionBasinCache.addCraftingRecipe(basicFibres, basicFibresRecipe);
