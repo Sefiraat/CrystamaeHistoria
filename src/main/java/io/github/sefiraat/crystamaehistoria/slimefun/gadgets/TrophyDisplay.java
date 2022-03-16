@@ -122,9 +122,12 @@ public class TrophyDisplay extends Stand {
 
     @Override
     public void afterTick(@Nonnull Item item, @Nonnull Block block, @Nonnull SlimefunItem slimefunItem, @Nonnull Config config) {
-        if (locationConsumer != null) {
-            final Location itemLocation = item.getLocation();
-            locationConsumer.accept(itemLocation);
+        final SlimefunItem trophyItem = SlimefunItem.getByItem(item.getItemStack());
+        if (trophyItem instanceof Trophy) {
+            final Trophy trophy = (Trophy) trophyItem;
+            if (trophy.getDisplayConsumer() != null) {
+                trophy.getDisplayConsumer().accept(item.getLocation());
+            }
         }
     }
 
