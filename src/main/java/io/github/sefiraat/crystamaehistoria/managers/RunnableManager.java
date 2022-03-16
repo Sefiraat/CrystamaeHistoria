@@ -1,6 +1,8 @@
-package io.github.sefiraat.crystamaehistoria.runnables;
+package io.github.sefiraat.crystamaehistoria.managers;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.runnables.SaveConfigRunnable;
+import io.github.sefiraat.crystamaehistoria.runnables.TemporaryEffectsRunnable;
 import lombok.Getter;
 
 public class RunnableManager {

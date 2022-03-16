@@ -2,6 +2,7 @@ package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.managers.SupportedPluginManager;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.DisplacedVoid;
 import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
@@ -91,6 +92,8 @@ public class Tools {
     private static BalmySponge searingSponge;
     @Getter
     private static SleepingBag sleepingBag;
+    @Getter
+    private static DisplacedVoid displacedVoid;
     @Getter
     private static CrystamageSatchel apprenticesSatchel;
     @Getter
@@ -558,6 +561,27 @@ public class Tools {
             sleepingBagRecipe.getDisplayRecipe()
         );
 
+        // Sleeping Bag
+        displacedVoid = new DisplacedVoid(
+            ItemGroups.TOOLS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_DISPLACED_VOID",
+                new ItemStack(Material.COCOA_BEANS),
+                ThemeType.TOOL,
+                "Displaced Void",
+                "A Shattered Void displaced into a",
+                "pocket sized and portable form.",
+                "",
+                ThemeType.CLICK_INFO.getColor() + "Hold Shift to pick up nearby Items"
+            ),
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[] {
+                null, arcaneDisplacer.getItem(), null,
+                null, Gadgets.getShatteredVoid().getItem(), null,
+                null, null, null
+            }
+        );
+
         // Apprentices Satchel
         RecipeItem apprenticesSatchelRecipe = new RecipeItem(
             new ItemStack(Material.TRAPPED_CHEST),
@@ -722,6 +746,7 @@ public class Tools {
         balmySponge.register(plugin);
         searingSponge.register(plugin);
         sleepingBag.register(plugin);
+        displacedVoid.register(plugin);
         apprenticesSatchel.register(plugin);
         crystamagesSatchel.register(plugin);
         wizardsSatchel.register(plugin);

@@ -17,7 +17,7 @@ import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicProje
 import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicSummon;
 import io.github.sefiraat.crystamaehistoria.managers.SupportedPluginManager;
 import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
-import io.github.sefiraat.crystamaehistoria.runnables.RunnableManager;
+import io.github.sefiraat.crystamaehistoria.managers.RunnableManager;
 import io.github.sefiraat.crystamaehistoria.slimefun.ArtisticItems;
 import io.github.sefiraat.crystamaehistoria.slimefun.Exalted;
 import io.github.sefiraat.crystamaehistoria.slimefun.Gadgets;

@@ -42,6 +42,8 @@ public class Materials {
     @Getter
     private static UnplaceableBlock motleyCrystal;
     @Getter
+    private static UnplaceableBlock prismaticCrystal;
+    @Getter
     private static SlimefunItem amalgamateDustCommon;
     @Getter
     private static SlimefunItem amalgamateIngotCommon;
@@ -149,7 +151,7 @@ public class Materials {
 
         // Polychromatic Crystal
         RecipeItem polychromaticCrystalRecipe = new RecipeItem(
-            new ItemStack(Material.WHEAT),
+            blankCrystal.getItem(),
             StoryType.ELEMENTAL, 10,
             StoryType.MECHANICAL, 10,
             StoryType.ALCHEMICAL, 10
@@ -170,7 +172,7 @@ public class Materials {
 
         // Kaleidoscopic Crystal
         RecipeItem kaleidoscopicCrystalRecipe = new RecipeItem(
-            new ItemStack(Material.WHEAT),
+            blankCrystal.getItem(),
             StoryType.HISTORICAL, 10,
             StoryType.HUMAN, 10,
             StoryType.ANIMAL, 10
@@ -191,7 +193,7 @@ public class Materials {
 
         // Motley Crystal
         RecipeItem motleyCrystalRecipe = new RecipeItem(
-            new ItemStack(Material.WHEAT),
+            blankCrystal.getItem(),
             StoryType.CELESTIAL, 10,
             StoryType.VOID, 10,
             StoryType.PHILOSOPHICAL, 10
@@ -208,6 +210,25 @@ public class Materials {
             ),
             LiquefactionBasinCraftingRecipeType.TYPE,
             motleyCrystalRecipe.getDisplayRecipe()
+        );
+
+        // Motley Crystal
+        prismaticCrystal = new UnplaceableBlock(
+            ItemGroups.MATERIALS,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_CRYSTAL_PRISMATIC",
+                Skulls.CRYSTAL_MOTLEY.getPlayerHead(),
+                ThemeType.CRAFTING,
+                "Prismatic Crystal",
+                "This crystal has so much magic it's",
+                "near to bursting."
+            ),
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[] {
+                polychromaticCrystal.getItem(), kaleidoscopicCrystal.getItem(), motleyCrystal.getItem(),
+                null, null, null,
+                null, null, null
+            }
         );
 
         // Amalgamate Dust Common
