@@ -199,7 +199,7 @@ public class Uniques {
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Requires: Cheesy's Birthday!"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             birthdayTrophyCheesyRecipe.getDisplayRecipe(),
             location -> {
                 final Location spawnLocation = location.add(0, 0.2, 0);
@@ -235,7 +235,7 @@ public class Uniques {
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Requires: BWhite's Birthday!"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             birthdayTrophyBWhiteRecipe.getDisplayRecipe(),
             location -> {
                 final Location spawnLocation = location.add(0, 0.2, 0);
@@ -271,7 +271,7 @@ public class Uniques {
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Requires: Decoy's Birthday!"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             birthdayTrophyDecoyRecipe.getDisplayRecipe(),
             location -> {
                 final Location spawnLocation = location.add(0, 0.2, 0);
@@ -307,7 +307,7 @@ public class Uniques {
                 "",
                 ThemeType.CLICK_INFO.getColor() + "Requires: Oddish's Birthday!"
             ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             birthdayTrophyOddishRecipe.getDisplayRecipe(),
             location -> {
                 final Location spawnLocation = location.add(0, 0.2, 0);
