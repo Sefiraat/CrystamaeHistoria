@@ -2,12 +2,11 @@ package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.managers.SupportedPluginManager;
-import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.DisplacedVoid;
-import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.BalmySponge;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.ConnectingCompass;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.DisplacedVoid;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.Displacer;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.LuminescenceScoop;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.RecallingCrystaLattice;
@@ -22,28 +21,20 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.plates.BlankPla
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.plates.ChargedPlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.satchel.CrystamageSatchel;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.stave.Stave;
-import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
+import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
-import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.sefiraat.networks.slimefun.NetworksSlimefunItemStacks;
 import io.github.sefiraat.networks.slimefun.network.NetworkBridge;
 import io.github.sefiraat.networks.slimefun.network.NetworkMonitor;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.implementation.items.cargo.CargoConnectorNode;
 import io.github.thebusybiscuit.slimefun4.implementation.items.electric.EnergyConnector;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import lombok.Getter;
 import lombok.experimental.UtilityClass;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
-
-import java.text.MessageFormat;
 
 @UtilityClass
 public class Tools {
@@ -109,8 +100,6 @@ public class Tools {
 
     public static void setup() {
         final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
-
-        final ItemStack elementalUniqueCrystal = Materials.CRYSTAL_MAP.get(StoryRarity.UNIQUE).get(StoryType.ELEMENTAL).getItem();
 
         // Inert Plate
         RecipeItem inertPlateRecipe = new RecipeItem(
@@ -379,7 +368,7 @@ public class Tools {
             ItemGroups.TOOLS,
             CrystaStacks.DISPLACED_VOID,
             RecipeType.MAGIC_WORKBENCH,
-            new ItemStack[] {
+            new ItemStack[]{
                 null, CrystaStacks.ARCANE_DISPLACER, null,
                 null, CrystaStacks.SHATTERED_VOID, null,
                 null, null, null

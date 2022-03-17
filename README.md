@@ -8,7 +8,9 @@ magical spells and a progression system for crafting and unlocking new spells.
 Any major event or experience leaves its mark on the surrounding area. Historia allows you to harness this by drawing
 out the raw essence of these experiences from blocks.
 
-Boomer_1 has made two awesome videos that take you through the basics of Crystamae going from the first mechanisms to casting your first spell in Part 1 to the various Gadgets and Tools Crystamae has to offer in Part 2. I'd encourange everyone to watch these both and enjoy!
+Boomer_1 has made two awesome videos that take you through the basics of Crystamae going from the first mechanisms to
+casting your first spell in Part 1 to the various Gadgets and Tools Crystamae has to offer in Part 2. I'd encourange
+everyone to watch these both and enjoy!
 
 ## Download Crystamae Historia
 
@@ -72,7 +74,7 @@ customise your load-out whenever.
 
 ## Spells
 
-The end result of all your hard work? Spells! 
+The end result of all your hard work? Spells!
 
 <p align="center"><img width="900" src="https://github.com/Sefiraat/CrystamaeHistoria/blob/master/images/wiki/wiki_spell_chaos.gif?raw=true"></p>
 
@@ -86,6 +88,8 @@ The end result of all your hard work? Spells!
 
 As usual, a big thanks to those who tested Crystamae to get it to the nice state it is in.
 
-A big thanks to the owners of **mct.tantrum.org** who have tested nearly everything I have made and really given me direction and drive to make these things.
+A big thanks to the owners of **mct.tantrum.org** who have tested nearly everything I have made and really given me
+direction and drive to make these things.
 
-Another big shoutout to **GentlemanCheesy** of **mc.talosmp.net** for being my first (and as of writing this, only!) sponsor. A few coffee's a month to make me feel better about making these addons <3
+Another big shoutout to **GentlemanCheesy** of **mc.talosmp.net** for being my first (and as of writing this, only!)
+sponsor. A few coffee's a month to make me feel better about making these addons <3

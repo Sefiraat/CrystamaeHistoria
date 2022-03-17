@@ -1,18 +1,17 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
-import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
-import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.BasicPaintbrush;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.ImbuedStand;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.InfinitePaintbrush;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.PaintProfile;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.PoseChanger;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.PoseCloner;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
+import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import lombok.Getter;

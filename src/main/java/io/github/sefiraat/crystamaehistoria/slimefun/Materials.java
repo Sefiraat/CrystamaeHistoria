@@ -3,9 +3,9 @@ package io.github.sefiraat.crystamaehistoria.slimefun;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.materials.Crystal;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.materials.PowderedEssence;
-import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
+import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
 import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.NetherDrainingRecipeType;
 import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.RealisationAltarRecipeType;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
@@ -190,7 +190,7 @@ public class Materials {
             ItemGroups.MATERIALS,
             CrystaStacks.CRYSTAL_PRISMATIC,
             RecipeType.MAGIC_WORKBENCH,
-            new ItemStack[] {
+            new ItemStack[]{
                 null, null, null,
                 CrystaStacks.CRYSTAL_POLYCHROMATIC, CrystaStacks.CRYSTAL_KALEIDOSCOPIC, CrystaStacks.CRYSTAL_MOTLEY,
                 null, null, null
