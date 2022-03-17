@@ -454,6 +454,7 @@ public class Materials {
         polychromaticCrystal.register(plugin);
         kaleidoscopicCrystal.register(plugin);
         motleyCrystal.register(plugin);
+        prismaticCrystal.register(plugin);
         amalgamateDustCommon.register(plugin);
         amalgamateDustUncommon.register(plugin);
         amalgamateDustRare.register(plugin);

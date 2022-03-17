@@ -27,6 +27,8 @@ public class NetherDrainingRecipeType {
         "Crysta has a hard time transferring",
         "to the Nether. If it is in it's Crystal",
         "form, all the magic will be drained.",
+        "Throw a Mythical Crystal into a nether",
+        "portal to drain it.",
         "Any Mythical Crystal will work."
     );
 

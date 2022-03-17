@@ -147,6 +147,7 @@ public class CrystaStacks {
     public static final SlimefunItemStack LIQUEFACTION_BASIN_3;
     public static final SlimefunItemStack LIQUEFACTION_BASIN_4;
     public static final SlimefunItemStack STAVE_CONFIGURATOR;
+    public static final SlimefunItemStack PRISMATIC_GILDER;
 
     // Tools
     public static final SlimefunItemStack INERT_PLATE;
@@ -278,10 +279,10 @@ public class CrystaStacks {
         );
 
         AMALGAMATE_DUST_UNIQUE = ThemeType.themedSlimefunItemStack(
-            "CRY_AMALGAMATE_DUST_MYTHICAL",
+            "CRY_AMALGAMATE_DUST_UNIQUE",
             new ItemStack(Material.GLOWSTONE_DUST),
             ThemeType.CRAFTING,
-            "Amalgamate Dust (Mythical)",
+            "Amalgamate Dust (Unique)",
             "A dust combining all magic types."
         );
 
@@ -1448,6 +1449,16 @@ public class CrystaStacks {
             "The Stave Configurator allows you",
             "to add spell plates into your",
             "Staves."
+        );
+
+        PRISMATIC_GILDER = ThemeType.themedSlimefunItemStack(
+            "CRY_PRISMATIC_GILDER",
+            new ItemStack(Material.WARPED_FENCE),
+            ThemeType.MECHANISM,
+            "Prismatic Gilder",
+            "Converts Prismatic Crysta into a",
+            "Thin film that can overlay other",
+            "magical items."
         );
 
         // Tools

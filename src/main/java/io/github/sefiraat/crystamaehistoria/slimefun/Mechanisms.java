@@ -5,6 +5,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.chronicler
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasin;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.prismaticgilder.PrismaticGilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.realisationaltar.RealisationAltar;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.staveconfigurator.StaveConfigurator;
 import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
@@ -46,6 +47,8 @@ public class Mechanisms {
     private static LiquefactionBasin liquefactionBasin4;
     @Getter
     private static StaveConfigurator staveConfigurator;
+    @Getter
+    private static PrismaticGilder prismaticGilder;
 
     public static void setup() {
 
@@ -237,6 +240,20 @@ public class Mechanisms {
             staveConfiguratorRecipe.getDisplayRecipe()
         );
 
+        // Prismatic Gilder
+        RecipeItem prismaticGilderRecipe = new RecipeItem(
+            CrystaStacks.LIQUEFACTION_BASIN_3,
+            StoryType.MECHANICAL, 200,
+            StoryType.VOID, 200,
+            StoryType.CELESTIAL, 200
+        );
+        prismaticGilder = new PrismaticGilder(
+            ItemGroups.MECHANISMS,
+            CrystaStacks.PRISMATIC_GILDER,
+            LiquefactionBasinCraftingRecipeType.TYPE,
+            prismaticGilderRecipe.getDisplayRecipe()
+        );
+
         // Slimefun Registry
         chroniclerPanel1.register(plugin);
         chroniclerPanel2.register(plugin);
@@ -251,6 +268,7 @@ public class Mechanisms {
         liquefactionBasin3.register(plugin);
         liquefactionBasin4.register(plugin);
         staveConfigurator.register(plugin);
+        prismaticGilder.register(plugin);
 
         // Liquefaction Recipes
         LiquefactionBasinCache.addCraftingRecipe(chroniclerPanel3, chroniclerT3Recipe);
@@ -263,5 +281,7 @@ public class Mechanisms {
         LiquefactionBasinCache.addCraftingRecipe(liquefactionBasin4, liquefactionT4Recipe);
 
         LiquefactionBasinCache.addCraftingRecipe(staveConfigurator, staveConfiguratorRecipe);
+
+        LiquefactionBasinCache.addCraftingRecipe(prismaticGilder, prismaticGilderRecipe);
     }
 }

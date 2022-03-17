@@ -61,14 +61,19 @@ public class PrismaticGilderCache extends AbstractCache {
         );
 
         for (Entity entity : entitiesToPull) {
-            GeneralUtils.pullEntity(location, entity, 0.2);
+            final Item item = (Item) entity;
+            final SlimefunItem slimefunItem = SlimefunItem.getByItem(item.getItemStack());
+
+            if (slimefunItem != null && slimefunItem.equals(Materials.getPrismaticCrystal())) {
+                GeneralUtils.pullEntity(location, entity, 0.5);
+            }
         }
 
         final Collection<Entity> entities = location.getWorld().getNearbyEntities(
             location.clone().add(0.5, 0.5, 0.5),
-            0.5,
-            0.5,
-            0.5,
+            0.75,
+            0.75,
+            0.75,
             Item.class::isInstance
         );
 
@@ -84,8 +89,8 @@ public class PrismaticGilderCache extends AbstractCache {
     }
 
     @ParametersAreNonnullByDefault
-    public void gildItem(Player player, Block block, ItemStack heldItem) {
-        final Location location = block.getLocation().clone().add(0.5, 1.2, 0.5);
+    public void gildItem(Block block, ItemStack heldItem) {
+        final Location location = block.getLocation().clone().add(0.5, 1.5, 0.5);
 
         if (heldItem.getType() != Material.AIR
             && StoryUtils.isStoried(heldItem)
@@ -106,13 +111,13 @@ public class PrismaticGilderCache extends AbstractCache {
                     "",
                     item -> {
                         Particle.DustOptions dustOptions = new Particle.DustOptions(Color.YELLOW, 1);
-                        ParticleUtils.displayParticleEffect(item, 1, 20, dustOptions);
+                        ParticleUtils.displayParticleEffect(item, 1.5, 20, dustOptions);
                         location.getWorld().dropItem(location, gildedStack);
                     }
                 );
                 displayItem.registerRemoval(2000);
             } else {
-                ParticleUtils.displayParticleEffect(location, Particle.SMOKE_NORMAL, 1, 4);
+                ParticleUtils.displayParticleEffect(location, Particle.CRIT_MAGIC, 1, 3);
             }
         }
     }
@@ -134,6 +139,7 @@ public class PrismaticGilderCache extends AbstractCache {
             this.fillAmount = Math.min(maxVolume, this.fillAmount + totalAmount);
             item.remove();
         }
+        ParticleUtils.displayParticleEffect(this.blockMenu.getLocation(), Particle.FLASH, 1, 5);
     }
 
     public void syncBlock() {

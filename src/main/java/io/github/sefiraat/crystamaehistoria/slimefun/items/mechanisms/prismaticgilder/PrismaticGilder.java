@@ -11,6 +11,7 @@ import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenu;
 import me.mrCookieSlime.Slimefun.api.inventory.BlockMenuPreset;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.event.block.BlockBreakEvent;
@@ -24,6 +25,9 @@ import java.util.Map;
 
 public class PrismaticGilder extends TickingMenuBlock {
 
+    protected static final int[] BACKGROUND_SLOTS = {
+        0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 15, 16, 17, 18, 19, 20, 24, 25, 26, 27, 28, 29, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44
+    };
     @Getter
     protected final Map<Location, PrismaticGilderCache> cacheMap = new HashMap<>();
 
@@ -55,7 +59,16 @@ public class PrismaticGilder extends TickingMenuBlock {
 
     private BlockUseHandler onBlockUse() {
         return e -> {
+            final Block block = e.getClickedBlock().orElse(null);
+            if (block == null) {
+                return;
+            }
 
+            final PrismaticGilderCache cache = PrismaticGilder.this.cacheMap.get(block.getLocation());
+            final ItemStack heldItem = e.getPlayer().getInventory().getItemInMainHand();
+            if (cache != null && heldItem.getType() != Material.AIR) {
+                cache.gildItem(block, heldItem);
+            }
         };
     }
 
@@ -73,6 +86,7 @@ public class PrismaticGilder extends TickingMenuBlock {
     @ParametersAreNonnullByDefault
     protected void setup(BlockMenuPreset blockMenuPreset) {
         blockMenuPreset.addMenuOpeningHandler(HumanEntity::closeInventory);
+        blockMenuPreset.drawBackground(BACKGROUND_SLOTS);
     }
 
     @Override

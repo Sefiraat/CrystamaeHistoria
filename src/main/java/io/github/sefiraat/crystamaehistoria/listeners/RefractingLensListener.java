@@ -9,6 +9,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.RefactingLens;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
+import io.github.sefiraat.crystamaehistoria.utils.Skulls;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
@@ -112,10 +113,10 @@ public class RefractingLensListener implements Listener {
         final PrismaticGilder gilder = (PrismaticGilder) blockItem;
         final Location location = clickedBlock.getLocation();
         final int volume = gilder.getCacheMap().get(location).getFillAmount();
-        final ItemStack itemStack = Materials.getPrismaticCrystal().getItem().clone();
+        final ItemStack itemStack = Skulls.CRYSTAL_PRISMATIC.getPlayerHead();
         final DisplayItem displayItem = new DisplayItem(
             itemStack,
-            location.clone().add(0.5, 1, 0.5),
+            location.clone().add(0.5, 1.5, 0.5),
             ChatColor.LIGHT_PURPLE + String.valueOf(volume),
             item -> {
                 Particle.DustOptions dustOptions = new Particle.DustOptions(Color.PURPLE, 1);
