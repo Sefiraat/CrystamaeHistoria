@@ -47,12 +47,9 @@ public class Exalted {
 
         final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
 
-        final ItemStack amalgamateIngotMythical = Materials.getAmalgamateIngotMythical().getItem();
-        final ItemStack amalgamateDustMythical = Materials.getAmalgamateDustMythical().getItem();
-
         // Exaltation Beacon
         RecipeItem exaltedBeaconRecipe = new RecipeItem(
-            amalgamateIngotMythical,
+            CrystaStacks.AMALGAMATE_INGOT_MYTHICAL,
             StoryType.ELEMENTAL, 500,
             StoryType.HUMAN, 500,
             StoryType.PHILOSOPHICAL, 500,
@@ -60,24 +57,14 @@ public class Exalted {
         );
         exaltedBeacon = new ExaltedBeacon(
             ItemGroups.EXALTED,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_EXALTED_BEACON",
-                new ItemStack(Material.BEACON),
-                ThemeType.EXALTED,
-                "Exalted Beacon",
-                "A powerful beacon with incredible",
-                "potential. Must be placed on a",
-                "Exaltation Stand to operate.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Story Rank > Emeritus Professor"
-            ),
+            CrystaStacks.EXALTED_BEACON,
             LiquefactionBasinCraftingRecipeType.TYPE,
             exaltedBeaconRecipe.getDisplayRecipe()
         );
 
         // Fertility Pharo
         RecipeItem exaltedFertilityPharoRecipe = new RecipeItem(
-            amalgamateIngotMythical,
+            CrystaStacks.AMALGAMATE_INGOT_MYTHICAL,
             StoryType.ELEMENTAL, 500,
             StoryType.ANIMAL, 500,
             StoryType.CELESTIAL, 500,
@@ -85,25 +72,14 @@ public class Exalted {
         );
         exaltedFertilityPharo = new ExaltedFertilityPharo(
             ItemGroups.EXALTED,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_EXALTED_FERTILITY_PHARO",
-                new ItemStack(Material.DIAMOND_BLOCK),
-                ThemeType.EXALTED,
-                "Exalted Fertility Pharo",
-                "A magical construct able to",
-                "breed nearby animals in a 20x20 area.",
-                "Must be placed on an Exaltation",
-                "Stand to operate.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Story Rank > Emeritus Professor"
-            ),
+            CrystaStacks.FERTILITY_PHARO,
             LiquefactionBasinCraftingRecipeType.TYPE,
             exaltedFertilityPharoRecipe.getDisplayRecipe()
         );
 
         // Exalted Harvester
         RecipeItem exaltedHarvesterRecipe = new RecipeItem(
-            amalgamateIngotMythical,
+            CrystaStacks.AMALGAMATE_INGOT_MYTHICAL,
             StoryType.ELEMENTAL, 500,
             StoryType.HISTORICAL, 500,
             StoryType.VOID, 500,
@@ -111,25 +87,14 @@ public class Exalted {
         );
         exaltedHarvester = new ExaltedHarvester(
             ItemGroups.EXALTED,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_EXALTED_HARVESTER",
-                new ItemStack(Material.HAY_BLOCK),
-                ThemeType.EXALTED,
-                "Exalted Harvester",
-                "A magical construct able to",
-                "harvest all crops in a 9x9 area.",
-                "Must be placed on an Exaltation",
-                "Stand to operate.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Spell Rank > Grandmaster Magus"
-            ),
+            CrystaStacks.EXALTED_HARVESTER,
             LiquefactionBasinCraftingRecipeType.TYPE,
             exaltedHarvesterRecipe.getDisplayRecipe()
         );
 
         // Exalted Dawn
         RecipeItem exaltedDawnRecipe = new RecipeItem(
-            amalgamateDustMythical,
+            CrystaStacks.AMALGAMATE_DUST_MYTHICAL,
             StoryType.ELEMENTAL, 250,
             StoryType.HISTORICAL, 250,
             StoryType.CELESTIAL, 250,
@@ -137,16 +102,7 @@ public class Exalted {
         );
         exaltedDawn = new ExaltedTime(
             ItemGroups.EXALTED,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_EXALTED_DAWN",
-                new ItemStack(Material.YELLOW_WOOL),
-                ThemeType.EXALTED,
-                "Exalted Dawn",
-                "A magical construct that burns",
-                "brightly like the sun.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Crafted during the day"
-            ),
+            CrystaStacks.EXALTED_DAWN,
             LiquefactionBasinCraftingRecipeType.TYPE,
             exaltedDawnRecipe.getDisplayRecipe(),
             6000
@@ -154,7 +110,7 @@ public class Exalted {
 
         // Exalted Dusk
         RecipeItem exaltedDuskRecipe = new RecipeItem(
-            amalgamateDustMythical,
+            CrystaStacks.AMALGAMATE_DUST_MYTHICAL,
             StoryType.ELEMENTAL, 250,
             StoryType.HISTORICAL, 250,
             StoryType.VOID, 250,
@@ -162,16 +118,7 @@ public class Exalted {
         );
         exaltedDusk = new ExaltedTime(
             ItemGroups.EXALTED,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_EXALTED_DUSK",
-                new ItemStack(Material.BLACK_WOOL),
-                ThemeType.EXALTED,
-                "Exalted Dusk",
-                "A magical construct shines",
-                "as vivid as the new moon",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Crafted during the night"
-            ),
+            CrystaStacks.EXALTED_DUSK,
             LiquefactionBasinCraftingRecipeType.TYPE,
             exaltedDuskRecipe.getDisplayRecipe(),
             18000
@@ -179,7 +126,7 @@ public class Exalted {
 
         // Exalted Sun
         RecipeItem exaltedSunRecipe = new RecipeItem(
-            amalgamateDustMythical,
+            CrystaStacks.AMALGAMATE_DUST_MYTHICAL,
             StoryType.ELEMENTAL, 250,
             StoryType.ALCHEMICAL, 250,
             StoryType.CELESTIAL, 250,
@@ -187,16 +134,7 @@ public class Exalted {
         );
         exaltedSun = new ExaltedWeather(
             ItemGroups.EXALTED,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_EXALTED_SUN",
-                new ItemStack(Material.MAGMA_BLOCK),
-                ThemeType.EXALTED,
-                "Exalted Sun",
-                "A magical construct emanating",
-                "the power of a sun.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Crafted during a clear day"
-            ),
+            CrystaStacks.EXALTED_SUN,
             LiquefactionBasinCraftingRecipeType.TYPE,
             exaltedSunRecipe.getDisplayRecipe(),
             WeatherType.CLEAR
@@ -204,7 +142,7 @@ public class Exalted {
 
         // Exalted Storm
         RecipeItem exaltedStormRecipe = new RecipeItem(
-            amalgamateDustMythical,
+            CrystaStacks.AMALGAMATE_DUST_MYTHICAL,
             StoryType.ELEMENTAL, 250,
             StoryType.ALCHEMICAL, 250,
             StoryType.VOID, 250,
@@ -212,16 +150,7 @@ public class Exalted {
         );
         exaltedStorm = new ExaltedWeather(
             ItemGroups.EXALTED,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_EXALTED_STORM",
-                new ItemStack(Material.GRAY_WOOL),
-                ThemeType.EXALTED,
-                "Exalted Storm",
-                "A magical construct emanating",
-                "the destruction of a storm.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Crafted during a storm"
-            ),
+            CrystaStacks.EXALTED_STORM,
             LiquefactionBasinCraftingRecipeType.TYPE,
             exaltedStormRecipe.getDisplayRecipe(),
             WeatherType.DOWNFALL
@@ -237,17 +166,7 @@ public class Exalted {
         );
         exaltedSeaBreeze = new ExaltedSeaBreeze(
             ItemGroups.EXALTED,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_SEA_BREEZE",
-                new ItemStack(Material.TUBE_CORAL_BLOCK),
-                ThemeType.EXALTED,
-                "Exalted Sea Breeze",
-                "A magical construct that brings",
-                "the sea air to nearby blocks, weathering",
-                "and oxidizing them.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Crafted on a beach"
-            ),
+            CrystaStacks.EXALTED_SEA_BREEZE,
             LiquefactionBasinCraftingRecipeType.TYPE,
             exaltedSeeBreezeRecipe.getDisplayRecipe()
         );

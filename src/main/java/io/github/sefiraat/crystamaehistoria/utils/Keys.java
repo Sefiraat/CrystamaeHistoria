@@ -46,6 +46,7 @@ public final class Keys {
     public static final NamespacedKey PDC_SATCHEL_STORAGE = newKey("satchel");
     public static final NamespacedKey PDC_ON_COOLDOWN = newKey("cooldown");
     public static final NamespacedKey PDC_PAINT_TYPE = newKey("paint_type");
+    public static final NamespacedKey PDC_IS_GILDED = newKey("gilded");
 
     // Type - Story
     public static final NamespacedKey STORY_ID = newKey("s_id");

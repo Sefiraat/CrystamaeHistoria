@@ -14,13 +14,11 @@ import io.github.sefiraat.crystamaehistoria.utils.Skulls;
 import io.github.sefiraat.crystamaehistoria.utils.TextUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
 import lombok.Getter;
 import lombok.experimental.UtilityClass;
-import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
@@ -135,112 +133,75 @@ public class Materials {
         }
 
         // Blank Crystal
-        SlimefunItemStack blankCrystalStack = ThemeType.themedSlimefunItemStack(
-            "CRY_CRYSTAL_BLANK",
-            Skulls.CRYSTAL_CLEAR.getPlayerHead(),
-            ThemeType.CRAFTING,
-            "Blank Crystal",
-            "A Crystal with all of it's Crysta drained."
-        );
         blankCrystal = new UnplaceableBlock(
             ItemGroups.MATERIALS,
-            blankCrystalStack,
+            CrystaStacks.CRYSTAL_BLANK,
             NetherDrainingRecipeType.TYPE,
-            NetherDrainingRecipeType.getDummyRecipe(blankCrystalStack)
+            NetherDrainingRecipeType.getDummyRecipe(CrystaStacks.CRYSTAL_BLANK)
         );
 
         // Polychromatic Crystal
         RecipeItem polychromaticCrystalRecipe = new RecipeItem(
-            blankCrystal.getItem(),
+            CrystaStacks.CRYSTAL_BLANK,
             StoryType.ELEMENTAL, 10,
             StoryType.MECHANICAL, 10,
             StoryType.ALCHEMICAL, 10
         );
         polychromaticCrystal = new UnplaceableBlock(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_CRYSTAL_POLYCHROMATIC",
-                Skulls.CRYSTAL_POLYCHROME.getPlayerHead(),
-                ThemeType.CRAFTING,
-                "Polychromatic Crystal",
-                "A Crystal shell with multiple crysta",
-                "types infused within."
-            ),
+            CrystaStacks.CRYSTAL_POLYCHROMATIC,
             LiquefactionBasinCraftingRecipeType.TYPE,
-            polychromaticCrystalRecipe.getDisplayRecipe()
+            polychromaticCrystalRecipe.getDisplayRecipe(),
+            CrystaStacks.CRYSTAL_POLYCHROMATIC.asQuantity(3)
         );
 
         // Kaleidoscopic Crystal
         RecipeItem kaleidoscopicCrystalRecipe = new RecipeItem(
-            blankCrystal.getItem(),
+            CrystaStacks.CRYSTAL_BLANK,
             StoryType.HISTORICAL, 10,
             StoryType.HUMAN, 10,
             StoryType.ANIMAL, 10
         );
         kaleidoscopicCrystal = new UnplaceableBlock(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_CRYSTAL_KALEIDOSCOPIC",
-                Skulls.CRYSTAL_KALEIDOSCOPIC.getPlayerHead(),
-                ThemeType.CRAFTING,
-                "Kaleidoscopic Crystal",
-                "A Crystal shell with multiple crysta",
-                "types infused within."
-            ),
+            CrystaStacks.CRYSTAL_KALEIDOSCOPIC,
             LiquefactionBasinCraftingRecipeType.TYPE,
-            kaleidoscopicCrystalRecipe.getDisplayRecipe()
+            kaleidoscopicCrystalRecipe.getDisplayRecipe(),
+            CrystaStacks.CRYSTAL_KALEIDOSCOPIC.asQuantity(3)
         );
 
         // Motley Crystal
         RecipeItem motleyCrystalRecipe = new RecipeItem(
-            blankCrystal.getItem(),
+            CrystaStacks.CRYSTAL_BLANK,
             StoryType.CELESTIAL, 10,
             StoryType.VOID, 10,
             StoryType.PHILOSOPHICAL, 10
         );
         motleyCrystal = new UnplaceableBlock(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_CRYSTAL_MOTLEY",
-                Skulls.CRYSTAL_MOTLEY.getPlayerHead(),
-                ThemeType.CRAFTING,
-                "Motley Crystal",
-                "A Crystal shell with multiple crysta",
-                "types infused within."
-            ),
+            CrystaStacks.CRYSTAL_MOTLEY,
             LiquefactionBasinCraftingRecipeType.TYPE,
-            motleyCrystalRecipe.getDisplayRecipe()
+            motleyCrystalRecipe.getDisplayRecipe(),
+            CrystaStacks.CRYSTAL_MOTLEY.asQuantity(3)
         );
 
-        // Motley Crystal
+        // Prismatic Crystal
         prismaticCrystal = new UnplaceableBlock(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_CRYSTAL_PRISMATIC",
-                Skulls.CRYSTAL_MOTLEY.getPlayerHead(),
-                ThemeType.CRAFTING,
-                "Prismatic Crystal",
-                "This crystal has so much magic it's",
-                "near to bursting."
-            ),
+            CrystaStacks.CRYSTAL_PRISMATIC,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[] {
-                polychromaticCrystal.getItem(), kaleidoscopicCrystal.getItem(), motleyCrystal.getItem(),
                 null, null, null,
+                CrystaStacks.CRYSTAL_POLYCHROMATIC, CrystaStacks.CRYSTAL_KALEIDOSCOPIC, CrystaStacks.CRYSTAL_MOTLEY,
                 null, null, null
-            }
+            },
+            CrystaStacks.CRYSTAL_PRISMATIC.asQuantity(3)
         );
 
         // Amalgamate Dust Common
         amalgamateDustCommon = new SlimefunItem(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_AMALGAMATE_DUST_COMMON",
-                new ItemStack(Material.GLOWSTONE_DUST),
-                ThemeType.CRAFTING,
-                "Amalgamate Dust (Common)",
-                "A dust combining all magic types."
-            ),
+            CrystaStacks.AMALGAMATE_DUST_COMMON,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
                 CRYSTAL_MAP.get(StoryRarity.COMMON).get(StoryType.ELEMENTAL).getItem(),
@@ -258,13 +219,7 @@ public class Materials {
         // Amalgamate Dust Uncommon
         amalgamateDustUncommon = new SlimefunItem(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_AMALGAMATE_DUST_UNCOMMON",
-                new ItemStack(Material.GLOWSTONE_DUST),
-                ThemeType.CRAFTING,
-                "Amalgamate Dust (Uncommon)",
-                "A dust combining all magic types."
-            ),
+            CrystaStacks.AMALGAMATE_DUST_UNCOMMON,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
                 CRYSTAL_MAP.get(StoryRarity.UNCOMMON).get(StoryType.ELEMENTAL).getItem(),
@@ -282,13 +237,7 @@ public class Materials {
         // Amalgamate Dust Rare
         amalgamateDustRare = new SlimefunItem(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_AMALGAMATE_DUST_RARE",
-                new ItemStack(Material.GLOWSTONE_DUST),
-                ThemeType.CRAFTING,
-                "Amalgamate Dust (Rare)",
-                "A dust combining all magic types."
-            ),
+            CrystaStacks.AMALGAMATE_DUST_RARE,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
                 CRYSTAL_MAP.get(StoryRarity.RARE).get(StoryType.ELEMENTAL).getItem(),
@@ -306,13 +255,7 @@ public class Materials {
         // Amalgamate Dust Epic
         amalgamateDustEpic = new SlimefunItem(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_AMALGAMATE_DUST_EPIC",
-                new ItemStack(Material.GLOWSTONE_DUST),
-                ThemeType.CRAFTING,
-                "Amalgamate Dust (Epic)",
-                "A dust combining all magic types."
-            ),
+            CrystaStacks.AMALGAMATE_DUST_EPIC,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
                 CRYSTAL_MAP.get(StoryRarity.EPIC).get(StoryType.ELEMENTAL).getItem(),
@@ -330,13 +273,7 @@ public class Materials {
         // Amalgamate Dust Mythical
         amalgamateDustMythical = new SlimefunItem(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_AMALGAMATE_DUST_MYTHICAL",
-                new ItemStack(Material.GLOWSTONE_DUST),
-                ThemeType.CRAFTING,
-                "Amalgamate Dust (Mythical)",
-                "A dust combining all magic types."
-            ),
+            CrystaStacks.AMALGAMATE_DUST_MYTHICAL,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
                 CRYSTAL_MAP.get(StoryRarity.MYTHICAL).get(StoryType.ELEMENTAL).getItem(),
@@ -354,13 +291,7 @@ public class Materials {
         // Amalgamate Dust Unique
         amalgamateDustUnique = new SlimefunItem(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_AMALGAMATE_DUST_UNIQUE",
-                new ItemStack(Material.GLOWSTONE_DUST),
-                ThemeType.CRAFTING,
-                "Amalgamate Dust (Unique)",
-                "A dust combining all magic types."
-            ),
+            CrystaStacks.AMALGAMATE_DUST_UNIQUE,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
                 CRYSTAL_MAP.get(StoryRarity.UNIQUE).get(StoryType.ELEMENTAL).getItem(),
@@ -378,96 +309,60 @@ public class Materials {
         // Amalgamate Ingot Common
         amalgamateIngotCommon = new SlimefunItem(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_AMALGAMATE_INGOT_COMMON",
-                new ItemStack(Material.GOLD_INGOT),
-                ThemeType.CRAFTING,
-                "Amalgamate Ingot (Common)",
-                "An ingot crafted of pure magics."
-            ),
+            CrystaStacks.AMALGAMATE_INGOT_COMMON,
             RecipeType.SMELTERY,
             new ItemStack[]{
-                amalgamateDustCommon.getItem()
+                CrystaStacks.AMALGAMATE_DUST_COMMON
             }
         );
 
         // Amalgamate Ingot Uncommon
         amalgamateIngotUncommon = new SlimefunItem(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_AMALGAMATE_INGOT_UNCOMMON",
-                new ItemStack(Material.GOLD_INGOT),
-                ThemeType.CRAFTING,
-                "Amalgamate Ingot (Uncommon)",
-                "An ingot crafted of pure magics."
-            ),
+            CrystaStacks.AMALGAMATE_INGOT_UNCOMMON,
             RecipeType.SMELTERY,
             new ItemStack[]{
-                amalgamateDustUncommon.getItem()
+                CrystaStacks.AMALGAMATE_DUST_UNCOMMON
             }
         );
 
         // Amalgamate Ingot Rare
         amalgamateIngotRare = new SlimefunItem(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_AMALGAMATE_INGOT_RARE",
-                new ItemStack(Material.GOLD_INGOT),
-                ThemeType.CRAFTING,
-                "Amalgamate Ingot (Rare)",
-                "An ingot crafted of pure magics."
-            ),
+            CrystaStacks.AMALGAMATE_INGOT_RARE,
             RecipeType.SMELTERY,
             new ItemStack[]{
-                amalgamateDustRare.getItem()
+                CrystaStacks.AMALGAMATE_DUST_RARE
             }
         );
 
         // Amalgamate Ingot Epic
         amalgamateIngotEpic = new SlimefunItem(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_AMALGAMATE_INGOT_EPIC",
-                new ItemStack(Material.GOLD_INGOT),
-                ThemeType.CRAFTING,
-                "Amalgamate Ingot (Epic)",
-                "An ingot crafted of pure magics."
-            ),
+            CrystaStacks.AMALGAMATE_INGOT_EPIC,
             RecipeType.SMELTERY,
             new ItemStack[]{
-                amalgamateDustEpic.getItem()
+                CrystaStacks.AMALGAMATE_DUST_EPIC
             }
         );
 
         // Amalgamate Ingot Mythical
         amalgamateIngotMythical = new SlimefunItem(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_AMALGAMATE_INGOT_MYTHICAL",
-                new ItemStack(Material.GOLD_INGOT),
-                ThemeType.CRAFTING,
-                "Amalgamate Ingot (Mythical)",
-                "An ingot crafted of pure magics."
-            ),
+            CrystaStacks.AMALGAMATE_INGOT_MYTHICAL,
             RecipeType.SMELTERY,
             new ItemStack[]{
-                amalgamateDustMythical.getItem()
+                CrystaStacks.AMALGAMATE_DUST_MYTHICAL
             }
         );
 
         // Amalgamate Ingot Unique
         amalgamateIngotUnique = new SlimefunItem(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_AMALGAMATE_INGOT_UNIQUE",
-                new ItemStack(Material.GOLD_INGOT),
-                ThemeType.CRAFTING,
-                "Amalgamate Ingot (Unique)",
-                "An ingot crafted of pure magics."
-            ),
+            CrystaStacks.AMALGAMATE_INGOT_UNIQUE,
             RecipeType.SMELTERY,
             new ItemStack[]{
-                amalgamateDustUnique.getItem()
+                CrystaStacks.AMALGAMATE_DUST_UNIQUE
             }
         );
 
@@ -480,14 +375,7 @@ public class Materials {
         );
         imbuedGlass = new UnplaceableBlock(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_IMBUED_GLASS",
-                new ItemStack(Material.GLASS_PANE),
-                ThemeType.CRAFTING,
-                "Imbued Glass",
-                "Glass imbued with Crysta that has",
-                "some strange properties."
-            ),
+            CrystaStacks.IMBUED_GLASS,
             LiquefactionBasinCraftingRecipeType.TYPE,
             imbuedGlassRecipe.getDisplayRecipe()
         );
@@ -501,14 +389,7 @@ public class Materials {
         );
         uncannyPearl = new UnplaceableBlock(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_UNCANNY_PEARL",
-                new ItemStack(Material.ENDER_PEARL),
-                ThemeType.CRAFTING,
-                "Uncanny Pearl",
-                "The internal resonance of this pearl",
-                "has been quelled using crysta."
-            ),
+            CrystaStacks.UNCANNY_PEARL,
             LiquefactionBasinCraftingRecipeType.TYPE,
             uncannyPearlRecipe.getDisplayRecipe()
         );
@@ -516,19 +397,11 @@ public class Materials {
         // Gilded Pearl
         gildedPearl = new UnplaceableBlock(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_GILDED_PEARL",
-                new ItemStack(Material.ENDER_PEARL),
-                ThemeType.CRAFTING,
-                "Gilded Pearl",
-                "With the pearl quelled, it can",
-                "be safely gilded and used in certain",
-                "crafts."
-            ),
+            CrystaStacks.GILDED_PEARL,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
                 SlimefunItems.GILDED_IRON, SlimefunItems.GILDED_IRON, SlimefunItems.GILDED_IRON,
-                SlimefunItems.GILDED_IRON, uncannyPearl.getItem(), SlimefunItems.GILDED_IRON,
+                SlimefunItems.GILDED_IRON, CrystaStacks.UNCANNY_PEARL, SlimefunItems.GILDED_IRON,
                 SlimefunItems.GILDED_IRON, SlimefunItems.GILDED_IRON, SlimefunItems.GILDED_IRON
             }
         );
@@ -542,13 +415,7 @@ public class Materials {
         );
         basicFibres = new UnplaceableBlock(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_BASIC_FIBRES",
-                new ItemStack(Material.DRIED_KELP),
-                ThemeType.CRAFTING,
-                "Basic Fibres",
-                "Very basic and coarse fibres."
-            ),
+            CrystaStacks.BASIC_FIBRES,
             LiquefactionBasinCraftingRecipeType.TYPE,
             basicFibresRecipe.getDisplayRecipe()
         );
@@ -562,16 +429,7 @@ public class Materials {
         );
         powderedEssence = new PowderedEssence(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_POWDERED_ESSENCE",
-                new ItemStack(Material.WHITE_DYE),
-                ThemeType.CRAFTING,
-                "Powdered Essence",
-                "A refined crafting material.",
-                "Can be used as bone meal.",
-                "",
-                ChatColor.YELLOW + "250 Uses " + ChatColor.GRAY + "left"
-            ),
+            CrystaStacks.POWDERED_ESSENCE,
             LiquefactionBasinCraftingRecipeType.TYPE,
             powderedEssenceRecipe.getDisplayRecipe(),
             250
@@ -586,15 +444,7 @@ public class Materials {
         );
         magicalMilk = new SlimefunItem(
             ItemGroups.MATERIALS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_MAGICAL_MILK",
-                new ItemStack(Material.MILK_BUCKET),
-                ThemeType.CRAFTING,
-                "Magical Milk",
-                "This milk has something about it...",
-                "",
-                ChatColor.YELLOW + "Do not waste by drinking!"
-            ),
+            CrystaStacks.MAGICAL_MILK,
             LiquefactionBasinCraftingRecipeType.TYPE,
             magicalMilkRecipe.getDisplayRecipe()
         );

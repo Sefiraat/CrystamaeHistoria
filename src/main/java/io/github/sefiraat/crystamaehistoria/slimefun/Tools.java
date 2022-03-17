@@ -111,9 +111,6 @@ public class Tools {
         final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
 
         final ItemStack elementalUniqueCrystal = Materials.CRYSTAL_MAP.get(StoryRarity.UNIQUE).get(StoryType.ELEMENTAL).getItem();
-        final ItemStack commonIngot = Materials.getAmalgamateIngotCommon().getItem();
-        final ItemStack commonDust = Materials.getAmalgamateDustCommon().getItem();
-        final ItemStack epicIngot = Materials.getAmalgamateIngotEpic().getItem();
 
         // Inert Plate
         RecipeItem inertPlateRecipe = new RecipeItem(
@@ -124,31 +121,16 @@ public class Tools {
         );
         inertPlate = new BlankPlate(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_SPELL_PLATE_1",
-                new ItemStack(Material.PAPER),
-                ThemeType.TOOL,
-                "Basic Spell Plate",
-                "A blank plate that has the potential to",
-                "store magical energy"
-            ),
+            CrystaStacks.INERT_PLATE,
             LiquefactionBasinCraftingRecipeType.TYPE,
             inertPlateRecipe.getDisplayRecipe(),
             1
         );
 
-
         // Charged Plate
         chargedPlate = new ChargedPlate(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_CHARGED_PLATE_1",
-                new ItemStack(Material.PAPER),
-                ThemeType.TOOL,
-                "Charged Basic Spell Plate",
-                "A magically charged plate storing magic",
-                "potential."
-            ),
+            CrystaStacks.CHARGED_PLATE,
             LiquefactionBasinCraftingRecipeType.TYPE,
             new ItemStack[]{null, null, null, null, new ItemStack(Material.AMETHYST_CLUSTER), null, null, null, null},
             1
@@ -157,17 +139,10 @@ public class Tools {
         // Basic Stave
         staveBasic = new Stave(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_STAVE_1",
-                new ItemStack(Material.STICK),
-                ThemeType.STAVE,
-                "Basic Stave",
-                "A stave with the ability to hold",
-                "magically charged plates."
-            ),
+            CrystaStacks.STAVE_BASIC,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
-                null, null, elementalUniqueCrystal,
+                null, null, CrystaStacks.AMALGAMATE_INGOT_UNIQUE,
                 null, new ItemStack(Material.STICK), null,
                 new ItemStack(Material.STICK), null, null
             },
@@ -177,19 +152,12 @@ public class Tools {
         // Advanced Stave
         staveAdvanced = new Stave(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_STAVE_2",
-                new ItemStack(Material.STICK),
-                ThemeType.STAVE,
-                "Advanced Stave",
-                "A stave with the ability to hold",
-                "magically charged plates."
-            ),
+            CrystaStacks.STAVE_ADVANCED,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
-                commonIngot, commonIngot, commonIngot,
-                commonIngot, staveBasic.getItem().clone(), commonIngot,
-                commonIngot, commonIngot, commonIngot
+                CrystaStacks.AMALGAMATE_INGOT_COMMON, CrystaStacks.AMALGAMATE_INGOT_COMMON, CrystaStacks.AMALGAMATE_INGOT_COMMON,
+                CrystaStacks.AMALGAMATE_INGOT_COMMON, CrystaStacks.STAVE_BASIC, CrystaStacks.AMALGAMATE_INGOT_COMMON,
+                CrystaStacks.AMALGAMATE_INGOT_COMMON, CrystaStacks.AMALGAMATE_INGOT_COMMON, CrystaStacks.AMALGAMATE_INGOT_COMMON
             },
             2
         );
@@ -197,72 +165,36 @@ public class Tools {
         // Refracting Lens
         refractingLens = new RefactingLens(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_REFRACTING_LENS",
-                new ItemStack(Material.SPYGLASS),
-                ThemeType.TOOL,
-                "Refracting Lens",
-                "This magical lens has glass that can",
-                "split the light of Crysta into its",
-                "individual elements.",
-                "",
-                "Right click on a Crystamae Block for",
-                "details if available.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Works with:",
-                ChatColor.DARK_BLUE + "Liquefaction Basin",
-                ChatColor.DARK_BLUE + "Exp Collector"
-            ),
+            CrystaStacks.REFRACTING_LENS,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
-                null, Materials.getImbuedGlass().getItem(), null,
+                null, CrystaStacks.IMBUED_GLASS, null,
                 null, new ItemStack(Material.SPYGLASS), null,
-                null, commonIngot, null
+                null, CrystaStacks.AMALGAMATE_INGOT_COMMON, null
             }
         );
 
         // Thaumaturgic Salt
         thaumaturgicSalts = new ThaumaturgicSalt(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_THAUMATURGIC_SALT",
-                new ItemStack(Material.REDSTONE),
-                ThemeType.TOOL,
-                "Thaumaturgic Salts",
-                "A special formulation of salts",
-                "that can absorb unwanted crysta",
-                "from a Liquefaction Basin.",
-                "",
-                "Right click on a Liquefaction Basin",
-                "to empty it."
-            ),
+            CrystaStacks.THAUMATURGIC_SALTS,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
-                commonDust, commonDust, commonDust,
-                commonDust, SlimefunItems.SALT, commonDust,
-                commonDust, commonDust, commonDust
+                CrystaStacks.AMALGAMATE_DUST_COMMON, CrystaStacks.AMALGAMATE_DUST_COMMON, CrystaStacks.AMALGAMATE_DUST_COMMON,
+                CrystaStacks.AMALGAMATE_DUST_COMMON, SlimefunItems.SALT, CrystaStacks.AMALGAMATE_DUST_COMMON,
+                CrystaStacks.AMALGAMATE_DUST_COMMON, CrystaStacks.AMALGAMATE_DUST_COMMON, CrystaStacks.AMALGAMATE_DUST_COMMON
             }
         );
 
         // Recall Lattice
         crystaRecallLattice = new RecallingCrystaLattice(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_RECALL_LATTICE",
-                new ItemStack(Material.NETHER_STAR),
-                ThemeType.TOOL,
-                "Crystamae Recall Lattice",
-                "Right click to recall to a linked",
-                "Waystone.",
-                "",
-                "Shift Right Click on a Waystone",
-                "to link"
-            ),
+            CrystaStacks.CRYSTA_RECALL_LATTICE,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
-                new ItemStack(Material.AMETHYST_SHARD), epicIngot, new ItemStack(Material.AMETHYST_SHARD),
-                epicIngot, new ItemStack(Material.NETHER_STAR), epicIngot,
-                new ItemStack(Material.AMETHYST_SHARD), epicIngot, new ItemStack(Material.AMETHYST_SHARD)
+                new ItemStack(Material.AMETHYST_SHARD), CrystaStacks.AMALGAMATE_INGOT_EPIC, new ItemStack(Material.AMETHYST_SHARD),
+                CrystaStacks.AMALGAMATE_INGOT_EPIC, new ItemStack(Material.NETHER_STAR), CrystaStacks.AMALGAMATE_INGOT_EPIC,
+                new ItemStack(Material.AMETHYST_SHARD), CrystaStacks.AMALGAMATE_INGOT_EPIC, new ItemStack(Material.AMETHYST_SHARD)
             }
         );
 
@@ -275,37 +207,21 @@ public class Tools {
         );
         ephemeralCraftingTable = new EphemeralCraftingTable(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_EPHEMERAL_CRAFT_TABLE",
-                new ItemStack(Material.CRAFTING_TABLE),
-                ThemeType.TOOL,
-                "Ephemeral Crafting Table",
-                "Right click to be able to craft",
-                "from anywhere.",
-                "Vanilla Only"
-            ),
+            CrystaStacks.EPHEMERAL_CRAFT_TABLE,
             LiquefactionBasinCraftingRecipeType.TYPE,
             ephemeralCraftingTableRecipe.getDisplayRecipe()
         );
 
         // Ephemeral Workbench
         RecipeItem ephemeralWorkBenchRecipe = new RecipeItem(
-            ephemeralCraftingTable.getItem(),
+            CrystaStacks.EPHEMERAL_CRAFT_TABLE,
             StoryType.HUMAN, 250,
             StoryType.HISTORICAL, 100,
             StoryType.PHILOSOPHICAL, 250
         );
         ephemeralWorkBench = new EphemeralWorkBench(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_EPHEMERAL_WORKBENCH",
-                new ItemStack(Material.CRAFTING_TABLE),
-                ThemeType.TOOL,
-                "Ephemeral Work Bench",
-                "Right click to be able to craft",
-                "from anywhere.",
-                "Vanilla + Enhanced Crafting Table."
-            ),
+            CrystaStacks.EPHEMERAL_WORKBENCH,
             LiquefactionBasinCraftingRecipeType.TYPE,
             ephemeralWorkBenchRecipe.getDisplayRecipe()
         );
@@ -319,17 +235,7 @@ public class Tools {
         );
         luminescenceScoop = new LuminescenceScoop(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_LUMINESCENCE_SCOOP",
-                new ItemStack(Material.LANTERN),
-                ThemeType.TOOL,
-                "Luminescence Scoop",
-                "Right click to place a magical",
-                "light source.",
-                "Shift Right click to scoop back.",
-                "",
-                ChatColor.YELLOW + "25 Uses " + ChatColor.GRAY + "left"
-            ),
+            CrystaStacks.LUMINESCENCE_SCOOP,
             LiquefactionBasinCraftingRecipeType.TYPE,
             luminescenceScoopRecipe.getDisplayRecipe(),
             25
@@ -337,24 +243,14 @@ public class Tools {
 
         // Brilliance Scoop
         RecipeItem brillianceScoopRecipe = new RecipeItem(
-            luminescenceScoop.getItem(),
+            CrystaStacks.LUMINESCENCE_SCOOP,
             StoryType.CELESTIAL, 140,
             StoryType.ALCHEMICAL, 40,
             StoryType.HUMAN, 30
         );
         brillianceScoop = new LuminescenceScoop(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_BRILLIANCE_SCOOP",
-                new ItemStack(Material.LANTERN),
-                ThemeType.TOOL,
-                "Brilliance Scoop",
-                "Right click to place a magical",
-                "light source.",
-                "Shift Right click to scoop back.",
-                "",
-                ChatColor.YELLOW + "75 Uses " + ChatColor.GRAY + "left"
-            ),
+            CrystaStacks.BRILLIANCE_SCOOP,
             LiquefactionBasinCraftingRecipeType.TYPE,
             brillianceScoopRecipe.getDisplayRecipe(),
             75
@@ -362,24 +258,14 @@ public class Tools {
 
         // Lustre Scoop
         RecipeItem lustreScoopRecipe = new RecipeItem(
-            brillianceScoop.getItem(),
+            CrystaStacks.BRILLIANCE_SCOOP,
             StoryType.CELESTIAL, 280,
             StoryType.ALCHEMICAL, 80,
             StoryType.HUMAN, 60
         );
         lustreScoop = new LuminescenceScoop(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_LUSTRE_SCOOP",
-                new ItemStack(Material.SOUL_LANTERN),
-                ThemeType.TOOL,
-                "Lustre Scoop",
-                "Right click to place a magical",
-                "light source.",
-                "Shift Right click to scoop back.",
-                "",
-                ChatColor.YELLOW + "250 Uses " + ChatColor.GRAY + "left"
-            ),
+            CrystaStacks.LUSTRE_SCOOP,
             LiquefactionBasinCraftingRecipeType.TYPE,
             lustreScoopRecipe.getDisplayRecipe(),
             250
@@ -394,18 +280,7 @@ public class Tools {
         );
         connectingCompass = new ConnectingCompass(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_CONNECTING_COMPASS",
-                new ItemStack(Material.COMPASS),
-                ThemeType.TOOL,
-                "Connecting Compass",
-                "Allows you to save a location",
-                "to find your way back to it at",
-                "a later time.",
-                "",
-                MessageFormat.format("{0}Right Click: {1}Display Stored Location", ThemeType.CLICK_INFO.getColor(), ThemeType.PASSIVE.getColor()),
-                MessageFormat.format("{0}Shift Right Click: {1}Store Location", ThemeType.CLICK_INFO.getColor(), ThemeType.PASSIVE.getColor())
-            ),
+            CrystaStacks.CONNECTING_COMPASS,
             LiquefactionBasinCraftingRecipeType.TYPE,
             connectingCompassRecipe.getDisplayRecipe()
         );
@@ -419,20 +294,7 @@ public class Tools {
         );
         spiritualSilken = new SpiritualSilken(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_SPIRITUAL_SILKEN",
-                new ItemStack(Material.BONE),
-                ThemeType.TOOL,
-                "Spiritual Silken",
-                "This pick has been imbued with",
-                "spiritual energies that allow it",
-                "to keep certain items whole.",
-                ChatColor.RED + "Only works on blocks that do",
-                ChatColor.RED + "not normally drop themselves",
-                ChatColor.RED + "both with and without silk.",
-                "",
-                ChatColor.YELLOW + "50 Uses " + ChatColor.GRAY + "left"
-            ),
+            CrystaStacks.SPIRITUAL_SILKEN,
             LiquefactionBasinCraftingRecipeType.TYPE,
             spiritualSilkenRecipe.getDisplayRecipe(),
             50
@@ -440,24 +302,14 @@ public class Tools {
 
         // Simple Displacer
         RecipeItem simpleDisplacerRecipe = new RecipeItem(
-            Materials.getPowderedEssence().getItem(),
+            CrystaStacks.POWDERED_ESSENCE,
             StoryType.ALCHEMICAL, 120,
             StoryType.ANIMAL, 70,
             StoryType.HUMAN, 60
         );
         simpleDisplacer = new Displacer(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_SIMPLE_DISPLACER",
-                new ItemStack(Material.TORCH),
-                ThemeType.TOOL,
-                "Simple Displacer",
-                "The displacer can shift some",
-                "things out of this world and",
-                "replace it with something from",
-                "another dimension.",
-                ChatColor.YELLOW + "50 Uses " + ChatColor.GRAY + "left"
-            ),
+            CrystaStacks.SIMPLE_DISPLACER,
             LiquefactionBasinCraftingRecipeType.TYPE,
             simpleDisplacerRecipe.getDisplayRecipe(),
             50
@@ -465,24 +317,14 @@ public class Tools {
 
         // Arcane Displacer
         RecipeItem arcaneDisplacerRecipe = new RecipeItem(
-            simpleDisplacer.getItem(),
+            CrystaStacks.SIMPLE_DISPLACER,
             StoryType.ALCHEMICAL, 240,
             StoryType.ANIMAL, 140,
             StoryType.HUMAN, 120
         );
         arcaneDisplacer = new Displacer(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_ARCANE_DISPLACER",
-                new ItemStack(Material.REDSTONE_TORCH),
-                ThemeType.TOOL,
-                "Arcane Displacer",
-                "The displacer can shift some",
-                "things out of this world and",
-                "replace it with something from",
-                "another dimension.",
-                ChatColor.YELLOW + "500 Uses " + ChatColor.GRAY + "left"
-            ),
+            CrystaStacks.ARCANE_DISPLACER,
             LiquefactionBasinCraftingRecipeType.TYPE,
             arcaneDisplacerRecipe.getDisplayRecipe(),
             500
@@ -497,17 +339,7 @@ public class Tools {
         );
         balmySponge = new BalmySponge(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_SPONGE_BALMY",
-                new ItemStack(Material.DEAD_FIRE_CORAL_BLOCK),
-                ThemeType.TOOL,
-                "Balmy Sponge",
-                "This imbued sponge is capable",
-                "of absorbing lava instead of water.",
-                "Place near water to clean after use.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "4 Blocks"
-            ),
+            CrystaStacks.SPONGE_BALMY,
             LiquefactionBasinCraftingRecipeType.TYPE,
             balmySpongeRecipe.getDisplayRecipe(),
             4
@@ -515,24 +347,14 @@ public class Tools {
 
         // Searing Sponge
         RecipeItem searingSpongeRecipe = new RecipeItem(
-            balmySponge.getItem(),
+            CrystaStacks.SPONGE_BALMY,
             StoryType.ELEMENTAL, 90,
             StoryType.ALCHEMICAL, 60,
             StoryType.VOID, 50
         );
         searingSponge = new BalmySponge(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_SPONGE_SEARING",
-                GeneralUtils.getPreEnchantedItemStack(Material.DEAD_FIRE_CORAL_BLOCK, true, new Pair<>(Enchantment.LURE, 1)),
-                ThemeType.TOOL,
-                "Searing Sponge",
-                "This imbued sponge is capable",
-                "of absorbing lava instead of water.",
-                "Place near water to clean after use.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "7 Blocks"
-            ),
+            CrystaStacks.SPONGE_SEARING,
             LiquefactionBasinCraftingRecipeType.TYPE,
             searingSpongeRecipe.getDisplayRecipe(),
             7
@@ -540,44 +362,26 @@ public class Tools {
 
         // Sleeping Bag
         RecipeItem sleepingBagRecipe = new RecipeItem(
-            balmySponge.getItem(),
+            new ItemStack(Material.WHITE_BED),
             StoryType.MECHANICAL, 75,
             StoryType.HISTORICAL, 100,
             StoryType.HUMAN, 100
         );
         sleepingBag = new SleepingBag(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_SLEEPING_BAG",
-                new ItemStack(Material.LIGHT_BLUE_BANNER),
-                ThemeType.TOOL,
-                "Rune-marked Sleeping Bag",
-                "This sleeping bag emits a weak",
-                "protection magic that will defend",
-                "you in the wilds.",
-                "Does not set your respawn point."
-            ),
+            CrystaStacks.SLEEPING_BAG,
             LiquefactionBasinCraftingRecipeType.TYPE,
             sleepingBagRecipe.getDisplayRecipe()
         );
 
-        // Sleeping Bag
+        // Displaced Void
         displacedVoid = new DisplacedVoid(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_DISPLACED_VOID",
-                new ItemStack(Material.COCOA_BEANS),
-                ThemeType.TOOL,
-                "Displaced Void",
-                "A Shattered Void displaced into a",
-                "pocket sized and portable form.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Hold Shift to pick up nearby Items"
-            ),
+            CrystaStacks.DISPLACED_VOID,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[] {
-                null, arcaneDisplacer.getItem(), null,
-                null, Gadgets.getShatteredVoid().getItem(), null,
+                null, CrystaStacks.ARCANE_DISPLACER, null,
+                null, CrystaStacks.SHATTERED_VOID, null,
                 null, null, null
             }
         );
@@ -591,16 +395,7 @@ public class Tools {
         );
         apprenticesSatchel = new CrystamageSatchel(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_SATCHEL_1",
-                new ItemStack(Material.WHITE_CONCRETE),
-                ThemeType.TOOL,
-                "Apprentice's Satchel",
-                "This simple satchel will pick up",
-                "and hold crystals for you.",
-                "",
-                ThemeType.WARNING.getColor() + "Rarities: " + ThemeType.PASSIVE.getColor() + "Unique only"
-            ),
+            CrystaStacks.SATCHEL_1,
             LiquefactionBasinCraftingRecipeType.TYPE,
             apprenticesSatchelRecipe.getDisplayRecipe(),
             1
@@ -608,23 +403,14 @@ public class Tools {
 
         // Crystamages Satchel
         RecipeItem crystamagesSatchelRecipe = new RecipeItem(
-            apprenticesSatchel.getItem(),
+            CrystaStacks.SATCHEL_1,
             StoryType.ALCHEMICAL, 35,
             StoryType.ANIMAL, 35,
             StoryType.VOID, 35
         );
         crystamagesSatchel = new CrystamageSatchel(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_SATCHEL_2",
-                new ItemStack(Material.GRAY_CONCRETE),
-                ThemeType.TOOL,
-                "Crystamage's Satchel",
-                "This simple satchel will pick up",
-                "and hold crystals for you.",
-                "",
-                ThemeType.WARNING.getColor() + "Rarities: " + ThemeType.PASSIVE.getColor() + "Unique -> Common"
-            ),
+            CrystaStacks.SATCHEL_2,
             LiquefactionBasinCraftingRecipeType.TYPE,
             crystamagesSatchelRecipe.getDisplayRecipe(),
             2
@@ -632,23 +418,14 @@ public class Tools {
 
         // Wizards Satchel
         RecipeItem wizardsSatchelRecipe = new RecipeItem(
-            crystamagesSatchel.getItem(),
+            CrystaStacks.SATCHEL_2,
             StoryType.MECHANICAL, 45,
             StoryType.HISTORICAL, 45,
             StoryType.CELESTIAL, 45
         );
         wizardsSatchel = new CrystamageSatchel(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_SATCHEL_3",
-                new ItemStack(Material.LIME_CONCRETE),
-                ThemeType.TOOL,
-                "Wizard's Satchel",
-                "This simple satchel will pick up",
-                "and hold crystals for you.",
-                "",
-                ThemeType.WARNING.getColor() + "Rarities: " + ThemeType.PASSIVE.getColor() + "Unique -> Uncommon"
-            ),
+            CrystaStacks.SATCHEL_3,
             LiquefactionBasinCraftingRecipeType.TYPE,
             wizardsSatchelRecipe.getDisplayRecipe(),
             3
@@ -656,23 +433,14 @@ public class Tools {
 
         // Conjurers Satchel
         RecipeItem conjurersSatchelRecipe = new RecipeItem(
-            wizardsSatchel.getItem(),
+            CrystaStacks.SATCHEL_3,
             StoryType.ELEMENTAL, 55,
             StoryType.HUMAN, 55,
             StoryType.PHILOSOPHICAL, 55
         );
         conjurersSatchel = new CrystamageSatchel(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_SATCHEL_4",
-                new ItemStack(Material.YELLOW_CONCRETE),
-                ThemeType.TOOL,
-                "Conjurer's Satchel",
-                "This simple satchel will pick up",
-                "and hold crystals for you.",
-                "",
-                ThemeType.WARNING.getColor() + "Rarities: " + ThemeType.PASSIVE.getColor() + "Unique -> Rare"
-            ),
+            CrystaStacks.SATCHEL_4,
             LiquefactionBasinCraftingRecipeType.TYPE,
             conjurersSatchelRecipe.getDisplayRecipe(),
             4
@@ -680,23 +448,14 @@ public class Tools {
 
         // Sorcerers Satchel
         RecipeItem sorcerersSatchelRecipe = new RecipeItem(
-            conjurersSatchel.getItem(),
+            CrystaStacks.SATCHEL_4,
             StoryType.ALCHEMICAL, 65,
             StoryType.ANIMAL, 65,
             StoryType.VOID, 65
         );
         sorcerersSatchel = new CrystamageSatchel(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_SATCHEL_5",
-                new ItemStack(Material.PURPLE_CONCRETE),
-                ThemeType.TOOL,
-                "Sorcerer's Satchel",
-                "This simple satchel will pick up",
-                "and hold crystals for you.",
-                "",
-                ThemeType.WARNING.getColor() + "Rarities: " + ThemeType.PASSIVE.getColor() + "Unique -> Epic"
-            ),
+            CrystaStacks.SATCHEL_5,
             LiquefactionBasinCraftingRecipeType.TYPE,
             sorcerersSatchelRecipe.getDisplayRecipe(),
             5
@@ -704,23 +463,14 @@ public class Tools {
 
         // Grandmasters Satchel
         RecipeItem grandmastersSatchelRecipe = new RecipeItem(
-            sorcerersSatchel.getItem(),
+            CrystaStacks.SATCHEL_5,
             StoryType.MECHANICAL, 75,
             StoryType.HISTORICAL, 75,
             StoryType.CELESTIAL, 75
         );
         grandmastersSatchel = new CrystamageSatchel(
             ItemGroups.TOOLS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_SATCHEL_6",
-                new ItemStack(Material.RED_CONCRETE),
-                ThemeType.TOOL,
-                "Grandmaster's Satchel",
-                "This simple satchel will pick up",
-                "and hold crystals for you.",
-                "",
-                ThemeType.WARNING.getColor() + "Rarities: " + ThemeType.PASSIVE.getColor() + "Unique -> Mythical"
-            ),
+            CrystaStacks.SATCHEL_6,
             LiquefactionBasinCraftingRecipeType.TYPE,
             grandmastersSatchelRecipe.getDisplayRecipe(),
             6
@@ -790,17 +540,6 @@ public class Tools {
          */
         if (!SupportedPluginManager.isHeadLimiter()) {
             // Cargo Cover
-            SlimefunItemStack cargoCoverStack = ThemeType.themedSlimefunItemStack(
-                "CRY_CARGO_COVER",
-                new ItemStack(Material.PAPER),
-                ThemeType.TOOL,
-                "Block Veil - Cargo",
-                "Right click to place a magical",
-                "block veil over a cargo node.",
-                "The cover will mimic the block",
-                "in your offhand.",
-                "One time use per item."
-            );
             RecipeItem cargoCoverRecipe = new RecipeItem(
                 SlimefunItems.CARGO_INPUT_NODE,
                 StoryType.MECHANICAL, 10,
@@ -809,25 +548,14 @@ public class Tools {
             );
             cargoCover = new BlockVeil(
                 ItemGroups.TOOLS,
-                cargoCoverStack,
+                CrystaStacks.CARGO_COVER,
                 LiquefactionBasinCraftingRecipeType.TYPE,
                 cargoCoverRecipe.getDisplayRecipe(),
-                cargoCoverStack.asQuantity(8),
+                CrystaStacks.CARGO_COVER.asQuantity(8),
                 CargoConnectorNode.class
             );
 
             // Energy Net Cover
-            SlimefunItemStack energyNetCoverStack = ThemeType.themedSlimefunItemStack(
-                "CRY_ENERGY_NET_COVER",
-                new ItemStack(Material.PAPER),
-                ThemeType.TOOL,
-                "Block Veil - Energy Net",
-                "Right click to place a magical",
-                "block veil over a cargo node.",
-                "The cover will mimic the block",
-                "in your offhand.",
-                "One time use per item."
-            );
             RecipeItem energyNetCoverRecipe = new RecipeItem(
                 SlimefunItems.ENERGY_CONNECTOR,
                 StoryType.MECHANICAL, 10,
@@ -836,10 +564,10 @@ public class Tools {
             );
             energyNetCover = new BlockVeil(
                 ItemGroups.TOOLS,
-                energyNetCoverStack,
+                CrystaStacks.ENERGY_NET_COVER,
                 LiquefactionBasinCraftingRecipeType.TYPE,
                 energyNetCoverRecipe.getDisplayRecipe(),
-                energyNetCoverStack.asQuantity(8),
+                CrystaStacks.ENERGY_NET_COVER.asQuantity(8),
                 EnergyConnector.class
             );
 
@@ -854,17 +582,6 @@ public class Tools {
         if (SupportedPluginManager.isNetworks()) {
 
             // Networks Cover
-            SlimefunItemStack networksCoverStack = ThemeType.themedSlimefunItemStack(
-                "CRY_NETWORK_COVER",
-                new ItemStack(Material.PAPER),
-                ThemeType.TOOL,
-                "Block Veil - Networks",
-                "Right click to place a magical",
-                "block veil over a Networks node.",
-                "The cover will mimic the block",
-                "in your offhand.",
-                "One time use per item."
-            );
             RecipeItem networksCoverRecipe = new RecipeItem(
                 NetworksSlimefunItemStacks.NETWORK_BRIDGE,
                 StoryType.MECHANICAL, 10,
@@ -873,10 +590,10 @@ public class Tools {
             );
             networkNodeCover = new BlockVeil(
                 ItemGroups.TOOLS,
-                networksCoverStack,
+                CrystaStacks.NETWORKS_COVER,
                 LiquefactionBasinCraftingRecipeType.TYPE,
                 networksCoverRecipe.getDisplayRecipe(),
-                networksCoverStack.asQuantity(8),
+                CrystaStacks.NETWORKS_COVER.asQuantity(8),
                 NetworkBridge.class,
                 NetworkMonitor.class
             );

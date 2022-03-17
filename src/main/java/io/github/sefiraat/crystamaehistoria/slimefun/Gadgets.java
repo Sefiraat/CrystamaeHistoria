@@ -123,9 +123,6 @@ public class Gadgets {
         final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
 
         final ItemStack uniqueVoid = Materials.CRYSTAL_MAP.get(StoryRarity.UNIQUE).get(StoryType.VOID).getItem();
-        final ItemStack amalgamateDustRare = Materials.getAmalgamateDustRare().getItem();
-        final ItemStack amalgamateIngotRare = Materials.getAmalgamateIngotRare().getItem();
-        final ItemStack amalgamateDustEpic = Materials.getAmalgamateDustEpic().getItem();
         final ItemStack glass = new ItemStack(Material.GLASS);
 
         // Abstraction Lamp
@@ -137,17 +134,7 @@ public class Gadgets {
         );
         abstractionLamp = new MobLamp(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_MOB_LAMP_1",
-                new ItemStack(Material.LANTERN),
-                ThemeType.GADGET,
-                "Abstraction Lamp",
-                "The abstraction lamp will push all",
-                "nearby mobs away from it.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "5 Blocks",
-                ThemeType.CLICK_INFO.getColor() + "Force: " + ThemeType.PASSIVE.getColor() + "3 CrystaPow™"
-            ),
+            CrystaStacks.ABSTRACTION_LAMP,
             LiquefactionBasinCraftingRecipeType.TYPE,
             abstractionLampRecipe.getDisplayRecipe(),
             5,
@@ -156,24 +143,14 @@ public class Gadgets {
 
         // Dispersion Lamp
         RecipeItem dispersionLampRecipe = new RecipeItem(
-            abstractionLamp.getItem(),
+            CrystaStacks.ABSTRACTION_LAMP,
             StoryType.ALCHEMICAL, 250,
             StoryType.HUMAN, 150,
             StoryType.PHILOSOPHICAL, 300
         );
         dispersionLamp = new MobLamp(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_MOB_LAMP_2",
-                new ItemStack(Material.SOUL_LANTERN),
-                ThemeType.GADGET,
-                "Dispersion Lamp",
-                "The dispersion lamp will push all",
-                "nearby mobs away from it.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "7 Blocks",
-                ThemeType.CLICK_INFO.getColor() + "Force: " + ThemeType.PASSIVE.getColor() + "5 CrystaPow™"
-            ),
+            CrystaStacks.DISPERSION_LAMP,
             LiquefactionBasinCraftingRecipeType.TYPE,
             dispersionLampRecipe.getDisplayRecipe(),
             7,
@@ -182,24 +159,14 @@ public class Gadgets {
 
         // Inversion Vacuum
         RecipeItem inversionVacuumRecipe = new RecipeItem(
-            abstractionLamp.getItem(),
+            CrystaStacks.ABSTRACTION_LAMP,
             StoryType.HISTORICAL, 200,
             StoryType.VOID, 200,
             StoryType.PHILOSOPHICAL, 180
         );
         inversionVacuum = new MobFan(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_MOB_FAN_1",
-                new ItemStack(Material.REDSTONE_LAMP),
-                ThemeType.GADGET,
-                "Inversion Vacuum",
-                "Creates a magically induced vacuum",
-                "that pulls entities away from the",
-                "mechanism.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Push Distance: " + ThemeType.PASSIVE.getColor() + "5 Blocks"
-            ),
+            CrystaStacks.INVERSION_VACUUM,
             LiquefactionBasinCraftingRecipeType.TYPE,
             inversionVacuumRecipe.getDisplayRecipe(),
             5
@@ -207,24 +174,14 @@ public class Gadgets {
 
         // Antipodal Vacuum
         RecipeItem antipodalVacuumRecipe = new RecipeItem(
-            dispersionLamp.getItem(),
+            CrystaStacks.DISPERSION_LAMP,
             StoryType.HISTORICAL, 400,
             StoryType.VOID, 400,
             StoryType.PHILOSOPHICAL, 360
         );
         antipodalVacuum = new MobFan(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_MOB_FAN_2",
-                new ItemStack(Material.NOTE_BLOCK),
-                ThemeType.GADGET,
-                "Antipodal Vacuum",
-                "Creates a magically induced vacuum",
-                "that pulls entities away from the",
-                "mechanism.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Push Distance: " + ThemeType.PASSIVE.getColor() + "10 Blocks"
-            ),
+            CrystaStacks.ANTIPODAL_VACUUM,
             LiquefactionBasinCraftingRecipeType.TYPE,
             antipodalVacuumRecipe.getDisplayRecipe(),
             10
@@ -242,23 +199,12 @@ public class Gadgets {
 
         cursedEarth = new CursedEarth(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_MOB_DIRT_1",
-                new ItemStack(Material.BROWN_WOOL),
-                ThemeType.GADGET,
-                "Cursed Earth",
-                "Dark magics seep from this dirt giving",
-                "a very ominous vibe!",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Tick Rate: " + ThemeType.PASSIVE.getColor() + "20",
-                ThemeType.CLICK_INFO.getColor() + "Light Level: " + ThemeType.PASSIVE.getColor() + "7",
-                ThemeType.CLICK_INFO.getColor() + "Spawns: " + ThemeType.PASSIVE.getColor() + "Basic"
-            ),
+            CrystaStacks.CURSED_EARTH,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
                 uniqueVoid, uniqueVoid, uniqueVoid,
                 new ItemStack(Material.DIRT), new ItemStack(Material.DIRT), new ItemStack(Material.DIRT),
-                amalgamateDustRare, amalgamateDustRare, amalgamateDustRare
+                CrystaStacks.AMALGAMATE_DUST_RARE, CrystaStacks.AMALGAMATE_DUST_RARE, CrystaStacks.AMALGAMATE_DUST_RARE
             },
             20,
             7,
@@ -276,25 +222,14 @@ public class Gadgets {
         dreadfulDirtSpawns.add(EntityType.ZOMBIE_VILLAGER);
 
         RecipeItem dreadfulDirtRecipe = new RecipeItem(
-            cursedEarth.getItem(),
+            CrystaStacks.CURSED_EARTH,
             StoryType.VOID, 700,
             StoryType.ANIMAL, 200,
             StoryType.HISTORICAL, 100
         );
         dreadfulDirt = new CursedEarth(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_MOB_DIRT_2",
-                new ItemStack(Material.BLACK_WOOL),
-                ThemeType.GADGET,
-                "Dreadful Dirt",
-                "Dark magics seep from this dirt giving",
-                "a very ominous vibe!",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Tick Rate: " + ThemeType.PASSIVE.getColor() + "10",
-                ThemeType.CLICK_INFO.getColor() + "Light Level: " + ThemeType.PASSIVE.getColor() + "15",
-                ThemeType.CLICK_INFO.getColor() + "Spawns: " + ThemeType.PASSIVE.getColor() + "Advanced"
-            ),
+            CrystaStacks.DREADFUL_DIRT,
             LiquefactionBasinCraftingRecipeType.TYPE,
             dreadfulDirtRecipe.getDisplayRecipe(),
             10,
@@ -312,18 +247,7 @@ public class Gadgets {
         );
         searingPlate = new MobMat(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_MOB_PLATE_1",
-                new ItemStack(Material.CRIMSON_PRESSURE_PLATE),
-                ThemeType.GADGET,
-                "Searing Plate",
-                "A plate that is magically super-heated.",
-                "Anything standing on this plate gets",
-                "damaged.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Damage: " + ThemeType.PASSIVE.getColor() + "1",
-                ThemeType.CLICK_INFO.getColor() + "Player Drops: " + ThemeType.PASSIVE.getColor() + "No"
-            ),
+            CrystaStacks.SEARING_PLATE,
             LiquefactionBasinCraftingRecipeType.TYPE,
             searingPlateRecipe.getDisplayRecipe(),
             1,
@@ -332,25 +256,14 @@ public class Gadgets {
 
         // Doomed Plate
         RecipeItem doomedPlateRecipe = new RecipeItem(
-            searingPlate.getItem(),
+            CrystaStacks.SEARING_PLATE,
             StoryType.ALCHEMICAL, 240,
             StoryType.VOID, 440,
             StoryType.MECHANICAL, 360
         );
         doomedPlate = new MobMat(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_MOB_PLATE_2",
-                new ItemStack(Material.WARPED_PRESSURE_PLATE),
-                ThemeType.GADGET,
-                "Doomed Plate",
-                "A plate that is magically super-heated.",
-                "Anything standing on this plate gets",
-                "damaged.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Damage: " + ThemeType.PASSIVE.getColor() + "1",
-                ThemeType.CLICK_INFO.getColor() + "Player Drops: " + ThemeType.PASSIVE.getColor() + "Yes"
-            ),
+            CrystaStacks.DOOMED_PLATE,
             LiquefactionBasinCraftingRecipeType.TYPE,
             doomedPlateRecipe.getDisplayRecipe(),
             1,
@@ -359,25 +272,14 @@ public class Gadgets {
 
         // Eviscerating Plate
         RecipeItem evisceratingPlateRecipe = new RecipeItem(
-            doomedPlate.getItem(),
+            CrystaStacks.DOOMED_PLATE,
             StoryType.ALCHEMICAL, 480,
             StoryType.VOID, 880,
             StoryType.MECHANICAL, 720
         );
         evisceratingPlate = new MobMat(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_MOB_PLATE_3",
-                new ItemStack(Material.POLISHED_BLACKSTONE_PRESSURE_PLATE),
-                ThemeType.GADGET,
-                "Eviscerating Plate",
-                "A plate that is magically super-heated.",
-                "Anything standing on this plate gets",
-                "damaged.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Damage: " + ThemeType.PASSIVE.getColor() + "2",
-                ThemeType.CLICK_INFO.getColor() + "Player Drops: " + ThemeType.PASSIVE.getColor() + "Yes"
-            ),
+            CrystaStacks.EVISCERATING_PLATE,
             LiquefactionBasinCraftingRecipeType.TYPE,
             evisceratingPlateRecipe.getDisplayRecipe(),
             2,
@@ -386,23 +288,14 @@ public class Gadgets {
 
         // Trap Plate
         RecipeItem trapPlateRecipe = new RecipeItem(
-            evisceratingPlate.getItem(),
+            CrystaStacks.EVISCERATING_PLATE,
             StoryType.ALCHEMICAL, 400,
             StoryType.CELESTIAL, 100,
             StoryType.MECHANICAL, 50
         );
         trapPlate = new MobTrap(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_MOB_PLATE_TRAP",
-                new ItemStack(Material.DARK_OAK_PRESSURE_PLATE),
-                ThemeType.GADGET,
-                "Trap Plate",
-                "This plate no longer deals",
-                "damage but now applies potion",
-                "effects. Right click with",
-                "a potion to assign."
-            ),
+            CrystaStacks.TRAP_PLATE,
             LiquefactionBasinCraftingRecipeType.TYPE,
             trapPlateRecipe.getDisplayRecipe()
         );
@@ -416,44 +309,23 @@ public class Gadgets {
         );
         basicExpCollector = new ExpCollector(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_EXP_COLLECTOR_1",
-                new ItemStack(Material.LIGHTNING_ROD),
-                ThemeType.GADGET,
-                "Basic Exp Collector",
-                "Infusing the Exp Collector with",
-                "magic now allows it to work",
-                "without electricity and flasks.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "4",
-                ThemeType.CLICK_INFO.getColor() + "Capacity: " + ThemeType.PASSIVE.getColor() + "2500"
-            ),
+            CrystaStacks.EXP_COLLECTOR_BASIC,
             LiquefactionBasinCraftingRecipeType.TYPE,
             basicExpCollectorRecipe.getDisplayRecipe(),
             2500,
             4
         );
 
-        // Infused Exp Collector Plate
+        // Infused Exp Collector
         RecipeItem infusedExpCollectorRecipe = new RecipeItem(
-            basicExpCollector.getItem(),
+            CrystaStacks.EXP_COLLECTOR_BASIC,
             StoryType.MECHANICAL, 740,
             StoryType.HUMAN, 560,
             StoryType.ANIMAL, 885
         );
         infusedExpCollector = new ExpCollector(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_EXP_COLLECTOR_2",
-                new ItemStack(Material.LIGHTNING_ROD),
-                ThemeType.GADGET,
-                "Infused Exp Collector",
-                "Further infusion has made the",
-                "collector even more powerful.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "8",
-                ThemeType.CLICK_INFO.getColor() + "Capacity: " + ThemeType.PASSIVE.getColor() + "10000"
-            ),
+            CrystaStacks.EXP_COLLECTOR_INFUSED,
             LiquefactionBasinCraftingRecipeType.TYPE,
             infusedExpCollectorRecipe.getDisplayRecipe(),
             10000,
@@ -463,24 +335,12 @@ public class Gadgets {
         // Basic Ender Inhibitor
         basicEnderInhibitor = new EnderInhibitor(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_ENDER_INHIBITOR_1",
-                new ItemStack(Material.REDSTONE_TORCH),
-                ThemeType.GADGET,
-                "Basic Ender Inhibitor",
-                "By using an Enderman's own resonance",
-                "against it, we can stop theme teleporting",
-                "for a brief time.",
-                "Duration is extended if still in range.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "4",
-                ThemeType.CLICK_INFO.getColor() + "Duration: " + ThemeType.PASSIVE.getColor() + "2 seconds"
-            ),
+            CrystaStacks.ENDER_INHIBITOR_BASIC,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
-                Materials.getUncannyPearl().getItem(), Materials.getUncannyPearl().getItem(), Materials.getUncannyPearl().getItem(),
-                Materials.getUncannyPearl().getItem(), SlimefunItems.COOLER, Materials.getUncannyPearl().getItem(),
-                Materials.getUncannyPearl().getItem(), Materials.getUncannyPearl().getItem(), Materials.getUncannyPearl().getItem()
+                CrystaStacks.UNCANNY_PEARL, CrystaStacks.UNCANNY_PEARL, CrystaStacks.UNCANNY_PEARL,
+                CrystaStacks.UNCANNY_PEARL, SlimefunItems.COOLER, CrystaStacks.UNCANNY_PEARL,
+                CrystaStacks.UNCANNY_PEARL, CrystaStacks.UNCANNY_PEARL, CrystaStacks.UNCANNY_PEARL
             },
             4
         );
@@ -488,24 +348,12 @@ public class Gadgets {
         // Advanced Ender Inhibitor
         advancedEnderInhibitor = new EnderInhibitor(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_ENDER_INHIBITOR_2",
-                new ItemStack(Material.SOUL_TORCH),
-                ThemeType.GADGET,
-                "Advanced Ender Inhibitor",
-                "By using an Enderman's own resonance",
-                "against it, we can stop theme teleporting",
-                "for a brief time.",
-                "Duration is extended if still in range.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "8",
-                ThemeType.CLICK_INFO.getColor() + "Duration: " + ThemeType.PASSIVE.getColor() + "2 seconds"
-            ),
+            CrystaStacks.ENDER_INHIBITOR_ADVANCED,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
-                Materials.getGildedPearl().getItem(), Materials.getGildedPearl().getItem(), Materials.getGildedPearl().getItem(),
-                Materials.getGildedPearl().getItem(), basicEnderInhibitor.getItem(), Materials.getGildedPearl().getItem(),
-                Materials.getGildedPearl().getItem(), Materials.getGildedPearl().getItem(), Materials.getGildedPearl().getItem()
+                CrystaStacks.GILDED_PEARL, CrystaStacks.GILDED_PEARL, CrystaStacks.GILDED_PEARL,
+                CrystaStacks.GILDED_PEARL, CrystaStacks.ENDER_INHIBITOR_BASIC, CrystaStacks.GILDED_PEARL,
+                CrystaStacks.GILDED_PEARL, CrystaStacks.GILDED_PEARL, CrystaStacks.GILDED_PEARL
             },
             8
         );
@@ -519,18 +367,7 @@ public class Gadgets {
         );
         dimMobCandle = new MobCandle(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_MOB_CANDLE_1",
-                new ItemStack(Material.BLACK_CANDLE),
-                ThemeType.GADGET,
-                "Dim Verache Candle",
-                "This candle stops mobs spawning",
-                "in a radius around it.",
-                "Doesn't last forever.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "16",
-                ThemeType.CLICK_INFO.getColor() + "Duration: " + ThemeType.PASSIVE.getColor() + "2 hour (real time)"
-            ),
+            CrystaStacks.MOB_CANDLE_DIM,
             LiquefactionBasinCraftingRecipeType.TYPE,
             dimMobCandleRecipe.getDisplayRecipe(),
             16,
@@ -539,25 +376,14 @@ public class Gadgets {
 
         // Bright Mob Candle
         RecipeItem brightMobCandleRecipe = new RecipeItem(
-            dimMobCandle.getItem(),
+            CrystaStacks.MOB_CANDLE_DIM,
             StoryType.HISTORICAL, 100,
             StoryType.CELESTIAL, 100,
             StoryType.ANIMAL, 100
         );
         brightMobCandle = new MobCandle(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_MOB_CANDLE_2",
-                new ItemStack(Material.BROWN_CANDLE),
-                ThemeType.GADGET,
-                "Bright Verache Candle",
-                "This candle stops mobs spawning",
-                "in a radius around it.",
-                "Doesn't last forever.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "32",
-                ThemeType.CLICK_INFO.getColor() + "Duration: " + ThemeType.PASSIVE.getColor() + "24 hours (real time)"
-            ),
+            CrystaStacks.MOB_CANDLE_BRIGHT,
             LiquefactionBasinCraftingRecipeType.TYPE,
             brightMobCandleRecipe.getDisplayRecipe(),
             32,
@@ -566,25 +392,14 @@ public class Gadgets {
 
         // Scintillating Mob Candle
         RecipeItem scintillatingMobCandleRecipe = new RecipeItem(
-            brightMobCandle.getItem(),
+            CrystaStacks.MOB_CANDLE_BRIGHT,
             StoryType.HISTORICAL, 200,
             StoryType.CELESTIAL, 200,
             StoryType.ANIMAL, 200
         );
         scintillatingMobCandle = new MobCandle(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_MOB_CANDLE_3",
-                new ItemStack(Material.WHITE_CANDLE),
-                ThemeType.GADGET,
-                "Scintillating Verache Candle",
-                "This candle stops mobs spawning",
-                "in a radius around it.",
-                "Doesn't last forever.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "64",
-                ThemeType.CLICK_INFO.getColor() + "Duration: " + ThemeType.PASSIVE.getColor() + "48 Hours (real time)"
-            ),
+            CrystaStacks.MOB_CANDLE_SCINTILLATING,
             LiquefactionBasinCraftingRecipeType.TYPE,
             scintillatingMobCandleRecipe.getDisplayRecipe(),
             64,
@@ -594,17 +409,10 @@ public class Gadgets {
         // Mysterious Potted Plant
         mysteriousPottedPlant = new MysteriousTickerNoInteraction(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_MYSTERIOUS_POTTED_PLANT",
-                new ItemStack(Material.FLOWER_POT),
-                ThemeType.GADGET,
-                "Mysterious Potted Plant",
-                "Just a pinch of magic can make",
-                "wonderful things happen..."
-            ),
+            CrystaStacks.MYSTERIOUS_POTTED_PLANT,
             RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[]{
-                null, Materials.getAmalgamateDustRare().getItem(), null,
+                null, CrystaStacks.AMALGAMATE_DUST_RARE, null,
                 null, new ItemStack(Material.FLOWER_POT), null,
                 null, null, null
             },
@@ -620,20 +428,14 @@ public class Gadgets {
 
         // Mysterious Plant
         RecipeItem mysteriousPlantRecipe = new RecipeItem(
-            mysteriousPottedPlant.getItem(),
+            CrystaStacks.MYSTERIOUS_POTTED_PLANT,
             StoryType.ELEMENTAL, 25,
             StoryType.ALCHEMICAL, 25,
             StoryType.VOID, 25
         );
         mysteriousPlant = new MysteriousTicker(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_MYSTERIOUS_PLANT",
-                new ItemStack(Material.OXEYE_DAISY),
-                ThemeType.GADGET,
-                "Mysterious Plant",
-                "Removing it from that pot took work."
-            ),
+            CrystaStacks.MYSTERIOUS_PLANT,
             LiquefactionBasinCraftingRecipeType.TYPE,
             mysteriousPlantRecipe.getDisplayRecipe(),
             Tag.SMALL_FLOWERS.getValues(),
@@ -655,14 +457,7 @@ public class Gadgets {
         );
         mysteriousGlass = new MysteriousTicker(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_MYSTERIOUS_GLASS",
-                new ItemStack(Material.ORANGE_STAINED_GLASS),
-                ThemeType.GADGET,
-                "Mysterious Glass",
-                "Like rainbow glass but far",
-                "more random."
-            ),
+            CrystaStacks.MYSTERIOUS_GLASS,
             LiquefactionBasinCraftingRecipeType.TYPE,
             mysteriousGlassRecipe.getDisplayRecipe(),
             SlimefunTag.GLASS_BLOCKS.getValues(),
@@ -678,21 +473,14 @@ public class Gadgets {
         );
         mysteriousWool = new MysteriousTicker(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_MYSTERIOUS_WOOL",
-                new ItemStack(Material.ORANGE_WOOL),
-                ThemeType.GADGET,
-                "Mysterious Wool",
-                "Like rainbow wool but far",
-                "more random."
-            ),
+            CrystaStacks.MYSTERIOUS_WOOL,
             LiquefactionBasinCraftingRecipeType.TYPE,
             mysteriousWoolRecipe.getDisplayRecipe(),
             SlimefunTag.WOOL.getValues(),
             15
         );
 
-        // Mysterious Wool
+        // Mysterious Terracotta
         RecipeItem mysteriousTerracottaRecipe = new RecipeItem(
             new ItemStack(Material.TERRACOTTA),
             StoryType.MECHANICAL, 5,
@@ -701,14 +489,7 @@ public class Gadgets {
         );
         mysteriousTerracotta = new MysteriousTicker(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_MYSTERIOUS_TERRACOTTA",
-                new ItemStack(Material.ORANGE_TERRACOTTA),
-                ThemeType.GADGET,
-                "Mysterious Terracotta",
-                "Like rainbow terracotta but far",
-                "more random."
-            ),
+            CrystaStacks.MYSTERIOUS_TERRACOTTA,
             LiquefactionBasinCraftingRecipeType.TYPE,
             mysteriousTerracottaRecipe.getDisplayRecipe(),
             SlimefunTag.TERRACOTTA.getValues(),
@@ -724,14 +505,7 @@ public class Gadgets {
         );
         mysteriousGlazedTerracotta = new MysteriousTicker(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_MYSTERIOUS_GLAZED_TERRACOTTA",
-                new ItemStack(Material.ORANGE_GLAZED_TERRACOTTA),
-                ThemeType.GADGET,
-                "Mysterious Glazed Terracotta",
-                "Like rainbow terracotta but far",
-                "more random."
-            ),
+            CrystaStacks.MYSTERIOUS_GLAZED_TERRACOTTA,
             LiquefactionBasinCraftingRecipeType.TYPE,
             mysteriousGlazedTerracottaRecipe.getDisplayRecipe(),
             CrystaTag.GLAZED_TERRACOTTA.getValues(),
@@ -747,14 +521,7 @@ public class Gadgets {
         );
         mysteriousConcrete = new MysteriousTicker(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_MYSTERIOUS_CONCRETE",
-                new ItemStack(Material.ORANGE_CONCRETE),
-                ThemeType.GADGET,
-                "Mysterious Concrete",
-                "Like rainbow concrete but far",
-                "more random."
-            ),
+            CrystaStacks.MYSTERIOUS_CONCRETE,
             LiquefactionBasinCraftingRecipeType.TYPE,
             mysteriousConcreteRecipe.getDisplayRecipe(),
             CrystaTag.CONCRETE_BLOCKS.getValues(),
@@ -764,44 +531,26 @@ public class Gadgets {
         // Green House Glass
         greenHouseGlass = new GreenHouseGlass(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_CROP_GLASS_1",
-                new ItemStack(Material.GLASS),
-                ThemeType.GADGET,
-                "Greenhouse Glass",
-                "Crops under this glass will grow faster.",
-                "Works during the day in light worlds only.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Rate: " + ThemeType.PASSIVE.getColor() + "5"
-            ),
+            CrystaStacks.GREEN_HOUSE_GLASS,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
-                amalgamateDustEpic, new ItemStack(Material.GLASS), amalgamateDustEpic,
+                CrystaStacks.AMALGAMATE_DUST_EPIC, new ItemStack(Material.GLASS), CrystaStacks.AMALGAMATE_DUST_EPIC,
                 new ItemStack(Material.GLASS), SlimefunItems.POWER_CRYSTAL, new ItemStack(Material.GLASS),
-                amalgamateDustEpic, new ItemStack(Material.GLASS), amalgamateDustEpic,
+                CrystaStacks.AMALGAMATE_DUST_EPIC, new ItemStack(Material.GLASS), CrystaStacks.AMALGAMATE_DUST_EPIC,
             },
             5
         );
 
         // Focused Green House Glass
         RecipeItem focusedGreenHouseGlassRecipe = new RecipeItem(
-            mysteriousPottedPlant.getItem(),
+            CrystaStacks.GREEN_HOUSE_GLASS,
             StoryType.ALCHEMICAL, 15,
             StoryType.ANIMAL, 40,
             StoryType.PHILOSOPHICAL, 30
         );
         focusedGreenHouseGlass = new GreenHouseGlass(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_CROP_GLASS_2",
-                new ItemStack(Material.YELLOW_STAINED_GLASS),
-                ThemeType.GADGET,
-                "Focused Greenhouse Glass",
-                "Crops under this glass will grow faster.",
-                "Works during the day in light worlds only.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Rate: " + ThemeType.PASSIVE.getColor() + "10"
-            ),
+            CrystaStacks.GREEN_HOUSE_GLASS_FOCUSED,
             LiquefactionBasinCraftingRecipeType.TYPE,
             focusedGreenHouseGlassRecipe.getDisplayRecipe(),
             10
@@ -816,17 +565,7 @@ public class Gadgets {
         );
         trophyDisplay = new TrophyDisplay(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_TROPHY_DISPLAY_1",
-                new ItemStack(Material.POLISHED_BLACKSTONE_BRICK_WALL),
-                ThemeType.GADGET,
-                "Trophy Display",
-                "Used to place your trophies on to show",
-                "off to the world.",
-                "",
-                "Currently allowable trophies include:",
-                ThemeType.CLICK_INFO.getColor() + "A block in which you have a S.M.E. rank"
-            ),
+            CrystaStacks.TROPHY_STAND,
             LiquefactionBasinCraftingRecipeType.TYPE,
             trophyDisplayRecipe.getDisplayRecipe()
         );
@@ -840,15 +579,7 @@ public class Gadgets {
         );
         exaltationStand = new ExaltationStand(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_EXALTATION_STAND",
-                new ItemStack(Material.PRISMARINE_WALL),
-                ThemeType.GADGET,
-                "Exaltation Stand",
-                "Used to place 'Exalted' items on.",
-                "These items require special conditions",
-                "and impart powerful effects while nearby."
-            ),
+            CrystaStacks.EXALTATION_STAND,
             LiquefactionBasinCraftingRecipeType.TYPE,
             exaltationStandRecipe.getDisplayRecipe()
         );
@@ -869,14 +600,7 @@ public class Gadgets {
         );
         waystone = new Waystone(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_WAYSTONE",
-                new ItemStack(Material.END_STONE_BRICK_WALL),
-                ThemeType.GADGET,
-                "Diverging Waystone",
-                "Can be used as a marker to recall",
-                "back to."
-            ),
+            CrystaStacks.WAYSTONE,
             LiquefactionBasinCraftingRecipeType.TYPE,
             waystoneRecipe.getDisplayRecipe(),
             waystoneMaterials,
@@ -890,64 +614,38 @@ public class Gadgets {
         );
 
         // AngelBlock
-        SlimefunItemStack angelBlockStack = ThemeType.themedSlimefunItemStack(
-            "CRY_ANGEL_BLOCK",
-            new ItemStack(Material.GLASS),
-            ThemeType.GADGET,
-            "Angel Block",
-            "Can be placed anywhere, even in",
-            "the air."
-        );
         angelBlock = new AngelBlock(
             ItemGroups.GADGETS,
-            angelBlockStack,
+            CrystaStacks.ANGEL_BLOCK,
             RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[]{
                 new ItemStack(Material.GLASS), new ItemStack(Material.GLASS), new ItemStack(Material.GLASS),
-                new ItemStack(Material.GLASS), amalgamateIngotRare, new ItemStack(Material.GLASS),
+                new ItemStack(Material.GLASS), CrystaStacks.AMALGAMATE_INGOT_RARE, new ItemStack(Material.GLASS),
                 new ItemStack(Material.GLASS), new ItemStack(Material.GLASS), new ItemStack(Material.GLASS)
             },
-            angelBlockStack.asQuantity(8)
+            CrystaStacks.ANGEL_BLOCK.asQuantity(8)
         );
 
         // Philosophers Spray
-        SlimefunItemStack philosophersSprayStack = ThemeType.themedSlimefunItemStack(
-            "CRY_PHILOSOPHERS_SPRAY",
-            new ItemStack(Material.DISPENSER),
-            ThemeType.GADGET,
-            "Philosophers Spray",
-            "Will 'displace' the block above",
-            "this one when triggered with Redstone."
-        );
         philosophersSpray = new PhilosophersSpray(
             ItemGroups.GADGETS,
-            philosophersSprayStack,
+            CrystaStacks.PHILOSOPHERS_SPRAY,
             RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[]{
-                amalgamateIngotRare, amalgamateIngotRare, amalgamateIngotRare,
-                amalgamateIngotRare, new ItemStack(Material.DISPENSER), amalgamateIngotRare,
-                amalgamateIngotRare, Tools.getArcaneDisplacer().getItem(), amalgamateIngotRare
+                CrystaStacks.AMALGAMATE_INGOT_RARE, CrystaStacks.AMALGAMATE_INGOT_RARE, CrystaStacks.AMALGAMATE_INGOT_RARE,
+                CrystaStacks.AMALGAMATE_INGOT_RARE, new ItemStack(Material.DISPENSER), CrystaStacks.AMALGAMATE_INGOT_RARE,
+                CrystaStacks.AMALGAMATE_INGOT_RARE, CrystaStacks.ARCANE_DISPLACER, CrystaStacks.AMALGAMATE_INGOT_RARE
             }
         );
 
         // Glass of Milk
-        SlimefunItemStack glassOfMilkStack = ThemeType.themedSlimefunItemStack(
-            "CRY_GLASS_OF_MILK",
-            Skulls.ITEM_MILK.getPlayerHead(),
-            ThemeType.GADGET,
-            "Glass of Milk",
-            "Right click, when placed, to remove",
-            "all active effects.",
-            "",
-            ThemeType.WARNING.getColor() + "Can't be recovered when broken."
-        );
         glassOfMilk = new GlassOfMilk(
             ItemGroups.GADGETS,
-            glassOfMilkStack,
+            CrystaStacks.GLASS_OF_MILK,
             RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[]{
                 glass, null, glass,
-                glass, Materials.getMagicalMilk().getItem(), glass,
+                glass, CrystaStacks.GLASS_OF_MILK, glass,
                 glass, glass, glass
             }
         );
@@ -961,16 +659,7 @@ public class Gadgets {
         );
         fragmentedVoid = new FragmentedVoid(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_FRAGMENTED_VOID",
-                new ItemStack(Material.BLACK_CONCRETE),
-                ThemeType.GADGET,
-                "Fragmented Void",
-                "A portable hole in the universe.",
-                "Will pull any nearby items into it.",
-                "",
-                ThemeType.WARNING.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "5"
-            ),
+            CrystaStacks.FRAGMENTED_VOID,
             RecipeType.ENHANCED_CRAFTING_TABLE,
             fragmentedVoidRecipe.getDisplayRecipe(),
             5
@@ -978,23 +667,14 @@ public class Gadgets {
 
         // Shattered Void
         RecipeItem shatteredVoidRecipe = new RecipeItem(
-            fragmentedVoid.getItem(),
+            CrystaStacks.FRAGMENTED_VOID,
             StoryType.VOID, 120,
             StoryType.MECHANICAL, 100,
             StoryType.CELESTIAL, 80
         );
         shatteredVoid = new FragmentedVoid(
             ItemGroups.GADGETS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_SHATTERED_VOID",
-                new ItemStack(Material.BLACK_CONCRETE),
-                ThemeType.GADGET,
-                "Shattered Void",
-                "A portable hole in the universe.",
-                "Will pull any nearby items into it.",
-                "",
-                ThemeType.WARNING.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "7"
-            ),
+            CrystaStacks.SHATTERED_VOID,
             RecipeType.ENHANCED_CRAFTING_TABLE,
             shatteredVoidRecipe.getDisplayRecipe(),
             7

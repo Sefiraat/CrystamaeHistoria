@@ -52,23 +52,10 @@ public class Mechanisms {
 
         final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
 
-        final ItemStack amalgamateDustRare = Materials.getAmalgamateDustRare().getItem();
-        final ItemStack amalgamateIngotUncommon = Materials.getAmalgamateIngotUncommon().getItem();
-
         // Chronicler Tier 1
         chroniclerPanel1 = new ChroniclerPanel(
             ItemGroups.MECHANISMS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_CHRONICLER_PANEL_1",
-                new ItemStack(Material.COBBLED_DEEPSLATE_SLAB),
-                ThemeType.MECHANISM,
-                "Chronicler Panel (Tier 1)",
-                "The chronicler panel will draw out",
-                "the stories contained within a given",
-                "block over time.",
-                "",
-                "Can chronicle stories for T1-T2 blocks."
-            ),
+            CrystaStacks.CHRONICLER_PANEL_1,
             RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[]{
                 new ItemStack(Material.COBBLED_DEEPSLATE), new ItemStack(Material.COBBLED_DEEPSLATE), new ItemStack(Material.COBBLED_DEEPSLATE),
@@ -81,21 +68,11 @@ public class Mechanisms {
         // Chronicler Tier 2
         chroniclerPanel2 = new ChroniclerPanel(
             ItemGroups.MECHANISMS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_CHRONICLER_PANEL_2",
-                new ItemStack(Material.DEEPSLATE_TILE_SLAB),
-                ThemeType.MECHANISM,
-                "Chronicler Panel (Tier 2)",
-                "The chronicler panel will draw out",
-                "the stories contained within a given",
-                "block over time.",
-                "",
-                "Can chronicle stories for T1-T3 blocks."
-            ),
+            CrystaStacks.CHRONICLER_PANEL_2,
             RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[]{
                 new ItemStack(Material.DEEPSLATE_BRICKS), new ItemStack(Material.DEEPSLATE_BRICKS), new ItemStack(Material.DEEPSLATE_BRICKS),
-                amalgamateIngotUncommon, chroniclerPanel1.getItem(), amalgamateIngotUncommon,
+                CrystaStacks.AMALGAMATE_INGOT_UNCOMMON, CrystaStacks.CHRONICLER_PANEL_1, CrystaStacks.AMALGAMATE_INGOT_UNCOMMON,
                 SlimefunItems.MAGIC_LUMP_3, SlimefunItems.MAGIC_LUMP_3, SlimefunItems.MAGIC_LUMP_3,
             },
             2
@@ -103,24 +80,14 @@ public class Mechanisms {
 
         // Chronicler Tier 3
         RecipeItem chroniclerT3Recipe = new RecipeItem(
-            chroniclerPanel2.getItem(),
+            CrystaStacks.CHRONICLER_PANEL_2,
             StoryType.ELEMENTAL, 150,
             StoryType.CELESTIAL, 200,
             StoryType.VOID, 50
         );
         chroniclerPanel3 = new ChroniclerPanel(
             ItemGroups.MECHANISMS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_CHRONICLER_PANEL_3",
-                new ItemStack(Material.NETHER_BRICK_SLAB),
-                ThemeType.MECHANISM,
-                "Chronicler Panel (Tier 3)",
-                "The chronicler panel will draw out",
-                "the stories contained within a given",
-                "block over time.",
-                "",
-                "Can chronicle stories for T1-T4 blocks."
-            ),
+            CrystaStacks.CHRONICLER_PANEL_3,
             LiquefactionBasinCraftingRecipeType.TYPE,
             chroniclerT3Recipe.getDisplayRecipe(),
             3
@@ -128,24 +95,14 @@ public class Mechanisms {
 
         // Chronicler Tier 4
         RecipeItem chroniclerT4Recipe = new RecipeItem(
-            chroniclerPanel3.getItem(),
+            CrystaStacks.CHRONICLER_PANEL_3,
             StoryType.ELEMENTAL, 1000,
             StoryType.CELESTIAL, 850,
             StoryType.VOID, 650
         );
         chroniclerPanel4 = new ChroniclerPanel(
             ItemGroups.MECHANISMS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_CHRONICLER_PANEL_4",
-                new ItemStack(Material.DARK_PRISMARINE_SLAB),
-                ThemeType.MECHANISM,
-                "Chronicler Panel (Tier 4)",
-                "The chronicler panel will draw out",
-                "the stories contained within a given",
-                "block over time.",
-                "",
-                "Can chronicle stories for T1-T5 blocks."
-            ),
+            CrystaStacks.CHRONICLER_PANEL_4,
             LiquefactionBasinCraftingRecipeType.TYPE,
             chroniclerT4Recipe.getDisplayRecipe(),
             4
@@ -154,17 +111,7 @@ public class Mechanisms {
         // Realisation Tier 1
         realisationAltar1 = new RealisationAltar(
             ItemGroups.MECHANISMS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_REALISATION_ALTAR_1",
-                new ItemStack(Material.CHISELED_DEEPSLATE),
-                ThemeType.MECHANISM,
-                "Realisation Altar (Tier 1)",
-                "The realisation altar takes storied",
-                "blocks and converts their stories into",
-                "a physical form.",
-                "",
-                "Can realise T1 - T2."
-            ),
+            CrystaStacks.REALISATION_ALTAR_1,
             RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[]{
                 null, new ItemStack(Material.BOOK), null,
@@ -177,21 +124,11 @@ public class Mechanisms {
         // Realisation Tier 2
         realisationAltar2 = new RealisationAltar(
             ItemGroups.MECHANISMS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_REALISATION_ALTAR_2",
-                new ItemStack(Material.CHISELED_NETHER_BRICKS),
-                ThemeType.MECHANISM,
-                "Realisation Altar (Tier 2)",
-                "The realisation altar takes storied",
-                "blocks and converts their stories into",
-                "a physical form.",
-                "",
-                "Can realise T1 - T3."
-            ),
+            CrystaStacks.REALISATION_ALTAR_2,
             RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[]{
                 null, new ItemStack(Material.BOOK), null,
-                amalgamateIngotUncommon, realisationAltar1.getItem(), amalgamateIngotUncommon,
+                CrystaStacks.AMALGAMATE_INGOT_UNCOMMON, realisationAltar1.getItem(), CrystaStacks.AMALGAMATE_INGOT_UNCOMMON,
                 SlimefunItems.MAGIC_LUMP_3, SlimefunItems.SOULBOUND_RUNE, SlimefunItems.MAGIC_LUMP_3,
             },
             2
@@ -199,24 +136,14 @@ public class Mechanisms {
 
         // Realisation Tier 3
         RecipeItem realisationT3Recipe = new RecipeItem(
-            realisationAltar2.getItem(),
+            CrystaStacks.REALISATION_ALTAR_2,
             StoryType.HISTORICAL, 100,
             StoryType.HUMAN, 350,
             StoryType.PHILOSOPHICAL, 150
         );
         realisationAltar3 = new RealisationAltar(
             ItemGroups.MECHANISMS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_REALISATION_ALTAR_3",
-                new ItemStack(Material.CHISELED_RED_SANDSTONE),
-                ThemeType.MECHANISM,
-                "Realisation Altar (Tier 3)",
-                "The realisation altar takes storied",
-                "blocks and converts their stories into",
-                "a physical form.",
-                "",
-                "Can realise T1 - T4."
-            ),
+            CrystaStacks.REALISATION_ALTAR_3,
             LiquefactionBasinCraftingRecipeType.TYPE,
             realisationT3Recipe.getDisplayRecipe(),
             3
@@ -224,24 +151,14 @@ public class Mechanisms {
 
         // Realisation Tier 4
         RecipeItem realisationT4Recipe = new RecipeItem(
-            realisationAltar3.getItem(),
+            CrystaStacks.REALISATION_ALTAR_3,
             StoryType.HISTORICAL, 1100,
             StoryType.HUMAN, 720,
             StoryType.PHILOSOPHICAL, 450
         );
         realisationAltar4 = new RealisationAltar(
             ItemGroups.MECHANISMS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_REALISATION_ALTAR_4",
-                new ItemStack(Material.CHISELED_POLISHED_BLACKSTONE),
-                ThemeType.MECHANISM,
-                "Realisation Altar (Tier 4)",
-                "The realisation altar takes storied",
-                "blocks and converts their stories into",
-                "a physical form.",
-                "",
-                "Can realise T1 - T5."
-            ),
+            CrystaStacks.REALISATION_ALTAR_4,
             LiquefactionBasinCraftingRecipeType.TYPE,
             realisationT4Recipe.getDisplayRecipe(),
             4
@@ -250,18 +167,7 @@ public class Mechanisms {
         // Liquefaction T1
         liquefactionBasin1 = new LiquefactionBasin(
             ItemGroups.MECHANISMS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_LIQUEFACTION_BASIN_1",
-                new ItemStack(Material.CAULDRON),
-                ThemeType.MECHANISM,
-                "Liquefaction Basin (Tier 1)",
-                "The liquefaction basin can take",
-                "Crystals and convert them into their liquid",
-                "Crystamae form. Used for magical crafting.",
-                "Danger: Do not break while filled!",
-                "",
-                "Holds up to 500 Liquefied Crysta."
-            ),
+            CrystaStacks.LIQUEFACTION_BASIN_1,
             RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[]{
                 SlimefunItems.REINFORCED_ALLOY_INGOT, null, SlimefunItems.REINFORCED_ALLOY_INGOT,
@@ -275,23 +181,12 @@ public class Mechanisms {
         // Liquefaction T2
         liquefactionBasin2 = new LiquefactionBasin(
             ItemGroups.MECHANISMS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_LIQUEFACTION_BASIN_2",
-                new ItemStack(Material.CAULDRON),
-                ThemeType.MECHANISM,
-                "Liquefaction Basin (Tier 2)",
-                "The liquefaction basin can take",
-                "Crystals and convert them into their liquid",
-                "Crystamae form. Used for magical crafting.",
-                "Danger: Do not break while filled!",
-                "",
-                "Holds up to 1250 Liquefied Crysta."
-            ),
+            CrystaStacks.LIQUEFACTION_BASIN_2,
             RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[]{
-                amalgamateDustRare, null, amalgamateDustRare,
-                amalgamateDustRare, liquefactionBasin1.getItem(), amalgamateDustRare,
-                amalgamateDustRare, SlimefunItems.ENCHANTMENT_RUNE, amalgamateDustRare
+                CrystaStacks.AMALGAMATE_DUST_RARE, null, CrystaStacks.AMALGAMATE_DUST_RARE,
+                CrystaStacks.AMALGAMATE_DUST_RARE, CrystaStacks.LIQUEFACTION_BASIN_1, CrystaStacks.AMALGAMATE_DUST_RARE,
+                CrystaStacks.AMALGAMATE_DUST_RARE, SlimefunItems.ENCHANTMENT_RUNE, CrystaStacks.AMALGAMATE_DUST_RARE
             },
             1250,
             Color.fromRGB(195, 195, 150)
@@ -299,25 +194,14 @@ public class Mechanisms {
 
         // Liquefaction T3
         RecipeItem liquefactionT3Recipe = new RecipeItem(
-            liquefactionBasin2.getItem(),
+            CrystaStacks.LIQUEFACTION_BASIN_2,
             StoryType.MECHANICAL, 90,
             StoryType.ALCHEMICAL, 250,
             StoryType.ANIMAL, 185
         );
         liquefactionBasin3 = new LiquefactionBasin(
             ItemGroups.MECHANISMS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_LIQUEFACTION_BASIN_3",
-                new ItemStack(Material.CAULDRON),
-                ThemeType.MECHANISM,
-                "Liquefaction Basin (Tier 3)",
-                "The liquefaction basin can take",
-                "Crystals and convert them into their liquid",
-                "Crystamae form. Used for magical crafting.",
-                "Danger: Do not break while filled!",
-                "",
-                "Holds up to 2500 Liquefied Crysta."
-            ),
+            CrystaStacks.LIQUEFACTION_BASIN_3,
             LiquefactionBasinCraftingRecipeType.TYPE,
             liquefactionT3Recipe.getDisplayRecipe(),
             2500,
@@ -326,25 +210,14 @@ public class Mechanisms {
 
         // Liquefaction T4
         RecipeItem liquefactionT4Recipe = new RecipeItem(
-            liquefactionBasin3.getItem(),
+            CrystaStacks.LIQUEFACTION_BASIN_3,
             StoryType.MECHANICAL, 750,
             StoryType.ALCHEMICAL, 700,
             StoryType.ANIMAL, 600
         );
         liquefactionBasin4 = new LiquefactionBasin(
             ItemGroups.MECHANISMS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_LIQUEFACTION_BASIN_4",
-                new ItemStack(Material.CAULDRON),
-                ThemeType.MECHANISM,
-                "Liquefaction Basin (Tier 4)",
-                "The liquefaction basin can take",
-                "Crystals and convert them into their liquid",
-                "Crystamae form. Used for magical crafting.",
-                "Danger: Do not break while filled!",
-                "",
-                "Holds up to 5000 Liquefied Crysta."
-            ),
+            CrystaStacks.LIQUEFACTION_BASIN_4,
             LiquefactionBasinCraftingRecipeType.TYPE,
             liquefactionT4Recipe.getDisplayRecipe(),
             5000,
@@ -360,15 +233,7 @@ public class Mechanisms {
         );
         staveConfigurator = new StaveConfigurator(
             ItemGroups.MECHANISMS,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_STAVE_CONFIGURATOR",
-                new ItemStack(Material.CUT_COPPER),
-                ThemeType.MECHANISM,
-                "Stave Configurator",
-                "The Stave Configurator allows you",
-                "to add spell plates into your",
-                "Staves."
-            ),
+            CrystaStacks.STAVE_CONFIGURATOR,
             LiquefactionBasinCraftingRecipeType.TYPE,
             staveConfiguratorRecipe.getDisplayRecipe()
         );
