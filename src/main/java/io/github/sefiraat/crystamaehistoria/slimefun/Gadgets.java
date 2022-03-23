@@ -971,7 +971,7 @@ public class Gadgets {
                 "",
                 ThemeType.WARNING.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "5"
             ),
-            RecipeType.ENHANCED_CRAFTING_TABLE,
+            DummyLiquefactionBasinCrafting.TYPE,
             fragmentedVoidRecipe.getDisplayRecipe(),
             5
         );
@@ -995,7 +995,7 @@ public class Gadgets {
                 "",
                 ThemeType.WARNING.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "7"
             ),
-            RecipeType.ENHANCED_CRAFTING_TABLE,
+            DummyLiquefactionBasinCrafting.TYPE,
             shatteredVoidRecipe.getDisplayRecipe(),
             7
         );
