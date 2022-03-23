@@ -657,7 +657,7 @@ public class Gadgets {
         fragmentedVoid = new FragmentedVoid(
             ItemGroups.GADGETS,
             CrystaStacks.FRAGMENTED_VOID,
-            RecipeType.ENHANCED_CRAFTING_TABLE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             fragmentedVoidRecipe.getDisplayRecipe(),
             5
         );
@@ -672,7 +672,7 @@ public class Gadgets {
         shatteredVoid = new FragmentedVoid(
             ItemGroups.GADGETS,
             CrystaStacks.SHATTERED_VOID,
-            RecipeType.ENHANCED_CRAFTING_TABLE,
+            LiquefactionBasinCraftingRecipeType.TYPE,
             shatteredVoidRecipe.getDisplayRecipe(),
             7
         );
