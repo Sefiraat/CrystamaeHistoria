@@ -11902,7 +11902,7 @@ STONECUTTER:
     shards: [ 0,2,0,0,0,0,0,0,0 ]
 
 STONE_AXE:
-  tier: 4
+  tier: 2
   elements:
     - HUMAN
     - PHILOSOPHICAL
@@ -12024,7 +12024,7 @@ STONE_PRESSURE_PLATE:
     shards: [ 1,1,0,0,1,0,0,1,0 ]
 
 STONE_SHOVEL:
-  tier: 4
+  tier: 2
   elements:
     - HUMAN
     - ELEMENTAL
