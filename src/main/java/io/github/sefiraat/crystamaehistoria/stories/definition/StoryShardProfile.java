@@ -1,10 +1,15 @@
 package io.github.sefiraat.crystamaehistoria.stories.definition;
 
+import io.github.sefiraat.crystamaehistoria.slimefun.CrystaStacks;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import org.bukkit.Location;
+import org.bukkit.Particle;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
+import javax.annotation.Nonnull;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
@@ -26,11 +31,7 @@ public class StoryShardProfile {
         shardMap.put(StoryType.PHILOSOPHICAL, integerList.get(StoryType.PHILOSOPHICAL.getId() - 1));
     }
 
-    public void dropShards(StoryRarity rarity, Block block, boolean isGilded) {
-        dropShards(rarity, block.getLocation(), isGilded);
-    }
-
-    public void dropShards(StoryRarity rarity, Location location, boolean isGilded) {
+    public void dropShards(@Nonnull StoryRarity rarity, @Nonnull Location location, boolean isGilded) {
         for (Map.Entry<StoryType, Integer> entry : shardMap.entrySet()) {
             final StoryType storyType = entry.getKey();
 
@@ -40,6 +41,18 @@ public class StoryShardProfile {
                 itemStack.setAmount(amount);
                 location.getWorld().dropItemNaturally(location, itemStack);
             }
+
+            if (isGilded) {
+                tryDropSigil(location, rarity);
+            }
+        }
+    }
+
+    public void tryDropSigil(@Nonnull Location location, @Nonnull StoryRarity storyRarity) {
+        if (storyRarity != StoryRarity.UNIQUE && GeneralUtils.testChance(storyRarity.getId(), 100)) {
+            ParticleUtils.displayParticleEffect(location, Particle.SPIT, 1, 3);
+            ParticleUtils.displayParticleEffect(location, Particle.ENCHANTMENT_TABLE, 1, 1);
+            location.getWorld().dropItemNaturally(location, CrystaStacks.ARCANE_SIGIL.clone());
         }
     }
 

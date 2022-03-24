@@ -44,6 +44,35 @@ public class CrystaStacks {
     public static final SlimefunItemStack POWDERED_ESSENCE;
     public static final SlimefunItemStack MAGICAL_MILK;
 
+    // Runes
+    public static final SlimefunItemStack RUNE_A;
+    public static final SlimefunItemStack RUNE_B;
+    public static final SlimefunItemStack RUNE_C;
+    public static final SlimefunItemStack RUNE_D;
+    public static final SlimefunItemStack RUNE_E;
+    public static final SlimefunItemStack RUNE_F;
+    public static final SlimefunItemStack RUNE_G;
+    public static final SlimefunItemStack RUNE_H;
+    public static final SlimefunItemStack RUNE_I;
+    public static final SlimefunItemStack RUNE_J;
+    public static final SlimefunItemStack RUNE_K;
+    public static final SlimefunItemStack RUNE_L;
+    public static final SlimefunItemStack RUNE_M;
+    public static final SlimefunItemStack RUNE_N;
+    public static final SlimefunItemStack RUNE_O;
+    public static final SlimefunItemStack RUNE_P;
+    public static final SlimefunItemStack RUNE_Q;
+    public static final SlimefunItemStack RUNE_R;
+    public static final SlimefunItemStack RUNE_S;
+    public static final SlimefunItemStack RUNE_T;
+    public static final SlimefunItemStack RUNE_U;
+    public static final SlimefunItemStack RUNE_V;
+    public static final SlimefunItemStack RUNE_W;
+    public static final SlimefunItemStack RUNE_X;
+    public static final SlimefunItemStack RUNE_Y;
+    public static final SlimefunItemStack RUNE_Z;
+
+
     // Artistic
     public static final SlimefunItemStack PAINT_BRUSH_BLACK_100;
     public static final SlimefunItemStack PAINT_BRUSH_BLUE_100;
@@ -404,6 +433,243 @@ public class CrystaStacks {
             ThemeType.CRAFTING,
             "Magical Milk Powder",
             "This powdered milk has something about it..."
+        );
+
+        // Runes
+
+        RUNE_A = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_BEAST",
+            Skulls.RUNE_A.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "Beast Rune",
+            "Unbridled passion and drive. The howl",
+            "of the wolf echos from within."
+        );
+
+        RUNE_B = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_BEGINNING",
+            Skulls.RUNE_B.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "Rune of Beginning",
+            "Chaos formed into order. The swirling",
+            "vortex of the unknown made still."
+        );
+
+        RUNE_C = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_MOON",
+            Skulls.RUNE_C.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "Moon Rune",
+            "The clash of both compassion and",
+            "sheer destruction rage within."
+        );
+
+        RUNE_D = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_GATE",
+            Skulls.RUNE_D.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "Gate Rune",
+            "Threads connecting worlds all pass",
+            "through the magic within these runes."
+        );
+
+        RUNE_E = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_TRUE_EARTH",
+            Skulls.RUNE_E.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "True Earth Rune",
+            "The single point of power for",
+            "all earth magic."
+        );
+
+        RUNE_F = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_CHANGE",
+            Skulls.RUNE_F.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "Rune of Change",
+            "All unknowns and futures of the universe",
+            "are kept in harmony within."
+        );
+
+        RUNE_G = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_NIGHT",
+            Skulls.RUNE_G.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "Night Rune",
+            "The magic running through this rune",
+            "is the same that allows the undead to rise."
+        );
+
+        RUNE_H = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_BLACK",
+            Skulls.RUNE_H.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "Black Rune",
+            "The power to control minds and wills",
+            "held within."
+        );
+
+        RUNE_I = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_TRUE_HOLY",
+            Skulls.RUNE_I.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "True Holy Rune",
+            "All inner light stems from this",
+            "magical source."
+        );
+
+        RUNE_J = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_DRAGON",
+            Skulls.RUNE_J.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "Dragon Rune",
+            "The existence of dragons both created",
+            "and was caused by this magic. A paradox that",
+            "will never be unwound."
+        );
+
+        RUNE_K = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_TRUE_WATER",
+            Skulls.RUNE_K.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "True Water Rune",
+            "The beginning of all flowing freely."
+        );
+
+        RUNE_L = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_SOVEREIGN",
+            Skulls.RUNE_L.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "Sovereign Rune",
+            "Order through rule, protection from",
+            "one, protection for all."
+        );
+
+        RUNE_M = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_SUN",
+            Skulls.RUNE_M.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "Sun Rune",
+            "Bringer of prosperity and life but",
+            "at a toll for all."
+        );
+
+        RUNE_N = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_DAWN",
+            Skulls.RUNE_N.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "Dawn Rune",
+            "The bringer of new, of regeneration",
+            "and renewal."
+        );
+
+        RUNE_O = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_TWILIGHT",
+            Skulls.RUNE_O.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "Twilight Rune",
+            "The removal of old, the bringer of",
+            "rest and recuperation."
+        );
+
+        RUNE_P = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_TRUE_FIRE",
+            Skulls.RUNE_P.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "True Fire Rune",
+            "An inferno without limits held",
+            "back by nothing but it's own tempest."
+        );
+
+        RUNE_Q = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_CIRCLE",
+            Skulls.RUNE_Q.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "Circle Rune",
+            "Brings both order and routine keeping",
+            "other forms of magic in check."
+        );
+
+        RUNE_R = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_BLINKING",
+            Skulls.RUNE_R.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "Blinking Rune",
+            "This rune contains space and in turn",
+            "itself and is used to traverse",
+            "large distances in moments."
+        );
+
+        RUNE_S = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_SOUL",
+            Skulls.RUNE_S.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "Souleater Rune",
+            "The rune of life and death. Both",
+            "kept in balance and check."
+        );
+
+        RUNE_T = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_PUNISHMENT",
+            Skulls.RUNE_T.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "Rune of Punishment",
+            "This rune imposes order by crushing",
+            "dissidence and wrong-doing, culling",
+            "magic gone-astray."
+        );
+
+        RUNE_U = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_TRUE_LIGHTNING",
+            Skulls.RUNE_U.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "True Lightning Rune",
+            "The tempest from above contained",
+            "within a sealing magic."
+        );
+
+        RUNE_V = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_EIGHTFOLD",
+            Skulls.RUNE_V.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "Eightfold Rune",
+            "The rule of reality and form.",
+            "Magics from this rune have the power to",
+            "create an form new matter."
+        );
+
+        RUNE_W = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_CHARM",
+            Skulls.RUNE_W.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "Charm Rune",
+            "Passion, drive and love power and",
+            "are powered by the magic within."
+        );
+
+        RUNE_X = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_TRUE_WIND",
+            Skulls.RUNE_X.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "True Wind Rune",
+            "The never ending zephyr hold up",
+            "within."
+        );
+
+        RUNE_Y = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_BLACK_SWORD",
+            Skulls.RUNE_Y.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "Black Sword Rune",
+            "The magic of power, domination and drive."
+        );
+
+        RUNE_Z = ThemeType.themedSlimefunItemStack(
+            "CRY_RUNE_BRIGHT_SHIELD",
+            Skulls.RUNE_Y.getPlayerHead(),
+            ThemeType.CRAFTING,
+            "Bright Shield Rune",
+            "The magic of power, protection and security."
         );
 
         // Artistic

@@ -82,6 +82,13 @@ public final class ItemGroups {
             ThemeType.MAIN.getColor() + "Crystamae Raw Materials"
         )
     );
+    public static final DummyItemGroup RUNES = new DummyItemGroup(
+        Keys.newKey("runes"),
+        new CustomItemStack(
+            new ItemStack(Material.ENCHANTING_TABLE),
+            ThemeType.MAIN.getColor() + "Arcane Runes"
+        )
+    );
     public static final DummyItemGroup UNIQUES = new DummyItemGroup(
         Keys.newKey("uniques"),
         new CustomItemStack(
