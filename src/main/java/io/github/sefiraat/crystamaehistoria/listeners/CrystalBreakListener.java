@@ -29,12 +29,12 @@ public class CrystalBreakListener implements Listener {
     private void handleCrystal(BlockBreakEvent event, Block block, boolean forceStopDrops) {
         final BlockPosition blockPosition = new BlockPosition(block);
         for (RealisationAltarCache cache : RealisationAltar.getCaches().values()) {
-            final Pair<StoryRarity, String> pair = cache.getCrystalStoryMap().remove(blockPosition);
-            if (pair != null) {
-                final StoryRarity rarity = pair.getFirstValue();
-                final String id = pair.getSecondValue();
+            final RealisationAltarCache.RealisedCrystalState state = cache.getCrystalStoryMap().remove(blockPosition);
+            if (state != null) {
+                final StoryRarity rarity = state.getStoryRarity();
+                final String id = state.getStoryId();
                 final Story story = CrystamaeHistoria.getStoriesManager().getStory(id, rarity);
-                story.getStoryShardProfile().dropShards(rarity, block.getLocation());
+                story.getStoryShardProfile().dropShards(rarity, block.getLocation(), state.isGilded());
                 // To stop annoying drops with silk touch :)
                 if (forceStopDrops) {
                     event.setCancelled(true);

@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.listeners;
 
-import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.NetherDrainingRecipeType;
+import io.github.sefiraat.crystamaehistoria.slimefun.CrystaRecipeTypes;
 import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import org.bukkit.Material;
 import org.bukkit.entity.Entity;
@@ -24,7 +24,7 @@ public class NetherDrainingListener implements Listener {
         final Item item = (Item) entity;
         final ItemStack itemStack = item.getItemStack();
 
-        for (Map.Entry<ItemStack, ItemStack> entry : NetherDrainingRecipeType.getDrainingRecipes().entrySet()) {
+        for (Map.Entry<ItemStack, ItemStack> entry : CrystaRecipeTypes.getDrainingRecipes().entrySet()) {
             final ItemStack recipeStack = entry.getKey();
             if (recipeStack == null || recipeStack.getType() == Material.AIR) {
                 continue;

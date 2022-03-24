@@ -12,7 +12,6 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.exhalted.ExaltedTime;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.exhalted.ExaltedWeather;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
-import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import lombok.Getter;
 import lombok.experimental.UtilityClass;
@@ -57,7 +56,7 @@ public class Exalted {
         exaltedBeacon = new ExaltedBeacon(
             ItemGroups.EXALTED,
             CrystaStacks.EXALTED_BEACON,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             exaltedBeaconRecipe.getDisplayRecipe()
         );
 
@@ -72,7 +71,7 @@ public class Exalted {
         exaltedFertilityPharo = new ExaltedFertilityPharo(
             ItemGroups.EXALTED,
             CrystaStacks.FERTILITY_PHARO,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             exaltedFertilityPharoRecipe.getDisplayRecipe()
         );
 
@@ -87,7 +86,7 @@ public class Exalted {
         exaltedHarvester = new ExaltedHarvester(
             ItemGroups.EXALTED,
             CrystaStacks.EXALTED_HARVESTER,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             exaltedHarvesterRecipe.getDisplayRecipe()
         );
 
@@ -102,7 +101,7 @@ public class Exalted {
         exaltedDawn = new ExaltedTime(
             ItemGroups.EXALTED,
             CrystaStacks.EXALTED_DAWN,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             exaltedDawnRecipe.getDisplayRecipe(),
             6000
         );
@@ -118,7 +117,7 @@ public class Exalted {
         exaltedDusk = new ExaltedTime(
             ItemGroups.EXALTED,
             CrystaStacks.EXALTED_DUSK,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             exaltedDuskRecipe.getDisplayRecipe(),
             18000
         );
@@ -134,7 +133,7 @@ public class Exalted {
         exaltedSun = new ExaltedWeather(
             ItemGroups.EXALTED,
             CrystaStacks.EXALTED_SUN,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             exaltedSunRecipe.getDisplayRecipe(),
             WeatherType.CLEAR
         );
@@ -150,7 +149,7 @@ public class Exalted {
         exaltedStorm = new ExaltedWeather(
             ItemGroups.EXALTED,
             CrystaStacks.EXALTED_STORM,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             exaltedStormRecipe.getDisplayRecipe(),
             WeatherType.DOWNFALL
         );
@@ -166,7 +165,7 @@ public class Exalted {
         exaltedSeaBreeze = new ExaltedSeaBreeze(
             ItemGroups.EXALTED,
             CrystaStacks.EXALTED_SEA_BREEZE,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             exaltedSeeBreezeRecipe.getDisplayRecipe()
         );
 

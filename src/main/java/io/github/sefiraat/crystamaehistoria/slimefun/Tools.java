@@ -21,7 +21,6 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.plates.BlankPla
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.plates.ChargedPlate;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.satchel.CrystamageSatchel;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.stave.Stave;
-import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.networks.slimefun.NetworksSlimefunItemStacks;
 import io.github.sefiraat.networks.slimefun.network.NetworkBridge;
@@ -111,7 +110,7 @@ public class Tools {
         inertPlate = new BlankPlate(
             ItemGroups.TOOLS,
             CrystaStacks.INERT_PLATE,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             inertPlateRecipe.getDisplayRecipe(),
             1
         );
@@ -120,7 +119,7 @@ public class Tools {
         chargedPlate = new ChargedPlate(
             ItemGroups.TOOLS,
             CrystaStacks.CHARGED_PLATE,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             new ItemStack[]{null, null, null, null, new ItemStack(Material.AMETHYST_CLUSTER), null, null, null, null},
             1
         );
@@ -197,7 +196,7 @@ public class Tools {
         ephemeralCraftingTable = new EphemeralCraftingTable(
             ItemGroups.TOOLS,
             CrystaStacks.EPHEMERAL_CRAFT_TABLE,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             ephemeralCraftingTableRecipe.getDisplayRecipe()
         );
 
@@ -211,7 +210,7 @@ public class Tools {
         ephemeralWorkBench = new EphemeralWorkBench(
             ItemGroups.TOOLS,
             CrystaStacks.EPHEMERAL_WORKBENCH,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             ephemeralWorkBenchRecipe.getDisplayRecipe()
         );
 
@@ -225,7 +224,7 @@ public class Tools {
         luminescenceScoop = new LuminescenceScoop(
             ItemGroups.TOOLS,
             CrystaStacks.LUMINESCENCE_SCOOP,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             luminescenceScoopRecipe.getDisplayRecipe(),
             25
         );
@@ -240,7 +239,7 @@ public class Tools {
         brillianceScoop = new LuminescenceScoop(
             ItemGroups.TOOLS,
             CrystaStacks.BRILLIANCE_SCOOP,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             brillianceScoopRecipe.getDisplayRecipe(),
             75
         );
@@ -255,7 +254,7 @@ public class Tools {
         lustreScoop = new LuminescenceScoop(
             ItemGroups.TOOLS,
             CrystaStacks.LUSTRE_SCOOP,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             lustreScoopRecipe.getDisplayRecipe(),
             250
         );
@@ -270,7 +269,7 @@ public class Tools {
         connectingCompass = new ConnectingCompass(
             ItemGroups.TOOLS,
             CrystaStacks.CONNECTING_COMPASS,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             connectingCompassRecipe.getDisplayRecipe()
         );
 
@@ -284,7 +283,7 @@ public class Tools {
         spiritualSilken = new SpiritualSilken(
             ItemGroups.TOOLS,
             CrystaStacks.SPIRITUAL_SILKEN,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             spiritualSilkenRecipe.getDisplayRecipe(),
             50
         );
@@ -299,7 +298,7 @@ public class Tools {
         simpleDisplacer = new Displacer(
             ItemGroups.TOOLS,
             CrystaStacks.SIMPLE_DISPLACER,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             simpleDisplacerRecipe.getDisplayRecipe(),
             50
         );
@@ -314,7 +313,7 @@ public class Tools {
         arcaneDisplacer = new Displacer(
             ItemGroups.TOOLS,
             CrystaStacks.ARCANE_DISPLACER,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             arcaneDisplacerRecipe.getDisplayRecipe(),
             500
         );
@@ -329,7 +328,7 @@ public class Tools {
         balmySponge = new BalmySponge(
             ItemGroups.TOOLS,
             CrystaStacks.SPONGE_BALMY,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             balmySpongeRecipe.getDisplayRecipe(),
             4
         );
@@ -344,7 +343,7 @@ public class Tools {
         searingSponge = new BalmySponge(
             ItemGroups.TOOLS,
             CrystaStacks.SPONGE_SEARING,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             searingSpongeRecipe.getDisplayRecipe(),
             7
         );
@@ -359,7 +358,7 @@ public class Tools {
         sleepingBag = new SleepingBag(
             ItemGroups.TOOLS,
             CrystaStacks.SLEEPING_BAG,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             sleepingBagRecipe.getDisplayRecipe()
         );
 
@@ -385,7 +384,7 @@ public class Tools {
         apprenticesSatchel = new CrystamageSatchel(
             ItemGroups.TOOLS,
             CrystaStacks.SATCHEL_1,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             apprenticesSatchelRecipe.getDisplayRecipe(),
             1
         );
@@ -400,7 +399,7 @@ public class Tools {
         crystamagesSatchel = new CrystamageSatchel(
             ItemGroups.TOOLS,
             CrystaStacks.SATCHEL_2,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             crystamagesSatchelRecipe.getDisplayRecipe(),
             2
         );
@@ -415,7 +414,7 @@ public class Tools {
         wizardsSatchel = new CrystamageSatchel(
             ItemGroups.TOOLS,
             CrystaStacks.SATCHEL_3,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             wizardsSatchelRecipe.getDisplayRecipe(),
             3
         );
@@ -430,7 +429,7 @@ public class Tools {
         conjurersSatchel = new CrystamageSatchel(
             ItemGroups.TOOLS,
             CrystaStacks.SATCHEL_4,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             conjurersSatchelRecipe.getDisplayRecipe(),
             4
         );
@@ -445,7 +444,7 @@ public class Tools {
         sorcerersSatchel = new CrystamageSatchel(
             ItemGroups.TOOLS,
             CrystaStacks.SATCHEL_5,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             sorcerersSatchelRecipe.getDisplayRecipe(),
             5
         );
@@ -460,7 +459,7 @@ public class Tools {
         grandmastersSatchel = new CrystamageSatchel(
             ItemGroups.TOOLS,
             CrystaStacks.SATCHEL_6,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             grandmastersSatchelRecipe.getDisplayRecipe(),
             6
         );
@@ -538,7 +537,7 @@ public class Tools {
             cargoCover = new BlockVeil(
                 ItemGroups.TOOLS,
                 CrystaStacks.CARGO_COVER,
-                LiquefactionBasinCraftingRecipeType.TYPE,
+                CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
                 cargoCoverRecipe.getDisplayRecipe(),
                 CrystaStacks.CARGO_COVER.asQuantity(8),
                 CargoConnectorNode.class
@@ -554,7 +553,7 @@ public class Tools {
             energyNetCover = new BlockVeil(
                 ItemGroups.TOOLS,
                 CrystaStacks.ENERGY_NET_COVER,
-                LiquefactionBasinCraftingRecipeType.TYPE,
+                CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
                 energyNetCoverRecipe.getDisplayRecipe(),
                 CrystaStacks.ENERGY_NET_COVER.asQuantity(8),
                 EnergyConnector.class
@@ -580,7 +579,7 @@ public class Tools {
             networkNodeCover = new BlockVeil(
                 ItemGroups.TOOLS,
                 CrystaStacks.NETWORKS_COVER,
-                LiquefactionBasinCraftingRecipeType.TYPE,
+                CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
                 networksCoverRecipe.getDisplayRecipe(),
                 CrystaStacks.NETWORKS_COVER.asQuantity(8),
                 NetworkBridge.class,

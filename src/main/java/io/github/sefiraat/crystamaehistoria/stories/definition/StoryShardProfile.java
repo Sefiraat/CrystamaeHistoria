@@ -8,6 +8,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class StoryShardProfile {
 
@@ -25,18 +26,15 @@ public class StoryShardProfile {
         shardMap.put(StoryType.PHILOSOPHICAL, integerList.get(StoryType.PHILOSOPHICAL.getId() - 1));
     }
 
-    public void dropShards(StoryRarity rarity, Block block) {
-        dropShards(rarity, block.getLocation());
+    public void dropShards(StoryRarity rarity, Block block, boolean isGilded) {
+        dropShards(rarity, block.getLocation(), isGilded);
     }
 
-    public void dropShards(StoryRarity rarity, Location location) {
-        dropShards(rarity, location, 1);
-    }
-
-    public void dropShards(StoryRarity rarity, Location location, int multiplier) {
+    public void dropShards(StoryRarity rarity, Location location, boolean isGilded) {
         for (Map.Entry<StoryType, Integer> entry : shardMap.entrySet()) {
-            StoryType storyType = entry.getKey();
-            int amount = entry.getValue() * multiplier;
+            final StoryType storyType = entry.getKey();
+
+            int amount = entry.getValue() * getMultiplier(isGilded);
             if (amount > 0) {
                 ItemStack itemStack = Materials.getCrystalMap().get(rarity).get(storyType).getItem().clone();
                 itemStack.setAmount(amount);
@@ -45,7 +43,17 @@ public class StoryShardProfile {
         }
     }
 
-    public void dropShards(StoryRarity rarity, Block block, int multiplier) {
-        dropShards(rarity, block.getLocation(), multiplier);
+    private int getMultiplier(boolean isGilded) {
+        if (isGilded) {
+            int rnd = ThreadLocalRandom.current().nextInt(1, 101);
+            if (rnd < 5) {
+                return 4;
+            } else if (rnd < 25) {
+                return 3;
+            }
+            return 2;
+        }
+
+        return 1;
     }
 }

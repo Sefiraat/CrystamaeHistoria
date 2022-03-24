@@ -5,9 +5,6 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.materials.Crystal;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.materials.PowderedEssence;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
-import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
-import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.NetherDrainingRecipeType;
-import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.RealisationAltarRecipeType;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.Skulls;
@@ -66,6 +63,8 @@ public class Materials {
     @Getter
     private static SlimefunItem amalgamateIngotUnique;
     @Getter
+    private static SlimefunItem arcaneSigil;
+    @Getter
     private static SlimefunItem imbuedGlass;
     @Getter
     private static SlimefunItem uncannyPearl;
@@ -94,7 +93,7 @@ public class Materials {
                     theme.getColor() + TextUtils.toTitleCase(type + " Crystal"),
                     "Magical Crystamae in it's physical form"
                 ),
-                RealisationAltarRecipeType.TYPE,
+                CrystaRecipeTypes.REALISATION_ALTAR_NORMAL,
                 new ItemStack[]{},
                 StoryRarity.COMMON,
                 type
@@ -121,7 +120,7 @@ public class Materials {
                         "",
                         "Provides " + Crystal.getRarityValueMap().get(rarity) + " Crysta."
                     ),
-                    RealisationAltarRecipeType.TYPE,
+                    CrystaRecipeTypes.REALISATION_ALTAR_NORMAL,
                     new ItemStack[]{null, null, null, null, new ItemStack(Material.AMETHYST_CLUSTER), null, null, null, null},
                     rarity,
                     type
@@ -136,8 +135,8 @@ public class Materials {
         blankCrystal = new UnplaceableBlock(
             ItemGroups.MATERIALS,
             CrystaStacks.CRYSTAL_BLANK,
-            NetherDrainingRecipeType.TYPE,
-            NetherDrainingRecipeType.getDummyRecipe(CrystaStacks.CRYSTAL_BLANK)
+            CrystaRecipeTypes.NETHER_DRAINING,
+            CrystaRecipeTypes.getDummyRecipe(CrystaStacks.CRYSTAL_BLANK)
         );
 
         // Polychromatic Crystal
@@ -150,7 +149,7 @@ public class Materials {
         polychromaticCrystal = new UnplaceableBlock(
             ItemGroups.MATERIALS,
             CrystaStacks.CRYSTAL_POLYCHROMATIC,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             polychromaticCrystalRecipe.getDisplayRecipe(),
             CrystaStacks.CRYSTAL_POLYCHROMATIC.asQuantity(3)
         );
@@ -165,7 +164,7 @@ public class Materials {
         kaleidoscopicCrystal = new UnplaceableBlock(
             ItemGroups.MATERIALS,
             CrystaStacks.CRYSTAL_KALEIDOSCOPIC,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             kaleidoscopicCrystalRecipe.getDisplayRecipe(),
             CrystaStacks.CRYSTAL_KALEIDOSCOPIC.asQuantity(3)
         );
@@ -180,7 +179,7 @@ public class Materials {
         motleyCrystal = new UnplaceableBlock(
             ItemGroups.MATERIALS,
             CrystaStacks.CRYSTAL_MOTLEY,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             motleyCrystalRecipe.getDisplayRecipe(),
             CrystaStacks.CRYSTAL_MOTLEY.asQuantity(3)
         );
@@ -366,6 +365,14 @@ public class Materials {
             }
         );
 
+        // Arcane Sigil
+        arcaneSigil = new UnplaceableBlock(
+            ItemGroups.MATERIALS,
+            CrystaStacks.ARCANE_SIGIL,
+            CrystaRecipeTypes.REALISATION_ALTAR_SIGIL,
+            new ItemStack[8]
+        );
+
         // Imbued Glass
         RecipeItem imbuedGlassRecipe = new RecipeItem(
             new ItemStack(Material.GLASS_PANE),
@@ -376,7 +383,7 @@ public class Materials {
         imbuedGlass = new UnplaceableBlock(
             ItemGroups.MATERIALS,
             CrystaStacks.IMBUED_GLASS,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             imbuedGlassRecipe.getDisplayRecipe()
         );
 
@@ -390,7 +397,7 @@ public class Materials {
         uncannyPearl = new UnplaceableBlock(
             ItemGroups.MATERIALS,
             CrystaStacks.UNCANNY_PEARL,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             uncannyPearlRecipe.getDisplayRecipe()
         );
 
@@ -416,7 +423,7 @@ public class Materials {
         basicFibres = new UnplaceableBlock(
             ItemGroups.MATERIALS,
             CrystaStacks.BASIC_FIBRES,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             basicFibresRecipe.getDisplayRecipe()
         );
 
@@ -430,7 +437,7 @@ public class Materials {
         powderedEssence = new PowderedEssence(
             ItemGroups.MATERIALS,
             CrystaStacks.POWDERED_ESSENCE,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             powderedEssenceRecipe.getDisplayRecipe(),
             250
         );
@@ -445,7 +452,7 @@ public class Materials {
         magicalMilk = new SlimefunItem(
             ItemGroups.MATERIALS,
             CrystaStacks.MAGICAL_MILK,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             magicalMilkRecipe.getDisplayRecipe()
         );
 

@@ -7,7 +7,6 @@ import io.github.sefiraat.crystamaehistoria.player.StoryRank;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.materials.Trophy;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
-import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
@@ -63,7 +62,7 @@ public class Uniques {
         spellTrophy = new Trophy(
             ItemGroups.UNIQUES,
             CrystaStacks.SPELL_TROPHY,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             spellTrophyRecipe.getDisplayRecipe(),
             location -> ParticleUtils.displayParticleEffect(
                 location.add(0, 0.2, 0),
@@ -84,7 +83,7 @@ public class Uniques {
         storyTrophy = new Trophy(
             ItemGroups.UNIQUES,
             CrystaStacks.STORY_TROPHY,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             storyTrophyRecipe.getDisplayRecipe(),
             location -> ParticleUtils.displayParticleEffect(
                 location.add(0, 0.2, 0),
@@ -105,7 +104,7 @@ public class Uniques {
         christmasTrophy = new Trophy(
             ItemGroups.UNIQUES,
             CrystaStacks.CHRISTMAS_TROPHY,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             christmasTrophyRecipe.getDisplayRecipe(),
             location -> {
                 ParticleUtils.displayParticleEffect(
@@ -134,7 +133,7 @@ public class Uniques {
         valentinesTrophy = new Trophy(
             ItemGroups.UNIQUES,
             CrystaStacks.VALENTINES_TROPHY,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             valentinesTrophyRecipe.getDisplayRecipe(),
             location -> {
                 ParticleUtils.displayParticleEffect(
@@ -157,7 +156,7 @@ public class Uniques {
         birthdayTrophyCheesy = new Trophy(
             ItemGroups.UNIQUES,
             CrystaStacks.BIRTHDAY_TROPHY_CHEESY,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             birthdayTrophyCheesyRecipe.getDisplayRecipe(),
             location -> {
                 final Location spawnLocation = location.add(0, 0.2, 0);
@@ -185,7 +184,7 @@ public class Uniques {
         birthdayTrophyBWhite = new Trophy(
             ItemGroups.UNIQUES,
             CrystaStacks.BIRTHDAY_TROPHY_BWHITE,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             birthdayTrophyBWhiteRecipe.getDisplayRecipe(),
             location -> {
                 final Location spawnLocation = location.add(0, 0.2, 0);
@@ -213,7 +212,7 @@ public class Uniques {
         birthdayTrophyDecoy = new Trophy(
             ItemGroups.UNIQUES,
             CrystaStacks.BIRTHDAY_TROPHY_DECOY,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             birthdayTrophyDecoyRecipe.getDisplayRecipe(),
             location -> {
                 final Location spawnLocation = location.add(0, 0.2, 0);
@@ -241,7 +240,7 @@ public class Uniques {
         birthdayTrophyOddish = new Trophy(
             ItemGroups.UNIQUES,
             CrystaStacks.BIRTHDAY_TROPHY_ODDISH,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             birthdayTrophyOddishRecipe.getDisplayRecipe(),
             location -> {
                 final Location spawnLocation = location.add(0, 0.2, 0);

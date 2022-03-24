@@ -21,7 +21,6 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.gadgets.TrophyDisplay
 import io.github.sefiraat.crystamaehistoria.slimefun.items.gadgets.Waystone;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
-import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.CrystaTag;
@@ -132,7 +131,7 @@ public class Gadgets {
         abstractionLamp = new MobLamp(
             ItemGroups.GADGETS,
             CrystaStacks.ABSTRACTION_LAMP,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             abstractionLampRecipe.getDisplayRecipe(),
             5,
             0.3
@@ -148,7 +147,7 @@ public class Gadgets {
         dispersionLamp = new MobLamp(
             ItemGroups.GADGETS,
             CrystaStacks.DISPERSION_LAMP,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             dispersionLampRecipe.getDisplayRecipe(),
             7,
             0.5
@@ -164,7 +163,7 @@ public class Gadgets {
         inversionVacuum = new MobFan(
             ItemGroups.GADGETS,
             CrystaStacks.INVERSION_VACUUM,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             inversionVacuumRecipe.getDisplayRecipe(),
             5
         );
@@ -179,7 +178,7 @@ public class Gadgets {
         antipodalVacuum = new MobFan(
             ItemGroups.GADGETS,
             CrystaStacks.ANTIPODAL_VACUUM,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             antipodalVacuumRecipe.getDisplayRecipe(),
             10
         );
@@ -227,7 +226,7 @@ public class Gadgets {
         dreadfulDirt = new CursedEarth(
             ItemGroups.GADGETS,
             CrystaStacks.DREADFUL_DIRT,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             dreadfulDirtRecipe.getDisplayRecipe(),
             10,
             15,
@@ -245,7 +244,7 @@ public class Gadgets {
         searingPlate = new MobMat(
             ItemGroups.GADGETS,
             CrystaStacks.SEARING_PLATE,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             searingPlateRecipe.getDisplayRecipe(),
             1,
             false
@@ -261,7 +260,7 @@ public class Gadgets {
         doomedPlate = new MobMat(
             ItemGroups.GADGETS,
             CrystaStacks.DOOMED_PLATE,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             doomedPlateRecipe.getDisplayRecipe(),
             1,
             true
@@ -277,7 +276,7 @@ public class Gadgets {
         evisceratingPlate = new MobMat(
             ItemGroups.GADGETS,
             CrystaStacks.EVISCERATING_PLATE,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             evisceratingPlateRecipe.getDisplayRecipe(),
             2,
             true
@@ -293,7 +292,7 @@ public class Gadgets {
         trapPlate = new MobTrap(
             ItemGroups.GADGETS,
             CrystaStacks.TRAP_PLATE,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             trapPlateRecipe.getDisplayRecipe()
         );
 
@@ -307,7 +306,7 @@ public class Gadgets {
         basicExpCollector = new ExpCollector(
             ItemGroups.GADGETS,
             CrystaStacks.EXP_COLLECTOR_BASIC,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             basicExpCollectorRecipe.getDisplayRecipe(),
             2500,
             4
@@ -323,7 +322,7 @@ public class Gadgets {
         infusedExpCollector = new ExpCollector(
             ItemGroups.GADGETS,
             CrystaStacks.EXP_COLLECTOR_INFUSED,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             infusedExpCollectorRecipe.getDisplayRecipe(),
             10000,
             8
@@ -365,7 +364,7 @@ public class Gadgets {
         dimMobCandle = new MobCandle(
             ItemGroups.GADGETS,
             CrystaStacks.MOB_CANDLE_DIM,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             dimMobCandleRecipe.getDisplayRecipe(),
             16,
             7200
@@ -381,7 +380,7 @@ public class Gadgets {
         brightMobCandle = new MobCandle(
             ItemGroups.GADGETS,
             CrystaStacks.MOB_CANDLE_BRIGHT,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             brightMobCandleRecipe.getDisplayRecipe(),
             32,
             86_400
@@ -397,7 +396,7 @@ public class Gadgets {
         scintillatingMobCandle = new MobCandle(
             ItemGroups.GADGETS,
             CrystaStacks.MOB_CANDLE_SCINTILLATING,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             scintillatingMobCandleRecipe.getDisplayRecipe(),
             64,
             172_800
@@ -433,7 +432,7 @@ public class Gadgets {
         mysteriousPlant = new MysteriousTicker(
             ItemGroups.GADGETS,
             CrystaStacks.MYSTERIOUS_PLANT,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             mysteriousPlantRecipe.getDisplayRecipe(),
             Tag.SMALL_FLOWERS.getValues(),
             15,
@@ -455,7 +454,7 @@ public class Gadgets {
         mysteriousGlass = new MysteriousTicker(
             ItemGroups.GADGETS,
             CrystaStacks.MYSTERIOUS_GLASS,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             mysteriousGlassRecipe.getDisplayRecipe(),
             SlimefunTag.GLASS_BLOCKS.getValues(),
             15
@@ -471,7 +470,7 @@ public class Gadgets {
         mysteriousWool = new MysteriousTicker(
             ItemGroups.GADGETS,
             CrystaStacks.MYSTERIOUS_WOOL,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             mysteriousWoolRecipe.getDisplayRecipe(),
             SlimefunTag.WOOL.getValues(),
             15
@@ -487,7 +486,7 @@ public class Gadgets {
         mysteriousTerracotta = new MysteriousTicker(
             ItemGroups.GADGETS,
             CrystaStacks.MYSTERIOUS_TERRACOTTA,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             mysteriousTerracottaRecipe.getDisplayRecipe(),
             SlimefunTag.TERRACOTTA.getValues(),
             15
@@ -503,7 +502,7 @@ public class Gadgets {
         mysteriousGlazedTerracotta = new MysteriousTicker(
             ItemGroups.GADGETS,
             CrystaStacks.MYSTERIOUS_GLAZED_TERRACOTTA,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             mysteriousGlazedTerracottaRecipe.getDisplayRecipe(),
             CrystaTag.GLAZED_TERRACOTTA.getValues(),
             15
@@ -519,7 +518,7 @@ public class Gadgets {
         mysteriousConcrete = new MysteriousTicker(
             ItemGroups.GADGETS,
             CrystaStacks.MYSTERIOUS_CONCRETE,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             mysteriousConcreteRecipe.getDisplayRecipe(),
             CrystaTag.CONCRETE_BLOCKS.getValues(),
             15
@@ -548,7 +547,7 @@ public class Gadgets {
         focusedGreenHouseGlass = new GreenHouseGlass(
             ItemGroups.GADGETS,
             CrystaStacks.GREEN_HOUSE_GLASS_FOCUSED,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             focusedGreenHouseGlassRecipe.getDisplayRecipe(),
             10
         );
@@ -563,7 +562,7 @@ public class Gadgets {
         trophyDisplay = new TrophyDisplay(
             ItemGroups.GADGETS,
             CrystaStacks.TROPHY_STAND,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             trophyDisplayRecipe.getDisplayRecipe()
         );
 
@@ -577,7 +576,7 @@ public class Gadgets {
         exaltationStand = new ExaltationStand(
             ItemGroups.GADGETS,
             CrystaStacks.EXALTATION_STAND,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             exaltationStandRecipe.getDisplayRecipe()
         );
 
@@ -598,7 +597,7 @@ public class Gadgets {
         waystone = new Waystone(
             ItemGroups.GADGETS,
             CrystaStacks.WAYSTONE,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             waystoneRecipe.getDisplayRecipe(),
             waystoneMaterials,
             5,
@@ -657,7 +656,7 @@ public class Gadgets {
         fragmentedVoid = new FragmentedVoid(
             ItemGroups.GADGETS,
             CrystaStacks.FRAGMENTED_VOID,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             fragmentedVoidRecipe.getDisplayRecipe(),
             5
         );
@@ -672,7 +671,7 @@ public class Gadgets {
         shatteredVoid = new FragmentedVoid(
             ItemGroups.GADGETS,
             CrystaStacks.SHATTERED_VOID,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             shatteredVoidRecipe.getDisplayRecipe(),
             7
         );

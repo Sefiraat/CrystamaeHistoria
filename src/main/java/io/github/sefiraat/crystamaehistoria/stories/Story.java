@@ -40,6 +40,8 @@ public class Story {
     @Setter
     @Nullable
     private BlockPosition blockPosition;
+    @Setter
+    private boolean gilded = false;
 
     /**
      * @noinspection ConstantConditions
@@ -82,6 +84,7 @@ public class Story {
         this.author = story.author;
         this.sponsor = story.sponsor;
         this.blockPosition = story.blockPosition;
+        this.gilded = story.gilded;
     }
 
     public String getDisplayName() {

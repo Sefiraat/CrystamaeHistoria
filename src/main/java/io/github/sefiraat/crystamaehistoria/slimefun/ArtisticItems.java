@@ -9,7 +9,6 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.PoseChanger;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.PoseCloner;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
-import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
@@ -655,7 +654,7 @@ public class ArtisticItems {
         bodyStand = new UnplaceableBlock(
             ItemGroups.MATERIALS,
             CrystaStacks.BODY_STAND,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             bodyStandRecipe.getDisplayRecipe()
         );
 
@@ -669,7 +668,7 @@ public class ArtisticItems {
         mindStand = new UnplaceableBlock(
             ItemGroups.MATERIALS,
             CrystaStacks.MIND_STAND,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             mindStandRecipe.getDisplayRecipe()
         );
 
@@ -683,7 +682,7 @@ public class ArtisticItems {
         soulStand = new UnplaceableBlock(
             ItemGroups.MATERIALS,
             CrystaStacks.SOUL_STAND,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             soulStandRecipe.getDisplayRecipe()
         );
 
@@ -709,7 +708,7 @@ public class ArtisticItems {
         imbuedStand = new ImbuedStand(
             ItemGroups.ARTISTIC,
             CrystaStacks.IMBUED_STAND,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             imbuedStandRecipe.getDisplayRecipe()
         );
 

@@ -8,7 +8,6 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefacti
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.prismaticgilder.PrismaticGilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.realisationaltar.RealisationAltar;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.staveconfigurator.StaveConfigurator;
-import io.github.sefiraat.crystamaehistoria.slimefun.recipetypes.LiquefactionBasinCraftingRecipeType;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
@@ -90,7 +89,7 @@ public class Mechanisms {
         chroniclerPanel3 = new ChroniclerPanel(
             ItemGroups.MECHANISMS,
             CrystaStacks.CHRONICLER_PANEL_3,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             chroniclerT3Recipe.getDisplayRecipe(),
             3
         );
@@ -105,7 +104,7 @@ public class Mechanisms {
         chroniclerPanel4 = new ChroniclerPanel(
             ItemGroups.MECHANISMS,
             CrystaStacks.CHRONICLER_PANEL_4,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             chroniclerT4Recipe.getDisplayRecipe(),
             4
         );
@@ -146,7 +145,7 @@ public class Mechanisms {
         realisationAltar3 = new RealisationAltar(
             ItemGroups.MECHANISMS,
             CrystaStacks.REALISATION_ALTAR_3,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             realisationT3Recipe.getDisplayRecipe(),
             3
         );
@@ -161,7 +160,7 @@ public class Mechanisms {
         realisationAltar4 = new RealisationAltar(
             ItemGroups.MECHANISMS,
             CrystaStacks.REALISATION_ALTAR_4,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             realisationT4Recipe.getDisplayRecipe(),
             4
         );
@@ -204,7 +203,7 @@ public class Mechanisms {
         liquefactionBasin3 = new LiquefactionBasin(
             ItemGroups.MECHANISMS,
             CrystaStacks.LIQUEFACTION_BASIN_3,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             liquefactionT3Recipe.getDisplayRecipe(),
             2500,
             Color.fromRGB(215, 200, 110)
@@ -220,7 +219,7 @@ public class Mechanisms {
         liquefactionBasin4 = new LiquefactionBasin(
             ItemGroups.MECHANISMS,
             CrystaStacks.LIQUEFACTION_BASIN_4,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             liquefactionT4Recipe.getDisplayRecipe(),
             5000,
             Color.fromRGB(240, 220, 26)
@@ -236,7 +235,7 @@ public class Mechanisms {
         staveConfigurator = new StaveConfigurator(
             ItemGroups.MECHANISMS,
             CrystaStacks.STAVE_CONFIGURATOR,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             staveConfiguratorRecipe.getDisplayRecipe()
         );
 
@@ -250,7 +249,7 @@ public class Mechanisms {
         prismaticGilder = new PrismaticGilder(
             ItemGroups.MECHANISMS,
             CrystaStacks.PRISMATIC_GILDER,
-            LiquefactionBasinCraftingRecipeType.TYPE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             prismaticGilderRecipe.getDisplayRecipe()
         );
 

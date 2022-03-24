@@ -197,7 +197,7 @@ public class SpellEffectListener implements Listener {
 //    @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
 //    public void onRideRavager(PlayerInteractEntityEvent event) {
 //        NamespacedKey key = Keys.PDC_IS_SPAWN_OWNER;
-//        UUID uuid = DataTypeMethods.getCustom(event.getRightClicked(), key, PersistentUUIDDataType.TYPE);
+//        UUID uuid = DataTypeMethods.getCustom(event.getRightClicked(), key, PersistentUUIDDataType.LIQUEFACTION_CRAFTING);
 //        if (uuid != null && uuid.equals(event.getPlayer().getUniqueId()) && event.getRightClicked().getType() == EntityType.RAVAGER) {
 //            event.getRightClicked().addPassenger(event.getPlayer());
 //        }

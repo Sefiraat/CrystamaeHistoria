@@ -31,6 +31,7 @@ public final class Keys {
     public static final NamespacedKey GUIDE_REALISATION = newKey("guide_realisation");
 
     public static final NamespacedKey REALISATION_ALTAR_RECIPE_TYPE = newKey("r_d_c");
+    public static final NamespacedKey REALISATION_ALTAR_RECIPE_SIGIL = newKey("r_d_s");
     public static final NamespacedKey LIQUEFACTION_CRAFTING_RECIPE_TYPE = newKey("l_d_c");
     public static final NamespacedKey LIQUEFACTION_SPELL_RECIPE_TYPE = newKey("l_d_s");
     public static final NamespacedKey NETHER_DRAINING_RECIPE_TYPE = newKey("nether_draining");
@@ -52,6 +53,7 @@ public final class Keys {
     public static final NamespacedKey STORY_ID = newKey("s_id");
     public static final NamespacedKey STORY_RARITY = newKey("s_r");
     public static final NamespacedKey STORY_TYPE = newKey("s_t");
+    public static final NamespacedKey STORY_IS_GILDED = newKey("s_g");
 
     // Type - Plate
     public static final NamespacedKey PLATE_TIER = newKey("p_t");

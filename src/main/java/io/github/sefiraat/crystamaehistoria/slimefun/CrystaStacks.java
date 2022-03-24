@@ -36,6 +36,7 @@ public class CrystaStacks {
     public static final SlimefunItemStack AMALGAMATE_INGOT_EPIC;
     public static final SlimefunItemStack AMALGAMATE_INGOT_MYTHICAL;
     public static final SlimefunItemStack AMALGAMATE_INGOT_UNIQUE;
+    public static final SlimefunItemStack ARCANE_SIGIL;
     public static final SlimefunItemStack IMBUED_GLASS;
     public static final SlimefunItemStack UNCANNY_PEARL;
     public static final SlimefunItemStack GILDED_PEARL;
@@ -190,6 +191,13 @@ public class CrystaStacks {
     public static final SlimefunItemStack BIRTHDAY_TROPHY_DECOY;
     public static final SlimefunItemStack BIRTHDAY_TROPHY_ODDISH;
 
+    // Recipe Types
+    public static final ItemStack RECIPE_TYPE_LIQUEFACTION_CRAFTING;
+    public static final ItemStack RECIPE_TYPE_LIQUEFACTION_SPELL;
+    public static final ItemStack RECIPE_TYPE_NETHER_DRAINING;
+    public static final ItemStack RECIPE_TYPE_REALISATION_ALTAR_NORMAL;
+    public static final ItemStack RECIPE_TYPE_REALISATION_ALTAR_SIGIL;
+
     static {
 
         // Materials
@@ -332,6 +340,15 @@ public class CrystaStacks {
             ThemeType.CRAFTING,
             "Amalgamate Ingot (Unique)",
             "An ingot crafted of pure magics."
+        );
+
+        ARCANE_SIGIL = ThemeType.themedSlimefunItemStack(
+            "CRY_ARCANE_SIGIL",
+            new ItemStack(Material.GLOW_LICHEN),
+            ThemeType.CRAFTING,
+            "Arcane Sigil",
+            "An ancient mark left in the world",
+            "by previous Crysta users."
         );
 
         IMBUED_GLASS = ThemeType.themedSlimefunItemStack(
@@ -1876,6 +1893,56 @@ public class CrystaStacks {
             "A Gloom waiting to happen",
             "",
             ThemeType.CLICK_INFO.getColor() + "Requires: Oddish's Birthday!"
+        );
+
+        // Recipe Types
+
+        RECIPE_TYPE_LIQUEFACTION_CRAFTING = ThemeType.themedItemStack(
+            Material.CAULDRON,
+            ThemeType.MECHANISM,
+            "Liquefaction Basin",
+            "Formed by dropping the relevant item",
+            "into a filled Liquefaction Basin containing",
+            "the correct Crystamae."
+        );
+
+        RECIPE_TYPE_LIQUEFACTION_SPELL = ThemeType.themedItemStack(
+            Material.CAULDRON,
+            ThemeType.MECHANISM,
+            "Liquefaction Basin",
+            "Formed by dropping a basic plate into a",
+            "filled Liquefaction Basin containing",
+            "the correct Crystamae."
+        );
+
+        RECIPE_TYPE_NETHER_DRAINING = ThemeType.themedItemStack(
+            Material.OBSIDIAN,
+            ThemeType.RESEARCH,
+            "Nether Draining",
+            "Crysta has a hard time transferring",
+            "to the Nether. If it is in it's Crystal",
+            "form, all the magic will be drained.",
+            "Throw a Mythical Crystal into a nether",
+            "portal to drain it.",
+            "Any Mythical Crystal will work."
+        );
+
+        RECIPE_TYPE_REALISATION_ALTAR_NORMAL = ThemeType.themedItemStack(
+            Material.CHISELED_DEEPSLATE,
+            ThemeType.MECHANISM,
+            "Realisation Altar",
+            "Crystals are gathered when mining the fully",
+            "formed crystals that gather around an active",
+            "Altar. Giving the Altar storied blocks will",
+            "produce crystals."
+        );
+
+        RECIPE_TYPE_REALISATION_ALTAR_SIGIL = ThemeType.themedItemStack(
+            Material.CHISELED_DEEPSLATE,
+            ThemeType.MECHANISM,
+            "Realisation Altar",
+            "Arcane Sigils have a small chance to be",
+            "produced when realising Gilded Items."
         );
     }
 }
