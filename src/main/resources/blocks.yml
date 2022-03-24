@@ -4625,7 +4625,6 @@ END_STONE_BRICK_WALL:
   elements:
     - CELESTIAL
     - HISTORICAL
-    - CELESTIAL
   story:
     name: Beating down the walls (End Stone Brick)
     type: HISTORICAL
