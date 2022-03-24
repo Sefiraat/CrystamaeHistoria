@@ -399,13 +399,11 @@ public class CrystaStacks {
         );
 
         MAGICAL_MILK = ThemeType.themedSlimefunItemStack(
-            "CRY_MAGICAL_MILK",
-            new ItemStack(Material.MILK_BUCKET),
+            "CRY_MAGICAL_MILK_POWDER",
+            new ItemStack(Material.SUGAR),
             ThemeType.CRAFTING,
-            "Magical Milk",
-            "This milk has something about it...",
-            "",
-            ChatColor.YELLOW + "Do not waste by drinking!"
+            "Magical Milk Powder",
+            "This powdered milk has something about it..."
         );
 
         // Artistic
