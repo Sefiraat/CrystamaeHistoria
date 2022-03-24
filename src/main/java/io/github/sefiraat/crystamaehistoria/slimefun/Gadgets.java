@@ -657,7 +657,6 @@ public class Gadgets {
             ItemGroups.GADGETS,
             CrystaStacks.FRAGMENTED_VOID,
             CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
-            DummyLiquefactionBasinCrafting.TYPE,
             fragmentedVoidRecipe.getDisplayRecipe(),
             5
         );
@@ -673,7 +672,6 @@ public class Gadgets {
             ItemGroups.GADGETS,
             CrystaStacks.SHATTERED_VOID,
             CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
-            DummyLiquefactionBasinCrafting.TYPE,
             shatteredVoidRecipe.getDisplayRecipe(),
             7
         );
