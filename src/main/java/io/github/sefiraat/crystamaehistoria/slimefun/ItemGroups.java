@@ -3,17 +3,20 @@ package io.github.sefiraat.crystamaehistoria.slimefun;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.DummyGuideOnly;
 import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.DummyItemGroup;
+import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.GildedCollectionFlexGroup;
 import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.MainFlexGroup;
 import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.SpellCollectionFlexGroup;
 import io.github.sefiraat.crystamaehistoria.slimefun.itemgroups.StoryCollectionFlexGroup;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.MagicPaintbrush;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
+import io.github.sefiraat.crystamaehistoria.utils.Skulls;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import lombok.experimental.UtilityClass;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
+import org.bukkit.block.Skull;
 import org.bukkit.inventory.ItemStack;
 
 @UtilityClass
@@ -115,6 +118,13 @@ public final class ItemGroups {
         new CustomItemStack(
             new ItemStack(Material.KNOWLEDGE_BOOK),
             ThemeType.MAIN.getColor() + "Spell Collection"
+        )
+    );
+    public static final GildedCollectionFlexGroup GILDING_COLLECTION = new GildedCollectionFlexGroup(
+        Keys.newKey("gilding_collection"),
+        new CustomItemStack(
+            new ItemStack(Material.KNOWLEDGE_BOOK),
+            ThemeType.MAIN.getColor() + "Gilding Collection"
         )
     );
 
@@ -254,6 +264,46 @@ public final class ItemGroups {
             new ItemStack[]{}
         );
 
+        // Nether Draining
+        SlimefunItem guideNetherDraining = new SlimefunItem(
+            ItemGroups.GUIDE,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_GUIDE_NETHER_DRAINING",
+                Skulls.CRYSTAL_CLEAR.getPlayerHead(),
+                ThemeType.GUIDE,
+                "How To: Nether Draining",
+                "When a Mythical Crystal is thrown",
+                "through a Nether Portal the magic",
+                "will be drained out of it leaving",
+                "behind a blank crystal that is able",
+                "to have different forms of magic",
+                "re-inserted."
+            ),
+            DummyGuideOnly.TYPE,
+            new ItemStack[]{}
+        );
+
+        // Prismatic Gilding
+        SlimefunItem guideGilding = new SlimefunItem(
+            ItemGroups.GUIDE,
+            ThemeType.themedSlimefunItemStack(
+                "CRY_GUIDE_GILDING",
+                new ItemStack(Material.WARPED_FENCE),
+                ThemeType.GUIDE,
+                "How To: Gilding",
+                "The Prismatic Guider will take Crystal",
+                "that are thrown at it and convert",
+                "the energy into pure magic.",
+                "You can then right click the gilder",
+                "with a fully-storied block it will",
+                "be gilded. Requires an amount of",
+                "Prismatic Crysta equal to the block",
+                "tier."
+            ),
+            DummyGuideOnly.TYPE,
+            new ItemStack[]{}
+        );
+
         // Slimefun Registry
         ItemGroups.MAIN.register(plugin);
 
@@ -263,5 +313,7 @@ public final class ItemGroups {
         guideStave.register(plugin);
         guideMakeSpell.register(plugin);
         guideChargeSpell.register(plugin);
+        guideNetherDraining.register(plugin);
+        guideGilding.register(plugin);
     }
 }

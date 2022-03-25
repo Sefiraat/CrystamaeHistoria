@@ -50,13 +50,19 @@ public class Gadgets {
     @Getter
     private static MobLamp dispersionLamp;
     @Getter
+    private static MobLamp exodusLamp;
+    @Getter
     private static MobFan inversionVacuum;
     @Getter
     private static MobFan antipodalVacuum;
     @Getter
+    private static MobFan counterpoleVacuum;
+    @Getter
     private static CursedEarth cursedEarth;
     @Getter
     private static CursedEarth dreadfulDirt;
+    @Getter
+    private static CursedEarth soulfilledSoil;
     @Getter
     private static MobMat searingPlate;
     @Getter
@@ -64,11 +70,15 @@ public class Gadgets {
     @Getter
     private static MobMat evisceratingPlate;
     @Getter
+    private static MobMat shreddingPlate;
+    @Getter
     private static MobTrap trapPlate;
     @Getter
     private static ExpCollector basicExpCollector;
     @Getter
     private static ExpCollector infusedExpCollector;
+    @Getter
+    private static ExpCollector arcaneExpCollector;
     @Getter
     private static EnderInhibitor basicEnderInhibitor;
     @Getter
@@ -79,6 +89,8 @@ public class Gadgets {
     private static MobCandle brightMobCandle;
     @Getter
     private static MobCandle scintillatingMobCandle;
+    @Getter
+    private static MobCandle coruscatingMobCandle;
     @Getter
     private static MysteriousTickerNoInteraction mysteriousPottedPlant;
     @Getter
@@ -97,6 +109,8 @@ public class Gadgets {
     private static GreenHouseGlass greenHouseGlass;
     @Getter
     private static GreenHouseGlass focusedGreenHouseGlass;
+    @Getter
+    private static GreenHouseGlass magnifyingGreenHouseGlass;
     @Getter
     private static TrophyDisplay trophyDisplay;
     @Getter
@@ -153,6 +167,20 @@ public class Gadgets {
             0.5
         );
 
+        // Exodus Lamp
+        exodusLamp = new MobLamp(
+            ItemGroups.GADGETS,
+            CrystaStacks.EXODUS_LAMP,
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                null, CrystaStacks.RUNE_B, null,
+                CrystaStacks.RUNE_G, CrystaStacks.DISPERSION_LAMP, CrystaStacks.RUNE_O,
+                null, CrystaStacks.RUNE_Z, null
+            },
+            10,
+            1
+        );
+
         // Inversion Vacuum
         RecipeItem inversionVacuumRecipe = new RecipeItem(
             CrystaStacks.ABSTRACTION_LAMP,
@@ -181,6 +209,19 @@ public class Gadgets {
             CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             antipodalVacuumRecipe.getDisplayRecipe(),
             10
+        );
+
+        // Counterpole Vacuum
+        counterpoleVacuum = new MobFan(
+            ItemGroups.GADGETS,
+            CrystaStacks.COUNTERPOLE_VACUUM,
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                null, CrystaStacks.RUNE_D, null,
+                CrystaStacks.RUNE_I, CrystaStacks.DISPERSION_LAMP, CrystaStacks.RUNE_M,
+                null, CrystaStacks.RUNE_U, null
+            },
+            15
         );
 
         // Cursed Earth
@@ -234,6 +275,38 @@ public class Gadgets {
             Color.BLACK
         );
 
+        // Soulless Soil
+        final List<EntityType> soulfilledSoilSpawns = new ArrayList<>();
+
+        dreadfulDirtSpawns.add(EntityType.COW);
+        dreadfulDirtSpawns.add(EntityType.MUSHROOM_COW);
+        dreadfulDirtSpawns.add(EntityType.CHICKEN);
+        dreadfulDirtSpawns.add(EntityType.PIG);
+        dreadfulDirtSpawns.add(EntityType.SHEEP);
+        dreadfulDirtSpawns.add(EntityType.GOAT);
+        dreadfulDirtSpawns.add(EntityType.AXOLOTL);
+        dreadfulDirtSpawns.add(EntityType.DOLPHIN);
+        dreadfulDirtSpawns.add(EntityType.TURTLE);
+        dreadfulDirtSpawns.add(EntityType.CAT);
+        dreadfulDirtSpawns.add(EntityType.WOLF);
+        dreadfulDirtSpawns.add(EntityType.LLAMA);
+        dreadfulDirtSpawns.add(EntityType.HORSE);
+
+        soulfilledSoil = new CursedEarth(
+            ItemGroups.GADGETS,
+            CrystaStacks.SOULFILLED_SOIL,
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                null, CrystaStacks.RUNE_E, null,
+                CrystaStacks.RUNE_K, CrystaStacks.DREADFUL_DIRT, CrystaStacks.RUNE_Q,
+                null, CrystaStacks.RUNE_S, null
+            },
+            10,
+            15,
+            soulfilledSoilSpawns,
+            Color.WHITE
+        );
+
         // Searing Plate
         RecipeItem searingPlateRecipe = new RecipeItem(
             new ItemStack(Material.STONE_PRESSURE_PLATE),
@@ -282,6 +355,20 @@ public class Gadgets {
             true
         );
 
+        // Shredding Plate
+        shreddingPlate = new MobMat(
+            ItemGroups.GADGETS,
+            CrystaStacks.SHREDDING_PLATE,
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                null, CrystaStacks.RUNE_C, null,
+                CrystaStacks.RUNE_L, CrystaStacks.EVISCERATING_PLATE, CrystaStacks.RUNE_R,
+                null, CrystaStacks.RUNE_W, null
+            },
+            3,
+            true
+        );
+
         // Trap Plate
         RecipeItem trapPlateRecipe = new RecipeItem(
             CrystaStacks.EVISCERATING_PLATE,
@@ -325,6 +412,20 @@ public class Gadgets {
             CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             infusedExpCollectorRecipe.getDisplayRecipe(),
             10000,
+            8
+        );
+
+        // Infused Exp Collector
+        arcaneExpCollector = new ExpCollector(
+            ItemGroups.GADGETS,
+            CrystaStacks.EXP_COLLECTOR_ARCANE,
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                null, CrystaStacks.RUNE_F, null,
+                CrystaStacks.RUNE_J, CrystaStacks.EXP_COLLECTOR_INFUSED, CrystaStacks.RUNE_P,
+                null, CrystaStacks.RUNE_X, null
+            },
+            999999,
             8
         );
 
@@ -400,6 +501,20 @@ public class Gadgets {
             scintillatingMobCandleRecipe.getDisplayRecipe(),
             64,
             172_800
+        );
+
+        // Coruscating Mob Candle
+        coruscatingMobCandle = new MobCandle(
+            ItemGroups.GADGETS,
+            CrystaStacks.MOB_CANDLE_CORUSCATING,
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                null, CrystaStacks.RUNE_A, null,
+                CrystaStacks.RUNE_H, CrystaStacks.MOB_CANDLE_SCINTILLATING, CrystaStacks.RUNE_N,
+                null, CrystaStacks.RUNE_V, null
+            },
+            64,
+            1_209_600
         );
 
         // Mysterious Potted Plant
@@ -552,6 +667,19 @@ public class Gadgets {
             10
         );
 
+        // Magnifying Green House Glass
+        magnifyingGreenHouseGlass = new GreenHouseGlass(
+            ItemGroups.GADGETS,
+            CrystaStacks.GREEN_HOUSE_GLASS_MAGNIFYING,
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                null, CrystaStacks.RUNE_B, null,
+                CrystaStacks.RUNE_G, CrystaStacks.MOB_CANDLE_SCINTILLATING, CrystaStacks.RUNE_T,
+                null, CrystaStacks.RUNE_Y, null
+            },
+            20
+        );
+
         // Trophy Stand
         RecipeItem trophyDisplayRecipe = new RecipeItem(
             new ItemStack(Material.POLISHED_BLACKSTONE_BRICK_WALL),
@@ -679,21 +807,27 @@ public class Gadgets {
         // Slimefun Registry
         abstractionLamp.register(plugin);
         dispersionLamp.register(plugin);
+        exodusLamp.register(plugin);
         inversionVacuum.register(plugin);
         antipodalVacuum.register(plugin);
+        counterpoleVacuum.register(plugin);
         cursedEarth.register(plugin);
         dreadfulDirt.register(plugin);
+        soulfilledSoil.register(plugin);
         searingPlate.register(plugin);
         doomedPlate.register(plugin);
         evisceratingPlate.register(plugin);
+        shreddingPlate.register(plugin);
         trapPlate.register(plugin);
         basicExpCollector.register(plugin);
         infusedExpCollector.register(plugin);
+        arcaneExpCollector.register(plugin);
         basicEnderInhibitor.register(plugin);
         advancedEnderInhibitor.register(plugin);
         dimMobCandle.register(plugin);
         brightMobCandle.register(plugin);
         scintillatingMobCandle.register(plugin);
+        coruscatingMobCandle.register(plugin);
         mysteriousPottedPlant.register(plugin);
         mysteriousPlant.register(plugin);
         mysteriousGlass.register(plugin);
@@ -703,6 +837,7 @@ public class Gadgets {
         mysteriousConcrete.register(plugin);
         greenHouseGlass.register(plugin);
         focusedGreenHouseGlass.register(plugin);
+        magnifyingGreenHouseGlass.register(plugin);
         trophyDisplay.register(plugin);
         exaltationStand.register(plugin);
         waystone.register(plugin);

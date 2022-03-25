@@ -2,6 +2,8 @@ package io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.prismatic
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.DisplayItem;
+import io.github.sefiraat.crystamaehistoria.player.GildingRank;
+import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.AbstractCache;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
@@ -89,12 +91,13 @@ public class PrismaticGilderCache extends AbstractCache {
     }
 
     @ParametersAreNonnullByDefault
-    public void gildItem(Block block, ItemStack heldItem) {
+    public void gildItem(Block block, ItemStack heldItem, Player player) {
         final Location location = block.getLocation().clone().add(0.5, 1.5, 0.5);
 
         if (heldItem.getType() != Material.AIR
             && StoryUtils.isStoried(heldItem)
             && !StoryUtils.hasRemainingStorySlots(heldItem)
+            && !GildingUtils.isGilded(heldItem)
         ) {
 
             final BlockDefinition definition = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().get(heldItem.getType());
@@ -115,7 +118,9 @@ public class PrismaticGilderCache extends AbstractCache {
                         location.getWorld().dropItem(location, gildedStack);
                     }
                 );
+                heldItem.setAmount(heldItem.getAmount() - 1);
                 displayItem.registerRemoval(2000);
+                PlayerStatistics.unlockStoryGilded(player.getUniqueId(), definition);
             } else {
                 ParticleUtils.displayParticleEffect(location, Particle.CRIT_MAGIC, 1, 3);
             }

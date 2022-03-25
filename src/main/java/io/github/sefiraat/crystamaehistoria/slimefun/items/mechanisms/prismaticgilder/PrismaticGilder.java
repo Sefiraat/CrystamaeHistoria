@@ -14,6 +14,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.HumanEntity;
+import org.bukkit.entity.Player;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
@@ -65,9 +66,10 @@ public class PrismaticGilder extends TickingMenuBlock {
             }
 
             final PrismaticGilderCache cache = PrismaticGilder.this.cacheMap.get(block.getLocation());
-            final ItemStack heldItem = e.getPlayer().getInventory().getItemInMainHand();
+            final Player player = e.getPlayer();
+            final ItemStack heldItem = player.getInventory().getItemInMainHand();
             if (cache != null && heldItem.getType() != Material.AIR) {
-                cache.gildItem(block, heldItem);
+                cache.gildItem(block, heldItem, player);
             }
         };
     }

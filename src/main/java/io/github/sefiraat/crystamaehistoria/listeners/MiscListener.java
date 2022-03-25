@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.listeners;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.LuminescenceScoop;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.covers.BlockVeil;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
@@ -82,5 +83,18 @@ public class MiscListener implements Listener {
         if (location != null) {
             location.getBlock().setType(Material.AIR);
         }
+    }
+
+    @EventHandler(priority = EventPriority.LOWEST)
+    public void onUseScoop(PlayerInteractEvent event) {
+        final Player player = event.getPlayer();
+            final SlimefunItem item = SlimefunItem.getByItem(player.getInventory().getItemInMainHand());
+
+            if (item instanceof LuminescenceScoop) {
+                LuminescenceScoop scoop = (LuminescenceScoop) item;
+                if (scoop.isAdjustable()) {
+                    scoop.adjustLight(player);
+                }
+            }
     }
 }

@@ -113,6 +113,27 @@ public class GuiElements {
     }
 
     @ParametersAreNonnullByDefault
+    public static ItemStack getBlockGildedIcon(Material material) {
+        return ThemeType.themedItemStack(
+            material,
+            ThemeType.RARITY_UNIQUE,
+            ThemeType.toTitleCase(material.toString()),
+            "This block has been gilded."
+        );
+    }
+
+    @ParametersAreNonnullByDefault
+    public static ItemStack getBlockNotGildedIcon(Material material) {
+        return ThemeType.themedItemStack(
+            Material.BARRIER,
+            ThemeType.RESEARCH,
+            ThemeType.toTitleCase(material.toString()),
+            MessageFormat.format("{0}{1}LOCKED", ThemeType.RESEARCH.getColor(), ChatColor.BOLD),
+            "This block has not yet been gilded."
+        );
+    }
+
+    @ParametersAreNonnullByDefault
     public static CustomItemStack getSpellSlotPane(SpellSlot spellSlot) {
         return new CustomItemStack(
             Material.RED_STAINED_GLASS_PANE,

@@ -22,18 +22,21 @@ import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.block.data.type.Light;
 import org.bukkit.entity.ArmorStand;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.EntityType;
+import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.Collection;
 import java.util.UUID;
 import java.util.concurrent.ThreadLocalRandom;
 
 @Getter
 public class ChroniclerPanelCache extends AbstractCache {
 
-    private final int maxTier;
+    private final int tier;
     @Nullable
     private Material workingOn;
     private boolean working;
@@ -46,7 +49,7 @@ public class ChroniclerPanelCache extends AbstractCache {
     @ParametersAreNonnullByDefault
     public ChroniclerPanelCache(BlockMenu blockMenu, int tier) {
         super(blockMenu);
-        this.maxTier = tier + 1;
+        this.tier = tier;
 
         final String workingOnString = BlockStorage.getLocationInfo(blockMenu.getLocation(), Keys.BS_CP_WORKING_ON);
         if (workingOnString != null) {
@@ -109,33 +112,73 @@ public class ChroniclerPanelCache extends AbstractCache {
         final Block block = blockMenu.getBlock();
         final ItemStack inputItem = blockMenu.getItemInSlot(ChroniclerPanel.INPUT_SLOT);
 
-        if (inputItem != null
-            && inputItem.getType() != Material.AIR
-            && (StoryUtils.isStoried(inputItem) || StoryUtils.canBeStoried(inputItem, this.maxTier))
-        ) {
-            rejectOverage(inputItem);
-            if (!StoryUtils.isStoried(inputItem)) {
-                StoryUtils.makeStoried(inputItem);
+        // No item inserted, try to pick up (T5 +) or shutdown
+        if (inputItem == null || inputItem.getType() == Material.AIR) {
+            if (this.tier >= 5) {
+                tryInsertItem();
             }
-            if (StoryUtils.getRemainingStoryAmount(inputItem) > 0) {
-                // A block is in the Input slot. Does the current item being worked on match the input?
-                final Material inputItemType = inputItem.getType();
-                if (!working || workingOn != inputItemType) {
-                    // Either not working or workingOn has changed
-                    setWorking(block, inputItemType);
-                    ArmourStandUtils.setDisplayItem(getDisplayStand(), workingOn);
-                } else {
-                    // Working with an item in slot while workingOn matches means we can process the item
-                    animateLight();
-                    processStack(inputItem);
-                }
-            } else {
-                shutdown();
-            }
-        } else {
+            return;
+        }
+
+        if (!StoryUtils.canBeStoried(inputItem, this.tier + 1)) {
             reject(inputItem);
             shutdown();
+            return;
         }
+
+        rejectOverage(inputItem);
+
+        if (!StoryUtils.isStoried(inputItem)) {
+            StoryUtils.makeStoried(inputItem);
+        }
+
+        if (!StoryUtils.hasRemainingStorySlots(inputItem)) {
+            if (this.tier >= 5) {
+                pushOutItem();
+            }
+            shutdown();
+            return;
+        }
+
+        // A block is in the Input slot. Does the current item being worked on match the input?
+        final Material inputItemType = inputItem.getType();
+        if (!working || workingOn != inputItemType) {
+            // Either not working or workingOn has changed
+            setWorking(block, inputItemType);
+            ArmourStandUtils.setDisplayItem(getDisplayStand(), workingOn);
+        } else {
+            // Working with an item in slot while workingOn matches means we can process the item
+            animateLight();
+            processStack(inputItem);
+        }
+    }
+
+    private void tryInsertItem() {
+        final Collection<Entity> entities = getWorld().getNearbyEntities(
+            getLocation().clone().add(0.5, 0.5, 0.5),
+            0.3,
+            0.3,
+            0.3,
+            Item.class::isInstance
+        );
+
+        if (entities.isEmpty()) {
+            shutdown();
+        } else {
+            final Item item = (Item) entities.stream().findFirst().orElse(null);
+            final ItemStack itemStack = item.getItemStack();
+            final ItemStack clone = itemStack.asQuantity(1);
+
+            this.blockMenu.replaceExistingItem(ChroniclerPanel.INPUT_SLOT, clone);
+            itemStack.setAmount(itemStack.getAmount() - 1);
+            item.setItemStack(itemStack);
+        }
+    }
+
+    private void pushOutItem() {
+        final Location pushLocation = this.blockMiddle.clone().subtract(0, 1, 0);
+        pushLocation.getWorld().dropItem(pushLocation, this.blockMenu.getItemInSlot(ChroniclerPanel.INPUT_SLOT).clone());
+        this.blockMenu.replaceExistingItem(ChroniclerPanel.INPUT_SLOT, null);
     }
 
     protected void shutdown() {

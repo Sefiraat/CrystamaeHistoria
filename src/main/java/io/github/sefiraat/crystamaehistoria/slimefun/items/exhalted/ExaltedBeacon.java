@@ -24,15 +24,18 @@ public class ExaltedBeacon extends ExaltedItem {
         EFFECT_TYPES.add(PotionEffectType.REGENERATION);
     }
 
-    public ExaltedBeacon(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe) {
+    private final int amplification;
+
+    public ExaltedBeacon(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, int amplification) {
         super(itemGroup, item, recipeType, recipe);
+        this.amplification = amplification;
     }
 
     @Override
     public void onExalt(ExaltedItem slimefunItem, Location location) {
         for (Player player : location.getNearbyEntitiesByType(Player.class, 25, 25)) {
             for (PotionEffectType effectType : EFFECT_TYPES) {
-                player.addPotionEffect(effectType.createEffect(40, 2));
+                player.addPotionEffect(effectType.createEffect(40, amplification));
             }
         }
     }

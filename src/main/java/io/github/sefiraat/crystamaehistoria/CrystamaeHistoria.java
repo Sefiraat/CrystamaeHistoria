@@ -25,6 +25,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.Gadgets;
 import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.slimefun.Mechanisms;
+import io.github.sefiraat.crystamaehistoria.slimefun.Runes;
 import io.github.sefiraat.crystamaehistoria.slimefun.Tools;
 import io.github.sefiraat.crystamaehistoria.slimefun.Uniques;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
@@ -227,5 +228,6 @@ public class CrystamaeHistoria extends AbstractAddon {
         ArtisticItems.setup();
         Exalted.setup();
         Uniques.setup();
+        Runes.setup();
     }
 }

@@ -29,6 +29,8 @@ public class Mechanisms {
     @Getter
     private static ChroniclerPanel chroniclerPanel4;
     @Getter
+    private static ChroniclerPanel chroniclerPanel5;
+    @Getter
     private static RealisationAltar realisationAltar1;
     @Getter
     private static RealisationAltar realisationAltar2;
@@ -37,6 +39,8 @@ public class Mechanisms {
     @Getter
     private static RealisationAltar realisationAltar4;
     @Getter
+    private static RealisationAltar realisationAltar5;
+    @Getter
     private static LiquefactionBasin liquefactionBasin1;
     @Getter
     private static LiquefactionBasin liquefactionBasin2;
@@ -44,6 +48,8 @@ public class Mechanisms {
     private static LiquefactionBasin liquefactionBasin3;
     @Getter
     private static LiquefactionBasin liquefactionBasin4;
+    @Getter
+    private static LiquefactionBasin liquefactionBasin5;
     @Getter
     private static StaveConfigurator staveConfigurator;
     @Getter
@@ -109,6 +115,19 @@ public class Mechanisms {
             4
         );
 
+        // Chronicler Tier 5
+        chroniclerPanel5 = new ChroniclerPanel(
+            ItemGroups.MECHANISMS,
+            CrystaStacks.CHRONICLER_PANEL_5,
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                null, CrystaStacks.RUNE_N, null,
+                CrystaStacks.RUNE_A, CrystaStacks.CHRONICLER_PANEL_4, CrystaStacks.RUNE_V,
+                null, CrystaStacks.RUNE_G, null
+            },
+            5
+        );
+
         // Realisation Tier 1
         realisationAltar1 = new RealisationAltar(
             ItemGroups.MECHANISMS,
@@ -163,6 +182,19 @@ public class Mechanisms {
             CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             realisationT4Recipe.getDisplayRecipe(),
             4
+        );
+
+        // Realisation Tier 5
+        realisationAltar5 = new RealisationAltar(
+            ItemGroups.MECHANISMS,
+            CrystaStacks.REALISATION_ALTAR_5,
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                null, CrystaStacks.RUNE_I, null,
+                CrystaStacks.RUNE_D, CrystaStacks.CHRONICLER_PANEL_4, CrystaStacks.RUNE_P,
+                null, CrystaStacks.RUNE_X, null
+            },
+            5
         );
 
         // Liquefaction T1
@@ -225,6 +257,20 @@ public class Mechanisms {
             Color.fromRGB(240, 220, 26)
         );
 
+        // Liquefaction 5
+        liquefactionBasin5 = new LiquefactionBasin(
+            ItemGroups.MECHANISMS,
+            CrystaStacks.LIQUEFACTION_BASIN_5,
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                null, CrystaStacks.RUNE_L, null,
+                CrystaStacks.RUNE_C, CrystaStacks.CHRONICLER_PANEL_4, CrystaStacks.RUNE_H,
+                null, CrystaStacks.RUNE_S, null
+            },
+            10000,
+            Color.fromRGB(240, 220, 200)
+        );
+
         // Stave Configurator
         RecipeItem staveConfiguratorRecipe = new RecipeItem(
             new ItemStack(Material.COPPER_BLOCK),
@@ -258,14 +304,20 @@ public class Mechanisms {
         chroniclerPanel2.register(plugin);
         chroniclerPanel3.register(plugin);
         chroniclerPanel4.register(plugin);
+        chroniclerPanel5.register(plugin);
+
         realisationAltar1.register(plugin);
         realisationAltar2.register(plugin);
         realisationAltar3.register(plugin);
         realisationAltar4.register(plugin);
+        realisationAltar5.register(plugin);
+
         liquefactionBasin1.register(plugin);
         liquefactionBasin2.register(plugin);
         liquefactionBasin3.register(plugin);
         liquefactionBasin4.register(plugin);
+        liquefactionBasin5.register(plugin);
+
         staveConfigurator.register(plugin);
         prismaticGilder.register(plugin);
 

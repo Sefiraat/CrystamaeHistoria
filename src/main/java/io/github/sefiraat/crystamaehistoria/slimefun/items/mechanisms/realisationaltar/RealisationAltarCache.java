@@ -4,6 +4,7 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.managers.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.AbstractCache;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.chroniclerpanel.ChroniclerPanel;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.Story;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
@@ -28,12 +29,15 @@ import org.bukkit.Particle;
 import org.bukkit.World;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.Item;
 import org.bukkit.inventory.ItemStack;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -45,12 +49,12 @@ public class RealisationAltarCache extends AbstractCache {
 
     @Getter
     private final Map<BlockPosition, RealisedCrystalState> crystalStoryMap = new HashMap<>();
-    private final int maxTier;
+    private final int tier;
 
     @ParametersAreNonnullByDefault
     public RealisationAltarCache(BlockMenu blockMenu, int tier) {
         super(blockMenu);
-        this.maxTier = tier + 1;
+        this.tier = tier + 1;
 
         final String activePlayerString = BlockStorage.getLocationInfo(blockMenu.getLocation(), Keys.BS_CP_ACTIVE_PLAYER);
         if (activePlayerString != null) {
@@ -60,16 +64,41 @@ public class RealisationAltarCache extends AbstractCache {
 
     protected void process() {
         tryGrow();
-        final ItemStack itemStack = blockMenu.getItemInSlot(RealisationAltar.INPUT_SLOT);
-        if (itemStack != null
-            && itemStack.getType() != Material.AIR
-            && StoryUtils.isStoried(itemStack)
-            && !StoryUtils.hasRemainingStorySlots(itemStack)
-        ) {
-            rejectOverage(itemStack);
-            if (processItem(itemStack)) {
+        final ItemStack inputItem = blockMenu.getItemInSlot(RealisationAltar.INPUT_SLOT);
+
+        // No item inserted, try to pick up (T5 +) or shutdown
+        if (inputItem == null || inputItem.getType() == Material.AIR) {
+            if (this.tier >= 5) {
+                tryInsertItem();
+            }
+            return;
+        }
+
+        if (inputItem.getType() != Material.AIR && StoryUtils.isStoried(inputItem) && !StoryUtils.hasRemainingStorySlots(inputItem)) {
+            rejectOverage(inputItem);
+            if (processItem(inputItem)) {
                 saveMap();
             }
+        }
+    }
+
+    private void tryInsertItem() {
+        final Collection<Entity> entities = getWorld().getNearbyEntities(
+            getLocation().clone().add(0.5, 1, 0.5),
+            0.3,
+            0.3,
+            0.3,
+            Item.class::isInstance
+        );
+
+        if (!entities.isEmpty()) {
+            final Item item = (Item) entities.stream().findFirst().orElse(null);
+            final ItemStack itemStack = item.getItemStack();
+            final ItemStack clone = itemStack.asQuantity(1);
+
+            this.blockMenu.replaceExistingItem(RealisationAltar.INPUT_SLOT, clone);
+            itemStack.setAmount(itemStack.getAmount() - 1);
+            item.setItemStack(itemStack);
         }
     }
 
@@ -120,7 +149,7 @@ public class RealisationAltarCache extends AbstractCache {
     @ParametersAreNonnullByDefault
     private boolean processItem(ItemStack itemStack) {
         final BlockDefinition definition = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().get(itemStack.getType());
-        if (definition.getBlockTier().tier <= this.maxTier) {
+        if (definition.getBlockTier().tier <= this.tier + 1) {
             if (GeneralUtils.testChance(1, 6)) {
                 final int x = ThreadLocalRandom.current().nextInt(-3, 4);
                 final int z = ThreadLocalRandom.current().nextInt(-3, 4);

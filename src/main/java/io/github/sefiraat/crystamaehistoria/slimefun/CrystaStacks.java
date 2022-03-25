@@ -4,6 +4,8 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.MagicPaintbr
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Skulls;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
+import io.github.sefiraat.networks.utils.StackUtils;
+import io.github.sefiraat.networks.utils.Theme;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import lombok.experimental.UtilityClass;
@@ -119,8 +121,11 @@ public class CrystaStacks {
 
     // Exalted
     public static final SlimefunItemStack EXALTED_BEACON;
+    public static final SlimefunItemStack EXALTED_BAELFIRE;
     public static final SlimefunItemStack FERTILITY_PHARO;
+    public static final SlimefunItemStack FERTILITY_TOTEM;
     public static final SlimefunItemStack EXALTED_HARVESTER;
+    public static final SlimefunItemStack EXALTED_AGRONOMIST;
     public static final SlimefunItemStack EXALTED_DAWN;
     public static final SlimefunItemStack EXALTED_DUSK;
     public static final SlimefunItemStack EXALTED_SUN;
@@ -130,21 +135,27 @@ public class CrystaStacks {
     // Gadgets
     public static final SlimefunItemStack ABSTRACTION_LAMP;
     public static final SlimefunItemStack DISPERSION_LAMP;
+    public static final SlimefunItemStack EXODUS_LAMP;
     public static final SlimefunItemStack INVERSION_VACUUM;
     public static final SlimefunItemStack ANTIPODAL_VACUUM;
+    public static final SlimefunItemStack COUNTERPOLE_VACUUM;
     public static final SlimefunItemStack CURSED_EARTH;
     public static final SlimefunItemStack DREADFUL_DIRT;
+    public static final SlimefunItemStack SOULFILLED_SOIL;
     public static final SlimefunItemStack SEARING_PLATE;
     public static final SlimefunItemStack DOOMED_PLATE;
     public static final SlimefunItemStack EVISCERATING_PLATE;
+    public static final SlimefunItemStack SHREDDING_PLATE;
     public static final SlimefunItemStack TRAP_PLATE;
     public static final SlimefunItemStack EXP_COLLECTOR_BASIC;
     public static final SlimefunItemStack EXP_COLLECTOR_INFUSED;
+    public static final SlimefunItemStack EXP_COLLECTOR_ARCANE;
     public static final SlimefunItemStack ENDER_INHIBITOR_BASIC;
     public static final SlimefunItemStack ENDER_INHIBITOR_ADVANCED;
     public static final SlimefunItemStack MOB_CANDLE_DIM;
     public static final SlimefunItemStack MOB_CANDLE_BRIGHT;
     public static final SlimefunItemStack MOB_CANDLE_SCINTILLATING;
+    public static final SlimefunItemStack MOB_CANDLE_CORUSCATING;
     public static final SlimefunItemStack MYSTERIOUS_POTTED_PLANT;
     public static final SlimefunItemStack MYSTERIOUS_PLANT;
     public static final SlimefunItemStack MYSTERIOUS_GLASS;
@@ -154,6 +165,7 @@ public class CrystaStacks {
     public static final SlimefunItemStack MYSTERIOUS_CONCRETE;
     public static final SlimefunItemStack GREEN_HOUSE_GLASS;
     public static final SlimefunItemStack GREEN_HOUSE_GLASS_FOCUSED;
+    public static final SlimefunItemStack GREEN_HOUSE_GLASS_MAGNIFYING;
     public static final SlimefunItemStack TROPHY_STAND;
     public static final SlimefunItemStack EXALTATION_STAND;
     public static final SlimefunItemStack WAYSTONE;
@@ -168,14 +180,17 @@ public class CrystaStacks {
     public static final SlimefunItemStack CHRONICLER_PANEL_2;
     public static final SlimefunItemStack CHRONICLER_PANEL_3;
     public static final SlimefunItemStack CHRONICLER_PANEL_4;
+    public static final SlimefunItemStack CHRONICLER_PANEL_5;
     public static final SlimefunItemStack REALISATION_ALTAR_1;
     public static final SlimefunItemStack REALISATION_ALTAR_2;
     public static final SlimefunItemStack REALISATION_ALTAR_3;
     public static final SlimefunItemStack REALISATION_ALTAR_4;
+    public static final SlimefunItemStack REALISATION_ALTAR_5;
     public static final SlimefunItemStack LIQUEFACTION_BASIN_1;
     public static final SlimefunItemStack LIQUEFACTION_BASIN_2;
     public static final SlimefunItemStack LIQUEFACTION_BASIN_3;
     public static final SlimefunItemStack LIQUEFACTION_BASIN_4;
+    public static final SlimefunItemStack LIQUEFACTION_BASIN_5;
     public static final SlimefunItemStack STAVE_CONFIGURATOR;
     public static final SlimefunItemStack PRISMATIC_GILDER;
 
@@ -184,6 +199,7 @@ public class CrystaStacks {
     public static final SlimefunItemStack CHARGED_PLATE;
     public static final SlimefunItemStack STAVE_BASIC;
     public static final SlimefunItemStack STAVE_ADVANCED;
+    public static final SlimefunItemStack STAVE_ARCANE;
     public static final SlimefunItemStack REFRACTING_LENS;
     public static final SlimefunItemStack THAUMATURGIC_SALTS;
     public static final SlimefunItemStack CRYSTA_RECALL_LATTICE;
@@ -192,12 +208,15 @@ public class CrystaStacks {
     public static final SlimefunItemStack LUMINESCENCE_SCOOP;
     public static final SlimefunItemStack BRILLIANCE_SCOOP;
     public static final SlimefunItemStack LUSTRE_SCOOP;
+    public static final SlimefunItemStack RADIANCE_SCOOP;
     public static final SlimefunItemStack CONNECTING_COMPASS;
     public static final SlimefunItemStack SPIRITUAL_SILKEN;
+    public static final SlimefunItemStack INCORPOREAL_SILKEN;
     public static final SlimefunItemStack SIMPLE_DISPLACER;
     public static final SlimefunItemStack ARCANE_DISPLACER;
     public static final SlimefunItemStack SPONGE_BALMY;
     public static final SlimefunItemStack SPONGE_SEARING;
+    public static final SlimefunItemStack SPONGE_SUPER_MASSIVE;
     public static final SlimefunItemStack SLEEPING_BAG;
     public static final SlimefunItemStack DISPLACED_VOID;
     public static final SlimefunItemStack SATCHEL_1;
@@ -268,7 +287,7 @@ public class CrystaStacks {
 
         CRYSTAL_PRISMATIC = ThemeType.themedSlimefunItemStack(
             "CRY_CRYSTAL_PRISMATIC",
-            Skulls.CRYSTAL_MOTLEY.getPlayerHead(),
+            Skulls.CRYSTAL_PRISMATIC.getPlayerHead(),
             ThemeType.CRAFTING,
             "Prismatic Crystal",
             "This crystal has so much magic it's",
@@ -440,7 +459,7 @@ public class CrystaStacks {
         RUNE_A = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_BEAST",
             Skulls.RUNE_A.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "Beast Rune",
             "Unbridled passion and drive. The howl",
             "of the wolf echos from within."
@@ -449,7 +468,7 @@ public class CrystaStacks {
         RUNE_B = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_BEGINNING",
             Skulls.RUNE_B.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "Rune of Beginning",
             "Chaos formed into order. The swirling",
             "vortex of the unknown made still."
@@ -458,7 +477,7 @@ public class CrystaStacks {
         RUNE_C = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_MOON",
             Skulls.RUNE_C.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "Moon Rune",
             "The clash of both compassion and",
             "sheer destruction rage within."
@@ -467,7 +486,7 @@ public class CrystaStacks {
         RUNE_D = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_GATE",
             Skulls.RUNE_D.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "Gate Rune",
             "Threads connecting worlds all pass",
             "through the magic within these runes."
@@ -476,7 +495,7 @@ public class CrystaStacks {
         RUNE_E = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_TRUE_EARTH",
             Skulls.RUNE_E.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "True Earth Rune",
             "The single point of power for",
             "all earth magic."
@@ -485,7 +504,7 @@ public class CrystaStacks {
         RUNE_F = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_CHANGE",
             Skulls.RUNE_F.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "Rune of Change",
             "All unknowns and futures of the universe",
             "are kept in harmony within."
@@ -494,7 +513,7 @@ public class CrystaStacks {
         RUNE_G = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_NIGHT",
             Skulls.RUNE_G.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "Night Rune",
             "The magic running through this rune",
             "is the same that allows the undead to rise."
@@ -503,7 +522,7 @@ public class CrystaStacks {
         RUNE_H = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_BLACK",
             Skulls.RUNE_H.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "Black Rune",
             "The power to control minds and wills",
             "held within."
@@ -512,7 +531,7 @@ public class CrystaStacks {
         RUNE_I = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_TRUE_HOLY",
             Skulls.RUNE_I.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "True Holy Rune",
             "All inner light stems from this",
             "magical source."
@@ -521,7 +540,7 @@ public class CrystaStacks {
         RUNE_J = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_DRAGON",
             Skulls.RUNE_J.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "Dragon Rune",
             "The existence of dragons both created",
             "and was caused by this magic. A paradox that",
@@ -531,7 +550,7 @@ public class CrystaStacks {
         RUNE_K = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_TRUE_WATER",
             Skulls.RUNE_K.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "True Water Rune",
             "The beginning of all flowing freely."
         );
@@ -539,7 +558,7 @@ public class CrystaStacks {
         RUNE_L = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_SOVEREIGN",
             Skulls.RUNE_L.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "Sovereign Rune",
             "Order through rule, protection from",
             "one, protection for all."
@@ -548,7 +567,7 @@ public class CrystaStacks {
         RUNE_M = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_SUN",
             Skulls.RUNE_M.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "Sun Rune",
             "Bringer of prosperity and life but",
             "at a toll for all."
@@ -557,7 +576,7 @@ public class CrystaStacks {
         RUNE_N = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_DAWN",
             Skulls.RUNE_N.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "Dawn Rune",
             "The bringer of new, of regeneration",
             "and renewal."
@@ -566,7 +585,7 @@ public class CrystaStacks {
         RUNE_O = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_TWILIGHT",
             Skulls.RUNE_O.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "Twilight Rune",
             "The removal of old, the bringer of",
             "rest and recuperation."
@@ -575,7 +594,7 @@ public class CrystaStacks {
         RUNE_P = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_TRUE_FIRE",
             Skulls.RUNE_P.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "True Fire Rune",
             "An inferno without limits held",
             "back by nothing but it's own tempest."
@@ -584,16 +603,18 @@ public class CrystaStacks {
         RUNE_Q = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_CIRCLE",
             Skulls.RUNE_Q.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "Circle Rune",
             "Brings both order and routine keeping",
-            "other forms of magic in check."
+            "other forms of magic in check.",
+            "Circle Rune magic is weakened in",
+            "the Minecraft world for some reason..."
         );
 
         RUNE_R = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_BLINKING",
             Skulls.RUNE_R.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "Blinking Rune",
             "This rune contains space and in turn",
             "itself and is used to traverse",
@@ -603,7 +624,7 @@ public class CrystaStacks {
         RUNE_S = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_SOUL",
             Skulls.RUNE_S.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "Souleater Rune",
             "The rune of life and death. Both",
             "kept in balance and check."
@@ -612,7 +633,7 @@ public class CrystaStacks {
         RUNE_T = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_PUNISHMENT",
             Skulls.RUNE_T.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "Rune of Punishment",
             "This rune imposes order by crushing",
             "dissidence and wrong-doing, culling",
@@ -622,7 +643,7 @@ public class CrystaStacks {
         RUNE_U = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_TRUE_LIGHTNING",
             Skulls.RUNE_U.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "True Lightning Rune",
             "The tempest from above contained",
             "within a sealing magic."
@@ -631,35 +652,35 @@ public class CrystaStacks {
         RUNE_V = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_EIGHTFOLD",
             Skulls.RUNE_V.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "Eightfold Rune",
             "The rule of reality and form.",
             "Magics from this rune have the power to",
-            "create an form new matter."
+            "create and form new matter."
         );
 
         RUNE_W = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_CHARM",
             Skulls.RUNE_W.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "Charm Rune",
-            "Passion, drive and love power and",
-            "are powered by the magic within."
+            "Passion, drive and love. These power",
+            "and are powered by the magic within."
         );
 
         RUNE_X = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_TRUE_WIND",
             Skulls.RUNE_X.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "True Wind Rune",
-            "The never ending zephyr hold up",
+            "The never ending zephyr is contained",
             "within."
         );
 
         RUNE_Y = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_BLACK_SWORD",
             Skulls.RUNE_Y.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "Black Sword Rune",
             "The magic of power, domination and drive."
         );
@@ -667,7 +688,7 @@ public class CrystaStacks {
         RUNE_Z = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_BRIGHT_SHIELD",
             Skulls.RUNE_Y.getPlayerHead(),
-            ThemeType.CRAFTING,
+            ThemeType.RUNE,
             "Bright Shield Rune",
             "The magic of power, protection and security."
         );
@@ -1105,6 +1126,22 @@ public class CrystaStacks {
             "potential. Must be placed on a",
             "Exaltation Stand to operate.",
             "",
+            Theme.CLICK_INFO + "Power: " + Theme.PASSIVE + "2",
+            "",
+            ThemeType.CLICK_INFO.getColor() + "Requires: Story Rank > Emeritus Professor"
+        );
+
+        EXALTED_BAELFIRE = ThemeType.themedSlimefunItemStack(
+            "CRY_EXALTED_BAELFIRE",
+            new ItemStack(Material.SOUL_CAMPFIRE),
+            ThemeType.EXALTED,
+            "Exalted Baelfire",
+            "A powerful beacon with incredible",
+            "potential. Must be placed on a",
+            "Exaltation Stand to operate.",
+            "",
+            Theme.CLICK_INFO + "Power: " + Theme.PASSIVE + "3",
+            "",
             ThemeType.CLICK_INFO.getColor() + "Requires: Story Rank > Emeritus Professor"
         );
 
@@ -1113,6 +1150,19 @@ public class CrystaStacks {
             new ItemStack(Material.DIAMOND_BLOCK),
             ThemeType.EXALTED,
             "Exalted Fertility Pharo",
+            "A magical construct able to",
+            "breed nearby animals in a 10x10 area.",
+            "Must be placed on an Exaltation",
+            "Stand to operate.",
+            "",
+            ThemeType.CLICK_INFO.getColor() + "Requires: Story Rank > Emeritus Professor"
+        );
+
+        FERTILITY_TOTEM = ThemeType.themedSlimefunItemStack(
+            "CRY_EXALTED_FERTILITY_TOTEM",
+            new ItemStack(Material.EMERALD_BLOCK),
+            ThemeType.EXALTED,
+            "Exalted Fertility Totem",
             "A magical construct able to",
             "breed nearby animals in a 20x20 area.",
             "Must be placed on an Exaltation",
@@ -1128,6 +1178,19 @@ public class CrystaStacks {
             "Exalted Harvester",
             "A magical construct able to",
             "harvest all crops in a 9x9 area.",
+            "Must be placed on an Exaltation",
+            "Stand to operate.",
+            "",
+            ThemeType.CLICK_INFO.getColor() + "Requires: Spell Rank > Grandmaster Magus"
+        );
+
+        EXALTED_AGRONOMIST = ThemeType.themedSlimefunItemStack(
+            "CRY_EXALTED_AGRONOMIST",
+            new ItemStack(Material.DRIED_KELP_BLOCK),
+            ThemeType.EXALTED,
+            "Exalted Agronomist",
+            "A magical construct able to",
+            "harvest all crops in a 19x19 area.",
             "Must be placed on an Exaltation",
             "Stand to operate.",
             "",
@@ -1216,6 +1279,18 @@ public class CrystaStacks {
             ThemeType.CLICK_INFO.getColor() + "Force: " + ThemeType.PASSIVE.getColor() + "5 CrystaPow™"
         );
 
+        EXODUS_LAMP = ThemeType.themedSlimefunItemStack(
+            "CRY_MOB_LAMP_3",
+            GeneralUtils.getPreEnchantedItemStack(Material.SOUL_LANTERN),
+            ThemeType.GADGET,
+            "Exodus Lamp",
+            "The exodus lamp will push all",
+            "nearby mobs away from it.",
+            "",
+            ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "10 Blocks",
+            ThemeType.CLICK_INFO.getColor() + "Force: " + ThemeType.PASSIVE.getColor() + "10 CrystaPow™"
+        );
+
         INVERSION_VACUUM = ThemeType.themedSlimefunItemStack(
             "CRY_MOB_FAN_1",
             new ItemStack(Material.REDSTONE_LAMP),
@@ -1238,6 +1313,18 @@ public class CrystaStacks {
             "mechanism.",
             "",
             ThemeType.CLICK_INFO.getColor() + "Push Distance: " + ThemeType.PASSIVE.getColor() + "10 Blocks"
+        );
+
+        COUNTERPOLE_VACUUM = ThemeType.themedSlimefunItemStack(
+            "CRY_MOB_FAN_3",
+            new ItemStack(Material.DEEPSLATE_BRICKS),
+            ThemeType.GADGET,
+            "Counterpole Vacuum",
+            "Creates a magically induced vacuum",
+            "that pulls entities away from the",
+            "mechanism.",
+            "",
+            ThemeType.CLICK_INFO.getColor() + "Push Distance: " + ThemeType.PASSIVE.getColor() + "15 Blocks"
         );
 
         CURSED_EARTH = ThemeType.themedSlimefunItemStack(
@@ -1264,6 +1351,18 @@ public class CrystaStacks {
             ThemeType.CLICK_INFO.getColor() + "Tick Rate: " + ThemeType.PASSIVE.getColor() + "10",
             ThemeType.CLICK_INFO.getColor() + "Light Level: " + ThemeType.PASSIVE.getColor() + "15",
             ThemeType.CLICK_INFO.getColor() + "Spawns: " + ThemeType.PASSIVE.getColor() + "Advanced"
+        );
+
+        SOULFILLED_SOIL = ThemeType.themedSlimefunItemStack(
+            "CRY_MOB_DIRT_3",
+            new ItemStack(Material.LIME_WOOL),
+            ThemeType.GADGET,
+            "Soulfilled Soil",
+            "Dark magics have been purified clean.",
+            "",
+            ThemeType.CLICK_INFO.getColor() + "Tick Rate: " + ThemeType.PASSIVE.getColor() + "10",
+            ThemeType.CLICK_INFO.getColor() + "Light Level: " + ThemeType.PASSIVE.getColor() + "15",
+            ThemeType.CLICK_INFO.getColor() + "Spawns: " + ThemeType.PASSIVE.getColor() + "Friendly"
         );
 
         SEARING_PLATE = ThemeType.themedSlimefunItemStack(
@@ -1305,6 +1404,19 @@ public class CrystaStacks {
             ThemeType.CLICK_INFO.getColor() + "Player Drops: " + ThemeType.PASSIVE.getColor() + "Yes"
         );
 
+        SHREDDING_PLATE = ThemeType.themedSlimefunItemStack(
+            "CRY_MOB_PLATE_4",
+            new ItemStack(Material.LIGHT_WEIGHTED_PRESSURE_PLATE),
+            ThemeType.GADGET,
+            "Shredding Plate",
+            "A plate that is just too powerful.",
+            "Anything standing on this plate gets",
+            "damaged.",
+            "",
+            ThemeType.CLICK_INFO.getColor() + "Damage: " + ThemeType.PASSIVE.getColor() + "3",
+            ThemeType.CLICK_INFO.getColor() + "Player Drops: " + ThemeType.PASSIVE.getColor() + "Yes"
+        );
+
         TRAP_PLATE = ThemeType.themedSlimefunItemStack(
             "CRY_MOB_PLATE_TRAP",
             new ItemStack(Material.DARK_OAK_PRESSURE_PLATE),
@@ -1339,6 +1451,18 @@ public class CrystaStacks {
             "",
             ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "8",
             ThemeType.CLICK_INFO.getColor() + "Capacity: " + ThemeType.PASSIVE.getColor() + "10000"
+        );
+
+        EXP_COLLECTOR_ARCANE = ThemeType.themedSlimefunItemStack(
+            "CRY_EXP_COLLECTOR_3",
+            new ItemStack(Material.LIGHTNING_ROD),
+            ThemeType.GADGET,
+            "Arcane Exp Collector",
+            "Magic sigils allow for even",
+            "more storage.",
+            "",
+            ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "8",
+            ThemeType.CLICK_INFO.getColor() + "Capacity: " + ThemeType.PASSIVE.getColor() + "999999"
         );
 
         ENDER_INHIBITOR_BASIC = ThemeType.themedSlimefunItemStack(
@@ -1406,6 +1530,19 @@ public class CrystaStacks {
             "",
             ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "64",
             ThemeType.CLICK_INFO.getColor() + "Duration: " + ThemeType.PASSIVE.getColor() + "48 Hours (real time)"
+        );
+
+        MOB_CANDLE_CORUSCATING = ThemeType.themedSlimefunItemStack(
+            "CRY_MOB_CANDLE_4",
+            new ItemStack(Material.MAGENTA_CANDLE),
+            ThemeType.GADGET,
+            "Coruscating Verache Candle",
+            "This candle stops mobs spawning",
+            "in a radius around it.",
+            "Doesn't last forever.",
+            "",
+            ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "64",
+            ThemeType.CLICK_INFO.getColor() + "Duration: " + ThemeType.PASSIVE.getColor() + "2 Weeks (real time)"
         );
 
         MYSTERIOUS_POTTED_PLANT = ThemeType.themedSlimefunItemStack(
@@ -1490,6 +1627,17 @@ public class CrystaStacks {
             "Works during the day in light worlds only.",
             "",
             ThemeType.CLICK_INFO.getColor() + "Rate: " + ThemeType.PASSIVE.getColor() + "10"
+        );
+
+        GREEN_HOUSE_GLASS_MAGNIFYING = ThemeType.themedSlimefunItemStack(
+            "CRY_CROP_GLASS_3",
+            new ItemStack(Material.TINTED_GLASS),
+            ThemeType.GADGET,
+            "Magnifying Greenhouse Glass",
+            "Crops under this glass will grow faster.",
+            "Works during the day in light worlds only.",
+            "",
+            ThemeType.CLICK_INFO.getColor() + "Rate: " + ThemeType.PASSIVE.getColor() + "20"
         );
 
         TROPHY_STAND = ThemeType.themedSlimefunItemStack(
@@ -1622,6 +1770,20 @@ public class CrystaStacks {
             "Can chronicle stories for T1-T5 blocks."
         );
 
+        CHRONICLER_PANEL_5 = ThemeType.themedSlimefunItemStack(
+            "CRY_CHRONICLER_PANEL_5",
+            new ItemStack(Material.SMOOTH_QUARTZ_SLAB),
+            ThemeType.MECHANISM,
+            "Chronicler Panel (Tier 5)",
+            "The chronicler panel will draw out",
+            "the stories contained within a given",
+            "block over time.",
+            "",
+            "Can chronicle stories for T1-T5 blocks.",
+            "Automatically picks up items thrown on",
+            "top of it and pushes storied items below."
+        );
+
         REALISATION_ALTAR_1 = ThemeType.themedSlimefunItemStack(
             "CRY_REALISATION_ALTAR_1",
             new ItemStack(Material.CHISELED_DEEPSLATE),
@@ -1668,6 +1830,20 @@ public class CrystaStacks {
             "a physical form.",
             "",
             "Can realise T1 - T5."
+        );
+
+        REALISATION_ALTAR_5 = ThemeType.themedSlimefunItemStack(
+            "CRY_REALISATION_ALTAR_5",
+            new ItemStack(Material.CHISELED_STONE_BRICKS),
+            ThemeType.MECHANISM,
+            "Realisation Altar (Tier 5)",
+            "The realisation altar takes storied",
+            "blocks and converts their stories into",
+            "a physical form.",
+            "",
+            "Can realise T1 - T5.",
+            "Automatically picks up items thrown on",
+            "top of it."
         );
 
         LIQUEFACTION_BASIN_1 = ThemeType.themedSlimefunItemStack(
@@ -1720,6 +1896,19 @@ public class CrystaStacks {
             "Danger: Do not break while filled!",
             "",
             "Holds up to 5000 Liquefied Crysta."
+        );
+
+        LIQUEFACTION_BASIN_5 = ThemeType.themedSlimefunItemStack(
+            "CRY_LIQUEFACTION_BASIN_5",
+            new ItemStack(Material.CAULDRON),
+            ThemeType.MECHANISM,
+            "Liquefaction Basin (Tier 5)",
+            "The liquefaction basin can take",
+            "Crystals and convert them into their liquid",
+            "Crystamae form. Used for magical crafting.",
+            "Danger: Do not break while filled!",
+            "",
+            "Holds up to 10000 Liquefied Crysta."
         );
 
         STAVE_CONFIGURATOR = ThemeType.themedSlimefunItemStack(
@@ -1776,6 +1965,15 @@ public class CrystaStacks {
             new ItemStack(Material.STICK),
             ThemeType.STAVE,
             "Advanced Stave",
+            "A stave with the ability to hold",
+            "magically charged plates."
+        );
+
+        STAVE_ARCANE = ThemeType.themedSlimefunItemStack(
+            "CRY_STAVE_3",
+            GeneralUtils.getPreEnchantedItemStack(Material.STICK),
+            ThemeType.STAVE,
+            "Arcane Stave",
             "A stave with the ability to hold",
             "magically charged plates."
         );
@@ -1878,6 +2076,19 @@ public class CrystaStacks {
             ChatColor.YELLOW + "250 Uses " + ChatColor.GRAY + "left"
         );
 
+        RADIANCE_SCOOP = ThemeType.themedSlimefunItemStack(
+            "CRY_RADIANCE_SCOOP",
+            GeneralUtils.getPreEnchantedItemStack(Material.SOUL_LANTERN),
+            ThemeType.TOOL,
+            "Radiance Scoop",
+            "Right click to place a magical",
+            "light source.",
+            "Shift Right click to scoop back.",
+            "Left click to change the light level.",
+            "",
+            ChatColor.YELLOW + "500 Uses " + ChatColor.GRAY + "left"
+        );
+
         CONNECTING_COMPASS = ThemeType.themedSlimefunItemStack(
             "CRY_CONNECTING_COMPASS",
             new ItemStack(Material.COMPASS),
@@ -1904,6 +2115,21 @@ public class CrystaStacks {
             ChatColor.RED + "both with and without silk.",
             "",
             ChatColor.YELLOW + "50 Uses " + ChatColor.GRAY + "left"
+        );
+
+        INCORPOREAL_SILKEN = ThemeType.themedSlimefunItemStack(
+            "CRY_INCORPOREAL_SILKEN",
+            new ItemStack(Material.BONE),
+            ThemeType.TOOL,
+            "Incorporeal Silken",
+            "This pick has been imbued with",
+            "spiritual energies that allow it",
+            "to keep certain items whole.",
+            ChatColor.RED + "Only works on blocks that do",
+            ChatColor.RED + "not normally drop themselves",
+            ChatColor.RED + "both with and without silk.",
+            "",
+            ChatColor.YELLOW + "1000 Uses " + ChatColor.GRAY + "left"
         );
 
         SIMPLE_DISPLACER = ThemeType.themedSlimefunItemStack(
@@ -1944,7 +2170,7 @@ public class CrystaStacks {
 
         SPONGE_SEARING = ThemeType.themedSlimefunItemStack(
             "CRY_SPONGE_SEARING",
-            GeneralUtils.getPreEnchantedItemStack(Material.DEAD_FIRE_CORAL_BLOCK, true, new Pair<>(Enchantment.LURE, 1)),
+            GeneralUtils.getPreEnchantedItemStack(Material.DEAD_FIRE_CORAL_BLOCK),
             ThemeType.TOOL,
             "Searing Sponge",
             "This imbued sponge is capable",
@@ -1952,6 +2178,18 @@ public class CrystaStacks {
             "Place near water to clean after use.",
             "",
             ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "7 Blocks"
+        );
+
+        SPONGE_SUPER_MASSIVE = ThemeType.themedSlimefunItemStack(
+            "CRY_SPONGE_SUPER_MASSIVE",
+            GeneralUtils.getPreEnchantedItemStack(Material.DEAD_FIRE_CORAL_BLOCK),
+            ThemeType.TOOL,
+            "Super Massive Sponge",
+            "This imbued sponge is capable",
+            "of absorbing lava instead of water.",
+            "Place near water to clean after use.",
+            "",
+            ThemeType.CLICK_INFO.getColor() + "Range: " + ThemeType.PASSIVE.getColor() + "10 Blocks"
         );
 
         SLEEPING_BAG = ThemeType.themedSlimefunItemStack(

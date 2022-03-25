@@ -13,6 +13,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.block.Block;
+import org.bukkit.block.data.type.Light;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.util.Vector;
@@ -23,24 +24,46 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class LuminescenceScoop extends RefillableUseItem {
 
     private static final NamespacedKey key = Keys.newKey("uses");
+    private final boolean adjustable;
 
     @ParametersAreNonnullByDefault
     public LuminescenceScoop(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, int amount) {
+        this(itemGroup, item, recipeType, recipe, amount, false);
+    }
+
+    @ParametersAreNonnullByDefault
+    public LuminescenceScoop(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, int amount, boolean adjustable) {
         super(itemGroup, item, recipeType, recipe);
         setMaxUseCount(amount);
+        this.adjustable = adjustable;
     }
 
     @Nonnull
     @Override
     public ItemUseHandler getItemHandler() {
-        return e -> {
-            e.cancel();
-            if (e.getPlayer().isSneaking()) {
-                removeLight(e);
+        return event -> {
+            event.cancel();
+            if (event.getPlayer().isSneaking()) {
+                removeLight(event);
             } else {
-                setLight(e);
+                setLight(event);
             }
         };
+    }
+
+    public void adjustLight(@Nonnull Player player) {
+        final Location start = player.getEyeLocation();
+        final Vector direction = start.getDirection();
+        for (int i = 1; i < 6; i++) {
+            final Block checkBlock = start.add(direction.multiply(i)).getBlock();
+            if (checkBlock.getType() == Material.LIGHT
+                && GeneralUtils.hasPermission(player, checkBlock, Interaction.INTERACT_BLOCK)
+            ) {
+                final Light light = (Light) checkBlock.getBlockData();
+                light.setLevel(light.getLevel() == light.getMaximumLevel() ? 0 : light.getLevel() + 1);
+                checkBlock.setBlockData(light);
+            }
+        }
     }
 
     private void removeLight(PlayerRightClickEvent event) {
@@ -75,5 +98,9 @@ public class LuminescenceScoop extends RefillableUseItem {
     protected @Nonnull
     NamespacedKey getStorageKey() {
         return key;
+    }
+
+    public boolean isAdjustable() {
+        return adjustable;
     }
 }

@@ -121,7 +121,7 @@ public class Materials {
                         "Provides " + Crystal.getRarityValueMap().get(rarity) + " Crysta."
                     ),
                     CrystaRecipeTypes.REALISATION_ALTAR_NORMAL,
-                    new ItemStack[]{null, null, null, null, new ItemStack(Material.AMETHYST_CLUSTER), null, null, null, null},
+                    new ItemStack[8],
                     rarity,
                     type
                 );
@@ -474,6 +474,7 @@ public class Materials {
         amalgamateIngotEpic.register(plugin);
         amalgamateIngotMythical.register(plugin);
         amalgamateIngotUnique.register(plugin);
+        arcaneSigil.register(plugin);
         imbuedGlass.register(plugin);
         uncannyPearl.register(plugin);
         gildedPearl.register(plugin);

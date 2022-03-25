@@ -6,13 +6,16 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.realisatio
 import io.github.sefiraat.crystamaehistoria.stories.Story;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.BlockFace;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPistonExtendEvent;
+
+import javax.annotation.Nonnull;
+import java.util.List;
 
 public class CrystalBreakListener implements Listener {
 
@@ -21,12 +24,35 @@ public class CrystalBreakListener implements Listener {
         Block block = event.getBlock();
         if (block.getType() == Material.LARGE_AMETHYST_BUD) {
             handleCrystal(event, block, true);
+            event.setCancelled(true);
         } else if (block.getRelative(BlockFace.UP).getType() == Material.LARGE_AMETHYST_BUD) {
             handleCrystal(event, block.getRelative(BlockFace.UP), false);
+            event.setCancelled(true);
         }
     }
 
-    private void handleCrystal(BlockBreakEvent event, Block block, boolean forceStopDrops) {
+    @EventHandler(ignoreCancelled = true)
+    public void onBreakCrystal(BlockPistonExtendEvent event) {
+        List<Block> blocks = event.getBlocks();
+        for (Block block : blocks) {
+            if (block.getType() == Material.LARGE_AMETHYST_BUD) {
+                handleCrystal(block);
+            } else if (block.getRelative(BlockFace.UP).getType() == Material.LARGE_AMETHYST_BUD) {
+                handleCrystal(block.getRelative(BlockFace.UP));
+            }
+        }
+    }
+
+    private void handleCrystal(@Nonnull BlockBreakEvent event, @Nonnull Block block, boolean forceStopDrops) {
+        handleCrystal(block);
+        // To stop annoying drops with silk touch :)
+        if (forceStopDrops) {
+            event.setCancelled(true);
+            block.setType(Material.AIR);
+        }
+    }
+
+    private void handleCrystal(@Nonnull Block block) {
         final BlockPosition blockPosition = new BlockPosition(block);
         for (RealisationAltarCache cache : RealisationAltar.getCaches().values()) {
             final RealisationAltarCache.RealisedCrystalState state = cache.getCrystalStoryMap().remove(blockPosition);
@@ -35,11 +61,6 @@ public class CrystalBreakListener implements Listener {
                 final String id = state.getStoryId();
                 final Story story = CrystamaeHistoria.getStoriesManager().getStory(id, rarity);
                 story.getStoryShardProfile().dropShards(rarity, block.getLocation(), state.isGilded());
-                // To stop annoying drops with silk touch :)
-                if (forceStopDrops) {
-                    event.setCancelled(true);
-                    block.setType(Material.AIR);
-                }
                 cache.saveMap();
                 return;
             }

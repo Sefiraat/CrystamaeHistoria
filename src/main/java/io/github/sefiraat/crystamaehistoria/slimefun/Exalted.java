@@ -13,6 +13,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.exhalted.ExaltedWeath
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import lombok.Getter;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Material;
@@ -27,9 +28,15 @@ public class Exalted {
     @Getter
     private static ExaltedBeacon exaltedBeacon;
     @Getter
+    private static ExaltedBeacon exaltedBaelfire;
+    @Getter
     private static ExaltedFertilityPharo exaltedFertilityPharo;
     @Getter
+    private static ExaltedFertilityPharo exaltedFertilityTotem;
+    @Getter
     private static ExaltedHarvester exaltedHarvester;
+    @Getter
+    private static ExaltedHarvester exaltedAgronomist;
     @Getter
     private static ExaltedTime exaltedDawn;
     @Getter
@@ -48,46 +55,88 @@ public class Exalted {
         // Exaltation Beacon
         RecipeItem exaltedBeaconRecipe = new RecipeItem(
             CrystaStacks.AMALGAMATE_INGOT_MYTHICAL,
-            StoryType.ELEMENTAL, 500,
-            StoryType.HUMAN, 500,
-            StoryType.PHILOSOPHICAL, 500,
+            StoryType.ELEMENTAL, 250,
+            StoryType.HUMAN, 250,
+            StoryType.PHILOSOPHICAL, 250,
             Exalted::isMaxStoryRank
         );
         exaltedBeacon = new ExaltedBeacon(
             ItemGroups.EXALTED,
             CrystaStacks.EXALTED_BEACON,
             CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
-            exaltedBeaconRecipe.getDisplayRecipe()
+            exaltedBeaconRecipe.getDisplayRecipe(),
+            2
+        );
+
+        // Exaltation Baelfire
+        exaltedBaelfire = new ExaltedBeacon(
+            ItemGroups.EXALTED,
+            CrystaStacks.EXALTED_BAELFIRE,
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                null, CrystaStacks.RUNE_A, null,
+                CrystaStacks.RUNE_E, CrystaStacks.EXALTED_BEACON, CrystaStacks.RUNE_K,
+                null, CrystaStacks.RUNE_R, null
+            },
+            3
         );
 
         // Fertility Pharo
         RecipeItem exaltedFertilityPharoRecipe = new RecipeItem(
             CrystaStacks.AMALGAMATE_INGOT_MYTHICAL,
-            StoryType.ELEMENTAL, 500,
-            StoryType.ANIMAL, 500,
-            StoryType.CELESTIAL, 500,
+            StoryType.ELEMENTAL, 350,
+            StoryType.ANIMAL, 350,
+            StoryType.CELESTIAL, 350,
             Exalted::isMaxStoryRank
         );
         exaltedFertilityPharo = new ExaltedFertilityPharo(
             ItemGroups.EXALTED,
             CrystaStacks.FERTILITY_PHARO,
             CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
-            exaltedFertilityPharoRecipe.getDisplayRecipe()
+            exaltedFertilityPharoRecipe.getDisplayRecipe(),
+            9
+        );
+
+        // Fertility Totem
+        exaltedFertilityTotem = new ExaltedFertilityPharo(
+            ItemGroups.EXALTED,
+            CrystaStacks.FERTILITY_TOTEM,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
+            new ItemStack[]{
+                null, CrystaStacks.RUNE_C, null,
+                CrystaStacks.RUNE_H, CrystaStacks.EXALTED_BEACON, CrystaStacks.RUNE_N,
+                null, CrystaStacks.RUNE_T, null
+            },
+            13
         );
 
         // Exalted Harvester
         RecipeItem exaltedHarvesterRecipe = new RecipeItem(
             CrystaStacks.AMALGAMATE_INGOT_MYTHICAL,
-            StoryType.ELEMENTAL, 500,
-            StoryType.HISTORICAL, 500,
-            StoryType.VOID, 500,
+            StoryType.ELEMENTAL, 350,
+            StoryType.HISTORICAL, 350,
+            StoryType.VOID, 350,
             Exalted::isMaxSpellRank
         );
         exaltedHarvester = new ExaltedHarvester(
             ItemGroups.EXALTED,
             CrystaStacks.EXALTED_HARVESTER,
             CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
-            exaltedHarvesterRecipe.getDisplayRecipe()
+            exaltedHarvesterRecipe.getDisplayRecipe(),
+            4
+        );
+
+        // Exalted Agronomist
+        exaltedAgronomist = new ExaltedHarvester(
+            ItemGroups.EXALTED,
+            CrystaStacks.EXALTED_AGRONOMIST,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
+            new ItemStack[]{
+                null, CrystaStacks.RUNE_F, null,
+                CrystaStacks.RUNE_J, CrystaStacks.EXALTED_BEACON, CrystaStacks.RUNE_P,
+                null, CrystaStacks.RUNE_Y, null
+            },
+            9
         );
 
         // Exalted Dawn
@@ -171,8 +220,11 @@ public class Exalted {
 
         // Slimefun Registry
         exaltedBeacon.register(plugin);
+        exaltedBaelfire.register(plugin);
         exaltedFertilityPharo.register(plugin);
+        exaltedFertilityTotem.register(plugin);
         exaltedHarvester.register(plugin);
+        exaltedAgronomist.register(plugin);
         exaltedDawn.register(plugin);
         exaltedDusk.register(plugin);
         exaltedSun.register(plugin);

@@ -32,10 +32,12 @@ public class MainFlexGroup extends FlexItemGroup {
     private static final int PAINTBRUSHES = 13;
     private static final int EXALTED = 14;
     private static final int UNIQUES = 15;
-    private static final int MATERIALS = 16;
-    private static final int GUIDE = 17;
-    private static final int STORY = 18;
-    private static final int SPELL = 19;
+    private static final int RUNES = 16;
+    private static final int MATERIALS = 17;
+    private static final int GUIDE = 18;
+    private static final int STORY = 19;
+    private static final int SPELL = 20;
+    private static final int GILDING = 21;
 
     private static final int[] HEADER = new int[]{
         0, 1, 2, 3, 4, 5, 6, 7, 8
@@ -121,6 +123,11 @@ public class MainFlexGroup extends FlexItemGroup {
         menu.addMenuClickHandler(UNIQUES, (player1, i1, itemStack1, clickAction) ->
             openPage(profile, ItemGroups.UNIQUES, mode, 1));
 
+        // Runes
+        menu.replaceExistingItem(RUNES, ItemGroups.RUNES.getItem(player));
+        menu.addMenuClickHandler(RUNES, (player1, i1, itemStack1, clickAction) ->
+            openPage(profile, ItemGroups.RUNES, mode, 1));
+
         // Materials
         menu.replaceExistingItem(MATERIALS, ItemGroups.MATERIALS.getItem(player));
         menu.addMenuClickHandler(MATERIALS, (player1, i1, itemStack1, clickAction) ->
@@ -135,6 +142,11 @@ public class MainFlexGroup extends FlexItemGroup {
         menu.replaceExistingItem(SPELL, ItemGroups.SPELL_COLLECTION.getItem(player));
         menu.addMenuClickHandler(SPELL, (player1, i1, itemStack1, clickAction) ->
             openPage(profile, ItemGroups.SPELL_COLLECTION, mode, 1));
+
+        // Gilding
+        menu.replaceExistingItem(GILDING, ItemGroups.GILDING_COLLECTION.getItem(player));
+        menu.addMenuClickHandler(GILDING, (player1, i1, itemStack1, clickAction) ->
+            openPage(profile, ItemGroups.GILDING_COLLECTION, mode, 1));
 
         // Guide
         menu.replaceExistingItem(GUIDE, ItemGroups.GUIDE.getItem(player));

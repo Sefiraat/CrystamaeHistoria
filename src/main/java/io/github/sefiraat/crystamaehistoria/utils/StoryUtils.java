@@ -75,7 +75,7 @@ public class StoryUtils {
     private static boolean isAllowed(ItemStack itemStack) {
         SlimefunItem slimefunItem = SlimefunItem.getByItem(itemStack);
         if (slimefunItem == null) {
-            return metaBypass.contains(itemStack.getType()) || !itemStack.hasItemMeta();
+            return metaBypass.contains(itemStack.getType()) || isStoried(itemStack) || !itemStack.hasItemMeta();
         } else {
             return itemStack.getType() == Material.SPAWNER;
         }
@@ -89,7 +89,7 @@ public class StoryUtils {
      * @return true if has previously been chronicled at any point
      */
     @ParametersAreNonnullByDefault
-    public static boolean isStoried(ItemStack itemStack) {
+    public static boolean isStoried(@Nonnull ItemStack itemStack) {
         return PersistentDataAPI.hasBoolean(itemStack.getItemMeta(), Keys.PDC_IS_STORIED);
     }
 

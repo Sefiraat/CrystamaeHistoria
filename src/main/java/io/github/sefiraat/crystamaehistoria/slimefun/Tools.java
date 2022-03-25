@@ -47,6 +47,8 @@ public class Tools {
     @Getter
     private static Stave staveAdvanced;
     @Getter
+    private static Stave staveArcane;
+    @Getter
     private static RefactingLens refractingLens;
     @Getter
     private static ThaumaturgicSalt thaumaturgicSalts;
@@ -63,9 +65,13 @@ public class Tools {
     @Getter
     private static LuminescenceScoop lustreScoop;
     @Getter
+    private static LuminescenceScoop radianceScoop;
+    @Getter
     private static ConnectingCompass connectingCompass;
     @Getter
     private static SpiritualSilken spiritualSilken;
+    @Getter
+    private static SpiritualSilken incorporealSilken;
     @Getter
     private static Displacer simpleDisplacer;
     @Getter
@@ -80,6 +86,8 @@ public class Tools {
     private static BalmySponge balmySponge;
     @Getter
     private static BalmySponge searingSponge;
+    @Getter
+    private static BalmySponge superMassiveSponge;
     @Getter
     private static SleepingBag sleepingBag;
     @Getter
@@ -148,6 +156,19 @@ public class Tools {
                 CrystaStacks.AMALGAMATE_INGOT_COMMON, CrystaStacks.AMALGAMATE_INGOT_COMMON, CrystaStacks.AMALGAMATE_INGOT_COMMON
             },
             2
+        );
+
+        // Arcane Stave
+        staveArcane = new Stave(
+            ItemGroups.TOOLS,
+            CrystaStacks.STAVE_ARCANE,
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                CrystaStacks.RUNE_B, CrystaStacks.RUNE_F, CrystaStacks.RUNE_J,
+                CrystaStacks.RUNE_M, CrystaStacks.STAVE_ADVANCED, CrystaStacks.RUNE_Q,
+                CrystaStacks.RUNE_U, CrystaStacks.RUNE_W, CrystaStacks.RUNE_Z
+            },
+            3
         );
 
         // Refracting Lens
@@ -259,6 +280,20 @@ public class Tools {
             250
         );
 
+        // Radiance Scoop
+        radianceScoop = new LuminescenceScoop(
+            ItemGroups.TOOLS,
+            CrystaStacks.RADIANCE_SCOOP,
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[] {
+                null, CrystaStacks.RUNE_E, null,
+                CrystaStacks.RUNE_K, CrystaStacks.LUSTRE_SCOOP, CrystaStacks.RUNE_O,
+                null, CrystaStacks.RUNE_W, null
+            },
+            500,
+            true
+        );
+
         // Connecting Compass
         RecipeItem connectingCompassRecipe = new RecipeItem(
             new ItemStack(Material.COMPASS),
@@ -286,6 +321,19 @@ public class Tools {
             CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             spiritualSilkenRecipe.getDisplayRecipe(),
             50
+        );
+
+        // Incorporeal Silken
+        incorporealSilken = new SpiritualSilken(
+            ItemGroups.TOOLS,
+            CrystaStacks.INCORPOREAL_SILKEN,
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[] {
+                null, CrystaStacks.RUNE_C, null,
+                CrystaStacks.RUNE_I, CrystaStacks.SPIRITUAL_SILKEN, CrystaStacks.RUNE_R,
+                null, CrystaStacks.RUNE_U, null
+            },
+            1000
         );
 
         // Simple Displacer
@@ -346,6 +394,19 @@ public class Tools {
             CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             searingSpongeRecipe.getDisplayRecipe(),
             7
+        );
+
+        // Super-massive Sponge
+        superMassiveSponge = new BalmySponge(
+            ItemGroups.TOOLS,
+            CrystaStacks.SPONGE_SUPER_MASSIVE,
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[] {
+                null, CrystaStacks.RUNE_F, null,
+                CrystaStacks.RUNE_M, CrystaStacks.SPIRITUAL_SILKEN, CrystaStacks.RUNE_Q,
+                null, CrystaStacks.RUNE_V, null
+            },
+            10
         );
 
         // Sleeping Bag
@@ -469,6 +530,7 @@ public class Tools {
         inertPlate.register(CrystamaeHistoria.getInstance());
         staveBasic.register(plugin);
         staveAdvanced.register(plugin);
+        staveArcane.register(plugin);
         refractingLens.register(plugin);
         thaumaturgicSalts.register(plugin);
         crystaRecallLattice.register(plugin);
@@ -477,12 +539,15 @@ public class Tools {
         luminescenceScoop.register(plugin);
         brillianceScoop.register(plugin);
         lustreScoop.register(plugin);
+        radianceScoop.register(plugin);
         connectingCompass.register(plugin);
         spiritualSilken.register(plugin);
+        incorporealSilken.register(plugin);
         simpleDisplacer.register(plugin);
         arcaneDisplacer.register(plugin);
         balmySponge.register(plugin);
         searingSponge.register(plugin);
+        superMassiveSponge.register(plugin);
         sleepingBag.register(plugin);
         displacedVoid.register(plugin);
         apprenticesSatchel.register(plugin);
