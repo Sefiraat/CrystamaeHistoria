@@ -232,6 +232,7 @@ public class CrystaStacks {
     // Uniques
     public static final SlimefunItemStack STORY_TROPHY;
     public static final SlimefunItemStack SPELL_TROPHY;
+    public static final SlimefunItemStack GILDING_TROPHY;
     public static final SlimefunItemStack CHRISTMAS_TROPHY;
     public static final SlimefunItemStack VALENTINES_TROPHY;
     public static final SlimefunItemStack BIRTHDAY_TROPHY_CHEESY;
@@ -2334,6 +2335,16 @@ public class CrystaStacks {
             "Proof that you are simply the best.",
             "",
             ThemeType.CLICK_INFO.getColor() + "Requires: Story Rank > Emeritus Professor"
+        );
+
+        GILDING_TROPHY = ThemeType.themedSlimefunItemStack(
+            "CRY_GILDING_TROPHY",
+            new ItemStack(Material.PAPER),
+            ThemeType.CRAFTING,
+            "Proofs: Gilding Owner",
+            "Proof that you are simply the best.",
+            "",
+            ThemeType.CLICK_INFO.getColor() + "Requires: Gilding Rank > Owner"
         );
 
         CHRISTMAS_TROPHY = ThemeType.themedSlimefunItemStack(

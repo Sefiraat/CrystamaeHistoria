@@ -1,6 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.player.GildingRank;
 import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.player.SpellRank;
 import io.github.sefiraat.crystamaehistoria.player.StoryRank;
@@ -34,6 +35,8 @@ public class Uniques {
     private static Trophy storyTrophy;
     @Getter
     private static Trophy spellTrophy;
+    @Getter
+    private static Trophy gildingTrophy;
     @Getter
     private static Trophy christmasTrophy;
     @Getter
@@ -90,6 +93,27 @@ public class Uniques {
                 0.2,
                 3,
                 new Particle.DustOptions(Color.AQUA, 1)
+            )
+        );
+
+        // Gilding Trophy
+        RecipeItem gildedTrophyRecipe = new RecipeItem(
+            CrystaStacks.RUNE_M,
+            StoryType.MECHANICAL, 100,
+            StoryType.HUMAN, 100,
+            StoryType.PHILOSOPHICAL, 100,
+            Uniques::isMaxGildingRank
+        );
+        gildingTrophy = new Trophy(
+            ItemGroups.UNIQUES,
+            CrystaStacks.GILDING_TROPHY,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
+            gildedTrophyRecipe.getDisplayRecipe(),
+            location -> ParticleUtils.displayParticleEffect(
+                location.add(0, 0.2, 0),
+                0.2,
+                3,
+                new Particle.DustOptions(Color.MAROON, 1)
             )
         );
 
@@ -260,6 +284,7 @@ public class Uniques {
 
         spellTrophy.register(plugin);
         storyTrophy.register(plugin);
+        gildingTrophy.register(plugin);
         christmasTrophy.register(plugin);
         valentinesTrophy.register(plugin);
 
@@ -285,6 +310,10 @@ public class Uniques {
 
     private static boolean isMaxSpellRank(@Nonnull Player player) {
         return PlayerStatistics.getSpellRank(player.getUniqueId()) == SpellRank.GRANDMASTER_MAGI;
+    }
+
+    private static boolean isMaxGildingRank(@Nonnull Player player) {
+        return PlayerStatistics.getGildingRank(player.getUniqueId()) == GildingRank.OWNER;
     }
 
     private static boolean isChristmas(@Nonnull Player player) {

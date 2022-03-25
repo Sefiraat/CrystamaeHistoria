@@ -1,17 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.slimefun.items.materials.Crystal;
-import io.github.sefiraat.crystamaehistoria.slimefun.items.materials.PowderedEssence;
-import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
-import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
-import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
-import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import io.github.sefiraat.crystamaehistoria.utils.Skulls;
-import io.github.sefiraat.crystamaehistoria.utils.TextUtils;
-import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import io.github.thebusybiscuit.slimefun4.implementation.items.blocks.UnplaceableBlock;
@@ -20,46 +9,68 @@ import lombok.experimental.UtilityClass;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.EnumMap;
-import java.util.Map;
-
 @UtilityClass
 public class Runes {
 
     @Getter
-    private static UnplaceableBlock rune_a;
-    private static UnplaceableBlock rune_b;
-    private static UnplaceableBlock rune_c;
-    private static UnplaceableBlock rune_d;
-    private static UnplaceableBlock rune_e;
-    private static UnplaceableBlock rune_f;
-    private static UnplaceableBlock rune_g;
-    private static UnplaceableBlock rune_h;
-    private static UnplaceableBlock rune_i;
-    private static UnplaceableBlock rune_j;
-    private static UnplaceableBlock rune_k;
-    private static UnplaceableBlock rune_l;
-    private static UnplaceableBlock rune_m;
-    private static UnplaceableBlock rune_n;
-    private static UnplaceableBlock rune_o;
-    private static UnplaceableBlock rune_p;
-    private static UnplaceableBlock rune_q;
-    private static UnplaceableBlock rune_r;
-    private static UnplaceableBlock rune_s;
-    private static UnplaceableBlock rune_t;
-    private static UnplaceableBlock rune_u;
-    private static UnplaceableBlock rune_v;
-    private static UnplaceableBlock rune_w;
-    private static UnplaceableBlock rune_x;
-    private static UnplaceableBlock rune_y;
-    private static UnplaceableBlock rune_z;
+    private static UnplaceableBlock runeA;
+    @Getter
+    private static UnplaceableBlock runeB;
+    @Getter
+    private static UnplaceableBlock runeC;
+    @Getter
+    private static UnplaceableBlock runeD;
+    @Getter
+    private static UnplaceableBlock runeE;
+    @Getter
+    private static UnplaceableBlock runeF;
+    @Getter
+    private static UnplaceableBlock runeG;
+    @Getter
+    private static UnplaceableBlock runeH;
+    @Getter
+    private static UnplaceableBlock runeI;
+    @Getter
+    private static UnplaceableBlock runeJ;
+    @Getter
+    private static UnplaceableBlock runeK;
+    @Getter
+    private static UnplaceableBlock runeL;
+    @Getter
+    private static UnplaceableBlock runeM;
+    @Getter
+    private static UnplaceableBlock runeN;
+    @Getter
+    private static UnplaceableBlock runeO;
+    @Getter
+    private static UnplaceableBlock runeP;
+    @Getter
+    private static UnplaceableBlock runeQ;
+    @Getter
+    private static UnplaceableBlock runeR;
+    @Getter
+    private static UnplaceableBlock runeS;
+    @Getter
+    private static UnplaceableBlock runeT;
+    @Getter
+    private static UnplaceableBlock runeU;
+    @Getter
+    private static UnplaceableBlock runeV;
+    @Getter
+    private static UnplaceableBlock runeW;
+    @Getter
+    private static UnplaceableBlock runeX;
+    @Getter
+    private static UnplaceableBlock runeY;
+    @Getter
+    private static UnplaceableBlock runeZ;
 
     public static void setup() {
 
         CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
 
         // Rune A
-        rune_a = new UnplaceableBlock(
+        runeA = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_A,
             RecipeType.ANCIENT_ALTAR,
@@ -71,7 +82,7 @@ public class Runes {
         );
 
         // Rune B
-        rune_b = new UnplaceableBlock(
+        runeB = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_B,
             RecipeType.ANCIENT_ALTAR,
@@ -83,7 +94,7 @@ public class Runes {
         );
 
         // Rune C
-        rune_c = new UnplaceableBlock(
+        runeC = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_C,
             RecipeType.ANCIENT_ALTAR,
@@ -95,7 +106,7 @@ public class Runes {
         );
 
         // Rune D
-        rune_d = new UnplaceableBlock(
+        runeD = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_D,
             RecipeType.ANCIENT_ALTAR,
@@ -107,7 +118,7 @@ public class Runes {
         );
 
         // Rune E
-        rune_e = new UnplaceableBlock(
+        runeE = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_E,
             RecipeType.ANCIENT_ALTAR,
@@ -119,7 +130,7 @@ public class Runes {
         );
 
         // Rune F
-        rune_f = new UnplaceableBlock(
+        runeF = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_F,
             RecipeType.ANCIENT_ALTAR,
@@ -131,7 +142,7 @@ public class Runes {
         );
 
         // Rune G
-        rune_g = new UnplaceableBlock(
+        runeG = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_G,
             RecipeType.ANCIENT_ALTAR,
@@ -143,7 +154,7 @@ public class Runes {
         );
 
         // Rune H
-        rune_h = new UnplaceableBlock(
+        runeH = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_H,
             RecipeType.ANCIENT_ALTAR,
@@ -155,7 +166,7 @@ public class Runes {
         );
 
         // Rune I
-        rune_i = new UnplaceableBlock(
+        runeI = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_I,
             RecipeType.ANCIENT_ALTAR,
@@ -167,7 +178,7 @@ public class Runes {
         );
 
         // Rune J
-        rune_j = new UnplaceableBlock(
+        runeJ = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_J,
             RecipeType.ANCIENT_ALTAR,
@@ -179,7 +190,7 @@ public class Runes {
         );
 
         // Rune K
-        rune_k = new UnplaceableBlock(
+        runeK = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_K,
             RecipeType.ANCIENT_ALTAR,
@@ -191,7 +202,7 @@ public class Runes {
         );
 
         // Rune L
-        rune_l = new UnplaceableBlock(
+        runeL = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_L,
             RecipeType.ANCIENT_ALTAR,
@@ -203,7 +214,7 @@ public class Runes {
         );
 
         // Rune M
-        rune_m = new UnplaceableBlock(
+        runeM = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_M,
             RecipeType.ANCIENT_ALTAR,
@@ -215,7 +226,7 @@ public class Runes {
         );
 
         // Rune N
-        rune_n = new UnplaceableBlock(
+        runeN = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_N,
             RecipeType.ANCIENT_ALTAR,
@@ -227,7 +238,7 @@ public class Runes {
         );
 
         // Rune O
-        rune_o = new UnplaceableBlock(
+        runeO = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_O,
             RecipeType.ANCIENT_ALTAR,
@@ -239,7 +250,7 @@ public class Runes {
         );
 
         // Rune P
-        rune_p = new UnplaceableBlock(
+        runeP = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_P,
             RecipeType.ANCIENT_ALTAR,
@@ -251,7 +262,7 @@ public class Runes {
         );
 
         // Rune Q
-        rune_q = new UnplaceableBlock(
+        runeQ = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_Q,
             RecipeType.ANCIENT_ALTAR,
@@ -263,7 +274,7 @@ public class Runes {
         );
 
         // Rune R
-        rune_r = new UnplaceableBlock(
+        runeR = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_R,
             RecipeType.ANCIENT_ALTAR,
@@ -275,7 +286,7 @@ public class Runes {
         );
 
         // Rune S
-        rune_s = new UnplaceableBlock(
+        runeS = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_S,
             RecipeType.ANCIENT_ALTAR,
@@ -287,7 +298,7 @@ public class Runes {
         );
 
         // Rune T
-        rune_t = new UnplaceableBlock(
+        runeT = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_T,
             RecipeType.ANCIENT_ALTAR,
@@ -299,7 +310,7 @@ public class Runes {
         );
 
         // Rune U
-        rune_u = new UnplaceableBlock(
+        runeU = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_U,
             RecipeType.ANCIENT_ALTAR,
@@ -311,7 +322,7 @@ public class Runes {
         );
 
         // Rune V
-        rune_v = new UnplaceableBlock(
+        runeV = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_V,
             RecipeType.ANCIENT_ALTAR,
@@ -323,7 +334,7 @@ public class Runes {
         );
 
         // Rune W
-        rune_w = new UnplaceableBlock(
+        runeW = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_W,
             RecipeType.ANCIENT_ALTAR,
@@ -335,7 +346,7 @@ public class Runes {
         );
 
         // Rune X
-        rune_x = new UnplaceableBlock(
+        runeX = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_X,
             RecipeType.ANCIENT_ALTAR,
@@ -347,7 +358,7 @@ public class Runes {
         );
 
         // Rune Y
-        rune_y = new UnplaceableBlock(
+        runeY = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_Y,
             RecipeType.ANCIENT_ALTAR,
@@ -359,7 +370,7 @@ public class Runes {
         );
 
         // Rune Z
-        rune_z = new UnplaceableBlock(
+        runeZ = new UnplaceableBlock(
             ItemGroups.RUNES,
             CrystaStacks.RUNE_Z,
             RecipeType.ANCIENT_ALTAR,
@@ -371,32 +382,32 @@ public class Runes {
         );
 
         // Slimefun Registry
-        rune_a.register(plugin);
-        rune_b.register(plugin);
-        rune_c.register(plugin);
-        rune_d.register(plugin);
-        rune_e.register(plugin);
-        rune_f.register(plugin);
-        rune_g.register(plugin);
-        rune_h.register(plugin);
-        rune_i.register(plugin);
-        rune_j.register(plugin);
-        rune_k.register(plugin);
-        rune_l.register(plugin);
-        rune_m.register(plugin);
-        rune_n.register(plugin);
-        rune_o.register(plugin);
-        rune_p.register(plugin);
-        rune_q.register(plugin);
-        rune_r.register(plugin);
-        rune_s.register(plugin);
-        rune_t.register(plugin);
-        rune_u.register(plugin);
-        rune_v.register(plugin);
-        rune_w.register(plugin);
-        rune_x.register(plugin);
-        rune_y.register(plugin);
-        rune_z.register(plugin);
+        runeA.register(plugin);
+        runeB.register(plugin);
+        runeC.register(plugin);
+        runeD.register(plugin);
+        runeE.register(plugin);
+        runeF.register(plugin);
+        runeG.register(plugin);
+        runeH.register(plugin);
+        runeI.register(plugin);
+        runeJ.register(plugin);
+        runeK.register(plugin);
+        runeL.register(plugin);
+        runeM.register(plugin);
+        runeN.register(plugin);
+        runeO.register(plugin);
+        runeP.register(plugin);
+        runeQ.register(plugin);
+        runeR.register(plugin);
+        runeS.register(plugin);
+        runeT.register(plugin);
+        runeU.register(plugin);
+        runeV.register(plugin);
+        runeW.register(plugin);
+        runeX.register(plugin);
+        runeY.register(plugin);
+        runeZ.register(plugin);
 
     }
 
