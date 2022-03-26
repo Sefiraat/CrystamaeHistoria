@@ -1,13 +1,19 @@
 package io.github.sefiraat.crystamaehistoria.stories.definition;
 
+import io.github.sefiraat.crystamaehistoria.slimefun.CrystaStacks;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
+import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import org.bukkit.Location;
+import org.bukkit.Particle;
 import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
+import javax.annotation.Nonnull;
 import java.util.EnumMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class StoryShardProfile {
 
@@ -25,27 +31,42 @@ public class StoryShardProfile {
         shardMap.put(StoryType.PHILOSOPHICAL, integerList.get(StoryType.PHILOSOPHICAL.getId() - 1));
     }
 
-    public void dropShards(StoryRarity rarity, Block block) {
-        dropShards(rarity, block.getLocation());
-    }
-
-    public void dropShards(StoryRarity rarity, Location location) {
-        dropShards(rarity, location, 1);
-    }
-
-    public void dropShards(StoryRarity rarity, Location location, int multiplier) {
+    public void dropShards(@Nonnull StoryRarity rarity, @Nonnull Location location, boolean isGilded) {
         for (Map.Entry<StoryType, Integer> entry : shardMap.entrySet()) {
-            StoryType storyType = entry.getKey();
-            int amount = entry.getValue() * multiplier;
+            final StoryType storyType = entry.getKey();
+
+            int amount = entry.getValue() * getMultiplier(isGilded);
             if (amount > 0) {
                 ItemStack itemStack = Materials.getCrystalMap().get(rarity).get(storyType).getItem().clone();
                 itemStack.setAmount(amount);
                 location.getWorld().dropItemNaturally(location, itemStack);
             }
+
+            if (isGilded) {
+                tryDropSigil(location, rarity);
+            }
         }
     }
 
-    public void dropShards(StoryRarity rarity, Block block, int multiplier) {
-        dropShards(rarity, block.getLocation(), multiplier);
+    public void tryDropSigil(@Nonnull Location location, @Nonnull StoryRarity storyRarity) {
+        if (storyRarity != StoryRarity.UNIQUE && GeneralUtils.testChance(storyRarity.getId(), 100)) {
+            ParticleUtils.displayParticleEffect(location, Particle.SPIT, 1, 3);
+            ParticleUtils.displayParticleEffect(location, Particle.ENCHANTMENT_TABLE, 1, 1);
+            location.getWorld().dropItemNaturally(location, CrystaStacks.ARCANE_SIGIL.clone());
+        }
+    }
+
+    private int getMultiplier(boolean isGilded) {
+        if (isGilded) {
+            int rnd = ThreadLocalRandom.current().nextInt(1, 101);
+            if (rnd < 5) {
+                return 4;
+            } else if (rnd < 25) {
+                return 3;
+            }
+            return 2;
+        }
+
+        return 1;
     }
 }

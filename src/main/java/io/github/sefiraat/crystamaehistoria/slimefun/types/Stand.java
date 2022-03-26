@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.types;
 
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.TickingBlockNoGui;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.TickingBlockNoGui;
 import io.github.thebusybiscuit.slimefun4.api.events.PlayerRightClickEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;

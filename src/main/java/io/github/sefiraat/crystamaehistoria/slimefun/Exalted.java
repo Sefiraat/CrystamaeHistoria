@@ -4,17 +4,16 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.player.SpellRank;
 import io.github.sefiraat.crystamaehistoria.player.StoryRank;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.exhalted.ExaltedBeacon;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.exhalted.ExaltedFertilityPharo;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.exhalted.ExaltedHarvester;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.exhalted.ExaltedSeaBreeze;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.exhalted.ExaltedTime;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.exhalted.ExaltedWeather;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.exhalted.ExaltedBeacon;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.exhalted.ExaltedFertilityPharo;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.exhalted.ExaltedHarvester;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.exhalted.ExaltedSeaBreeze;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.exhalted.ExaltedTime;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.exhalted.ExaltedWeather;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
-import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
+import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import lombok.Getter;
 import lombok.experimental.UtilityClass;
 import org.bukkit.Material;
@@ -29,9 +28,15 @@ public class Exalted {
     @Getter
     private static ExaltedBeacon exaltedBeacon;
     @Getter
+    private static ExaltedBeacon exaltedBaelfire;
+    @Getter
     private static ExaltedFertilityPharo exaltedFertilityPharo;
     @Getter
+    private static ExaltedFertilityPharo exaltedFertilityTotem;
+    @Getter
     private static ExaltedHarvester exaltedHarvester;
+    @Getter
+    private static ExaltedHarvester exaltedAgronomist;
     @Getter
     private static ExaltedTime exaltedDawn;
     @Getter
@@ -47,89 +52,96 @@ public class Exalted {
 
         final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
 
-        final ItemStack amalgamateIngotMythical = Materials.getAmalgamateIngotMythical().getItem();
-        final ItemStack amalgamateDustMythical = Materials.getAmalgamateDustMythical().getItem();
-
         // Exaltation Beacon
         RecipeItem exaltedBeaconRecipe = new RecipeItem(
-            amalgamateIngotMythical,
-            StoryType.ELEMENTAL, 500,
-            StoryType.HUMAN, 500,
-            StoryType.PHILOSOPHICAL, 500,
+            CrystaStacks.AMALGAMATE_INGOT_MYTHICAL,
+            StoryType.ELEMENTAL, 250,
+            StoryType.HUMAN, 250,
+            StoryType.PHILOSOPHICAL, 250,
             Exalted::isMaxStoryRank
         );
         exaltedBeacon = new ExaltedBeacon(
             ItemGroups.EXALTED,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_EXALTED_BEACON",
-                new ItemStack(Material.BEACON),
-                ThemeType.EXALTED,
-                "Exalted Beacon",
-                "A powerful beacon with incredible",
-                "potential. Must be placed on a",
-                "Exaltation Stand to operate.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Story Rank > Emeritus Professor"
-            ),
-            DummyLiquefactionBasinCrafting.TYPE,
-            exaltedBeaconRecipe.getDisplayRecipe()
+            CrystaStacks.EXALTED_BEACON,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
+            exaltedBeaconRecipe.getDisplayRecipe(),
+            2
+        );
+
+        // Exaltation Baelfire
+        exaltedBaelfire = new ExaltedBeacon(
+            ItemGroups.EXALTED,
+            CrystaStacks.EXALTED_BAELFIRE,
+            RecipeType.MAGIC_WORKBENCH,
+            new ItemStack[]{
+                null, CrystaStacks.RUNE_BEAST, null,
+                CrystaStacks.RUNE_TRUE_EARTH, CrystaStacks.EXALTED_BEACON, CrystaStacks.RUNE_TRUE_WATER,
+                null, CrystaStacks.RUNE_BLINKING, null
+            },
+            3
         );
 
         // Fertility Pharo
         RecipeItem exaltedFertilityPharoRecipe = new RecipeItem(
-            amalgamateIngotMythical,
-            StoryType.ELEMENTAL, 500,
-            StoryType.ANIMAL, 500,
-            StoryType.CELESTIAL, 500,
+            CrystaStacks.AMALGAMATE_INGOT_MYTHICAL,
+            StoryType.ELEMENTAL, 350,
+            StoryType.ANIMAL, 350,
+            StoryType.CELESTIAL, 350,
             Exalted::isMaxStoryRank
         );
         exaltedFertilityPharo = new ExaltedFertilityPharo(
             ItemGroups.EXALTED,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_EXALTED_FERTILITY_PHARO",
-                new ItemStack(Material.DIAMOND_BLOCK),
-                ThemeType.EXALTED,
-                "Exalted Fertility Pharo",
-                "A magical construct able to",
-                "breed nearby animals in a 20x20 area.",
-                "Must be placed on an Exaltation",
-                "Stand to operate.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Story Rank > Emeritus Professor"
-            ),
-            DummyLiquefactionBasinCrafting.TYPE,
-            exaltedFertilityPharoRecipe.getDisplayRecipe()
+            CrystaStacks.EXALTED_FERTILITY_PHARO,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
+            exaltedFertilityPharoRecipe.getDisplayRecipe(),
+            9
+        );
+
+        // Fertility Totem
+        exaltedFertilityTotem = new ExaltedFertilityPharo(
+            ItemGroups.EXALTED,
+            CrystaStacks.EXALTED_FERTILITY_TOTEM,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
+            new ItemStack[]{
+                null, CrystaStacks.RUNE_MOON, null,
+                CrystaStacks.RUNE_BLACK, CrystaStacks.EXALTED_FERTILITY_PHARO, CrystaStacks.RUNE_DAWN,
+                null, CrystaStacks.RUNE_PUNISHMENT, null
+            },
+            13
         );
 
         // Exalted Harvester
         RecipeItem exaltedHarvesterRecipe = new RecipeItem(
-            amalgamateIngotMythical,
-            StoryType.ELEMENTAL, 500,
-            StoryType.HISTORICAL, 500,
-            StoryType.VOID, 500,
+            CrystaStacks.AMALGAMATE_INGOT_MYTHICAL,
+            StoryType.ELEMENTAL, 350,
+            StoryType.HISTORICAL, 350,
+            StoryType.VOID, 350,
             Exalted::isMaxSpellRank
         );
         exaltedHarvester = new ExaltedHarvester(
             ItemGroups.EXALTED,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_EXALTED_HARVESTER",
-                new ItemStack(Material.HAY_BLOCK),
-                ThemeType.EXALTED,
-                "Exalted Harvester",
-                "A magical construct able to",
-                "harvest all crops in a 9x9 area.",
-                "Must be placed on an Exaltation",
-                "Stand to operate.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Spell Rank > Grandmaster Magus"
-            ),
-            DummyLiquefactionBasinCrafting.TYPE,
-            exaltedHarvesterRecipe.getDisplayRecipe()
+            CrystaStacks.EXALTED_HARVESTER,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
+            exaltedHarvesterRecipe.getDisplayRecipe(),
+            4
+        );
+
+        // Exalted Agronomist
+        exaltedAgronomist = new ExaltedHarvester(
+            ItemGroups.EXALTED,
+            CrystaStacks.EXALTED_AGRONOMIST,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
+            new ItemStack[]{
+                null, CrystaStacks.RUNE_CHANGE, null,
+                CrystaStacks.RUNE_DRAGON, CrystaStacks.EXALTED_HARVESTER, CrystaStacks.RUNE_TRUE_FIRE,
+                null, CrystaStacks.RUNE_BLACK_SWORD, null
+            },
+            9
         );
 
         // Exalted Dawn
         RecipeItem exaltedDawnRecipe = new RecipeItem(
-            amalgamateDustMythical,
+            CrystaStacks.AMALGAMATE_DUST_MYTHICAL,
             StoryType.ELEMENTAL, 250,
             StoryType.HISTORICAL, 250,
             StoryType.CELESTIAL, 250,
@@ -137,24 +149,15 @@ public class Exalted {
         );
         exaltedDawn = new ExaltedTime(
             ItemGroups.EXALTED,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_EXALTED_DAWN",
-                new ItemStack(Material.YELLOW_WOOL),
-                ThemeType.EXALTED,
-                "Exalted Dawn",
-                "A magical construct that burns",
-                "brightly like the sun.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Crafted during the day"
-            ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            CrystaStacks.EXALTED_DAWN,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             exaltedDawnRecipe.getDisplayRecipe(),
             6000
         );
 
         // Exalted Dusk
         RecipeItem exaltedDuskRecipe = new RecipeItem(
-            amalgamateDustMythical,
+            CrystaStacks.AMALGAMATE_DUST_MYTHICAL,
             StoryType.ELEMENTAL, 250,
             StoryType.HISTORICAL, 250,
             StoryType.VOID, 250,
@@ -162,24 +165,15 @@ public class Exalted {
         );
         exaltedDusk = new ExaltedTime(
             ItemGroups.EXALTED,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_EXALTED_DUSK",
-                new ItemStack(Material.BLACK_WOOL),
-                ThemeType.EXALTED,
-                "Exalted Dusk",
-                "A magical construct shines",
-                "as vivid as the new moon",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Crafted during the night"
-            ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            CrystaStacks.EXALTED_DUSK,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             exaltedDuskRecipe.getDisplayRecipe(),
             18000
         );
 
         // Exalted Sun
         RecipeItem exaltedSunRecipe = new RecipeItem(
-            amalgamateDustMythical,
+            CrystaStacks.AMALGAMATE_DUST_MYTHICAL,
             StoryType.ELEMENTAL, 250,
             StoryType.ALCHEMICAL, 250,
             StoryType.CELESTIAL, 250,
@@ -187,24 +181,15 @@ public class Exalted {
         );
         exaltedSun = new ExaltedWeather(
             ItemGroups.EXALTED,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_EXALTED_SUN",
-                new ItemStack(Material.MAGMA_BLOCK),
-                ThemeType.EXALTED,
-                "Exalted Sun",
-                "A magical construct emanating",
-                "the power of a sun.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Crafted during a clear day"
-            ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            CrystaStacks.EXALTED_SUN,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             exaltedSunRecipe.getDisplayRecipe(),
             WeatherType.CLEAR
         );
 
         // Exalted Storm
         RecipeItem exaltedStormRecipe = new RecipeItem(
-            amalgamateDustMythical,
+            CrystaStacks.AMALGAMATE_DUST_MYTHICAL,
             StoryType.ELEMENTAL, 250,
             StoryType.ALCHEMICAL, 250,
             StoryType.VOID, 250,
@@ -212,17 +197,8 @@ public class Exalted {
         );
         exaltedStorm = new ExaltedWeather(
             ItemGroups.EXALTED,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_EXALTED_STORM",
-                new ItemStack(Material.GRAY_WOOL),
-                ThemeType.EXALTED,
-                "Exalted Storm",
-                "A magical construct emanating",
-                "the destruction of a storm.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Crafted during a storm"
-            ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            CrystaStacks.EXALTED_STORM,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             exaltedStormRecipe.getDisplayRecipe(),
             WeatherType.DOWNFALL
         );
@@ -237,25 +213,18 @@ public class Exalted {
         );
         exaltedSeaBreeze = new ExaltedSeaBreeze(
             ItemGroups.EXALTED,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_SEA_BREEZE",
-                new ItemStack(Material.TUBE_CORAL_BLOCK),
-                ThemeType.EXALTED,
-                "Exalted Sea Breeze",
-                "A magical construct that brings",
-                "the sea air to nearby blocks, weathering",
-                "and oxidizing them.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Crafted on a beach"
-            ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            CrystaStacks.EXALTED_SEA_BREEZE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             exaltedSeeBreezeRecipe.getDisplayRecipe()
         );
 
         // Slimefun Registry
         exaltedBeacon.register(plugin);
+        exaltedBaelfire.register(plugin);
         exaltedFertilityPharo.register(plugin);
+        exaltedFertilityTotem.register(plugin);
         exaltedHarvester.register(plugin);
+        exaltedAgronomist.register(plugin);
         exaltedDawn.register(plugin);
         exaltedDusk.register(plugin);
         exaltedSun.register(plugin);

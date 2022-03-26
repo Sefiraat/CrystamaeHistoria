@@ -4,7 +4,7 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicProjectile;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeSpell;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
@@ -57,7 +57,8 @@ public class RainOfFire extends Spell {
     @ParametersAreNonnullByDefault
     public void projectileHits(CastInformation castInformation) {
         for (LivingEntity livingEntity : getTargets(castInformation, getProjectileAoe(castInformation), true)) {
-            GeneralUtils.damageEntity(livingEntity,
+            GeneralUtils.damageEntity(
+                livingEntity,
                 castInformation.getCaster(),
                 getDamage(castInformation),
                 castInformation.getDamageLocation(),

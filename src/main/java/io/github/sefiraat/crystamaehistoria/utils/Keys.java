@@ -30,9 +30,11 @@ public final class Keys {
     public static final NamespacedKey GUIDE_LIQUEFACTION = newKey("guide_liquefaction");
     public static final NamespacedKey GUIDE_REALISATION = newKey("guide_realisation");
 
-    public static final NamespacedKey REALISATION_DUMMY_CRYSTAL = newKey("r_d_c");
-    public static final NamespacedKey LIQUEFACTION_DUMMY_CRAFTING = newKey("l_d_c");
-    public static final NamespacedKey LIQUEFACTION_DUMMY_SPELL = newKey("l_d_s");
+    public static final NamespacedKey REALISATION_ALTAR_RECIPE_TYPE = newKey("r_d_c");
+    public static final NamespacedKey REALISATION_ALTAR_RECIPE_SIGIL = newKey("r_d_s");
+    public static final NamespacedKey LIQUEFACTION_CRAFTING_RECIPE_TYPE = newKey("l_d_c");
+    public static final NamespacedKey LIQUEFACTION_SPELL_RECIPE_TYPE = newKey("l_d_s");
+    public static final NamespacedKey NETHER_DRAINING_RECIPE_TYPE = newKey("nether_draining");
 
     // PDC
     // Items
@@ -45,11 +47,13 @@ public final class Keys {
     public static final NamespacedKey PDC_SATCHEL_STORAGE = newKey("satchel");
     public static final NamespacedKey PDC_ON_COOLDOWN = newKey("cooldown");
     public static final NamespacedKey PDC_PAINT_TYPE = newKey("paint_type");
+    public static final NamespacedKey PDC_IS_GILDED = newKey("gilded");
 
     // Type - Story
     public static final NamespacedKey STORY_ID = newKey("s_id");
     public static final NamespacedKey STORY_RARITY = newKey("s_r");
     public static final NamespacedKey STORY_TYPE = newKey("s_t");
+    public static final NamespacedKey STORY_IS_GILDED = newKey("s_g");
 
     // Type - Plate
     public static final NamespacedKey PLATE_TIER = newKey("p_t");

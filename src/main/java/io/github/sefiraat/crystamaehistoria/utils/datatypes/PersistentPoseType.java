@@ -2,7 +2,7 @@ package io.github.sefiraat.crystamaehistoria.utils.datatypes;
 
 import de.jeff_media.morepersistentdatatypes.DataType;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.InstancePlate;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.artistic.PoseCloner;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.PoseCloner;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import org.bukkit.NamespacedKey;
 import org.bukkit.persistence.PersistentDataAdapterContext;

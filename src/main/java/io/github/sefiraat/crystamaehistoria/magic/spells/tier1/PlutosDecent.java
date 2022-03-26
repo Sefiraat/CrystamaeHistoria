@@ -4,7 +4,7 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicFallingBlock;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeSpell;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
@@ -55,7 +55,8 @@ public class PlutosDecent extends Spell {
                             final Block block = target.getWorld().getBlockAt(
                                 x + target.getBlockX(),
                                 y + target.getBlockY(),
-                                z + target.getBlockZ());
+                                z + target.getBlockZ()
+                            );
                             if (!blocks.contains(block)
                                 && GeneralUtils.hasPermission(player, block, Interaction.PLACE_BLOCK)
                             ) {

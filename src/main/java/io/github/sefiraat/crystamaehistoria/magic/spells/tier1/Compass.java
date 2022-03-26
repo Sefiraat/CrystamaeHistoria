@@ -4,7 +4,7 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeSpell;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import org.bukkit.Color;
@@ -37,7 +37,8 @@ public class Compass extends Spell {
         if (material != Material.AIR && material.isBlock()) {
             final Block foundBlock = tryGetBlock(player, material, (int) getRange(castInformation));
             if (foundBlock == null) {
-                ParticleUtils.displayParticleEffect(location.add(location.getDirection()),
+                ParticleUtils.displayParticleEffect(
+                    location.add(location.getDirection()),
                     Particle.VILLAGER_ANGRY,
                     1,
                     10

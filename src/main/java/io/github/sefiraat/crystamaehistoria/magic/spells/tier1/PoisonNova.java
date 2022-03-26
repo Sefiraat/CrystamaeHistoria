@@ -4,7 +4,7 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicProjectile;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeSpell;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
@@ -56,7 +56,8 @@ public class PoisonNova extends Spell {
         if (hit.getHealth() == 1) {
             GeneralUtils.damageEntity(hit, castInformation.getCaster(), getDamage(castInformation));
         } else {
-            PotionEffect potionEffect = new PotionEffect(PotionEffectType.POISON,
+            PotionEffect potionEffect = new PotionEffect(
+                PotionEffectType.POISON,
                 castInformation.getStaveLevel() * 100,
                 castInformation.getStaveLevel()
             );
@@ -67,7 +68,8 @@ public class PoisonNova extends Spell {
 
     @ParametersAreNonnullByDefault
     public void afterProjectileHit(CastInformation castInformation) {
-        ParticleUtils.displayParticleEffect(castInformation.getMainTarget(),
+        ParticleUtils.displayParticleEffect(
+            castInformation.getMainTarget(),
             Particle.CRIMSON_SPORE,
             1.0,
             10

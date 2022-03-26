@@ -1,12 +1,10 @@
 package io.github.sefiraat.crystamaehistoria.listeners;
 
-import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.satchel.CrystamageSatchel;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.materials.Crystal;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.satchel.CrystamageSatchel;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
-import net.md_5.bungee.api.ChatColor;
 import org.bukkit.Color;
 import org.bukkit.Particle;
 import org.bukkit.entity.Entity;
@@ -46,7 +44,7 @@ public class SatchelListener implements Listener {
                         final Color color = Color.fromRGB(baseColor.getRed(), baseColor.getGreen(), baseColor.getBlue());
                         final Particle.DustOptions dustOptions = new Particle.DustOptions(color, 1);
 
-                        ParticleUtils.displayParticleEffect(item,0.4, 10, dustOptions);
+                        ParticleUtils.displayParticleEffect(item, 0.4, 10, dustOptions);
                         item.remove();
                         e.setCancelled(true);
                         return;

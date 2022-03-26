@@ -4,17 +4,20 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicProjectile;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeSpell;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.entity.EntityType;
 import org.bukkit.entity.LivingEntity;
+import org.bukkit.entity.Player;
 import org.bukkit.potion.PotionEffectType;
 
 import javax.annotation.Nonnull;
@@ -65,13 +68,18 @@ public class AntiPrism extends Spell {
             }
         }
 
+        final Player player = castInformation.getCasterAsPlayer();
+
         for (LivingEntity entity : getTargets(castInformation, range, true)) {
-            if (PersistentDataAPI.getBoolean(entity, Keys.newKey("PRISM"))) {
-                entity.damage(200);
+            final Interaction interaction = entity instanceof Player ? Interaction.ATTACK_PLAYER : Interaction.ATTACK_ENTITY;
+            if (GeneralUtils.hasPermission(player, entity.getLocation(), interaction)) {
+                if (PersistentDataAPI.getBoolean(entity, Keys.newKey("PRISM"))) {
+                    entity.damage(200);
+                }
+                PersistentDataAPI.setBoolean(entity, Keys.newKey("ANTIPRISM"), true);
+                applyNegativeEffects(entity, castInformation);
+                ParticleUtils.displayParticleEffect(entity, Particle.CRIMSON_SPORE, range, 20);
             }
-            PersistentDataAPI.setBoolean(entity, Keys.newKey("ANTIPRISM"), true);
-            applyNegativeEffects(entity, castInformation);
-            ParticleUtils.displayParticleEffect(entity, Particle.CRIMSON_SPORE, range, 20);
         }
     }
 

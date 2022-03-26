@@ -1,5 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.utils;
 
+import com.sun.org.apache.bcel.internal.generic.IREM;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
@@ -167,6 +168,7 @@ public final class GeneralUtils {
         }
         return false;
     }
+
     @ParametersAreNonnullByDefault
     public void pushEntity(Vector vector, Entity pushed) {
         pushed.setVelocity(vector);
@@ -289,6 +291,11 @@ public final class GeneralUtils {
             return System.currentTimeMillis() < cooldownUntil;
         }
         return false;
+    }
+
+    @Nonnull
+    public static ItemStack getPreEnchantedItemStack(Material material) {
+        return getPreEnchantedItemStack(material, true, new Pair<>(Enchantment.LURE, 1));
     }
 
     @Nonnull

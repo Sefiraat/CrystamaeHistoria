@@ -2,12 +2,14 @@ package io.github.sefiraat.crystamaehistoria.listeners;
 
 import io.github.sefiraat.crystamaehistoria.magic.DisplayItem;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
-import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.ExpCollector;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasin;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.RefactingLens;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.gadgets.ExpCollector;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasin;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.prismaticgilder.PrismaticGilder;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.RefactingLens;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
+import io.github.sefiraat.crystamaehistoria.utils.Skulls;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
@@ -47,6 +49,8 @@ public class RefractingLensListener implements Listener {
                 liquefactionBasin(player, item, block);
             } else if (item instanceof ExpCollector) {
                 expCollector(item, block);
+            } else if (item instanceof PrismaticGilder) {
+                prismaticGilder(item, block);
             }
         }
     }
@@ -99,6 +103,23 @@ public class RefractingLensListener implements Listener {
             ChatColor.GREEN + String.valueOf(volume),
             item -> {
                 Particle.DustOptions dustOptions = new Particle.DustOptions(Color.GREEN, 1);
+                ParticleUtils.displayParticleEffect(item, 0.3, 4, dustOptions);
+            }
+        );
+        displayItem.registerRemoval(3000);
+    }
+
+    private void prismaticGilder(SlimefunItem blockItem, Block clickedBlock) {
+        final PrismaticGilder gilder = (PrismaticGilder) blockItem;
+        final Location location = clickedBlock.getLocation();
+        final int volume = gilder.getCacheMap().get(location).getFillAmount();
+        final ItemStack itemStack = Skulls.CRYSTAL_PRISMATIC.getPlayerHead();
+        final DisplayItem displayItem = new DisplayItem(
+            itemStack,
+            location.clone().add(0.5, 1.5, 0.5),
+            ChatColor.LIGHT_PURPLE + String.valueOf(volume),
+            item -> {
+                Particle.DustOptions dustOptions = new Particle.DustOptions(Color.PURPLE, 1);
                 ParticleUtils.displayParticleEffect(item, 0.3, 4, dustOptions);
             }
         );

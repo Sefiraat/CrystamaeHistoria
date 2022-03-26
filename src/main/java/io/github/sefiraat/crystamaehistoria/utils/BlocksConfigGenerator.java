@@ -3,7 +3,6 @@ package io.github.sefiraat.crystamaehistoria.utils;
 import org.bukkit.Material;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;

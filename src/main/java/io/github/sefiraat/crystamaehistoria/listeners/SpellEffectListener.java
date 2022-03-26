@@ -4,10 +4,12 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicFallingBlock;
 import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicProjectile;
+import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentUUIDDataType;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -110,9 +112,12 @@ public class SpellEffectListener implements Listener {
 
     private boolean entityHitAllowed(CastInformation castInformation, Entity hitEntity) {
         final Player player = Bukkit.getPlayer(castInformation.getCaster());
-        return hitEntity instanceof LivingEntity
-            && hitEntity.getUniqueId() != castInformation.getCaster()
-            && player != null;
+        final Interaction interaction = hitEntity instanceof Player ? Interaction.ATTACK_PLAYER : Interaction.ATTACK_ENTITY;
+        if (player != null && GeneralUtils.hasPermission(player, hitEntity.getLocation(), interaction)) {
+            return hitEntity instanceof LivingEntity
+                && hitEntity.getUniqueId() != castInformation.getCaster();
+        }
+        return false;
     }
 
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
@@ -192,7 +197,7 @@ public class SpellEffectListener implements Listener {
 //    @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
 //    public void onRideRavager(PlayerInteractEntityEvent event) {
 //        NamespacedKey key = Keys.PDC_IS_SPAWN_OWNER;
-//        UUID uuid = DataTypeMethods.getCustom(event.getRightClicked(), key, PersistentUUIDDataType.TYPE);
+//        UUID uuid = DataTypeMethods.getCustom(event.getRightClicked(), key, PersistentUUIDDataType.LIQUEFACTION_CRAFTING);
 //        if (uuid != null && uuid.equals(event.getPlayer().getUniqueId()) && event.getRightClicked().getType() == EntityType.RAVAGER) {
 //            event.getRightClicked().addPassenger(event.getPlayer());
 //        }

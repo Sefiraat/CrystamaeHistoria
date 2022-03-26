@@ -1,11 +1,10 @@
 package io.github.sefiraat.crystamaehistoria.utils.datatypes;
 
 import de.jeff_media.morepersistentdatatypes.DataType;
-import io.github.sefiraat.crystamaehistoria.slimefun.tools.satchel.SatchelInstance;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.satchel.SatchelInstance;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
 import org.bukkit.NamespacedKey;
-import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataAdapterContext;
 import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;

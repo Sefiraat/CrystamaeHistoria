@@ -1,7 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.listeners;
 
-import io.github.sefiraat.crystamaehistoria.slimefun.gadgets.PhilosophersSpray;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasin;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.gadgets.PhilosophersSpray;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.papermc.paper.event.block.BlockFailedDispenseEvent;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;

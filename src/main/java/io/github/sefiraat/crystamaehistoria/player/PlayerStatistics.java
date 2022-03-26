@@ -88,6 +88,28 @@ public class PlayerStatistics {
     }
 
     @ParametersAreNonnullByDefault
+    public static void unlockStoryGilded(UUID player, BlockDefinition definition) {
+        String path = MessageFormat.format("{0}.{1}.{2}.GILDED", player, StatType.STORY, definition.getMaterial());
+        CrystamaeHistoria.getConfigManager().getPlayerStats().set(path, true);
+    }
+
+    @ParametersAreNonnullByDefault
+    public static boolean hasUnlockedStoryGilded(Player player, BlockDefinition definition) {
+        return hasUnlockedStoryGilded(player.getUniqueId(), definition);
+    }
+
+    @ParametersAreNonnullByDefault
+    public static boolean hasUnlockedStoryGilded(UUID player, BlockDefinition definition) {
+        return hasUnlockedStoryGilded(player, definition.getMaterial());
+    }
+
+    @ParametersAreNonnullByDefault
+    public static boolean hasUnlockedStoryGilded(UUID player, Material material) {
+        String path = MessageFormat.format("{0}.{1}.{2}.GILDED", player, StatType.STORY, material);
+        return CrystamaeHistoria.getConfigManager().getPlayerStats().getBoolean(path);
+    }
+
+    @ParametersAreNonnullByDefault
     public static void addChronicle(Player player, BlockDefinition definition) {
         addChronicle(player.getUniqueId(), definition);
     }
@@ -217,9 +239,47 @@ public class PlayerStatistics {
         );
     }
 
+    @ParametersAreNonnullByDefault
+    public static GildingRank getGildingRank(UUID uuid) {
+        int total = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().size();
+        final int unlocked = getBlocksGilded(uuid);
+        return GildingRank.getByPercent(((double) unlocked / total) * 100);
+    }
+
+    @ParametersAreNonnullByDefault
+    public static int getBlocksGilded(UUID uuid) {
+        String path = MessageFormat.format("{0}.{1}", uuid, StatType.GILDED);
+        ConfigurationSection section = CrystamaeHistoria.getConfigManager().getPlayerStats().getConfigurationSection(path);
+        if (section == null) {
+            return 0;
+        }
+        int unlocked = 0;
+        for (String story : section.getKeys(false)) {
+            String storyPath = MessageFormat.format("{0}.{1}.{2}.GILDED", uuid, StatType.GILDED, story);
+            if (CrystamaeHistoria.getConfigManager().getPlayerStats().getBoolean(storyPath)) unlocked++;
+        }
+        return unlocked;
+    }
+
+    @ParametersAreNonnullByDefault
+    public static String getGildingRankString(UUID uuid) {
+        int total = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().size();
+        int unlocked = getBlocksGilded(uuid);
+        GildingRank gildingRank = GildingRank.getByPercent(((double) unlocked / total) * 100);
+        return MessageFormat.format(
+            "{0}Gilding Rank: {1}{2}{0} ({3}/{4})",
+            ThemeType.PASSIVE.getColor(),
+            gildingRank.getTheme().getColor(),
+            gildingRank.getTheme().getLoreLine(),
+            unlocked,
+            total
+        );
+    }
+
     enum StatType {
         SPELL,
-        STORY
+        STORY,
+        GILDED
     }
 }
 

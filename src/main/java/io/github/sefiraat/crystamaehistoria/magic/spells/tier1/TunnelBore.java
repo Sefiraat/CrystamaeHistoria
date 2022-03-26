@@ -5,7 +5,7 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.TunnelBoreRunnable;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeSpell;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -38,7 +38,8 @@ public class TunnelBore extends Spell {
         final int range = (int) getRange(castInformation);
         direction.setY(0);
         final Location spawnLocation = location.clone().add(0, range, 0);
-        final Endermite bore = (Endermite) spawnLocation.getWorld().spawnEntity(spawnLocation,
+        final Endermite bore = (Endermite) spawnLocation.getWorld().spawnEntity(
+            spawnLocation,
             EntityType.ENDERMITE,
             CreatureSpawnEvent.SpawnReason.COMMAND,
             entity -> {
@@ -47,7 +48,8 @@ public class TunnelBore extends Spell {
                 mite.setInvulnerable(true);
                 mite.setInvisible(true);
                 mite.setVelocity(location.getDirection().multiply(2));
-            });
+            }
+        );
         TunnelBoreRunnable runnable = new TunnelBoreRunnable(bore, range, caster, range * 20);
         runnable.runTaskTimer(CrystamaeHistoria.getInstance(), 0, 1);
     }

@@ -4,7 +4,7 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.magic.spells.spellobjects.MagicProjectile;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeSpell;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.SpellUtils;
@@ -59,7 +59,8 @@ public class Cascada extends Spell {
                     final Block block = location.getWorld().getBlockAt(
                         x + location.getBlockX(),
                         y + location.getBlockY(),
-                        z + location.getBlockZ());
+                        z + location.getBlockZ()
+                    );
                     if (!blocks.contains(block) && GeneralUtils.hasPermission(caster, block, Interaction.BREAK_BLOCK)) {
                         blocks.add(block);
                     }

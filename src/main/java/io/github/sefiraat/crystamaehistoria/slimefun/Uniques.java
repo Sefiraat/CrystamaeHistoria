@@ -1,16 +1,15 @@
 package io.github.sefiraat.crystamaehistoria.slimefun;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.player.GildingRank;
 import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.player.SpellRank;
 import io.github.sefiraat.crystamaehistoria.player.StoryRank;
-import io.github.sefiraat.crystamaehistoria.slimefun.materials.Trophy;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.DummyLiquefactionBasinCrafting;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.LiquefactionBasinCache;
-import io.github.sefiraat.crystamaehistoria.slimefun.mechanisms.liquefactionbasin.RecipeItem;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.materials.Trophy;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.LiquefactionBasinCache;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeItem;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
-import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.implementation.SlimefunItems;
 import lombok.Getter;
 import lombok.experimental.UtilityClass;
@@ -36,6 +35,8 @@ public class Uniques {
     private static Trophy storyTrophy;
     @Getter
     private static Trophy spellTrophy;
+    @Getter
+    private static Trophy gildingTrophy;
     @Getter
     private static Trophy christmasTrophy;
     @Getter
@@ -63,16 +64,8 @@ public class Uniques {
         );
         spellTrophy = new Trophy(
             ItemGroups.UNIQUES,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_SPELL_TROPHY",
-                new ItemStack(Material.PAPER),
-                ThemeType.CRAFTING,
-                "Proofs: Grandmaster Magus",
-                "Proof that you are simply the best.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Spell Rank > Grandmaster Magus"
-            ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            CrystaStacks.SPELL_TROPHY,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             spellTrophyRecipe.getDisplayRecipe(),
             location -> ParticleUtils.displayParticleEffect(
                 location.add(0, 0.2, 0),
@@ -92,22 +85,35 @@ public class Uniques {
         );
         storyTrophy = new Trophy(
             ItemGroups.UNIQUES,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_STORY_TROPHY",
-                new ItemStack(Material.PAPER),
-                ThemeType.CRAFTING,
-                "Proofs: Emeritus Professor",
-                "Proof that you are simply the best.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Story Rank > Emeritus Professor"
-            ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            CrystaStacks.STORY_TROPHY,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             storyTrophyRecipe.getDisplayRecipe(),
             location -> ParticleUtils.displayParticleEffect(
                 location.add(0, 0.2, 0),
                 0.2,
                 3,
                 new Particle.DustOptions(Color.AQUA, 1)
+            )
+        );
+
+        // Gilding Trophy
+        RecipeItem gildedTrophyRecipe = new RecipeItem(
+            CrystaStacks.RUN_SUN,
+            StoryType.MECHANICAL, 100,
+            StoryType.HUMAN, 100,
+            StoryType.PHILOSOPHICAL, 100,
+            Uniques::isMaxGildingRank
+        );
+        gildingTrophy = new Trophy(
+            ItemGroups.UNIQUES,
+            CrystaStacks.GILDING_TROPHY,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
+            gildedTrophyRecipe.getDisplayRecipe(),
+            location -> ParticleUtils.displayParticleEffect(
+                location.add(0, 0.2, 0),
+                0.2,
+                3,
+                new Particle.DustOptions(Color.MAROON, 1)
             )
         );
 
@@ -121,17 +127,8 @@ public class Uniques {
         );
         christmasTrophy = new Trophy(
             ItemGroups.UNIQUES,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_CHRISTMAS_TROPHY",
-                new ItemStack(Material.SPRUCE_SAPLING),
-                ThemeType.CRAFTING,
-                "Merry Christmas",
-                "A little gift for you... but you",
-                "have to work for it!",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Can only be crafted during the holidays"
-            ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            CrystaStacks.CHRISTMAS_TROPHY,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             christmasTrophyRecipe.getDisplayRecipe(),
             location -> {
                 ParticleUtils.displayParticleEffect(
@@ -159,16 +156,8 @@ public class Uniques {
         );
         valentinesTrophy = new Trophy(
             ItemGroups.UNIQUES,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_VALENTINES_TROPHY",
-                new ItemStack(Material.PINK_DYE),
-                ThemeType.CRAFTING,
-                "Happy Valentines Day",
-                "A little love goes a long way.",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Can only be crafted when love is in the air"
-            ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            CrystaStacks.VALENTINES_TROPHY,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             valentinesTrophyRecipe.getDisplayRecipe(),
             location -> {
                 ParticleUtils.displayParticleEffect(
@@ -190,16 +179,8 @@ public class Uniques {
         );
         birthdayTrophyCheesy = new Trophy(
             ItemGroups.UNIQUES,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_BIRTHDAY_TROPHY_CHEESY",
-                new ItemStack(Material.CAKE),
-                ThemeType.CRAFTING,
-                "Happy Birthday Cheesy!",
-                "A Gentleman at Heart",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Cheesy's Birthday!"
-            ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            CrystaStacks.BIRTHDAY_TROPHY_CHEESY,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             birthdayTrophyCheesyRecipe.getDisplayRecipe(),
             location -> {
                 final Location spawnLocation = location.add(0, 0.2, 0);
@@ -226,16 +207,8 @@ public class Uniques {
         );
         birthdayTrophyBWhite = new Trophy(
             ItemGroups.UNIQUES,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_BIRTHDAY_TROPHY_BWHITE",
-                new ItemStack(Material.CAKE),
-                ThemeType.CRAFTING,
-                "Happy Birthday BWhite!",
-                "Joint creator of the biggest Tantrum ever!",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: BWhite's Birthday!"
-            ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            CrystaStacks.BIRTHDAY_TROPHY_BWHITE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             birthdayTrophyBWhiteRecipe.getDisplayRecipe(),
             location -> {
                 final Location spawnLocation = location.add(0, 0.2, 0);
@@ -262,16 +235,8 @@ public class Uniques {
         );
         birthdayTrophyDecoy = new Trophy(
             ItemGroups.UNIQUES,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_BIRTHDAY_TROPHY_DECOY",
-                new ItemStack(Material.CAKE),
-                ThemeType.CRAFTING,
-                "Happy Birthday Decoy!",
-                "Joint creator of the biggest Tantrum ever!",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Decoy's Birthday!"
-            ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            CrystaStacks.BIRTHDAY_TROPHY_DECOY,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             birthdayTrophyDecoyRecipe.getDisplayRecipe(),
             location -> {
                 final Location spawnLocation = location.add(0, 0.2, 0);
@@ -298,16 +263,8 @@ public class Uniques {
         );
         birthdayTrophyOddish = new Trophy(
             ItemGroups.UNIQUES,
-            ThemeType.themedSlimefunItemStack(
-                "CRY_BIRTHDAY_TROPHY_ODDISH",
-                new ItemStack(Material.CAKE),
-                ThemeType.CRAFTING,
-                "Happy Birthday Oddish!",
-                "A Gloom waiting to happen",
-                "",
-                ThemeType.CLICK_INFO.getColor() + "Requires: Oddish's Birthday!"
-            ),
-            DummyLiquefactionBasinCrafting.TYPE,
+            CrystaStacks.BIRTHDAY_TROPHY_ODDISH,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             birthdayTrophyOddishRecipe.getDisplayRecipe(),
             location -> {
                 final Location spawnLocation = location.add(0, 0.2, 0);
@@ -327,6 +284,7 @@ public class Uniques {
 
         spellTrophy.register(plugin);
         storyTrophy.register(plugin);
+        gildingTrophy.register(plugin);
         christmasTrophy.register(plugin);
         valentinesTrophy.register(plugin);
 
@@ -352,6 +310,10 @@ public class Uniques {
 
     private static boolean isMaxSpellRank(@Nonnull Player player) {
         return PlayerStatistics.getSpellRank(player.getUniqueId()) == SpellRank.GRANDMASTER_MAGI;
+    }
+
+    private static boolean isMaxGildingRank(@Nonnull Player player) {
+        return PlayerStatistics.getGildingRank(player.getUniqueId()) == GildingRank.OWNER;
     }
 
     private static boolean isChristmas(@Nonnull Player player) {

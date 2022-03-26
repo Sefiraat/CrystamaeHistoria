@@ -1,7 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.listeners;
 
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
-import io.github.sefiraat.crystamaehistoria.slimefun.materials.Crystal;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.materials.Crystal;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
