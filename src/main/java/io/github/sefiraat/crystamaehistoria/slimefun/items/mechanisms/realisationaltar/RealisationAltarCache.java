@@ -97,8 +97,14 @@ public class RealisationAltarCache extends AbstractCache {
             final ItemStack clone = itemStack.asQuantity(1);
 
             this.blockMenu.replaceExistingItem(RealisationAltar.INPUT_SLOT, clone);
-            itemStack.setAmount(itemStack.getAmount() - 1);
-            item.setItemStack(itemStack);
+
+            final int amount = CrystamaeHistoria.getSupportedPluginManager().getStackAmount(item);
+
+            if (amount == 1) {
+                item.remove();
+            } else {
+                CrystamaeHistoria.getSupportedPluginManager().setStackAmount(item, amount - 1);
+            }
         }
     }
 
