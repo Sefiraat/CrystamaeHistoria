@@ -173,9 +173,9 @@ public class Gadgets {
             CrystaStacks.EXODUS_LAMP,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
-                null, CrystaStacks.RUNE_B, null,
-                CrystaStacks.RUNE_G, CrystaStacks.DISPERSION_LAMP, CrystaStacks.RUNE_O,
-                null, CrystaStacks.RUNE_Z, null
+                null, CrystaStacks.RUNE_BEGINNING, null,
+                CrystaStacks.RUNE_NIGHT, CrystaStacks.DISPERSION_LAMP, CrystaStacks.RUNE_TWILIGHT,
+                null, CrystaStacks.RUNE_BRIGHT_SHIELD, null
             },
             10,
             1
@@ -217,9 +217,9 @@ public class Gadgets {
             CrystaStacks.COUNTERPOLE_VACUUM,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
-                null, CrystaStacks.RUNE_D, null,
-                CrystaStacks.RUNE_I, CrystaStacks.DISPERSION_LAMP, CrystaStacks.RUNE_M,
-                null, CrystaStacks.RUNE_U, null
+                null, CrystaStacks.RUNE_GATE, null,
+                CrystaStacks.RUNE_TRUE_HOLY, CrystaStacks.DISPERSION_LAMP, CrystaStacks.RUN_SUN,
+                null, CrystaStacks.RUNE_TRUE_LIGHTNING, null
             },
             15
         );
@@ -297,9 +297,9 @@ public class Gadgets {
             CrystaStacks.SOULFILLED_SOIL,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
-                null, CrystaStacks.RUNE_E, null,
-                CrystaStacks.RUNE_K, CrystaStacks.DREADFUL_DIRT, CrystaStacks.RUNE_Q,
-                null, CrystaStacks.RUNE_S, null
+                null, CrystaStacks.RUNE_TRUE_EARTH, null,
+                CrystaStacks.RUNE_TRUE_WATER, CrystaStacks.DREADFUL_DIRT, CrystaStacks.RUNE_CIRCLE,
+                null, CrystaStacks.RUNE_SOUL, null
             },
             10,
             15,
@@ -361,9 +361,9 @@ public class Gadgets {
             CrystaStacks.SHREDDING_PLATE,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
-                null, CrystaStacks.RUNE_C, null,
-                CrystaStacks.RUNE_L, CrystaStacks.EVISCERATING_PLATE, CrystaStacks.RUNE_R,
-                null, CrystaStacks.RUNE_W, null
+                null, CrystaStacks.RUNE_MOON, null,
+                CrystaStacks.RUNE_SOVEREIGN, CrystaStacks.EVISCERATING_PLATE, CrystaStacks.RUNE_BLINKING,
+                null, CrystaStacks.RUNE_CHARM, null
             },
             3,
             true
@@ -421,9 +421,9 @@ public class Gadgets {
             CrystaStacks.EXP_COLLECTOR_ARCANE,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
-                null, CrystaStacks.RUNE_F, null,
-                CrystaStacks.RUNE_J, CrystaStacks.EXP_COLLECTOR_INFUSED, CrystaStacks.RUNE_P,
-                null, CrystaStacks.RUNE_X, null
+                null, CrystaStacks.RUNE_CHANGE, null,
+                CrystaStacks.RUNE_DRAGON, CrystaStacks.EXP_COLLECTOR_INFUSED, CrystaStacks.RUNE_TRUE_FIRE,
+                null, CrystaStacks.RUNE_TRUE_WIND, null
             },
             999999,
             8
@@ -509,9 +509,9 @@ public class Gadgets {
             CrystaStacks.MOB_CANDLE_CORUSCATING,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
-                null, CrystaStacks.RUNE_A, null,
-                CrystaStacks.RUNE_H, CrystaStacks.MOB_CANDLE_SCINTILLATING, CrystaStacks.RUNE_N,
-                null, CrystaStacks.RUNE_V, null
+                null, CrystaStacks.RUNE_BEAST, null,
+                CrystaStacks.RUNE_BLACK, CrystaStacks.MOB_CANDLE_SCINTILLATING, CrystaStacks.RUNE_DAWN,
+                null, CrystaStacks.RUNE_EIGHTFOLD, null
             },
             64,
             1_209_600
@@ -673,9 +673,9 @@ public class Gadgets {
             CrystaStacks.GREEN_HOUSE_GLASS_MAGNIFYING,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
-                null, CrystaStacks.RUNE_B, null,
-                CrystaStacks.RUNE_G, CrystaStacks.MOB_CANDLE_SCINTILLATING, CrystaStacks.RUNE_T,
-                null, CrystaStacks.RUNE_Y, null
+                null, CrystaStacks.RUNE_BEGINNING, null,
+                CrystaStacks.RUNE_NIGHT, CrystaStacks.GREEN_HOUSE_GLASS_FOCUSED, CrystaStacks.RUNE_PUNISHMENT,
+                null, CrystaStacks.RUNE_BLACK_SWORD, null
             },
             20
         );

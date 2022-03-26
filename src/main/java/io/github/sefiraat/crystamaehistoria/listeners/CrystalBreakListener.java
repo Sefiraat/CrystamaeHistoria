@@ -36,15 +36,15 @@ public class CrystalBreakListener implements Listener {
         List<Block> blocks = event.getBlocks();
         for (Block block : blocks) {
             if (block.getType() == Material.LARGE_AMETHYST_BUD) {
-                handleCrystal(block);
+                handleCrystal(block, false);
             } else if (block.getRelative(BlockFace.UP).getType() == Material.LARGE_AMETHYST_BUD) {
-                handleCrystal(block.getRelative(BlockFace.UP));
+                handleCrystal(block.getRelative(BlockFace.UP), false);
             }
         }
     }
 
     private void handleCrystal(@Nonnull BlockBreakEvent event, @Nonnull Block block, boolean forceStopDrops) {
-        handleCrystal(block);
+        handleCrystal(block, true);
         // To stop annoying drops with silk touch :)
         if (forceStopDrops) {
             event.setCancelled(true);
@@ -52,7 +52,7 @@ public class CrystalBreakListener implements Listener {
         }
     }
 
-    private void handleCrystal(@Nonnull Block block) {
+    private void handleCrystal(@Nonnull Block block, boolean manual) {
         final BlockPosition blockPosition = new BlockPosition(block);
         for (RealisationAltarCache cache : RealisationAltar.getCaches().values()) {
             final RealisationAltarCache.RealisedCrystalState state = cache.getCrystalStoryMap().remove(blockPosition);
@@ -60,7 +60,7 @@ public class CrystalBreakListener implements Listener {
                 final StoryRarity rarity = state.getStoryRarity();
                 final String id = state.getStoryId();
                 final Story story = CrystamaeHistoria.getStoriesManager().getStory(id, rarity);
-                story.getStoryShardProfile().dropShards(rarity, block.getLocation(), state.isGilded());
+                story.getStoryShardProfile().dropShards(rarity, block.getLocation(), state.isGilded() && manual);
                 cache.saveMap();
                 return;
             }

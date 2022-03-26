@@ -298,7 +298,8 @@ public final class ItemGroups {
                 "with a fully-storied block it will",
                 "be gilded. Requires an amount of",
                 "Prismatic Crysta equal to the block",
-                "tier."
+                "tier.",
+                "Gilded Crystals must be broken manually."
             ),
             DummyGuideOnly.TYPE,
             new ItemStack[]{}

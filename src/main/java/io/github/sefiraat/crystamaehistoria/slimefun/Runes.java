@@ -13,66 +13,66 @@ import org.bukkit.inventory.ItemStack;
 public class Runes {
 
     @Getter
-    private static UnplaceableBlock runeA;
+    private static UnplaceableBlock runeBeast;
     @Getter
-    private static UnplaceableBlock runeB;
+    private static UnplaceableBlock runeBeginning;
     @Getter
-    private static UnplaceableBlock runeC;
+    private static UnplaceableBlock runeMoon;
     @Getter
-    private static UnplaceableBlock runeD;
+    private static UnplaceableBlock runeGate;
     @Getter
-    private static UnplaceableBlock runeE;
+    private static UnplaceableBlock runeTrueEarth;
     @Getter
-    private static UnplaceableBlock runeF;
+    private static UnplaceableBlock runeChange;
     @Getter
-    private static UnplaceableBlock runeG;
+    private static UnplaceableBlock runeNight;
     @Getter
-    private static UnplaceableBlock runeH;
+    private static UnplaceableBlock runeBlack;
     @Getter
-    private static UnplaceableBlock runeI;
+    private static UnplaceableBlock runeTrueHoly;
     @Getter
-    private static UnplaceableBlock runeJ;
+    private static UnplaceableBlock runeDragon;
     @Getter
-    private static UnplaceableBlock runeK;
+    private static UnplaceableBlock runeTrueWater;
     @Getter
-    private static UnplaceableBlock runeL;
+    private static UnplaceableBlock runeSovereign;
     @Getter
-    private static UnplaceableBlock runeM;
+    private static UnplaceableBlock runeSun;
     @Getter
-    private static UnplaceableBlock runeN;
+    private static UnplaceableBlock runeDawn;
     @Getter
-    private static UnplaceableBlock runeO;
+    private static UnplaceableBlock runeTwilight;
     @Getter
-    private static UnplaceableBlock runeP;
+    private static UnplaceableBlock runeTrueFire;
     @Getter
-    private static UnplaceableBlock runeQ;
+    private static UnplaceableBlock runeCircle;
     @Getter
-    private static UnplaceableBlock runeR;
+    private static UnplaceableBlock runeBlinking;
     @Getter
-    private static UnplaceableBlock runeS;
+    private static UnplaceableBlock runeSoul;
     @Getter
-    private static UnplaceableBlock runeT;
+    private static UnplaceableBlock runePunishment;
     @Getter
-    private static UnplaceableBlock runeU;
+    private static UnplaceableBlock runeTrueLightning;
     @Getter
-    private static UnplaceableBlock runeV;
+    private static UnplaceableBlock runeEightfold;
     @Getter
-    private static UnplaceableBlock runeW;
+    private static UnplaceableBlock runeCharm;
     @Getter
-    private static UnplaceableBlock runeX;
+    private static UnplaceableBlock runeTrueWind;
     @Getter
-    private static UnplaceableBlock runeY;
+    private static UnplaceableBlock runeBlackSword;
     @Getter
-    private static UnplaceableBlock runeZ;
+    private static UnplaceableBlock runeBrightShield;
 
     public static void setup() {
 
         CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
 
         // Rune A
-        runeA = new UnplaceableBlock(
+        runeBeast = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_A,
+            CrystaStacks.RUNE_BEAST,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 SlimefunItems.INFERNAL_BONEMEAL, SlimefunItems.NECROTIC_SKULL, new ItemStack(Material.BONE),
@@ -82,9 +82,9 @@ public class Runes {
         );
 
         // Rune B
-        runeB = new UnplaceableBlock(
+        runeBeginning = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_B,
+            CrystaStacks.RUNE_BEGINNING,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.GILDED_PEARL, new ItemStack(Material.SHULKER_SHELL), SlimefunItems.URANIUM,
@@ -94,9 +94,9 @@ public class Runes {
         );
 
         // Rune C
-        runeC = new UnplaceableBlock(
+        runeMoon = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_C,
+            CrystaStacks.RUNE_MOON,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.ANGEL_BLOCK, new ItemStack(Material.WITHER_ROSE), SlimefunItems.POWER_CRYSTAL,
@@ -106,9 +106,9 @@ public class Runes {
         );
 
         // Rune D
-        runeD = new UnplaceableBlock(
+        runeGate = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_D,
+            CrystaStacks.RUNE_GATE,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.STAVE_BASIC, new ItemStack(Material.BLAZE_ROD), SlimefunItems.GOLD_24K,
@@ -118,9 +118,9 @@ public class Runes {
         );
 
         // Rune E
-        runeE = new UnplaceableBlock(
+        runeTrueEarth = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_E,
+            CrystaStacks.RUNE_TRUE_EARTH,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.DREADFUL_DIRT, new ItemStack(Material.PODZOL), CrystaStacks.CURSED_EARTH,
@@ -130,9 +130,9 @@ public class Runes {
         );
 
         // Rune F
-        runeF = new UnplaceableBlock(
+        runeChange = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_F,
+            CrystaStacks.RUNE_CHANGE,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.ENDER_INHIBITOR_BASIC, new ItemStack(Material.LEVER), SlimefunItems.PROGRAMMABLE_ANDROID,
@@ -142,9 +142,9 @@ public class Runes {
         );
 
         // Rune G
-        runeG = new UnplaceableBlock(
+        runeNight = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_G,
+            CrystaStacks.RUNE_NIGHT,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.DISPLACED_VOID, new ItemStack(Material.CLOCK), SlimefunItems.NEPTUNIUM,
@@ -154,9 +154,9 @@ public class Runes {
         );
 
         // Rune H
-        runeH = new UnplaceableBlock(
+        runeBlack = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_H,
+            CrystaStacks.RUNE_BLACK,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.PAINT_BRUSH_BLACK_100, new ItemStack(Material.BLACK_CANDLE), SlimefunItems.NECROTIC_SKULL,
@@ -166,9 +166,9 @@ public class Runes {
         );
 
         // Rune I
-        runeI = new UnplaceableBlock(
+        runeTrueHoly = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_I,
+            CrystaStacks.RUNE_TRUE_HOLY,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.SOUL_STAND, new ItemStack(Material.WHITE_TULIP), CrystaStacks.BODY_STAND,
@@ -178,9 +178,9 @@ public class Runes {
         );
 
         // Rune J
-        runeJ = new UnplaceableBlock(
+        runeDragon = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_J,
+            CrystaStacks.RUNE_DRAGON,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.AMALGAMATE_DUST_RARE, new ItemStack(Material.DRAGON_HEAD), new ItemStack(Material.DRAGON_EGG),
@@ -190,9 +190,9 @@ public class Runes {
         );
 
         // Rune K
-        runeK = new UnplaceableBlock(
+        runeTrueWater = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_K,
+            CrystaStacks.RUNE_TRUE_WATER,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.EXALTED_SEA_BREEZE, new ItemStack(Material.WATER_BUCKET), SlimefunItems.WATER_RUNE,
@@ -202,9 +202,9 @@ public class Runes {
         );
 
         // Rune L
-        runeL = new UnplaceableBlock(
+        runeSovereign = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_L,
+            CrystaStacks.RUNE_SOVEREIGN,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.CONNECTING_COMPASS, new ItemStack(Material.BELL), SlimefunItems.CARBONADO,
@@ -214,9 +214,9 @@ public class Runes {
         );
 
         // Rune M
-        runeM = new UnplaceableBlock(
+        runeSun = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_M,
+            CrystaStacks.RUN_SUN,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.EXALTED_SUN, new ItemStack(Material.SHROOMLIGHT), SlimefunItems.BLISTERING_INGOT_3,
@@ -226,9 +226,9 @@ public class Runes {
         );
 
         // Rune N
-        runeN = new UnplaceableBlock(
+        runeDawn = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_N,
+            CrystaStacks.RUNE_DAWN,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.EXALTED_DAWN, new ItemStack(Material.DEAD_FIRE_CORAL_BLOCK), SlimefunItems.APPLE_JUICE,
@@ -238,9 +238,9 @@ public class Runes {
         );
 
         // Rune O
-        runeO = new UnplaceableBlock(
+        runeTwilight = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_O,
+            CrystaStacks.RUNE_TWILIGHT,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.EXALTED_DUSK, new ItemStack(Material.FIRE_CORAL_BLOCK), SlimefunItems.PUMPKIN_JUICE,
@@ -250,9 +250,9 @@ public class Runes {
         );
 
         // Rune P
-        runeP = new UnplaceableBlock(
+        runeTrueFire = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_P,
+            CrystaStacks.RUNE_TRUE_FIRE,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.EVISCERATING_PLATE, new ItemStack(Material.SOUL_CAMPFIRE), SlimefunItems.FIRE_RUNE,
@@ -262,21 +262,21 @@ public class Runes {
         );
 
         // Rune Q
-        runeQ = new UnplaceableBlock(
+        runeCircle = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_Q,
+            CrystaStacks.RUNE_CIRCLE,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
-                CrystaStacks.FERTILITY_PHARO, new ItemStack(Material.OBSERVER), SlimefunItems.CROP_GROWTH_ACCELERATOR,
+                CrystaStacks.EXALTED_FERTILITY_PHARO, new ItemStack(Material.OBSERVER), SlimefunItems.CROP_GROWTH_ACCELERATOR,
                 new ItemStack(Material.TARGET), CrystaStacks.ARCANE_SIGIL, new ItemStack(Material.TARGET),
-                SlimefunItems.CROP_GROWTH_ACCELERATOR, new ItemStack(Material.OBSERVER), CrystaStacks.FERTILITY_PHARO
+                SlimefunItems.CROP_GROWTH_ACCELERATOR, new ItemStack(Material.OBSERVER), CrystaStacks.EXALTED_FERTILITY_PHARO
             }
         );
 
         // Rune R
-        runeR = new UnplaceableBlock(
+        runeBlinking = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_R,
+            CrystaStacks.RUNE_BLINKING,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.WAYSTONE, new ItemStack(Material.ENDER_EYE), SlimefunItems.GPS_EMERGENCY_TRANSMITTER,
@@ -286,9 +286,9 @@ public class Runes {
         );
 
         // Rune S
-        runeS = new UnplaceableBlock(
+        runeSoul = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_S,
+            CrystaStacks.RUNE_SOUL,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.SOUL_STAND, new ItemStack(Material.ELYTRA), SlimefunItems.SOULBOUND_RUNE,
@@ -298,9 +298,9 @@ public class Runes {
         );
 
         // Rune T
-        runeT = new UnplaceableBlock(
+        runePunishment = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_T,
+            CrystaStacks.RUNE_PUNISHMENT,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.MOB_CANDLE_DIM, new ItemStack(Material.LEAD), SlimefunItems.MONSTER_JERKY,
@@ -310,9 +310,9 @@ public class Runes {
         );
 
         // Rune U
-        runeU = new UnplaceableBlock(
+        runeTrueLightning = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_U,
+            CrystaStacks.RUNE_TRUE_LIGHTNING,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.LUMINESCENCE_SCOOP, new ItemStack(Material.LIGHTNING_ROD), SlimefunItems.LIGHTNING_RUNE,
@@ -322,9 +322,9 @@ public class Runes {
         );
 
         // Rune V
-        runeV = new UnplaceableBlock(
+        runeEightfold = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_V,
+            CrystaStacks.RUNE_EIGHTFOLD,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.EPHEMERAL_WORKBENCH, new ItemStack(Material.SPONGE), SlimefunItems.ENCHANTMENT_RUNE,
@@ -334,9 +334,9 @@ public class Runes {
         );
 
         // Rune W
-        runeW = new UnplaceableBlock(
+        runeCharm = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_W,
+            CrystaStacks.RUNE_CHARM,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.EXALTED_BEACON, new ItemStack(Material.RED_CANDLE), SlimefunItems.RAINBOW_RUNE,
@@ -346,9 +346,9 @@ public class Runes {
         );
 
         // Rune X
-        runeX = new UnplaceableBlock(
+        runeTrueWind = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_X,
+            CrystaStacks.RUNE_TRUE_WIND,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.SPIRITUAL_SILKEN, new ItemStack(Material.END_ROD), SlimefunItems.AIR_RUNE,
@@ -358,9 +358,9 @@ public class Runes {
         );
 
         // Rune Y
-        runeY = new UnplaceableBlock(
+        runeBlackSword = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_Y,
+            CrystaStacks.RUNE_BLACK_SWORD,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.INERT_PLATE, new ItemStack(Material.NETHERITE_SWORD), SlimefunItems.SWORD_OF_BEHEADING,
@@ -370,9 +370,9 @@ public class Runes {
         );
 
         // Rune Z
-        runeZ = new UnplaceableBlock(
+        runeBrightShield = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUNE_Z,
+            CrystaStacks.RUNE_BRIGHT_SHIELD,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.INERT_PLATE, new ItemStack(Material.TURTLE_HELMET), SlimefunItems.SOLAR_HELMET,
@@ -382,32 +382,32 @@ public class Runes {
         );
 
         // Slimefun Registry
-        runeA.register(plugin);
-        runeB.register(plugin);
-        runeC.register(plugin);
-        runeD.register(plugin);
-        runeE.register(plugin);
-        runeF.register(plugin);
-        runeG.register(plugin);
-        runeH.register(plugin);
-        runeI.register(plugin);
-        runeJ.register(plugin);
-        runeK.register(plugin);
-        runeL.register(plugin);
-        runeM.register(plugin);
-        runeN.register(plugin);
-        runeO.register(plugin);
-        runeP.register(plugin);
-        runeQ.register(plugin);
-        runeR.register(plugin);
-        runeS.register(plugin);
-        runeT.register(plugin);
-        runeU.register(plugin);
-        runeV.register(plugin);
-        runeW.register(plugin);
-        runeX.register(plugin);
-        runeY.register(plugin);
-        runeZ.register(plugin);
+        runeBeast.register(plugin);
+        runeBeginning.register(plugin);
+        runeMoon.register(plugin);
+        runeGate.register(plugin);
+        runeTrueEarth.register(plugin);
+        runeChange.register(plugin);
+        runeNight.register(plugin);
+        runeBlack.register(plugin);
+        runeTrueHoly.register(plugin);
+        runeDragon.register(plugin);
+        runeTrueWater.register(plugin);
+        runeSovereign.register(plugin);
+        runeSun.register(plugin);
+        runeDawn.register(plugin);
+        runeTwilight.register(plugin);
+        runeTrueFire.register(plugin);
+        runeCircle.register(plugin);
+        runeBlinking.register(plugin);
+        runeSoul.register(plugin);
+        runePunishment.register(plugin);
+        runeTrueLightning.register(plugin);
+        runeEightfold.register(plugin);
+        runeCharm.register(plugin);
+        runeTrueWind.register(plugin);
+        runeBlackSword.register(plugin);
+        runeBrightShield.register(plugin);
 
     }
 

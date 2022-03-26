@@ -74,9 +74,9 @@ public class Exalted {
             CrystaStacks.EXALTED_BAELFIRE,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
-                null, CrystaStacks.RUNE_A, null,
-                CrystaStacks.RUNE_E, CrystaStacks.EXALTED_BEACON, CrystaStacks.RUNE_K,
-                null, CrystaStacks.RUNE_R, null
+                null, CrystaStacks.RUNE_BEAST, null,
+                CrystaStacks.RUNE_TRUE_EARTH, CrystaStacks.EXALTED_BEACON, CrystaStacks.RUNE_TRUE_WATER,
+                null, CrystaStacks.RUNE_BLINKING, null
             },
             3
         );
@@ -91,7 +91,7 @@ public class Exalted {
         );
         exaltedFertilityPharo = new ExaltedFertilityPharo(
             ItemGroups.EXALTED,
-            CrystaStacks.FERTILITY_PHARO,
+            CrystaStacks.EXALTED_FERTILITY_PHARO,
             CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             exaltedFertilityPharoRecipe.getDisplayRecipe(),
             9
@@ -100,12 +100,12 @@ public class Exalted {
         // Fertility Totem
         exaltedFertilityTotem = new ExaltedFertilityPharo(
             ItemGroups.EXALTED,
-            CrystaStacks.FERTILITY_TOTEM,
+            CrystaStacks.EXALTED_FERTILITY_TOTEM,
             CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             new ItemStack[]{
-                null, CrystaStacks.RUNE_C, null,
-                CrystaStacks.RUNE_H, CrystaStacks.EXALTED_BEACON, CrystaStacks.RUNE_N,
-                null, CrystaStacks.RUNE_T, null
+                null, CrystaStacks.RUNE_MOON, null,
+                CrystaStacks.RUNE_BLACK, CrystaStacks.EXALTED_FERTILITY_PHARO, CrystaStacks.RUNE_DAWN,
+                null, CrystaStacks.RUNE_PUNISHMENT, null
             },
             13
         );
@@ -132,9 +132,9 @@ public class Exalted {
             CrystaStacks.EXALTED_AGRONOMIST,
             CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
             new ItemStack[]{
-                null, CrystaStacks.RUNE_F, null,
-                CrystaStacks.RUNE_J, CrystaStacks.EXALTED_BEACON, CrystaStacks.RUNE_P,
-                null, CrystaStacks.RUNE_Y, null
+                null, CrystaStacks.RUNE_CHANGE, null,
+                CrystaStacks.RUNE_DRAGON, CrystaStacks.EXALTED_HARVESTER, CrystaStacks.RUNE_TRUE_FIRE,
+                null, CrystaStacks.RUNE_BLACK_SWORD, null
             },
             9
         );

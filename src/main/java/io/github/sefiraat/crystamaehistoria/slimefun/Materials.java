@@ -193,8 +193,7 @@ public class Materials {
                 null, null, null,
                 CrystaStacks.CRYSTAL_POLYCHROMATIC, CrystaStacks.CRYSTAL_KALEIDOSCOPIC, CrystaStacks.CRYSTAL_MOTLEY,
                 null, null, null
-            },
-            CrystaStacks.CRYSTAL_PRISMATIC.asQuantity(3)
+            }
         );
 
         // Amalgamate Dust Common

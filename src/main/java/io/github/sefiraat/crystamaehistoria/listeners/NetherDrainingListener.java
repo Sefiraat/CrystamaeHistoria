@@ -6,16 +6,17 @@ import org.bukkit.Material;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Item;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.EntityPortalExitEvent;
+import org.bukkit.event.entity.EntityPortalEnterEvent;
 import org.bukkit.inventory.ItemStack;
 
 import java.util.Map;
 
 public class NetherDrainingListener implements Listener {
 
-    @EventHandler
-    public void portalDraining(EntityPortalExitEvent e) {
+    @EventHandler(priority = EventPriority.LOWEST)
+    public void portalDraining(EntityPortalEnterEvent e) {
         final Entity entity = e.getEntity();
         if (!(entity instanceof Item)) {
             return;
@@ -30,7 +31,7 @@ public class NetherDrainingListener implements Listener {
                 continue;
             }
             if (SlimefunUtils.isItemSimilar(recipeStack, itemStack, true, false)) {
-                item.setItemStack(entry.getValue().clone().asQuantity(itemStack.getAmount()));
+                item.setItemStack(entry.getValue().asQuantity(itemStack.getAmount()));
                 break;
             }
         }

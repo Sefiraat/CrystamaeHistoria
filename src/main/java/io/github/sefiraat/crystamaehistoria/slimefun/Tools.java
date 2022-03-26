@@ -164,9 +164,9 @@ public class Tools {
             CrystaStacks.STAVE_ARCANE,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
-                CrystaStacks.RUNE_B, CrystaStacks.RUNE_F, CrystaStacks.RUNE_J,
-                CrystaStacks.RUNE_M, CrystaStacks.STAVE_ADVANCED, CrystaStacks.RUNE_Q,
-                CrystaStacks.RUNE_U, CrystaStacks.RUNE_W, CrystaStacks.RUNE_Z
+                CrystaStacks.RUNE_BEGINNING, CrystaStacks.RUNE_CHANGE, CrystaStacks.RUNE_DRAGON,
+                CrystaStacks.RUN_SUN, CrystaStacks.STAVE_ADVANCED, CrystaStacks.RUNE_CIRCLE,
+                CrystaStacks.RUNE_TRUE_LIGHTNING, CrystaStacks.RUNE_CHARM, CrystaStacks.RUNE_BRIGHT_SHIELD
             },
             3
         );
@@ -286,9 +286,9 @@ public class Tools {
             CrystaStacks.RADIANCE_SCOOP,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[] {
-                null, CrystaStacks.RUNE_E, null,
-                CrystaStacks.RUNE_K, CrystaStacks.LUSTRE_SCOOP, CrystaStacks.RUNE_O,
-                null, CrystaStacks.RUNE_W, null
+                null, CrystaStacks.RUNE_TRUE_EARTH, null,
+                CrystaStacks.RUNE_TRUE_WATER, CrystaStacks.LUSTRE_SCOOP, CrystaStacks.RUNE_TWILIGHT,
+                null, CrystaStacks.RUNE_CHARM, null
             },
             500,
             true
@@ -329,9 +329,9 @@ public class Tools {
             CrystaStacks.INCORPOREAL_SILKEN,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[] {
-                null, CrystaStacks.RUNE_C, null,
-                CrystaStacks.RUNE_I, CrystaStacks.SPIRITUAL_SILKEN, CrystaStacks.RUNE_R,
-                null, CrystaStacks.RUNE_U, null
+                null, CrystaStacks.RUNE_MOON, null,
+                CrystaStacks.RUNE_TRUE_HOLY, CrystaStacks.SPIRITUAL_SILKEN, CrystaStacks.RUNE_BLINKING,
+                null, CrystaStacks.RUNE_TRUE_LIGHTNING, null
             },
             1000
         );
@@ -402,9 +402,9 @@ public class Tools {
             CrystaStacks.SPONGE_SUPER_MASSIVE,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[] {
-                null, CrystaStacks.RUNE_F, null,
-                CrystaStacks.RUNE_M, CrystaStacks.SPIRITUAL_SILKEN, CrystaStacks.RUNE_Q,
-                null, CrystaStacks.RUNE_V, null
+                null, CrystaStacks.RUNE_CHANGE, null,
+                CrystaStacks.RUN_SUN, CrystaStacks.SPONGE_SUPER_MASSIVE, CrystaStacks.RUNE_CIRCLE,
+                null, CrystaStacks.RUNE_EIGHTFOLD, null
             },
             10
         );

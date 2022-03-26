@@ -121,9 +121,9 @@ public class Mechanisms {
             CrystaStacks.CHRONICLER_PANEL_5,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
-                null, CrystaStacks.RUNE_N, null,
-                CrystaStacks.RUNE_A, CrystaStacks.CHRONICLER_PANEL_4, CrystaStacks.RUNE_V,
-                null, CrystaStacks.RUNE_G, null
+                null, CrystaStacks.RUNE_DAWN, null,
+                CrystaStacks.RUNE_BEAST, CrystaStacks.CHRONICLER_PANEL_4, CrystaStacks.RUNE_EIGHTFOLD,
+                null, CrystaStacks.RUNE_NIGHT, null
             },
             5
         );
@@ -190,9 +190,9 @@ public class Mechanisms {
             CrystaStacks.REALISATION_ALTAR_5,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
-                null, CrystaStacks.RUNE_I, null,
-                CrystaStacks.RUNE_D, CrystaStacks.CHRONICLER_PANEL_4, CrystaStacks.RUNE_P,
-                null, CrystaStacks.RUNE_X, null
+                null, CrystaStacks.RUNE_TRUE_HOLY, null,
+                CrystaStacks.RUNE_GATE, CrystaStacks.REALISATION_ALTAR_4, CrystaStacks.RUNE_TRUE_FIRE,
+                null, CrystaStacks.RUNE_TRUE_WIND, null
             },
             5
         );
@@ -263,9 +263,9 @@ public class Mechanisms {
             CrystaStacks.LIQUEFACTION_BASIN_5,
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
-                null, CrystaStacks.RUNE_L, null,
-                CrystaStacks.RUNE_C, CrystaStacks.CHRONICLER_PANEL_4, CrystaStacks.RUNE_H,
-                null, CrystaStacks.RUNE_S, null
+                null, CrystaStacks.RUNE_SOVEREIGN, null,
+                CrystaStacks.RUNE_MOON, CrystaStacks.LIQUEFACTION_BASIN_4, CrystaStacks.RUNE_BLACK,
+                null, CrystaStacks.RUNE_SOUL, null
             },
             10000,
             Color.fromRGB(240, 220, 200)

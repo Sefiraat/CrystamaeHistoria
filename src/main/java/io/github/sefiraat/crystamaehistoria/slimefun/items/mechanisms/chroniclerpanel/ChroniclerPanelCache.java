@@ -170,8 +170,14 @@ public class ChroniclerPanelCache extends AbstractCache {
             final ItemStack clone = itemStack.asQuantity(1);
 
             this.blockMenu.replaceExistingItem(ChroniclerPanel.INPUT_SLOT, clone);
-            itemStack.setAmount(itemStack.getAmount() - 1);
-            item.setItemStack(itemStack);
+
+            if (itemStack.getAmount() == 1) {
+                item.remove();
+            } else {
+                itemStack.setAmount(itemStack.getAmount() - 1);
+                item.setItemStack(itemStack);
+            }
+
         }
     }
 

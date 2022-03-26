@@ -4,15 +4,12 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.MagicPaintbr
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Skulls;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
-import io.github.sefiraat.networks.utils.StackUtils;
 import io.github.sefiraat.networks.utils.Theme;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import lombok.experimental.UtilityClass;
 import org.bukkit.ChatColor;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 
 import java.text.MessageFormat;
@@ -47,32 +44,32 @@ public class CrystaStacks {
     public static final SlimefunItemStack MAGICAL_MILK;
 
     // Runes
-    public static final SlimefunItemStack RUNE_A;
-    public static final SlimefunItemStack RUNE_B;
-    public static final SlimefunItemStack RUNE_C;
-    public static final SlimefunItemStack RUNE_D;
-    public static final SlimefunItemStack RUNE_E;
-    public static final SlimefunItemStack RUNE_F;
-    public static final SlimefunItemStack RUNE_G;
-    public static final SlimefunItemStack RUNE_H;
-    public static final SlimefunItemStack RUNE_I;
-    public static final SlimefunItemStack RUNE_J;
-    public static final SlimefunItemStack RUNE_K;
-    public static final SlimefunItemStack RUNE_L;
-    public static final SlimefunItemStack RUNE_M;
-    public static final SlimefunItemStack RUNE_N;
-    public static final SlimefunItemStack RUNE_O;
-    public static final SlimefunItemStack RUNE_P;
-    public static final SlimefunItemStack RUNE_Q;
-    public static final SlimefunItemStack RUNE_R;
-    public static final SlimefunItemStack RUNE_S;
-    public static final SlimefunItemStack RUNE_T;
-    public static final SlimefunItemStack RUNE_U;
-    public static final SlimefunItemStack RUNE_V;
-    public static final SlimefunItemStack RUNE_W;
-    public static final SlimefunItemStack RUNE_X;
-    public static final SlimefunItemStack RUNE_Y;
-    public static final SlimefunItemStack RUNE_Z;
+    public static final SlimefunItemStack RUNE_BEAST;
+    public static final SlimefunItemStack RUNE_BEGINNING;
+    public static final SlimefunItemStack RUNE_MOON;
+    public static final SlimefunItemStack RUNE_GATE;
+    public static final SlimefunItemStack RUNE_TRUE_EARTH;
+    public static final SlimefunItemStack RUNE_CHANGE;
+    public static final SlimefunItemStack RUNE_NIGHT;
+    public static final SlimefunItemStack RUNE_BLACK;
+    public static final SlimefunItemStack RUNE_TRUE_HOLY;
+    public static final SlimefunItemStack RUNE_DRAGON;
+    public static final SlimefunItemStack RUNE_TRUE_WATER;
+    public static final SlimefunItemStack RUNE_SOVEREIGN;
+    public static final SlimefunItemStack RUN_SUN;
+    public static final SlimefunItemStack RUNE_DAWN;
+    public static final SlimefunItemStack RUNE_TWILIGHT;
+    public static final SlimefunItemStack RUNE_TRUE_FIRE;
+    public static final SlimefunItemStack RUNE_CIRCLE;
+    public static final SlimefunItemStack RUNE_BLINKING;
+    public static final SlimefunItemStack RUNE_SOUL;
+    public static final SlimefunItemStack RUNE_PUNISHMENT;
+    public static final SlimefunItemStack RUNE_TRUE_LIGHTNING;
+    public static final SlimefunItemStack RUNE_EIGHTFOLD;
+    public static final SlimefunItemStack RUNE_CHARM;
+    public static final SlimefunItemStack RUNE_TRUE_WIND;
+    public static final SlimefunItemStack RUNE_BLACK_SWORD;
+    public static final SlimefunItemStack RUNE_BRIGHT_SHIELD;
 
 
     // Artistic
@@ -122,8 +119,8 @@ public class CrystaStacks {
     // Exalted
     public static final SlimefunItemStack EXALTED_BEACON;
     public static final SlimefunItemStack EXALTED_BAELFIRE;
-    public static final SlimefunItemStack FERTILITY_PHARO;
-    public static final SlimefunItemStack FERTILITY_TOTEM;
+    public static final SlimefunItemStack EXALTED_FERTILITY_PHARO;
+    public static final SlimefunItemStack EXALTED_FERTILITY_TOTEM;
     public static final SlimefunItemStack EXALTED_HARVESTER;
     public static final SlimefunItemStack EXALTED_AGRONOMIST;
     public static final SlimefunItemStack EXALTED_DAWN;
@@ -457,7 +454,7 @@ public class CrystaStacks {
 
         // Runes
 
-        RUNE_A = ThemeType.themedSlimefunItemStack(
+        RUNE_BEAST = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_BEAST",
             Skulls.RUNE_A.getPlayerHead(),
             ThemeType.RUNE,
@@ -466,7 +463,7 @@ public class CrystaStacks {
             "of the wolf echos from within."
         );
 
-        RUNE_B = ThemeType.themedSlimefunItemStack(
+        RUNE_BEGINNING = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_BEGINNING",
             Skulls.RUNE_B.getPlayerHead(),
             ThemeType.RUNE,
@@ -475,7 +472,7 @@ public class CrystaStacks {
             "vortex of the unknown made still."
         );
 
-        RUNE_C = ThemeType.themedSlimefunItemStack(
+        RUNE_MOON = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_MOON",
             Skulls.RUNE_C.getPlayerHead(),
             ThemeType.RUNE,
@@ -484,7 +481,7 @@ public class CrystaStacks {
             "sheer destruction rage within."
         );
 
-        RUNE_D = ThemeType.themedSlimefunItemStack(
+        RUNE_GATE = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_GATE",
             Skulls.RUNE_D.getPlayerHead(),
             ThemeType.RUNE,
@@ -493,7 +490,7 @@ public class CrystaStacks {
             "through the magic within these runes."
         );
 
-        RUNE_E = ThemeType.themedSlimefunItemStack(
+        RUNE_TRUE_EARTH = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_TRUE_EARTH",
             Skulls.RUNE_E.getPlayerHead(),
             ThemeType.RUNE,
@@ -502,7 +499,7 @@ public class CrystaStacks {
             "all earth magic."
         );
 
-        RUNE_F = ThemeType.themedSlimefunItemStack(
+        RUNE_CHANGE = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_CHANGE",
             Skulls.RUNE_F.getPlayerHead(),
             ThemeType.RUNE,
@@ -511,7 +508,7 @@ public class CrystaStacks {
             "are kept in harmony within."
         );
 
-        RUNE_G = ThemeType.themedSlimefunItemStack(
+        RUNE_NIGHT = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_NIGHT",
             Skulls.RUNE_G.getPlayerHead(),
             ThemeType.RUNE,
@@ -520,7 +517,7 @@ public class CrystaStacks {
             "is the same that allows the undead to rise."
         );
 
-        RUNE_H = ThemeType.themedSlimefunItemStack(
+        RUNE_BLACK = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_BLACK",
             Skulls.RUNE_H.getPlayerHead(),
             ThemeType.RUNE,
@@ -529,7 +526,7 @@ public class CrystaStacks {
             "held within."
         );
 
-        RUNE_I = ThemeType.themedSlimefunItemStack(
+        RUNE_TRUE_HOLY = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_TRUE_HOLY",
             Skulls.RUNE_I.getPlayerHead(),
             ThemeType.RUNE,
@@ -538,7 +535,7 @@ public class CrystaStacks {
             "magical source."
         );
 
-        RUNE_J = ThemeType.themedSlimefunItemStack(
+        RUNE_DRAGON = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_DRAGON",
             Skulls.RUNE_J.getPlayerHead(),
             ThemeType.RUNE,
@@ -548,7 +545,7 @@ public class CrystaStacks {
             "will never be unwound."
         );
 
-        RUNE_K = ThemeType.themedSlimefunItemStack(
+        RUNE_TRUE_WATER = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_TRUE_WATER",
             Skulls.RUNE_K.getPlayerHead(),
             ThemeType.RUNE,
@@ -556,7 +553,7 @@ public class CrystaStacks {
             "The beginning of all flowing freely."
         );
 
-        RUNE_L = ThemeType.themedSlimefunItemStack(
+        RUNE_SOVEREIGN = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_SOVEREIGN",
             Skulls.RUNE_L.getPlayerHead(),
             ThemeType.RUNE,
@@ -565,7 +562,7 @@ public class CrystaStacks {
             "one, protection for all."
         );
 
-        RUNE_M = ThemeType.themedSlimefunItemStack(
+        RUN_SUN = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_SUN",
             Skulls.RUNE_M.getPlayerHead(),
             ThemeType.RUNE,
@@ -574,7 +571,7 @@ public class CrystaStacks {
             "at a toll for all."
         );
 
-        RUNE_N = ThemeType.themedSlimefunItemStack(
+        RUNE_DAWN = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_DAWN",
             Skulls.RUNE_N.getPlayerHead(),
             ThemeType.RUNE,
@@ -583,7 +580,7 @@ public class CrystaStacks {
             "and renewal."
         );
 
-        RUNE_O = ThemeType.themedSlimefunItemStack(
+        RUNE_TWILIGHT = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_TWILIGHT",
             Skulls.RUNE_O.getPlayerHead(),
             ThemeType.RUNE,
@@ -592,7 +589,7 @@ public class CrystaStacks {
             "rest and recuperation."
         );
 
-        RUNE_P = ThemeType.themedSlimefunItemStack(
+        RUNE_TRUE_FIRE = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_TRUE_FIRE",
             Skulls.RUNE_P.getPlayerHead(),
             ThemeType.RUNE,
@@ -601,7 +598,7 @@ public class CrystaStacks {
             "back by nothing but it's own tempest."
         );
 
-        RUNE_Q = ThemeType.themedSlimefunItemStack(
+        RUNE_CIRCLE = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_CIRCLE",
             Skulls.RUNE_Q.getPlayerHead(),
             ThemeType.RUNE,
@@ -612,7 +609,7 @@ public class CrystaStacks {
             "the Minecraft world for some reason..."
         );
 
-        RUNE_R = ThemeType.themedSlimefunItemStack(
+        RUNE_BLINKING = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_BLINKING",
             Skulls.RUNE_R.getPlayerHead(),
             ThemeType.RUNE,
@@ -622,7 +619,7 @@ public class CrystaStacks {
             "large distances in moments."
         );
 
-        RUNE_S = ThemeType.themedSlimefunItemStack(
+        RUNE_SOUL = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_SOUL",
             Skulls.RUNE_S.getPlayerHead(),
             ThemeType.RUNE,
@@ -631,7 +628,7 @@ public class CrystaStacks {
             "kept in balance and check."
         );
 
-        RUNE_T = ThemeType.themedSlimefunItemStack(
+        RUNE_PUNISHMENT = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_PUNISHMENT",
             Skulls.RUNE_T.getPlayerHead(),
             ThemeType.RUNE,
@@ -641,7 +638,7 @@ public class CrystaStacks {
             "magic gone-astray."
         );
 
-        RUNE_U = ThemeType.themedSlimefunItemStack(
+        RUNE_TRUE_LIGHTNING = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_TRUE_LIGHTNING",
             Skulls.RUNE_U.getPlayerHead(),
             ThemeType.RUNE,
@@ -650,7 +647,7 @@ public class CrystaStacks {
             "within a sealing magic."
         );
 
-        RUNE_V = ThemeType.themedSlimefunItemStack(
+        RUNE_EIGHTFOLD = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_EIGHTFOLD",
             Skulls.RUNE_V.getPlayerHead(),
             ThemeType.RUNE,
@@ -660,7 +657,7 @@ public class CrystaStacks {
             "create and form new matter."
         );
 
-        RUNE_W = ThemeType.themedSlimefunItemStack(
+        RUNE_CHARM = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_CHARM",
             Skulls.RUNE_W.getPlayerHead(),
             ThemeType.RUNE,
@@ -669,7 +666,7 @@ public class CrystaStacks {
             "and are powered by the magic within."
         );
 
-        RUNE_X = ThemeType.themedSlimefunItemStack(
+        RUNE_TRUE_WIND = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_TRUE_WIND",
             Skulls.RUNE_X.getPlayerHead(),
             ThemeType.RUNE,
@@ -678,7 +675,7 @@ public class CrystaStacks {
             "within."
         );
 
-        RUNE_Y = ThemeType.themedSlimefunItemStack(
+        RUNE_BLACK_SWORD = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_BLACK_SWORD",
             Skulls.RUNE_Y.getPlayerHead(),
             ThemeType.RUNE,
@@ -686,7 +683,7 @@ public class CrystaStacks {
             "The magic of power, domination and drive."
         );
 
-        RUNE_Z = ThemeType.themedSlimefunItemStack(
+        RUNE_BRIGHT_SHIELD = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_BRIGHT_SHIELD",
             Skulls.RUNE_Y.getPlayerHead(),
             ThemeType.RUNE,
@@ -1146,7 +1143,7 @@ public class CrystaStacks {
             ThemeType.CLICK_INFO.getColor() + "Requires: Story Rank > Emeritus Professor"
         );
 
-        FERTILITY_PHARO = ThemeType.themedSlimefunItemStack(
+        EXALTED_FERTILITY_PHARO = ThemeType.themedSlimefunItemStack(
             "CRY_EXALTED_FERTILITY_PHARO",
             new ItemStack(Material.DIAMOND_BLOCK),
             ThemeType.EXALTED,
@@ -1159,7 +1156,7 @@ public class CrystaStacks {
             ThemeType.CLICK_INFO.getColor() + "Requires: Story Rank > Emeritus Professor"
         );
 
-        FERTILITY_TOTEM = ThemeType.themedSlimefunItemStack(
+        EXALTED_FERTILITY_TOTEM = ThemeType.themedSlimefunItemStack(
             "CRY_EXALTED_FERTILITY_TOTEM",
             new ItemStack(Material.EMERALD_BLOCK),
             ThemeType.EXALTED,

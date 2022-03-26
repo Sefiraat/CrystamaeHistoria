@@ -98,7 +98,7 @@ public class Uniques {
 
         // Gilding Trophy
         RecipeItem gildedTrophyRecipe = new RecipeItem(
-            CrystaStacks.RUNE_M,
+            CrystaStacks.RUN_SUN,
             StoryType.MECHANICAL, 100,
             StoryType.HUMAN, 100,
             StoryType.PHILOSOPHICAL, 100,
