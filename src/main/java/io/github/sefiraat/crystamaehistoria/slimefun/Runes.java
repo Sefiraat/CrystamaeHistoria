@@ -267,9 +267,9 @@ public class Runes {
             CrystaStacks.RUNE_CIRCLE,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
-                CrystaStacks.EXALTED_FERTILITY_PHARO, new ItemStack(Material.OBSERVER), SlimefunItems.CROP_GROWTH_ACCELERATOR,
+                CrystaStacks.EXALTED_FERTILITY_PHARO, new ItemStack(Material.OBSERVER), SlimefunItems.ELECTRIC_INGOT_FACTORY_3,
                 new ItemStack(Material.TARGET), CrystaStacks.ARCANE_SIGIL, new ItemStack(Material.TARGET),
-                SlimefunItems.CROP_GROWTH_ACCELERATOR, new ItemStack(Material.OBSERVER), CrystaStacks.EXALTED_FERTILITY_PHARO
+                SlimefunItems.ELECTRIC_INGOT_FACTORY_3, new ItemStack(Material.OBSERVER), CrystaStacks.EXALTED_FERTILITY_PHARO
             }
         );
 

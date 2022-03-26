@@ -4,6 +4,7 @@ import com.bgsoftware.wildstacker.api.WildStackerAPI;
 import com.gmail.nossr50.util.skills.CombatUtils;
 import dev.rosewood.rosestacker.api.RoseStackerAPI;
 import dev.rosewood.rosestacker.stack.StackedItem;
+import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.thebusybiscuit.exoticgarden.items.BonemealableItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
@@ -26,27 +27,30 @@ public class SupportedPluginManager {
     private static final NamespacedKey IGNORE_DAMAGE_KEY = new NamespacedKey(Slimefun.instance(), "ignore_damage");
     private static SupportedPluginManager instance;
 
-    private final boolean mcMMO;
-    private final boolean exoticGarden;
-    private final boolean slimeTinker;
-    private final boolean headLimiter;
-    private final boolean networks;
-    private final boolean wildStacker;
-    private final boolean roseStacker;
+    private boolean mcMMO;
+    private boolean exoticGarden;
+    private boolean slimeTinker;
+    private boolean headLimiter;
+    private boolean networks;
+    private boolean wildStacker;
+    private boolean roseStacker;
 
     private RoseStackerAPI roseStackerAPI;
 
     public SupportedPluginManager() {
         instance = this;
+        Bukkit.getScheduler().runTaskLater(CrystamaeHistoria.instance(), this::setup, 1);
+    }
 
-        mcMMO = Bukkit.getPluginManager().isPluginEnabled("mcMMO");
-        exoticGarden = Bukkit.getPluginManager().isPluginEnabled("ExoticGarden");
-        slimeTinker = Bukkit.getPluginManager().isPluginEnabled("SlimeTinker");
-        headLimiter = Bukkit.getPluginManager().isPluginEnabled("HeadLimiter");
-        networks = Bukkit.getPluginManager().isPluginEnabled("Networks");
-        wildStacker = Bukkit.getPluginManager().isPluginEnabled("WildStacker");
-        roseStacker = Bukkit.getPluginManager().isPluginEnabled("RoseStacker");
-        if (roseStacker) {
+    private void setup() {
+        this.mcMMO = Bukkit.getPluginManager().isPluginEnabled("mcMMO");
+        this.exoticGarden = Bukkit.getPluginManager().isPluginEnabled("ExoticGarden");
+        this.slimeTinker = Bukkit.getPluginManager().isPluginEnabled("SlimeTinker");
+        this.headLimiter = Bukkit.getPluginManager().isPluginEnabled("HeadLimiter");
+        this.networks = Bukkit.getPluginManager().isPluginEnabled("Networks");
+        this.wildStacker = Bukkit.getPluginManager().isPluginEnabled("WildStacker");
+        this.roseStacker = Bukkit.getPluginManager().isPluginEnabled("RoseStacker");
+        if (this.roseStacker) {
             this.roseStackerAPI = RoseStackerAPI.getInstance();
         }
     }
