@@ -4,7 +4,6 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.MagicPaintbr
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
 import io.github.sefiraat.crystamaehistoria.utils.Skulls;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
-import io.github.sefiraat.networks.utils.Theme;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import lombok.experimental.UtilityClass;
 import org.bukkit.ChatColor;
@@ -56,7 +55,7 @@ public class CrystaStacks {
     public static final SlimefunItemStack RUNE_DRAGON;
     public static final SlimefunItemStack RUNE_TRUE_WATER;
     public static final SlimefunItemStack RUNE_SOVEREIGN;
-    public static final SlimefunItemStack RUN_SUN;
+    public static final SlimefunItemStack RUNE_SUN;
     public static final SlimefunItemStack RUNE_DAWN;
     public static final SlimefunItemStack RUNE_TWILIGHT;
     public static final SlimefunItemStack RUNE_TRUE_FIRE;
@@ -562,7 +561,7 @@ public class CrystaStacks {
             "one, protection for all."
         );
 
-        RUN_SUN = ThemeType.themedSlimefunItemStack(
+        RUNE_SUN = ThemeType.themedSlimefunItemStack(
             "CRY_RUNE_SUN",
             Skulls.RUNE_M.getPlayerHead(),
             ThemeType.RUNE,
@@ -1124,7 +1123,7 @@ public class CrystaStacks {
             "potential. Must be placed on a",
             "Exaltation Stand to operate.",
             "",
-            Theme.CLICK_INFO + "Power: " + Theme.PASSIVE + "2",
+            ThemeType.CLICK_INFO + "Power: " + ThemeType.PASSIVE + "2",
             "",
             ThemeType.CLICK_INFO.getColor() + "Requires: Story Rank > Emeritus Professor"
         );
@@ -1138,7 +1137,7 @@ public class CrystaStacks {
             "potential. Must be placed on a",
             "Exaltation Stand to operate.",
             "",
-            Theme.CLICK_INFO + "Power: " + Theme.PASSIVE + "3",
+            ThemeType.CLICK_INFO + "Power: " + ThemeType.PASSIVE + "3",
             "",
             ThemeType.CLICK_INFO.getColor() + "Requires: Story Rank > Emeritus Professor"
         );

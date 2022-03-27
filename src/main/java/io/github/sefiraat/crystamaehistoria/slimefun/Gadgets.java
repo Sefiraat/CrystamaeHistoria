@@ -218,7 +218,7 @@ public class Gadgets {
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
                 null, CrystaStacks.RUNE_GATE, null,
-                CrystaStacks.RUNE_TRUE_HOLY, CrystaStacks.DISPERSION_LAMP, CrystaStacks.RUN_SUN,
+                CrystaStacks.RUNE_TRUE_HOLY, CrystaStacks.DISPERSION_LAMP, CrystaStacks.RUNE_SUN,
                 null, CrystaStacks.RUNE_TRUE_LIGHTNING, null
             },
             15
