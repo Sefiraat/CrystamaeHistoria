@@ -165,7 +165,7 @@ public class Tools {
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
                 CrystaStacks.RUNE_BEGINNING, CrystaStacks.RUNE_CHANGE, CrystaStacks.RUNE_DRAGON,
-                CrystaStacks.RUN_SUN, CrystaStacks.STAVE_ADVANCED, CrystaStacks.RUNE_CIRCLE,
+                CrystaStacks.RUNE_SUN, CrystaStacks.STAVE_ADVANCED, CrystaStacks.RUNE_CIRCLE,
                 CrystaStacks.RUNE_TRUE_LIGHTNING, CrystaStacks.RUNE_CHARM, CrystaStacks.RUNE_BRIGHT_SHIELD
             },
             3
@@ -403,7 +403,7 @@ public class Tools {
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[] {
                 null, CrystaStacks.RUNE_CHANGE, null,
-                CrystaStacks.RUN_SUN, CrystaStacks.SPONGE_SUPER_MASSIVE, CrystaStacks.RUNE_CIRCLE,
+                CrystaStacks.RUNE_SUN, CrystaStacks.SPONGE_SUPER_MASSIVE, CrystaStacks.RUNE_CIRCLE,
                 null, CrystaStacks.RUNE_EIGHTFOLD, null
             },
             10

@@ -216,7 +216,7 @@ public class Runes {
         // Rune M
         runeSun = new UnplaceableBlock(
             ItemGroups.RUNES,
-            CrystaStacks.RUN_SUN,
+            CrystaStacks.RUNE_SUN,
             RecipeType.ANCIENT_ALTAR,
             new ItemStack[]{
                 CrystaStacks.EXALTED_SUN, new ItemStack(Material.SHROOMLIGHT), SlimefunItems.BLISTERING_INGOT_3,
