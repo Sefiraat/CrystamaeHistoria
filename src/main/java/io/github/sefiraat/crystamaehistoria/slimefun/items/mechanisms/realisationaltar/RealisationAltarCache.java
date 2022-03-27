@@ -4,7 +4,6 @@ import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.managers.StoriesManager;
 import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.AbstractCache;
-import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.chroniclerpanel.ChroniclerPanel;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.Story;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
@@ -16,7 +15,6 @@ import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.DataTypeMethods;
 import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentStoryChunkDataType;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
-import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import lombok.Getter;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
@@ -54,7 +52,7 @@ public class RealisationAltarCache extends AbstractCache {
     @ParametersAreNonnullByDefault
     public RealisationAltarCache(BlockMenu blockMenu, int tier) {
         super(blockMenu);
-        this.tier = tier + 1;
+        this.tier = tier;
 
         final String activePlayerString = BlockStorage.getLocationInfo(blockMenu.getLocation(), Keys.BS_CP_ACTIVE_PLAYER);
         if (activePlayerString != null) {
