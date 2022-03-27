@@ -6,11 +6,11 @@ import javax.annotation.ParametersAreNonnullByDefault;
 
 public class StoryChances {
 
-    public final int basic;
-    public final int uncommon;
-    public final int rare;
-    public final int epic;
-    public final int mythical;
+    private final int basic;
+    private final int uncommon;
+    private final int rare;
+    private final int epic;
+    private final int mythical;
 
     @ParametersAreNonnullByDefault
     public StoryChances(int basic, int uncommon, int rare, int epic, int mythical) {
@@ -21,5 +21,25 @@ public class StoryChances {
         this.rare = rare;
         this.epic = epic;
         this.mythical = mythical;
+    }
+
+    public int getBasic() {
+        return this.basic + getUncommon();
+    }
+
+    public int getUncommon() {
+        return this.uncommon + getRare();
+    }
+
+    public int getRare() {
+        return this.rare + getEpic();
+    }
+
+    public int getEpic() {
+        return this.epic + getMythical();
+    }
+
+    public int getMythical() {
+        return this.mythical;
     }
 }

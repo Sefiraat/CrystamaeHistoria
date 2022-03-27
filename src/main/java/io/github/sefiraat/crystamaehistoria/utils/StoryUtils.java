@@ -200,13 +200,13 @@ public class StoryUtils {
         final List<StoryType> pool = definition.getPools();
         int rnd = ThreadLocalRandom.current().nextInt(1, 101);
 
-        if (rnd <= chance.mythical) {
+        if (rnd <= chance.getMythical()) {
             addStory(itemstack, pool, manager.getStoryMapMythical());
-        } else if (rnd <= chance.epic) {
+        } else if (rnd <= chance.getEpic()) {
             addStory(itemstack, pool, manager.getStoryMapEpic());
-        } else if (rnd <= chance.rare) {
+        } else if (rnd <= chance.getRare()) {
             addStory(itemstack, pool, manager.getStoryMapRare());
-        } else if (rnd <= chance.uncommon) {
+        } else if (rnd <= chance.getUncommon()) {
             addStory(itemstack, pool, manager.getStoryMapUncommon());
         } else {
             addStory(itemstack, pool, manager.getStoryMapCommon());
