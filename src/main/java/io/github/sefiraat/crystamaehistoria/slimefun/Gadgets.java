@@ -278,19 +278,19 @@ public class Gadgets {
         // Soulless Soil
         final List<EntityType> soulfilledSoilSpawns = new ArrayList<>();
 
-        dreadfulDirtSpawns.add(EntityType.COW);
-        dreadfulDirtSpawns.add(EntityType.MUSHROOM_COW);
-        dreadfulDirtSpawns.add(EntityType.CHICKEN);
-        dreadfulDirtSpawns.add(EntityType.PIG);
-        dreadfulDirtSpawns.add(EntityType.SHEEP);
-        dreadfulDirtSpawns.add(EntityType.GOAT);
-        dreadfulDirtSpawns.add(EntityType.AXOLOTL);
-        dreadfulDirtSpawns.add(EntityType.DOLPHIN);
-        dreadfulDirtSpawns.add(EntityType.TURTLE);
-        dreadfulDirtSpawns.add(EntityType.CAT);
-        dreadfulDirtSpawns.add(EntityType.WOLF);
-        dreadfulDirtSpawns.add(EntityType.LLAMA);
-        dreadfulDirtSpawns.add(EntityType.HORSE);
+        soulfilledSoilSpawns.add(EntityType.COW);
+        soulfilledSoilSpawns.add(EntityType.MUSHROOM_COW);
+        soulfilledSoilSpawns.add(EntityType.CHICKEN);
+        soulfilledSoilSpawns.add(EntityType.PIG);
+        soulfilledSoilSpawns.add(EntityType.SHEEP);
+        soulfilledSoilSpawns.add(EntityType.GOAT);
+        soulfilledSoilSpawns.add(EntityType.AXOLOTL);
+        soulfilledSoilSpawns.add(EntityType.DOLPHIN);
+        soulfilledSoilSpawns.add(EntityType.TURTLE);
+        soulfilledSoilSpawns.add(EntityType.CAT);
+        soulfilledSoilSpawns.add(EntityType.WOLF);
+        soulfilledSoilSpawns.add(EntityType.LLAMA);
+        soulfilledSoilSpawns.add(EntityType.HORSE);
 
         soulfilledSoil = new CursedEarth(
             ItemGroups.GADGETS,

@@ -28,7 +28,7 @@ public class CursedEarth extends SlimefunItem {
     @Getter
     private final int lightLevel;
     @Getter
-    private final List<EntityType> monsters;
+    private final List<EntityType> spawns;
     @Getter
     private final Particle.DustOptions dustOptions;
     @Getter
@@ -47,7 +47,7 @@ public class CursedEarth extends SlimefunItem {
         super(category, item, recipeType, recipe);
         this.ticksToSpawn = ticksToSpawn;
         this.lightLevel = lightLevel;
-        this.monsters = spawns;
+        this.spawns = spawns;
         this.dustOptions = new Particle.DustOptions(color, 1);
     }
 
@@ -77,7 +77,7 @@ public class CursedEarth extends SlimefunItem {
                     ) {
                         location.getWorld().spawnEntity(
                             location,
-                            monsters.get(ThreadLocalRandom.current().nextInt(monsters.size())),
+                            spawns.get(ThreadLocalRandom.current().nextInt(spawns.size())),
                             true
                         );
                     }
