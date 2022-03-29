@@ -8,6 +8,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.items.gadgets.ExaltationSta
 import io.github.sefiraat.crystamaehistoria.slimefun.items.gadgets.ExpCollector;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.gadgets.FragmentedVoid;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.gadgets.GlassOfMilk;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.gadgets.GlowingTicker;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.gadgets.GreenHouseGlass;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.gadgets.MobCandle;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.gadgets.MobFan;
@@ -105,6 +106,8 @@ public class Gadgets {
     private static MysteriousTicker mysteriousGlazedTerracotta;
     @Getter
     private static MysteriousTicker mysteriousConcrete;
+    @Getter
+    private static GlowingTicker glowingStone;
     @Getter
     private static GreenHouseGlass greenHouseGlass;
     @Getter
@@ -639,6 +642,21 @@ public class Gadgets {
             15
         );
 
+        // Glowing Stone
+        RecipeItem glowingStoneRecipe = new RecipeItem(
+            new ItemStack(Material.GLOWSTONE),
+            StoryType.CELESTIAL, 100,
+            StoryType.ELEMENTAL, 100,
+            StoryType.HUMAN, 100
+        );
+        glowingStone = new GlowingTicker(
+            ItemGroups.GADGETS,
+            CrystaStacks.GLOWING_STONE,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
+            glowingStoneRecipe.getDisplayRecipe(),
+            10
+        );
+
         // Green House Glass
         greenHouseGlass = new GreenHouseGlass(
             ItemGroups.GADGETS,
@@ -835,6 +853,7 @@ public class Gadgets {
         mysteriousTerracotta.register(plugin);
         mysteriousGlazedTerracotta.register(plugin);
         mysteriousConcrete.register(plugin);
+        glowingStone.register(plugin);
         greenHouseGlass.register(plugin);
         focusedGreenHouseGlass.register(plugin);
         magnifyingGreenHouseGlass.register(plugin);
@@ -869,11 +888,13 @@ public class Gadgets {
         LiquefactionBasinCache.addCraftingRecipe(scintillatingMobCandle, scintillatingMobCandleRecipe);
 
         LiquefactionBasinCache.addCraftingRecipe(mysteriousPlant, mysteriousPlantRecipe);
-        LiquefactionBasinCache.addCraftingRecipe(mysteriousGlass, mysteriousPlantRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(mysteriousGlass, mysteriousGlassRecipe);
         LiquefactionBasinCache.addCraftingRecipe(mysteriousWool, mysteriousPlantRecipe);
         LiquefactionBasinCache.addCraftingRecipe(mysteriousTerracotta, mysteriousPlantRecipe);
         LiquefactionBasinCache.addCraftingRecipe(mysteriousGlazedTerracotta, mysteriousPlantRecipe);
         LiquefactionBasinCache.addCraftingRecipe(mysteriousConcrete, mysteriousPlantRecipe);
+
+        LiquefactionBasinCache.addCraftingRecipe(glowingStone, glowingStoneRecipe);
 
         LiquefactionBasinCache.addCraftingRecipe(focusedGreenHouseGlass, focusedGreenHouseGlassRecipe);
 

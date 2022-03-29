@@ -160,6 +160,7 @@ public class CrystaStacks {
     public static final SlimefunItemStack MYSTERIOUS_TERRACOTTA;
     public static final SlimefunItemStack MYSTERIOUS_GLAZED_TERRACOTTA;
     public static final SlimefunItemStack MYSTERIOUS_CONCRETE;
+    public static final SlimefunItemStack GLOWING_STONE;
     public static final SlimefunItemStack GREEN_HOUSE_GLASS;
     public static final SlimefunItemStack GREEN_HOUSE_GLASS_FOCUSED;
     public static final SlimefunItemStack GREEN_HOUSE_GLASS_MAGNIFYING;
@@ -1603,6 +1604,16 @@ public class CrystaStacks {
             "Mysterious Concrete",
             "Like rainbow concrete but far",
             "more random."
+        );
+
+        GLOWING_STONE = ThemeType.themedSlimefunItemStack(
+            "CRY_GLOWING_STONE",
+            new ItemStack(Material.STONE),
+            ThemeType.GADGET,
+            "Glowing Stone",
+            "Stone with a faint throbbing glow.",
+            "The block type can be changed in the",
+            "Glowing Altar."
         );
 
         GREEN_HOUSE_GLASS = ThemeType.themedSlimefunItemStack(
