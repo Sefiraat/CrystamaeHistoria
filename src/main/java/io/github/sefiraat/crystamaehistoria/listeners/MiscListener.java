@@ -28,6 +28,8 @@ public class MiscListener implements Listener {
     public void onPlaceStoriedBlock(BlockPlaceEvent e) {
         ItemStack itemStack = e.getItemInHand();
         if (itemStack.getType() != Material.AIR && StoryUtils.isStoried(itemStack)) {
+            final Player player = e.getPlayer();
+            player.sendMessage(ThemeType.WARNING.getColor() + "This block has been saturated with Crysta and can no longer be placed.");
             e.setCancelled(true);
         }
     }
