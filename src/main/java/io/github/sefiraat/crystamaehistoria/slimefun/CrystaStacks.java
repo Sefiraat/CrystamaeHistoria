@@ -1124,7 +1124,7 @@ public class CrystaStacks {
             "potential. Must be placed on a",
             "Exaltation Stand to operate.",
             "",
-            ThemeType.CLICK_INFO + "Power: " + ThemeType.PASSIVE + "2",
+            ThemeType.CLICK_INFO.getColor() + "Power: " + ThemeType.PASSIVE.getColor() + "2",
             "",
             ThemeType.CLICK_INFO.getColor() + "Requires: Story Rank > Emeritus Professor"
         );
@@ -1138,7 +1138,7 @@ public class CrystaStacks {
             "potential. Must be placed on a",
             "Exaltation Stand to operate.",
             "",
-            ThemeType.CLICK_INFO + "Power: " + ThemeType.PASSIVE + "3",
+            ThemeType.CLICK_INFO.getColor() + "Power: " + ThemeType.PASSIVE.getColor() + "3",
             "",
             ThemeType.CLICK_INFO.getColor() + "Requires: Story Rank > Emeritus Professor"
         );

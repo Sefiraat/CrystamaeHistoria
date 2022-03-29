@@ -21,6 +21,7 @@ public class GetRanks extends SubCommand {
             Player player = (Player) sender;
             player.sendMessage(PlayerStatistics.getSpellRankString(player.getUniqueId()));
             player.sendMessage(PlayerStatistics.getStoryRankString(player.getUniqueId()));
+            player.sendMessage(PlayerStatistics.getGildingRankString(player.getUniqueId()));
         }
     }
 
