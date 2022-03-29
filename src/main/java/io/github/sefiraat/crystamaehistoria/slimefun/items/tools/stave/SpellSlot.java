@@ -14,7 +14,7 @@ public enum SpellSlot {
     SHIFT_RIGHT_CLICK(4);
 
     @Getter
-    protected static final SpellSlot[] cashedValues = values();
+    private static final SpellSlot[] cashedValues = values();
 
     @Getter
     private final int slot;

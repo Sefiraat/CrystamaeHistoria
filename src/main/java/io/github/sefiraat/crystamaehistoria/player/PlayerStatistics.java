@@ -248,14 +248,14 @@ public class PlayerStatistics {
 
     @ParametersAreNonnullByDefault
     public static int getBlocksGilded(UUID uuid) {
-        String path = MessageFormat.format("{0}.{1}", uuid, StatType.GILDED);
+        String path = MessageFormat.format("{0}.{1}", uuid, StatType.STORY);
         ConfigurationSection section = CrystamaeHistoria.getConfigManager().getPlayerStats().getConfigurationSection(path);
         if (section == null) {
             return 0;
         }
         int unlocked = 0;
         for (String story : section.getKeys(false)) {
-            String storyPath = MessageFormat.format("{0}.{1}.{2}.GILDED", uuid, StatType.GILDED, story);
+            String storyPath = MessageFormat.format("{0}.{1}.{2}.GILDED", uuid, StatType.STORY, story);
             if (CrystamaeHistoria.getConfigManager().getPlayerStats().getBoolean(storyPath)) unlocked++;
         }
         return unlocked;
@@ -278,8 +278,7 @@ public class PlayerStatistics {
 
     enum StatType {
         SPELL,
-        STORY,
-        GILDED
+        STORY
     }
 }
 
