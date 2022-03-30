@@ -869,11 +869,11 @@ public class Gadgets {
         LiquefactionBasinCache.addCraftingRecipe(scintillatingMobCandle, scintillatingMobCandleRecipe);
 
         LiquefactionBasinCache.addCraftingRecipe(mysteriousPlant, mysteriousPlantRecipe);
-        LiquefactionBasinCache.addCraftingRecipe(mysteriousGlass, mysteriousPlantRecipe);
-        LiquefactionBasinCache.addCraftingRecipe(mysteriousWool, mysteriousPlantRecipe);
-        LiquefactionBasinCache.addCraftingRecipe(mysteriousTerracotta, mysteriousPlantRecipe);
-        LiquefactionBasinCache.addCraftingRecipe(mysteriousGlazedTerracotta, mysteriousPlantRecipe);
-        LiquefactionBasinCache.addCraftingRecipe(mysteriousConcrete, mysteriousPlantRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(mysteriousGlass, mysteriousGlassRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(mysteriousWool, mysteriousWoolRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(mysteriousTerracotta, mysteriousTerracottaRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(mysteriousGlazedTerracotta, mysteriousGlazedTerracottaRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(mysteriousConcrete, mysteriousConcreteRecipe);
 
         LiquefactionBasinCache.addCraftingRecipe(focusedGreenHouseGlass, focusedGreenHouseGlassRecipe);
 
