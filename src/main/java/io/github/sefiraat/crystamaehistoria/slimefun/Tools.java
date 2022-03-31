@@ -403,7 +403,7 @@ public class Tools {
             RecipeType.MAGIC_WORKBENCH,
             new ItemStack[] {
                 null, CrystaStacks.RUNE_CHANGE, null,
-                CrystaStacks.RUNE_SUN, CrystaStacks.SPONGE_SUPER_MASSIVE, CrystaStacks.RUNE_CIRCLE,
+                CrystaStacks.RUNE_SUN, CrystaStacks.SPONGE_SEARING, CrystaStacks.RUNE_CIRCLE,
                 null, CrystaStacks.RUNE_EIGHTFOLD, null
             },
             10
