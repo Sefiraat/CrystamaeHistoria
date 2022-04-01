@@ -78,11 +78,17 @@ public class StaveConfigurator extends MenuBlock {
         super.onNewInstance(blockMenu, b);
 
         blockMenu.addMenuClickHandler(REMOVE_PLATES, (player, i, itemStack, clickAction) -> {
-            rejectItems(blockMenu);
             final ItemStack stave = blockMenu.getItemInSlot(STAVE_SLOT);
             final SlimefunItem sfStave = SlimefunItem.getByItem(stave);
 
+            rejectItems(blockMenu);
+
             if (stave == null || !(sfStave instanceof Stave)) {
+                return false;
+            }
+
+            if (stave.getAmount() > 1) {
+                blockMenu.dropItems(blockMenu.getLocation(), STAVE_SLOT);
                 return false;
             }
 
@@ -112,11 +118,17 @@ public class StaveConfigurator extends MenuBlock {
         blockMenu.addMenuClickHandler(ADD_PLATES, (player, i, itemStack, clickAction) -> {
             final ItemStack stave = blockMenu.getItemInSlot(STAVE_SLOT);
             final SlimefunItem sfStave = SlimefunItem.getByItem(stave);
+
             if (stave != null
                 && sfStave instanceof Stave
                 && !platesEmpty(blockMenu)
                 && staveIsEmpty(stave)
             ) {
+                if (stave.getAmount() > 1) {
+                    blockMenu.dropItems(blockMenu.getLocation(), STAVE_SLOT);
+                    return false;
+                }
+
                 final InstanceStave staveInstance = new InstanceStave(stave);
                 final ItemMeta staveMeta = stave.getItemMeta();
                 rejectInvalid(blockMenu);
