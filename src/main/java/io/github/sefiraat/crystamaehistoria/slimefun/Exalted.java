@@ -242,11 +242,11 @@ public class Exalted {
         LiquefactionBasinCache.addCraftingRecipe(exaltedSeaBreeze, exaltedSeeBreezeRecipe);
     }
 
-    private static boolean isMaxStoryRank(Player player) {
+    public static boolean isMaxStoryRank(Player player) {
         return PlayerStatistics.getStoryRank(player.getUniqueId()) == StoryRank.EMERITUS_PROFESSOR;
     }
 
-    private static boolean isMaxSpellRank(Player player) {
+    public static boolean isMaxSpellRank(Player player) {
         return PlayerStatistics.getSpellRank(player.getUniqueId()) == SpellRank.GRANDMASTER_MAGI;
     }
 }
