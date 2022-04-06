@@ -290,7 +290,8 @@ public class Mechanisms {
             CrystaStacks.LIQUEFACTION_BASIN_3,
             StoryType.MECHANICAL, 200,
             StoryType.VOID, 200,
-            StoryType.CELESTIAL, 200
+            StoryType.CELESTIAL, 200,
+            Exalted::isMaxStoryRank
         );
         prismaticGilder = new PrismaticGilder(
             ItemGroups.MECHANISMS,

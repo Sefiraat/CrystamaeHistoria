@@ -1926,7 +1926,9 @@ public class CrystaStacks {
             "Prismatic Gilder",
             "Converts Prismatic Crysta into a",
             "Thin film that can overlay other",
-            "magical items."
+            "magical items.",
+            "",
+            ThemeType.CLICK_INFO.getColor() + "Requires: Story Rank > Emeritus Professor"
         );
 
         // Tools
