@@ -2298,7 +2298,7 @@ public class CrystaStacks {
             ThemeType.TOOL,
             "Block Veil - Energy Net",
             "Right click to place a magical",
-            "block veil over a cargo node.",
+            "block veil over an energy connector.",
             "The cover will mimic the block",
             "in your offhand.",
             "One time use per item."

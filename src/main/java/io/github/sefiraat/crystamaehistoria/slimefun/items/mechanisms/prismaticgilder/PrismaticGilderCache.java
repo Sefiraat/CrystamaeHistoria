@@ -2,8 +2,10 @@ package io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.prismatic
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.DisplayItem;
+import io.github.sefiraat.crystamaehistoria.managers.SupportedPluginManager;
 import io.github.sefiraat.crystamaehistoria.player.GildingRank;
 import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
+import io.github.sefiraat.crystamaehistoria.slimefun.CrystaStacks;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.AbstractCache;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
@@ -84,7 +86,9 @@ public class PrismaticGilderCache extends AbstractCache {
             final SlimefunItem slimefunItem = SlimefunItem.getByItem(item.getItemStack());
 
             if (slimefunItem != null && slimefunItem.equals(Materials.getPrismaticCrystal())) {
-                addCrystamae(item, 1);
+                addCrystamae(item);
+            } else {
+                rejectItem(item);
             }
             syncBlock();
         }
@@ -135,14 +139,17 @@ public class PrismaticGilderCache extends AbstractCache {
     }
 
     @ParametersAreNonnullByDefault
-    private void addCrystamae(Item item, int amount) {
+    private void addCrystamae(Item item) {
         final int numberInStack = item.getItemStack().getAmount();
-        final int totalAmount = amount * numberInStack;
         if (this.fillAmount >= maxVolume) {
             rejectItem(item);
         } else {
-            this.fillAmount = Math.min(maxVolume, this.fillAmount + totalAmount);
-            item.remove();
+            this.fillAmount = Math.min(maxVolume, this.fillAmount + 1);
+            if (numberInStack > 1) {
+                CrystamaeHistoria.getSupportedPluginManager().setStackAmount(item, numberInStack - 1);
+            } else {
+                item.remove();
+            }
         }
         ParticleUtils.displayParticleEffect(this.blockMenu.getLocation(), Particle.FLASH, 1, 5);
     }

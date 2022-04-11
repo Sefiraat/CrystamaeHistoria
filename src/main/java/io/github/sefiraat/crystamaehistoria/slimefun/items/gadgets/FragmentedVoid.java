@@ -8,6 +8,7 @@ import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockBreakHandler;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
+import io.github.thebusybiscuit.slimefun4.utils.SlimefunUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.Objects.handlers.BlockTicker;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
@@ -65,19 +66,23 @@ public class FragmentedVoid extends SlimefunItem {
                 final BlockMenu blockMenu = BlockStorage.getInventory(block);
 
                 for (Item item : itemsToConsume) {
-                    final ItemStack itemStack = item.getItemStack();
-                    final Map<Integer, ItemStack> leftovers = blockMenu.toInventory().addItem(itemStack);
-                    final Optional<ItemStack> possibleItem = leftovers.values().stream().findFirst();
-                    if (possibleItem.isPresent()) {
-                        item.setItemStack(possibleItem.get());
-                    } else {
-                        item.remove();
+                    if (item.getPickupDelay() <= 0 && !SlimefunUtils.hasNoPickupFlag(item)) {
+                        final ItemStack itemStack = item.getItemStack();
+                        final Map<Integer, ItemStack> leftovers = blockMenu.toInventory().addItem(itemStack);
+                        final Optional<ItemStack> possibleItem = leftovers.values().stream().findFirst();
+                        if (possibleItem.isPresent()) {
+                            item.setItemStack(possibleItem.get());
+                        } else {
+                            item.remove();
+                        }
                     }
                 }
 
                 final Collection<Item> items = location.getWorld().getNearbyEntitiesByType(Item.class, location, FragmentedVoid.this.range);
                 for (Item item : items) {
-                    GeneralUtils.pullEntity(location, item, 0.5);
+                    if (item.getPickupDelay() <= 0 && !SlimefunUtils.hasNoPickupFlag(item)) {
+                        GeneralUtils.pullEntity(location, item, 0.5);
+                    }
                 }
 
                 for (int i = 0; i < 4; i++) {
