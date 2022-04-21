@@ -49,8 +49,15 @@ public class CrystamageSatchel extends UnplaceableBlock {
     public ItemUseHandler onOpen() {
         return event -> {
             event.cancel();
+            final ItemStack itemStack = event.getItem();
+
+            if (itemStack.getAmount() > 1) {
+                event.getPlayer().sendMessage(ThemeType.WARNING.getColor() + "You have stacked Crystamae Satchels. They will not work until unstacked.");
+                return;
+            }
+
             SatchelInstance satchelInstance = DataTypeMethods.getCustom(
-                event.getItem().getItemMeta(),
+                itemStack.getItemMeta(),
                 Keys.PDC_SATCHEL_STORAGE,
                 PersistentSatchelInstanceType.TYPE
             );
@@ -62,9 +69,9 @@ public class CrystamageSatchel extends UnplaceableBlock {
                         ThemeType.WARNING.getColor()
                     )
                 );
-                satchelInstance = generateNewSatchelInstance(event.getItem(), this.tier);
+                satchelInstance = generateNewSatchelInstance(itemStack, this.tier);
             }
-            final SatchelGui satchelGui = new SatchelGui(satchelInstance, event.getItem());
+            final SatchelGui satchelGui = new SatchelGui(satchelInstance, itemStack);
             satchelGui.open(event.getPlayer());
         };
     }
@@ -80,6 +87,10 @@ public class CrystamageSatchel extends UnplaceableBlock {
             Keys.PDC_SATCHEL_STORAGE,
             PersistentSatchelInstanceType.TYPE
         );
+
+        if (satchelInstance == null) {
+            return false;
+        }
 
         satchelInstance.addAmount(rarity, type, amount);
         DataTypeMethods.setCustom(

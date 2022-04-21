@@ -39,6 +39,12 @@ public class SatchelListener implements Listener {
                 // Try to pick up the item into a dank first
                 if (satchelSfItem instanceof CrystamageSatchel) {
                     final CrystamageSatchel crystamageSatchel = (CrystamageSatchel) satchelSfItem;
+
+                    if (possibleSatchel.getAmount() > 1) {
+                        player.sendMessage(ThemeType.WARNING.getColor() + "You have stacked Crystamae Satchels. They will not work until unstacked.");
+                        return;
+                    }
+
                     if (crystamageSatchel.tryAddItem(possibleSatchel, itemStack, crystal)) {
                         final java.awt.Color baseColor = ThemeType.getByType(crystal.getType()).getColor().getColor();
                         final Color color = Color.fromRGB(baseColor.getRed(), baseColor.getGreen(), baseColor.getBlue());
@@ -48,6 +54,8 @@ public class SatchelListener implements Listener {
                         item.remove();
                         e.setCancelled(true);
                         return;
+                    } else {
+                        player.sendMessage(ThemeType.WARNING.getColor() + "You have a Crystamae Satchel that has not yet been setup. Open the satchel first.");
                     }
                 }
             }

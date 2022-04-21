@@ -28,6 +28,8 @@ import io.github.sefiraat.crystamaehistoria.slimefun.Mechanisms;
 import io.github.sefiraat.crystamaehistoria.slimefun.Runes;
 import io.github.sefiraat.crystamaehistoria.slimefun.Tools;
 import io.github.sefiraat.crystamaehistoria.slimefun.Uniques;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.chroniclerpanel.ChroniclerPanel;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.chroniclerpanel.ChroniclerPanelCache;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import org.apache.commons.lang.Validate;
@@ -214,6 +216,10 @@ public class CrystamaeHistoria extends AbstractAddon {
 
     @Override
     protected void disable() {
+        for (ChroniclerPanelCache cache : ChroniclerPanel.getCaches().values()) {
+            cache.shutdown();
+        }
+
         spellMemory.clearAll();
         configManager.saveAll();
         instance = null;
