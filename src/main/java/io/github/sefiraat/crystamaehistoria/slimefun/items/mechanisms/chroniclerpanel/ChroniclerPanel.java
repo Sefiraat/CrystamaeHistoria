@@ -107,4 +107,8 @@ public class ChroniclerPanel extends TickingMenuBlock {
     protected boolean synchronous() {
         return true;
     }
+
+    public static Map<Location, ChroniclerPanelCache> getCaches() {
+        return CACHES;
+    }
 }

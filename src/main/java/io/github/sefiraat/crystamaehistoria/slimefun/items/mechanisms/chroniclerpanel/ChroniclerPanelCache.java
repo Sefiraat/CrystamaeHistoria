@@ -188,7 +188,7 @@ public class ChroniclerPanelCache extends AbstractCache {
         this.blockMenu.replaceExistingItem(ChroniclerPanel.INPUT_SLOT, null);
     }
 
-    protected void shutdown() {
+    public void shutdown() {
         if (working) {
             setNotWorking(blockMenu.getBlock());
             ArmourStandUtils.clearDisplayItem(getDisplayStand());
