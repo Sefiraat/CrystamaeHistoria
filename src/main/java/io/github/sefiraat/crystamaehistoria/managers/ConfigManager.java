@@ -9,6 +9,7 @@ import org.bukkit.configuration.InvalidConfigurationException;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
+import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.io.BufferedReader;
 import java.io.File;
@@ -33,27 +34,30 @@ public class ConfigManager {
         this.spells = getConfig("spells.yml", false);
     }
 
-    /**
-     * @noinspection ResultOfMethodCallIgnored
-     */
-    @ParametersAreNonnullByDefault
-    private FileConfiguration getConfig(String fileName, boolean updateWithDefaults) {
+    @Nonnull
+    @SuppressWarnings("ResultOfMethodCallIgnored")
+    private FileConfiguration getConfig(@Nonnull String fileName, boolean updateWithDefaults) {
         final CrystamaeHistoria plugin = CrystamaeHistoria.getInstance();
         final File file = new File(plugin.getDataFolder(), fileName);
-        if (!file.exists()) {
-            file.getParentFile().mkdirs();
-            plugin.saveResource(fileName, true);
-        }
-        final FileConfiguration config = new YamlConfiguration();
+
         try {
-            config.load(file);
+            if (!file.exists()) {
+                file.getParentFile().mkdirs();
+                file.createNewFile();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        FileConfiguration configuration = YamlConfiguration.loadConfiguration(file);
+        try {
+            configuration.load(file);
             if (updateWithDefaults) {
-                updateConfig(config, file, fileName);
+                updateConfig(configuration, file, fileName);
             }
         } catch (IOException | InvalidConfigurationException e) {
             e.printStackTrace();
         }
-        return config;
+        return configuration;
     }
 
     @ParametersAreNonnullByDefault

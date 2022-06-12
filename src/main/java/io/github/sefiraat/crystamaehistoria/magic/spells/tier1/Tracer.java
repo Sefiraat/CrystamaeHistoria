@@ -1,12 +1,12 @@
 package io.github.sefiraat.crystamaehistoria.magic.spells.tier1;
 
+import com.google.common.base.Preconditions;
 import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.Spell;
 import io.github.sefiraat.crystamaehistoria.magic.spells.core.SpellCoreBuilder;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.liquefactionbasin.RecipeSpell;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.sefiraat.crystamaehistoria.utils.ParticleUtils;
-import org.apache.commons.lang.Validate;
 import org.bukkit.Color;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -75,7 +75,7 @@ public class Tracer extends Spell {
                 continue;
             }
 
-            Validate.notNull(
+            Preconditions.checkNotNull(
                 dustOptions,
                 "Dust Options is null, something be bad: " + livingEntity.getType().name()
             );

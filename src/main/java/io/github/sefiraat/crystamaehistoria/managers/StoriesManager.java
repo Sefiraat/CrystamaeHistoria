@@ -1,5 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.managers;
 
+import com.google.common.base.Preconditions;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.BlockTier;
@@ -11,7 +12,6 @@ import io.github.sefiraat.crystamaehistoria.utils.StoryUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import lombok.Getter;
 import net.md_5.bungee.api.chat.TextComponent;
-import org.apache.commons.lang.Validate;
 import org.bukkit.Material;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -139,23 +139,23 @@ public class StoriesManager {
         FileConfiguration stories = CrystamaeHistoria.getConfigManager().getStories();
 
         ConfigurationSection common = stories.getConfigurationSection("COMMON");
-        Validate.notNull(common, "Common story configuration is not found, changed or deleted.");
+        Preconditions.checkNotNull(common, "Common story configuration is not found, changed or deleted.");
         fillMap(storyMapCommon, common, StoryRarity.COMMON);
 
         ConfigurationSection uncommon = stories.getConfigurationSection("UNCOMMON");
-        Validate.notNull(uncommon, "Uncommon story configuration is not found, changed or deleted.");
+        Preconditions.checkNotNull(uncommon, "Uncommon story configuration is not found, changed or deleted.");
         fillMap(storyMapUncommon, uncommon, StoryRarity.UNCOMMON);
 
         ConfigurationSection rare = stories.getConfigurationSection("RARE");
-        Validate.notNull(rare, "Rare story configuration is not found, changed or deleted.");
+        Preconditions.checkNotNull(rare, "Rare story configuration is not found, changed or deleted.");
         fillMap(storyMapRare, rare, StoryRarity.RARE);
 
         ConfigurationSection epic = stories.getConfigurationSection("EPIC");
-        Validate.notNull(epic, "Epic story configuration is not found, changed or deleted.");
+        Preconditions.checkNotNull(epic, "Epic story configuration is not found, changed or deleted.");
         fillMap(storyMapEpic, epic, StoryRarity.EPIC);
 
         ConfigurationSection mythical = stories.getConfigurationSection("MYTHICAL");
-        Validate.notNull(mythical, "Mythical story configuration is not found, changed or deleted.");
+        Preconditions.checkNotNull(mythical, "Mythical story configuration is not found, changed or deleted.");
         fillMap(storyMapMythical, mythical, StoryRarity.MYTHICAL);
     }
 
@@ -200,8 +200,8 @@ public class StoriesManager {
             final Story story = new Story(storySection, StoryRarity.UNIQUE);
             final int tier = wholeSection.getInt("tier");
             final List<StoryType> types = wholeSection.getStringList("elements").stream()
-                .map(StoryType::getByName)
-                .collect(Collectors.toList());
+                                                      .map(StoryType::getByName)
+                                                      .collect(Collectors.toList());
 
             for (StoryType storyType : types) {
                 if (storyType == null) {
@@ -229,7 +229,7 @@ public class StoriesManager {
     private void fillMap(Map<String, Story> map, ConfigurationSection section, StoryRarity rarity) {
         for (String key : section.getKeys(false)) {
             ConfigurationSection storySection = section.getConfigurationSection(key);
-            Validate.notNull(storySection, "Section is null, this doesn't make sense so don't worry.");
+            Preconditions.checkNotNull(storySection, "Section is null, this doesn't make sense so don't worry.");
             Story story = new Story(storySection, rarity);
             map.put(story.getId(), story);
         }

@@ -1,10 +1,10 @@
 package io.github.sefiraat.crystamaehistoria.utils;
 
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
+import io.github.thebusybiscuit.slimefun4.libraries.commons.lang.StringUtils;
+import io.github.thebusybiscuit.slimefun4.libraries.commons.lang.WordUtils;
 import lombok.experimental.UtilityClass;
 import net.md_5.bungee.api.ChatColor;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.WordUtils;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;

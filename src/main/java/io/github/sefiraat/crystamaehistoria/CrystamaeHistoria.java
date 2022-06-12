@@ -1,5 +1,6 @@
 package io.github.sefiraat.crystamaehistoria;
 
+import com.google.common.base.Preconditions;
 import de.slikey.effectlib.EffectManager;
 import io.github.mooy1.infinitylib.core.AbstractAddon;
 import io.github.sefiraat.crystamaehistoria.commands.GetRanks;
@@ -30,7 +31,6 @@ import io.github.sefiraat.crystamaehistoria.slimefun.Tools;
 import io.github.sefiraat.crystamaehistoria.slimefun.Uniques;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
-import org.apache.commons.lang.Validate;
 import org.bstats.bukkit.Metrics;
 import org.bstats.charts.AdvancedPie;
 import org.bukkit.plugin.PluginManager;
@@ -117,7 +117,10 @@ public class CrystamaeHistoria extends AbstractAddon {
     @ParametersAreNonnullByDefault
     public static CastInformation getProjectileCastInfo(MagicProjectile magicProjectile) {
         CastInformation castInformation = getProjectileMap().get(magicProjectile).getFirstValue();
-        Validate.notNull(castInformation, "Cast information is null, magical projectile spawned incorrectly.");
+        Preconditions.checkNotNull(
+            castInformation,
+            "Cast information is null, magical projectile spawned incorrectly."
+        );
         return castInformation;
     }
 
@@ -125,7 +128,10 @@ public class CrystamaeHistoria extends AbstractAddon {
     @ParametersAreNonnullByDefault
     public static CastInformation getFallingBlockCastInfo(MagicFallingBlock magicFallingBlock) {
         CastInformation castInformation = getFallingBlockMap().get(magicFallingBlock).getFirstValue();
-        Validate.notNull(castInformation, "Cast information is null, magical falling block spawned incorrectly.");
+        Preconditions.checkNotNull(
+            castInformation,
+            "Cast information is null, magical falling block spawned incorrectly."
+        );
         return castInformation;
     }
 
@@ -133,7 +139,10 @@ public class CrystamaeHistoria extends AbstractAddon {
     @ParametersAreNonnullByDefault
     public static CastInformation getStrikeCastInfo(UUID lightningStrike) {
         CastInformation castInformation = getStrikeMap().get(lightningStrike).getFirstValue();
-        Validate.notNull(castInformation, "Cast information is null, magical projectile spawned incorrectly.");
+        Preconditions.checkNotNull(
+            castInformation,
+            "Cast information is null, magical projectile spawned incorrectly."
+        );
         return castInformation;
     }
 
