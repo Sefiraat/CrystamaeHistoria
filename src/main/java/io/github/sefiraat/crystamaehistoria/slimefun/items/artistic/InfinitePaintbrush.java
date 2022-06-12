@@ -1,7 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.slimefun.items.artistic;
 
 import io.github.sefiraat.crystamaehistoria.utils.Keys;
-import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
+import io.github.sefiraat.crystamaehistoria.utils.TextUtils;
 import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
@@ -45,7 +45,7 @@ public class InfinitePaintbrush extends SlimefunItem implements MagicPaintbrush 
                     PersistentDataAPI.setInt(potionMeta, Keys.PDC_PAINT_TYPE, currentSelection);
                     PaintProfile profile = PaintProfile.getCachedValues()[currentSelection];
                     e.getPlayer().sendActionBar(
-                        Component.text("Now painting in " + ThemeType.toTitleCase(profile.name()))
+                        Component.text("Now painting in " + TextUtils.toTitleCase(profile.name()))
                             .color(profile.getTextColor())
                     );
                     potionMeta.setColor(profile.getDyeColor().getColor());

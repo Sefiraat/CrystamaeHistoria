@@ -3,7 +3,6 @@ package io.github.sefiraat.crystamaehistoria.utils.theme;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryRarity;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
-import io.github.thebusybiscuit.slimefun4.libraries.commons.lang.WordUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import lombok.Getter;
 import net.kyori.adventure.text.format.TextColor;
@@ -267,19 +266,6 @@ public enum ThemeType {
             default:
                 throw new IllegalStateException("Unexpected value: " + storyType);
         }
-    }
-
-    /**
-     * converts given string to Title Case
-     *
-     * @param string The input string
-     * @return A new {@link String} in Title Case
-     */
-    @Nonnull
-    @ParametersAreNonnullByDefault
-    public static String toTitleCase(String string) {
-        final char[] delimiters = {' ', '_'};
-        return WordUtils.capitalizeFully(string, delimiters).replace("_", " ");
     }
 
     @Nonnull

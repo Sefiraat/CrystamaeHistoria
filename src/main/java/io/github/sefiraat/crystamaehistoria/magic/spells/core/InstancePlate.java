@@ -5,6 +5,7 @@ import io.github.sefiraat.crystamaehistoria.magic.CastInformation;
 import io.github.sefiraat.crystamaehistoria.magic.CastResult;
 import io.github.sefiraat.crystamaehistoria.magic.SpellType;
 import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
+import io.github.sefiraat.crystamaehistoria.utils.TextUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import lombok.Getter;
 import lombok.Setter;
@@ -36,7 +37,7 @@ public class InstancePlate {
 
     @ParametersAreNonnullByDefault
     public static void setPlateLore(ItemStack itemStack, @Nullable InstancePlate instancePlate) {
-        final String magic = instancePlate != null ? ThemeType.toTitleCase(instancePlate.storedSpell.getId()) : "None";
+        final String magic = instancePlate != null ? TextUtils.toTitleCase(instancePlate.storedSpell.getId()) : "None";
         final String crysta = instancePlate != null ? String.valueOf(instancePlate.crysta) : "0";
         final String[] lore = new String[]{
             "A magically charged plate storing magic",

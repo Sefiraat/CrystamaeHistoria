@@ -2,10 +2,7 @@ package io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.prismatic
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.magic.DisplayItem;
-import io.github.sefiraat.crystamaehistoria.managers.SupportedPluginManager;
-import io.github.sefiraat.crystamaehistoria.player.GildingRank;
 import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
-import io.github.sefiraat.crystamaehistoria.slimefun.CrystaStacks;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.AbstractCache;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;

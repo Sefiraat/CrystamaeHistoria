@@ -8,6 +8,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.stories.BlockDefinition;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.TextUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.GuiElements;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.FlexItemGroup;
@@ -232,7 +233,7 @@ public class StoryCollectionFlexGroup extends FlexItemGroup {
         }).map(s -> ThemeType.PASSIVE.getColor() + s).collect(Collectors.toList());
 
         for (StoryType storyType : storyTypes) {
-            lore.add(ThemeType.CLICK_INFO.getColor() + ThemeType.toTitleCase(storyType.toString()));
+            lore.add(ThemeType.CLICK_INFO.getColor() + TextUtils.toTitleCase(storyType.toString()));
         }
         return new CustomItemStack(
             Material.DEEPSLATE_BRICK_SLAB,

@@ -1,6 +1,5 @@
 package io.github.sefiraat.crystamaehistoria.utils;
 
-import com.sun.org.apache.bcel.internal.generic.IREM;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.blocks.BlockPosition;
@@ -59,7 +58,9 @@ public final class GeneralUtils {
      * @return rolled int
      */
     public static int roll(int upper, boolean upLimit) {
-        if (upLimit) upper++;
+        if (upLimit) {
+            upper++;
+        }
         return ThreadLocalRandom.current().nextInt(1, upper);
     }
 
@@ -85,7 +86,9 @@ public final class GeneralUtils {
      * @return rolled int
      */
     public static double roll(double upper, boolean upLimit) {
-        if (upLimit) upper++;
+        if (upLimit) {
+            upper++;
+        }
         return ThreadLocalRandom.current().nextDouble(1, upper);
     }
 
@@ -144,18 +147,18 @@ public final class GeneralUtils {
     @ParametersAreNonnullByDefault
     public boolean pullEntity(UUID caster, Location pullToLocation, Entity pushed, double force) {
         Vector vector = pushed.getLocation().toVector()
-            .subtract(pullToLocation.toVector())
-            .normalize()
-            .multiply(-force);
+                              .subtract(pullToLocation.toVector())
+                              .normalize()
+                              .multiply(-force);
         return pushEntity(caster, vector, pushed);
     }
 
     @ParametersAreNonnullByDefault
     public void pullEntity(Location pullToLocation, Entity pushed, double force) {
         Vector vector = pushed.getLocation().toVector()
-            .subtract(pullToLocation.toVector())
-            .normalize()
-            .multiply(-force);
+                              .subtract(pullToLocation.toVector())
+                              .normalize()
+                              .multiply(-force);
         pushEntity(vector, pushed);
     }
 
@@ -211,8 +214,15 @@ public final class GeneralUtils {
     }
 
     @ParametersAreNonnullByDefault
-    public static boolean damageEntity(LivingEntity livingEntity, UUID caster, double damage, @Nullable Location knockbackOrigin, double knockbackForce) {
-        Interaction interaction = livingEntity instanceof Player ? Interaction.ATTACK_PLAYER : Interaction.ATTACK_ENTITY;
+    public static boolean damageEntity(LivingEntity livingEntity,
+                                       UUID caster,
+                                       double damage,
+                                       @Nullable Location knockbackOrigin,
+                                       double knockbackForce
+    ) {
+        Interaction interaction = livingEntity instanceof Player ?
+                                  Interaction.ATTACK_PLAYER :
+                                  Interaction.ATTACK_ENTITY;
         if (GeneralUtils.hasPermission(caster, livingEntity.getLocation(), interaction)) {
             Player player = Bukkit.getPlayer(caster);
             livingEntity.damage(damage, player);
@@ -227,9 +237,9 @@ public final class GeneralUtils {
     @ParametersAreNonnullByDefault
     public boolean pushEntity(UUID caster, Location pushFromLocation, Entity pushed, double force) {
         Vector vector = pushed.getLocation().toVector()
-            .subtract(pushFromLocation.toVector())
-            .normalize()
-            .multiply(force);
+                              .subtract(pushFromLocation.toVector())
+                              .normalize()
+                              .multiply(force);
         return pushEntity(caster, vector, pushed);
     }
 
@@ -273,7 +283,11 @@ public final class GeneralUtils {
     public static void putOnCooldown(ItemStack itemStack, int durationInSeconds) {
         ItemMeta itemMeta = itemStack.getItemMeta();
         if (itemMeta != null) {
-            PersistentDataAPI.setLong(itemMeta, Keys.PDC_ON_COOLDOWN, System.currentTimeMillis() + (durationInSeconds * 1000L));
+            PersistentDataAPI.setLong(
+                itemMeta,
+                Keys.PDC_ON_COOLDOWN,
+                System.currentTimeMillis() + (durationInSeconds * 1000L)
+            );
             itemStack.setItemMeta(itemMeta);
         }
     }
@@ -300,7 +314,10 @@ public final class GeneralUtils {
 
     @Nonnull
     @SafeVarargs
-    public static ItemStack getPreEnchantedItemStack(Material material, boolean hide, @Nonnull Pair<Enchantment, Integer>... enchantments) {
+    public static ItemStack getPreEnchantedItemStack(Material material,
+                                                     boolean hide,
+                                                     @Nonnull Pair<Enchantment, Integer>... enchantments
+    ) {
         ItemStack itemStack = new ItemStack(material);
         ItemMeta itemMeta = itemStack.getItemMeta();
         for (Pair<Enchantment, Integer> pair : enchantments) {

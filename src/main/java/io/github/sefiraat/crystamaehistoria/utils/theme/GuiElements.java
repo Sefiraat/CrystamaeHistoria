@@ -2,6 +2,7 @@ package io.github.sefiraat.crystamaehistoria.utils.theme;
 
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.stave.SpellSlot;
 import io.github.sefiraat.crystamaehistoria.utils.Skulls;
+import io.github.sefiraat.crystamaehistoria.utils.TextUtils;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import lombok.experimental.UtilityClass;
@@ -78,7 +79,7 @@ public class GuiElements {
         return ThemeType.themedItemStack(
             material,
             ThemeType.RARITY_UNIQUE,
-            ThemeType.toTitleCase(material.toString()),
+            TextUtils.toTitleCase(material.toString()),
             "This unique story has been",
             "chronicled."
         );
@@ -89,7 +90,7 @@ public class GuiElements {
         return ThemeType.themedItemStack(
             Material.BARRIER,
             ThemeType.RESEARCH,
-            ThemeType.toTitleCase(material.toString()),
+            TextUtils.toTitleCase(material.toString()),
             MessageFormat.format("{0}{1}LOCKED", ThemeType.RESEARCH.getColor(), ChatColor.BOLD),
             "This unique story is not yet",
             "unlocked.",
@@ -103,7 +104,7 @@ public class GuiElements {
         return ThemeType.themedItemStack(
             Material.BARRIER,
             ThemeType.RESEARCH,
-            ThemeType.toTitleCase(id),
+            TextUtils.toTitleCase(id),
             MessageFormat.format("{0}{1}LOCKED", ThemeType.RESEARCH.getColor(), ChatColor.BOLD),
             "This spell is not yet unlocked.",
             "Spells are unlocked the first time",
@@ -117,7 +118,7 @@ public class GuiElements {
         return ThemeType.themedItemStack(
             material,
             ThemeType.RARITY_UNIQUE,
-            ThemeType.toTitleCase(material.toString()),
+            TextUtils.toTitleCase(material.toString()),
             "This block has been gilded."
         );
     }
@@ -127,7 +128,7 @@ public class GuiElements {
         return ThemeType.themedItemStack(
             Material.BARRIER,
             ThemeType.RESEARCH,
-            ThemeType.toTitleCase(material.toString()),
+            TextUtils.toTitleCase(material.toString()),
             MessageFormat.format("{0}{1}LOCKED", ThemeType.RESEARCH.getColor(), ChatColor.BOLD),
             "This block has not yet been gilded."
         );
@@ -137,7 +138,7 @@ public class GuiElements {
     public static CustomItemStack getSpellSlotPane(SpellSlot spellSlot) {
         return new CustomItemStack(
             Material.RED_STAINED_GLASS_PANE,
-            ChatColor.GRAY + "Spell Slot : " + ThemeType.toTitleCase(spellSlot.name())
+            ChatColor.GRAY + "Spell Slot : " + TextUtils.toTitleCase(spellSlot.name())
         );
     }
 
