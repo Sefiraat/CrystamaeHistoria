@@ -8,6 +8,7 @@ import io.github.sefiraat.crystamaehistoria.player.SpellRank;
 import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.stories.definition.StoryType;
+import io.github.sefiraat.crystamaehistoria.utils.TextUtils;
 import io.github.sefiraat.crystamaehistoria.utils.theme.GuiElements;
 import io.github.sefiraat.crystamaehistoria.utils.theme.ThemeType;
 import io.github.thebusybiscuit.slimefun4.api.items.groups.FlexItemGroup;
@@ -459,7 +460,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
                         final String negativeEffectMessage = MessageFormat.format(
                             "{0}{1}: {2}Power ({3}) - Duration ({4})",
                             color,
-                            ThemeType.toTitleCase(type.getName()),
+                            TextUtils.toTitleCase(type.getName()),
                             passive,
                             pair.getFirstValue(),
                             pair.getSecondValue()
@@ -476,7 +477,7 @@ public class SpellCollectionFlexGroup extends FlexItemGroup {
                         final String positiveEffectMessage = MessageFormat.format(
                             "{0}{1}: {2}Power ({3}) - Duration ({4})",
                             color,
-                            ThemeType.toTitleCase(type.getName()),
+                            TextUtils.toTitleCase(type.getName()),
                             passive,
                             pair.getFirstValue(),
                             pair.getSecondValue()

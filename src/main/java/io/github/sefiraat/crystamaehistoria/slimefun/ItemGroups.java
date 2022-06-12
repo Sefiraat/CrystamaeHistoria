@@ -16,7 +16,6 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.items.CustomItemStack;
 import lombok.experimental.UtilityClass;
 import org.bukkit.DyeColor;
 import org.bukkit.Material;
-import org.bukkit.block.Skull;
 import org.bukkit.inventory.ItemStack;
 
 @UtilityClass

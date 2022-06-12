@@ -2,7 +2,6 @@ package io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.chronicle
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
 import io.github.sefiraat.crystamaehistoria.managers.StoriesManager;
-import io.github.sefiraat.crystamaehistoria.managers.SupportedPluginManager;
 import io.github.sefiraat.crystamaehistoria.player.PlayerStatistics;
 import io.github.sefiraat.crystamaehistoria.runnables.spells.FloatingHeadAnimation;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.mechanisms.AbstractCache;
