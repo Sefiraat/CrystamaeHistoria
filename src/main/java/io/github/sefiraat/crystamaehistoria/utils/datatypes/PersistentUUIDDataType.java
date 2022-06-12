@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.utils.datatypes;
 
-import org.apache.commons.lang.Validate;
+import com.google.common.base.Preconditions;
 import org.bukkit.persistence.PersistentDataAdapterContext;
 import org.bukkit.persistence.PersistentDataType;
 
@@ -36,7 +36,7 @@ public final class PersistentUUIDDataType implements PersistentDataType<int[], U
 
     @Nonnull
     public static int[] toIntArray(@Nonnull UUID uuid) {
-        Validate.notNull(uuid, "The provided uuid cannot be null!");
+        Preconditions.checkNotNull(uuid, "The provided uuid cannot be null!");
 
         long mostSig = uuid.getMostSignificantBits();
         long leastSig = uuid.getLeastSignificantBits();
@@ -52,8 +52,8 @@ public final class PersistentUUIDDataType implements PersistentDataType<int[], U
 
     @Nonnull
     public static UUID fromIntArray(int[] ints) {
-        Validate.notNull(ints, "The provided integer array cannot be null!");
-        Validate.isTrue(ints.length == 4, "The integer array must have a length of 4.");
+        Preconditions.checkNotNull(ints, "The provided integer array cannot be null!");
+        Preconditions.checkArgument(ints.length == 4, "The integer array must have a length of 4.");
 
         return new UUID((long) ints[0] << 32L | ints[1] & 0xFFFFFFFFL, (long) ints[2] << 32L | ints[3] & 0xFFFFFFFFL);
     }

@@ -102,7 +102,7 @@ public final class ItemGroups {
     public static final DummyItemGroup GUIDE = new DummyItemGroup(
         Keys.newKey("guide"),
         new CustomItemStack(
-            new ItemStack(Material.BOOK),
+            new ItemStack(Material.KNOWLEDGE_BOOK),
             ThemeType.MAIN.getColor() + "Crystamae Misc Guides"
         )
     );

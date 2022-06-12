@@ -1,5 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.utils;
 
+import com.google.common.base.Preconditions;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
@@ -14,7 +15,6 @@ import io.github.sefiraat.crystamaehistoria.utils.datatypes.PersistentStoriesDat
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.libraries.dough.data.persistent.PersistentDataAPI;
 import lombok.experimental.UtilityClass;
-import org.apache.commons.lang.Validate;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
@@ -127,7 +127,11 @@ public class StoryUtils {
     @Nonnull
     @ParametersAreNonnullByDefault
     public static JsonObject getStoryLimits(ItemStack itemStack) {
-        return PersistentDataAPI.getJsonObject(itemStack.getItemMeta(), Keys.PDC_POTENTIAL_STORIES, getInitialStoryLimits(itemStack));
+        return PersistentDataAPI.getJsonObject(
+            itemStack.getItemMeta(),
+            Keys.PDC_POTENTIAL_STORIES,
+            getInitialStoryLimits(itemStack)
+        );
     }
 
     /**
@@ -142,8 +146,15 @@ public class StoryUtils {
     public static JsonObject getInitialStoryLimits(ItemStack itemStack) {
         Material material = itemStack.getType();
         BlockDefinition definition = CrystamaeHistoria.getStoriesManager().getBlockDefinitionMap().get(material);
-        Validate.notNull(definition, "The selected material does not have a story definition. This shouldn't happen, SefiDumb™");
-        int availableStoryCount = ThreadLocalRandom.current().nextInt(definition.getBlockTier().minStories, definition.getBlockTier().maxStories + 1);
+        Preconditions.checkNotNull(
+            definition,
+            "The selected material does not have a story definition. This shouldn't happen, SefiDumb™"
+        );
+        int availableStoryCount = ThreadLocalRandom.current()
+                                                   .nextInt(
+                                                       definition.getBlockTier().minStories,
+                                                       definition.getBlockTier().maxStories + 1
+                                                   );
         int tier = definition.getBlockTier().tier;
         JsonObject jsonObject = new JsonObject();
         jsonObject.add(Keys.JS_S_AVAILABLE_STORIES, new JsonPrimitive(availableStoryCount));
@@ -216,7 +227,10 @@ public class StoryUtils {
     @ParametersAreNonnullByDefault
     public static void addStory(ItemStack itemStack, List<StoryType> p, Map<String, Story> storyList) {
         final StoryType st = p.get(ThreadLocalRandom.current().nextInt(0, p.size()));
-        final List<Story> availableStories = storyList.values().stream().filter(t -> t.getType() == st).collect(Collectors.toList());
+        final List<Story> availableStories = storyList.values()
+                                                      .stream()
+                                                      .filter(t -> t.getType() == st)
+                                                      .collect(Collectors.toList());
         final Story story = availableStories.get(ThreadLocalRandom.current().nextInt(0, availableStories.size()));
         applyStory(itemStack, story);
         incrementStoryAmount(itemStack);
@@ -279,7 +293,7 @@ public class StoryUtils {
     public static int removeStory(ItemStack itemStack, Story story) {
         final ItemMeta im = itemStack.getItemMeta();
         final List<Story> storyList = getAllStories(itemStack);
-        Validate.notNull(storyList, "No storyList found when trying to remove.");
+        Preconditions.checkNotNull(storyList, "No storyList found when trying to remove.");
         storyList.remove(story);
         DataTypeMethods.setCustom(im, Keys.PDC_STORIES, PersistentStoriesDataType.TYPE, storyList);
         itemStack.setItemMeta(im);

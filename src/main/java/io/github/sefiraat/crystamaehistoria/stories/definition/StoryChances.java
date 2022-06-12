@@ -1,6 +1,6 @@
 package io.github.sefiraat.crystamaehistoria.stories.definition;
 
-import org.apache.commons.lang.Validate;
+import com.google.common.base.Preconditions;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 
@@ -15,7 +15,7 @@ public class StoryChances {
     @ParametersAreNonnullByDefault
     public StoryChances(int basic, int uncommon, int rare, int epic, int mythical) {
         boolean validTotal = basic + uncommon + rare + epic + mythical == 100;
-        Validate.isTrue(validTotal, "Chances must add up to 100 for a StoryChance");
+        Preconditions.checkArgument(validTotal, "Chances must add up to 100 for a StoryChance");
         this.basic = basic;
         this.uncommon = uncommon;
         this.rare = rare;

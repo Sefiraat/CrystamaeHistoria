@@ -10,6 +10,11 @@ import io.github.thebusybiscuit.slimefun4.core.guide.SlimefunGuideMode;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
 import io.github.thebusybiscuit.slimefun4.utils.ChestMenuUtils;
 import me.mrCookieSlime.CSCoreLibPlugin.general.Inventory.ChestMenu;
+import net.kyori.adventure.text.Component;
+import net.kyori.adventure.text.TextComponent;
+import net.kyori.adventure.text.event.ClickEvent;
+import net.kyori.adventure.text.format.TextColor;
+import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -21,23 +26,33 @@ import javax.annotation.ParametersAreNonnullByDefault;
  */
 public class MainFlexGroup extends FlexItemGroup {
 
+    private static final ItemStack DOCS_ITEM_STACK = ThemeType.themedItemStack(
+        Material.BOOK,
+        ThemeType.GUIDE,
+        "Documentation Wiki",
+        "Click to get the link to the",
+        "documentation Wiki for Crystamae",
+        "and other Sefiraat addons."
+    );
+
     private static final int PAGE_SIZE = 36;
 
     private static final int GUIDE_BACK = 1;
 
-    private static final int MECHANISMS = 9;
-    private static final int CRYSTALS = 10;
-    private static final int TOOLS = 11;
-    private static final int GADGETS = 12;
-    private static final int PAINTBRUSHES = 13;
-    private static final int EXALTED = 14;
-    private static final int UNIQUES = 15;
-    private static final int RUNES = 16;
-    private static final int MATERIALS = 17;
-    private static final int GUIDE = 18;
-    private static final int STORY = 19;
-    private static final int SPELL = 20;
-    private static final int GILDING = 21;
+    private static final int DOCS = 9;
+    private static final int MECHANISMS = 10;
+    private static final int CRYSTALS = 11;
+    private static final int TOOLS = 12;
+    private static final int GADGETS = 13;
+    private static final int PAINTBRUSHES = 14;
+    private static final int EXALTED = 15;
+    private static final int UNIQUES = 16;
+    private static final int RUNES = 17;
+    private static final int MATERIALS = 18;
+    private static final int GUIDE = 19;
+    private static final int STORY = 20;
+    private static final int SPELL = 21;
+    private static final int GILDING = 22;
 
     private static final int[] HEADER = new int[]{
         0, 1, 2, 3, 4, 5, 6, 7, 8
@@ -82,9 +97,27 @@ public class MainFlexGroup extends FlexItemGroup {
         }
 
         // Back
-        menu.replaceExistingItem(GUIDE_BACK, ChestMenuUtils.getBackButton(player, Slimefun.getLocalization().getMessage("guide.back.guide")));
+        menu.replaceExistingItem(
+            GUIDE_BACK,
+            ChestMenuUtils.getBackButton(
+                player,
+                Slimefun.getLocalization().getMessage("guide.back.guide")
+            )
+        );
         menu.addMenuClickHandler(GUIDE_BACK, (player1, slot, itemStack, clickAction) -> {
             SlimefunGuide.openMainMenu(profile, mode, 1);
+            return false;
+        });
+
+        // Docs
+        menu.replaceExistingItem(DOCS, DOCS_ITEM_STACK);
+        menu.addMenuClickHandler(DOCS, (player1, i1, itemStack1, clickAction) -> {
+            final TextComponent link = Component.text()
+                .content("To access the documentation Wiki, please click here")
+                .color(TextColor.color(175, 200, 60))
+                .clickEvent(ClickEvent.clickEvent(ClickEvent.Action.OPEN_URL, "https://sefiraat.dev/"))
+                .build();
+            player1.sendMessage(link);
             return false;
         });
 
@@ -133,6 +166,11 @@ public class MainFlexGroup extends FlexItemGroup {
         menu.addMenuClickHandler(MATERIALS, (player1, i1, itemStack1, clickAction) ->
             openPage(profile, ItemGroups.MATERIALS, mode, 1));
 
+        // Guide
+        menu.replaceExistingItem(GUIDE, ItemGroups.GUIDE.getItem(player));
+        menu.addMenuClickHandler(GUIDE, (player1, i1, itemStack1, clickAction) ->
+            openPage(profile, ItemGroups.GUIDE, mode, 1));
+
         // Story
         menu.replaceExistingItem(STORY, ItemGroups.STORY_COLLECTION.getItem(player));
         menu.addMenuClickHandler(STORY, (player1, i1, itemStack1, clickAction) ->
@@ -147,11 +185,6 @@ public class MainFlexGroup extends FlexItemGroup {
         menu.replaceExistingItem(GILDING, ItemGroups.GILDING_COLLECTION.getItem(player));
         menu.addMenuClickHandler(GILDING, (player1, i1, itemStack1, clickAction) ->
             openPage(profile, ItemGroups.GILDING_COLLECTION, mode, 1));
-
-        // Guide
-        menu.replaceExistingItem(GUIDE, ItemGroups.GUIDE.getItem(player));
-        menu.addMenuClickHandler(GUIDE, (player1, i1, itemStack1, clickAction) ->
-            openPage(profile, ItemGroups.GUIDE, mode, 1));
     }
 
     @ParametersAreNonnullByDefault
