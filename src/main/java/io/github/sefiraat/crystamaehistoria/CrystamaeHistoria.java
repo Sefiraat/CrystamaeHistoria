@@ -26,6 +26,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.Gadgets;
 import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.slimefun.Mechanisms;
+import io.github.sefiraat.crystamaehistoria.slimefun.NetheoPlants;
 import io.github.sefiraat.crystamaehistoria.slimefun.Runes;
 import io.github.sefiraat.crystamaehistoria.slimefun.Tools;
 import io.github.sefiraat.crystamaehistoria.slimefun.Uniques;
@@ -36,9 +37,11 @@ import io.github.thebusybiscuit.slimefun4.libraries.dough.collections.Pair;
 import org.bstats.bukkit.Metrics;
 import org.bstats.charts.AdvancedPie;
 import org.bukkit.plugin.PluginManager;
+import org.checkerframework.checker.units.qual.N;
 
 import javax.annotation.Nonnull;
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -244,5 +247,12 @@ public class CrystamaeHistoria extends AbstractAddon {
         Exalted.setup();
         Uniques.setup();
         Runes.setup();
+        if (supportedPluginManager.isNetheopoiesis()){
+            try {
+                NetheoPlants.setup();
+            } catch (NoClassDefFoundError e) {
+                getLogger().severe("Netheopoiesis must be updated to meet Crystamaes requirements.");
+            }
+        }
     }
 }

@@ -14,6 +14,7 @@ softdepend:
   - HeadLimiter
   - RoseStacker
   - WildStacker
+  - Netheopoiesis
 commands:
   crystamaehistoria:
     description: /historia
