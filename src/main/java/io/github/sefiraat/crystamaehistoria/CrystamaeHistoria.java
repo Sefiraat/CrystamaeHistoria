@@ -26,6 +26,7 @@ import io.github.sefiraat.crystamaehistoria.slimefun.Gadgets;
 import io.github.sefiraat.crystamaehistoria.slimefun.ItemGroups;
 import io.github.sefiraat.crystamaehistoria.slimefun.Materials;
 import io.github.sefiraat.crystamaehistoria.slimefun.Mechanisms;
+import io.github.sefiraat.crystamaehistoria.slimefun.NetheoPlants;
 import io.github.sefiraat.crystamaehistoria.slimefun.Runes;
 import io.github.sefiraat.crystamaehistoria.slimefun.Tools;
 import io.github.sefiraat.crystamaehistoria.slimefun.Uniques;
@@ -244,5 +245,8 @@ public class CrystamaeHistoria extends AbstractAddon {
         Exalted.setup();
         Uniques.setup();
         Runes.setup();
+        if (supportedPluginManager.isNetheopoiesis()){
+            NetheoPlants.setup();
+        }
     }
 }

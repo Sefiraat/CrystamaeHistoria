@@ -34,15 +34,17 @@ public class SupportedPluginManager {
     private boolean networks;
     private boolean wildStacker;
     private boolean roseStacker;
+    private boolean netheopoiesis;
 
     private RoseStackerAPI roseStackerAPI;
 
     public SupportedPluginManager() {
         instance = this;
-        Bukkit.getScheduler().runTaskLater(CrystamaeHistoria.instance(), this::setup, 1);
+        Bukkit.getScheduler().runTaskLater(CrystamaeHistoria.instance(), this::postSetup, 1);
+        this.netheopoiesis = Bukkit.getPluginManager().isPluginEnabled("Netheopoiesis");
     }
 
-    private void setup() {
+    private void postSetup() {
         this.mcMMO = Bukkit.getPluginManager().isPluginEnabled("mcMMO");
         this.exoticGarden = Bukkit.getPluginManager().isPluginEnabled("ExoticGarden");
         this.slimeTinker = Bukkit.getPluginManager().isPluginEnabled("SlimeTinker");
@@ -163,4 +165,7 @@ public class SupportedPluginManager {
         return instance.roseStacker;
     }
 
+    public boolean isNetheopoiesis() {
+        return netheopoiesis;
+    }
 }
