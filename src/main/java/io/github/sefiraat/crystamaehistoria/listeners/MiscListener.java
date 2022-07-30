@@ -1,8 +1,7 @@
 package io.github.sefiraat.crystamaehistoria.listeners;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
-import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.BasicPaintbrush;
-import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.InfinitePaintbrush;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.MagicPaintbrush;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.LuminescenceScoop;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.covers.BlockVeil;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
@@ -50,7 +49,7 @@ public class MiscListener implements Listener {
     @EventHandler
     public void onShootPaintbrush(EntityShootBowEvent e) {
         ItemStack itemStack = e.getConsumable();
-        if (SlimefunItem.getByItem(itemStack) instanceof BasicPaintbrush) {
+        if (SlimefunItem.getByItem(itemStack) instanceof MagicPaintbrush) {
             e.setCancelled(true);
             final Entity entity = e.getEntity();
             if (entity instanceof Player) {
