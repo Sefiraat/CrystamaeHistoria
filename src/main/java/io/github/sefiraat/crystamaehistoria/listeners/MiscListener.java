@@ -50,10 +50,12 @@ public class MiscListener implements Listener {
     @EventHandler
     public void onShootPaintbrush(EntityShootBowEvent e) {
         ItemStack itemStack = e.getConsumable();
-        if (SlimefunItem.getByItem(itemStack) instanceof BasicPaintbrush || SlimefunItem.getByItem(itemStack) instanceof InfinitePaintbrush) {
+        if (SlimefunItem.getByItem(itemStack) instanceof BasicPaintbrush) {
             e.setCancelled(true);
-            final Entity player = e.getEntity();
-            player.sendMessage(ThemeType.WARNING.getColor() + "You can't shoot a Paintbrush!");
+            final Entity entity = e.getEntity();
+            if (entity instanceof Player) {
+                entity.sendMessage(ThemeType.WARNING.getColor() + "You can't shoot a Paintbrush!");
+            }
         }
     }
 
