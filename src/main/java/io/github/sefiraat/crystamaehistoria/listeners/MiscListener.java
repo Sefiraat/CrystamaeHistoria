@@ -1,6 +1,8 @@
 package io.github.sefiraat.crystamaehistoria.listeners;
 
 import io.github.sefiraat.crystamaehistoria.CrystamaeHistoria;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.BasicPaintbrush;
+import io.github.sefiraat.crystamaehistoria.slimefun.items.artistic.InfinitePaintbrush;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.LuminescenceScoop;
 import io.github.sefiraat.crystamaehistoria.slimefun.items.tools.covers.BlockVeil;
 import io.github.sefiraat.crystamaehistoria.utils.GeneralUtils;
@@ -11,6 +13,8 @@ import io.github.thebusybiscuit.slimefun4.api.events.BlockPlacerPlaceEvent;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import org.bukkit.Location;
 import org.bukkit.Material;
+import org.bukkit.entity.Entity;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -18,6 +22,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockPlaceEvent;
+import org.bukkit.event.entity.EntityShootBowEvent;
 import org.bukkit.event.inventory.CraftItemEvent;
 import org.bukkit.event.player.PlayerBedLeaveEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
@@ -40,6 +45,16 @@ public class MiscListener implements Listener {
         ItemStack itemStack = e.getItemStack();
         if (itemStack.getType() != Material.AIR && StoryUtils.isStoried(itemStack)) {
             e.setCancelled(true);
+        }
+    }
+
+    @EventHandler
+    public void onShootPaintbrush(EntityShootBowEvent e) {
+        ItemStack itemStack = e.getConsumable();
+        if (SlimefunItem.getByItem(itemStack) instanceof BasicPaintbrush || SlimefunItem.getByItem(itemStack) instanceof InfinitePaintbrush) {
+            e.setCancelled(true);
+            final Entity player = e.getEntity();
+            player.sendMessage(ThemeType.WARNING.getColor() + "You can't shoot a Paintbrush!");
         }
     }
 
