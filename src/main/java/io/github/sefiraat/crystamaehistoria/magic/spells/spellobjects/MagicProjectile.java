@@ -51,8 +51,8 @@ public class MagicProjectile {
         // Fireball projectiles want to move wrongly :)
         if (projectile instanceof Fireball) {
             ((Fireball) projectile).setDirection(vector);
+            projectile.setVelocity(vector.multiply(speed));
         }
-        projectile.setVelocity(vector.multiply(speed));
     }
 
     @Nonnull
