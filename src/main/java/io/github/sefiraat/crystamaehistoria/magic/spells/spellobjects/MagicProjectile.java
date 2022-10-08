@@ -35,8 +35,10 @@ public class MagicProjectile {
     @ParametersAreNonnullByDefault
     public void setVelocity(Location targetLocation, double speed) {
         Projectile projectile = (Projectile) Bukkit.getEntity(projectileUUID);
-        Vector velocity = targetLocation.toVector().subtract(projectile.getLocation().toVector()).normalize();
-        setVelocity(velocity, speed);
+        if (projectile != null) {
+            Vector velocity = targetLocation.toVector().subtract(projectile.getLocation().toVector()).normalize();
+            setVelocity(velocity, speed);
+        }
     }
 
     /**
