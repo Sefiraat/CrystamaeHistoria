@@ -10,6 +10,8 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.handlers.ItemUseHandler;
 import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.block.Block;
@@ -74,6 +76,11 @@ public class SpiritualSilken extends RefillableUseItem {
                 final Block block = blockOptional.get();
                 final Material material = block.getType();
                 final ItemSetting<Boolean> setting = settings.get(material);
+                if (!Slimefun.getProtectionManager().hasPermission(e.getPlayer(), block, Interaction.BREAK_BLOCK)) {
+                    e.getPlayer().sendMessage(ChatColor.RED + "You do not have permission!");
+                    return;
+                }
+                
                 if (VALID_MATERIALS.contains(material) && setting.getValue()) {
                     block.setType(Material.AIR);
                     block.getState().update(true, true);
