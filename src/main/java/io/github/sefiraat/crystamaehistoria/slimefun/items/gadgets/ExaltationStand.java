@@ -8,6 +8,8 @@ import io.github.thebusybiscuit.slimefun4.api.items.ItemGroup;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
+import io.github.thebusybiscuit.slimefun4.implementation.Slimefun;
+import io.github.thebusybiscuit.slimefun4.libraries.dough.protection.Interaction;
 import me.mrCookieSlime.CSCoreLibPlugin.Configuration.Config;
 import me.mrCookieSlime.Slimefun.api.BlockStorage;
 import org.bukkit.Bukkit;
@@ -41,6 +43,11 @@ public class ExaltationStand extends Stand {
         e.cancel();
 
         final Block blockClicked = optionalBlock.get();
+
+        if (!Slimefun.getProtectionManager().hasPermission(player, blockClicked, Interaction.BREAK_BLOCK)) {
+            return;
+        }
+
         final UUID currentItemUuid = itemMap.get(blockClicked.getLocation());
 
         if (currentItemUuid != null) {
