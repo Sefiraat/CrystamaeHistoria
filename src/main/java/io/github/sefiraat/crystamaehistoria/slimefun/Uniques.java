@@ -49,6 +49,8 @@ public class Uniques {
     private static Trophy birthdayTrophyDecoy;
     @Getter
     private static Trophy birthdayTrophyOddish;
+    @Getter
+    private static Trophy tenthAnniversaryTrophy;
 
     public static void setup() {
 
@@ -282,11 +284,56 @@ public class Uniques {
             }
         );
 
+        // Tenth Anniversary
+        RecipeItem anniversaryTrophy = new RecipeItem(
+            new ItemStack(Material.COOKIE),
+            StoryType.HUMAN, 500,
+            StoryType.ELEMENTAL, 500,
+            StoryType.VOID, 500,
+            Uniques::isTenthAnniversary
+        );
+        tenthAnniversaryTrophy = new Trophy(
+            ItemGroups.UNIQUES,
+            CrystaStacks.ANNIVERSARY_TROPHY,
+            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
+            anniversaryTrophy.getDisplayRecipe(),
+            location -> {
+                final int rand = ThreadLocalRandom.current().nextInt(9);
+
+                if (rand != 0) {
+                    return;
+                }
+
+                for (int i = 0; i < 4; i++) {
+                    final Location spawnLocation = location.add(0, 0.3, 0);
+                    final Color color = Color.fromRGB(55, 180, 30);
+                    spawnBirthdayFirework(spawnLocation, color);
+                    ParticleUtils.displayParticleEffect(
+                        spawnLocation,
+                        1,
+                        3,
+                        new Particle.DustOptions(color, 2)
+                    );
+                }
+
+                final Location spawnLocation = location.add(0, 0.2, 0);
+                final Color color = Color.fromRGB(255, 255, 255);
+                spawnBirthdayFirework(spawnLocation, color);
+                ParticleUtils.displayParticleEffect(
+                    spawnLocation,
+                    1,
+                    3,
+                    new Particle.DustOptions(color, 2)
+                );
+            }
+        );
+
         spellTrophy.register(plugin);
         storyTrophy.register(plugin);
         gildingTrophy.register(plugin);
         christmasTrophy.register(plugin);
         valentinesTrophy.register(plugin);
+        tenthAnniversaryTrophy.register(plugin);
 
         birthdayTrophyCheesy.register(plugin);
         birthdayTrophyBWhite.register(plugin);
@@ -328,7 +375,7 @@ public class Uniques {
     private static boolean isBirthdayCheesy(@Nonnull Player player) {
         final LocalDate now = LocalDate.now();
         final int year = now.getYear();
-        final LocalDate start = LocalDate.of(year, 3, 29);
+        final LocalDate start = LocalDate.of(year, 3, 28);
         final LocalDate end = LocalDate.of(year, 3, 30);
 
         return now.isAfter(start) && now.isBefore(end);
@@ -337,8 +384,8 @@ public class Uniques {
     private static boolean isBirthdayBWhite(@Nonnull Player player) {
         final LocalDate now = LocalDate.now();
         final int year = now.getYear();
-        final LocalDate start = LocalDate.of(year, 9, 10);
-        final LocalDate end = LocalDate.of(year, 9, 10);
+        final LocalDate start = LocalDate.of(year, 9, 9);
+        final LocalDate end = LocalDate.of(year, 9, 11);
 
         return now.isAfter(start) && now.isBefore(end);
     }
@@ -346,8 +393,8 @@ public class Uniques {
     private static boolean isBirthdayDecoy(@Nonnull Player player) {
         final LocalDate now = LocalDate.now();
         final int year = now.getYear();
-        final LocalDate start = LocalDate.of(year, 12, 11);
-        final LocalDate end = LocalDate.of(year, 12, 11);
+        final LocalDate start = LocalDate.of(year, 12, 10);
+        final LocalDate end = LocalDate.of(year, 12, 12);
 
         return now.isAfter(start) && now.isBefore(end);
     }
@@ -355,8 +402,8 @@ public class Uniques {
     private static boolean isBirthdayOddish(@Nonnull Player player) {
         final LocalDate now = LocalDate.now();
         final int year = now.getYear();
-        final LocalDate start = LocalDate.of(year, 2, 12);
-        final LocalDate end = LocalDate.of(year, 2, 12);
+        final LocalDate start = LocalDate.of(year, 2, 11);
+        final LocalDate end = LocalDate.of(year, 2, 13);
 
         return now.isAfter(start) && now.isBefore(end);
     }
@@ -366,6 +413,15 @@ public class Uniques {
         final int year = now.getYear();
         final LocalDate start = LocalDate.of(year, 2, 6);
         final LocalDate end = LocalDate.of(year, 2, 20);
+
+        return now.isAfter(start) && now.isBefore(end);
+    }
+
+    private static boolean isTenthAnniversary(@Nonnull Player player) {
+        final LocalDate now = LocalDate.now();
+        final int year = 2023;
+        final LocalDate start = LocalDate.of(year, 3, 8);
+        final LocalDate end = LocalDate.of(year, 3, 22);
 
         return now.isAfter(start) && now.isBefore(end);
     }

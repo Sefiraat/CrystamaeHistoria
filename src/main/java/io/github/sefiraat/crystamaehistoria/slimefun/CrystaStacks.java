@@ -236,6 +236,7 @@ public class CrystaStacks {
     public static final SlimefunItemStack BIRTHDAY_TROPHY_BWHITE;
     public static final SlimefunItemStack BIRTHDAY_TROPHY_DECOY;
     public static final SlimefunItemStack BIRTHDAY_TROPHY_ODDISH;
+    public static final SlimefunItemStack ANNIVERSARY_TROPHY;
 
     // Recipe Types
     public static final ItemStack RECIPE_TYPE_LIQUEFACTION_CRAFTING;
@@ -2405,6 +2406,16 @@ public class CrystaStacks {
             "A Gloom waiting to happen",
             "",
             ThemeType.CLICK_INFO.getColor() + "Requires: Oddish's Birthday!"
+        );
+
+        ANNIVERSARY_TROPHY = ThemeType.themedSlimefunItemStack(
+            "CRY_ANNIVERSARY_TROPHY",
+            new ItemStack(Material.COOKIE),
+            ThemeType.CRAFTING,
+            "Slimefun's 10th Anniversary",
+            "10 Years of (Slime)fun",
+            "",
+            ThemeType.CLICK_INFO.getColor() + "Requires: Slimefun's Anniversary"
         );
 
         // Recipe Types

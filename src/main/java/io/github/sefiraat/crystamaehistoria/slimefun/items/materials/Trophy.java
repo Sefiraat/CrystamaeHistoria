@@ -5,6 +5,7 @@ import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItem;
 import io.github.thebusybiscuit.slimefun4.api.items.SlimefunItemStack;
 import io.github.thebusybiscuit.slimefun4.api.recipes.RecipeType;
 import io.github.thebusybiscuit.slimefun4.core.handlers.BlockPlaceHandler;
+import io.github.thebusybiscuit.slimefun4.core.handlers.ItemConsumptionHandler;
 import org.bukkit.Location;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.inventory.ItemStack;
@@ -18,7 +19,12 @@ public class Trophy extends SlimefunItem {
     private final Consumer<Location> displayConsumer;
 
     @ParametersAreNonnullByDefault
-    public Trophy(ItemGroup itemGroup, SlimefunItemStack item, RecipeType recipeType, ItemStack[] recipe, Consumer<Location> displayConsumer) {
+    public Trophy(ItemGroup itemGroup,
+                  SlimefunItemStack item,
+                  RecipeType recipeType,
+                  ItemStack[] recipe,
+                  Consumer<Location> displayConsumer
+    ) {
         super(itemGroup, item, recipeType, recipe);
         this.displayConsumer = displayConsumer;
     }
@@ -26,6 +32,7 @@ public class Trophy extends SlimefunItem {
     @Override
     public void preRegister() {
         addItemHandler(onBlockPlace());
+        addItemHandler(onConsume());
     }
 
     private BlockPlaceHandler onBlockPlace() {
@@ -35,6 +42,10 @@ public class Trophy extends SlimefunItem {
                 e.setCancelled(true);
             }
         };
+    }
+
+    private ItemConsumptionHandler onConsume() {
+        return (e, p, item) -> e.setCancelled(true);
     }
 
     public Consumer<Location> getDisplayConsumer() {
