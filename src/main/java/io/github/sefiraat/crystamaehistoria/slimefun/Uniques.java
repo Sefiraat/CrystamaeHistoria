@@ -285,7 +285,7 @@ public class Uniques {
         );
 
         // Tenth Anniversary
-        RecipeItem anniversaryTrophy = new RecipeItem(
+        RecipeItem anniversaryTrophyRecipe = new RecipeItem(
             new ItemStack(Material.COOKIE),
             StoryType.HUMAN, 500,
             StoryType.ELEMENTAL, 500,
@@ -296,7 +296,7 @@ public class Uniques {
             ItemGroups.UNIQUES,
             CrystaStacks.ANNIVERSARY_TROPHY,
             CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
-            anniversaryTrophy.getDisplayRecipe(),
+            anniversaryTrophyRecipe.getDisplayRecipe(),
             location -> {
                 final int rand = ThreadLocalRandom.current().nextInt(9);
 
@@ -344,6 +344,7 @@ public class Uniques {
         LiquefactionBasinCache.addCraftingRecipe(storyTrophy, storyTrophyRecipe);
         LiquefactionBasinCache.addCraftingRecipe(christmasTrophy, christmasTrophyRecipe);
         LiquefactionBasinCache.addCraftingRecipe(valentinesTrophy, valentinesTrophyRecipe);
+        LiquefactionBasinCache.addCraftingRecipe(tenthAnniversaryTrophy, anniversaryTrophyRecipe);
 
         LiquefactionBasinCache.addCraftingRecipe(birthdayTrophyCheesy, birthdayTrophyCheesyRecipe);
         LiquefactionBasinCache.addCraftingRecipe(birthdayTrophyBWhite, birthdayTrophyBWhiteRecipe);
