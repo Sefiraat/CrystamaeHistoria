@@ -189,9 +189,9 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>io.github.sefiraat</groupId>
-            <artifactId>networks</artifactId>
-            <version>MODIFIED_1.0.7</version>
+            <groupId>dev.sefiraat</groupId>
+            <artifactId>Networks</artifactId>
+            <version>1.0.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
