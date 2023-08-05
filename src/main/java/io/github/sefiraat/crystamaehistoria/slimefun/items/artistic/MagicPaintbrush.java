@@ -132,11 +132,6 @@ public interface MagicPaintbrush {
         ) {
             block.setType(profile.getMaterialGlassPane());
             return true;
-        } else if (Tag.SHULKER_BOXES.isTagged(material)
-            && block.getType() != profile.getMaterialShulker()
-        ) {
-            block.setType(profile.getMaterialShulker());
-            return true;
         }
 
         return false;
