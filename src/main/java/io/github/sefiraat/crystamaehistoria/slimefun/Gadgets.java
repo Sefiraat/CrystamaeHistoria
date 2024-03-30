@@ -769,7 +769,7 @@ public class Gadgets {
             RecipeType.ENHANCED_CRAFTING_TABLE,
             new ItemStack[]{
                 glass, null, glass,
-                glass, CrystaStacks.GLASS_OF_MILK, glass,
+                glass, CrystaStacks.MAGICAL_MILK, glass,
                 glass, glass, glass
             }
         );
