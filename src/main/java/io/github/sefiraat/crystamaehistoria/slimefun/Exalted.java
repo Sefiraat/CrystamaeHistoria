@@ -101,7 +101,7 @@ public class Exalted {
         exaltedFertilityTotem = new ExaltedFertilityPharo(
             ItemGroups.EXALTED,
             CrystaStacks.EXALTED_FERTILITY_TOTEM,
-            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
+            RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
                 null, CrystaStacks.RUNE_MOON, null,
                 CrystaStacks.RUNE_BLACK, CrystaStacks.EXALTED_FERTILITY_PHARO, CrystaStacks.RUNE_DAWN,
@@ -130,7 +130,7 @@ public class Exalted {
         exaltedAgronomist = new ExaltedHarvester(
             ItemGroups.EXALTED,
             CrystaStacks.EXALTED_AGRONOMIST,
-            CrystaRecipeTypes.LIQUEFACTION_CRAFTING,
+            RecipeType.MAGIC_WORKBENCH,
             new ItemStack[]{
                 null, CrystaStacks.RUNE_CHANGE, null,
                 CrystaStacks.RUNE_DRAGON, CrystaStacks.EXALTED_HARVESTER, CrystaStacks.RUNE_TRUE_FIRE,
